@@ -1,9 +1,10 @@
 ---
-layout: default
-title: undefined reference to std::ios_base::Init::Init()
+    layout: default 
+    title: undefined reference to std::ios\_base::Init::Init() 
+
 ---
 
-# undefined reference to `std::ios_base::Init::Init()'
+# {{ page.title  }} 
 
 ## 问题背景
 
@@ -11,7 +12,7 @@ title: undefined reference to std::ios_base::Init::Init()
 最近在看《[UNIX环境高级编程](<https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/linux/apue>)》，在敲上面的例子的时候，发现使用　gcc 编译时出现一些错误：
 
 
-```
+```text
 tiankonguse@tiankonguse:~/github/C_and_Cplusplus_in_linux/linux/apue/process$ gcc getpid.cpp 
 
 /tmp/ccnM12VC.o: In function `__static_initialization_and_destruction_0(int, int)':
