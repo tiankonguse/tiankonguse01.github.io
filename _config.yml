@@ -6,7 +6,7 @@ encoding : utf-8
 # if you use your own domain, you should alter to your own domain.
 # such as baseurl : http://tiankonguse.com
 
-baseurl : http://tiankonguse.github.io
+#baseurl : http://tiankonguse.github.io
 
 author : "tiankonguse"
 
@@ -19,11 +19,14 @@ author : "tiankonguse"
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
 
-permalink : /post/:title
+permalink : /blog/:title
 
 # markdown language
 
 markdown : rdiscount
+
+
+
 
 
 
