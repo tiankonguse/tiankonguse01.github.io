@@ -1,3 +1,29 @@
+# encoding default is utf-8
+
+encoding : utf-8
+
+# base url
+# if you use your own domain, you should alter to your own domain.
+# such as baseurl : http://tiankonguse.com
+
 baseurl : http://tiankonguse.github.io
-author : tiankonguse
+
+author : "tiankonguse"
+
+# post url 
+#year 文件名中的年份
+#month 文件名中的月份
+#day 文件名中的日期
+#title 文件名中的文章标题
+#categories 文章的分类，如果文章没有分类，会忽略
+#i-month 文件名中的除去前缀0的月份
+#i-day 文件名中的除去前缀0的日期
+
+permalink : /post/:title
+
+# markdown language
+
+markdown : rdiscount
+
+
 

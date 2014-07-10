@@ -1,14 +1,28 @@
 ---
 　　layout: default
-　　title: tiankonguse's blog
 ---
 
-<h1> {{ page.title }} </h1>
+<div class="index-content blog">
+    <div class="section">
+        <ul class="artical-cate">
+            <li class="on"><a href="/"><span>home</span></a></li>
+            <li style="text-align:center"><a href="/opinion"><span>Opinion</span></a></li>
+            <li style="text-align:right"><a href="/project"><span>Project</span></a></li>
+        </ul>
 
-<p>最新文章</p>
+        <div class="cate-bar"><span id="cateBar"></span></div>
 
-<ul>
-{% for post in site.posts %}
-<li>{{ post.date | datei\_to\_string }}  <a href="{{ site.baseurl }}{{ post.url }}" target="_blank">{{ post.title }}</a></li>
-{% endfor %} 
-</ul>
+        <ul class="artical-list">
+            {% for post in site.categories.blog %}
+            <li>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <div class="title-desc">{{ post.description }}</div>
+            <div>post.date </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="aside">
+    </div>
+</div>
+

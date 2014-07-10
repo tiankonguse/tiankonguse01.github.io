@@ -1,5 +1,7 @@
 ---
     layout : default
+    category : blog
+    description : 看了阮一峰的《数据库的最简单实现》，原来自己想多了。 
     title : 浅谈数据库上的一些算法
 ---
 

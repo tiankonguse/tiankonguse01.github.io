@@ -1,6 +1,9 @@
 ---
-    layout: default 
-    title: undefined reference to std::ios_base::Init::Init() 
+    layout : default 
+    tags : gcc, c++
+    category : blog
+    description : 因为gcc和g++的区别，我犯了比较低级的错误。
+    title : undefined reference to std::ios_base::Init::Init()
 ---
 
 # {{ page.title  }} 
