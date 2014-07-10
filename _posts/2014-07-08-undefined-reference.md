@@ -1,7 +1,6 @@
 ---
     layout: default 
-    title: undefined reference to std::ios\_base::Init::Init() 
-
+    title: undefined reference to std::ios\\_base::Init::Init() 
 ---
 
 # {{ page.title  }} 
@@ -9,15 +8,15 @@
 ## 问题背景
 
 
-最近在看《[UNIX环境高级编程](<https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/linux/apue>)》，在敲上面的例子的时候，发现使用　gcc 编译时出现一些错误：
+最近在看《[UNIX环境高级编程](<https://github.com/tiankonguse/C\_and\_Cplusplus\_in\_linux/tree/master/linux/apue>)》，在敲上面的例子的时候，发现使用　gcc 编译时出现一些错误：
 
 
-```text
-tiankonguse@tiankonguse:~/github/C_and_Cplusplus_in_linux/linux/apue/process$ gcc getpid.cpp 
+```
+tiankonguse@tiankonguse:~/github/C\_and\_Cplusplus\_in\_linux/linux/apue/process$ gcc getpid.cpp 
 
-/tmp/ccnM12VC.o: In function `__static_initialization_and_destruction_0(int, int)':
-getpid.cpp:(.text+0x2b3): undefined reference to `std::ios_base::Init::Init()'
-getpid.cpp:(.text+0x2ca): undefined reference to `std::ios_base::Init::~Init()'
+/tmp/ccnM12VC.o: In function `\_\_static\_initialization\_and\_destruction\_0(int, int)':
+getpid.cpp:(.text+0x2b3): undefined reference to `std::ios\_base::Init::Init()'
+getpid.cpp:(.text+0x2ca): undefined reference to `std::ios\_base::Init::~Init()'
 collect2: error: ld returned 1 exit status
 
 ```
@@ -26,7 +25,7 @@ collect2: error: ld returned 1 exit status
 
 面对这个问题，我有几个猜测。
 
-说猜测之前需要说一下背景，几个小时前，我[搭建了 Objective-C 的环境](<https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/objective-c>)，其中安装了　GNUstep 等一大堆东西。
+说猜测之前需要说一下背景，几个小时前，我[搭建了 Objective-C 的环境](<https://github.com/tiankonguse/C\_and\_Cplusplus\_in\_linux/tree/master/objective-c>)，其中安装了　GNUstep 等一大堆东西。
 
 然后我的第一个猜测是就是安装 GNUstep 导致我的编译出现问题。
 
