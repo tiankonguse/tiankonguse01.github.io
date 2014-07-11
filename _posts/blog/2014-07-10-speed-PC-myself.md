@@ -18,5 +18,27 @@ sudo apt-get purge google-chrome-unstable
 ## 停用不需要开机启动的服务
 
 
+```
+sudo update-rc.d -f apache2 remove
+sudo update-rc.d -f virtualbox remove
+sudo update-rc.d -f lightdm remove
+sudo update-rc.d -f tomcat7 remove
+sudo update-rc.d -f bluetooth remove
+sudo update-rc.d -f mysql remove
+sudo update-rc.d -f mongodb remove
+```
+
+## 删除对于的内核
+
+查看内核
+```
+dpkg --get-selections|grep linux
+```
+
+删除内核
+```
+sudo apt-get remove linux-headers-3.13.0-30
+```
+(完)
 
 

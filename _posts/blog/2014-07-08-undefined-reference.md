@@ -2,7 +2,8 @@
     layout : default 
     tags : gcc, c++
     category : blog
-    description : 因为gcc和g++的区别，我犯了比较低级的错误。
+    description : 我犯了比较低级的错误:gcc和g++的区别
+    date:2014-07-08
     title : undefined reference to std::ios_base::Init::Init()
 ---
 
@@ -33,11 +34,13 @@ collect2: error: ld returned 1 exit status
 然后我的第一个猜测是就是安装 GNUstep 导致我的编译出现问题。
 
 但是我这个猜测没有对应的解决方案，所以我尝试删除与　std 有关的头文件。
+
 然后竟然编辑成功且正常运行了。
 
 于是我的第二个猜测是 Objective-C 与安装的 c++ 库有冲突。
 
 然后我写代码是使用 vi 写的。
+
 vi 新创建一个文件的时候，会默认插入我ACM比赛时常用的头文件，也就是那些与std有关的头文件。
 
 每次创建都一个一个的删除自然不是方法，写一个 vi-script 函数虽然可以解决问题，但是这事治病不治根。
@@ -49,12 +52,14 @@ vi 新创建一个文件的时候，会默认插入我ACM比赛时常用的头�
 ## 解决方法
 
 把　gcc 替换成　g++ 即可。
-原因不用说也可以看出来吧。
+
+其实看到上面的解决方案，原因不用说也可以看出来吧。
+
 gcc 主要用于编译c程序，　g++ 用于编译c++程序，当然也可以编译c程序。
 
 这里的'编译'指的是从源码生成可执行程序，即编译+链接+生成可执行程序。
 
-说着到，可能就要提一个问题了，gcc与g++的区别了。
+说到这，可能就要提一个问题了，gcc与g++的真正区别了。
 
 
 我直接从网上搜了一个，可以参考一下：
@@ -68,4 +73,4 @@ gcc 主要用于编译c程序，　g++ 用于编译c++程序，当然也可以�
 
 * [chinazhangjie](<http://www.cnblogs.com/chinazhangjie/archive/2011/05/23/2054598.html>)
 
-
+(完)
