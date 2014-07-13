@@ -21,6 +21,8 @@ author : "tiankonguse"
 
 permalink : /blog/:title
 
+#prelinkpath : "/blog/"
+
 # markdown language
 
 markdown : rdiscount
