@@ -33,26 +33,27 @@
 
 这个简单，查找一下不就行了。
 
-'''shell
-grep -r "fonts.googleapis" \*
-'''
+```shell
+grep -r "fonts.googleapis" *
+```
 
 显示如下
-'''text
-tiankonguse@tiankonguse:~/public\_html/blog$ grep -r "fonts.googleapis" \*
-wp-content/themes/twentythirteen/functions.php:		$fonts\_url = add\_query\_arg( $query\_args, "//fonts.googleapis.com/css" );
-wp-content/themes/twentytwelve/functions.php:		$font\_url = add\_query\_arg( $query\_args, "$protocol://fonts.googleapis.com/css" );
-wp-content/themes/twentyfourteen/functions.php:		$font\_url = add\_query\_arg( 'family', urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ), "//fonts.googleapis.com/css" );
-wp-includes/script-loader.php:		$open\_sans\_font\_url = "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=$subsets";
+
+```text
+tiankonguse@tiankonguse:~/public_html/blog$ grep -r "fonts.googleapis" *
+wp-content/themes/twentythirteen/functions.php:		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+wp-content/themes/twentytwelve/functions.php:		$font_url = add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" );
+wp-content/themes/twentyfourteen/functions.php:		$font_url = add_query_arg( 'family', urlencode( 'Lato:300,400,700,900,300italic,400italic,700italic' ), "//fonts.googleapis.com/css" );
+wp-includes/script-loader.php:		$open_sans_font_url = "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=$subsets";
 wp-includes/js/tinymce/plugins/compat3x/css/dialog.css:@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin);
-'''
+```
 
 不用管与themes有关的，那剩下的就是
 
-'''text
-wp-includes/script-loader.php:		$open\_sans\_font\_url = "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=$subsets";
+```text
+wp-includes/script-loader.php:		$open_sans_font_url = "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=$subsets";
 wp-includes/js/tinymce/plugins/compat3x/css/dialog.css:@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin);
-'''
+```
 
 
 可以看到，一个是php文件，一个是css文件。
@@ -68,20 +69,20 @@ wp-includes/js/tinymce/plugins/compat3x/css/dialog.css:@import url(//fonts.googl
 在我们的主题里的　functions.php 里添加这个一个代码即可
 
 
-'''php
-class Disable\_Google\_Fonts {
-        public function \_\_construct() {
-                add\_filter( 'gettext\_with\_context', array( $this, 'disable\_open\_sans'             ), 888, 4 );
+```php
+class Disable_Google_Fonts {
+        public function __construct() {
+                add_filter( 'gettext_with_context', array( $this, 'disable_open_sans'             ), 888, 4 );
         }
-        public function disable\_open\_sans( $translations, $text, $context, $domain ) {
+        public function disable_open_sans( $translations, $text, $context, $domain ) {
                 if ( 'Open Sans font: on or off' == $context && 'on' == $text ) {
                         $translations = 'off';
                 }
                 return $translations;
         }
 }
-$disable\_google\_fonts = new Disable\_Google\_Fonts;
-'''
+$disable_google_fonts = new Disable_Google_Fonts;
+```
 
 然后发现速度快了一些。
 
