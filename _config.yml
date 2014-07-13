@@ -21,7 +21,7 @@ author : "tiankonguse"
 
 permalink : /blog/:title
 
-#prelinkpath : "/blog/"
+prelinkpath : "/blog/"
 
 # markdown language
 

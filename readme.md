@@ -3,7 +3,7 @@
 
 启动服务器并生成网站
 
-sudo jekyll --server --auto
+sudo jekyll server 
 
 访问地址
 
