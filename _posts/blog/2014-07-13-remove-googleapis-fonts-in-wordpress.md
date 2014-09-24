@@ -6,8 +6,6 @@
     title : 删除wordpress中的googleapis字体 
 ---
 
-# {{ page.title  }} 
-
 
 最近 google 完全被墙了，　然后我的　wordpress 站点打开缓慢，　开了代理就不存在这种现象。
 
