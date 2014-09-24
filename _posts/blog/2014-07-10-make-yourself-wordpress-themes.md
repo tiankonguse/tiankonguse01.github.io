@@ -1,5 +1,5 @@
 ---
-    layout : default
+    layout : post
     category : blog
     description : 记录下自己制作wordpress主题的过程 
     title : 制作自己的wordpress主题
