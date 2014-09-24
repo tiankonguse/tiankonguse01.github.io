@@ -1,9 +1,9 @@
 ---
-    layout : post 
-    category : blog
-    description : 我犯了比较低级的错误:gcc和g++的区别
-    date : 2014-07-08
-    title : undefined reference to std::ios_base::Init::Init()
+layout : post 
+category : blog
+description : 我犯了比较低级的错误:gcc和g++的区别
+date : 2014-07-08
+title : undefined reference to std::ios_base::Init::Init()
 ---
 
 ## 问题背景
