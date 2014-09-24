@@ -1,3 +1,5 @@
+auto: true
+
 # encoding default is utf-8
 
 encoding : utf-8
@@ -9,6 +11,16 @@ encoding : utf-8
 #baseurl : http://tiankonguse.github.io
 
 author : "tiankonguse"
+
+title: tiankonguse.github.io
+
+url: http://tiankonguse.github.io
+
+feed: /atom.xml
+
+author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
+
+
 
 # post url 
 #year 文件名中的年份
@@ -26,8 +38,9 @@ prelinkpath : "/blog/"
 # markdown language
 
 markdown : rdiscount
-
-
+pygments: true
+paginate: 8
+permalink: /:title
 
 
 
