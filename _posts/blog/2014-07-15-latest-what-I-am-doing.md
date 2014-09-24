@@ -1,5 +1,5 @@
 ---
-    layout : default 
+    layout : post 
     category : blog
     description : 最近我在干什么呢？回忆一下。 
     title : 最近我在做什么
