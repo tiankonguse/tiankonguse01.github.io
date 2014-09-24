@@ -1,5 +1,5 @@
 ---
-    layout : default 
+    layout : post 
     category : blog
     description : 最近wordpress站点打开缓慢，抓包后发现是google fonts的缘故，因此需要删掉那个东西。 
     date : 2014-07-13
