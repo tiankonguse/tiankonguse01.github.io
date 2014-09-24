@@ -5,8 +5,4 @@
     title : 在github上制作一个静态网站 
 ---
 
-# {{ page.title  }} 
-
-
-
 
