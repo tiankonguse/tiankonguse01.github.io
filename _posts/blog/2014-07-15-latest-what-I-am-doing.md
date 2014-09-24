@@ -45,12 +45,12 @@
 
 然后7月7号正式工作。
 
-由于电脑没有下来，那几天我看了【UNIX环境高级编程】, 并写了一篇记录:[undefined reference to std::ios_base::Init::Init()](http://tiankonguse.github.io/blog/undefined-reference/).
+由于电脑没有下来，那几天我看了【UNIX环境高级编程】, 并写了一篇记录:[undefined reference to std::ios_base::Init::Init()](http://tiankonguse.github.io/undefined-reference/).
 
-7月9号我写了自己的wordpress主题，本想记录下过程，结果迟迟没有动手.[制作自己的wordpress主题](http://tiankonguse.github.io/blog/make-yourself-wordpress-themes).
+7月9号我写了自己的wordpress主题，本想记录下过程，结果迟迟没有动手.[制作自己的wordpress主题](http://tiankonguse.github.io/make-yourself-wordpress-themes).
 
 
-7月10号，我用github搭建了自己的静态博客网站，也想写点什么的，但是迟迟没写。[在github上制作一个静态网站](http://tiankonguse.github.io/blog/make-github-website).
+7月10号，我用github搭建了自己的静态博客网站，也想写点什么的，但是迟迟没写。[在github上制作一个静态网站](http://tiankonguse.github.io/make-github-website).
 
 
 实际上我的电脑是7月10号下午到的，所以我7月11号(周五)就要赶紧做这周的需求了，在晚上匆忙的赶了出来。
