@@ -1,5 +1,5 @@
 ---
-　　layout: home
+layout: home
 ---
 
 <div class="index-content blog">
