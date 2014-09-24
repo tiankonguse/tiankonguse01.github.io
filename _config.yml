@@ -31,9 +31,9 @@ author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
 
-permalink : /blog/:title
+permalink : :title
 
-prelinkpath : "/blog/"
+prelinkpath : ""
 
 # markdown language
 
