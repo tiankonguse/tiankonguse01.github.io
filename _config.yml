@@ -31,9 +31,8 @@ author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
 
-permalink : :title
 
-prelinkpath : ""
+
 
 # markdown language
 
@@ -41,7 +40,7 @@ markdown : rdiscount
 pygments: true
 paginate: 8
 permalink: /:title
-
+prelinkpath : ""
 
 
 
