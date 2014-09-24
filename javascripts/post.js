@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     //***********************
     //**评论的代码也删掉哦***
-    window.disqus_shortname = 'beiyuu'; // required: replace example with your forum shortname
+    window.disqus_shortname = 'tiankonguse'; // required: replace example with your forum shortname
     $('#disqus_container .comment').on('click',function(){
         $(this).html('加载中...');
         var that = this;
@@ -38,7 +38,7 @@ $(document).ready(function(){
         var href = $(this).attr('href');
         if(href){
             if(href.indexOf('#') == 0){
-            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('beiyuu.com')>-1 ){
+            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ){
             }else if ($(element).has('img').length){
             }else{
                 $(this).attr('target','_blank');
@@ -200,7 +200,7 @@ $(document).ready(function(){
         }
     })();
 
-    $.getScript('/js/prettify/prettify.js',function(){
+    $.getScript('/javascripts/prettify/prettify.js',function(){
         prettyPrint();
     });
 
@@ -209,7 +209,7 @@ $(document).ready(function(){
     }
 
     if(/css3-animation/.test(location.href)){
-        $("head").append("<link rel='stylesheet' type='text/css' href='/css/css3-ani.css'/>");
-        $.getScript('/js/css3-ani.js',function(){});
+        $("head").append("<link rel='stylesheet' type='text/css' href='/stylesheets/css3-ani.css'/>");
+        $.getScript('/javascripts/css3-ani.js',function(){});
     }
 });
