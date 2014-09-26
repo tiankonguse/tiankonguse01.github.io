@@ -44,11 +44,14 @@
         })
         function loadPage(nowPage, allPage, $pageDom, url){
             if (allPage > 1) {
-                $pageDom.bootstrapPaginator({
+                var op = {
                     bootstrapMajorVersion : 3,
                     currentPage : nowPage,
                     totalPages : allPage,
                     onPageChanged : function(e, oldPage, newPage) {
+                        if(oldPage == newPage){
+                            return false;
+                        }
                         if(newPage > 1){
                             location.href=url+"page"+newPage;
                         }else{
@@ -70,7 +73,8 @@
                                 return "第" + page + "页";
                         }
                     }
-                });
+                };
+                $pageDom.bootstrapPaginator(op);
             } 
         }
     </script>        
