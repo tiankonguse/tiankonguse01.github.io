@@ -49,7 +49,7 @@
                     bootstrapMajorVersion : 3,
                     currentPage : nowPage,
                     totalPages : allPage,
-                    onPageClicked : function(e, oldPage, newPage) {
+                    onPageChanged : function(e, oldPage, newPage) {
                         console.log(oldPage, newPage);
                         if(oldPage == newPage){
                             return false;
