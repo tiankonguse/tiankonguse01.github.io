@@ -1,4 +1,5 @@
-$(document).ready(function(){
+jQuery(document).ready(function(){
+    var $ = jQuery;
 
     var isMobile = {
         Android: function() {
