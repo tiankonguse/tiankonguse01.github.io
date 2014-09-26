@@ -10,8 +10,8 @@ category: blog
 一般建议在每个目下建一个 index 文件。
 
 Jekyll 的标准目录结构如下。
-```
-.
+
+````
 ├── _config.yml
 ├── _includes/
 ├── _layouts/
@@ -22,7 +22,7 @@ Jekyll 的标准目录结构如下。
 ├── contact/
 |   └── index.html  # => http://tiankonguse.github.io/contact/
 └── index.html      # => http://tiankonguse.github.io/
-```
+````
 
 
 * _config.yml   Jekyll的配置文件
@@ -66,15 +66,16 @@ Jekyll 的标准目录结构如下。
 
 ## 全局变量
 
+
 关于 jekyllrb 的变量文档，可以参考[官方文档][jekyllrb-variables]。
 
 
-   变量名     | 描述           
- -------------|-------------
- site	      | site 的信息 以及 _config.yml 文件中的配置信息
- page         | page 特定的信息, YAML 中的配置信息, 另外加上两个额外的变量值:url和content
- content      | 在布局模板文件中，这里变量包含了页面的子视图。这个变量将会把渲染后的内容插入到模板文件中。这个变量不能在文章和页面文件中使用。
- paginator    | 一旦paginate配置选项被设置了，这个变量才能被使用。
+|  变量名     | 描述           
+|-------------|-------------
+|site	      | site 的信息 以及 _config.yml 文件中的配置信息
+|page         | page 特定的信息, YAML 中的配置信息, 另外加上两个额外的变量值:url和content
+|content      | 在布局模板文件中，这里变量包含了页面的子视图。这个变量将会把渲染后的内容插入到模板文件中。这个变量不能在文章和页面文件中使用。
+|paginator    | 一旦paginate配置选项被设置了，这个变量才能被使用。
 
 
  
@@ -101,6 +102,7 @@ Jekyll 的标准目录结构如下。
 
 ### Page 变量
 
+
    Page 下的变量            | 描述           
  -------------------------- |-------------
 page.content                | 页面中未渲染的内容
@@ -116,9 +118,12 @@ page.next                   | 按时间序的下一篇文章
 page.previous               | 按时间序的上一篇文章
 
 
+
 ### Paginator 变量
 
+
 分页只在 html 页面中[^1]有效，所以对于 index 页面尽量使用 html 后缀。
+
 
    Page 下的变量            | 描述           
  -------------------------- |-------------
@@ -133,7 +138,9 @@ paginator.next_page         | 接下来的的页面的数量
 
 ## Collections
 
+
 官方有这么一句话：
+
 
 ```
 Collections support is unstable and may change
@@ -142,9 +149,11 @@ This is an experimental feature and that the API may likely change until the fea
 
 ## Data Files
 
+
 Jekyll 支持 从 _data 目录中加载 YAML, JSON, 和 CSV 格式的文件数据。
 
 例如创建 _data/members.yml 文件。
+
 
 ```
 - name: 袁小康
@@ -155,17 +164,18 @@ Jekyll 支持 从 _data 目录中加载 YAML, JSON, 和 CSV 格式的文件数�
 
 使用
 
+
 ```
 <ul>
-{% for member in site.data.members %}
+\{% for member in site.data.members %}
   <li>
-    <a href="https://github.com/{{ member.github }}">
-    {% assign nick = member.nick %}
-    {% assign name = member.name %}
+    <a href="https://github.com/\{{ member.github }}">
+    \{% assign nick = member.nick %}
+    \{% assign name = member.name %}
       {{ nick}} ( {{name}} )
     </a>
   </li>
-{% endfor %}
+\{% endfor %}
 </ul>
 ```
 
