@@ -11,7 +11,7 @@ category: blog
 
 实际上就是在 _plugin 下新建一个名字为 raw_tag.rb 的文件。
 
-```
+``` ruby
  module Jekyll
    class RawTag < Liquid::Block
      def parse(tokens)
@@ -68,5 +68,5 @@ category: blog
 2. [farseer][]
 
 
-[codeif] http://www.codeif.com/post/1513/
-[farseer] http://www.farseer.cn/jekyll/2013/07/19/about-jekyll/
+[codeif]: http://www.codeif.com/post/1513/
+[farseer]: http://www.farseer.cn/jekyll/2013/07/19/about-jekyll/
