@@ -9,9 +9,9 @@ layout: home
             <li style="text-align:center"><a href="/opinion"><span>Opinion</span></a></li>
             <li style="text-align:right"><a href="/project"><span>Project</span></a></li>
         </ul>
-
+        
         <div class="cate-bar"><span id="cateBar"></span></div>
-
+        
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
@@ -28,16 +28,17 @@ layout: home
           {% else %}
             <span class="previous">Previous</span>
           {% endif %}
+          
           <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
           {% if paginator.next_page %}
             <a href="/page{{ paginator.next_page }}" class="next">Next</a>
           {% else %}
             <span class="next ">Next</span>
           {% endif %}
+          
         </div>
         
     </div>
-    <div class="aside">
-    </div>
+    <div class="aside"></div>
 </div>
 
