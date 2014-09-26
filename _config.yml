@@ -39,7 +39,7 @@ author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 markdown : rdiscount
 pygments: true
 paginate: 8
-permalink: /:title
+permalink: /:categories/:year/:month/:day/:title/
 prelinkpath : ""
 
 
