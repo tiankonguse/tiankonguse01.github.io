@@ -43,7 +43,7 @@
             });
         })
         function loadPage(nowPage, allPage, $pageDom, url){
-            console.log(nowPage, allPage, $pageDom, url);
+            var first = true;
             if (allPage > 1) {
                 $pageDom.html("");
                 var op = {
@@ -51,12 +51,12 @@
                     currentPage : nowPage,
                     totalPages : allPage,
                     onPageChanged : function(e, oldPage, newPage) {
-                        console.log(e, oldPage, newPage);
-                        if(oldPage == newPage){
-                            return false;
+                        if(first == true){
+                            first = false;
+                            return;
                         }
                         if(newPage > 1){
-                            //window.location.href=url+"page"+newPage;
+                            window.location.href=url+"page"+newPage;
                         }else{
                             window.location.href=url;
                         }
