@@ -20,7 +20,7 @@ layout: home
             </li>
             {% endfor %}
         </ul>
-        
+        {{ paginator }}
         <!-- Pagination links -->
         <div class="pagination">
           {% if paginator.previous_page %}
