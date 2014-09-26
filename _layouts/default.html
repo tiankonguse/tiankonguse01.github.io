@@ -51,14 +51,14 @@
                     currentPage : nowPage,
                     totalPages : allPage,
                     onPageChanged : function(e, oldPage, newPage) {
-                        
+                        console.log(e, oldPage, newPage);
                         if(oldPage == newPage){
                             return false;
                         }
                         if(newPage > 1){
-                            //location.href=url+"page"+newPage;
+                            //window.location.href=url+"page"+newPage;
                         }else{
-                            location.href=url;
+                            window.location.href=url;
                         }
                     },
                     useBootstrapTooltip : true,
