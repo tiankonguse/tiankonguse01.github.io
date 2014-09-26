@@ -9,9 +9,8 @@ layout: home
             <li style="text-align:center"><a href="/opinion"><span>Opinion</span></a></li>
             <li style="text-align:right"><a href="/project"><span>Project</span></a></li>
         </ul>
-
+        
         <div class="cate-bar"><span id="cateBar"></span></div>
-
         <div class="footer-one">
             <div class="copyright">
                 <p>
@@ -46,8 +45,9 @@ layout: home
                     </a>
                 </p>
             </div>
-      </div>
-      <div class="aside">
+        </div>
+        
     </div>
+    <div class="aside"></div>
 </div>
 
