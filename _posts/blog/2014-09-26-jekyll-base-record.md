@@ -165,19 +165,21 @@ Jekyll 支持 从 _data 目录中加载 YAML, JSON, 和 CSV 格式的文件数�
 使用
 
 
-```
+{% highlight%}
+{% raw %} 
 <ul>
-\{% for member in site.data.members %}
+{% for member in site.data.members %}
   <li>
-    <a href="https://github.com/\{{ member.github }}">
-    \{% assign nick = member.nick %}
-    \{% assign name = member.name %}
+    <a href="https://github.com/{{ member.github }}">
+    {% assign nick = member.nick %}
+    {% assign name = member.name %}
       {{ nick}} ( {{name}} )
     </a>
   </li>
-\{% endfor %}
+{% endfor %}
 </ul>
-```
+{% endraw %}
+{% highlight text %}
 
 [jekyllrb-variables] http://jekyllrb.com/docs/variables/
 [1] http://segmentfault.com/blog/skyinlayer/1190000000406015
