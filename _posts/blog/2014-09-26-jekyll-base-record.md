@@ -179,5 +179,6 @@ Jekyll 支持 从 _data 目录中加载 YAML, JSON, 和 CSV 格式的文件数�
     </ul>
 {% endraw %}
 
-[jekyllrb-variables] http://jekyllrb.com/docs/variables/
-[1] http://segmentfault.com/blog/skyinlayer/1190000000406015
+
+[jekyllrb-variables]: http://jekyllrb.com/docs/variables/
+[1]: http://segmentfault.com/blog/skyinlayer/1190000000406015
