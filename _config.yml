@@ -40,7 +40,7 @@ markdown : rdiscount
 #  pygments: true
 
 
-paginate: 10
+paginate: 5
 paginate_path: "page:num"
 
 permalink: /:categories/:year/:month/:day/:title/
