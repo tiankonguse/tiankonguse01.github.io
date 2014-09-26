@@ -37,9 +37,10 @@ author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 # markdown language
 
 markdown : rdiscount
-pygments: true
+#  pygments: true
 
-paginate: 8
+
+paginate: 10
 paginate_path: "page:num"
 
 permalink: /:categories/:year/:month/:day/:title/
