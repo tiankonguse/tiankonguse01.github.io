@@ -43,7 +43,7 @@
             });
         })
         function loadPage(nowPage, allPage, $pageDom, url){
-            var first = true;
+            var first = !!nowPage;
             if (allPage > 1) {
                 $pageDom.html("");
                 var op = {
