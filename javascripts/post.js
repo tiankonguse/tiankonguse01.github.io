@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
     });
 
     (function(){
-        var ie6 = ($.browser.msie && $.browser.version=="6.0") ? true : false;
+        var ie6 = ($.browser && $.browser.msie && $.browser.version=="6.0") ? true : false;
 
         function initHeading(){
             var h2 = [];
