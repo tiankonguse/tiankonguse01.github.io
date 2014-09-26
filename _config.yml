@@ -1,8 +1,10 @@
 auto: true
 
 # encoding default is utf-8
-
 encoding : utf-8
+
+exclude: [ "README.md"]
+highlighter: pygments
 
 # base url
 # if you use your own domain, you should alter to your own domain.
@@ -11,16 +13,12 @@ encoding : utf-8
 #baseurl : http://tiankonguse.github.io
 
 author : "tiankonguse"
-
 title: tiankonguse.github.io
-
 url: http://tiankonguse.github.io
-
 feed: /atom.xml
-
 author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
-
-
+tagline: Site Tagline
+production_url : http://tiankonguse.github.io
 
 # post url 
 #year 文件名中的年份
