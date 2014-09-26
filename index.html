@@ -10,6 +10,10 @@ layout: home
             <li style="text-align:right"><a href="/project"><span>Project</span></a></li>
         </ul>
 
+{% for post in paginator.posts %}
+    <a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
+
         <div class="cate-bar"><span id="cateBar"></span></div>
 
         <ul class="artical-list">
