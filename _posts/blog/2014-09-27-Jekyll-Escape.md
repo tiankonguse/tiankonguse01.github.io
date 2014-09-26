@@ -32,20 +32,20 @@ category: blog
  Liquid::Template.register_tag('raw', Jekyll::RawTag)
 ````
 
-然后就可以把需要转义的文本放到 {% raw %} {% raw %} {% endraw %} {% raw %} {% endraw %} {% endraw %} 里面了。
+然后就可以把需要转义的文本放到 {% raw %} { % raw % } { % endraw % }  {% endraw %} 里面了。
 
 比如
 
 {% raw %}
-    {% raw %}
+    { % raw % }
         /(\d{1,3}\.){3}\d{1,3}/.test("127.0.0.1")
-    {% endraw %}
+    { % endraw % }
 {% endraw %}
 
 
 ## 开始转义
 
-一般的文本直接放到 {% raw %} {% raw %} {% endraw %} {% raw %} {% endraw %} {% endraw %} 即可转义。
+一般的文本直接放到 {% raw %} { % raw % } { % endraw % }  {% endraw %} 即可转义。
 
 但是对于代码高亮文件，直接使用这个会出现问题。
 
@@ -53,7 +53,7 @@ category: blog
 
 {% raw %}
     {% highlight text %} 
-        {% raw %} something {% endraw %}
+        { % raw % } something { % endraw % }
      {% endhighlight %} 
 {% endraw %}
 
