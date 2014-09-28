@@ -18,7 +18,8 @@ url: http://tiankonguse.github.io
 feed: /atom.xml
 author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 tagline: Site Tagline
-production_url : http://tiankonguse.github.io
+#production_url : http://tiankonguse.github.io
+production_url : http://github.tiankonguse.com/
 
 # post url 
 #year 文件名中的年份
