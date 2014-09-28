@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
 
     //***********************
     //**评论的代码也删掉哦***
-    window.disqus_shortname = 'tiankonguse-github'; // required: replace example with your forum shortname
+    window.disqus_shortname = 'tiankonguse-record'; //  tiankonguse-github required: replace example with your forum shortname
     $('#disqus_container .comment').on('click',function(){
         $(this).html('加载中...');
         var that = this;
