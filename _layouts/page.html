@@ -5,20 +5,22 @@ layout:           default
 
 
 <div id="content">
-    <ul class="artical-cate">
-        <li><a href="/"><span>Blog</span></a></li>
-        <li style="text-align:center"><a href="/about"><span>About</span></a></li>
-        <li class="on" style="text-align:right"><a href="/resources"><span>Resources</span></a></li>
-    </ul>
 
     <div class="entry">
+        <ul class="artical-cate">
+            <li><a href="/"><span>Blog</span></a></li>
+            <li style="text-align:center"><a href="/about"><span>About</span></a></li>
+            <li class="on" style="text-align:right"><a href="/resources"><span>Resources</span></a></li>
+        </ul>
+    
         <h1 class="entry-title">{{ page.title }}</h1>
+        
+         {{ content }}
+         
+        <div id="disqus_container">
+            <a href="#" class="comment" onclick="return false;">点击查看评论</a>
+            <div id="disqus_thread"></div>
+        </div>
     </div>
 
-    {{ content }}
-
-    <div id="disqus_container">
-        <a href="#" class="comment" onclick="return false;">点击查看评论</a>
-        <div id="disqus_thread"></div>
-    </div>
 </div>
