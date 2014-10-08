@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Wiki
+title: resources
 ---
 <div class="wiki">
     <h2>Javascript</h2>
