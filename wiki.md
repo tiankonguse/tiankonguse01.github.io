@@ -4,7 +4,7 @@ title: Wiki
 ---
 <div class="wiki">
     <h2>Javascript</h2>
-    <ul class="hide">
+    <ul>
         <li><a href="http://jqfundamentals.com/book/index.html">jQuery Fundamentals</a> - jQuery 入门教程。</li>
         <li><a href="http://www.cn-cuckoo.com/deconstructed/index.html">JavaScript库 代码解构</a> - 将JavaScript流行框架源代码条分缕析展现出来</li>
         <li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" title="汤姆大叔的深入理解Javascript系列">深入理解Javascript系列</a></li>
@@ -411,19 +411,9 @@ title: Wiki
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#content a').each(function(index,element){
-            var href = $(this).attr('href');
-            if(href.indexOf('#') == 0){
-            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('beiyuu.com')>-1 ){
-                $(this).attr('target','_blank');
-            }else{
-                $(this).attr('target','_blank');
-                $(this).addClass('external');
-            }
-        });
         $('body').delegate('h2','click',function(e){
             e.preventDefault();
-            $(this).next('ul').toggle();
+            $(this).next('ul').toggleClass("hide");
         });
     });
 </script>
