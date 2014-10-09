@@ -165,7 +165,7 @@ aligned属性使被设置的对象占用更多的空间
 * [Variable-Attributes][]
 * [csdn-330133457][]
 * [nshipster][]
-* [[gnu-c-attributes]][]
+* [gnu-c-attributes][]
 
 [Label-Attributes]: https://gcc.gnu.org/onlinedocs/gcc/Label-Attributes.html#Label-Attributes
 [Attribute-Syntax]: https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html
