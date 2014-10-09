@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      函数属性 __attribute_
+title:      函数属性 __attribute__
 category: blog
 description: 看别人的代码时，看到了函数属性，之前从来没有见过这个东西。于是查了一下资料。
 ---
@@ -33,16 +33,16 @@ cpp -E -dM test.c |sort
 
 
 
-## __attribute__ 机制 
+## \_\_attribute\_\_ 机制 
 
-GNU C的一大特色就是__attribute__机制。
+GNU C的一大特色就是\_\_attribute\_\_机制。
 
-__attribute__可以设置函数属性（Function Attribute）、变量属性（Variable Attribute）和类型属性（Type Attribute）。
+\_\_attribute\_\_可以设置函数属性（Function Attribute）、变量属性（Variable Attribute）和类型属性（Type Attribute）。
 
 
-__attribute__书写特征是：__attribute__前后都有两个下划线，并切后面会紧跟一对原括弧，括弧里面是相应的__attribute__参数。
+\_\_attribute\_\_书写特征是：\_\_attribute\_\_前后都有两个下划线，并切后面会紧跟一对原括弧，括弧里面是相应的\_\_attribute\_\_参数。
 
-__attribute__语法格式为： __attribute__ ((attribute-list))
+\_\_attribute\_\_语法格式为： \_\_attribute\_\_ ((attribute-list))
 
 具体的可以参考[gnu gcc 的 属性语法][Attribute-Syntax]
 
@@ -111,9 +111,9 @@ extern void * my_memcpy (void *dest, const void *src, size_t len) __attribute__(
 ## 变量属性 Variable Attributes
 
 
-关键字__attribute__也可以对变量（variable）或结构体成员（structure field）进行属性设置。
+关键字\_\_attribute\_\_也可以对变量（variable）或结构体成员（structure field）进行属性设置。
 
-在使用__attribute__参数时，你也可以在参数的前后都加上"__"（两个下划线），例如使用__aligned__而不是aligned，这样，你就可以在相应的头文件里使用它而不用关心头文件里是否有重名的宏定义。
+在使用\_\_attribute\_\_参数时，你也可以在参数的前后都加上"\_\_"（两个下划线），例如使用\_\_aligned\_\_而不是aligned，这样，你就可以在相应的头文件里使用它而不用关心头文件里是否有重名的宏定义。
 
 
 详细介绍请参考[gnu gcc 的 变量属性][Variable-Attributes]
@@ -135,14 +135,14 @@ aligned属性使被设置的对象占用更多的空间
 
 ### 其他变量
 
-其它可选的属性值还有 cleanup，common，nocommon，deprecated，mode，section，shared，tls_model，transparent_union，unused，vector_size，weak，dllimport，dlexport，详见[gnu gcc 的 变量属性][Variable-Attributes]
+其它可选的属性值还有 cleanup，common，nocommon，deprecated，mode，section，shared，tls\_model，transparent\_union，unused，vector\_size，weak，dllimport，dlexport，详见[gnu gcc 的 变量属性][Variable-Attributes]
 
 
 ## 类型属性 Type Attribute
 
-关键字__attribute__也可以对结构体（struct）或共用体（union）进行属性设置。
+关键字\_\_attribute\_\_也可以对结构体（struct）或共用体（union）进行属性设置。
 
-大致有六个参数值可以被设定，即：aligned, packed, transparent_union, unused, deprecated 和 may_alias。
+大致有六个参数值可以被设定，即：aligned, packed, transparent\_union, unused, deprecated 和 may\_alias。
 
 详见[gnu gcc 的 类型属性][Type-Attributes]
 
