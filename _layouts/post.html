@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% if page.previous %}
+    <link rel="prev" title="{{ page.previous.title }}" href="{{ page.previous.url }}">
+{% endif %}
+
+{% if page.next %}
+    <link rel="next" title="{{ page.next.title }}" href="{{ page.next.url }}">
+{% endif %}
+
 <link rel="stylesheet" href="/javascripts/prettify/prettify.css" />
 <style type="text/css">
     body { background:#e8e8e8; }
