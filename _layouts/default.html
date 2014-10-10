@@ -78,6 +78,9 @@
                             case "page" :
                                 return "第" + page + "页";
                         }
+                    },
+                    pageUrl : function(type, page, current){
+                        return url+"page"+page;
                     }
                 };
                 $pageDom.bootstrapPaginator(op);
