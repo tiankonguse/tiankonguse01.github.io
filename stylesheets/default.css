@@ -193,3 +193,30 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+
+.unit-foot {
+    border-top: 5px solid rgba(21, 25, 25, 0.8);
+    padding-top: 1.625em;
+    position: relative;
+}
+
+
+.unit-inner:before, .unit-inner:after{
+    content: "";
+    display: table;
+}
+
+.unit-foot nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.unit-foot nav ul li {
+    display: inline;
+}
+
+.unit-foot .gotop {
+    margin-bottom: 0;
+}
