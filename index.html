@@ -2,6 +2,14 @@
 layout: home
 ---
 
+{% if paginator.previous_page %}
+    <link rel="prev" title="上一页" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+{% endif %}
+
+{% if paginator.next_page %}
+    <link rel="next" title="下一个" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+{% endif %}
+
 <div class="index-content blog">
     <div class="section">
         <ul class="artical-cate">
