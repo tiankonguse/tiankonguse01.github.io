@@ -2,7 +2,7 @@
 layout:     post
 title:      codeblocks 使用研究
 category: blog
-description: 给学弟出了一道题，告诉你n个数，其中只有一个数出现一次，其他的数都出现三次。求出现一次的那个数。
+description: 最近有人问题codeblock的一些问题，于是记录一下，磨刀不怕误砍柴。
 ---
 
 ## 使用前
