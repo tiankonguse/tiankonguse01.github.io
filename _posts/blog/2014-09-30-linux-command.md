@@ -86,6 +86,59 @@ skyyuan.bashrc: OK
 md5sum: WARNING: 1 of 2 computed checksums did NOT match
 ```
 
+### dd
+
+转换或复制文件
+
+由于在linux中设备驱动和特殊设备可以像普通文件一样操作，所以使用 dd 命令可以操作很多设备中的数据。
+
+默认情况下， dd 从标准输入读数据，从标准输出输出数据。  
+
+参数 if=FILE 重定向输入  
+参数 of=FILE 重定向输出  
+
+dd可以在文件、设备、分区和卷之间复制数据
+
+* 从CD-ROM中创建ISO磁盘镜像 
+```
+dd if=/dev/sr0 of=myCD.iso bs=2048 conv=noerror,sync
+```
+* 克隆一个分区到另一个
+```
+dd if=/dev/sda2 of=/dev/sdb2 bs=4096 conv=noerror
+```
+* 克隆硬盘"ad0"到"ad1"
+```
+dd if=/dev/ad0 of=/dev/ad1 bs=1M conv=noerror
+```
+* 复制软盘的前两个扇区
+```
+dd if=/dev/fd0 of=MBRboot.img bs=512 count=2
+```
+* 创建整个x86主引导记录的镜像
+```
+dd if=/dev/sda of=MBR.img bs=512 count=1
+```
+* 创建仅含主引导记录引导代码的镜像
+```
+dd if=/dev/sda of=MBR_boot.img bs=446 count=1
+```
+* 用零擦除磁盘
+```
+dd if=/dev/zero of=/dev/sda bs=4k
+```
+* 随机数据生成文件
+```
+dd if=/dev/urandom of=myrandom bs=100 count=1
+```
+* 将文件转换为大写
+```
+dd if=filename of=filename1 conv=ucase
+```
+* 创建任意大小的空文件
+```
+dd if=/dev/zero of=mytestfile.out bs=1 count=0 seek=1G
+```
 
 ## 监控命令
 
