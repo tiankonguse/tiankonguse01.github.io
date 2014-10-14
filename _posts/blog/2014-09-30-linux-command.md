@@ -158,6 +158,68 @@ dd if=filename of=filename1 conv=ucase
 dd if=/dev/zero of=mytestfile.out bs=1 count=0 seek=1G
 ```
 
+### uname
+
+打印出系统信息。
+
+* -s 默认参数，打印出内核名字  
+```
+skyyuan:~ $ uname
+Linux
+
+skyyuan:~ $ uname -s
+Linux
+```
+
+* -n 主机的网络名称或主机名称  
+```
+skyyuan:~ $ uname -n
+DEVNET-191-112
+```
+
+* -r 内核版本号  
+```
+skyyuan:~ $ uname -r
+2.6.32.57-tlinux_xenU-1.1.rc8-default
+```
+
+* -v 内核发布日期  
+```
+skyyuan:~ $ uname -v
+#1 SMP Wed Feb 20 17:35:10 CST 2013
+```
+
+* -m 主机的硬件名称  
+```
+skyyuan:~ $ uname -m
+x86_64
+```
+
+* -p 处理器类型或 unknow  
+```
+skyyuan:~ $ uname -p
+x86_64
+```
+
+* -i 硬件平台类型或 unknow  
+```
+skyyuan:~ $ uname -i
+x86_64
+```
+
+* -o 操作系统  
+```
+skyyuan:~ $ uname -o
+GNU/Linux
+```
+
+* -a 输出所有信息   
+```
+skyyuan:~ $ uname -a
+Linux DEVNET-191-112 2.6.32.57-tlinux_xenU-1.1.rc8-default #1 SMP Wed Feb 20 17:35:10 CST 2013 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+
 ## 监控命令
 
 ### lsblk
