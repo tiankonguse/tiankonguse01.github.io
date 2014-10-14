@@ -230,7 +230,45 @@ Linux DEVNET-191-112 2.6.32.57-tlinux_xenU-1.1.rc8-default #1 SMP Wed Feb 20 17:
 ```
 
 
+### history
 
+显示带行号的命令历史列表
+
+* 显示最近 n 个命令  
+
+```
+history n
+```
+
+* 清空历史列表  
+
+```
+history -c
+```
+
+* 删除指定行数的历史  
+
+```
+history -d lineNumber
+```
+
+* 导入历史记录   
+
+```
+history -r historyFileName
+```
+
+* 增量导入历史记录  
+
+```
+history -n historyFileName
+```
+
+* 覆盖历史记录 
+
+```
+history -w historyFileName
+```
 
 ## 监控命令
 
