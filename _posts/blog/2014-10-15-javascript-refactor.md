@@ -7,13 +7,12 @@ description: 工作的时候实现了一个可以拖拽就摆出一个页面的j
 
 ## 前言
 
-实际上重构js代码有很过好处，比如 fuadam 说的那样：
-
-    大家可以现在打开你最近写的网页代码，看看里面的javascript是不是充斥了$('#mainContain").height()或者getGridSelectIds()这样的代码。
-    反正我的项目里是这样的，现在我终于下定决心要改变这种局面了。
-    我不想因为站点主体div的名称发生了改变而使某一个页面中的布局变得错乱，也不想在一个页面中直接调用另一个嵌入页面的某个方法。
-    并且这个嵌入页面的方法还会去获取外部页面上某些元素的一些属性，而且都是根据id来获取来的。
-    这实在令人很不爽，虽然开发容易了但是维护代价增加了。
+实际上重构js代码有很过好处，比如 fuadam 说的那样：  
+大家可以现在打开你最近写的网页代码，看看里面的javascript是不是充斥了$('#mainContain").height()或者getGridSelectIds()这样的代码。  
+反正我的项目里是这样的，现在我终于下定决心要改变这种局面了。  
+我不想因为站点主体div的名称发生了改变而使某一个页面中的布局变得错乱，也不想在一个页面中直接调用另一个嵌入页面的某个方法。  
+并且这个嵌入页面的方法还会去获取外部页面上某些元素的一些属性，而且都是根据id来获取来的。  
+这实在令人很不爽，虽然开发容易了但是维护代价增加了。  
 
 
 现在我说说我要重构的原因吧。
@@ -51,9 +50,9 @@ class Acmer : public Person{
 但是那已经不错了。
 
 
-毕竟敲的代码还是不够多，没有让他遇到不使用继承多态时，代码会变得多么复杂，有多么难维护。
+毕竟敲的代码还是不够多，他还没有遇到不使用继承多态时代码会有多么复杂，有多么难维护。
 
-所以我们一定要使用继承。
+所以遇到那种情况的时候，就是我们一定要学会使用继承的时候了。
 
 比如看一个高深的继承：
 
@@ -69,6 +68,7 @@ class Acmer : public Person{
 我一直坚信：一切皆对象，对象即类型。
 
 比如这样就是一个对象  
+
 ```javascript
 var acmer = {
     "name" : "tiankonguse",
@@ -77,6 +77,7 @@ var acmer = {
 ```
 
 然后我们就可以对这个对象操作了。  
+
 ```
 //访问名字
 console.log(acmer.name); //输出 tiankonguse
@@ -84,6 +85,7 @@ console.log(acmer["name"]);//也输出 tiankonguse
 ```
 
 我们也可以添加方法。  
+
 ```
 var getName = function(){
     return this.name;
@@ -96,6 +98,7 @@ console.log(acmer.getName()); //输出 tiankonguse
 上面的实际上是一个实例化的对象。
 
 我们可以改变一下方式来定义这个对象  
+
 ```
 var Acmer = function(name){
     this.name = name;
@@ -118,6 +121,7 @@ console.log(tiankong.getName());
 ## 简单认识 javascript 继承
 
 先看看下面的继承代码
+
 ```
 var NenuAcmer = function(name){
     this.name = name;
