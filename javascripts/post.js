@@ -213,4 +213,7 @@ jQuery(document).ready(function(){
         $("head").append("<link rel='stylesheet' type='text/css' href='/stylesheets/css3-ani.css'/>");
         $.getScript('/javascripts/css3-ani.js',function(){});
     }
+    
+    $("table").addClass("table table-bordered table-hover table-striped table-condensed");
+    
 });
