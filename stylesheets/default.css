@@ -68,7 +68,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .entry-page ol, .entry ol{margin-bottom:25px;margin-left:25px;}
 .entry-page ol li, .entry ol li{margin-bottom:5px;list-style:decimal;line-height:1.1em;}
 .entry-page blockquote, .entry blockquote{margin-left:25px;font-size:14px;font-style:italic}
-.entry-page img, .entry img{max-width:670px;display:block;margin:10px auto;}
+.entry-page img, .entry img{max-width:670px;width: 100%;display:block;margin:10px auto;}
 
 .entry-page{
     width: 1140px;
