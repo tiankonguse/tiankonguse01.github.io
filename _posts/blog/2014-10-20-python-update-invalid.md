@@ -17,6 +17,7 @@ description: 之前使用 python 一直是查询mysql语句，今天进行插入
 >If you wonder why you don’t see the data you’ve written to the database, please check you didn’t forget to call this method.
 
 
+简单的说就是执行修改数据库的操作后，需要提交，才会确认执行。
 
 
 ## 文档的一个问题
