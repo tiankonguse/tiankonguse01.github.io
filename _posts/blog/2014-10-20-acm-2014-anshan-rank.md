@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout:     page
 title:      The 39th ACM-ICPC Asia Anshan Regional Onsite Contest
 category: blog
 description: 2014 鞍山现场赛排名
