@@ -17,6 +17,8 @@ description: 之前使用 python 一直是查询mysql语句，今天进行插入
 >If you wonder why you don’t see the data you’ve written to the database, please check you didn’t forget to call this method.
 
 
+
+
 ## 文档的一个问题
 
 如果你点开我的那个官方文档的话，会发现这个不是 mysql 的文档，而是 sqlite3 的文档。
