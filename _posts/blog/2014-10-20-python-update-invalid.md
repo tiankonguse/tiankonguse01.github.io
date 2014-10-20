@@ -5,6 +5,7 @@ category: blog
 description: 之前使用 python 一直是查询mysql语句，今天进行插入数据发现没有生效，于是查找了一下资料，发现需要 commit 事务。 
 ---
 
+
 ## 无效原因
 
 在 [这里][cnblogs] 中文原因， 在 [官网][python-sqlite3] 上也找到英文原因了，简单的说就是
@@ -15,11 +16,15 @@ description: 之前使用 python 一直是查询mysql语句，今天进行插入
 >If you don’t call this method, anything you did since the last call to commit() is not visible from other database connections.   
 >If you wonder why you don’t see the data you’ve written to the database, please check you didn’t forget to call this method.
 
+
 ## 文档的一个问题
 
 如果你点开我的那个官方文档的话，会发现这个不是 mysql 的文档，而是 sqlite3 的文档。
 
 因为在官方文档 没有 mysql 的文档，至少 2014-10-20 19:28:00 这个时候没有。
+
+
+
 
 ## 样例代码
 
@@ -58,6 +63,8 @@ try:
 except MySQLdb.Error,e:
      print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 ```
+
+
 
 ## 官方资料
 
