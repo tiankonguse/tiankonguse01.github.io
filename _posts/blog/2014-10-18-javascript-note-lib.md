@@ -386,4 +386,87 @@ tk.Composition(TK, {
 });
 ```
 
+## 字符串 hash
 
+```
+/**
+ * 获取字符串的哈希值
+ * 
+ * @param {String}
+ *            str
+ * @param {Boolean}
+ *            caseSensitive
+ * @return {Number} hashCode
+ */
+tk.Composition(TK,{
+    hashString : function hashString(src, caseSensitive){
+        str = str.toString();
+        if (!caseSensitive) {
+            str = str.toLowerCase();
+        }
+        // 1315423911=b'1001110011001111100011010100111'
+        var hash = 1315423911, i, ch;
+        for (i = str.length - 1; i >= 0; i--) {
+            ch = str.charCodeAt(i);
+            hash ^= ((hash << 5) + ch + (hash >> 2));
+        }
+
+        return (hash & 0x7FFFFFFF);
+    }
+});
+```
+
+
+## 破解图片反盗链
+
+```
+tk.Composition(TK,{
+    loadImg : function loadImg(imgList, callback){
+        window.TK = window.TK || {};
+        var hashMap = window.TK.hashMap;
+        var img = window.TK.img;
+        var callback = window.TK.callback;
+        window.TK.hashMap = {};
+        window.TK.img = '';
+        window.TK.callback = function(){
+            window.TK.hashMap = hashMap;
+            window.TK.img = img;
+            window.TK.callback = callback;
+            if(callback){
+                callback();
+            }
+        };
+        for(var i in imgList){
+            var url = imgList[i];
+            var key = getHashCode(url);
+            if(hashMap[key])continue;
+            hashMap[key] = 1;
+            window.TK.img += '<img src=\''+url+'\' /><script>window.onload = function() { parent.TK.callback(); }</script>';
+            
+        }
+        if(window.img){
+            $("body").append('<iframe src="javascript:parent.TK.img;" height="0px" width="0px"></iframe>');
+        }
+    }
+});
+```
+
+## javascript 获得图片的真实高度
+
+```
+tk.Composition(TK,{
+    imgRealSize : function imgRealSize(url, callback){
+    var img = new Image();
+    img.src = url;
+    if(img.complete){
+        callBack(img.width, img.height);
+        img = null;
+    }else{
+        img.onload=function(){
+            callBack(img.width, img.height);
+            img = null;
+        };
+    }
+    }
+});
+```
