@@ -163,7 +163,6 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .entry img{max-width:90%;}
     .entry pre ol li{margin-bottom:0;line-height:1em;}
     .entry pre code{line-height:1em;font-size:12px;}
-    .sidenav {display:none;}
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
 
     .index-content .aside { display:none;position:relative; width:100%; height:300px; max-width:none; }
@@ -183,7 +182,6 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .index-content .cate-bar ,
     .index-content .artical-list,
     .index-content .artical-cate { width:85%; }
-    .sidenav {display:none;}
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
     #content {width:85%;margin:100px auto 50px; }
 }
