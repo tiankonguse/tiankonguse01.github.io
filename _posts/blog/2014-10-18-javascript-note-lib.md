@@ -459,6 +459,23 @@ tk.Composition(TK,{
 });
 ```
 
+例如下面的图片就是盗链与破解盗链的展示
+
+![原始图片](http://qlogo3.store.qq.com/qzone/804345178/804345178/100?1369836198)
+
+<div class="javascript-note-lib-img1"></div>
+<script>
+jQuery(document).ready(function(){
+    var $dom = $(".javascript-note-lib-img1");
+    var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?1369836198";
+    tk.loadImg(imgUrl, function(){
+        //图片加载完之后做的事
+        $dom.html("<img src=\""+imgUrl+""\">");
+    });
+});
+</script>
+
+
 ## javascript 获得图片的真实高度
 
 ```
