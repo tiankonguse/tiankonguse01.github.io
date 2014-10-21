@@ -347,8 +347,8 @@ tk.Composition(TK,{
         for(var i in imgList){
             var url = imgList[i];
             var key = "" + tk.hashString(url);
-            if(hashMap[key])continue;
-            hashMap[key] = 1;
+            if(window.TK.hashMap[key])continue;
+            window.TK.hashMap[key] = 1;
             window.TK.img += '<img src=\''+url+'\' /><script>window.onload = function() { parent.TK.callback(); }</script>';
         }
         if(window.img){
