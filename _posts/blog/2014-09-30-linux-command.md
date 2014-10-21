@@ -270,6 +270,117 @@ history -n historyFileName
 history -w historyFileName
 ```
 
+### pwd
+
+打印当前或活动的目录
+
+* -L 显示当前位置，不管是不是软连接
+
+```
+skyyuan:~ $ ll test-pwd
+lrwxrwxrwx 1 skyyuan users 5 Oct 21 17:40 test-pwd -> test/
+
+skyyuan:~ $ cd test-pwd
+skyyuan:test-pwd $ 
+
+skyyuan:test-pwd $ pwd
+/home/skyyuan/test-pwd
+
+skyyuan:test-pwd $ pwd -L
+/home/skyyuan/test-pwd
+```
+
+* -P 显示真实位置
+
+```
+skyyuan:~ $ cd test-pwd
+skyyuan:test-pwd $ 
+
+skyyuan:test-pwd $ pwd -P
+/data/skyyuan/test
+```
+
+### mv
+
+移动或者重命名文件
+
+#### 语法
+
+```
+mv  SOURCE DEST
+```
+
+
+#### 参数
+
+* -f 覆盖的时候不用确认
+* -i 覆盖的时候确认
+* -n 如果文件存在，不覆盖
+* -b 对每个存在的目标文件进行备份
+
+### touch
+
+改变文件修改(access and modification)的时间戳
+
+文件不存在的时候会创建一个空文件。
+
+默认修改的时间为当前时间
+
+* -a 只修改 access 时间 
+* -c 文件不存在的时候不创建文件
+* -d 指定时间作为当前的时间
+* -m 只修改 modification 时间 
+* -r 使用指定文件的时间作为当前时间
+* -t 使用指定的时间作为当前时间
+
+
+### chmod
+
+修改文件的模式位，比如我主要用于修改文件的权限
+
+
+
+#### 用户
+
+* u表示文件主人
+* g 表示文件文件所在组
+* o 表示其他人 
+* a 代表所有人
+
+
+
+
+#### 操作 
+
+* + 添加这个权限
+* - 取消这个权限
+* = 设置这个权限，其他权限全部取消
+
+#### 权限
+
+* r 表可读 r=4
+* w 表可写 w=2
+* x 表可以运行 x=1
+
+
+#### 样例
+
+```
+#用户，组，其他人都添加读权限
+chmod ugo+r filename
+
+
+#自己添加运行权限
+chmod u+x filenmame 
+
+#同组的人添加执行权限
+chmod g+x filename 
+
+#三个数字分别为 档案拥有者、群组、其他
+chmod 644 filename
+```
+
+
 ## 监控命令
 
 ### lsblk
