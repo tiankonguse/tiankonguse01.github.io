@@ -337,8 +337,10 @@ tk.Composition(TK,{
         var hashMap = {};
         var img = window.TK.img;
         window.TK.img = '';
+        console.log(callback);
         window.TK.callback = function(){
             window.TK.img = img;
+            console.log(callback);
             if(callback){
                 callback();
             }
@@ -350,7 +352,7 @@ tk.Composition(TK,{
             hashMap[key] = 1;
             window.TK.img += '<img src=\''+url+'\' /><script>window.onload = function() { parent.TK.callback(); }</script>';
         }
-        if(window.img){
+        if(window.TK.img){
             $("body").append('<iframe src="javascript:parent.TK.img;" height="0px" width="0px"></iframe>');
         }
     }
