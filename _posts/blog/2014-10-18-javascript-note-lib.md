@@ -461,7 +461,7 @@ tk.Composition(TK,{
 
 例如下面的图片就是破解盗链的展示
 
-<div class="javascript-note-lib-img1" style="width: 100px;height: 100px;"></div>
+<p class="javascript-note-lib-img1" style="width: 100px;height: 100px;"></p>
 
 
 <script>
