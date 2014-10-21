@@ -468,6 +468,14 @@ tk.Composition(TK, {
 });
 
 
+//得到现在的时间戳 new Date().getTime()
+
+tk.Composition(TK, {
+    time : function time(){
+        return new Date().getTime();
+    }
+});
+
 jQuery(document).ready(function(){
     
    //***********************
