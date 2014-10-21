@@ -24,16 +24,6 @@ jQuery(document).ready(function(){
 
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
 
-    //***********************
-    //**评论的代码也删掉哦***
-    window.disqus_shortname = 'tiankonguse-record'; //  tiankonguse-github required: replace example with your forum shortname
-    $('#disqus_container .comment').on('click',function(){
-        $(this).html('加载中...');
-        var that = this;
-        $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()});
-    });
-    //**评论的代码也删掉哦***
-    //***********************
 
     $('.entry a').each(function(index,element){
         var href = $(this).attr('href');
@@ -192,7 +182,7 @@ jQuery(document).ready(function(){
                     menuIndexLeft = $('#menuIndex').offset().left;
 
                     $(window).trigger('scroll')
-                    $('#menuIndex').css('max-height',$(window).height()-80);
+                    //$('#menuIndex').css('max-height',$(window).height()-80);
                 });
             })
 
@@ -205,9 +195,6 @@ jQuery(document).ready(function(){
         prettyPrint();
     });
 
-    if(/\#comment/.test(location.hash)){
-        $('#disqus_container .comment').trigger('click');
-    }
 
     if(/css3-animation/.test(location.href)){
         $("head").append("<link rel='stylesheet' type='text/css' href='/stylesheets/css3-ani.css'/>");
