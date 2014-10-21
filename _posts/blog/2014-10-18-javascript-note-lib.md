@@ -459,9 +459,11 @@ tk.Composition(TK,{
 });
 ```
 
-例如下面的图片就是盗链与破解盗链的展示
+例如下面的图片就是破解盗链的展示
 
 <div class="javascript-note-lib-img1" style="width: 100px;height: 100px;"></div>
+
+
 <script>
 jQuery(document).ready(function(){
     var $dom = $(".javascript-note-lib-img1");
@@ -474,6 +476,8 @@ jQuery(document).ready(function(){
 });
 </script>
 
+  
+   
 
 ## javascript 获得图片的真实高度
 
