@@ -313,7 +313,7 @@ tk.Composition(TK, {
  * @return {Number} hashCode
  */
 tk.Composition(TK,{
-    hashString : function hashString(src, caseSensitive){
+    hashString : function hashString(str, caseSensitive){
         str = str.toString();
         if (!caseSensitive) {
             str = str.toLowerCase();
