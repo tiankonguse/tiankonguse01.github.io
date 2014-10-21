@@ -334,15 +334,11 @@ tk.Composition(TK,{
             imgList = [imgList];
         }
         window.TK = window.TK || {};
-        var hashMap = window.TK.hashMap;
+        var hashMap = {};
         var img = window.TK.img;
-        var callback = window.TK.callback;
-        window.TK.hashMap = {};
         window.TK.img = '';
         window.TK.callback = function(){
-            window.TK.hashMap = hashMap;
             window.TK.img = img;
-            window.TK.callback = callback;
             if(callback){
                 callback();
             }
@@ -350,8 +346,8 @@ tk.Composition(TK,{
         for(var i in imgList){
             var url = imgList[i];
             var key = "" + tk.hashString(url);
-            if(window.TK.hashMap[key])continue;
-            window.TK.hashMap[key] = 1;
+            if(hashMap[key])continue;
+            hashMap[key] = 1;
             window.TK.img += '<img src=\''+url+'\' /><script>window.onload = function() { parent.TK.callback(); }</script>';
         }
         if(window.img){
