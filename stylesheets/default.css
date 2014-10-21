@@ -166,7 +166,7 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .sidenav {display:none;}
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
 
-    .index-content .aside { position:relative; width:100%; height:300px; max-width:none; }
+    .index-content .aside { display:none;position:relative; width:100%; height:300px; max-width:none; }
     .index-content .section { margin-left:0; padding-right:0; }
     .index-content .section ul { width:85%; }
     .index-content .cate-bar { width:85%; }
