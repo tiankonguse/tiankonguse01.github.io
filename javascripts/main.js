@@ -337,10 +337,9 @@ tk.Composition(TK,{
         var hashMap = {};
         var img = window.TK.img;
         window.TK.img = '';
-        console.log(callback);
+        
         window.TK.callback = function(){
             window.TK.img = img;
-            console.log(callback);
             if(callback){
                 callback();
             }
