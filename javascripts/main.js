@@ -405,12 +405,29 @@ tk.Composition(TK, {
     isMobile  : new TK.Mobile()
 });
 
+tk.Composition(TK, {
+    loadJSFile  : function loadJSFile($dom, url){
+        var script = jQuery(('<script src="' + url + '" async ></script>'));
+        $dom.append(script);
+    }
+});
+
 //ad-page-footer
 jQuery(document).ready(function(){
     if(tk.isMobile.any()){
         $(".ad-page-footer").html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
     }else{
         $(".ad-page-footer").html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
-    }  
+    }
+    
+    try{
+        tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+    }catch(err){
+        tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+    }
+    
 });
+
+
+
 
