@@ -163,7 +163,8 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .entry img{max-width:90%;}
     .entry pre ol li{margin-bottom:0;line-height:1em;}
     .entry pre code{line-height:1em;font-size:12px;}
-    .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
+    .entry-page, .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
+
 
     .index-content .aside { display:none;position:relative; width:100%; height:300px; max-width:none; }
     .index-content .section { margin-left:0; padding-right:0; }
