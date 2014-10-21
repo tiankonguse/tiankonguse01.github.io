@@ -404,3 +404,13 @@ tk.Composition(TK.Mobile,{
 tk.Composition(TK, {
     isMobile  : new TK.Mobile()
 });
+
+//ad-page-footer
+jQuery(document).ready(function(){
+    if(tk.isMobile.any()){
+        $(".ad-page-footer").html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
+    }else{
+        $(".ad-page-footer").html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
+    }  
+});
+
