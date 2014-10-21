@@ -226,6 +226,6 @@ hr {
     margin-bottom: 0;
 }
 
-.ad-content-footer{
+.ad-content-footer, .ad-page-footer{
     text-align: center;
 }
