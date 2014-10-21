@@ -5,6 +5,14 @@ category: blog
 description: 在使用 javascript 时，很多需要的功能都没有，或者实现复杂，所以自己封装了一下自己的 javascript 代码。
 ---
 
+
+## 目前代码运行环境
+
+代码文件地址为 我的网站的js代码地址[http://github.tiankonguse.com/javascripts/main.js][main-js]
+
+文件里封装的功能可能会比文章中多，文章一般周末更新。
+
+
 ## 定义自己的名字空间
 
 ```
@@ -470,3 +478,5 @@ tk.Composition(TK,{
     }
 });
 ```
+
+[main-js]: http://github.tiankonguse.com/javascripts/main.js
