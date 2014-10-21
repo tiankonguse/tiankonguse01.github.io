@@ -467,6 +467,20 @@ tk.Composition(TK, {
 
 jQuery(document).ready(function(){
     
+   //***********************
+    //**评论的代码也删掉哦***
+    window.disqus_shortname = 'tiankonguse-record'; //  tiankonguse-github required: replace example with your forum shortname
+    $('#disqus_container .comment').on('click',function(){
+        $(this).html('加载中...');
+        var that = this;
+        $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()});
+    });
+    if(/\#comment/.test(location.hash)){
+        $('#disqus_container .comment').trigger('click');
+    }
+    //**评论的代码也删掉哦***
+    //***********************
+
     // home follow
     $('.home-follow').click(function(e){
         e.preventDefault();
