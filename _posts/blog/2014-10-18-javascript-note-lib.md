@@ -465,7 +465,7 @@ tk.Composition(TK,{
 <script>
 jQuery(document).ready(function(){
     var $dom = $(".javascript-note-lib-img1");
-    var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?1369836198";
+    var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?"+tk.time();
     tk.loadImg(imgUrl, function(){
         //图片加载完之后做的事
         $dom.html("<img src=\""+imgUrl+"\">");
@@ -493,5 +493,13 @@ tk.Composition(TK,{
     }
 });
 ```
+
+## 得到当前时间的时间戳
+
+tk.Composition(TK, {
+    time : function time(){
+        return new Date().getTime();
+    }
+});
 
 [main-js]: http://github.tiankonguse.com/javascripts/main.js
