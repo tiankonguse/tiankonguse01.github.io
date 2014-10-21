@@ -330,6 +330,9 @@ tk.Composition(TK,{
 
 tk.Composition(TK,{
     loadImg : function loadImg(imgList, callback){
+        if(typeof imgList == "string"){
+            imgList = [imgList];
+        }
         window.TK = window.TK || {};
         var hashMap = window.TK.hashMap;
         var img = window.TK.img;
