@@ -197,7 +197,7 @@ jQuery(document).ready(function(){
             })
 
             //用js计算屏幕的高度
-            $('#menuIndex').css('max-height',$(window).height()-80);
+           // $('#menuIndex').css('max-height',$(window).height()-80);
         }
     })();
 
