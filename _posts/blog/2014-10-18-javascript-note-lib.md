@@ -469,7 +469,7 @@ jQuery(document).ready(function(){
     tk.loadImg([imgUrl], function(){
         //图片加载完之后做的事
         console.log("--");
-        $dom.html("<img src=\""+imgUrl+"\">");
+        $dom.html("<img src=\""+imgUrl+"\" style=\"width: 100px;height: 100px;\">");
     });
 });
 </script>
