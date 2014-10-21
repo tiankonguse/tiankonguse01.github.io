@@ -412,14 +412,80 @@ tk.Composition(TK, {
     }
 });
 
-//ad-page-footer
+tk.Composition(TK, {
+    loadPage : function loadPage(nowPage, allPage, $pageDom, url){
+        var first = true;
+        if(nowPage == 1){
+            first = false;
+        }
+        if (allPage > 1) {
+            $pageDom.html("");
+            var op = {
+                bootstrapMajorVersion : 3,
+                currentPage : nowPage,
+                totalPages : allPage,
+                onPageChanged : function(e, oldPage, newPage) {
+                    if(first == true){
+                        first = false;
+                        return;
+                    }
+                    if(newPage > 1){
+                        window.location.href=url+"page"+newPage;
+                    }else{
+                        window.location.href=url;
+                    }
+                },
+                useBootstrapTooltip : true,
+                tooltipTitles : function(type, page, current) {
+                    switch (type) {
+                        case "first" :
+                            return "第一页";
+                        case "prev" :
+                            return "上一页";
+                        case "next" :
+                            return "下一页";
+                        case "last" :
+                            return "最后一页";
+                        case "page" :
+                            return "第" + page + "页";
+                    }
+                },
+                pageUrl : function(type, page, current){
+                    if(page == 1){
+                        return url;
+                    }else{
+                        return url+"page"+page;
+                    }
+                    
+                }
+            };
+            $pageDom.bootstrapPaginator(op);
+        } 
+    }
+});
+
+
 jQuery(document).ready(function(){
+    
+    // home follow
+    $('.home-follow').click(function(e){
+        e.preventDefault();
+
+        if($('.home-contact').is(':visible')){
+            $('.home-contact').slideUp(100);
+        }else{
+            $('.home-contact').slideDown(100);
+        }
+    });
+
+    //ad-page-footer
     if(tk.isMobile.any()){
         $(".ad-page-footer").html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
     }else{
         $(".ad-page-footer").html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
     }
     
+    // load ad js
     try{
         tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
     }catch(err){
