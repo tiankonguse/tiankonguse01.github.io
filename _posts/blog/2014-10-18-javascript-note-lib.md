@@ -470,7 +470,7 @@ jQuery(document).ready(function(){
     var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?1369836198";
     tk.loadImg(imgUrl, function(){
         //图片加载完之后做的事
-        $dom.html("<img src=\""+imgUrl+""\">");
+        $dom.html("<img src=\""+imgUrl+"\">");
     });
 });
 </script>
