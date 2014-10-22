@@ -1,4 +1,10 @@
 jQuery(document).ready(function(){
+    if(isMobile.any()){
+        $(".ad-content-footer").html("<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
+    }else{
+         $(".ad-content-footer").html("<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
+    }
+    
     var $ = jQuery;
 
     var isMobile = {
@@ -210,11 +216,6 @@ jQuery(document).ready(function(){
     }
     
     $("table").addClass("table table-bordered table-hover table-striped table-condensed");
-    
-    if(isMobile.any()){
-        $(".ad-content-footer").html("<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
-    }else{
-         $(".ad-content-footer").html("<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
-    }
+
     
 });
