@@ -94,10 +94,11 @@ jQuery(document).ready(function(){
             var tmpl = genTmpl();
             //var indexCon = '<div id="menuIndex" class="sidenav"></div>';
             //$('#content').append(indexCon);
-
-            $('#menuIndex')
-                .append($(tmpl))
-                .delegate('a','click',function(e){
+            var $next = $("#menuIndex-next");
+            var $index = $('#menuIndex');
+            $index.append($(tmpl));
+                
+            $index.delegate('a','click',function(e){
                     e.preventDefault();
 
                     var selector = $(this).attr('data-id') ? '#'+$(this).attr('data-id') : 'h1'
@@ -105,6 +106,8 @@ jQuery(document).ready(function(){
 
                     $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
                 });
+            $index.append($next);
+            $next.remove();
         }
 
         var waitForFinalEvent = (function () {
