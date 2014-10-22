@@ -70,18 +70,18 @@ jQuery(document).ready(function(){
 
         function genTmpl(){
             var h1txt = $('h1').text();
-            var tmpl = '<ul><li class="h1"><a href="#">' + h1txt + '</a></li>';
+            var tmpl = '<ul><li class="h1"><a href="#' + h1txt + '">' + h1txt + '</a></li>';
 
             var heading = initHeading();
             var h2 = heading.h2;
             var h3 = heading.h3;
 
             for(var i=0;i<h2.length;i++){
-                tmpl += '<li><a href="#" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
+                tmpl += '<li><a href="#' + h2[i].name + '" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
 
                 if(h3[i]){
                     for(var j=0;j<h3[i].length;j++){
-                        tmpl += '<li class="h3"><a href="#" data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
+                        tmpl += '<li class="h3"><a href="# ' + h3[i][j].name + 'data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
                     }
                 }
             }
