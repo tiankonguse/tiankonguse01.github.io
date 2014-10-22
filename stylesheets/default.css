@@ -60,7 +60,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .sidenav h2 { font-size:18px; color:#333; margin-bottom:15px; }
 .sidenav ul { margin-bottom:50px; }
 .sidenav li { margin-bottom:12px; word-break: break-all;}
-.sidenav a { color:#555; font-size:14px; display:block;}
+.sidenav a { color:#555; font-size:14px; }
 .entry-page, .entry{margin-bottom:80px;width:940px; float:left; background:#fff; padding:30px; box-shadow:0 2px 6px #ccc; }
 .entry-page ul, .entry ul{margin-bottom:25px;margin-left:25px;}
 .entry-page p+ul, .entry p+ul {margin-top:-20px;}
