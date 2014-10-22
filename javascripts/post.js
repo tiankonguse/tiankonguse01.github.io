@@ -41,6 +41,8 @@ jQuery(document).ready(function(){
     (function(){
         var ie6 = ($.browser && $.browser.msie && $.browser.version=="6.0") ? true : false;
         var contentMap = {};
+        var $menuIndex = $('#menuIndex');
+        
         function initHeading(){
             var h2 = [];
             var h3 = [];
@@ -103,7 +105,7 @@ jQuery(document).ready(function(){
             //var indexCon = '<div id="menuIndex" class="sidenav"></div>';
             //$('#content').append(indexCon);
             var $next = $("#menuIndex-next");
-            var $index = $('#menuIndex');
+            $menuIndex = $('#menuIndex');
             $index.append($(tmpl));
                 
             $index.delegate('a','click',function(e){
@@ -131,74 +133,69 @@ jQuery(document).ready(function(){
 
             genIndex();
 
-            $(window).load(function(){
-                var scrollTop = [];
-                $.each($('#menuIndex li a'),function(index,item){
-                    var selector = $(item).attr('data-id') ? '#'+$(item).attr('data-id') : 'h1'
-                    var top = $(selector).offset().top;
-                    scrollTop.push(top);
-                });
+             var scrollTop = [];
+            $.each($('#menuIndex li a'),function(index,item){
+                var id = $(item).attr('data-id');
+                var selector = id ? '#'+id : 'h1'
+                var top = $(selector).offset().top;
+                scrollTop.push(top);
+            });
 
-                var menuIndexTop = $('#menuIndex').offset().top;
-                var menuIndexLeft = $('#menuIndex').offset().left;
+            var menuIndexTop = $menuIndex.offset().top;
+            var menuIndexLeft = $menuIndex.offset().left;
 
-                $(window).scroll(function(){
-                    waitForFinalEvent(function(){
-                        var nowTop = $(window).scrollTop();
-                        var length = scrollTop.length;
-                        var index;
+            $(window).scroll(function(){
+                waitForFinalEvent(function(){
+                    var nowTop = $(window).scrollTop();
+                    var length = scrollTop.length;
+                    var index;
 
-                        if(nowTop+20 > menuIndexTop){
-                            $('#menuIndex').css({
-                                position:'fixed'
-                                ,top:'20px'
-                                ,left:menuIndexLeft
-                            });
-                        }else{
-                            $('#menuIndex').css({
-                                position:'static'
-                                ,top:0
-                                ,left:0
-                            });
-                        }
+                    if(nowTop+20 > menuIndexTop){
+                        $menuIndex.css({
+                            position:'fixed'
+                            ,top:'20px'
+                            ,left:menuIndexLeft
+                        });
+                    }else{
+                        $menuIndex.css({
+                            position:'static'
+                            ,top:0
+                            ,left:0
+                        });
+                    }
 
-                        if(nowTop+60 > scrollTop[length-1]){
-                            index = length;
-                        }else{
-                            for(var i=0;i<length;i++){
-                                if(nowTop+60 <= scrollTop[i]){
-                                    index = i;
-                                    break;
-                                }
+                    if(nowTop+60 > scrollTop[length-1]){
+                        index = length;
+                    }else{
+                        for(var i=0;i<length;i++){
+                            if(nowTop+60 <= scrollTop[i]){
+                                index = i;
+                                break;
                             }
                         }
-                        $('#menuIndex li').removeClass('on');
-                        $('#menuIndex li').eq(index-1).addClass('on');
-                    });
+                    }
+                    $('#menuIndex li').removeClass('on');
+                    $('#menuIndex li').eq(index-1).addClass('on');
+                });
+            });
+
+            $(window).resize(function(){
+                $menuIndex.css({
+                    position:'static'
+                    ,top:0
+                    ,left:0
                 });
 
-                $(window).resize(function(){
-                    $('#menuIndex').css({
-                        position:'static'
-                        ,top:0
-                        ,left:0
-                    });
+                menuIndexTop = $menuIndex.offset().top;
+                menuIndexLeft = $menuIndex.offset().left;
 
-                    menuIndexTop = $('#menuIndex').offset().top;
-                    menuIndexLeft = $('#menuIndex').offset().left;
+                $(window).trigger('scroll')
+            });
+            
+            if(/\#content-h/.test(location.hash)){
+                gotoSelectorPos(contentMap[location.hash]);
+            }
 
-                    $(window).trigger('scroll')
-                    //$('#menuIndex').css('max-height',$(window).height()-80);
-                });
-                
-                if(/\#content-h/.test(location.hash)){
-                    gotoSelectorPos(contentMap[location.hash]);
-                }
-                
-            })
-
-            //用js计算屏幕的高度
-           // $('#menuIndex').css('max-height',$(window).height()-80);
         }
     })();
 
