@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
                     var h3item = {};
                     h3item.name = $(item).text();
                     h3item.id = 'menuIndex'+index;
-                    contentMap["content-h3-" + h3item.name] = h2item.id;
+                    contentMap["content-h3-" + h3item.name] = h3item.id;
                     if(!h3[h2index-1]){
                         h3[h2index-1] = [];
                     }
