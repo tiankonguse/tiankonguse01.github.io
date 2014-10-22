@@ -1,4 +1,4 @@
- ---
+---
 layout:     post
 title:      n-m 问题
 category: blog
