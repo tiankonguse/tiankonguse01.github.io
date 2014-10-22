@@ -132,7 +132,7 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 
 
 /**************目录导航**************/
-#menuIndex {overflow:auto;}
+#menuIndex {overflow-y: visible;}
 #menuIndex a {display:block; padding:2px 0; }
 #menuIndex a:hover {text-decoration:none;}
 #menuIndex ul {margin-bottom:10px;}
