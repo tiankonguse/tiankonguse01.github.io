@@ -106,7 +106,7 @@ jQuery(document).ready(function(){
 
                     $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
                 });
-            $index.append($next);
+            $index.append($next.children());
             $next.remove();
         }
 
