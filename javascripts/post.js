@@ -114,13 +114,13 @@ jQuery(document).ready(function(){
             //$('#content').append(indexCon);
             var $next = $("#menuIndex-next");
             $menuIndex = $('#menuIndex');
-            $index.append($(tmpl));
+            $menuIndex.append($(tmpl));
                 
-            $index.delegate('a','click',function(e){
+            $menuIndex.delegate('a','click',function(e){
                     e.preventDefault();
                     gotoSelectorPos($(this).attr('data-id'));
                 });
-            $index.append($next.children());
+            $menuIndex.append($next.children());
             $next.remove();
         }
 
