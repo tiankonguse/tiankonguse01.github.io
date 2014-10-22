@@ -4,9 +4,14 @@ title: 关于 tiankonguse 的一些东西
 ---
 
 
-## 关于 tiankonguse
+## 最近生活
 
-我是 tiankonguse, 一个安静的程序员。
+* 看书《浪潮之巅》 2014-09-15 ~ 2014-10-22 [读书笔记][On-Top-of-Tides]
+* 看书《重构~改善既有代码的设计》 2014-10-05 ~ 今
+* 看书《编程之道》 2014-10-1 ~ 今
+* 看书《编程之禅》2014-10-1 ~ 今
+* 看书《计算机寓言-信息时代的启示》 2014-10-1 ~ 今
+
 
 
 ## 关于 博客
@@ -49,3 +54,4 @@ title: 关于 tiankonguse 的一些东西
 [firstblog]: http://tiankonguse.com/firstblog/
 [cnblogs]: http://www.cnblogs.com/tiankonguse/
 [qzone]: http://user.qzone.qq.com/804345178/2
+[On-Top-of-Tides]: http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/
