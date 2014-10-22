@@ -40,7 +40,7 @@ description: 告诉你N个数, 其中只有一个数出现m次, 其他的数都�
 
 状态转移对应的公式就是
 
-```
+```cpp
 one = one^a;
 ```
 
@@ -71,7 +71,7 @@ one = one^a;
 * 数字a第二次来的时候, one标记a不存在, two标记a存在
 * 数字a第三次来的时候, one不变, two标记a不存在
 
-```
+```cpp
 ones = (ones ^ a) & ~twos;
 twos = (twos ^ b) & ~ones;
 ```
@@ -106,8 +106,8 @@ twos = (twos ^ b) & ~ones;
 
 其实3-1的标准做法应该是下面的做法。最后两个数字需要进行或运算.
 
-```
-ans = onw|two;
+```cpp
+ans = onw | two;
 ```
 
 状态原理如下
@@ -158,7 +158,7 @@ one = a^one1;
 
 简洁的式子有下面几个
 
-```
+```cpp
 a & one1  = "00010001";
 a | one1  = "01110111";
 a & ~one1 = "01000100";
@@ -176,7 +176,7 @@ a | ~one2 = "11011101";
 
 也就是
 
-```
+```cpp
   a & ~one1
 = a & one2
 = a & (a^one1)
@@ -184,7 +184,7 @@ two = a ^ two1 ^ (a & one2)
 ```
 再根据 [位运算 的探究][bit-operation] 里面的高级公式，我们就可以得到
 
-```
+```cpp
 two= two ^ (a & ~one2)
 ```
 
