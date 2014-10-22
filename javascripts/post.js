@@ -1,9 +1,5 @@
 jQuery(document).ready(function(){
-    if(isMobile.any()){
-        $(".ad-content-footer").html("<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
-    }else{
-         $(".ad-content-footer").html("<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
-    }
+
     
     var $ = jQuery;
 
@@ -27,7 +23,13 @@ jQuery(document).ready(function(){
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
         }
     };
-
+    
+    if(isMobile.any()){
+        $(".ad-content-footer").html("<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
+    }else{
+         $(".ad-content-footer").html("<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
+    }
+    
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
 
 
