@@ -230,3 +230,11 @@ hr {
 .ad-content-footer, .ad-page-footer{
     text-align: center;
 }
+
+
+.sidenav>.adsbygoogle{
+    margin-top: 10px;
+    display: inline-block; 
+    width: 250px; 
+    height: 250px;
+}
