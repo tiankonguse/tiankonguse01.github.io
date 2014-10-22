@@ -40,7 +40,7 @@ jQuery(document).ready(function(){
 
     (function(){
         var ie6 = ($.browser && $.browser.msie && $.browser.version=="6.0") ? true : false;
-
+        var contentMap = {};
         function initHeading(){
             var h2 = [];
             var h3 = [];
@@ -51,12 +51,14 @@ jQuery(document).ready(function(){
                     var h2item = {};
                     h2item.name = $(item).text();
                     h2item.id = 'menuIndex'+index;
+                    contentMap["content-h2-" + h2item.name] = h2item.id;
                     h2.push(h2item);
                     h2index++;
                 }else{
                     var h3item = {};
                     h3item.name = $(item).text();
                     h3item.id = 'menuIndex'+index;
+                    contentMap["content-h3-" + h2item.name] = h2item.id;
                     if(!h3[h2index-1]){
                         h3[h2index-1] = [];
                     }
@@ -70,24 +72,30 @@ jQuery(document).ready(function(){
 
         function genTmpl(){
             var h1txt = $('h1').text();
-            var tmpl = '<ul><li class="h1"><a href="#' + h1txt + '">' + h1txt + '</a></li>';
+            var tmpl = '<ul><li class="h1"><a href="#content-h1-' + h1txt + '">' + h1txt + '</a></li>';
 
             var heading = initHeading();
             var h2 = heading.h2;
             var h3 = heading.h3;
 
             for(var i=0;i<h2.length;i++){
-                tmpl += '<li><a href="#' + h2[i].name + '" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
+                tmpl += '<li><a href="#content-h2-' + h2[i].name + '" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
 
                 if(h3[i]){
                     for(var j=0;j<h3[i].length;j++){
-                        tmpl += '<li class="h3"><a href="# ' + h3[i][j].name + 'data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
+                        tmpl += '<li class="h3"><a href="#content-h3-' + h3[i][j].name + 'data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
                     }
                 }
             }
             tmpl += '</ul>';
 
             return tmpl;
+        }
+
+        function gotoSelectorPos(id){
+            var selector = id ? '#' + id : 'h1'
+            var scrollNum = $(selector).offset().top;
+            $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
         }
 
         function genIndex(){
@@ -100,11 +108,7 @@ jQuery(document).ready(function(){
                 
             $index.delegate('a','click',function(e){
                     e.preventDefault();
-
-                    var selector = $(this).attr('data-id') ? '#'+$(this).attr('data-id') : 'h1'
-                    var scrollNum = $(selector).offset().top;
-
-                    $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
+                    gotoSelectorPos($(this).attr('data-id'));
                 });
             $index.append($next.children());
             $next.remove();
@@ -186,6 +190,11 @@ jQuery(document).ready(function(){
                     $(window).trigger('scroll')
                     //$('#menuIndex').css('max-height',$(window).height()-80);
                 });
+                
+                if(/\#content-h/.test(location.hash)){
+                    gotoSelectorPos(contentMap[location.hash]);
+                }
+                
             })
 
             //用js计算屏幕的高度
