@@ -500,8 +500,7 @@ jQuery(document).ready(function(){
     contactTpl += addContactData("豆瓣","http://www.douban.com/people/tiankonguse/","http://www.douban.com/favicon.ico");
     contactTpl += addContactData("github","https://github.com/tiankonguse/","https://github.com/apple-touch-icon-114.png");
     $homeContact.append(contactTpl);
-    console.log(contactTpl, $homeContact);
-    $homeContact.click(function(e){
+    $(".home-follow").click(function(e){
         e.preventDefault();
         if($homeContact.is(':visible')){
             $homeContact.slideUp(100);
