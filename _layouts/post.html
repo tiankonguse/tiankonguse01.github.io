@@ -23,6 +23,16 @@ layout: default
 
 <div id="content">
     <div class="entry">
+      <div class="index-content">
+     	 <ul class="artical-cate">
+                <li><a href="/"><span>home</span></a></li>
+                <li style="text-align:center"><a href="/about"><span>About</span></a></li>
+                <li style="text-align:right"><a href="/resources"><span>Resources</span></a></li>
+            </ul>
+      <div class="cate-bar"><span id="cateBar" style="left: 0px; width: 58px;"></span></div>
+      </div>
+    </div>
+    <div class="entry">
         <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
         <p class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</p>
         <p><blockquote>{{page.description}}</blockquote></p>
