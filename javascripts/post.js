@@ -137,7 +137,7 @@ jQuery(document).ready(function(){
             };
         })();
 
-        if($('.entry h2').length > 0 && !isMobile.any() && !ie6){
+        if($('.entry h2').length > 0 &&  !ie6){
 
             genIndex();
 
