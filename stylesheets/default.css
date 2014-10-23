@@ -61,14 +61,23 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .sidenav ul { margin-bottom:50px; }
 .sidenav li { margin-bottom:12px; word-break: break-all;}
 .sidenav a { color:#555; font-size:14px; }
-.entry-page, .entry{margin-bottom:80px;width:940px; float:left; background:#fff; padding:30px; box-shadow:0 2px 6px #ccc; }
-.entry-page ul, .entry ul{margin-bottom:25px;margin-left:25px;}
-.entry-page p+ul, .entry p+ul {margin-top:-20px;}
-.entry-page ul li, .entry ul li{margin-bottom:5px;list-style:disc;line-height:1.8em;}
-.entry-page ol, .entry ol{margin-bottom:25px;margin-left:25px;}
-.entry-page ol li, .entry ol li{margin-bottom:5px;list-style:decimal;line-height:1.1em;}
-.entry-page blockquote, .entry blockquote{margin: 0 0 20px;padding: 10px 20px;margin-left:25px;font-size:14px;font-style:italic}
-.entry-page img, .entry img{max-width:670px;width: 100%;display:block;margin:10px auto;}
+.entry-page, .entry, .entry-header{margin-bottom:80px;width:940px; float:left; background:#fff; padding:30px; box-shadow:0 2px 6px #ccc; }
+.entry-page ul, .entry ul, .entry-header ul{margin-bottom:25px;margin-left:25px;}
+.entry-page p+ul, .entry p+ul, .entry-header p+ul{margin-top:-20px;}
+.entry-page ul li, .entry ul li, .entry-header ul li{margin-bottom:5px;list-style:disc;line-height:1.8em;}
+.entry-page ol, .entry ol, .entry-header ol{margin-bottom:25px;margin-left:25px;}
+.entry-page ol li, .entry ol li, .entry-header ol li{margin-bottom:5px;list-style:decimal;line-height:1.1em;}
+.entry-page blockquote, .entry blockquote, .entry-header blockquote{margin: 0 0 20px;padding: 10px 20px;margin-left:25px;font-size:14px;font-style:italic}
+.entry-page img, .entry img, .entry-header img{max-width:670px;width: 100%;display:block;margin:10px auto;}
+
+.entry-header{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.entry-header .cate-bar{
+    margin-bottom: 20px;
+}
 
 .entry-page{
     width: 1140px;
