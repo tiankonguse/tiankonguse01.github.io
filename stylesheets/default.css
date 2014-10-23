@@ -176,7 +176,6 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 }
 
 @media (max-width: 1020px){
-    #menuIndex {display:none;}
     .home-menu { position:absolute; }
     .index-content .cate-bar ,
     .index-content .artical-list,
