@@ -490,13 +490,22 @@ jQuery(document).ready(function(){
     //***********************
 
     // home follow
-    $('.home-follow').click(function(e){
+    var $homeContact = $('.home-contact');
+    function addContactData(name, href, img){
+        name = name || "";
+        return '<a href="'+href+'" target="_blank"><img src="'+img+'" alt="'+name+'"/></a>';
+    }
+    var contactTpl = "";
+    contactTpl += addContactData("新浪微博","http://weibo.com/tiankonguse/","http://www.weibo.com/favicon.ico");
+    contactTpl += addContactData("豆瓣","http://www.douban.com/people/tiankonguse/","http://www.douban.com/favicon.ico");
+    contactTpl += addContactData("github","https://github.com/tiankonguse/","https://github.com/apple-touch-icon-114.png");
+    $homeContact.append(contactTpl);
+    $homeContact.click(function(e){
         e.preventDefault();
-
-        if($('.home-contact').is(':visible')){
-            $('.home-contact').slideUp(100);
+        if($homeContact.is(':visible')){
+            $homeContact.slideUp(100);
         }else{
-            $('.home-contact').slideDown(100);
+            $homeContact.slideDown(100);
         }
     });
 
