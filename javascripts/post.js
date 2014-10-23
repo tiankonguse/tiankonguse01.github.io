@@ -93,7 +93,7 @@ jQuery(document).ready(function(){
 
                 if(h3[i]){
                     for(var j=0;j<h3[i].length;j++){
-                        tmpl += '<li class="h3"><a href="#content-h3-' + h3[i][j].name + 'data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
+                        tmpl += '<li class="h3"><a href="#content-h3-' + h3[i][j].name + '" data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
                     }
                 }
             }
