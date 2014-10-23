@@ -148,57 +148,61 @@ jQuery(document).ready(function(){
                 var top = $(selector).offset().top;
                 scrollTop.push(top);
             });
-
-            var menuIndexTop = $menuIndex.offset().top;
-            var menuIndexLeft = $menuIndex.offset().left;
-
-            $(window).scroll(function(){
-                waitForFinalEvent(function(){
-                    var nowTop = $(window).scrollTop();
-                    var length = scrollTop.length;
-                    var index;
-
-                    if(nowTop+20 > menuIndexTop){
-                        $menuIndex.css({
-                            position:'fixed'
-                            ,top:'20px'
-                            ,left:menuIndexLeft
-                        });
-                    }else{
-                        $menuIndex.css({
-                            position:'static'
-                            ,top:0
-                            ,left:0
-                        });
-                    }
-
-                    if(nowTop+60 > scrollTop[length-1]){
-                        index = length;
-                    }else{
-                        for(var i=0;i<length;i++){
-                            if(nowTop+60 <= scrollTop[i]){
-                                index = i;
-                                break;
+            
+            if(!isMobile.any()){
+                var menuIndexTop = $menuIndex.offset().top;
+                var menuIndexLeft = $menuIndex.offset().left;
+    
+                $(window).scroll(function(){
+                    waitForFinalEvent(function(){
+                        var nowTop = $(window).scrollTop();
+                        var length = scrollTop.length;
+                        var index;
+    
+                        if(nowTop+20 > menuIndexTop){
+                            $menuIndex.css({
+                                position:'fixed'
+                                ,top:'20px'
+                                ,left:menuIndexLeft
+                            });
+                        }else{
+                            $menuIndex.css({
+                                position:'static'
+                                ,top:0
+                                ,left:0
+                            });
+                        }
+    
+                        if(nowTop+60 > scrollTop[length-1]){
+                            index = length;
+                        }else{
+                            for(var i=0;i<length;i++){
+                                if(nowTop+60 <= scrollTop[i]){
+                                    index = i;
+                                    break;
+                                }
                             }
                         }
-                    }
-                    $('#menuIndex li').removeClass('on');
-                    $('#menuIndex li').eq(index-1).addClass('on');
+                        $('#menuIndex li').removeClass('on');
+                        $('#menuIndex li').eq(index-1).addClass('on');
+                    });
                 });
-            });
-
-            $(window).resize(function(){
-                $menuIndex.css({
-                    position:'static'
-                    ,top:0
-                    ,left:0
+    
+                $(window).resize(function(){
+                    $menuIndex.css({
+                        position:'static'
+                        ,top:0
+                        ,left:0
+                    });
+    
+                    menuIndexTop = $menuIndex.offset().top;
+                    menuIndexLeft = $menuIndex.offset().left;
+    
+                    $(window).trigger('scroll')
                 });
+            }
 
-                menuIndexTop = $menuIndex.offset().top;
-                menuIndexLeft = $menuIndex.offset().left;
 
-                $(window).trigger('scroll')
-            });
             
             if(/\#content-h/.test(location.hash)){
                 gotoSelectorPos(contentMap[location.hash]);
