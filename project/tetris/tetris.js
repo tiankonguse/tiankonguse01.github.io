@@ -581,8 +581,8 @@ if (!Array.prototype.remDup) {
         var one = parseInt(w * 0.07);
         var cw = one * 10;
         var ch = one * 20;
-        $("#canvas").css("width":cw+"px");
-        $("#canvas").css("height":ch+"px");
+        $("#canvas").css("width", cw+"px");
+        $("#canvas").css("height", ch+"px");
        
         tetris.init(cw, ch, one);
     }else{
