@@ -623,6 +623,10 @@ if (!Array.prototype.remDup) {
     if(tk.isMobile.any()){
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
+        if(w > 900){
+            w -= 600;
+            h -= 150;
+        }
         var one = parseInt(w * 0.7 / 10);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
