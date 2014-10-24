@@ -57,7 +57,7 @@ function showMessage(score) {
 jQuery(document).ready(function(){
      $message = $("#myModal");
     $("#game-fenxiang").click(function(){
-        var shareUrl = "http://github.tiankonguse.com/project/tetris/";
+        var shareUrl = "http://github.tiankonguse.com/project/tetris/#0-tsina-1-87453-397232819ff9a47a7b7e80a40613cfe1";
         var title = "俄罗斯方块我轻松达到"+nowScore+"分，你能打败我吗？快来挑战我吧？";
        
         var url = "http://service.weibo.com/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=4191660266&searchPic=false";
