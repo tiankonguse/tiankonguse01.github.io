@@ -656,7 +656,7 @@ if (!Array.prototype.remDup) {
         $("#info").css("height", ch +"px");
 
         $("#next_shape").css("padding-bottom", (one*3+10) + "px");
-        tetris.init(ch, cw, one, 2);
+        tetris.init(800, 400, 40, 2);
     }
 	
 })();
