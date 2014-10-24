@@ -234,6 +234,7 @@ if (!Array.prototype.remDup) {
 		handleKey : function(e) {
             if(this.isOver)return;
 			var c = this.whichKey(e);
+            console.log(c);
 			var dir = '';
 			switch (c) {
 				case 37 :
