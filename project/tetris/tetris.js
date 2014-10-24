@@ -74,6 +74,8 @@ if (!Array.prototype.remDup) {
             this.canvasWidth = w || 440;
             this.next_shap_pad = p || 2;
             
+            this.isMobile =  tk.isMobile.any();
+            
 			this.canvas = document.getElementById("canvas");
 			this.initBoard();
 			this.initInfo();
@@ -81,6 +83,7 @@ if (!Array.prototype.remDup) {
 			this.initShapes();
 			this.bindKeyEvents();
 			this.play();
+            
 		},
 		initBoard : function() {
 			this.boardHeight = this.canvasHeight / this.pSize;
@@ -222,7 +225,8 @@ if (!Array.prototype.remDup) {
 			if (this.isSafari() || this.isIE()) {
 				event = "keydown";
 			}
-            if(tk.isMobile.any()){
+            
+            if(this.isMobile){
                 this.addEvent("touchstart", function(event){
                     var touches = event.changedTouches || event.touches;
                     var touch = touches[0]; 
@@ -269,15 +273,28 @@ if (!Array.prototype.remDup) {
 			switch (c) {
 				case 37 :
 					this.move('L');
+                    if(this.isMobile){
+                        this.move('L');
+                    }
+					
 					break;
 				case 38 :
 					this.move('RT');
 					break;
 				case 39 :
 					this.move('R');
+                    if(this.isMobile){
+                        this.move('R');
+                    }
+					
 					break;
 				case 40 :
 					this.move('D');
+                    if(this.isMobile){
+                        this.move('D');
+                        this.move('D');
+                    }
+
 					break;
 				case 27 : // esc: pause
 					this.togglePause();
