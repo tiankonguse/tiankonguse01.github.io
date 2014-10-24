@@ -19,6 +19,13 @@ title : 俄罗斯方块游戏
         <p id="time">
             Time: <span></span>
         </p>
+        <p id="help">
+            左滑: <span>左</span>
+            右滑: <span>右</span>
+            下滑: <span>下</span>
+            上滑: <span>暂停/继续</span>
+            点击: <span>旋转</span>
+        </p>
     </div>
     <div id="canvas"></div>
 </div>
