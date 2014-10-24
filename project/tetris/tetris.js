@@ -620,7 +620,7 @@ if (!Array.prototype.remDup) {
         var one = parseInt(w * 0.07);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
-        $("#tetris").css("height", h+"px");
+        //$("#tetris").css("height", h+"px");
         $("#tetris").css("width", w+"px");
         
         $("#canvas").css("width", cw+"px");
