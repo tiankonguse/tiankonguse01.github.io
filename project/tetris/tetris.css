@@ -70,3 +70,16 @@ body {
 .type6 {
 	background-color: #F0F000;
 }
+
+@media screen and (max-width: 750px){
+    .right-ad{
+        display:none;
+    }
+    .left-ad{
+        display:none;
+    }
+    
+    .adsbygoogle{
+        display:none;
+    }
+}
