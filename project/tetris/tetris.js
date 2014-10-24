@@ -234,9 +234,10 @@ if (!Array.prototype.remDup) {
                     me.startY = touch.pageY;
                 });
                 this.addEvent("touchend", function(event){
+                    event.preventDefault();
                     var touch = event.touches[0]; 
-                    x = touch.pageX – me.startX;
-                    y = touch.pageY – me.startY;  
+                    var x = touch.pageX - me.startX;
+                    var y = touch.pageY - me.startY;  
                     console.log(x,y);
                     //me.handleKey(38);
                 });
