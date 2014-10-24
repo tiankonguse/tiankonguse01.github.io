@@ -273,9 +273,6 @@ if (!Array.prototype.remDup) {
 			switch (c) {
 				case 37 :
 					this.move('L');
-                    if(this.isMobile){
-                        this.move('L');
-                    }
 					
 					break;
 				case 38 :
@@ -283,17 +280,10 @@ if (!Array.prototype.remDup) {
 					break;
 				case 39 :
 					this.move('R');
-                    if(this.isMobile){
-                        this.move('R');
-                    }
 					
 					break;
 				case 40 :
 					this.move('D');
-                    if(this.isMobile){
-                        this.move('D');
-                        this.move('D');
-                    }
 
 					break;
 				case 27 : // esc: pause
