@@ -623,7 +623,7 @@ if (!Array.prototype.remDup) {
     if(tk.isMobile.any()){
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        var one = parseInt(w * 0.07);
+        var one = parseInt(w * 0.7 / 10);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
         //$("#tetris").css("height", h+"px");
@@ -643,7 +643,7 @@ if (!Array.prototype.remDup) {
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
         w -= 610;
         h -= 100;
-        var one = parseInt(w * 0.07);
+        var one = parseInt(w * 0.7 / 20);
         var cw = one * 20;
         var ch = one * parseInt(h/one);
         //$("#tetris").css("height", h+"px");
