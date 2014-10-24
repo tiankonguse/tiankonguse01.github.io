@@ -68,7 +68,8 @@ if (!Array.prototype.remDup) {
 		speed : 700,
 		lines : 0,
 
-		init : function(h,w) {
+		init : function(h,w, s) {
+            this.pSize = s || 40;
             this.canvasHeight = h || 880;
             this.canvasWidth = w || 440;
             
@@ -573,5 +574,19 @@ if (!Array.prototype.remDup) {
 		}
 
 	};
-	tetris.init(800, 400);
+    if(tk.isMobile.any()){
+        var doc = jQuery(document);
+        var w =  doc.width();
+        var h =  doc.height();
+        var one = parseInt(w * 0.07);
+        var cw = one * 10;
+        var ch = one * 20;
+        $("#canvas").css("width":cw+"px");
+        $("#canvas").css("height":ch+"px");
+       
+        tetris.init(cw, ch, one);
+    }else{
+        tetris.init(800, 400);
+    }
+	
 })();

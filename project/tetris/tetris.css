@@ -82,4 +82,31 @@ body {
     .adsbygoogle{
         display:none;
     }
+    
+    #tetris {
+        width: 100%;
+        border: 1px solid black;
+        padding: 0;
+        margin: 0;
+    }
+    #canvas {
+        background-color: #000;
+        position: relative;
+        color: #fff;
+    }
+    #next_shape {
+        position: relative;
+        background-color: #000;
+        border: 1px solid white;
+    }
+
+    #info {
+        background-color: #000;
+        color: #FF0000;
+        float: right;
+        width: auto;
+        padding: 10px;
+        font-size: 35px;
+    }
+
 }
