@@ -223,22 +223,40 @@ if (!Array.prototype.remDup) {
 				event = "keydown";
 			}
             if(tk.isMobile.any()){
-                event = "touchstart";
+                this.addEvent("touchstart", function(event){
+                    event.preventDefault();  
+  
+                    if (! event.touches.length) return;  
+                    
+                    var touch = event.touches[0]; 
+
+                    me.startX = touch.pageX;    
+                    me.startY = touch.pageY;
+                });
+                this.addEvent("touchend", function(event){
+                    var touch = event.touches[0], 
+                    x = touch.pageX – me.startX,  
+                    y = touch.pageY – me.startY;  
+                    console.log(x,y);
+                    //me.handleKey(38);
+                });
+                
             }
 
 			var cb = function(e) {
-				me.handleKey(e);
+				me.handleKey(this.whichKey(e));
 			};
+            this.addEvent(event, cb);
+		},
+        addEvent : function(event, cb){
 			if (window.addEventListener) {
 				document.addEventListener(event, cb, false);
 			} else {
 				document.attachEvent('on' + event, cb);
 			}
-		},
-		handleKey : function(e) {
+        },
+		handleKey : function(c) {
             if(this.isOver)return;
-			var c = this.whichKey(e);
-            console.log(e);
 			var dir = '';
 			switch (c) {
 				case 37 :
