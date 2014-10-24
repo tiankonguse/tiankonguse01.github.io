@@ -228,6 +228,7 @@ if (!Array.prototype.remDup) {
 			}
 		},
 		handleKey : function(e) {
+            if(this.isOver)return;
 			var c = this.whichKey(e);
 			var dir = '';
 			switch (c) {
@@ -299,11 +300,9 @@ if (!Array.prototype.remDup) {
 		},
 		gameOver : function() {
 			this.clearTimers();
-            var that = this;
+            this.isOver = 1;
             console.log("game over");
-            showMessage(this.score, function(){
-                that.clearTimers();
-            });
+            showMessage(this.score);
             
 		},
 		play : function() {
