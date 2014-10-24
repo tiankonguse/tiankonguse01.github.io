@@ -97,7 +97,7 @@ body {
         border: 1px solid black;
         padding: auto;
         margin: auto;
-        height: 100%;
+        height: auto;
     }
     #canvas {
         background-color: #000;
