@@ -21,9 +21,17 @@ title : 俄罗斯方块游戏
         </p>
         <p id="help">
             左滑: <span>左</span>
+        </p>
+        <p id="help">
             右滑: <span>右</span>
+        </p>
+        <p id="help">
             下滑: <span>下</span>
+        </p>
+        <p id="help">
             上滑: <span>暂停/继续</span>
+        </p>
+        <p id="help">
             点击: <span>旋转</span>
         </p>
     </div>
