@@ -22,6 +22,26 @@ title : 俄罗斯方块游戏
     </div>
     <div id="canvas"></div>
 </div>
+<div style="position: fixed;right: 10px;top: 200px;">
+<!-- 300 x 600 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-2326969899478823"
+     data-ad-slot="1758482399"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div style="position: fixed;left: 10px;top: 200px;">
+<!-- 300 x 600 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-2326969899478823"
+     data-ad-slot="1758482399"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 <script src="./tetris.js"></script>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
