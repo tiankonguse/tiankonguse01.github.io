@@ -304,10 +304,13 @@ if (!Array.prototype.remDup) {
 		},
 		gameOver : function() {
 			this.clearTimers();
+            var that = this;
             if(!this.isOver){
                 this.isOver = 1;
                 console.log("game over");
-                showMessage(this.score);
+                showMessage(this.score, function(){
+                    that.init();
+                });
             }
             
 		},
