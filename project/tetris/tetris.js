@@ -226,10 +226,9 @@ if (!Array.prototype.remDup) {
                 this.addEvent("touchstart", function(event){
                     console.log(event);
                     event.preventDefault();  
-  
-                    if (! event.touches.length) return;  
-                    
-                    var touch = event.touches[0]; 
+ 
+                    var touches = event.changedTouches || event.touches;
+                    var touch = touches[0]; 
 
                     me.startX = touch.pageX;    
                     me.startY = touch.pageY;
@@ -237,7 +236,8 @@ if (!Array.prototype.remDup) {
                 this.addEvent("touchend", function(event){
                     console.log(event);
                     event.preventDefault();
-                    var touch = event.touches[0]; 
+                    var touches = event.changedTouches || event.touches;
+                    var touch = touches[0];
                     var x = touch.pageX - me.startX;
                     var y = touch.pageY - me.startY;  
                     console.log(x,y);
