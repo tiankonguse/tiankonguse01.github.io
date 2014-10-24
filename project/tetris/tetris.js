@@ -235,7 +235,7 @@ if (!Array.prototype.remDup) {
                 });
                 this.addEvent("touchend", function(event){
                     var touch = event.touches[0]; 
-                    x = touch.pageX – me.startX,;
+                    x = touch.pageX – me.startX;
                     y = touch.pageY – me.startY;  
                     console.log(x,y);
                     //me.handleKey(38);
