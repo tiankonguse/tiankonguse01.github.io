@@ -627,7 +627,7 @@ if (!Array.prototype.remDup) {
         $("#canvas").css("height", ch+"px");
        
        $("#info").css("width", (w-cw)+"px");
-       $("#info").css("height", h+"px");
+       $("#info").css("height", ch +"px");
        
        $("#next_shape").css("padding-bottom", (one*3+10) + "px");
        
