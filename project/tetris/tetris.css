@@ -106,7 +106,10 @@ body {
         color: #FF0000;
         float: right;
         width: auto;
-        padding: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 0px;
+        margin-right: 0px;
         font-size: 15px;
         height: 100%;
     }
