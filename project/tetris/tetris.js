@@ -69,11 +69,6 @@ if (!Array.prototype.remDup) {
 		lines : 0,
 
 		init : function(h,w, s, p) {
-            $("#canvas").html("");
-            
-            this.speed = 700;
-            this.lines = 0;
-            
             this.pSize = s || 40;
             this.canvasHeight = h || 880;
             this.canvasWidth = w || 440;
