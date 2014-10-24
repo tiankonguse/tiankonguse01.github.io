@@ -73,8 +73,25 @@ body {
     display:none;
 }
 
-
+.right-ad{
+    position: fixed;
+    right: 10px;
+    top: 200px;
+}
+.left-ad{
+    position: fixed;
+    left: 10px;
+    top: 200px;
+}
 @media screen and (min-width: 751px) and (max-width: 1400px){
+
+    .right-ad{
+        top: 50px;
+    }
+    .left-ad{
+        top: 50px;
+    }
+
     #tetris {
         width: 100%;
         border: 1px solid black;
