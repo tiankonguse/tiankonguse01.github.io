@@ -255,7 +255,7 @@ if (!Array.prototype.remDup) {
                 });
             }else{
                 this.addEvent(event, function(e) {
-                    me.handleKey(this.whichKey(e));
+                    me.handleKey(me.whichKey(e));
                 });
             }
             
