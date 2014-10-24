@@ -99,22 +99,14 @@ body {
         margin: auto;
         height: auto;
     }
-    #canvas {
-        background-color: #000;
-        position: relative;
-        color: #fff;
-    }
     #next_shape {
         position: relative;
-        background-color: #000;
         border: 1px solid white;
         width: auto;
         height: auto;
     }
 
     #info {
-        background-color: #000;
-        color: #FF0000;
         float: right;
         width: auto;
         padding-top: 10px;
@@ -153,22 +145,14 @@ body {
         margin: 0;
         height: 100%;
     }
-    #canvas {
-        background-color: #000;
-        position: relative;
-        color: #fff;
-    }
     #next_shape {
         position: relative;
-        background-color: #000;
         border: 1px solid white;
         width: auto;
         height: auto;
     }
 
     #info {
-        background-color: #000;
-        color: #FF0000;
         float: right;
         width: auto;
         padding-top: 10px;
