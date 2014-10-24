@@ -303,8 +303,8 @@ if (!Array.prototype.remDup) {
 		},
 		gameOver : function() {
 			this.clearTimers();
-            this.isOver = 1;
             if(!this.isOver){
+                this.isOver = 1;
                 console.log("game over");
                 showMessage(this.score);
             }
