@@ -649,13 +649,13 @@ if (!Array.prototype.remDup) {
         //$("#tetris").css("height", h+"px");
         $("#tetris").css("width", w+"px");
 
-        $("#canvas").css("width", cw+"px");
-        $("#canvas").css("height", ch+"px");
+        //$("#canvas").css("width", cw+"px");
+        //$("#canvas").css("height", ch+"px");
 
-        $("#info").css("width", (w-cw)+"px");
-        $("#info").css("height", ch +"px");
+        //$("#info").css("width", (w-cw)+"px");
+        //$("#info").css("height", ch +"px");
 
-        $("#next_shape").css("padding-bottom", (one*3+10) + "px");
+        //$("#next_shape").css("padding-bottom", (one*3+10) + "px");
         tetris.init(800, 400, 40, 2);
     }
 	
