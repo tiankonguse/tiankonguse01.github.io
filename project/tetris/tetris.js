@@ -580,8 +580,8 @@ if (!Array.prototype.remDup) {
 	};
     if(tk.isMobile.any()){
         var doc = jQuery(document);
-        var w =  doc.width();
-        var h =  doc.height();
+        var w =  screen.width;
+        var h =  screen.height;
         var one = parseInt(w * 0.07);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
