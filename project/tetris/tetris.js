@@ -224,6 +224,7 @@ if (!Array.prototype.remDup) {
 			}
             if(tk.isMobile.any()){
                 this.addEvent("touchstart", function(event){
+                    console.log(event);
                     event.preventDefault();  
   
                     if (! event.touches.length) return;  
@@ -234,6 +235,7 @@ if (!Array.prototype.remDup) {
                     me.startY = touch.pageY;
                 });
                 this.addEvent("touchend", function(event){
+                    console.log(event);
                     event.preventDefault();
                     var touch = event.touches[0]; 
                     var x = touch.pageX - me.startX;
@@ -241,13 +243,12 @@ if (!Array.prototype.remDup) {
                     console.log(x,y);
                     //me.handleKey(38);
                 });
-                
+            }else{
+                this.addEvent(event, function(e) {
+                    me.handleKey(this.whichKey(e));
+                });
             }
-
-			var cb = function(e) {
-				me.handleKey(this.whichKey(e));
-			};
-            this.addEvent(event, cb);
+            
 		},
         addEvent : function(event, cb){
 			if (window.addEventListener) {
