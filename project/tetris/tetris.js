@@ -237,8 +237,8 @@ if (!Array.prototype.remDup) {
 		handleKey : function(e) {
             if(this.isOver)return;
 			var c = this.whichKey(e);
-            if(!t){
-                t=e;
+            if(!tk.t){
+                tk.t=e;
             }
 			var dir = '';
 			switch (c) {
