@@ -647,7 +647,7 @@ if (!Array.prototype.remDup) {
         var cw = one * 15;
         var ch = one * parseInt(h/one);
         //$("#tetris").css("height", h+"px");
-        $("#tetris").css("width", w+"px");
+        //$("#tetris").css("width", w+"px");
 
         //$("#canvas").css("width", cw+"px");
         //$("#canvas").css("height", ch+"px");
