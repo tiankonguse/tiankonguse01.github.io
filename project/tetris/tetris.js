@@ -456,7 +456,6 @@ if (!Array.prototype.remDup) {
 			var start = this.boardHeight;
 			this.curShape.eachdo(function() {
 				var n = this[1] + me.curY;
-				console.log(n);
 				if (n < start) {
 					start = n;
 				}
