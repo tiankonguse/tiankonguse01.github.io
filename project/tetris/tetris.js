@@ -299,7 +299,7 @@ if (!Array.prototype.remDup) {
 		},
 		gameOver : function() {
 			this.clearTimers();
-			//this.canvas.innerHTML = "<h1>GAME OVER</h1>";
+            showMessage(this.score);
 		},
 		play : function() {
 			var me = this;
