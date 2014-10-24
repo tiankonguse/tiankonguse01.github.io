@@ -65,19 +65,13 @@ title : 俄罗斯方块游戏
 </div>
 
 <script>
-var nowScore;
-var $message
 function showMessage(score) {
-    nowScore = score;
-   
+    var $message = $("#myModal");
     $message.find(".modal-body>p").text("恭喜你，获得了" + score + "高分，微博分享给好友？");
     var shareUrl = "http://github.tiankonguse.com/project/tetris/";
-    var title = "俄罗斯方块我轻松达到"+nowScore+"分，你能打败我吗？快来挑战我吧？";
+    var title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
     var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";
     $("#game-fenxiang").attr("href", url);
     $message.modal("show");
 }
-
-    
-    
 </script>
