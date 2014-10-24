@@ -12,7 +12,7 @@ body {
 
 #canvas {
 	width: 400px;
-	height: 880px;
+	height: 800px;
 	background-color: #000;
 	position: relative;
 	color: #fff;
@@ -31,7 +31,7 @@ body {
 	color: #FF0000;
 	float: right;
 	width: 260px;
-	height: 860px;
+	height: 780px;
 	padding: 10px 20px;
 	font-size: 35px;
 }

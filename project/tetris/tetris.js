@@ -68,7 +68,10 @@ if (!Array.prototype.remDup) {
 		speed : 700,
 		lines : 0,
 
-		init : function() {
+		init : function(h,w) {
+            this.canvasHeight = h || 880;
+            this.canvasWidth = w || 440;
+            
 			this.canvas = document.getElementById("canvas");
 			this.initBoard();
 			this.initInfo();
@@ -568,5 +571,5 @@ if (!Array.prototype.remDup) {
 		}
 
 	};
-	tetris.init();
+	tetris.init(800, 400);
 })();
