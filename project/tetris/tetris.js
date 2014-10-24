@@ -642,7 +642,7 @@ if (!Array.prototype.remDup) {
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
         w -= 900;
-        h -= 100;
+        h -= 200;
         var one = parseInt(w * 0.7 / 15);
         var cw = one * 15;
         var ch = one * parseInt(h/one);
