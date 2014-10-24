@@ -623,7 +623,7 @@ if (!Array.prototype.remDup) {
     if(tk.isMobile.any()){
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        var num;
+        var num = 10;
         if(w > 754){
             $(".right-ad,.left-ad").hide();
             w -= 500;
