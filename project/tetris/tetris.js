@@ -225,6 +225,7 @@ if (!Array.prototype.remDup) {
             if(tk.isMobile.any()){
                 event = "touchstart";
             }
+
 			var cb = function(e) {
 				me.handleKey(e);
 			};
@@ -237,9 +238,7 @@ if (!Array.prototype.remDup) {
 		handleKey : function(e) {
             if(this.isOver)return;
 			var c = this.whichKey(e);
-            if(!tk.t){
-                tk.t=e;
-            }
+            console.log(e);
 			var dir = '';
 			switch (c) {
 				case 37 :
