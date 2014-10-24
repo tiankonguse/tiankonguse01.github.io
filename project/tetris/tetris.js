@@ -68,10 +68,11 @@ if (!Array.prototype.remDup) {
 		speed : 700,
 		lines : 0,
 
-		init : function(h,w, s) {
+		init : function(h,w, s, p) {
             this.pSize = s || 40;
             this.canvasHeight = h || 880;
             this.canvasWidth = w || 440;
+            this.next_shap_pad = p || 2;
             
 			this.canvas = document.getElementById("canvas");
 			this.initBoard();
@@ -176,8 +177,8 @@ if (!Array.prototype.remDup) {
 		drawNextShape : function() {
 			var ns = [];
 			for (var i = 0; i < this.nextShape.length; i++) {
-				ns[i] = this.createSquare(this.nextShape[i][0] + 1,
-						this.nextShape[i][1] + 1, this.nextShapeIndex);
+				ns[i] = this.createSquare(this.nextShape[i][0] + this.next_shap_pad,
+						this.nextShape[i][1] + this.next_shap_pad, this.nextShapeIndex);
 			}
 			this.nextShapeDisplay.innerHTML = '';
 			for (var k = 0; k < ns.length; k++) {
@@ -596,7 +597,7 @@ if (!Array.prototype.remDup) {
        
        $("#next_shape").css("padding-bottom", (one*3+10) + "px");
        
-        tetris.init(ch, cw, one);
+        tetris.init(ch, cw, one, 1);
     }else{
         tetris.init(800, 400);
     }
