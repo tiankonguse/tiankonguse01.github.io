@@ -224,9 +224,6 @@ if (!Array.prototype.remDup) {
 			}
             if(tk.isMobile.any()){
                 this.addEvent("touchstart", function(event){
-                    console.log(event);
-                    event.preventDefault();  
- 
                     var touches = event.changedTouches || event.touches;
                     var touch = touches[0]; 
 
@@ -234,14 +231,23 @@ if (!Array.prototype.remDup) {
                     me.startY = touch.pageY;
                 });
                 this.addEvent("touchend", function(event){
-                    console.log(event);
                     event.preventDefault();
                     var touches = event.changedTouches || event.touches;
                     var touch = touches[0];
                     var x = touch.pageX - me.startX;
                     var y = touch.pageY - me.startY;  
-                    console.log(x,y);
-                    //me.handleKey(38);
+                    
+                    if(x > 20){//右
+                        me.handleKey(39);
+                    }else if(x < -20){//左
+                        me.handleKey(37);
+                    }else if(y > 20){
+                        me.handleKey(40);
+                    }else if(y < -10){
+                        me.handleKey(27);
+                    }else{
+                        me.handleKey(38);
+                    }
                 });
             }else{
                 this.addEvent(event, function(e) {
