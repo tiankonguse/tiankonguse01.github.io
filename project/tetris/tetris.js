@@ -641,10 +641,10 @@ if (!Array.prototype.remDup) {
     }else{
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        w -= 800;
+        w -= 900;
         h -= 100;
-        var one = parseInt(w * 0.7 / 20);
-        var cw = one * 20;
+        var one = parseInt(w * 0.7 / 15);
+        var cw = one * 15;
         var ch = one * parseInt(h/one);
         //$("#tetris").css("height", h+"px");
         $("#tetris").css("width", w+"px");
