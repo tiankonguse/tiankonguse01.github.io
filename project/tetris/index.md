@@ -55,7 +55,10 @@ function showMessage(score) {
 
 jQuery(document).ready(function(){
     $("#game-fenxiang").click(function(){
-        var url = "http://service.weibo.com/share/share.php?url=http://github.tiankonguse.com/project/tetris/&title=%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97%E6%88%91%E8%BD%BB%E6%9D%BE%E8%BE%BE%E5%88%B"+nowScore+"%E5%88%86%EF%BC%8C%E4%BD%A0%E8%83%BD%E6%89%93%E8%B4%A5%E6%88%91%E5%90%97%EF%BC%9F%E5%BF%AB%E6%9D%A5%E6%8C%91%E6%88%98%E6%88%91%E5%90%A7%EF%BC%9F&appkey=4191660266&searchPic=false";
+        var shareUrl = "http://github.tiankonguse.com/project/tetris/";
+        var title = "俄罗斯方块我轻松达到"+nowScore+"分，你能打败我吗？快来挑战我吧？";
+       
+        var url = "http://service.weibo.com/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=4191660266&searchPic=false";
         window.open(url, 'newwindow', 'height=100, width=400, top=0,left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')
     });
 });
