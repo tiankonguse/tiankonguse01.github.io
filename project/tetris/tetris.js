@@ -69,7 +69,11 @@ if (!Array.prototype.remDup) {
 		lines : 0,
 
 		init : function(h,w, s, p) {
-            $("#canvas").children().remove();
+            $("#canvas").html("");
+            
+            this.speed = 700;
+            this.lines = 0;
+            
             this.pSize = s || 40;
             this.canvasHeight = h || 880;
             this.canvasWidth = w || 440;
@@ -310,7 +314,7 @@ if (!Array.prototype.remDup) {
                 this.isOver = 1;
                 console.log("game over");
                 showMessage(this.score, function(){
-                    that.init();
+                    location.href = location.href;
                 });
             }
             
