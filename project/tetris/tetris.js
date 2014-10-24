@@ -241,13 +241,13 @@ if (!Array.prototype.remDup) {
                     var x = touch.pageX - me.startX;
                     var y = touch.pageY - me.startY;  
                     
-                    if(x > 20){//右
+                    if(x > 50){//右
                         me.handleKey(39);
-                    }else if(x < -20){//左
+                    }else if(x < -50){//左
                         me.handleKey(37);
-                    }else if(y > 20){
+                    }else if(y > 50){
                         me.handleKey(40);
-                    }else if(y < -10){
+                    }else if(y < -50){
                         me.handleKey(27);
                     }else{
                         me.handleKey(38);
