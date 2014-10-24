@@ -37,7 +37,7 @@ title : 俄罗斯方块游戏
     <p></p>
     </div>
     <div class="modal-footer">
-		<button type="button" class="btn btn-success" id="game-fenxiang" data-dismiss="modal">分享</button>
+		<button type="button" class="btn btn-success" id="game-fenxiang">分享</button>
 		<button type="button" class="btn btn-danger " data-dismiss="modal">不分享了</button>
 		</div>
     </div>
@@ -46,14 +46,16 @@ title : 俄罗斯方块游戏
 
 <script>
 var nowScore;
+var $message
 function showMessage(score) {
     nowScore = score;
-    $message = $("#myModal");
+   
     $message.find(".modal-body>p").text("恭喜你，获得了" + score + "高分，微博分享给好友？");
     $message.modal("show");
 }
 
 jQuery(document).ready(function(){
+     $message = $("#myModal");
     $("#game-fenxiang").click(function(){
         var shareUrl = "http://github.tiankonguse.com/project/tetris/";
         var title = "俄罗斯方块我轻松达到"+nowScore+"分，你能打败我吗？快来挑战我吧？";

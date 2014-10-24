@@ -299,7 +299,12 @@ if (!Array.prototype.remDup) {
 		},
 		gameOver : function() {
 			this.clearTimers();
-            showMessage(this.score);
+            var that = this;
+            console.log("game over");
+            showMessage(this.score, function(){
+                that.clearTimers();
+            });
+            
 		},
 		play : function() {
 			var me = this;
@@ -457,7 +462,6 @@ if (!Array.prototype.remDup) {
 					start = n;
 				}
 			});
-			console.log(start);
 
 			var c = 0;
 			var stopCheck = false;
