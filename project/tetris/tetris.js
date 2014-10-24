@@ -588,7 +588,7 @@ if (!Array.prototype.remDup) {
         $("#canvas").css("width", cw+"px");
         $("#canvas").css("height", ch+"px");
        
-        tetris.init(cw, ch, one);
+        tetris.init(ch, cw, one);
     }else{
         tetris.init(800, 400);
     }
