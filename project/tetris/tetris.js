@@ -621,9 +621,8 @@ if (!Array.prototype.remDup) {
 
 	};
     if(tk.isMobile.any()){
-        var doc = jQuery(document);
-        var w =  $(window).width();
-        var h =  $(window).height();
+        var w =  tk.min($(window).width(), screen.width, screen.availWidth);
+        var h =  tk.min($(window).height(), screen.height, screen.availHeight);
         var one = parseInt(w * 0.07);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
