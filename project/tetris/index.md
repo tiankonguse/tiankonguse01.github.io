@@ -57,7 +57,7 @@ title : 俄罗斯方块游戏
     <p></p>
     </div>
     <div class="modal-footer">
-        <a href="" class="btn btn-success"  id="game-fenxiang" target="_blank">分享</a>
+        <a href="" class="btn btn-success"  id="game-fenxiang" target="_blank" data-dismiss="modal">分享</a>
 		<button type="button" class="btn btn-danger " data-dismiss="modal">不分享了</button>
 		</div>
     </div>
@@ -78,19 +78,6 @@ function showMessage(score) {
     $message.modal("show");
 }
 
-jQuery(document).ready(function(){
-     $message = $("#myModal");
-    $("#game-fenxiang1").click(function(){
-        //#0-tsina-1-87453-397232819ff9a47a7b7e80a40613cfe1
-        var shareUrl = "http://github.tiankonguse.com/project/tetris/";
-        var title = "俄罗斯方块我轻松达到"+nowScore+"分，你能打败我吗？快来挑战我吧？";
-       document.title = title;
-       //appkey 4191660266
-       //http://v.t.sina.com.cn/share/share.php
-        var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";
-        window.open(url, 'newwindow', 'height=100, width=400, top=0,left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
-    });
-});
     
     
 </script>
