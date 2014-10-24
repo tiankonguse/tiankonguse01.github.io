@@ -13,9 +13,9 @@ body {
 #canvas {
 	width: 400px;
 	height: 800px;
-	background-color: #000;
+	background-color: #545151;
 	position: relative;
-	color: #545151;
+	color: #fff;
 }
 
 #next_shape {
