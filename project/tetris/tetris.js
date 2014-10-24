@@ -623,12 +623,15 @@ if (!Array.prototype.remDup) {
     if(tk.isMobile.any()){
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        if(w > 900){
-            w -= 600;
+        var num;
+        if(w > 754){
+            $(".right-ad,.left-ad").hide();
+            w -= 500;
             h -= 150;
+            num = 15;
         }
-        var one = parseInt(w * 0.7 / 10);
-        var cw = one * 10;
+        var one = parseInt(w * 0.7 / num);
+        var cw = one * num;
         var ch = one * parseInt(h/one);
         //$("#tetris").css("height", h+"px");
         $("#tetris").css("width", w+"px");
