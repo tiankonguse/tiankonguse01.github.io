@@ -78,8 +78,8 @@ body {
     #tetris {
         width: 100%;
         border: 1px solid black;
-        padding: 0;
-        margin: 0;
+        padding: auto;
+        margin: auto;
         height: 100%;
     }
     #canvas {
