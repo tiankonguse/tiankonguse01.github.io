@@ -584,7 +584,7 @@ if (!Array.prototype.remDup) {
         var h =  doc.height();
         var one = parseInt(w * 0.07);
         var cw = one * 10;
-        var ch = one * 20;
+        var ch = one * parseInt(h/one);
         $("#canvas").css("width", cw+"px");
         $("#canvas").css("height", ch+"px");
        
