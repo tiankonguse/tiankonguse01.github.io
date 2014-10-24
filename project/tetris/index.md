@@ -49,7 +49,7 @@ var nowScore;
 function showMessage(score) {
     nowScore = score;
     $message = $("#myModal");
-    $message.find(".modal-body>p").text("恭喜你，获得了" + score "高分，微博分享给好友？");
+    $message.find(".modal-body>p").text("恭喜你，获得了" + score + "高分，微博分享给好友？");
     $message.modal("show");
 }
 
