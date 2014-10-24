@@ -222,6 +222,9 @@ if (!Array.prototype.remDup) {
 			if (this.isSafari() || this.isIE()) {
 				event = "keydown";
 			}
+            if(tk.isMobile.any()){
+                event = "touchstart";
+            }
 			var cb = function(e) {
 				me.handleKey(e);
 			};
@@ -234,7 +237,9 @@ if (!Array.prototype.remDup) {
 		handleKey : function(e) {
             if(this.isOver)return;
 			var c = this.whichKey(e);
-            t=e;
+            if(!t){
+                t=e;
+            }
 			var dir = '';
 			switch (c) {
 				case 37 :
