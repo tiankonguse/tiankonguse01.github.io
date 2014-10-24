@@ -176,8 +176,8 @@ if (!Array.prototype.remDup) {
 		drawNextShape : function() {
 			var ns = [];
 			for (var i = 0; i < this.nextShape.length; i++) {
-				ns[i] = this.createSquare(this.nextShape[i][0] + 2,
-						this.nextShape[i][1] + 2, this.nextShapeIndex);
+				ns[i] = this.createSquare(this.nextShape[i][0] + 1,
+						this.nextShape[i][1] + 1, this.nextShapeIndex);
 			}
 			this.nextShapeDisplay.innerHTML = '';
 			for (var k = 0; k < ns.length; k++) {
@@ -585,8 +585,16 @@ if (!Array.prototype.remDup) {
         var one = parseInt(w * 0.07);
         var cw = one * 10;
         var ch = one * parseInt(h/one);
+        $("#tetris").css("height", h+"px");
+        $("#tetris").css("width", w+"px");
+        
         $("#canvas").css("width", cw+"px");
         $("#canvas").css("height", ch+"px");
+       
+       $("#info").css("width", (w-cw)+"px");
+       $("#info").css("height", h+"px");
+       
+       $("#next_shape").css("padding-bottom", (one*3+10) + "px");
        
         tetris.init(ch, cw, one);
     }else{

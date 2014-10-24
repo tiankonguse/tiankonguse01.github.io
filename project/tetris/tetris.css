@@ -107,8 +107,10 @@ body {
         float: right;
         width: auto;
         padding: 10px;
-        font-size: 35px;
+        font-size: 15px;
         height: 100%;
     }
-
+    p {
+        margin-bottom: 10px;
+    }
 }
