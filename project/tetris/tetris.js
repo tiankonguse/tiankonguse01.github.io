@@ -200,6 +200,8 @@ if (!Array.prototype.remDup) {
 			el.className = 'square type' + type;
 			el.style.left = x * this.pSize + 'px';
 			el.style.top = y * this.pSize + 'px';
+			el.style.width =  this.pSize + 'px';
+            el.style.height = this.pSize + "px";
 			return el;
 		},
 		removeCur : function() {

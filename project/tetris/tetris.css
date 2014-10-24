@@ -38,8 +38,6 @@ body {
 
 .square {
 	position: absolute;
-	width: 38px;
-	height: 38px;
 	border: 1px solid white;
 }
 
