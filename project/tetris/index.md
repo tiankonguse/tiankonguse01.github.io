@@ -3,7 +3,6 @@ layout: default
 title : 俄罗斯方块游戏
 ---
 
-<body>
 <link rel="stylesheet" href="./tetris.css" type="text/css" />
 <div id="tetris">
     <div id="info">
@@ -24,5 +23,4 @@ title : 俄罗斯方块游戏
     <div id="canvas"></div>
 </div>
 <script src="./tetris.js"></script>
-
 
