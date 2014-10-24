@@ -73,6 +73,45 @@ body {
     display:none;
 }
 
+
+@media screen and (min-width: 751px) and (max-width: 1400px){
+    #tetris {
+        width: 100%;
+        border: 1px solid black;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    #canvas {
+        background-color: #000;
+        position: relative;
+        color: #fff;
+    }
+    #next_shape {
+        position: relative;
+        background-color: #000;
+        border: 1px solid white;
+        width: auto;
+        height: auto;
+    }
+
+    #info {
+        background-color: #000;
+        color: #FF0000;
+        float: right;
+        width: auto;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 0px;
+        margin-right: 0px;
+        font-size: 15px;
+        height: 100%;
+    }
+    p {
+        margin-bottom: 10px;
+    }
+}
+
 @media screen and (max-width: 750px){
 
     #help{
