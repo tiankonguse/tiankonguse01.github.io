@@ -648,22 +648,32 @@ if (!Array.prototype.remDup) {
     }else{
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        w -= 900;
-        h -= 200;
-        var one = parseInt(w * 0.7 / 15);
-        var cw = one * 15;
-        var ch = one * parseInt(h/one);
-        //$("#tetris").css("height", h+"px");
-        //$("#tetris").css("width", w+"px");
+        
+        if(w < 1400){
+            w -= 700;
+            h -= 150;
+            var one = parseInt(w * 0.7 / 10);
+            var cw = one * 10;
+            var ch = one * parseInt(h/one);
+            
+            $("#tetris").css("height", h+"px");
+            $("#tetris").css("width", w+"px");
 
-        //$("#canvas").css("width", cw+"px");
-        //$("#canvas").css("height", ch+"px");
+            $("#canvas").css("width", cw+"px");
+            $("#canvas").css("height", ch+"px");
 
-        //$("#info").css("width", (w-cw)+"px");
-        //$("#info").css("height", ch +"px");
+            $("#info").css("width", (w-cw)+"px");
+            $("#info").css("height", ch +"px");
 
-        //$("#next_shape").css("padding-bottom", (one*3+10) + "px");
-        tetris.init(800, 400, 40, 2);
+            $("#next_shape").css("padding-bottom", (one*3+10) + "px");
+            
+            tetris.init(cw, ch, one, 1);
+        }else{
+            tetris.init(800, 400, 40, 2);
+        }
+
+
+        
     }
 	
 })();
