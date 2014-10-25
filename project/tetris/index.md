@@ -80,16 +80,41 @@ title : 俄罗斯方块游戏
 </div>
 
 <script>
+var isWeiXin = false;
+var shareUrl;
+var title;
 function showMessage(score, cb) {
     var $message = $("#myModal");
-    $message.find(".modal-body>p").text("恭喜你，获得了" + score + "高分，微博分享给好友？");
-    var shareUrl = "http://github.tiankonguse.com/project/tetris/";
-    var title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
-    var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";
-    $("#game-fenxiang").attr("href", url);
+    var bodyText, url;
+    
+    shareUrl = "http://github.tiankonguse.com/project/tetris/";
+    title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
+    
+    if(typeof WeixinJSBridge == 'undefined'){
+        
+        bodyText = "恭喜你，获得了" + score + "高分，微博分享给好友？";
+        var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";
+        $("#game-fenxiang").attr("href", url);
+    }else{
+        isWeiXin = true;
+        bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
+        
+    }
+    $message.find(".modal-body>p").text(bodyText);
     $message.modal("show");
     if (cb) {
 		$message.on("hidden.bs.modal", cb);
     }
 }
+$("#game-fenxiang").click(function(){
+    if(isWeiXin){
+         WeixinJSBridge.invoke('shareTimeline', {
+            'img_url': '', 
+            'link': shareUrl,
+            'desc': title,
+            'title': "经典小游戏 俄罗斯方块"
+        });
+    }
+    return true;
+});
 </script>
