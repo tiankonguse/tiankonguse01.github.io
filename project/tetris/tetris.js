@@ -67,7 +67,6 @@ if (!Array.prototype.remDup) {
 		sTimer : null,
 		speed : 700,
 		lines : 0,
-        isDown : false,
 
 		init : function(h,w, s, p) {
             this.pSize = s || 40;
@@ -285,7 +284,6 @@ if (!Array.prototype.remDup) {
 					break;
 				case 40 :
 					this.move('D');
-                    this.isDown  = true;
 					break;
 				case 27 : // esc: pause
 					this.togglePause();
@@ -361,7 +359,6 @@ if (!Array.prototype.remDup) {
 			var gameLoop = function() {
 				me.move('D');
 				if (me.curComplete) {
-                    this.isDown = false;
 					me.markBoardShape(me.curX, me.curY, me.curShape);
 					me.curSqs.eachdo(function() {
 						me.sqs.push(this);
@@ -413,11 +410,7 @@ if (!Array.prototype.remDup) {
 					break;
 				case 'D' :
 					s = 'top';
-                    if(this.isDown){
-                        tempY += 1*3;
-                    }else{
-                        tempY += 1;
-                    }
+                    tempY += 1;
 					
 					break;
 				case 'RT' :
