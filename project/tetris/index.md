@@ -121,6 +121,7 @@ function shareTimeline(){
         'desc': winxin_title,
         'title': "经典小游戏 俄罗斯方块"
     },function(res) {
+        alert(tk.json.stringify(res));
     });
 }
 
