@@ -115,7 +115,7 @@ function shareTimeline(){
         "img_url": winxin_shareUrl,
         'link': winxin_shareUrl + "?_t=" + tk.time(),
         'desc': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？",
-        'title': winxin_title
+        'title': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？"
     },function(res) {
     });
 }
