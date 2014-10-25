@@ -111,17 +111,18 @@ function showMessage(score, cb) {
 
 function shareTimeline(){
     WeixinJSBridge.invoke('shareTimeline', {
+        "img_url": winxin_shareUrl,
         'link': winxin_shareUrl + "?_t=" + tk.time(),
         'desc': winxin_title,
         'title': "经典小游戏 俄罗斯方块"
     },function(res) {
-        alert(tk.json.stringify(res));
     });
 }
 
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
     WeixinJSBridge.on('menu:share:timeline', function(argv){
         shareTimeline();
+        return false;
     });
 }, false);
 
