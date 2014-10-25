@@ -1,6 +1,6 @@
 ---
 layout: default
-title : 俄罗斯方块游戏
+title : 俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？
 ---
 
 <link rel="stylesheet" href="./tetris.css" type="text/css" />
@@ -82,7 +82,8 @@ title : 俄罗斯方块游戏
 <script>
 var isWeiXin = false;
 var winxin_shareUrl = "http://github.tiankonguse.com/project/tetris/";
-var winxin_title = "俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？";;
+var winxin_title = "俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？";
+var winxin_score = "很高";
 function showMessage(score, cb) {
     var $message = $("#myModal");
     var bodyText, url;
@@ -97,6 +98,7 @@ function showMessage(score, cb) {
     }else{
         $("#game-fenxiang").hide();
         isWeiXin = true;
+        winxin_score = score;
         winxin_shareUrl = shareUrl;
         winxin_title = title;
         bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
@@ -113,7 +115,7 @@ function shareTimeline(){
     WeixinJSBridge.invoke('shareTimeline', {
         "img_url": winxin_shareUrl,
         'link': winxin_shareUrl + "?_t=" + tk.time(),
-        'desc': winxin_title,
+        'desc': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？",
         'title': "经典小游戏 俄罗斯方块"
     },function(res) {
     });
