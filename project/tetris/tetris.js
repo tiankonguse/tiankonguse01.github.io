@@ -285,7 +285,7 @@ if (!Array.prototype.remDup) {
 					break;
 				case 40 :
 					this.move('D');
-
+                    this.isDown  = true;
 					break;
 				case 27 : // esc: pause
 					this.togglePause();
