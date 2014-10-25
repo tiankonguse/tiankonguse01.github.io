@@ -117,7 +117,7 @@ $("#game-weixin-fenxiang").click(function(){
         'desc': winxin_title,
         'title': "经典小游戏 俄罗斯方块"
     },function(res) {
-        alert(res);
+        alert(res, res.err_msg);
     });
     return true;
 });
