@@ -82,8 +82,8 @@ title : 俄罗斯方块游戏
 
 <script>
 var isWeiXin = false;
-var winxin_shareUrl;
-var winxin_title;
+var winxin_shareUrl = "http://github.tiankonguse.com/project/tetris/";;
+var winxin_title = "俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？";;
 function showMessage(score, cb) {
     var $message = $("#myModal");
     var bodyText, url;
@@ -111,6 +111,11 @@ function showMessage(score, cb) {
     }
 }
 $("#game-weixin-fenxiang").click(function(){
+    shareTimeline();
+    return true;
+});
+
+function shareTimeline(){
     WeixinJSBridge.invoke('shareTimeline', {
         'img_url': '', 
         'link': winxin_shareUrl,
@@ -119,6 +124,12 @@ $("#game-weixin-fenxiang").click(function(){
     },function(res) {
         alert(res, res.err_msg);
     });
-    return true;
-});
+}
+
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.on('menu:share:timeline', function(argv){
+        shareTimeline();
+    });
+}, false);
+
 </script>
