@@ -73,7 +73,7 @@ title : 俄罗斯方块游戏
     </div>
     <div class="modal-footer">
         <a href="" class="btn btn-success"  id="game-fenxiang" target="_blank" >分享</a>
-		<button type="button" class="btn btn-success " data-dismiss="modal" id="game-weixin-fenxiang">朋友圈分享</button>
+		<button type="button" class="btn btn-success " id="game-weixin-fenxiang">朋友圈分享</button>
 		<button type="button" class="btn btn-danger " data-dismiss="modal">重玩</button>
 		</div>
     </div>
