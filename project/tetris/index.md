@@ -81,14 +81,14 @@ title : 俄罗斯方块游戏
 
 <script>
 var isWeiXin = false;
-var shareUrl;
-var title;
+var winxin_shareUrl;
+var winxin_title;
 function showMessage(score, cb) {
     var $message = $("#myModal");
     var bodyText, url;
     
-    shareUrl = "http://github.tiankonguse.com/project/tetris/";
-    title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
+    var shareUrl = "http://github.tiankonguse.com/project/tetris/";
+    var title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
     
     if(typeof WeixinJSBridge == 'undefined'){
         
@@ -97,6 +97,8 @@ function showMessage(score, cb) {
         $("#game-fenxiang").attr("href", url);
     }else{
         isWeiXin = true;
+        winxin_shareUrl = shareUrl;
+        winxin_title = title;
         bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
         
     }
@@ -110,9 +112,11 @@ $("#game-fenxiang").click(function(){
     if(isWeiXin){
          WeixinJSBridge.invoke('shareTimeline', {
             'img_url': '', 
-            'link': shareUrl,
-            'desc': title,
+            'link': winxin_shareUrl,
+            'desc': winxin_title,
             'title': "经典小游戏 俄罗斯方块"
+        },function(res) {
+        
         });
     }
     return true;
