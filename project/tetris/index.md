@@ -111,16 +111,14 @@ function showMessage(score, cb) {
     }
 }
 $("#game-weixin-fenxiang").click(function(){
-    if(isWeiXin){
-         WeixinJSBridge.invoke('shareTimeline', {
-            'img_url': '', 
-            'link': winxin_shareUrl,
-            'desc': winxin_title,
-            'title': "经典小游戏 俄罗斯方块"
-        },function(res) {
-        
-        });
-    }
+    WeixinJSBridge.invoke('shareTimeline', {
+        'img_url': '', 
+        'link': winxin_shareUrl,
+        'desc': winxin_title,
+        'title': "经典小游戏 俄罗斯方块"
+    },function(res) {
+        alert(res);
+    });
     return true;
 });
 </script>
