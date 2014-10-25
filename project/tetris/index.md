@@ -100,7 +100,6 @@ function showMessage(score, cb) {
         isWeiXin = true;
         winxin_score = score;
         winxin_shareUrl = shareUrl;
-        winxin_title = title;
         bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
         
     }
@@ -116,7 +115,7 @@ function shareTimeline(){
         "img_url": winxin_shareUrl,
         'link': winxin_shareUrl + "?_t=" + tk.time(),
         'desc': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？",
-        'title': "经典小游戏 俄罗斯方块"
+        'title': winxin_title
     },function(res) {
     });
 }
