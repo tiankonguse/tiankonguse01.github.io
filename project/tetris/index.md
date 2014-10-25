@@ -73,6 +73,7 @@ title : 俄罗斯方块游戏
     </div>
     <div class="modal-footer">
         <a href="" class="btn btn-success"  id="game-fenxiang" target="_blank" >分享</a>
+		<button type="button" class="btn btn-success " data-dismiss="modal" id="game-weixin-fenxiang">分享</button>
 		<button type="button" class="btn btn-danger " data-dismiss="modal">重玩</button>
 		</div>
     </div>
@@ -91,11 +92,12 @@ function showMessage(score, cb) {
     var title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
     
     if(typeof WeixinJSBridge == 'undefined'){
-        
         bodyText = "恭喜你，获得了" + score + "高分，微博分享给好友？";
         var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";
         $("#game-fenxiang").attr("href", url);
+        $("#game-weixin-fenxiang").hide();
     }else{
+        $("#game-fenxiang").hide();
         isWeiXin = true;
         winxin_shareUrl = shareUrl;
         winxin_title = title;
@@ -108,7 +110,7 @@ function showMessage(score, cb) {
 		$message.on("hidden.bs.modal", cb);
     }
 }
-$("#game-fenxiang").click(function(){
+$("#game-weixin-fenxiang").click(function(){
     if(isWeiXin){
          WeixinJSBridge.invoke('shareTimeline', {
             'img_url': '', 
