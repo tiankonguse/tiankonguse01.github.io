@@ -114,7 +114,7 @@ function showMessage(score, cb) {
 		$message.on("hidden.bs.modal", cb);
     }
 }
-
+/*
 function shareTimeline(){
 	console.log(winxin_score);
     WeixinJSBridge.invoke('shareTimeline', {
@@ -131,5 +131,5 @@ document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
         
     });
 }, false);
-
+*/
 </script>
