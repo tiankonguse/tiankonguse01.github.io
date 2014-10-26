@@ -624,8 +624,9 @@ if (!Array.prototype.remDup) {
         var w =  tk.min($(window).width(), screen.width, screen.availWidth);
         var h =  tk.min($(window).height(), screen.height, screen.availHeight);
         var num = 10;
-        if(w > 754){
-            $(".right-ad,.left-ad").hide();
+        
+        $(".right-ad,.left-ad").hide();
+        if(w>754)
             w -= 500;
             h -= 150;
             num = 15;
