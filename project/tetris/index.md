@@ -104,7 +104,7 @@ function showMessage(score, cb) {
     }else{
         $("#game-fenxiang").hide();
         winxin_score = score;
-        winxin_shareUrl = shareUrl;
+        //winxin_shareUrl = shareUrl;
         bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
         
     }
