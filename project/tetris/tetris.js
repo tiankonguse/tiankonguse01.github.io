@@ -626,7 +626,7 @@ if (!Array.prototype.remDup) {
         var num = 10;
         
         $(".right-ad,.left-ad").hide();
-        if(w>754)
+        if(w>754){
             w -= 500;
             h -= 150;
             num = 15;
