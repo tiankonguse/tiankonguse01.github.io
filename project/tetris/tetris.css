@@ -36,6 +36,11 @@ body {
 	font-size: 35px;
 }
 
+#info p{
+    margin-bottom: 10px;
+    line-height: 1.3em;
+}
+
 .square {
 	position: absolute;
 	border: 1px solid white;
@@ -69,9 +74,7 @@ body {
 	background-color: #F0F000;
 }
 
-#help{
-    display:none;
-}
+
 
 .right-ad{
     position: fixed;
@@ -116,16 +119,12 @@ body {
         font-size: 15px;
         height: 100%;
     }
-    p {
+    #info p{
         margin-bottom: 10px;
     }
 }
 
 @media screen and (max-width: 750px){
-
-    #help{
-        display:block;
-    }
 
     .right-ad{
         display:none;
@@ -162,7 +161,7 @@ body {
         font-size: 15px;
         height: 100%;
     }
-    p {
+    #info p {
         margin-bottom: 10px;
     }
 }
