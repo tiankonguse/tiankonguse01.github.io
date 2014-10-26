@@ -116,6 +116,7 @@ function showMessage(score, cb) {
 }
 
 function shareTimeline(){
+	console.log(winxin_score);
     WeixinJSBridge.invoke('shareTimeline', {
         'link': shareUrl + "?_t=" + tk.time(),
         'title': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？"
