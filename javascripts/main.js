@@ -1,11 +1,9 @@
 !function(win){
     var TK = win.TK || function(){};
-    TK.prototype .version = "v20130112";
+    TK.prototype.version = "v20130112";
     TK.prototype.author = "tiankonguse";
     TK.prototype.homepage = "http://tiankonguse.com";
     TK.prototype.QQ = "804345178";
-    
-    
     win.TK = TK;
     win.tk = new TK();
 }(window);
@@ -465,30 +463,100 @@ tk.Composition(TK, {
 });
 
 
-//得到现在的时间戳 new Date().getTime()
-
 tk.Composition(TK, {
     time : function time(){
         return new Date().getTime();
     }
 });
 
-jQuery(document).ready(function(){
-    
-   //***********************
-    //**评论的代码也删掉哦***
-    window.disqus_shortname = 'tiankonguse-record'; //  tiankonguse-github required: replace example with your forum shortname
-    $('#disqus_container .comment').on('click',function(){
-        $(this).html('加载中...');
-        var that = this;
-        $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()});
-    });
-    if(/\#comment/.test(location.hash)){
-        $('#disqus_container .comment').trigger('click');
+tk.AddMethod(TK,{
+    AD : function AD(){
+        this.isShowPageFoot = true;
+        this.isLoadGoogleJs = true;
     }
-    //**评论的代码也删掉哦***
-    //***********************
+});
 
+tk.Composition(TK.AD,{
+    showPageFoot: function showPageFoot(className) {
+        if(!this.isShowPageFoot){
+            return;
+        }
+        if(tk.isMobile.any()){
+            $("." + className).html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
+        }else{
+            $("." + className).html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
+        }
+    },
+    loadGoogleJs : function loadGoogleJs(){
+        if(!this.isLoadGoogleJs){
+            return;
+        }
+        try{
+            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+        }catch(err){
+            tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+        }
+    }
+});
+
+tk.Composition(TK, {
+        ad : new TK.AD()
+    }
+);
+
+tk.AddMethod(TK,{
+    Comment : function Comment(){
+        this.isHaveComment = true;
+        this.disqus_shortname = 'tiankonguse-record';
+        this.hash = location.hash;
+        this.time = 5000;
+    }
+});
+
+tk.Composition(TK.Comment, {
+    init : function init(dom){
+        this.dom = dom;
+        if(!this.isHaveComment){
+            return;
+        }
+        if(this.shouldLoad()){
+            that.loadComment();
+        }else{
+            this.bindClick();
+            this.laterLoad(this.time);
+        }
+        
+    },
+    laterLoad : function laterLoad(t){
+        var that = this;
+        setTimeout(function(){
+            that.loadComment();
+        }, t);
+    },
+    shouldLoad  : function shouldLoad(){
+        return /\#comment/.test(this.hash );
+    },
+    bindClick : function bindClick(){
+        var that = this;
+        this.dom.on('click',function(){
+            that.loadComment();
+        });
+    },
+    loadComment : function loadComment(){
+        var that = this.dom;
+        that.html('加载中...');
+        $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
+    }
+});
+
+tk.Composition(TK, {
+        comment : new TK.Comment()
+    }
+);
+
+
+jQuery(document).ready(function(){
+    //***********************
     // home follow
     var $homeContact = $('.home-contact');
     function addContactData(name, href, img){
@@ -508,21 +576,13 @@ jQuery(document).ready(function(){
             $homeContact.slideDown(100);
         }
     });
+    //***********************
+    
+    tk.comment.init($('#disqus_container .comment'));
 
-    //ad-page-footer
-    if(tk.isMobile.any()){
-        $(".ad-page-footer").html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
-    }else{
-        $(".ad-page-footer").html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
-    }
-    
-    // load ad js
-    try{
-        tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-    }catch(err){
-        tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-    }
-    
+    //ad
+    tk.ad.showPageFoot("ad-page-footer");
+    tk.ad.loadGoogleJs();
 });
 
 

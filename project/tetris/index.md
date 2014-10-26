@@ -1,6 +1,6 @@
 ---
 layout: default
-title : 俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？
+title : 经典游戏之俄罗斯方块
 ---
 
 <link rel="stylesheet" href="./tetris.css" type="text/css" />
@@ -80,15 +80,16 @@ title : 俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑
 </div>
 
 <script>
-var isWeiXin = false;
-var winxin_shareUrl = "http://github.tiankonguse.com/project/tetris/";
-var winxin_title = "俄罗斯方块我轻松达到很高分，你能打败我吗？快来挑战我吧？";
+var shareUrl = "http://github.tiankonguse.com/project/tetris/";
 var winxin_score = "很高";
+tk.comment.isHaveComment = false;
+tk.ad.isLoadGoogleJs = false;
+tk.ad.isShowPageFoot = false;
+
 function showMessage(score, cb) {
     var $message = $("#myModal");
     var bodyText, url;
     
-    var shareUrl = "http://github.tiankonguse.com/project/tetris/";
     var title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
     
     if(typeof WeixinJSBridge == 'undefined'){
@@ -97,7 +98,6 @@ function showMessage(score, cb) {
         $("#game-fenxiang").attr("href", url);
     }else{
         $("#game-fenxiang").hide();
-        isWeiXin = true;
         winxin_score = score;
         winxin_shareUrl = shareUrl;
         bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
@@ -112,9 +112,7 @@ function showMessage(score, cb) {
 
 function shareTimeline(){
     WeixinJSBridge.invoke('shareTimeline', {
-        "img_url": winxin_shareUrl,
-        'link': winxin_shareUrl + "?_t=" + tk.time(),
-        'desc': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？",
+        'link': shareUrl + "?_t=" + tk.time(),
         'title': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？"
     },function(res) {
     });
