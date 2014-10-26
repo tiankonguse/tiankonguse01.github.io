@@ -83,8 +83,13 @@ title : 经典游戏之俄罗斯方块
 var shareUrl = "http://github.tiankonguse.com/project/tetris/";
 var winxin_score = "很高";
 tk.comment.isHaveComment = false;
-tk.ad.isLoadGoogleJs = false;
-tk.ad.isShowPageFoot = false;
+
+if(tk.isMobile.any()){
+   tk.ad.isLoadGoogleJs = false;
+    tk.ad.isShowPageFoot = false; 
+}
+
+
 
 function showMessage(score, cb) {
     var $message = $("#myModal");
