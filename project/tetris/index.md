@@ -126,8 +126,9 @@ function shareTimeline(){
 
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
     WeixinJSBridge.on('menu:share:timeline', function(argv){
+    	console.log('share');
         shareTimeline();
-        return true;
+        
     });
 }, false);
 
