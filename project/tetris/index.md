@@ -114,7 +114,7 @@ function showMessage(score, cb) {
 		$message.on("hidden.bs.modal", cb);
     }
 }
-/*
+
 function shareTimeline(){
 	console.log(winxin_score);
     WeixinJSBridge.invoke('shareTimeline', {
@@ -124,12 +124,12 @@ function shareTimeline(){
     });
 }
 
-document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-    WeixinJSBridge.on('menu:share:timeline', function(argv){
-    	console.log('share');
-        shareTimeline();
+//document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    //WeixinJSBridge.on('menu:share:timeline', function(argv){
+    	//console.log('share');
+   //     shareTimeline();
         
-    });
-}, false);
-*/
+   // });
+//}, false);
+
 </script>
