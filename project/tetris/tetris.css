@@ -101,6 +101,7 @@ body {
         padding: auto;
         margin: auto;
         height: auto;
+        background-color: #8D8D8D;
     }
     #next_shape {
         position: relative;
@@ -126,6 +127,11 @@ body {
 
 @media screen and (max-width: 750px){
 
+    .home-menu{
+        top: 0px;
+        left: 0px;
+    }
+
     .right-ad{
         display:none;
     }
@@ -143,6 +149,7 @@ body {
         padding: 0;
         margin: 0;
         height: 100%;
+        background-color: #8D8D8D;
     }
     #next_shape {
         position: relative;

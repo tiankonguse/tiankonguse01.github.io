@@ -1,18 +1,17 @@
-if (!Array.prototype.eachdo) {
-	Array.prototype.eachdo = function(fn) {
+tk.Composition(Array, {
+    eachdo : function eachdo(fn){
 		for (var i = 0; i < this.length; i++) {
 			fn.call(this[i], i);
 		}
-	};
-}
-if (!Array.prototype.remDup) {
-	Array.prototype.remDup = function() {
+    },
+    remDup : function remDup(){
 		var temp = [];
 		for (var i = 0; i < this.length; i++) {
 			var bool = true;
 			for (var j = i + 1; j < this.length; j++) {
 				if (this[i] === this[j]) {
 					bool = false;
+                    break;
 				}
 			}
 			if (bool === true) {
@@ -20,660 +19,746 @@ if (!Array.prototype.remDup) {
 			}
 		}
 		return temp;
-	}
-}
+    }
+});
+
+
+tk.AddMethod(TK,{
+    Tetris : function Tetris(){
+        this.board = [];
+        this.pSize = 40;
+        this.canvasHeight = 880;
+        this.canvasWidth = 400;
+        this.next_shap_pad = 2;
+        this.isMobile =  tk.isMobile.any();
+        this.canvas = null;
+        this.dom = null;
+		this.boardHeight = 0;
+		this.time = 0;
+		this.score = 0;
+		this.level = 1;
+		this.lines = 0;
+		this.numLevels = 10;
+		this.curSqs = [];
+		this.curComplete = false;
+		this.tempShapes = null;
+        this.nextShapeDisplay = null;
+        this.levelDisplay = null;
+        this.timeDisplay = null;
+        this.scoreDisplay = null;
+        this.linesDisplay = null;
+        this.isOver = false;
+        this.isActive = true;
+        this.isDown = false;
+        this.callback = null;
+		this.shapes = [
+            [[-1, 1], [0, 1], [1, 1], [0, 0]], // TEE
+            [[-1, 0], [0, 0], [1, 0], [2, 0]], // line
+            [[-1, -1], [-1, 0], [0, 0], [1, 0]], // L EL
+            [[1, -1], [-1, 0], [0, 0], [1, 0]], // R EL
+            [[0, -1], [1, -1], [-1, 0], [0, 0]], // R ess
+            [[-1, -1], [0, -1], [0, 0], [1, 0]], // L ess
+            [[0, -1], [1, -1], [0, 0], [1, 0]] // square
+		];
+        this.timer = null;
+        this.pTimer = null;
+        this.curX = 0;
+		this.curY = 0;
+        this.sqs = [];
+        this.style = {};
+        this.spawnX = 4;
+		this.spawnY = 1;
+        this.speed = 700;
+        this.preClickTime = 0;
+        this.preClickPos = null;
+    }
+});
+
+
+tk.Composition(TK.Tetris, {
+    init : function init(option){
+        tk.AddMethod(this, option);
+        this.initBoard();
+        this.initInfo();
+        this.initLevelScores();
+        this.initShapes();
+        this.bindKeyEvents();
+        this.play();
+    },
+    initBoard : function initBoard(){
+        this.boardHeight = this.canvasHeight / this.pSize;
+        this.boardWidth = this.canvasWidth / this.pSize;
+        var s = this.boardHeight * this.boardWidth;
+        for (var i = 0; i < s; i++) {
+            this.board.push(0);
+        }
+    },
+    initInfo : function initInfo(){
+        var tpl = '';
+        tpl +=('<div id="next_shape"></div>');
+        tpl +=('<p id="level">Level: <span></span></p>');
+        tpl +=('<p id="lines">Lines: <span></span></p>');
+        tpl +=('<p id="score">Score: <span></span></p>');
+        tpl +=('<p id="time">Time: <span></span></p>');
+        
+        if(this.isMobile){
+            tpl +=('<p class="help">左滑: <span>左</span></p>');
+            tpl +=('<p class="help">右滑: <span>右</span></p>');
+            tpl +=('<p class="help">点击: <span>旋转</span></p>');
+            tpl +=('<p class="help">上滑: <span>暂停/继续</span></p></p>');
+            tpl +=('<p class="help">下滑: <span>下</span></p>');
+        }else{
+            tpl +=('<p class="help">使用方向键控制游戏</p>');
+        }
+        tpl = '<div id="info">' + tpl + '</div>';
+        tpl += '<div id="canvas"></div>';
+        this.dom.html(tpl);
+        
+        for(var name in this.style){
+            var styleDom = this.style[name];
+            var $dom = $("#" + name);
+            for(var key in styleDom){
+                $dom.css(key, styleDom[key]);
+            }
+        }
+        
+        this.canvas = this.dom.find("#canvas");
+        this.nextShapeDisplay = this.dom.find("#next_shape");
+        this.levelDisplay = this.dom.find("#level span");
+        this.timeDisplay = this.dom.find("#time span");
+        this.scoreDisplay = this.dom.find("#score span");
+        this.linesDisplay = this.dom.find("#lines span");
+        
+        this.setInfo('time');
+        this.setInfo('score');
+        this.setInfo('level');
+        this.setInfo('lines');
+    },
+    setInfo : function(el) {
+        this[el + 'Display'].html(this[el])
+    },
+    initLevelScores : function initLevelScores(){
+        var c = 1;
+        for (var i = 1; i <= this.numLevels; i++) {
+            this['level' + i] = [c * 1000, 40 * i, 5 * i];
+            c = c + c;
+        }
+    },
+    initShapes : function initShapes() {
+        this.curSqs = [];
+        this.curComplete = false;
+        this.shiftTempShapes();
+        this.curShapeIndex = this.tempShapes[0];
+        this.curShape = this.shapes[this.curShapeIndex];
+        this.initNextShape();
+        this.setCurCoords(this.spawnX, this.spawnY);
+        this.drawShape(this.curX, this.curY, this.curShape);
+    },
+    shiftTempShapes : function shiftTempShapes(){
+        try {
+            if (typeof this.tempShapes === "undefined"
+                    || this.tempShapes === null) {
+                this.initTempShapes();
+            } else {
+                this.tempShapes.shift();
+            }
+        } catch (e) {
+            throw new Error("Could not shift or init tempShapes: " + e);
+        }
+    },
+    initTempShapes : function initTempShapes(){
+        this.tempShapes = [];
+        for (var i = 0; i < this.shapes.length; i++) {
+            this.tempShapes.push(i);
+        }
+        var k = this.tempShapes.length;
+        while (--k) { // Fisher Yates Shuffle
+            var j = Math.floor(Math.random() * (k + 1));
+            var tempk = this.tempShapes[k];
+            var tempj = this.tempShapes[j];
+            this.tempShapes[k] = tempj;
+            this.tempShapes[j] = tempk;
+        }
+    },
+    initNextShape : function() {
+        if (typeof this.tempShapes[1] === 'undefined') {
+            this.initTempShapes();
+        }
+        try {
+            this.nextShapeIndex = this.tempShapes[1];
+            this.nextShape = this.shapes[this.nextShapeIndex];
+            this.drawNextShape();
+        } catch (e) {
+            throw new Error("Could not create next shape. " + e);
+        }
+    },
+    drawNextShape : function() {
+        var ns = [];
+        for (var i = 0; i < this.nextShape.length; i++) {
+            ns[i] = this.createSquare(this.nextShape[i][0] + this.next_shap_pad,
+                    this.nextShape[i][1] + this.next_shap_pad, this.nextShapeIndex);
+        }
+        this.nextShapeDisplay.html("");
+        for (var k = 0; k < ns.length; k++) {
+            this.nextShapeDisplay.append(ns[k]);
+        }
+    },
+    createSquare : function(x, y, type) {
+        var el = document.createElement('div');
+        el.className = 'square type' + type;
+        el.style.left = (x * this.pSize) + 'px';
+        el.style.top = (y * this.pSize) + 'px';
+        el.style.width =  this.pSize + 'px';
+        el.style.height = this.pSize + "px";
+        return $(el);
+    },
+    setCurCoords : function(x, y) {
+        this.curX = x;
+        this.curY = y;
+    },
+    drawShape : function(x, y, p) {
+        for (var i = 0; i < p.length; i++) {
+            var newX = p[i][0] + x;
+            var newY = p[i][1] + y;
+            
+            this.curSqs[i] = this.createSquare(newX, newY,
+                    this.curShapeIndex);
+        }
+        for (var k = 0; k < this.curSqs.length; k++) {
+            this.canvas.append(this.curSqs[k]);
+        }
+    },
+    bindKeyEvents : function() {
+        var that = this;
+        var event = "keypress";
+        if (this.isSafari() || this.isIE()) {
+            event = "keydown";
+        }
+        
+        if(this.isMobile){
+            this.addEvent("touchstart", function(event){
+               if($(event.target).attr("id") != "canvas"){
+                    return;
+                }
+                event.preventDefault();
+                var touches = event.changedTouches || event.touches;
+                var touch = touches[0]; 
+
+                that.startX = touch.pageX;    
+                that.startY = touch.pageY;
+            });
+            this.addEvent("touchend", function(event){
+                if($(event.target).attr("id") != "canvas"){
+                    return;
+                }
+                event.preventDefault();
+                var touches = event.changedTouches || event.touches;
+                var touch = touches[0];
+                var x = touch.pageX - that.startX;
+                var y = touch.pageY - that.startY;  
+                
+                if(x > 50){//右
+                    that.handleKey("RIGHT");
+                }else if(x < -50){//左
+                    that.handleKey("LEFT");
+                }else if(y > 50){
+                    that.handleKey("DOWN");
+                    this.isDown = true;
+                }else if(y < -50){
+                    that.handleKey("PAUSE");
+                }else{
+                    that.handleKey("ROTATE");
+                }
+            });
+        }else{
+            this.addEvent(event, function(e) {
+                var which = that.whichKey(e);
+                var dir = that.getDir(which);
+                that.handleKey(dir);
+            });
+        }
+        
+    },
+    whichKey : function(e) {
+        var c;
+        if (window.event) {
+            c = window.event.keyCode;
+        } else if (e) {
+            c = e.keyCode;
+        }
+        return c;
+    },
+    addEvent : function(event, cb){
+        if (window.addEventListener) {
+            document.addEventListener(event, cb, false);
+        } else {
+            document.attachEvent('on' + event, cb);
+        }
+    },
+    getDir : function getDir(which){
+        var dir = '';
+        switch (which) {
+            case 37 :
+                dir = "LEFT";
+                break;
+            case 38 :
+                dir = "ROTATE";
+                break;
+            case 39 :
+                dir = "RIGHT";
+                break;
+            case 40 :
+                dir = "DOWN";
+                break;
+            case 27 : // esc: pause
+                dir = "PAUSE";
+                break;
+            default :
+                break;
+        }
+        return dir;
+    },
+    handleKey : function(dir) {
+        if(this.isOver)return;
+        switch (dir) {
+            case "LEFT" :
+                this.move('L');
+                break;
+            case "ROTATE" :
+                this.move('RT');
+                break;
+            case "RIGHT" :
+                this.move('R');
+                
+                break;
+            case "DOWN" :
+                this.move('D');
+                this.isDown = true;
+                break;
+            case "PAUSE" : // esc: pause
+                this.togglePause();
+                break;
+            default :
+                break;
+        }
+    },
+    togglePause : function() {
+        this.isDown = false;
+        if (this.isActive === 1) {
+            this.clearTimers();
+            this.isActive = 0;
+        } else {
+            this.play();
+        }
+    },
+    move : function(dir) {
+        if (this.isActive == 0) {
+            return;
+        }
+        var s = '';
+        var that = this;
+        var tempX = this.curX;
+        var tempY = this.curY;
+        switch (dir) {
+            case 'L' :
+                s = 'left';
+                tempX -= 1;
+                break;
+            case 'R' :
+                s = 'left';
+                tempX += 1;
+                break;
+            case 'D' :
+                s = 'top';
+                tempY += 1;
+                break;
+            case 'RT' :
+                this.rotate();
+                return true;
+                break;
+            default :
+                throw new Error('wtf');
+                break;
+        }
+        
+        if (this.checkMove(tempX, tempY, this.curShape)) {
+            this.curSqs.eachdo(function(i) {
+                var l = parseInt($(this).css(s), 10);
+                if(dir === 'L'){
+                    l -= that.pSize;
+                }else{
+                    l += that.pSize;
+                }
+                $(this).css(s, l + 'px');
+            });
+            this.curX = tempX;
+            this.curY = tempY;
+        } else if (dir === 'D') {
+            if (this.curY === 1 || this.time === this.maxTime) {
+                this.gameOver();
+                return false;
+            }
+            this.isDown = false;
+            this.curComplete = true;
+        }
+    },
+    checkMove : function(x, y, p) {
+    
+        if (this.isOB(x, y, p) || this.isCollision(x, y, p)) {
+            return false;
+        }
+        return true;
+    },
+    isCollision : function(x, y, p) {
+        var that = this;
+        var bool = false;
+        p.eachdo(function() {
+            var newX = this[0] + x;
+            var newY = this[1] + y;
+            if (that.boardPos(newX, newY) === 1) {
+                bool = true;
+            }
+        });
+        return bool;
+    },
+    isOB : function(x, y, p) {
+        var w = this.boardWidth - 1;
+        var h = this.boardHeight - 1;
+        var bool = false;
+        p.eachdo(function() {
+            var newX = this[0] + x;
+            var newY = this[1] + y;
+            if (newX < 0 || newX > w || newY < 0 || newY > h) {
+                bool = true;
+            }
+        });
+        return bool;
+    },
+    boardPos : function(x, y) {
+        return this.board[x + (y * this.boardWidth)];
+    },
+    gameOver : function() {
+        this.clearTimers();
+        if(!this.isOver){
+            this.isOver = 1;
+            this.callback && this.callback(this.score); 
+        }
+        
+    },
+    clearTimers : function() {
+        clearTimeout(this.timer);
+        clearTimeout(this.pTimer);
+        this.timer = null;
+        this.pTimer = null;
+    },
+    isIE : function() {
+        return this.bTest(/IE/);
+    },
+    isFirefox : function() {
+        return this.bTest(/Firefox/);
+    },
+    isSafari : function isSafari() {
+        return this.bTest(/Safari/);
+    },
+    bTest : function bTest(rgx) {
+        return rgx.test(navigator.userAgent);
+    },
+    play : function play() {
+        var that = this;
+        
+        if (this.timer === null) {
+            this.initTimer();
+        }
+        var gameLoop = function() {
+            
+            that.move('D');
+            if (that.curComplete) {
+                that.markBoardShape(that.curX, that.curY, that.curShape);
+                that.curSqs.eachdo(function() {
+                    that.sqs.push(this);
+                });
+                that.calcScore({
+                    shape : true
+                });
+                that.checkRows();
+                that.checkScore();
+                that.initShapes();
+                that.play();
+            } else {
+                that.pTimer = setTimeout(gameLoop, that.speed * that.getBase());
+            }
+        };
+        this.pTimer = setTimeout(gameLoop, that.speed* that.getBase());
+        this.isActive = 1;
+    },
+    getBase : function getBase(){
+        if(this.isDown){
+            return 0.3;
+        }else{
+            return 1;
+        }
+    },
+    initTimer : function initTimer() {
+        var that = this;
+        var tLoop = function() {
+            that.incTime();
+            that.timer = setTimeout(tLoop, 2000);
+        };
+        this.timer = setTimeout(tLoop, 2000);
+    },
+    incTime : function() {
+        this.time++;
+        this.setInfo('time');
+    },
+    markBoardShape : function markBoardShape(x, y, p) {
+        var that = this;
+        p.eachdo(function(i) {
+            var newX = p[i][0] + x;
+            var newY = p[i][1] + y;
+            that.markBoardAt(newX, newY, 1);
+        });
+    },
+    markBoardAt : function markBoardAt(x, y, val) {
+        this.board[this.getBoardIdx(x, y)] = val;
+    },
+    getBoardIdx : function(x, y) {
+        return x + (y * this.boardWidth);
+    },
+    calcScore : function calcScore(args) {
+        var lines = args.lines || 0;
+        var shape = args.shape || false;
+        var speed = args.speed || 0;
+        var score = 0;
+
+        if (lines > 0) {
+            score += lines * this["level" + this.level][1];
+            this.incLines(lines);
+        }
+        if (shape === true) {
+            score += shape * this["level" + this.level][2];
+        }
+        this.incScore(score);
+    },
+    incLines : function incLines(num) {
+        this.lines += num;
+        this.setInfo('lines');
+    },
+    incScore : function incScore(amount) {
+        this.score += amount;
+        this.setInfo('score');
+    },
+    checkRows : function checkRows() {
+        var that = this;
+        var start = this.boardHeight;
+        this.curShape.eachdo(function() {
+            var n = this[1] + that.curY;
+            if (n < start) {
+                start = n;
+            }
+        });
+
+        var c = 0;
+        var stopCheck = false;
+        for (var y = this.boardHeight - 1; y >= 0; y--) {
+            switch (this.getRowState(y)) {
+                case 'F' :
+                    this.removeRow(y);
+                    c++;
+                    break;
+                case 'E' :
+                    if (c === 0) {
+                        stopCheck = true;
+                    }
+                    break;
+                case 'U' :
+                    if (c > 0) {
+                        this.shiftRow(y, c);
+                    }
+                    break;
+                default :
+                    break;
+            }
+            if (stopCheck === true) {
+                break;
+            }
+        }
+        if (c > 0) {
+            this.calcScore({
+                lines : c
+            });
+        }
+    },
+    removeRow : function removeRow(y) {
+        for (var x = 0; x < this.boardWidth; x++) {
+            this.removeBlock(x, y);
+        }
+    },
+    removeBlock : function removeBlock(x, y) {
+        var that = this;
+        this.markBoardAt(x, y, 0);
+        this.sqs.eachdo(function(i) {
+            if (that.getPos(this)[0] === x && that.getPos(this)[1] === y) {
+                this.remove();
+                that.sqs.splice(i, 1);
+            }
+        });
+    },
+    getPos : function getPos(block) {
+        var p = [];
+        p.push(parseInt(block.css("left"), 10) / this.pSize);
+        p.push(parseInt(block.css("top"), 10) / this.pSize);
+        return p;
+    },
+    shiftRow : function shiftRow(y, amount) {
+        var that = this;
+        for (var x = 0; x < this.boardWidth; x++) {
+            this.sqs.eachdo(function() {
+                if (that.isAt(x, y, this)) {
+                    that.setBlock(x, y + amount, this);
+                }
+            });
+        }
+        that.emptyBoardRow(y);
+    },
+    isAt : function isAt(x, y, block) {
+        if (this.getPos(block)[0] === x && this.getPos(block)[1] === y) {
+            return true;
+        }
+        return false;
+    },
+    setBlock : function setBlock(x, y, block) {
+        this.markBoardAt(x, y, 1);
+        var newX = x * this.pSize;
+        var newY = y * this.pSize;
+        block.css("left", newX + 'px');
+        block.css("top", newY + 'px');
+    },
+    emptyBoardRow : function emptyBoardRow(y) {
+        for (var x = 0; x < this.boardWidth; x++) {
+            this.markBoardAt(x, y, 0);
+        }
+    },
+    checkScore : function checkScore() {
+        if (this.score >= this["level" + this.level][0]) {
+            this.incLevel();
+        }
+    },
+    incLevel : function incLevel() {
+        this.level++;
+        this.speed = this.speed - 75;
+        this.setInfo('level');
+    },
+    getRowState : function getRowState(y) {
+        var c = 0;
+        for (var x = 0; x < this.boardWidth; x++) {
+            if (this.boardPos(x, y) === 1) {
+                c = c + 1;
+            }
+        }
+        if (c === 0) {
+            return 'E';
+        }
+        if (c === this.boardWidth) {
+            return 'F';
+        }
+        return 'U';
+    },
+    rotate : function rotate() {
+        if (this.curShapeIndex !== 6) { // square
+            var temp = [];
+            this.curShape.eachdo(function() {
+                temp.push([this[1] * -1, this[0]]);
+            });
+            if (this.checkMove(this.curX, this.curY, temp)) {
+                this.curShape = temp;
+                this.removeCur();
+                this.drawShape(this.curX, this.curY, this.curShape);
+            } else {
+            }
+        }
+    },
+    removeCur : function removeCur() {
+        var that = this;
+        this.curSqs.eachdo(function() {
+            this.remove();
+        });
+        this.curSqs = [];
+    }
+});
 
 (function() {
-	var tetris = {
-		board : [],
-		boardDiv : null,
-		canvas : null,
-		pSize : 40,
-		canvasHeight : 880,
-		canvasWidth : 400,
-		boardHeight : 0,
-		boardWidth : 0,
-		spawnX : 4,
-		spawnY : 1,
-		shapes : [[[-1, 1], [0, 1], [1, 1], [0, 0] // TEE
-		], [[-1, 0], [0, 0], [1, 0], [2, 0] // line
-		], [[-1, -1], [-1, 0], [0, 0], [1, 0] // L EL
-		], [[1, -1], [-1, 0], [0, 0], [1, 0] // R EL
-		], [[0, -1], [1, -1], [-1, 0], [0, 0] // R ess
-		], [[-1, -1], [0, -1], [0, 0], [1, 0] // L ess
-		], [[0, -1], [1, -1], [0, 0], [1, 0] // square
-		]],
-		tempShapes : null,
-		curShape : null,
-		curShapeIndex : null,
-		curX : 0,
-		curY : 0,
-		curSqs : [],
-		nextShape : null,
-		nextShapeDisplay : null,
-		nextShapeIndex : null,
-		sqs : [],
-		score : 0,
-		scoreDisplay : null,
-		level : 1,
-		levelDisplay : null,
-		numLevels : 10,
-		time : 0,
-		maxTime : 1000,
-		timeDisplay : null,
-		isActive : 0,
-		curComplete : false,
-		timer : null,
-		sTimer : null,
-		speed : 700,
-		lines : 0,
 
-		init : function(h,w, s, p) {
-            this.pSize = s || 40;
-            this.canvasHeight = h || 880;
-            this.canvasWidth = w || 440;
-            this.next_shap_pad = p || 2;
-            
-            this.isMobile =  tk.isMobile.any();
-            
-			this.canvas = document.getElementById("canvas");
-			this.initBoard();
-			this.initInfo();
-			this.initLevelScores();
-			this.initShapes();
-			this.bindKeyEvents();
-			this.play();
-            
-		},
-		initBoard : function() {
-			this.boardHeight = this.canvasHeight / this.pSize;
-			this.boardWidth = this.canvasWidth / this.pSize;
-			var s = this.boardHeight * this.boardWidth;
-			for (var i = 0; i < s; i++) {
-				this.board.push(0);
-			}
-		},
-		initInfo : function() {
-			this.nextShapeDisplay = document.getElementById("next_shape");
-			this.levelDisplay = document.getElementById("level")
-					.getElementsByTagName("span")[0];
-			this.timeDisplay = document.getElementById("time")
-					.getElementsByTagName("span")[0];
-			this.scoreDisplay = document.getElementById("score")
-					.getElementsByTagName("span")[0];
-			this.linesDisplay = document.getElementById("lines")
-					.getElementsByTagName("span")[0];
-			this.setInfo('time');
-			this.setInfo('score');
-			this.setInfo('level');
-			this.setInfo('lines');
-		},
-		initShapes : function() {
-			this.curSqs = [];
-			this.curComplete = false;
-			this.shiftTempShapes();
-			this.curShapeIndex = this.tempShapes[0];
-			this.curShape = this.shapes[this.curShapeIndex];
-			this.initNextShape();
-			this.setCurCoords(this.spawnX, this.spawnY);
-			this.drawShape(this.curX, this.curY, this.curShape);
-		},
-		initNextShape : function() {
-			if (typeof this.tempShapes[1] === 'undefined') {
-				this.initTempShapes();
-			}
-			try {
-				this.nextShapeIndex = this.tempShapes[1];
-				this.nextShape = this.shapes[this.nextShapeIndex];
-				this.drawNextShape();
-			} catch (e) {
-				throw new Error("Could not create next shape. " + e);
-			}
-		},
-		initTempShapes : function() {
-			this.tempShapes = [];
-			for (var i = 0; i < this.shapes.length; i++) {
-				this.tempShapes.push(i);
-			}
-			var k = this.tempShapes.length;
-			while (--k) { // Fisher Yates Shuffle
-				var j = Math.floor(Math.random() * (k + 1));
-				var tempk = this.tempShapes[k];
-				var tempj = this.tempShapes[j];
-				this.tempShapes[k] = tempj;
-				this.tempShapes[j] = tempk;
-			}
-		},
-		shiftTempShapes : function() {
-			try {
-				if (typeof this.tempShapes === "undefined"
-						|| this.tempShapes === null) {
-					this.initTempShapes();
-				} else {
-					this.tempShapes.shift();
-				}
-			} catch (e) {
-				throw new Error("Could not shift or init tempShapes: " + e);
-			}
-		},
-		initTimer : function() {
-			var me = this;
-			var tLoop = function() {
-				me.incTime();
-				me.timer = setTimeout(tLoop, 2000);
-			};
-			this.timer = setTimeout(tLoop, 2000);
-		},
-		initLevelScores : function() {
-			var c = 1;
-			for (var i = 1; i <= this.numLevels; i++) {
-				this['level' + i] = [c * 1000, 40 * i, 5 * i]; // for nxt
-				// level, row
-				// score, p
-				// sore,
-				c = c + c;
-			}
-		},
-		setInfo : function(el) {
-			this[el + 'Display'].innerHTML = this[el];
-		},
-		drawNextShape : function() {
-			var ns = [];
-			for (var i = 0; i < this.nextShape.length; i++) {
-				ns[i] = this.createSquare(this.nextShape[i][0] + this.next_shap_pad,
-						this.nextShape[i][1] + this.next_shap_pad, this.nextShapeIndex);
-			}
-			this.nextShapeDisplay.innerHTML = '';
-			for (var k = 0; k < ns.length; k++) {
-				this.nextShapeDisplay.appendChild(ns[k]);
-			}
-		},
-		drawShape : function(x, y, p) {
-			for (var i = 0; i < p.length; i++) {
-				var newX = p[i][0] + x;
-				var newY = p[i][1] + y;
-				this.curSqs[i] = this.createSquare(newX, newY,
-						this.curShapeIndex);
-			}
-			for (var k = 0; k < this.curSqs.length; k++) {
-				this.canvas.appendChild(this.curSqs[k]);
-			}
-		},
-		createSquare : function(x, y, type) {
-			var el = document.createElement('div');
-			el.className = 'square type' + type;
-			el.style.left = x * this.pSize + 'px';
-			el.style.top = y * this.pSize + 'px';
-			el.style.width =  this.pSize + 'px';
-            el.style.height = this.pSize + "px";
-			return el;
-		},
-		removeCur : function() {
-			var me = this;
-			this.curSqs.eachdo(function() {
-				me.canvas.removeChild(this);
-			});
-			this.curSqs = [];
-		},
-		setCurCoords : function(x, y) {
-			this.curX = x;
-			this.curY = y;
-		},
-		bindKeyEvents : function() {
-			var me = this;
-			var event = "keypress";
-			if (this.isSafari() || this.isIE()) {
-				event = "keydown";
-			}
-            
-            if(this.isMobile){
-                this.addEvent("touchstart", function(event){
-                    var touches = event.changedTouches || event.touches;
-                    var touch = touches[0]; 
-
-                    me.startX = touch.pageX;    
-                    me.startY = touch.pageY;
-                });
-                this.addEvent("touchend", function(event){
-                    event.preventDefault();
-                    var touches = event.changedTouches || event.touches;
-                    var touch = touches[0];
-                    var x = touch.pageX - me.startX;
-                    var y = touch.pageY - me.startY;  
-                    
-                    if(x > 50){//右
-                        me.handleKey(39);
-                    }else if(x < -50){//左
-                        me.handleKey(37);
-                    }else if(y > 50){
-                        me.handleKey(40);
-                    }else if(y < -50){
-                        me.handleKey(27);
-                    }else{
-                        me.handleKey(38);
-                    }
-                });
-            }else{
-                this.addEvent(event, function(e) {
-                    me.handleKey(me.whichKey(e));
-                });
-            }
-            
-		},
-        addEvent : function(event, cb){
-			if (window.addEventListener) {
-				document.addEventListener(event, cb, false);
-			} else {
-				document.attachEvent('on' + event, cb);
-			}
-        },
-		handleKey : function(c) {
-            if(this.isOver)return;
-			var dir = '';
-			switch (c) {
-				case 37 :
-					this.move('L');
-					
-					break;
-				case 38 :
-					this.move('RT');
-					break;
-				case 39 :
-					this.move('R');
-					
-					break;
-				case 40 :
-					this.move('D');
-					break;
-				case 27 : // esc: pause
-					this.togglePause();
-					break;
-				default :
-					break;
-			}
-		},
-		whichKey : function(e) {
-			var c;
-			if (window.event) {
-				c = window.event.keyCode;
-			} else if (e) {
-				c = e.keyCode;
-			}
-			return c;
-		},
-		incTime : function() {
-			this.time++;
-			this.setInfo('time');
-		},
-		incScore : function(amount) {
-			this.score = this.score + amount;
-			this.setInfo('score');
-		},
-		incLevel : function() {
-			this.level++;
-			this.speed = this.speed - 75;
-			this.setInfo('level');
-		},
-		incLines : function(num) {
-			this.lines += num;
-			this.setInfo('lines');
-		},
-		calcScore : function(args) {
-			var lines = args.lines || 0;
-			var shape = args.shape || false;
-			var speed = args.speed || 0;
-			var score = 0;
-
-			if (lines > 0) {
-				score += lines * this["level" + this.level][1];
-				this.incLines(lines);
-			}
-			if (shape === true) {
-				score += shape * this["level" + this.level][2];
-			}
-			/* if (speed > 0){ score += speed * this["level" +this .level[3]];} */
-			this.incScore(score);
-		},
-		checkScore : function() {
-			if (this.score >= this["level" + this.level][0]) {
-				this.incLevel();
-			}
-		},
-		gameOver : function() {
-			this.clearTimers();
-            var that = this;
-            if(!this.isOver){
-                this.isOver = 1;
-                console.log("game over");
-                showMessage(this.score, function(){
-                    location.href = location.href;
-                });
-            }
-            
-		},
-		play : function() {
-			var me = this;
-			if (this.timer === null) {
-				this.initTimer();
-			}
-			var gameLoop = function() {
-				me.move('D');
-				if (me.curComplete) {
-					me.markBoardShape(me.curX, me.curY, me.curShape);
-					me.curSqs.eachdo(function() {
-						me.sqs.push(this);
-					});
-					me.calcScore({
-						shape : true
-					});
-					me.checkRows();
-					me.checkScore();
-					me.initShapes();
-					me.play();
-				} else {
-					me.pTimer = setTimeout(gameLoop, me.speed);
-				}
-			};
-			this.pTimer = setTimeout(gameLoop, me.speed);
-			this.isActive = 1;
-		},
-		togglePause : function() {
-			if (this.isActive === 1) {
-				this.clearTimers();
-				this.isActive = 0;
-			} else {
-				this.play();
-			}
-		},
-		clearTimers : function() {
-			clearTimeout(this.timer);
-			clearTimeout(this.pTimer);
-			this.timer = null;
-			this.pTimer = null;
-		},
-		move : function(dir) {
-			if (this.isActive == 0) {
-				return;
-			}
-			var s = '';
-			var me = this;
-			var tempX = this.curX;
-			var tempY = this.curY;
-			switch (dir) {
-				case 'L' :
-					s = 'left';
-					tempX -= 1;
-					break;
-				case 'R' :
-					s = 'left';
-					tempX += 1;
-					break;
-				case 'D' :
-					s = 'top';
-                    tempY += 1;
-					
-					break;
-				case 'RT' :
-					this.rotate();
-					return true;
-					break;
-				default :
-					throw new Error('wtf');
-					break;
-			}
-			if (this.checkMove(tempX, tempY, this.curShape)) {
-				this.curSqs.eachdo(function(i) {
-					var l = parseInt(this.style[s], 10);
-					dir === 'L' ? l -= me.pSize : l += me.pSize;
-					this.style[s] = l + 'px';
-				});
-				this.curX = tempX;
-				this.curY = tempY;
-			} else if (dir === 'D') {
-				if (this.curY === 1 || this.time === this.maxTime) {
-					this.gameOver();
-					return false;
-				}
-				this.curComplete = true;
-			}
-		},
-		rotate : function() {
-			if (this.curShapeIndex !== 6) { // square
-				var temp = [];
-				this.curShape.eachdo(function() {
-					temp.push([this[1] * -1, this[0]]);
-				});
-				if (this.checkMove(this.curX, this.curY, temp)) {
-					this.curShape = temp;
-					this.removeCur();
-					this.drawShape(this.curX, this.curY, this.curShape);
-				} else {
-					throw new Error("Could not rotate!");
-				}
-			}
-		},
-		checkMove : function(x, y, p) {
-			if (this.isOB(x, y, p) || this.isCollision(x, y, p)) {
-				return false;
-			}
-			return true;
-		},
-		isCollision : function(x, y, p) {
-			var me = this;
-			var bool = false;
-			p.eachdo(function() {
-				var newX = this[0] + x;
-				var newY = this[1] + y;
-				if (me.boardPos(newX, newY) === 1) {
-					bool = true;
-				}
-			});
-			return bool;
-		},
-		isOB : function(x, y, p) {
-			var w = this.boardWidth - 1;
-			var h = this.boardHeight - 1;
-			var bool = false;
-			p.eachdo(function() {
-				var newX = this[0] + x;
-				var newY = this[1] + y;
-				if (newX < 0 || newX > w || newY < 0 || newY > h) {
-					bool = true;
-				}
-			});
-			return bool;
-		},
-		getRowState : function(y) {
-			var c = 0;
-			for (var x = 0; x < this.boardWidth; x++) {
-				if (this.boardPos(x, y) === 1) {
-					c = c + 1;
-				}
-			}
-			if (c === 0) {
-				return 'E';
-			}
-			if (c === this.boardWidth) {
-				return 'F';
-			}
-			return 'U';
-		},
-		checkRows : function() {
-			var me = this;
-			var start = this.boardHeight;
-			this.curShape.eachdo(function() {
-				var n = this[1] + me.curY;
-				if (n < start) {
-					start = n;
-				}
-			});
-
-			var c = 0;
-			var stopCheck = false;
-			for (var y = this.boardHeight - 1; y >= 0; y--) {
-				switch (this.getRowState(y)) {
-					case 'F' :
-						this.removeRow(y);
-						c++;
-						break;
-					case 'E' :
-						if (c === 0) {
-							stopCheck = true;
-						}
-						break;
-					case 'U' :
-						if (c > 0) {
-							this.shiftRow(y, c);
-						}
-						break;
-					default :
-						break;
-				}
-				if (stopCheck === true) {
-					break;
-				}
-			}
-			if (c > 0) {
-				this.calcScore({
-					lines : c
-				});
-			}
-		},
-		shiftRow : function(y, amount) {
-			var me = this;
-			for (var x = 0; x < this.boardWidth; x++) {
-				this.sqs.eachdo(function() {
-					if (me.isAt(x, y, this)) {
-						me.setBlock(x, y + amount, this);
-					}
-				});
-			}
-			me.emptyBoardRow(y);
-		},
-		emptyBoardRow : function(y) {
-			for (var x = 0; x < this.boardWidth; x++) {
-				this.markBoardAt(x, y, 0);
-			}
-		},
-		removeRow : function(y) {
-			for (var x = 0; x < this.boardWidth; x++) {
-				this.removeBlock(x, y);
-			}
-		},
-		removeBlock : function(x, y) {
-			var me = this;
-			this.markBoardAt(x, y, 0);
-			this.sqs.eachdo(function(i) {
-				if (me.getPos(this)[0] === x && me.getPos(this)[1] === y) {
-					me.canvas.removeChild(this);
-					me.sqs.splice(i, 1);
-				}
-			});
-		},
-		setBlock : function(x, y, block) {
-			this.markBoardAt(x, y, 1);
-			var newX = x * this.pSize;
-			var newY = y * this.pSize;
-			block.style.left = newX + 'px';
-			block.style.top = newY + "px";
-		},
-		isAt : function(x, y, block) {
-			if (this.getPos(block)[0] === x && this.getPos(block)[1] === y) {
-				return true;
-			}
-			return false;
-		},
-		getPos : function(block) {
-			var p = [];
-			p.push(parseInt(block.style.left, 10) / this.pSize);
-			p.push(parseInt(block.style.top, 10) / this.pSize);
-			return p;
-		},
-		getBoardIdx : function(x, y) {
-			return x + (y * this.boardWidth);
-		},
-		boardPos : function(x, y) {
-			return this.board[x + (y * this.boardWidth)];
-		},
-		markBoardAt : function(x, y, val) {
-			this.board[this.getBoardIdx(x, y)] = val;
-		},
-		markBoardShape : function(x, y, p) {
-			var me = this;
-			p.eachdo(function(i) {
-				var newX = p[i][0] + x;
-				var newY = p[i][1] + y;
-				me.markBoardAt(newX, newY, 1);
-			});
-		},
-		isIE : function() {
-			return this.bTest(/IE/);
-		},
-		isFirefox : function() {
-			return this.bTest(/Firefox/);
-		},
-		isSafari : function() {
-			return this.bTest(/Safari/);
-		},
-		bTest : function(rgx) {
-			return rgx.test(navigator.userAgent);
-		}
-
-	};
+    
+    var tetris = new TK.Tetris();
+    var cw,ch, oneSize, pad = 1, canvasWidth, canvasHeight,w,h, one;
+    
+    w =  tk.min($(window).width(), screen.width, screen.availWidth);
+    h =  tk.min($(window).height(), screen.height, screen.availHeight);
+    var tetrisPad = 0;
+    var menuHeight = 38;
+    var menuPad = 15;
+    
     if(tk.isMobile.any()){
-        var w =  tk.min($(window).width(), screen.width, screen.availWidth);
-        var h =  tk.min($(window).height(), screen.height, screen.availHeight);
+        h -= menuHeight;
+        tetrisPad += menuHeight;
+        
         var num = 10;
         if(w > 754){
+            h -= menuPad;
+            tetrisPad += menuPad;
+            
             $(".right-ad,.left-ad").hide();
             w -= 500;
             h -= 150;
             num = 15;
         }
-        var one = parseInt(w * 0.7 / num);
-        var cw = one * num;
-        var ch = one * parseInt(h/one);
-        //$("#tetris").css("height", h+"px");
+        oneSize = parseInt(w * 0.7 / num);
+        cw = oneSize * num;
+        ch = oneSize * parseInt(h/oneSize);
         $("#tetris").css("width", w+"px");
-
-        $("#canvas").css("width", cw+"px");
-        $("#canvas").css("height", ch+"px");
-
-        $("#info").css("width", (w-cw)+"px");
-        $("#info").css("height", ch +"px");
-
-        $("#next_shape").css("padding-bottom", (one*3+10) + "px");
-
-        tetris.init(ch, cw, one, 1);
     }else{
-        var w =  tk.min($(window).width(), screen.width, screen.availWidth);
-        var h =  tk.min($(window).height(), screen.height, screen.availHeight);
-        
+        tetrisPad = menuHeight + menuPad;
         if(w < 1400){
             w -= 700;
             h -= 150;
-            var one = parseInt(w * 0.7 / 10);
-            var cw = one * 10;
-            var ch = one * parseInt(h/one);
+            oneSize = parseInt(w * 0.7 / 10);
+            cw = oneSize * 10;
+            ch = oneSize * parseInt(h/oneSize);
             
             $("#tetris").css("height", h+"px");
             $("#tetris").css("width", w+"px");
-
-            $("#canvas").css("width", cw+"px");
-            $("#canvas").css("height", ch+"px");
-
-            $("#info").css("width", (w-cw)+"px");
-            $("#info").css("height", ch +"px");
-
-            $("#next_shape").css("padding-bottom", (one*3+10) + "px");
-            
-            tetris.init(cw, ch, one, 1);
         }else{
-            tetris.init(800, 400, 40, 2);
+            pad = 2;
+            ch = 800;
+            cw = 400;
+            oneSize = 40;
+            w = 700;
         }
-
-
-        
     }
-	
+     $("#tetris").css("padding-top", tetrisPad+"px");
+   tetris.init({
+        canvasHeight : ch,
+        canvasWidth : cw,
+        pSize : oneSize,
+        next_shap_pad : pad,
+        dom : $("#tetris"),
+        style : {
+            "canvas" :{
+                "width" : cw + "px",
+                "height" : ch + "px"
+            },
+            "info" :{
+                "width" : (w-cw) + "px",
+                "height" : ch + "px"
+            },
+            "next_shape" : {
+                "padding-bottom" : (oneSize * 3 + 10) + "px"
+            }
+        },
+        callback : function(score){
+            showMessage(score, function(){
+                location.href = location.href;
+            });
+        }
+    });
 })();
