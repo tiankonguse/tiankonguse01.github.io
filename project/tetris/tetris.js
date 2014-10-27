@@ -757,11 +757,11 @@ tk.Composition(TK.Tetris, {
         oneSize = parseInt(w * 0.7 / num);
         cw = oneSize * num;
         ch = oneSize * parseInt(h/oneSize);
+        tetrisPad += (h - ch);
         $("#tetris").css("width", w+"px");
         
         $("#tetris").css("padding-top", tetrisPad+"px");
     }else{
-        tetrisPad = menuHeight + menuPad;
         if(w < 1400){
             w -= 700;
             h -= 150;
