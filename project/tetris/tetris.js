@@ -759,7 +759,7 @@ tk.Composition(TK.Tetris, {
             widthNum = 15;
         }
         oneSize = parseInt(w * 0.7 / widthNum);
-        cw = oneSize * num;
+        cw = oneSize * widthNum;
         ch = oneSize * parseInt(h/oneSize);
         //tetrisPad += (h - ch);
         $("#tetris").css("width", w+"px");
