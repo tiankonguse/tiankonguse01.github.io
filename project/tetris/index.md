@@ -62,11 +62,7 @@ if(tk.isMobile.any()){
     tk.ad.isShowPageFoot = false;
     
     
-    function loadAD(){
-        tk.ad.showPageFoot("ad-page-footer", "320-50", true);
-        setTimeout(loadAD, 1000 * 60 * 5);
-    }
-    loadAD();
+    tk.ad.showPageFoot("ad-page-footer", "320-50", true);
     
     $(".ad-page-footer").show();
     jQuery(document).ready(function(){
