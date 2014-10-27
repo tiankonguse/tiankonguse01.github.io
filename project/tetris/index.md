@@ -3,7 +3,9 @@ layout: default
 title : 经典游戏之俄罗斯方块
 ---
 
+<p style="padding: 0px;margin: 0px;">
 <link rel="stylesheet" href="./tetris.css" type="text/css" />
+</p>
 <div id="tetris">
 </div>
 <div class="right-ad">

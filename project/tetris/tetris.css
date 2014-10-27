@@ -28,12 +28,16 @@ body {
 
 #info {
 	background-color: #000;
-	color: #FF0000;
+	color: #FFFFFF;
 	float: right;
 	width: 260px;
 	height: 780px;
 	padding: 10px 20px;
 	font-size: 35px;
+}
+
+#info .pause span {
+    color: red;
 }
 
 #info p{

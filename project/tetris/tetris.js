@@ -105,7 +105,7 @@ tk.Composition(TK.Tetris, {
             tpl +=('<p class="help">左滑: <span>左</span></p>');
             tpl +=('<p class="help">右滑: <span>右</span></p>');
             tpl +=('<p class="help">双击: <span>旋转</span></p>');
-            tpl +=('<p class="help">向上双击: <span>暂停/继续</span></p></p>');
+            tpl +=('<p class="help pause">向上双击: <span>暂停</span></p>');
             tpl +=('<p class="help">向下双击: <span>下</span></p>');
         }else{
             tpl +=('<p class="help">使用方向键控制游戏</p>');
@@ -121,6 +121,8 @@ tk.Composition(TK.Tetris, {
                 $dom.css(key, styleDom[key]);
             }
         }
+        
+        this.info = this.dom.find("#info");
         
         this.canvas = this.dom.find("#canvas");
         this.nextShapeDisplay = this.dom.find("#next_shape");
@@ -237,10 +239,12 @@ tk.Composition(TK.Tetris, {
         
         if(this.isMobile){
             this.addEvent("touchstart", function(event){
-               if($(event.target).attr("id") != "canvas"){
+                event = event.originalEvent;
+               if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
+                    
+                }else{
                     return;
                 }
-                event.preventDefault();
                 var touches = event.changedTouches || event.touches;
                 var touch = touches[0]; 
 
@@ -248,7 +252,10 @@ tk.Composition(TK.Tetris, {
                 that.startY = touch.pageY;
             });
             this.addEvent("touchend", function(event){
-                if($(event.target).attr("id") != "canvas"){
+                event = event.originalEvent;
+               if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
+                    
+                }else{
                     return;
                 }
                 event.preventDefault();
@@ -317,10 +324,11 @@ tk.Composition(TK.Tetris, {
         return c;
     },
     addEvent : function(event, cb){
+        this.canvas.bind(event,cb);
         if (window.addEventListener) {
-            document.addEventListener(event, cb, false);
+            //document.getElementById("canvas").addEventListener(event, cb, false);
         } else {
-            document.attachEvent('on' + event, cb);
+            //document.getElementById("canvas").attachEvent('on' + event, cb);
         }
     },
     getDir : function getDir(which){
@@ -372,10 +380,13 @@ tk.Composition(TK.Tetris, {
     },
     togglePause : function() {
         this.isDown = false;
+        t=this;
         if (this.isActive === 1) {
             this.clearTimers();
             this.isActive = 0;
+            this.info.find(".pause span").html("继续");
         } else {
+            this.info.find(".pause span").html("暂停");
             this.play();
         }
     },
