@@ -57,8 +57,12 @@ title : 经典游戏之俄罗斯方块
 
 <script>
 tk.comment.isHaveComment = false;
-tk.ad.isLoadGoogleJs = false;
-tk.ad.isShowPageFoot = false;
+
+if(tk.isMobile.any()){
+    tk.ad.isLoadGoogleJs = false;
+    tk.ad.isShowPageFoot = false;
+}
+
 
 function setWeiBo(shareUrl, title, $dom){
     var url = "http://v.t.sina.com.cn/share/share.php?url="+encodeURI(shareUrl)+"&title="+encodeURI(title)+"&appkey=2924220432 &searchPic=false";

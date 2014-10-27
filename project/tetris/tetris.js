@@ -108,7 +108,7 @@ tk.Composition(TK.Tetris, {
             tpl +=('<p class="help pause">向上双击: <span>暂停</span></p>');
             tpl +=('<p class="help">向下双击: <span>下</span></p>');
         }else{
-            tpl +=('<p class="help">使用方向键控制游戏</p>');
+            tpl +=('<p class="help">方向键控制游戏</p>');
         }
         tpl = '<div id="info">' + tpl + '</div>';
         tpl += '<div id="canvas"></div>';
@@ -238,7 +238,7 @@ tk.Composition(TK.Tetris, {
         }
         
         if(this.isMobile){
-            this.addEvent("touchstart", function(event){
+            this.addMobileEvent("touchstart", function(event){
                 event = event.originalEvent;
                if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
                     
@@ -251,7 +251,7 @@ tk.Composition(TK.Tetris, {
                 that.startX = touch.pageX;    
                 that.startY = touch.pageY;
             });
-            this.addEvent("touchend", function(event){
+            this.addMobileEvent("touchend", function(event){
                 event = event.originalEvent;
                if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
                     
@@ -323,12 +323,14 @@ tk.Composition(TK.Tetris, {
         }
         return c;
     },
-    addEvent : function(event, cb){
+    addMobileEvent : function addMobileEvent(event, cb){
         this.canvas.bind(event,cb);
+    },
+    addEvent : function(event, cb){
         if (window.addEventListener) {
-            //document.getElementById("canvas").addEventListener(event, cb, false);
+            document.addEventListener(event, cb, false);
         } else {
-            //document.getElementById("canvas").attachEvent('on' + event, cb);
+            document.attachEvent('on' + event, cb);
         }
     },
     getDir : function getDir(which){
@@ -365,11 +367,10 @@ tk.Composition(TK.Tetris, {
                 break;
             case "RIGHT" :
                 this.move('R');
-                
                 break;
             case "DOWN" :
-                this.move('D');
                 this.isDown = true;
+                this.move('D');
                 break;
             case "PAUSE" : // esc: pause
                 this.togglePause();
@@ -443,7 +444,6 @@ tk.Composition(TK.Tetris, {
         }
     },
     checkMove : function(x, y, p) {
-    
         if (this.isOB(x, y, p) || this.isCollision(x, y, p)) {
             return false;
         }
