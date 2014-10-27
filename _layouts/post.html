@@ -85,7 +85,12 @@ layout: default
         {% endfor %}
         </ul>
         <h2><a href="/about"><span>About</span></a></h2>
-        <h2><a href="/resources"><span>Resources</span></a></h2>
+        <h2><a href="/project"><span>project</span></a></h2>
+        <ul class="artical-list">
+        {% for post in site.projectSyntaxError: Non-ASCII character %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
         
         <!-- 250 X 250 side -->
         <ins class="adsbygoogle"

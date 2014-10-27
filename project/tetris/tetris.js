@@ -371,7 +371,7 @@ tk.Composition(TK.Tetris, {
                 break;
             case "DOWN" :
                 this.isDown = true;
-                this.move('D');
+                //this.move('D');
                 break;
             case "PAUSE" : // esc: pause
                 this.togglePause();
@@ -382,10 +382,10 @@ tk.Composition(TK.Tetris, {
     },
     togglePause : function() {
         this.isDown = false;
-        t=this;
-        if (this.isActive === 1) {
+        
+        if (this.isActive) {
             this.clearTimers();
-            this.isActive = 0;
+            this.isActive = false;
             this.info.find(".pause span").html("继续");
         } else {
             this.info.find(".pause span").html("暂停");
@@ -393,7 +393,7 @@ tk.Composition(TK.Tetris, {
         }
     },
     move : function(dir) {
-        if (this.isActive == 0) {
+        if (!this.isActive) {
             return;
         }
         
@@ -529,8 +529,8 @@ tk.Composition(TK.Tetris, {
                 that.pTimer = setTimeout(gameLoop, that.speed * that.getBase());
             }
         };
-        this.pTimer = setTimeout(gameLoop, that.speed* that.getBase());
-        this.isActive = 1;
+        this.pTimer = setTimeout(gameLoop, that.speed * that.getBase());
+        this.isActive = true;
     },
     getBase : function getBase(){
         if(this.isDown){
@@ -739,13 +739,16 @@ tk.Composition(TK.Tetris, {
     var menuHeight = 38;
     var menuPad = 15;
     var adHeight = 50;
+    var boadWidth = 2;
+    h -= boadWidth;
+    var widthNum = 10;
     
     if(tk.isMobile.any()){
         h -= menuHeight;
         tetrisPad += menuHeight;
         h -= adHeight;
         
-        var num = 10;
+        
         if(w > 754){
             h -= menuPad;
             tetrisPad += menuPad;
@@ -753,9 +756,9 @@ tk.Composition(TK.Tetris, {
             $(".right-ad,.left-ad").hide();
             w -= 500;
             h -= 150;
-            num = 15;
+            widthNum = 15;
         }
-        oneSize = parseInt(w * 0.7 / num);
+        oneSize = parseInt(w * 0.7 / widthNum);
         cw = oneSize * num;
         ch = oneSize * parseInt(h/oneSize);
         //tetrisPad += (h - ch);
@@ -766,8 +769,8 @@ tk.Composition(TK.Tetris, {
         if(w < 1400){
             w -= 700;
             h -= 150;
-            oneSize = parseInt(w * 0.7 / 10);
-            cw = oneSize * 10;
+            oneSize = parseInt(w * 0.7 / widthNum);
+            cw = oneSize * widthNum;
             ch = oneSize * parseInt(h/oneSize);
             
             $("#tetris").css("height", h+"px");
