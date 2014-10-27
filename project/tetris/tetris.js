@@ -703,11 +703,17 @@ tk.Composition(TK.Tetris, {
         tetrisPad += menuHeight;
         
         var num = 10;
+<<<<<<< HEAD
         if(w > 754){
             h -= menuPad;
             tetrisPad += menuPad;
             
             $(".right-ad,.left-ad").hide();
+=======
+        
+        $(".right-ad,.left-ad").hide();
+        if(w>754){
+>>>>>>> cff06dbdd0eb26d09fd02e3af5f075dbfda954ca
             w -= 500;
             h -= 150;
             num = 15;

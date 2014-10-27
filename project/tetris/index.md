@@ -82,7 +82,14 @@ function showMessage(score, cb) {
         setQzone(shareUrl, title, $(".game-fenxiang-qzone"));
     }else{
         $("#game-fenxiang").hide();
+<<<<<<< HEAD
         document.title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
+=======
+        winxin_score = score;
+        //winxin_shareUrl = shareUrl;
+        bodyText = "恭喜你，获得了" + score + "高分，朋友圈分享给好友？";
+        
+>>>>>>> cff06dbdd0eb26d09fd02e3af5f075dbfda954ca
     }
     $message.find(".modal-body>p").text(bodyText);
     $message.modal("show");
@@ -91,4 +98,25 @@ function showMessage(score, cb) {
     }
 }
 
+<<<<<<< HEAD
 </script>
+=======
+function shareTimeline(){
+	console.log(winxin_score);
+    WeixinJSBridge.invoke('shareTimeline', {
+        'link': shareUrl + "?_t=" + tk.time(),
+        'title': "俄罗斯方块我轻松达到"+winxin_score+"分，你能打败我吗？快来挑战我吧？"
+    },function(res) {
+    });
+}
+
+//document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    //WeixinJSBridge.on('menu:share:timeline', function(argv){
+    	//console.log('share');
+   //     shareTimeline();
+        
+   // });
+//}, false);
+
+</script>
+>>>>>>> cff06dbdd0eb26d09fd02e3af5f075dbfda954ca
