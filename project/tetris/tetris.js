@@ -739,7 +739,7 @@ tk.Composition(TK.Tetris, {
     var menuHeight = 38;
     var menuPad = 15;
     var adHeight = 50;
-    var boadWidth = 2;
+    var boadWidth = 3;
     h -= boadWidth;
     var widthNum = 10;
     
