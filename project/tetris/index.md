@@ -95,9 +95,6 @@ function showMessage(score, cb) {
         $("#game-fenxiang").hide();
         document.title = "俄罗斯方块我轻松达到"+score+"分，你能打败我吗？快来挑战我吧？";
     }
-    if(tk.isMobile.any()){
-        bodyText += navigator.appVersion;
-    }
     $message.find(".modal-body>p").text(bodyText);
     $message.modal("show");
     if (cb) {

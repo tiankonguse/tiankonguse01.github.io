@@ -394,6 +394,9 @@ tk.Composition(TK.Mobile,{
     Windows: function Windows() {
         return this.agent.match(/IEMobile/i);
     },
+    QQ : function QQ(){
+        return this.agent.match(/QQ\//i);
+    },
     any: function() {
         return (this.Android() || this.BlackBerry() || this.iOS() || this.Opera() || this.Windows());
     }

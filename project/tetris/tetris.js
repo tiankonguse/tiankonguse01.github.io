@@ -739,8 +739,14 @@ tk.Composition(TK.Tetris, {
     var menuHeight = 38;
     var menuPad = 15;
     var adHeight = 50;
-    var boadWidth = 4;
+    var boadWidth = 2;
     h -= boadWidth;
+    
+    //fix QQ bug
+    if(tk.isMobile.QQ()){
+        h -= 4;
+    }
+    
     var widthNum = 10;
     
     if(tk.isMobile.any()){
