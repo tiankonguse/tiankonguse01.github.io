@@ -62,10 +62,11 @@ if(tk.isMobile.any()){
     tk.ad.isShowPageFoot = false;
     
     
-    tk.ad.showPageFoot("ad-page-footer", "320-50", true);
+    //tk.ad.showPageFoot("ad-page-footer", "320-50", true);
     
     //$(".ad-page-footer").show();
     jQuery(document).ready(function(){
+    	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
         tk.ad.loadGoogleJs(true);
     });
