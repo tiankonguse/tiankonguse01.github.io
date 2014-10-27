@@ -28,8 +28,6 @@ title : 经典游戏之俄罗斯方块
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
-<script src="./tetris.js"></script>
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -57,6 +55,7 @@ title : 经典游戏之俄罗斯方块
 
 <script>
 tk.comment.isHaveComment = false;
+tk.loadJSFile($("body"), "./tetris.js?t=" + tk.time());
 
 if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
