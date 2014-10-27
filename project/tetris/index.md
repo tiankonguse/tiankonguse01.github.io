@@ -88,7 +88,6 @@ function showMessage(score, cb) {
     var bodyText = "恭喜你，获得了" + score + "高分，分享给好友？";
     
     if(typeof WeixinJSBridge == 'undefined'){
-        bodyText = "恭喜你，获得了" + score + "高分，分享给好友？";
         setWeiBo(shareUrl, title, $(".game-fenxiang-weibo"));
         setQzone(shareUrl, title, $(".game-fenxiang-qzone"));
     }else{
