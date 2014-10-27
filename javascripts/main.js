@@ -496,9 +496,9 @@ tk.Composition(TK.AD,{
             return;
         }
         try{
-            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-        }catch(err){
             tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+        }catch(err){
+            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
         }
     },
     addAd : function addAd(key, val){
