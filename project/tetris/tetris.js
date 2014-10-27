@@ -102,11 +102,11 @@ tk.Composition(TK.Tetris, {
         tpl +=('<p id="time">Time: <span></span></p>');
         
         if(this.isMobile){
-            tpl +=('<p class="help">左滑: <span>左</span></p>');
-            tpl +=('<p class="help">右滑: <span>右</span></p>');
-            tpl +=('<p class="help">双击: <span>旋转</span></p>');
-            tpl +=('<p class="help pause">向上双击: <span>暂停</span></p>');
-            tpl +=('<p class="help">向下双击: <span>下</span></p>');
+            tpl +=('<p class="help">左滑:<span>左</span></p>');
+            tpl +=('<p class="help">右滑:<span>右</span></p>');
+            tpl +=('<p class="help">双击:<span>旋转</span></p>');
+            tpl +=('<p class="help pause">上双击:<span>暂停</span></p>');
+            tpl +=('<p class="help">下双击:<span>下</span></p>');
         }else{
             tpl +=('<p class="help">方向键控制游戏</p>');
         }
