@@ -71,7 +71,7 @@ if(tk.isMobile.any()){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
         tk.ad.loadGoogleJs(true);
-        setTimeout(function(){l();}, 1000 * 60 *2);
+       // setTimeout(function(){l();}, 1000 * 60 *2);
     });
 }
 
