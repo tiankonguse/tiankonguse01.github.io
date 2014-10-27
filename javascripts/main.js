@@ -560,7 +560,6 @@ tk.Composition(TK.Comment, {
     loadComment : function loadComment(){
         var that = this.dom;
         that.html('加载中...');
-        tl.loadJSFile($("body"), 'http://' + this.disqus_shortname + '.disqus.com/embed.js');
         $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });
