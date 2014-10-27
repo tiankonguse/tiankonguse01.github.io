@@ -104,9 +104,9 @@ tk.Composition(TK.Tetris, {
         if(this.isMobile){
             tpl +=('<p class="help">左滑: <span>左</span></p>');
             tpl +=('<p class="help">右滑: <span>右</span></p>');
-            tpl +=('<p class="help">点击: <span>旋转</span></p>');
-            tpl +=('<p class="help">上滑: <span>暂停/继续</span></p></p>');
-            tpl +=('<p class="help">下滑: <span>下</span></p>');
+            tpl +=('<p class="help">双击: <span>旋转</span></p>');
+            tpl +=('<p class="help">向上双击: <span>暂停/继续</span></p></p>');
+            tpl +=('<p class="help">向下双击: <span>下</span></p>');
         }else{
             tpl +=('<p class="help">使用方向键控制游戏</p>');
         }
@@ -256,19 +256,30 @@ tk.Composition(TK.Tetris, {
                 var touch = touches[0];
                 var x = touch.pageX - that.startX;
                 var y = touch.pageY - that.startY;  
-                
+
                 if(x > 50){//右
+                    that.preClickTime = 0;  
                     that.handleKey("RIGHT");
                 }else if(x < -50){//左
+                    that.preClickTime = 0;
                     that.handleKey("LEFT");
-                }else if(y > 50){
-                    that.handleKey("DOWN");
-                    this.isDown = true;
-                }else if(y < -50){
-                    that.handleKey("PAUSE");
+                }else if(y< 50 && y > -50){
+                    
+                    var time = tk.time();
+                    if(time - that.preClickTime < 300){
+                        var dir = that.getMobileEvent([touch.pageX, touch.pageY], that.preClickPos);
+                        that.preClickTime = 0;
+
+                        that.handleKey(dir);
+                    }else{
+                        that.preClickTime = time;
+                        that.preClickPos = [touch.pageX, touch.pageY];
+                    }
+
                 }else{
-                    that.handleKey("ROTATE");
-                }
+                    that.preClickTime = 0;
+                }            
+                
             });
         }else{
             this.addEvent(event, function(e) {
@@ -278,6 +289,23 @@ tk.Composition(TK.Tetris, {
             });
         }
         
+    },
+    getMobileEvent : function getMobileEvent(newPos, oldPos){
+        var x = newPos[0] - oldPos[0];
+        var y = newPos[1] - oldPos[1]; 
+        var dir = "";
+        if(x > 50){//右 
+            dir = "RIGHT";
+        }else if(x < -50){//左
+            dir = "LEFT";
+        }else if(y > 50){
+            dir = "DOWN";
+        }else if(y < -50){
+            dir = "PAUSE";
+        }else{
+            dir = "ROTATE";
+        }
+        return dir;
     },
     whichKey : function(e) {
         var c;
@@ -355,6 +383,7 @@ tk.Composition(TK.Tetris, {
         if (this.isActive == 0) {
             return;
         }
+        
         var s = '';
         var that = this;
         var tempX = this.curX;
@@ -716,6 +745,8 @@ tk.Composition(TK.Tetris, {
         cw = oneSize * num;
         ch = oneSize * parseInt(h/oneSize);
         $("#tetris").css("width", w+"px");
+        
+        $("#tetris").css("padding-top", tetrisPad+"px");
     }else{
         tetrisPad = menuHeight + menuPad;
         if(w < 1400){
@@ -735,7 +766,7 @@ tk.Composition(TK.Tetris, {
             w = 700;
         }
     }
-    //$("#tetris").css("padding-top", tetrisPad+"px");
+    
    tetris.init({
         canvasHeight : ch,
         canvasWidth : cw,
