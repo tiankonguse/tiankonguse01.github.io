@@ -61,6 +61,12 @@ tk.comment.isHaveComment = false;
 if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
+    jQuery(document).ready(function(){
+        
+        tk.ad.showPageFoot("ad-page-footer", "320-50", true);
+        $(".ad-page-footer").show();
+        tk.ad.loadGoogleJs(true);
+    });
 }
 
 

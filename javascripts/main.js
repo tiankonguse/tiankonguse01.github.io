@@ -473,34 +473,49 @@ tk.AddMethod(TK,{
     AD : function AD(){
         this.isShowPageFoot = true;
         this.isLoadGoogleJs = true;
+        this.adList = [];
     }
 });
 
 tk.Composition(TK.AD,{
-    showPageFoot: function showPageFoot(className) {
-        if(!this.isShowPageFoot){
+    showPageFoot: function showPageFoot(className, key, force) {
+        if(!this.isShowPageFoot && !force){
             return;
         }
         if(tk.isMobile.any()){
-            $("." + className).html("<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
+            $("." + className).html(this.getAd(key));
         }else{
-            $("." + className).html("<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
+            $("." + className).html(this.getAd(key));
         }
     },
-    loadGoogleJs : function loadGoogleJs(){
-        if(!this.isLoadGoogleJs){
+    loadGoogleJs : function loadGoogleJs(force){
+        if(!this.isLoadGoogleJs && !force){
             return;
         }
         try{
-            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-        }catch(err){
             tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+        }catch(err){
+            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
         }
+    },
+    addAd : function addAd(key, val){
+        if(!this.adList[key]){
+            this.adList[key] = val;
+        }
+    },
+    getAd : function getAd(key){
+        return this.adList[key] || "";
     }
 });
 
 tk.Composition(TK, {
-        ad : new TK.AD()
+        ad : (function(){
+            var ad = new TK.AD();
+            ad.addAd("300-250", "<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
+            ad.addAd("728-90","<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
+            ad.addAd("320-50",'<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="2712008393"></ins>');
+            return ad;
+        })()
     }
 );
 
@@ -581,7 +596,12 @@ jQuery(document).ready(function(){
     tk.comment.init($('#disqus_container .comment'));
 
     //ad
-    tk.ad.showPageFoot("ad-page-footer");
+    if(tk.isMobile.any()){
+        tk.ad.showPageFoot("ad-page-footer", "300-250");
+    }else{
+        tk.ad.showPageFoot("ad-page-footer", "728-90");
+    }
+    
     tk.ad.loadGoogleJs();
 });
 

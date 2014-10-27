@@ -737,10 +737,12 @@ tk.Composition(TK.Tetris, {
     var tetrisPad = 0;
     var menuHeight = 38;
     var menuPad = 15;
+    var adHeight = 50;
     
     if(tk.isMobile.any()){
         h -= menuHeight;
         tetrisPad += menuHeight;
+        h -= adHeight;
         
         var num = 10;
         if(w > 754){
