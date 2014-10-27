@@ -9,7 +9,7 @@ title : undefined reference to std::ios_base::Init::Init()
 ## 问题背景
 
 
-最近在看《[UNIX环境高级编程](<https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/linux/apue>)》，在敲上面的例子的时候，发现使用　gcc 编译时出现一些错误：
+最近在看《[UNIX环境高级编程][C_and_Cplusplus_in_linux]》，在敲上面的例子的时候，发现使用　gcc 编译时出现一些错误：
 
 
 ```text
@@ -26,7 +26,7 @@ collect2: error: ld returned 1 exit status
 
 面对这个问题，我有几个猜测。
 
-说猜测之前需要说一下背景，几个小时前，我[搭建了 Objective-C 的环境](<https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/objective-c>)，其中安装了　GNUstep 等一大堆东西。
+说猜测之前需要说一下背景，几个小时前，我[搭建了 Objective-C 的环境][C_and_Cplusplus_in_linux]，其中安装了　GNUstep 等一大堆东西。
 
 然后我的第一个猜测是就是安装 GNUstep 导致我的编译出现问题。
 
@@ -68,6 +68,10 @@ gcc 主要用于编译c程序，　g++ 用于编译c++程序，当然也可以�
 
 ## 参考资料
 
-* [chinazhangjie](<http://www.cnblogs.com/chinazhangjie/archive/2011/05/23/2054598.html>)
+* [chinazhangjie][]
 
 (完)
+
+[C_and_Cplusplus_in_linux]: https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/linux/apue
+[C_and_Cplusplus_in_linux]: https://github.com/tiankonguse/C_and_Cplusplus_in_linux/tree/master/objective-c
+[chinazhangjie]: http://www.cnblogs.com/chinazhangjie/archive/2011/05/23/2054598.html
