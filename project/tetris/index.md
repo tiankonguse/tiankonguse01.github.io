@@ -60,10 +60,16 @@ tk.loadJSFile($("body"), "./tetris.js?t=" + tk.time());
 if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
-    jQuery(document).ready(function(){
-        
+    
+    
+    function loadAD(){
         tk.ad.showPageFoot("ad-page-footer", "320-50", true);
-        $(".ad-page-footer").show();
+        setTimeout(loadAD, 1000 * 60 * 5);
+    }
+    loadAD();
+    
+    $(".ad-page-footer").show();
+    jQuery(document).ready(function(){
         tk.ad.loadGoogleJs(true);
     });
 }
