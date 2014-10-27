@@ -71,6 +71,7 @@ tk.AddMethod(TK,{
         this.speed = 700;
         this.preClickTime = 0;
         this.preClickPos = null;
+        this.doubleClickTime = 300;
     }
 });
 
@@ -264,16 +265,16 @@ tk.Composition(TK.Tetris, {
                 var x = touch.pageX - that.startX;
                 var y = touch.pageY - that.startY;  
 
-                if(x > 50){//右
+                if(x > that.pSize){//右
                     that.preClickTime = 0;  
                     that.handleKey("RIGHT");
-                }else if(x < -50){//左
+                }else if(x < -that.pSize){//左
                     that.preClickTime = 0;
                     that.handleKey("LEFT");
-                }else if(y< 50 && y > -50){
+                }else if(y< that.pSize && y > -that.pSize){
                     
                     var time = tk.time();
-                    if(time - that.preClickTime < 300){
+                    if(time - that.preClickTime < that.doubleClickTime){
                         var dir = that.getMobileEvent([touch.pageX, touch.pageY], that.preClickPos);
                         that.preClickTime = 0;
 
@@ -301,13 +302,13 @@ tk.Composition(TK.Tetris, {
         var x = newPos[0] - oldPos[0];
         var y = newPos[1] - oldPos[1]; 
         var dir = "";
-        if(x > 50){//右 
+        if(x > this.pSize){//右 
             dir = "RIGHT";
-        }else if(x < -50){//左
+        }else if(x < -this.pSize){//左
             dir = "LEFT";
-        }else if(y > 50){
+        }else if(y > this.pSize){
             dir = "DOWN";
-        }else if(y < -50){
+        }else if(y < -this.pSize){
             dir = "PAUSE";
         }else{
             dir = "ROTATE";
