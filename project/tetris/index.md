@@ -61,14 +61,17 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     
+    function l(){
+    	$(".ad-page-footer").hide();
+       tk.ad.showPageFoot("ad-page-footer", "320-50", true);
     
-    //tk.ad.showPageFoot("ad-page-footer", "320-50", true);
-    
-    //$(".ad-page-footer").show();
+       $(".ad-page-footer").show();
+    }
     jQuery(document).ready(function(){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
         tk.ad.loadGoogleJs(true);
+        setTimeout(function(){l();}, 1000 * 60 *2);
     });
 }
 
