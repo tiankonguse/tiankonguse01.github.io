@@ -745,7 +745,7 @@ tk.Composition(TK.Tetris, {
     //fix QQ bug
     if(tk.isMobile.QQ()){
         h -= 2;
-        $("#tetris").css("border-bottom", "0px");
+        $("#tetris").css("border", "0px");
     }
     
     var widthNum = 10;
