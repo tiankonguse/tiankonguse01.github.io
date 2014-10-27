@@ -405,7 +405,7 @@ tk.Composition(TK, {
 
 tk.Composition(TK, {
     loadJSFile  : function loadJSFile($dom, url){
-        var script = jQuery(('<script src="' + url + '" async ></script>'));
+        var script = jQuery('<script src="' + url + '" async ></script>');
         $dom.append(script);
     }
 });
@@ -560,6 +560,7 @@ tk.Composition(TK.Comment, {
     loadComment : function loadComment(){
         var that = this.dom;
         that.html('加载中...');
+        tl.loadJSFile($("body"), 'http://' + this.disqus_shortname + '.disqus.com/embed.js');
         $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });
