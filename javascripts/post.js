@@ -1,33 +1,11 @@
 jQuery(document).ready(function(){
-
-    
     var $ = jQuery;
-
-    var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        }
-        ,BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        }
-        ,iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        }
-        ,Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        }
-        ,Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        }
-        ,any: function() {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
     
-    if(isMobile.any()){
-        $(".ad-content-footer").html("<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
+    if(tk.isMobile.any()){
+        tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
+        
     }else{
-         $(".ad-content-footer").html("<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
+         tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
     }
     
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class

@@ -24,9 +24,7 @@ title : 经典游戏之俄罗斯方块
      style="display:inline-block;width:300px;height:600px"
      data-ad-client="ca-pub-2326969899478823"
      data-ad-slot="1758482399"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -61,17 +59,16 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     
-    function l(){
+    function lad(){
     	$(".ad-page-footer").hide();
        tk.ad.showPageFoot("ad-page-footer", "320-50", true);
-    
        $(".ad-page-footer").show();
     }
     jQuery(document).ready(function(){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
         tk.ad.loadGoogleJs(true);
-       // setTimeout(function(){l();}, 1000 * 60 *2);
+       // setTimeout(function(){lad();}, 1000 * 60 *2);
     });
 }
 
@@ -107,6 +104,94 @@ function showMessage(score, cb) {
 		$message.on("hidden.bs.modal", cb);
     }
 }
+
+(function() {
+    var tetris = new TK.Tetris();
+    var cw,ch, oneSize, pad = 1, canvasWidth, canvasHeight,w,h, one;
+    
+    w =  tk.min($(window).width(), screen.width, screen.availWidth);
+    h =  tk.min($(window).height(), screen.height, screen.availHeight);
+    var tetrisPad = 0;
+    var menuHeight = 38;
+    var menuPad = 15;
+    var adHeight = 50;
+    var boadWidth = 2;
+    h -= boadWidth;
+    
+    //fix QQ bug
+    if(tk.isMobile.QQ()){
+        h -= 2;
+        $("#tetris").css("border", "0px");
+    }
+    
+    var widthNum = 10;
+    
+    if(tk.isMobile.any()){
+        h -= menuHeight;
+        tetrisPad += menuHeight;
+        h -= adHeight;
+        
+        if(w > 754){
+            h -= menuPad;
+            tetrisPad += menuPad;
+            
+            $(".right-ad,.left-ad").hide();
+            w -= 500;
+            h -= 150;
+            widthNum = 15;
+        }
+        oneSize = parseInt(w * 0.7 / widthNum);
+        cw = oneSize * widthNum;
+        ch = oneSize * parseInt(h/oneSize);
+        //tetrisPad += (h - ch);
+        $("#tetris").css("width", w+"px");
+        
+        $("#tetris").css("padding-top", tetrisPad+"px");
+    }else{
+        if(w < 1400){
+            w -= 700;
+            h -= 150;
+            oneSize = parseInt(w * 0.7 / widthNum);
+            cw = oneSize * widthNum;
+            ch = oneSize * parseInt(h/oneSize);
+            
+            $("#tetris").css("height", h+"px");
+            $("#tetris").css("width", w+"px");
+        }else{
+            pad = 2;
+            ch = 800;
+            cw = 400;
+            oneSize = 40;
+            w = 700;
+        }
+    }
+    
+   tetris.init({
+        canvasHeight : ch,
+        canvasWidth : cw,
+        pSize : oneSize,
+        next_shap_pad : pad,
+        dom : $("#tetris"),
+        style : {
+            "canvas" :{
+                "width" : cw + "px",
+                "height" : ch + "px"
+            },
+            "info" :{
+                "width" : (w-cw) + "px",
+                "height" : ch + "px"
+            },
+            "next_shape" : {
+                "padding-bottom" : (oneSize * 3 + 10) + "px"
+            }
+        },
+        callback : function(score){
+            showMessage(score, function(){
+                location.href = location.href;
+            });
+        }
+    });
+})();
 
 </script>
 

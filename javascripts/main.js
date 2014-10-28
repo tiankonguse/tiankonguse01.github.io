@@ -500,6 +500,7 @@ tk.AddMethod(TK,{
         this.isShowPageFoot = true;
         this.isLoadGoogleJs = true;
         this.adList = [];
+        this.endText = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
     }
 });
 tk.Composition(TK.AD,{
@@ -507,11 +508,10 @@ tk.Composition(TK.AD,{
         if(!this.isShowPageFoot && !force){
             return;
         }
-        if(tk.isMobile.any()){
-            $("." + className).html(this.getAd(key));
-        }else{
-            $("." + className).html(this.getAd(key));
-        }
+        this.showAd(className, key);
+    },
+    showAd : function showAd(className, key){
+        $("." + className).html(this.getAd(key));
     },
     loadGoogleJs : function loadGoogleJs(force){
         if(!this.isLoadGoogleJs && !force){
@@ -529,7 +529,7 @@ tk.Composition(TK.AD,{
         }
     },
     getAd : function getAd(key){
-        return this.adList[key] || "";
+        return (this.adList[key] || "") + this.endText;
     }
 });
 tk.Composition(TK, {
@@ -538,6 +538,9 @@ tk.Composition(TK, {
             ad.addAd("300-250", "<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");
             ad.addAd("728-90","<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");
             ad.addAd("320-50",'<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="2712008393"></ins>');
+            ad.addAd("300-250","<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
+            ad.addAd("728-90","<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
+            
             return ad;
         })()
     }
