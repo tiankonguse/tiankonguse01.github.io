@@ -415,7 +415,7 @@ tk.Composition(TK, {
                 }
             };
         }
-        document.getElementsByTagName("head")[0].append(script);
+        document.getElementsByTagName("head")[0].appendChild(script);
     }
 });
 
