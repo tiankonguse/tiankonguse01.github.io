@@ -1,0 +1,160 @@
+---
+layout: page
+title: 在线代码格式化
+---
+
+<link rel="stylesheet" href="/stylesheets/basic.css" type="text/css" /> 
+<script type="text/javascript" src="/javascripts/jsbeautify.js"></script> 
+<script type="text/javascript" src="/javascripts/cssbeautify.js"></script> 
+<script type="text/javascript" src="/javascripts/htmlformat.js"></script> 
+<div class="wrapper"> 
+    <div class="toolUsing clearfix"> 
+        <div class="topBar"> 
+         <div class="title">
+          待格式化代码：
+         </div> 
+         <textarea id="code-befor"></textarea>
+        </div> 
+        <div class="operateTB form-inline">
+            操作： 
+            <select id="code-op">
+                <option value="格式化" selected="selected">格式化</option>
+                <option value="普通压缩">普通压缩</option>
+                <option value="加密压缩">加密压缩</option>
+            </select> 
+        
+            代码语言:
+            <select id="code-lang">
+                <option value="css" selected="selected">css</option>
+                <option value="javascript">javascript</option>
+                <option value="html">html</option>
+            </select> 
+            缩进方式： 
+            <select id="code-tab">
+                <option value="1">Tab符缩进</option>
+                <option value="4" selected="selected">4个空格缩进</option>
+            </select> 
+            
+            
+            <input class="btn btn-small btn-primary" type="button" onclick="doSomething()" value="操作">
+        </div> 
+        <div class="bottomBar"> 
+            <div class="title">
+                格式化代码：
+            </div> 
+            <div class="resizable-textarea">
+                <textarea id="code-after"></textarea>
+            </div> 
+        </div> 
+    </div> 
+</div> 
+<script type="text/javascript">
+function doSomething(){
+    
+    $('#code-after').val("");
+    
+    var codeOp = $('#code-op').val();
+    
+    
+    var codeBefor =$('#code-befor').val().replace(/^\s+/, '');
+    if(codeBefor.length==0){
+        return;
+    }
+    
+    var codeLang = $("#code-lang").val();
+    
+    var codeTab = $("#code-tab").val();
+    
+    var codeAfter = "";
+    
+    if("格式化" == codeOp){
+        codeAfter = formatSource(codeBefor, codeLang, codeTab);
+    }else if("普通压缩" == codeOp){
+        codeAfter = normalCompression(codeBefor, codeLang);
+    }
+    
+    $("#code-after").val(codeAfter);
+}
+
+function normalCompression(codeBefor, codeLang){
+    var codeAfter = "还不能压缩这个语言的代码";
+    if(codeLang == "css"){
+        codeAfter = normalCompressionCss(codeBefor);
+    }else if(codeLang == "javascript"){
+        codeAfter = normalCompressionJavascript(codeBefor);
+    }else if(codeLang == "html"){
+        codeAfter = normalCompressionHtml(codeBefor);
+    }
+    return codeAfter;
+}
+
+
+function normalCompressionHtml(codeBefor){
+    var source = codeBefor;
+    source = source.replace(/\n+/g, "");
+    source = source.replace(/<!--.*?-->/ig, "");
+    source = source.replace(/\/\*.*?\*\//ig, "");
+    source = source.replace(/[ ]+</ig, "<");
+    return source;
+}
+
+function normalCompressionCss(codeBefor){
+    var source = codeBefor;
+    source = source.replace(/\n+/g, "");
+    source = source.replace(/\/\*.*?\*\//ig, "");
+    source = source.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
+    source = source.replace(/\,[\s\.\#\d]*\{/g, "{");  
+    return source;
+}
+
+function normalFormatCss(codeBefor){
+    var source = codeBefor;
+    source = source.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
+    source = source.replace(/;\s*;/g, ";");
+    source = source.replace(/\,[\s\.\#\d]*{/g, "{");
+    source = source.replace(/([^\s])\{([^\s])/g, "$1 {\n\t$2");
+    source = source.replace(/([^\s])\}([^\n]*)/g, "$1\n}\n$2");
+    source = source.replace(/([^\s]);([^\s\}])/g, "$1;\n\t$2");
+    return source;
+}
+
+function formatSource(codeBefor, codeLang, codeTab){
+    var codeAfter = "还不能格式化这个语言的代码";
+    if(codeLang == "css"){
+        codeAfter = formatCss(codeBefor, codeTab);
+    }else if(codeLang == "javascript"){
+        codeAfter = formatJavascript(codeBefor, codeTab);
+    }else if(codeLang == "html"){
+        codeAfter = formatHtml(codeBefor, codeTab);
+    }
+    return codeAfter;
+}
+
+function formatJavascript(codeBefor, codeTab){
+    var tabchar = ' ';
+    if (codeTab == 1){
+        tabchar = '\t';
+    }
+    return js_beautify(codeBefor, codeTab, tabchar);
+}
+
+function formatCss(codeBefor, codeTab){
+    var options = {
+        indent: '    '
+    };
+    if(codeTab == 1){
+        options.indent = '\t';
+    }
+    return cssbeautify(codeBefor, options);
+}
+
+function formatHtml(codeBefor, codeTab){
+    var tabchar = ' ';
+    if (codeTab == 1){
+        tabchar = '\t';
+    }
+    return style_html(codeBefor, codeTab, tabchar, 80);
+}
+
+
+</script>
