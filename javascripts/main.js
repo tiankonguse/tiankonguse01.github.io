@@ -19,6 +19,7 @@ TK.prototype.AddMethod = function AddMethod(target, source){
     }
 };
 
+/* min max */
 tk.Composition(TK, {
     "min" : function min(){
         var a = arguments;
@@ -40,6 +41,7 @@ tk.Composition(TK, {
     }
 });
 
+/* replace */
 tk.Composition(TK,{
     replace : function replace(str, key, val) {
         return str.split(key).join(val);
@@ -47,13 +49,7 @@ tk.Composition(TK,{
 });
 
 
-/**
- * @functionName {Format} 得到自定义格式的时间字符串
- * @authon {tiankonguse}
- * @param {String:fmt}      
- * @return {String}
- * y:年, M:月份, d:日, m:分, s:秒 S:毫秒
- */
+/* Format timr */
 tk.Composition(TK,{
     Format : function Format(data, fmt) {
         var o = {
@@ -95,7 +91,7 @@ tk.Composition(TK,{
 });
 
 
-
+/* UTF8Length */
 tk.Composition(TK,{
     UTF8Length : function UTF8Length(s) {
         var l = 0;
@@ -114,6 +110,7 @@ tk.Composition(TK,{
     }
 });
 
+/* Cookie */
 tk.AddMethod(TK,{
     Cookie : function Cookie(){}
 });
@@ -128,13 +125,14 @@ tk.Composition(TK.Cookie,{
         return (!m ? "": m[1]);
     },
     del: function del(name, domain, path) {
-        document.cookie = name + "=; expires=Mon, 26 Jul 1997 05:00:00 GMT; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.cm.com;"));
+        document.cookie = name + "=; expires=Mon, 26 Jul 1997 05:00:00 GMT; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.tiankonguse.com;"));
     }
 });
 tk.Composition(TK,{
     cookie : new TK.Cookie()
 });
 
+/* customDropDown */
 tk.AddMethod(TK,{
     customDropDown : function customDropDown(ele){
         this.dropdown = ele;
@@ -181,6 +179,7 @@ tk.Composition(TK.customDropDown,{
     }
 });
 
+/* JSON */
 tk.AddMethod(TK,{
     JSON : function JSON(ele){
         ele = ele || "{}";
@@ -213,6 +212,7 @@ tk.Composition(TK, {
     json : new TK.JSON()
 });
 
+/* XML */
 tk.AddMethod(TK,{
     XML : function XML(ele){
         ele = ele || "";
@@ -301,15 +301,7 @@ tk.Composition(TK, {
     xml : new TK.XML()
 });
 
-/**
- * 获取字符串的哈希值
- * 
- * @param {String}
- *            str
- * @param {Boolean}
- *            caseSensitive
- * @return {Number} hashCode
- */
+/* hashString */
 tk.Composition(TK,{
     hashString : function hashString(str, caseSensitive){
         str = str.toString();
@@ -326,6 +318,7 @@ tk.Composition(TK,{
     }
 });
 
+/* loadImg */
 tk.Composition(TK,{
     loadImg : function loadImg(imgList, callback){
         if(typeof imgList == "string"){
@@ -355,6 +348,7 @@ tk.Composition(TK,{
     }
 });
 
+/* imgRealSize */
 tk.Composition(TK,{
     imgRealSize : function imgRealSize(url, callback){
     var img = new Image();
@@ -371,13 +365,12 @@ tk.Composition(TK,{
     }
 });
 
+/* Mobile */
 tk.AddMethod(TK,{
     Mobile : function Mobile(){
         this.agent = navigator.userAgent;
     }
-});
-    
-    
+});   
 tk.Composition(TK.Mobile,{
    Android: function Android() {
         return this.agent.match(/Android/i);
@@ -401,18 +394,32 @@ tk.Composition(TK.Mobile,{
         return (this.Android() || this.BlackBerry() || this.iOS() || this.Opera() || this.Windows());
     }
 });
-
 tk.Composition(TK, {
     isMobile  : new TK.Mobile()
 });
 
+/* loadJSFile */
 tk.Composition(TK, {
-    loadJSFile  : function loadJSFile($dom, url){
-        var script = jQuery('<script src="' + url + '" async ></script>');
-        $dom.append(script);
+    loadJSFile  : function loadJSFile(url, cb, async){
+        var script = document.createElement('script');
+        var load = false;
+        
+        script.async = !!async;
+        script.src = url;
+        if(cb){
+            script.onload = script.onreadystatechange = function(){
+                if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                    script.onload = script.onreadystatechange = null; 
+                    load = true;
+                    cb();
+                }
+            };
+        }
+        document.getElementsByTagName("head")[0].append(script);
     }
 });
 
+/* loadPage */
 tk.Composition(TK, {
     loadPage : function loadPage(nowPage, allPage, $pageDom, url){
         var first = true;
@@ -465,13 +472,14 @@ tk.Composition(TK, {
     }
 });
 
-
+/* time */
 tk.Composition(TK, {
     time : function time(){
         return new Date().getTime();
     }
 });
 
+/* AD */
 tk.AddMethod(TK,{
     AD : function AD(){
         this.isShowPageFoot = true;
@@ -479,7 +487,6 @@ tk.AddMethod(TK,{
         this.adList = [];
     }
 });
-
 tk.Composition(TK.AD,{
     showPageFoot: function showPageFoot(className, key, force) {
         if(!this.isShowPageFoot && !force){
@@ -510,7 +517,6 @@ tk.Composition(TK.AD,{
         return this.adList[key] || "";
     }
 });
-
 tk.Composition(TK, {
         ad : (function(){
             var ad = new TK.AD();
@@ -522,6 +528,7 @@ tk.Composition(TK, {
     }
 );
 
+/* Comment */
 tk.AddMethod(TK,{
     Comment : function Comment(){
         this.isHaveComment = true;
@@ -530,7 +537,6 @@ tk.AddMethod(TK,{
         this.time = 5000;
     }
 });
-
 tk.Composition(TK.Comment, {
     init : function init(dom){
         this.dom = dom;
@@ -566,7 +572,6 @@ tk.Composition(TK.Comment, {
         $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });
-
 tk.Composition(TK, {
         comment : new TK.Comment()
     }
