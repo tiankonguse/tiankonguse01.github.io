@@ -555,7 +555,7 @@ tk.AddMethod(TK,{
 tk.Composition(TK.Comment, {
     init : function init(dom){
         this.dom = dom;
-        if(!this.isHaveComment){
+        if(!this.isHaveComment || this.dom.length == 0){
             return;
         }
         if(this.shouldLoad()){
