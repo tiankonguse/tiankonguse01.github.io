@@ -66,13 +66,13 @@ if(tk.isMobile.any()){
        tk.ad.showPageFoot("ad-page-footer", "320-50", true);
        $(".ad-page-footer").show();
        console.log("load");
-       setTimeout(function(){lad();}, 1000 * 60 *5);
+       setTimeout(function(){lad();}, 1000 * 60 *1);
     }
     tk.ad.loadGoogleJs(true);
     jQuery(document).ready(function(){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
-        setTimeout(function(){lad();}, 1000 * 60 *5);
+        setTimeout(function(){lad();}, 1000 * 60 *1);
     });
 }
 
