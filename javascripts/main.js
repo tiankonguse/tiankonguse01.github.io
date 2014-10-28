@@ -399,27 +399,39 @@ tk.Composition(TK, {
 });
 
 /* loadJSFile */
+
+
 tk.Composition(TK, {
-    loadJSFile  : function loadJSFile(url, cb, async){
-        var script = document.createElement('script');
-        var load = false;
-        
-        script.async = !!async;
-        script.src = url;
-        if(cb){
-            script.onload = script.onreadystatechange = function(){
-                if(load){
-                    return;
+    loadJSFile  : function loadJSFile(url, cb, async, innerText){
+        try {
+            var head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
+            var script = document.createElement('script');
+            var done = false;
+            script.src = url;
+            script.async = !!async;
+            
+            if (!!innerText) {
+            /* IE8 and below throws an exception when calling appendChild on a script tag */
+                try {
+                    script.appendChild(document.createTextNode(innerText));
+                } catch(e) {
+                    script.text = innerText;
                 }
-                if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
-                    script.onload = script.onreadystatechange = null; 
-                    load = true;
-                    cb();
+            }
+            
+            script.onload = script.onreadystatechange = function() {
+                if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+                    complete(script.src);
+                    done = true;
+                    script.onload = script.onreadystatechange = null;
+                    cb || cb();
                 }
             };
+            head.insertBefore(script, head.firstChild);
+            /* head.appendChild(script); */
+        } catch (e) { 
+            console.log("loadJSFile "+ url +" error. msg: " + err.message); 
         }
-        var head = document.getElementsByTagName("head")[0];
-        head.appendChild(script);
     }
 });
 
