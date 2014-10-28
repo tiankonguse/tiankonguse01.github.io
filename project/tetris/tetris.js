@@ -264,13 +264,20 @@ tk.Composition(TK.Tetris, {
                 var x = touch.pageX - that.startX;
                 var y = touch.pageY - that.startY; 
                 var absx = Math.abs(x);               
-                var absy = Math.abs(y);               
+                var absy = Math.abs(y); 
+                var twoStep = that.pSize * 5;
 
                 if(x >= that.pSize && absy <= absx){//右
                     that.preClickTime = 0;  
+                    if(absx > twoStep){
+                        that.handleKey("RIGHT");
+                    }
                     that.handleKey("RIGHT");
                 }else if(x <= -that.pSize && absy <= absx){//左
                     that.preClickTime = 0;
+                    if(absx > twoStep){
+                        that.handleKey("LEFT");
+                    }
                     that.handleKey("LEFT");
                 }else if(absy <= that.pSize && absx <= that.pSize){
                     var time = tk.time();
