@@ -70,7 +70,7 @@ if(tk.isMobile.any()){
     jQuery(document).ready(function(){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
-       // setTimeout(function(){lad();}, 1000 * 60 *2);
+        setTimeout(function(){lad();}, 1000 * 60 *5);
     });
 }
 

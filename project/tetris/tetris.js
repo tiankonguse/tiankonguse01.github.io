@@ -799,29 +799,33 @@ tk.Composition(TK.Tetris, {
         }
     }
     
-   tetris.init({
-        canvasHeight : ch,
-        canvasWidth : cw,
-        pSize : oneSize,
-        next_shap_pad : pad,
-        dom : $("#tetris"),
-        style : {
-            "canvas" :{
-                "width" : cw + "px",
-                "height" : ch + "px"
+    setTimeout(function(){
+        tetris.init({
+            canvasHeight : ch,
+            canvasWidth : cw,
+            pSize : oneSize,
+            next_shap_pad : pad,
+            dom : $("#tetris"),
+            style : {
+                "canvas" :{
+                    "width" : cw + "px",
+                    "height" : ch + "px"
+                },
+                "info" :{
+                    "width" : (w-cw) + "px",
+                    "height" : ch + "px"
+                },
+                "next_shape" : {
+                    "padding-bottom" : (oneSize * 3 + 10) + "px"
+                }
             },
-            "info" :{
-                "width" : (w-cw) + "px",
-                "height" : ch + "px"
-            },
-            "next_shape" : {
-                "padding-bottom" : (oneSize * 3 + 10) + "px"
+            callback : function(score){
+                showMessage(score, function(){
+                    location.href = location.href;
+                });
             }
-        },
-        callback : function(score){
-            showMessage(score, function(){
-                location.href = location.href;
-            });
-        }
-    });
+        });
+    }, 1000);
+    
+
 })();
