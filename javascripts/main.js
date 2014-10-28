@@ -408,6 +408,9 @@ tk.Composition(TK, {
         script.src = url;
         if(cb){
             script.onload = script.onreadystatechange = function(){
+                if(load){
+                    return;
+                }
                 if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
                     script.onload = script.onreadystatechange = null; 
                     load = true;
@@ -415,7 +418,8 @@ tk.Composition(TK, {
                 }
             };
         }
-        document.getElementsByTagName("head")[0].appendChild(script);
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(script);
     }
 });
 
@@ -503,9 +507,9 @@ tk.Composition(TK.AD,{
             return;
         }
         try{
-            tk.loadJSFile($("body"), "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+            tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
         }catch(err){
-            tk.loadJSFile($("body"), "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+            tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
         }
     },
     addAd : function addAd(key, val){
