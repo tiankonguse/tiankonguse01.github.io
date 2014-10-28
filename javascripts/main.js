@@ -423,7 +423,7 @@ tk.Composition(TK, {
                 if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
                     done = true;
                     script.onload = script.onreadystatechange = null;
-                    cb || cb();
+                    cb && cb();
                 }
             };
             head.insertBefore(script, head.firstChild);
