@@ -3,7 +3,6 @@ jQuery(document).ready(function(){
     
     if(tk.isMobile.any()){
         tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
-        
     }else{
          tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
     }
@@ -186,6 +185,10 @@ jQuery(document).ready(function(){
                 gotoSelectorPos(contentMap[location.hash]);
             }
 
+        }else{
+            var $next = $("#menuIndex-next");
+            $menuIndex.append($next.children());
+            $next.remove();
         }
     })();
 
