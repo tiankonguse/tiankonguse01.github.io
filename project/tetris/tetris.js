@@ -252,7 +252,7 @@ tk.Composition(TK.Tetris, {
             });
             this.addMobileEvent("touchend", function(event){
                 event = event.originalEvent;
-               if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
+               if($(event.target).attr("id") == "tetris" || $(event.target).parent("#tetris").length){
                     
                 }else{
                     return;
@@ -261,21 +261,21 @@ tk.Composition(TK.Tetris, {
                 var touches = event.changedTouches || event.touches;
                 var touch = touches[0];
                 var x = touch.pageX - that.startX;
-                var y = touch.pageY - that.startY;  
+                var y = touch.pageY - that.startY; 
+                var absx = Math.abs(x);               
+                var absy = Math.abs(y);               
 
-                if(x > that.pSize){//右
+                if(x >= that.pSize && absy <= absx){//右
                     that.preClickTime = 0;  
                     that.handleKey("RIGHT");
-                }else if(x < -that.pSize){//左
+                }else if(x <= -that.pSize && absy <= absx){//左
                     that.preClickTime = 0;
                     that.handleKey("LEFT");
-                }else if(y< that.pSize && y > -that.pSize){
-                    
+                }else if(absy <= that.pSize && absx <= that.pSize){
                     var time = tk.time();
                     if(time - that.preClickTime < that.doubleClickTime){
                         var dir = that.getMobileEvent([touch.pageX, touch.pageY], that.preClickPos);
                         that.preClickTime = 0;
-
                         that.handleKey(dir);
                     }else{
                         that.preClickTime = time;
@@ -299,16 +299,20 @@ tk.Composition(TK.Tetris, {
     getMobileEvent : function getMobileEvent(newPos, oldPos){
         var x = newPos[0] - oldPos[0];
         var y = newPos[1] - oldPos[1]; 
+        var absx = Math.abs(x);       
+        var absy = Math.abs(y);
+        var pSize2 = this.pSize*2;
+        
         var dir = "";
-        if(x > this.pSize){//右 
+        if(x >= this.pSize && absy <= absx){//右 
             dir = "RIGHT";
-        }else if(x < -this.pSize){//左
+        }else if(x < -this.pSize && absy <= absx){//左
             dir = "LEFT";
-        }else if(y > this.pSize){
+        }else if(y > this.pSize && absy >= absx){
             dir = "DOWN";
-        }else if(y < -this.pSize){
+        }else if(y < -this.pSize && absy >= absx){
             dir = "PAUSE";
-        }else{
+        }else if(absy <= pSize2 && absx <= pSize2){
             dir = "ROTATE";
         }
         return dir;
