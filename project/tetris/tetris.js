@@ -31,6 +31,7 @@ tk.AddMethod(TK,{
         this.next_shap_pad = 2;
         this.isMobile =  tk.isMobile.any();
         this.canvas = null;
+        this.tetris = null;
         this.dom = null;
 		this.boardHeight = 0;
 		this.time = 0;
@@ -239,7 +240,7 @@ tk.Composition(TK.Tetris, {
         if(this.isMobile){
             this.addMobileEvent("touchstart", function(event){
                 event = event.originalEvent;
-               if($(event.target).attr("id") == "canvas" || $(event.target).parent("#canvas").length){
+               if($(event.target).attr("id") == "tetris" || $(event.target).parent("#tetris").length){
                     
                 }else{
                     return;
@@ -327,7 +328,7 @@ tk.Composition(TK.Tetris, {
         return c;
     },
     addMobileEvent : function addMobileEvent(event, cb){
-        this.canvas.bind(event,cb);
+        this.dom.bind(event,cb);
     },
     addEvent : function(event, cb){
         if (window.addEventListener) {
