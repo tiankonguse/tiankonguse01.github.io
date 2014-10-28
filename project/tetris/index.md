@@ -54,7 +54,7 @@ title : 经典游戏之俄罗斯方块
 <script>
 tk.comment.isHaveComment = false;
 //tk.loadJSFile("./tetris.js?t=" + tk.time());
-tk.loadJSFile("./tetris.js?t=" + tk.time());
+tk.loadJSFile("./tetris.js?t=" + tk.time(), null, true);
 
 
 if(tk.isMobile.any()){
@@ -66,10 +66,10 @@ if(tk.isMobile.any()){
        tk.ad.showPageFoot("ad-page-footer", "320-50", true);
        $(".ad-page-footer").show();
     }
+    tk.ad.loadGoogleJs(true);
     jQuery(document).ready(function(){
     	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
     	$(".ad-page-footer").show();
-        tk.ad.loadGoogleJs(true);
        // setTimeout(function(){lad();}, 1000 * 60 *2);
     });
 }

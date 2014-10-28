@@ -499,6 +499,7 @@ tk.AddMethod(TK,{
     AD : function AD(){
         this.isShowPageFoot = true;
         this.isLoadGoogleJs = true;
+        this.alreadyLoad = false;
         this.adList = [];
         this.endText = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
     }
@@ -514,13 +515,14 @@ tk.Composition(TK.AD,{
         $("." + className).html(this.getAd(key));
     },
     loadGoogleJs : function loadGoogleJs(force){
-        if(!this.isLoadGoogleJs && !force){
+        if(!this.isLoadGoogleJs && !force && !this.alreadyLoad){
             return;
         }
+        this.alreadyLoad = true;
         try{
-            tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+            tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
         }catch(err){
-            tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+            tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
         }
     },
     addAd : function addAd(key, val){
