@@ -240,7 +240,7 @@ tk.Composition(TK.Tetris, {
         if(this.isMobile){
             this.addMobileEvent("touchstart", function(event){
                 event = event.originalEvent;
-               if($(event.target).attr("id") == "tetris" || $(event.target).parent("#tetris").length){
+               if($(event.target).attr("id") == "tetris" || $(event.target).parents("#tetris").length){
                     
                 }else{
                     return;
@@ -253,7 +253,7 @@ tk.Composition(TK.Tetris, {
             });
             this.addMobileEvent("touchend", function(event){
                 event = event.originalEvent;
-               if($(event.target).attr("id") == "tetris" || $(event.target).parent("#tetris").length){
+               if($(event.target).attr("id") == "tetris" || $(event.target).parents("#tetris").length){
                     
                 }else{
                     return;
