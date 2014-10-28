@@ -71,7 +71,7 @@ tk.AddMethod(TK,{
         this.speed = 700;
         this.preClickTime = 0;
         this.preClickPos = null;
-        this.doubleClickTime = 300;
+        this.doubleClickTime = 500;
     }
 });
 
