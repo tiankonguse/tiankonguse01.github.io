@@ -127,7 +127,7 @@ jQuery(document).ready(function(){
                 scrollTop.push(top);
             });
             
-            if(!isMobile.any()){
+            if(!tk.isMobile.any()){
                 var menuIndexTop = $menuIndex.offset().top;
                 var menuIndexLeft = $menuIndex.offset().left;
     
