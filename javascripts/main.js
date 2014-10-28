@@ -421,7 +421,6 @@ tk.Composition(TK, {
             
             script.onload = script.onreadystatechange = function() {
                 if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
-                    complete(script.src);
                     done = true;
                     script.onload = script.onreadystatechange = null;
                     cb || cb();
