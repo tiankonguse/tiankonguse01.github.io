@@ -625,7 +625,7 @@ jQuery(document).ready(function(){
 
     //ad
     if(tk.isMobile.any()){
-        tk.ad.showPageFoot("ad-page-footer", "300-250");
+        tk.ad.showPageFoot("ad-page-footer", "300-250");        
     }else{
         tk.ad.showPageFoot("ad-page-footer", "728-90");
     }

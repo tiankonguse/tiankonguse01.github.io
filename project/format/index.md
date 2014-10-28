@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 在线代码格式化
 ---
 
