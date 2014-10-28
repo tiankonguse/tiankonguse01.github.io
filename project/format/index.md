@@ -19,7 +19,6 @@ title: 在线代码格式化
                 <option value="普通压缩">普通压缩</option>
                 <option value="加密压缩">加密压缩</option>
             </select> 
-        
             代码语言:
             <select id="code-lang">
                 <option value="css" selected="selected">css</option>
@@ -31,8 +30,6 @@ title: 在线代码格式化
                 <option value="1">Tab符缩进</option>
                 <option value="4" selected="selected">4个空格缩进</option>
             </select> 
-            
-            
             <input class="btn btn-small btn-primary" type="button" onclick="doSomething()" value="操作">
         </div> 
         <div class="bottomBar"> 
