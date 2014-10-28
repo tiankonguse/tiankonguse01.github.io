@@ -4,7 +4,7 @@ title : 经典游戏之俄罗斯方块
 ---
 
 <p style="padding: 0px;margin: 0px;">
-<link rel="stylesheet" href="./tetris.css" type="text/css" />
+<link rel="stylesheet" href="./tetris.min.css" type="text/css" />
 </p>
 <div id="tetris">
 </div>
@@ -53,7 +53,9 @@ title : 经典游戏之俄罗斯方块
 
 <script>
 tk.comment.isHaveComment = false;
-tk.loadJSFile("./tetris.js?t=" + tk.time());
+//tk.loadJSFile("./tetris.js?t=" + tk.time());
+tk.loadJSFile("./tetris.min.js?t=" + tk.time());
+
 
 if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
