@@ -404,7 +404,7 @@ tk.Composition(TK, {
 tk.Composition(TK, {
     loadJSFile  : function loadJSFile(url, cb, async, innerText){
         try {
-            var head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
+            var head = document.body || document.getElementsByTagName("body")[0] || document.documentElement;
             var script = document.createElement('script');
             var done = false;
             script.src = url;
@@ -426,8 +426,8 @@ tk.Composition(TK, {
                     cb && cb();
                 }
             };
-            head.insertBefore(script, head.firstChild);
-            /* head.appendChild(script); */
+            /* head.insertBefore(script, head.firstChild); */
+           head.appendChild(script); 
         } catch (e) { 
             console.log("loadJSFile "+ url +" error. msg: " + err.message); 
         }
