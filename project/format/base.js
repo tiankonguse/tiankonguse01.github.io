@@ -30,7 +30,7 @@ function normalCompression(codeBefor, codeLang){
     if(codeLang == "css"){
         codeAfter = normalCompressionCss(codeBefor);
     }else if(codeLang == "javascript"){
-        codeAfter = normalCompressionJavascript(codeBefor);
+        //codeAfter = normalCompressionJavascript(codeBefor);
     }else if(codeLang == "html"){
         codeAfter = normalCompressionHtml(codeBefor);
     }
