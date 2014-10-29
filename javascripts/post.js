@@ -176,7 +176,7 @@ jQuery(document).ready(function(){
                                 });
                             }
                             
-                            if(nowTop + winHeight  >=  scrollLiOffset[length-1].top + 250){
+                            if(nowTop + winHeight  >=  scrollLiOffset[length-1].top ){
                                $menuIndex.css({
                                     position:'absolute',
                                     left:menuIndexLeft,
