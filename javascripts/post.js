@@ -139,11 +139,11 @@ jQuery(document).ready(function(){
                 var winHeight =  tk.min($(window).height(), screen.height);
                 var indexHeight = $menuIndex.height();
                 var menuIndexBottom = menuIndexTop + indexHeight;
-                        
+                var length = scrollTop.length;
+                
                 $(window).scroll(function(){
                     waitForFinalEvent(function(){
                         var nowTop = $(window).scrollTop();
-                        var length = scrollTop.length;
                         var index;
                         
                         if(nowTop+60 > scrollTop[length-1]){
@@ -173,10 +173,10 @@ jQuery(document).ready(function(){
                                     ,bottom:'0px'
                                     ,left:menuIndexLeft
                                 });
-                            }else if(Math.abs(scrollTop[index] - scrollLiOffset[index]) > 5){
+                            }else if(Math.abs(scrollTop[index] - scrollLiOffset[index].top) > 5){
                                $menuIndex.css({
                                     position:'absolute'
-                                    ,top: (scrollTop[index] - scrollLiTop[index]) + '0px'
+                                    ,top: (scrollTop[index] - scrollLiTop[index]) + 'px'
                                     ,left:menuIndexLeft
                                 });
                             }
