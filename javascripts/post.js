@@ -143,7 +143,7 @@ jQuery(document).ready(function(){
                 var minTop = -1;
                 
                 function getNowTop(index, nowTop, delta){
-                    var bottomHeight = indexHeight - scrollLiTop[index] + 260;
+                    var bottomHeight = indexHeight - scrollLiTop[index];
                     if(bottomHeight < winHeight){
                         return nowTop - (indexHeight - scrollLiTop[index]);
                     }
