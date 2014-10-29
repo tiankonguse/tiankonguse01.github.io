@@ -142,7 +142,7 @@ jQuery(document).ready(function(){
                 var length = scrollTop.length;
                 var minTop = -1;
                 
-                function getNowTop(index, nowTop){
+                function getNowTop(index, nowTop, delta){
                     var bottomHeight = indexHeight - scrollLiTop[index] + 260;
                     if(bottomHeight < winHeight){
                         return nowTop - (indexHeight - scrollLiTop[index]);
@@ -154,9 +154,10 @@ jQuery(document).ready(function(){
                         top = nowTop;
                     }
                     
-                    if(minTop != -1 && minTop < top){
+                    if(delta > 0 && minTop != -1 && minTop < top){
                         top = minTop;
                     }
+                    
                     
                     minTop = top;
                     
@@ -164,10 +165,11 @@ jQuery(document).ready(function(){
 
                 }
                 
-                $(window).scroll(function(){
+                $(document).bind('mousewheel DOMMouseScroll', function(event){
                     waitForFinalEvent(function(){
                         var nowTop = $(window).scrollTop();
                         var index;
+                        var delta = event.originalEvent.wheelDelta || (0 - event.originalEvent.detail);
                         
                         if(nowTop+60 > scrollTop[length-1]){
                             index = length;
@@ -192,7 +194,7 @@ jQuery(document).ready(function(){
                                     bottom :"auto"
                                 });
                             }else{
-                                var top = getNowTop(index, nowTop);
+                                var top = getNowTop(index, nowTop, delta);
                                 $menuIndex.css({
                                     position:'absolute',
                                     top: top + 'px',
