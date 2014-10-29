@@ -109,7 +109,7 @@ tk.Composition(TK.Tetris, {
             tpl +=('<p class="help">下双击:<span>下</span></p>');
         }else{
             tpl +=('<p class="help">方向键控制游戏</p>');
-            tpl +=('<p class="help">公告<div style="font-size: 15px;color: red;">1.这个游戏是tiankonguse开发的。<br>2.这个版本的效率比较低<br>3.tiankonguse没有时间优化<br>4.如果你有时间，可以联系tiankonguse</div></p>');
+            tpl +=('<p class="help"><div style="font-size: 15px;color: red;">1.这个游戏是tiankonguse开发的。<br>2.这个版本的效率比较低<br>3.优化策略已经有了<br>4.tiankonguse没有时间优化<br>5.你想优化时请联系我</div></p>');
         }
         tpl = '<div id="info">' + tpl + '</div>';
         tpl += '<div id="canvas"></div>';
