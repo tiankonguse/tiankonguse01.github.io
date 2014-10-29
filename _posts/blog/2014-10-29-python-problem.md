@@ -5,6 +5,16 @@ category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 ---
 
+## 前言
+
+时间多的挺快的，从学习python到现在已经一个月了。
+
+当时写了两篇文章 [初步学习Python][first-learn-python] 和 [初步学习Python高级语法][first-learn-python-hight-lev], 还有一篇规范文章 [Python 风格规范][python-style].
+
+然后到现在已经写了大大小小8~9个python程序了，并且已经在正式环境跑了。
+
+现在总结一下遇到的一些常见的问题，或者需求吧。
+
 
 ## 时间的年月日
 
@@ -64,9 +74,12 @@ print datetime.datetime(2012,04,23).strftime("%w")
 
 ## http 请求
 
+关于 post 请求详见 [Python 下发送 post 类型的 http请求][python-http-post]
+
+
 ```python
 try:
-    req = urllib2.Request(url, postdata)
+    req = urllib2.Request(url)
     page = urllib2.urlopen(req)
     ret_str = page.read()
     
@@ -148,17 +161,22 @@ except MySQLdb.Error, e:
     print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 ```
 
-## 字符串 转化 json
+比如我的这篇文章:[python mysql 更新和插入数据无效][python-update-invalid]，数据怎么也没有插件去，后来找到是没有 commit 的原因。
+
+
+## 字符串 与 json 转化
+
+详见我的另一篇文章[Python 下 json 的基本操作与转换][python-json]
+
 
 ```python
 json_obj = json.loads(str)
-```
-
-## json 对象 转 字符串
-
-```python
 str = json.dumps(json_obj)
 ```
+
+
+
+
 ## 整数 与 字符串 转化
 
 ```python
@@ -186,3 +204,9 @@ char = chr(48) # '1'
 
 
 
+[python-http-post]: http://github.tiankonguse.com/blog/2014/09/28/python-http-post/
+[python-json]: http://github.tiankonguse.com/blog/2014/09/29/python-json/
+[first-learn-python]: http://github.tiankonguse.com/blog/2014/09/25/first-learn-python/
+[first-learn-python-hight-lev]: http://github.tiankonguse.com/blog/2014/09/25/first-learn-python-hight-lev/
+[python-style]: http://github.tiankonguse.com/blog/2014/10/08/python-style/
+[python-update-invalid]: http://github.tiankonguse.com/blog/2014/10/20/python-update-invalid/
