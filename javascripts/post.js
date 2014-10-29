@@ -149,7 +149,7 @@ jQuery(document).ready(function(){
                                 });
                             }else if(nowTop + winHeight >=  menuIndexBottom){
                                $menuIndex.css({
-                                    position:'fixed'
+                                    position:'absolute'
                                     ,bottom:'10px'
                                     ,left:menuIndexLeft
                                 });
