@@ -142,10 +142,13 @@ jQuery(document).ready(function(){
                 var length = scrollTop.length;
                 var minTop = -1;
                 
+                var leftWinHeight = winHeight - 360;
+                var hideHeight = indexHeight - leftWinHeight;
+                
                 function getNowTop(index, nowTop, delta){
                     var bottomHeight = indexHeight - scrollLiTop[index] ;
-                    if(bottomHeight < winHeight - 250){
-                        return nowTop - (indexHeight - (winHeight - 250));
+                    if(bottomHeight < leftWinHeight){
+                        return nowTop - hideHeight;
                     }
                     
                     var top = scrollTop[index] - scrollLiTop[index];
