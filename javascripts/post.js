@@ -140,6 +140,7 @@ jQuery(document).ready(function(){
                 var indexHeight = $menuIndex.height();
                 var menuIndexBottom = menuIndexTop + indexHeight;
                 var length = scrollTop.length;
+                var minTop = -1;
                 
                 function getNowTop(index, nowTop){
                     var bottomHeight = indexHeight - scrollLiTop[index] + 260;
@@ -152,6 +153,12 @@ jQuery(document).ready(function(){
                     if(top + 10 > nowTop){
                         top = nowTop;
                     }
+                    
+                    if(minTop != -1 && minTop < top){
+                        top = minTop;
+                    }
+                    
+                    minTop = top;
                     
                     return top;
 
@@ -195,6 +202,7 @@ jQuery(document).ready(function(){
                             }
   
                         }else{
+                            minTop = -1;
                             $menuIndex.css({
                                 position:'static'
                                 ,top:0
@@ -208,6 +216,7 @@ jQuery(document).ready(function(){
                 });
     
                 $(window).resize(function(){
+                    minTop = -1;
                     $menuIndex.css({
                         position:'static'
                         ,top:0
