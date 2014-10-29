@@ -157,7 +157,7 @@ jQuery(document).ready(function(){
                             }
                         }
                         $('#menuIndex li').removeClass('on');
-                        $('#menuIndex li').eq(index-1).addClass('on');
+                        $('#menuIndex li').eq(index).addClass('on');
                         
                         
                         if(nowTop+20 > menuIndexTop){
@@ -168,17 +168,19 @@ jQuery(document).ready(function(){
                                     ,left:menuIndexLeft,
                                     bottom :"auto"
                                 });
-                            }else if(nowTop + winHeight  >=  scrollLiOffset[length-1].top + 250){
+                            }else if(Math.abs(scrollTop[index] - scrollLiOffset[index].top) > 5){
+                               $menuIndex.css({
+                                    position:'absolute'
+                                    ,top: (scrollTop[index] - scrollLiTop[index]) + 'px'
+                                    ,left:menuIndexLeft
+                                });
+                            }
+                            
+                            if(nowTop + winHeight  >=  scrollLiOffset[length-1].top + 250){
                                $menuIndex.css({
                                     position:'absolute',
                                     left:menuIndexLeft,
                                     top : (nowTop - (indexHeight - winHeight)) + "px"
-                                });
-                            }else if(Math.abs(scrollTop[index-1] - scrollLiOffset[index-1].top) > 5){
-                               $menuIndex.css({
-                                    position:'absolute'
-                                    ,top: (scrollTop[index-1] - scrollLiTop[index-1]) + 'px'
-                                    ,left:menuIndexLeft
                                 });
                             }
 
