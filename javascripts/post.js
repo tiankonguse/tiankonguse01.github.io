@@ -170,17 +170,15 @@ jQuery(document).ready(function(){
                                 });
                             }else if(nowTop + winHeight  >=  scrollLiOffset[length-1].top + 250){
                                $menuIndex.css({
-                                    position:'absolute'
-                                    ,bottom:'0px'
-                                    ,left:menuIndexLeft,
-                                    top : "auto"
+                                    position:'absolute',
+                                    left:menuIndexLeft,
+                                    top : (nowTop - (indexHeight - winHeight)) + "px"
                                 });
-                            }else if(Math.abs(scrollTop[index] - scrollLiOffset[index].top) > 5){
+                            }else if(Math.abs(scrollTop[index-1] - scrollLiOffset[index-1].top) > 5){
                                $menuIndex.css({
                                     position:'absolute'
-                                    ,top: (scrollTop[index] - scrollLiTop[index]) + 'px'
-                                    ,left:menuIndexLeft,
-                                    bottom : "auto"
+                                    ,top: (scrollTop[index-1] - scrollLiTop[index-1]) + 'px'
+                                    ,left:menuIndexLeft
                                 });
                             }
 
