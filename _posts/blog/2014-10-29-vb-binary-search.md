@@ -165,7 +165,7 @@ cstr(1234)="1234"
 
 [除法文档][25bswc76]
 
-> 结果是 expression1 除以 expression2 的完整的商，包括任何余数。 
+> 结果是 expression1 除以 expression2 的完整的商，包括任何余数。  
 > \ 运算符 (Visual Basic) 返回整数商，丢掉了余数
 
 好吧，这么坑爹。
@@ -192,7 +192,7 @@ Private Sub Command1_Click()
     flag = 0
 
     Do While left <= right
-        mid = (left + right) / 2
+        mid = (left + right) \ 2
 
         If a(mid) = s Then
             flag = 1
