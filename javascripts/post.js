@@ -142,7 +142,7 @@ jQuery(document).ready(function(){
                 var length = scrollTop.length;
                 var minTop = -1;
                 
-                var leftWinHeight = winHeight - 360;
+                var leftWinHeight = winHeight;
                 var hideHeight = indexHeight - leftWinHeight;
                 
                 function getNowTop(index, nowTop, delta){
@@ -166,11 +166,12 @@ jQuery(document).ready(function(){
                         if(minTop != -1 && minTop > top){
                             top = minTop;
                         }
+                        if(top - 10 > nowTop){
+                            top = nowTop;
+                        }
                     }
                     
-                    if(top + 10 > nowTop || top - 10 < nowTop){
-                        top = nowTop;
-                    }
+
                     
                     minTop = top;
                     
