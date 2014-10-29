@@ -202,7 +202,18 @@ char = chr(48) # '1'
 # coding:UTF-8
 ```
 
+## 随机数生成
 
+```python
+
+random.random() # 生成一个0到1的随机浮点数
+random.uniform(a, b) #生成一个指定范围内的浮点数
+random.randint(a, b) #生成一个指定范围内的整数
+random.randrange(a, b, c) #生成一个指定等差数列内的数
+random.choice(list) # 从list中随机选择一个元素
+random.shuffle(list) # 将list中的元素顺序打乱
+random.sample(list, n) # 从list中随机挑n个元素
+```
 
 [python-http-post]: http://github.tiankonguse.com/blog/2014/09/28/python-http-post/
 [python-json]: http://github.tiankonguse.com/blog/2014/09/29/python-json/
