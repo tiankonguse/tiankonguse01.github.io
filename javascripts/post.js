@@ -149,7 +149,7 @@ jQuery(document).ready(function(){
                     
                     var top = scrollTop[index] - scrollLiTop[index];
                     
-                    if(top - 10 < nowTop){
+                    if(top + 10 > nowTop){
                         top = nowTop;
                     }
                     
