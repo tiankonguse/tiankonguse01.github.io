@@ -136,8 +136,9 @@ jQuery(document).ready(function(){
                         var nowTop = $(window).scrollTop();
                         var length = scrollTop.length;
                         var index;
-    
-                        if(nowTop+20 > menuIndexTop){
+                        var winHeight =  tk.min($(window).height(), screen.height);
+                        var indexHeight = $("#menuIndex").height()
+                        if(nowTop+20 > menuIndexTop && winHeight >= indexHeight){
                             $menuIndex.css({
                                 position:'fixed'
                                 ,top:'20px'
