@@ -154,8 +154,14 @@ jQuery(document).ready(function(){
                         top = nowTop;
                     }
                     
-                    if(delta < 0 && minTop != -1 && minTop < top){
-                        top = minTop;
+                    if(delta < 0 ){
+                        if(minTop != -1 && minTop < top){
+                            top = minTop;
+                        }
+                    }else{
+                        if(minTop != -1 && minTop > top){
+                            top = minTop;
+                        }
                     }
                     
                     
