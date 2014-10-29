@@ -141,6 +141,22 @@ jQuery(document).ready(function(){
                 var menuIndexBottom = menuIndexTop + indexHeight;
                 var length = scrollTop.length;
                 
+                function getNowTop(index, nowTop){
+                    var bottomHeight = indexHeight - scrollLiTop[index] + 260;
+                    if(bottomHeight < winHeight){
+                        return nowTop - (indexHeight - scrollLiTop[index]);
+                    }
+                    
+                    var top = scrollTop[index] - scrollLiTop[index];
+                    
+                    if(top - 10 < nowTop){
+                        top = nowTop;
+                    }
+                    
+                    return top;
+
+                }
+                
                 $(window).scroll(function(){
                     waitForFinalEvent(function(){
                         var nowTop = $(window).scrollTop();
@@ -168,22 +184,16 @@ jQuery(document).ready(function(){
                                     ,left:menuIndexLeft,
                                     bottom :"auto"
                                 });
-                            }else if(Math.abs(scrollTop[index] - scrollLiOffset[index].top) > 5){
-                               $menuIndex.css({
-                                    position:'absolute'
-                                    ,top: (scrollTop[index] - scrollLiTop[index]) + 'px'
-                                    ,left:menuIndexLeft
-                                });
-                            }
-                            
-                            if(nowTop + winHeight  >=  scrollLiOffset[length-1].top ){
-                               $menuIndex.css({
+                            }else{
+                                var top = getNowTop(index, nowTop);
+                                $menuIndex.css({
                                     position:'absolute',
-                                    left:menuIndexLeft,
-                                    top : (nowTop - (indexHeight - winHeight)) + "px"
+                                    top: top + 'px',
+                                    left:menuIndexLeft
                                 });
+                            
                             }
-
+  
                         }else{
                             $menuIndex.css({
                                 position:'static'
