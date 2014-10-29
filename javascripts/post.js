@@ -147,7 +147,7 @@ jQuery(document).ready(function(){
                                     ,top:'20px'
                                     ,left:menuIndexLeft
                                 });
-                            }else if(nowTop + winHeight >= menuIndexBottom){
+                            }else if(nowTop + winHeight >=  menuIndexBottom){
                                $menuIndex.css({
                                     position:'fixed'
                                     ,bottom:'10px'
