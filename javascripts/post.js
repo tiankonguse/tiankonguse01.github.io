@@ -165,19 +165,22 @@ jQuery(document).ready(function(){
                                 $menuIndex.css({
                                     position:'fixed'
                                     ,top:'20px'
-                                    ,left:menuIndexLeft
+                                    ,left:menuIndexLeft,
+                                    bottom :"auto"
                                 });
                             }else if(nowTop + winHeight  >=  scrollLiOffset[length-1].top + 250){
                                $menuIndex.css({
                                     position:'absolute'
                                     ,bottom:'0px'
-                                    ,left:menuIndexLeft
+                                    ,left:menuIndexLeft,
+                                    top : "auto"
                                 });
                             }else if(Math.abs(scrollTop[index] - scrollLiOffset[index].top) > 5){
                                $menuIndex.css({
                                     position:'absolute'
                                     ,top: (scrollTop[index] - scrollLiTop[index]) + 'px'
-                                    ,left:menuIndexLeft
+                                    ,left:menuIndexLeft,
+                                    bottom : "auto"
                                 });
                             }
 
@@ -185,7 +188,8 @@ jQuery(document).ready(function(){
                             $menuIndex.css({
                                 position:'static'
                                 ,top:0
-                                ,left:0
+                                ,left:0,
+                                bottom : "auto"
                             });
                         }
     
@@ -197,7 +201,8 @@ jQuery(document).ready(function(){
                     $menuIndex.css({
                         position:'static'
                         ,top:0
-                        ,left:0
+                        ,left:0,
+                        bottom : "auto"
                     });
     
                     menuIndexTop = $menuIndex.offset().top;
