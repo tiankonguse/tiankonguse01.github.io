@@ -150,9 +150,10 @@ jQuery(document).ready(function(){
                     
                     var top = scrollTop[index] - scrollLiTop[index];
                     
-                    if(top + 10 > nowTop){
+                    if(top + 10 > nowTop || top - 10 < nowTop){
                         top = nowTop;
                     }
+  
                     
                     if(delta < 0 ){
                         if(minTop != -1 && minTop < top){
@@ -164,7 +165,7 @@ jQuery(document).ready(function(){
                         }
                     }
                     
-                    if(top + 10 > nowTop){
+                    if(top + 10 > nowTop || top - 10 < nowTop){
                         top = nowTop;
                     }
                     
