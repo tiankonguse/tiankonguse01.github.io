@@ -130,20 +130,31 @@ jQuery(document).ready(function(){
             if(!tk.isMobile.any()){
                 var menuIndexTop = $menuIndex.offset().top;
                 var menuIndexLeft = $menuIndex.offset().left;
-    
+                var winHeight =  tk.min($(window).height(), screen.height);
+                var indexHeight = $menuIndex.height();
+                var menuIndexBottom = menuIndexTop + indexHeight;
+                        
                 $(window).scroll(function(){
                     waitForFinalEvent(function(){
                         var nowTop = $(window).scrollTop();
                         var length = scrollTop.length;
                         var index;
-                        var winHeight =  tk.min($(window).height(), screen.height);
-                        var indexHeight = $("#menuIndex").height()
-                        if(nowTop+20 > menuIndexTop && winHeight >= indexHeight){
-                            $menuIndex.css({
-                                position:'fixed'
-                                ,top:'20px'
-                                ,left:menuIndexLeft
-                            });
+                        
+                        if(nowTop+20 > menuIndexTop){
+                            if(winHeight >= indexHeight){
+                                $menuIndex.css({
+                                    position:'fixed'
+                                    ,top:'20px'
+                                    ,left:menuIndexLeft
+                                });
+                            }else if(nowTop + winHeight >= menuIndexBottom){
+                               $menuIndex.css({
+                                    position:'fixed'
+                                    ,bottom:'10px'
+                                    ,left:menuIndexLeft
+                                });
+                            }
+
                         }else{
                             $menuIndex.css({
                                 position:'static'
