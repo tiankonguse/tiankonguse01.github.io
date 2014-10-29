@@ -143,9 +143,9 @@ jQuery(document).ready(function(){
                 var minTop = -1;
                 
                 function getNowTop(index, nowTop, delta){
-                    var bottomHeight = indexHeight - scrollLiTop[index];
-                    if(bottomHeight < winHeight){
-                        return nowTop - (indexHeight - scrollLiTop[index]) + 150;
+                    var bottomHeight = indexHeight - scrollLiTop[index] ;
+                    if(bottomHeight < winHeight - 250){
+                        return nowTop - (indexHeight - (winHeight - 250));
                     }
                     
                     var top = scrollTop[index] - scrollLiTop[index];
