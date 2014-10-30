@@ -125,8 +125,8 @@ jQuery(document).ready(function(){
             $.each($('#menuIndex li a'),function(index,item){
                 var id = $(item).attr('data-id');
                 var selector = id ? '#'+id : 'h1'
-                var top = $(selector).offset().top;
-                scrollTop.push(top);
+                var mytop  = $(selector).offset().top;
+                scrollTop.push(mytop );
                 var liOffset = $(item).parent().offset();
                 scrollLiTop.push(liOffset.top - menuIndexTop);
             });
@@ -141,15 +141,15 @@ jQuery(document).ready(function(){
                 var shouldPos = winHeight / 3;
                 
                 function getNowTop(index, nowTop, delta){
-                    top = nowTop + shouldPos - scrollLiTop[index];
+                    var mytop  = nowTop + shouldPos - scrollLiTop[index];
 
-                    if(top > nowTop){
-                        top = nowTop;
-                    }else if(top + indexHeight <= nowTop + winHeight){
-                        top = nowTop - (indexHeight - winHeight);
+                    if(mytop  > nowTop){
+                        mytop  = nowTop;
+                    }else if(mytop  + indexHeight <= nowTop + winHeight){
+                        mytop  = nowTop - (indexHeight - winHeight);
                     }
                         
-                    return top;
+                    return mytop ;
 
                 }
                 
@@ -178,14 +178,13 @@ jQuery(document).ready(function(){
                                 $menuIndex.css({
                                     position:'fixed'
                                     ,top:'20px'
-                                    ,left:menuIndexLeft,
-                                    bottom :"auto"
+                                    ,left:menuIndexLeft
                                 });
                             }else{
-                                var top = getNowTop(index, nowTop, delta);
+                                var mytop  = getNowTop(index, nowTop, delta);
                                 $menuIndex.css({
                                     position:'absolute',
-                                    top: top + 'px',
+                                    top: mytop  + 'px',
                                     left:menuIndexLeft
                                 });
                             
@@ -194,10 +193,9 @@ jQuery(document).ready(function(){
                         }else{
                             minTop = -1;
                             $menuIndex.css({
-                                position:'static'
-                                ,top:0
-                                ,left:0,
-                                bottom : "auto"
+                                position:'static',
+                                top:0,
+                                left:0
                             });
                         }
     
@@ -208,10 +206,9 @@ jQuery(document).ready(function(){
                 $(window).resize(function(){
                     minTop = -1;
                     $menuIndex.css({
-                        position:'static'
-                        ,top:0
-                        ,left:0,
-                        bottom : "auto"
+                        position:'static',
+                        top:0,
+                        left:0
                     });
     
                     menuIndexTop = $menuIndex.offset().top;
