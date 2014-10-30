@@ -133,7 +133,7 @@ jQuery(document).ready(function(){
         })();
 
         function getNowTop(index, nowTop){
-            bottomHeight = $("#content .entry").height();
+            bottomHeight = $("#content .entry").height() + $("#content .entry-header").height();
             var mytop  = nowTop + shouldPos - scrollLiTop[index];
 
             if(mytop  > nowTop){
