@@ -141,12 +141,15 @@ jQuery(document).ready(function(){
                 var shouldPos = winHeight / 4;
                 
                 function getNowTop(index, nowTop, delta){
-                    console.log(index, nowTop, delta);
+                    console.log(index, nowTop, delta, shouldPos, scrollLiTop[index]);
+                    console.log(indexHeight, winHeight);
                     var mytop  = nowTop + shouldPos - scrollLiTop[index];
 
                     if(mytop  > nowTop){
                         mytop  = nowTop;
-                    }else if(mytop  + indexHeight <= nowTop + winHeight){
+                    }
+                    
+                    if(mytop  + indexHeight <= nowTop + winHeight){
                         mytop  = nowTop - (indexHeight - winHeight);
                     }
                         
