@@ -139,7 +139,7 @@ jQuery(document).ready(function(){
             }
             
             if(mytop  + indexHeight <= nowTop + winHeight){
-                mytop  = nowTop - (indexHeight - winHeight) - 35;
+                mytop  = nowTop - (indexHeight - winHeight) - 15;
             }
                 
             return mytop ;
@@ -203,7 +203,7 @@ jQuery(document).ready(function(){
                 var liOffset = $(item).parent().offset();
                 scrollLiTop.push(liOffset.top - menuIndexTop);
             });
-            scrollLiTop.push($("body").height());
+            scrollLiTop.push($("#content").height() + $("#content").offset().top);
             
             if(!tk.isMobile.any()){
                 indexHeight = $menuIndex.height();
