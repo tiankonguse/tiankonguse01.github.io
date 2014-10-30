@@ -114,6 +114,8 @@ COBOL 是什么呢？商业语言。
 > "After three days without programming, life becomes meaningless."  
 
 
+
+
 ### 2.1
 
 > The programmers of old were mysterious and profound. We cannot fathom their thoughts, so all we do is describe their appearance.  
