@@ -29,6 +29,18 @@ jQuery(document).ready(function(){
         var contentMap = {};
         var $menuIndex = $('#menuIndex');
         
+        var scrollTop = [];
+        var scrollLiTop = [];
+        var menuIndexTop = $menuIndex.offset().top;
+        var menuIndexLeft = $menuIndex.offset().left;
+        var winHeight =  tk.min($(window).height(), screen.height);
+        
+                
+        var indexHeight = 0;
+        var length = 0;
+        var shouldPos = winHeight / 5;;
+        
+        
         function initHeading(){
             var h2 = [];
             var h3 = [];
@@ -80,10 +92,14 @@ jQuery(document).ready(function(){
             return tmpl;
         }
 
+        
+        
+        
         function gotoSelectorPos(id){
             var selector = id ? '#' + id : 'h1'
             var scrollNum = $(selector).offset().top;
             $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
+            waitForFinalEvent(waitDoing);
         }
 
         function genIndex(){
@@ -115,13 +131,70 @@ jQuery(document).ready(function(){
             };
         })();
 
+        function getNowTop(index, nowTop){
+            var mytop  = nowTop + shouldPos - scrollLiTop[index];
+
+            if(mytop  > nowTop){
+                mytop  = nowTop;
+            }
+            
+            if(mytop  + indexHeight <= nowTop + winHeight){
+                mytop  = nowTop - (indexHeight - winHeight) - 35;
+            }
+                
+            return mytop ;
+        }
+        
+        function waitDoing(){
+            var nowTop = $(window).scrollTop();
+            var index;
+            if(nowTop+60 > scrollTop[length-1]){
+                index = length;
+            }else{
+                for(var i=0;i<length;i++){
+                    if(nowTop+60 <= scrollTop[i]){
+                        index = i;
+                        break;
+                    }
+                }
+            }
+            $('#menuIndex li').removeClass('on');
+            $('#menuIndex li').eq(index).addClass('on');
+            
+            
+            if(nowTop+20 > menuIndexTop){
+                if(winHeight >= indexHeight){
+                    $menuIndex.css({
+                        position:'fixed'
+                        ,top:'20px'
+                        ,left:menuIndexLeft
+                    });
+                }else{
+                    var mytop  = getNowTop(index, nowTop);
+                    $menuIndex.css({
+                        position:'absolute',
+                        top: mytop  + 'px',
+                        left:menuIndexLeft
+                    });
+                
+                }
+
+            }else{
+                minTop = -1;
+                $menuIndex.css({
+                    position:'static',
+                    top:0,
+                    left:0
+                });
+            }
+
+
+        }
+        
         if($('.entry h2').length > 0 &&  !ie6){
 
             genIndex();
 
-             var scrollTop = [];
-             var scrollLiTop = [];
-             var menuIndexTop = $menuIndex.offset().top;
             $.each($('#menuIndex li a'),function(index,item){
                 var id = $(item).attr('data-id');
                 var selector = id ? '#'+id : 'h1'
@@ -133,79 +206,12 @@ jQuery(document).ready(function(){
             scrollLiTop.push($("body").height());
             
             if(!tk.isMobile.any()){
+                indexHeight = $menuIndex.height();
+                length = scrollTop.length;
                 
-                var menuIndexLeft = $menuIndex.offset().left;
-                var winHeight =  tk.min($(window).height(), screen.height);
-                var indexHeight = $menuIndex.height();
-                var length = scrollTop.length;
-                
-                var shouldPos = winHeight / 5;
-                
-                function getNowTop(index, nowTop, delta){
-                    console.log(index, nowTop, delta, shouldPos, scrollLiTop[index]);
-                    console.log(indexHeight, winHeight);
-                    var mytop  = nowTop + shouldPos - scrollLiTop[index];
-
-                    if(mytop  > nowTop){
-                        mytop  = nowTop;
-                    }
-                    
-                    if(mytop  + indexHeight <= nowTop + winHeight){
-                        mytop  = nowTop - (indexHeight - winHeight) - 15;
-                    }
-                        
-                    return mytop ;
-
-                }
                 
                 $(document).bind('mousewheel DOMMouseScroll', function(event){
-                    waitForFinalEvent(function(){
-                        var nowTop = $(window).scrollTop();
-                        var index;
-                        var delta = event.originalEvent.wheelDelta || (0 - event.originalEvent.detail);
-                        
-                        if(nowTop+60 > scrollTop[length-1]){
-                            index = length;
-                        }else{
-                            for(var i=0;i<length;i++){
-                                if(nowTop+60 <= scrollTop[i]){
-                                    index = i;
-                                    break;
-                                }
-                            }
-                        }
-                        $('#menuIndex li').removeClass('on');
-                        $('#menuIndex li').eq(index).addClass('on');
-                        
-                        
-                        if(nowTop+20 > menuIndexTop){
-                            if(winHeight >= indexHeight){
-                                $menuIndex.css({
-                                    position:'fixed'
-                                    ,top:'20px'
-                                    ,left:menuIndexLeft
-                                });
-                            }else{
-                                var mytop  = getNowTop(index, nowTop, delta);
-                                $menuIndex.css({
-                                    position:'absolute',
-                                    top: mytop  + 'px',
-                                    left:menuIndexLeft
-                                });
-                            
-                            }
-  
-                        }else{
-                            minTop = -1;
-                            $menuIndex.css({
-                                position:'static',
-                                top:0,
-                                left:0
-                            });
-                        }
-    
-
-                    });
+                    waitForFinalEvent(waitDoing);
                 });
     
                 $(window).resize(function(){
@@ -219,7 +225,8 @@ jQuery(document).ready(function(){
                     menuIndexTop = $menuIndex.offset().top;
                     menuIndexLeft = $menuIndex.offset().left;
     
-                    $(window).trigger('scroll')
+                    $(window).trigger('scroll');
+                    waitForFinalEvent(waitDoing);
                 });
             }
 
