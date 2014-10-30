@@ -99,7 +99,7 @@ jQuery(document).ready(function(){
             var selector = id ? '#' + id : 'h1'
             var scrollNum = $(selector).offset().top;
             $('body, html').animate({ scrollTop: scrollNum-30 }, 400, 'swing');
-            waitForFinalEvent(waitDoing);
+            waitForFinalEvent(waitDoing, 400);
         }
 
         function genIndex(){
@@ -127,8 +127,6 @@ jQuery(document).ready(function(){
                 if (timers[uniqueId]) {
                     clearTimeout (timers[uniqueId]);
                 }
-                
-                ms = ms || 500;
                 
                 timers[uniqueId] = setTimeout(callback, ms);
             };
