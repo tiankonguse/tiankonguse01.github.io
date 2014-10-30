@@ -34,7 +34,7 @@ jQuery(document).ready(function(){
         var menuIndexTop = $menuIndex.offset().top;
         var menuIndexLeft = $menuIndex.offset().left;
         var winHeight =  tk.min($(window).height(), screen.height);
-        
+        var bottomHeight;
                 
         var indexHeight = 0;
         var length = 0;
@@ -141,6 +141,12 @@ jQuery(document).ready(function(){
             if(mytop  + indexHeight <= nowTop + winHeight){
                 mytop  = nowTop - (indexHeight - winHeight) - 15;
             }
+            
+            if(bottomHeight <= mytop + indexHeight){
+                mytop = bottomHeight - indexHeight;
+            }
+            
+            
                 
             return mytop ;
         }
@@ -203,7 +209,8 @@ jQuery(document).ready(function(){
                 var liOffset = $(item).parent().offset();
                 scrollLiTop.push(liOffset.top - menuIndexTop);
             });
-            scrollLiTop.push($("#content").height() + $("#content").offset().top);
+            bottomHeight = $("#content").height() + $("#content").offset().top;
+            scrollLiTop.push(bottomHeight);
             
             if(!tk.isMobile.any()){
                 indexHeight = $menuIndex.height();
