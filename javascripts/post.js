@@ -138,9 +138,10 @@ jQuery(document).ready(function(){
                 var indexHeight = $menuIndex.height();
                 var length = scrollTop.length;
                 
-                var shouldPos = winHeight / 3;
+                var shouldPos = winHeight / 4;
                 
                 function getNowTop(index, nowTop, delta){
+                    console.log(index, nowTop, delta);
                     var mytop  = nowTop + shouldPos - scrollLiTop[index];
 
                     if(mytop  > nowTop){
