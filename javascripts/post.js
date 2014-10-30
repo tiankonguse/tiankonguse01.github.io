@@ -121,7 +121,6 @@ jQuery(document).ready(function(){
 
              var scrollTop = [];
              var scrollLiTop = [];
-             var scrollLiOffset= [];
              var menuIndexTop = $menuIndex.offset().top;
             $.each($('#menuIndex li a'),function(index,item){
                 var id = $(item).attr('data-id');
@@ -129,7 +128,6 @@ jQuery(document).ready(function(){
                 var top = $(selector).offset().top;
                 scrollTop.push(top);
                 var liOffset = $(item).parent().offset();
-                scrollLiOffset.push(liOffset);
                 scrollLiTop.push(liOffset.top - menuIndexTop);
             });
             
@@ -138,43 +136,19 @@ jQuery(document).ready(function(){
                 var menuIndexLeft = $menuIndex.offset().left;
                 var winHeight =  tk.min($(window).height(), screen.height);
                 var indexHeight = $menuIndex.height();
-                var menuIndexBottom = menuIndexTop + indexHeight;
                 var length = scrollTop.length;
-                var minTop = -1;
                 
-                var leftWinHeight = winHeight;
-                var hideHeight = indexHeight - leftWinHeight;
+                var shouldPos = winHeight / 3;
                 
                 function getNowTop(index, nowTop, delta){
-                    var bottomHeight = indexHeight - scrollLiTop[index] ;
-                    if(bottomHeight < leftWinHeight){
-                        return nowTop - hideHeight;
-                    }
-                    
-                    var top = scrollTop[index] - scrollLiTop[index];
-                    
-                    if(top + 10 > nowTop || top - 10 < nowTop){
-                        top = nowTop;
-                    }
-  
-                    
-                    if(delta < 0 ){
-                        if(minTop != -1 && minTop < top){
-                            top = minTop;
-                        }
-                    }else if(delta > 0 ){
-                        if(minTop != -1 && minTop > top){
-                            top = minTop;
-                        }
-                        if(top - 10 > nowTop){
-                            top = nowTop;
-                        }
-                    }
-                    
+                    top = nowTop + shouldPos - scrollLiTop[index];
 
-                    
-                    minTop = top;
-                    
+                    if(top > nowTop){
+                        top = nowTop;
+                    }else if(top + indexHeight <= nowTop + winHeight){
+                        top = nowTop - (indexHeight - winHeight);
+                    }
+                        
                     return top;
 
                 }
