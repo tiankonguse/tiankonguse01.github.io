@@ -16,29 +16,59 @@ function doSomething(){
     
     var codeAfter = "";
     
-    if("格式化" == codeOp){
-        codeAfter = formatSource(codeBefor, codeLang, codeTab);
-    }else if("普通压缩" == codeOp){
-        codeAfter = normalCompression(codeBefor, codeLang);
+    function callback(codeAfter){
+        $("#code-after").val(codeAfter);
     }
     
-    $("#code-after").val(codeAfter);
+    if("格式化" == codeOp){
+        codeAfter = formatSource(codeBefor, codeLang, codeTab, callback);
+    }else if("普通压缩" == codeOp){
+        codeAfter = normalCompression(codeBefor, codeLang, callback);
+    }
+    
+    callback(codeAfter);
 }
 
-function normalCompression(codeBefor, codeLang){
+function normalCompression(codeBefor, codeLang, callback){
     var codeAfter = "还不能压缩这个语言的代码";
     if(codeLang == "css"){
-        codeAfter = normalCompressionCss(codeBefor);
+        codeAfter = normalCompressionCss(codeBefor, callback);
     }else if(codeLang == "javascript"){
-        //codeAfter = normalCompressionJavascript(codeBefor);
+        codeAfter = normalCompressionJavascript(codeBefor, callback);
     }else if(codeLang == "html"){
-        codeAfter = normalCompressionHtml(codeBefor);
+        codeAfter = normalCompressionHtml(codeBefor, callback);
     }
     return codeAfter;
 }
 
 
-function normalCompressionHtml(codeBefor){
+
+function normalCompressionJavascript(codeBefor, callback){
+	$.ajax({
+		type:'POST',
+		url:"http://tool.oschina.net/action/jscompress/js_compress?munge=0&linebreakpos=5000",
+		data:codeBefor,
+		success:function(ret){
+            if(callback){
+                if(ret.msg){
+                    callback(ret.msg);
+                }else{
+                    callback(ret.result);
+                }
+            }
+        },
+        dataType : "json",
+		error:function(ret){
+            if(callback){
+                callback("提交数据失败，代码:" +ret.status+ "，请稍候再试");
+            }
+		}
+	});
+    return "正在加载中";
+}
+
+
+function normalCompressionHtml(codeBefor, callback){
     var source = codeBefor;
     source = source.replace(/\n+/g, "");
     source = source.replace(/<!--.*?-->/ig, "");
@@ -47,7 +77,7 @@ function normalCompressionHtml(codeBefor){
     return source;
 }
 
-function normalCompressionCss(codeBefor){
+function normalCompressionCss(codeBefor, callback){
     var source = codeBefor;
     source = source.replace(/\n+/g, "");
     source = source.replace(/\/\*.*?\*\//ig, "");
@@ -56,7 +86,7 @@ function normalCompressionCss(codeBefor){
     return source;
 }
 
-function normalFormatCss(codeBefor){
+function normalFormatCss(codeBefor, callback){
     var source = codeBefor;
     source = source.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
     source = source.replace(/;\s*;/g, ";");
@@ -67,7 +97,7 @@ function normalFormatCss(codeBefor){
     return source;
 }
 
-function formatSource(codeBefor, codeLang, codeTab){
+function formatSource(codeBefor, codeLang, codeTab, callback){
     var codeAfter = "还不能格式化这个语言的代码";
     if(codeLang == "css"){
         codeAfter = formatCss(codeBefor, codeTab);
@@ -79,7 +109,7 @@ function formatSource(codeBefor, codeLang, codeTab){
     return codeAfter;
 }
 
-function formatJavascript(codeBefor, codeTab){
+function formatJavascript(codeBefor, codeTab, callback){
     var tabchar = ' ';
     if (codeTab == 1){
         tabchar = '\t';
@@ -87,7 +117,7 @@ function formatJavascript(codeBefor, codeTab){
     return js_beautify(codeBefor, codeTab, tabchar);
 }
 
-function formatCss(codeBefor, codeTab){
+function formatCss(codeBefor, codeTab, callback){
     var options = {
         indent: '    '
     };
@@ -97,7 +127,7 @@ function formatCss(codeBefor, codeTab){
     return cssbeautify(codeBefor, options);
 }
 
-function formatHtml(codeBefor, codeTab){
+function formatHtml(codeBefor, codeTab, callback){
     var tabchar = ' ';
     if (codeTab == 1){
         tabchar = '\t';
