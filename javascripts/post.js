@@ -148,7 +148,7 @@ jQuery(document).ready(function(){
             
             
                 
-            return mytop ;
+            return mytop - nowTop;
         }
         
         function waitDoing(){
@@ -178,7 +178,7 @@ jQuery(document).ready(function(){
                 }else{
                     var mytop  = getNowTop(index, nowTop);
                     $menuIndex.css({
-                        position:'absolute',
+                        position:'fixed',
                         top: mytop  + 'px',
                         left:menuIndexLeft
                     });
