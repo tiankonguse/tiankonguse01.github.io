@@ -130,6 +130,7 @@ jQuery(document).ready(function(){
                 var liOffset = $(item).parent().offset();
                 scrollLiTop.push(liOffset.top - menuIndexTop);
             });
+            scrollLiTop.push($("body").height());
             
             if(!tk.isMobile.any()){
                 
