@@ -163,6 +163,7 @@ jQuery(document).ready(function(){
                     }
                 }
             }
+            index--;
             $('#menuIndex li').removeClass('on');
             $('#menuIndex li').eq(index).addClass('on');
             
