@@ -1,4 +1,4 @@
- ---
+---
 layout:     post
 title:      Sphinx 使用记录
 category: blog
