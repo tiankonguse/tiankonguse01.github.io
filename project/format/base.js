@@ -44,27 +44,7 @@ function normalCompression(codeBefor, codeLang, callback){
 
 
 function normalCompressionJavascript(codeBefor, callback){
-	$.ajax({
-		type:'POST',
-		url:"http://tool.oschina.net/action/jscompress/js_compress?munge=0&linebreakpos=5000",
-		data:codeBefor,
-		success:function(ret){
-            if(callback){
-                if(ret.msg){
-                    callback(ret.msg);
-                }else{
-                    callback(ret.result);
-                }
-            }
-        },
-        dataType : "json",
-		error:function(ret){
-            if(callback){
-                callback("提交数据失败，代码:" +ret.status+ "，请稍候再试");
-            }
-		}
-	});
-    return "正在加载中";
+    return "正在实现中";
 }
 
 
