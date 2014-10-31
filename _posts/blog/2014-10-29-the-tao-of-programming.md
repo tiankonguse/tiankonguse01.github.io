@@ -161,7 +161,7 @@ COBOL 是什么呢？商业语言。
 头发很乱，衣服没有品位，夏天下身永远是短裤和拖鞋。  
 这不正是说的是我吗？  
 
-![夏天的我][http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg]
+![夏天的我](me)
 
 
 ### 2.4
@@ -493,4 +493,4 @@ COBOL 是什么呢？商业语言。
 
 
 
-
+[me]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg
