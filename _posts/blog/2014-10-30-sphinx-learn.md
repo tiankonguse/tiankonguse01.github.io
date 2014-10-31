@@ -11,6 +11,7 @@ description: 工作中需要使用 sphinx 来实现中文全文搜索，最后�
 
 想吐槽一句：编译安装真浪费时间， configure && make && make install 一个软件就需要几十分钟。我这安装四五个，几个小时就没了。
 
+
 ## 安装
 
 安装前需要先去官网下载[源码][sphinxsearch-download].  
@@ -604,7 +605,26 @@ ERROR: unknown key name 'U' in /usr/local/sphinx/etc/sphinx.conf line 515 col 6.
 FATAL: failed to parse config file '/usr/local/sphinx/etc/sphinx.conf'
 ```
 
+## 参考资料
 
+* [Sphinx 2.2.5-release reference manual][sphinxsearch-docs] 推荐
+* [Sphinx中文入门指南][sphinx-tutorial] 最后修改：2010年1月23日
+* [数据源配置：mysql数据源][coreseek-mysql]
+* [sphinx系列之sphinx安装和运行测试(二)][cnblogs-1869388]
+* [PHP+MySQL+SPHINX安装配置与测试][luochuan-7303829]
+* [sphinx检索语法与匹配模式备忘][luochuan-7313052]
+* [Linux下MySQL、Apache、PHP源码安装全程实录（CentOS 6.4）][lamp-config]
+* [基于apache + mysql + php编译安装过程详解][luowenjing-1178205]
+
+
+[sphinxsearch-docs]: http://sphinxsearch.com/docs/current.html
+[luochuan-7303829]: http://blog.csdn.net/luochuan/article/details/7303829
+[luochuan-7313052]: http://blog.csdn.net/luochuan/article/details/7313052
+[coreseek-mysql]: http://www.coreseek.cn/products-install/mysql/
+[cnblogs-1869388]: http://www.cnblogs.com/chenzehe/archive/2010/11/04/1869388.html
+[sphinx-tutorial]: http://www.sphinxsearch.org/sphinx-tutorial
+[lamp-config]: http://www.zjmainstay.cn/lamp-config
+[luowenjing-1178205]: http://luowenjing.blog.51cto.com/6627118/1178205
 [phpcms-273392]: http://bbs.phpcms.cn/thread-273392-1-1.html
 [google-code-sphinxapi]: https://code.google.com/p/sphinxsearch/source/browse/trunk/api/sphinxapi.php
 [php-install-apache]: http://php.net/manual/zh/install.unix.apache2.php
