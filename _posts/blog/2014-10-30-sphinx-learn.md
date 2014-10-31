@@ -279,9 +279,15 @@ Apache  的最新版本请参考 [官网下载页面][httpd-apache-download].
 wget http://apache.dataguru.cn//httpd/httpd-2.4.10.tar.gz
 tar zxvf httpd-2.4.10.tar.gz
 cd httpd-2.4.10/
-./configure --prefix=/usr/local/apache --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util
+./configure --prefix=/usr/local/apache --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so
 make && make install
+lsof -i # 查看端口占用情况
+
+/usr/local/apache/bin/apachectl -k start
+
 ```
+
+然后访问 127.0.0.1:8080 就可以看到 It works! 了。
 
 
 ### php 源码安装
@@ -292,9 +298,25 @@ php 目前的最新版本 [5.6.2][php-source], 建议去[官网下载页][php-ho
 wget http://cn2.php.net/distributions/php-5.6.2.tar.gz
 tar zxvf php-5.6.2.tar.gz
 cd php-5.6.2
-./configure --prefix=/usr/local/php
+./configure --prefix=/usr/local/php  --with-apxs2=/usr/local/apache/bin/apxs --with-mysql
 make && make install
 ```
+
+### 配置 apache 支持 php
+
+```
+DirectoryIndex index.php index.html
+AddType application/x-httpd-php .php
+
+#调用 PHP 模块
+LoadModule php5_module modules/libphp5.so
+
+#特定的扩展名解析成 PHP
+<FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+</FilesMatch>
+```
+
 
 ## 错误集
 
@@ -476,9 +498,46 @@ See any operating system documentation about shared libraries for
 more information, such as the ld(1) and ld.so(8) manual pages.
 ```
 
+### Address already in use
+
+```
+/usr/local/apache/bin/apachectl -k start
+
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.0.1. Set the 'ServerName' directive globally to suppress this message
+(98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+no listening sockets available, shutting down
+AH00015: Unable to open logs
+```
+
+不管那么多，直接修改 ServerName 和监听端口。
+
+```
+Listen 8080
+ServerName 127.0.0.1:8080
+```
+
+然后再启动就成功了。
 
 
+### php页面自动下载
 
+php和 apache 都安装完之后，访问写的一个php页面，浏览器却要下载页面。
+
+于是查看 php 的[官方文档][php-install-apache]，还真找到了。
+
+简单的说就是编译 apache 的时候，需要添加启动so选项
+
+```
+./configure --enable-so
+```
+
+编译php的时候，指定加载为 apache 模块，并使用 mysql.
+
+```
+./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql
+```
+
+[php-install-apache]: http://php.net/manual/zh/install.unix.apache2.php
 [apache-apr-util-download-source]: http://mirrors.cnnic.cn/apache//apr/apr-util-1.5.4.tar.gz
 [apache-apr-download-source]: http://apache.fayea.com/apache-mirror//apr/apr-1.5.1.tar.gz
 [apache-apr-download-page]: http://apr.apache.org/download.cgi
