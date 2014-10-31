@@ -249,8 +249,52 @@ searchd
 
 ```
 ./indexer 索引名
+
+Sphinx 2.2.5-id64-release (r4825)
+Copyright (c) 2001-2014, Andrew Aksyonoff
+Copyright (c) 2008-2014, Sphinx Technologies Inc (http://sphinxsearch.com)
+
+using config file '/usr/local/sphinx/etc/sphinx.conf'...
+indexing index 't_cover_sphinx_index'...
+collected 1000 docs, 0.4 MB
+sorted 0.0 Mhits, 100.0% done
+total 1000 docs, 408329 bytes
+total 0.041 sec, 9739278 bytes/sec, 23851.54 docs/sec
+total 1006 reads, 0.002 sec, 1.0 kb/call avg, 0.0 msec/call avg
+total 14 writes, 0.001 sec, 106.9 kb/call avg, 0.1 msec/call avg
 ```
 
+## 测试
+
+测试前需要安装测试环境，以前 sphinx 的 bin 目录里面有个自带 search 程序，新版本没有了，所以只好使用api方式调用了。
+
+这里我采用 linux + apache + php + sphinx 的方式来完整测试吧。
+
+### apache 源码安装
+
+Apache  的最新版本请参考 [官网下载页面][httpd-apache-download].   
+我这里下载的是 [httpd-2.4.10][apache-httpd-2] 最新的 apache 源码版本。
+
+```
+wget http://apache.dataguru.cn//httpd/httpd-2.4.10.tar.gz
+tar zxvf httpd-2.4.10.tar.gz
+cd httpd-2.4.10/
+./configure --prefix=/usr/local/apache --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util
+make && make install
+```
+
+
+### php 源码安装
+
+php 目前的最新版本 [5.6.2][php-source], 建议去[官网下载页][php-home]下载最新版本
+
+```
+wget http://cn2.php.net/distributions/php-5.6.2.tar.gz
+tar zxvf php-5.6.2.tar.gz
+cd php-5.6.2
+./configure --prefix=/usr/local/php
+make && make install
+```
 
 ## 错误集
 
@@ -349,7 +393,101 @@ WARNING: word overrun buffer, clipped!!!
 WARNING: 601 duplicate document id pairs found
 ```
 
+###  APR not found
 
+在 config apache 的时候，提示下面的错误。
+
+```
+configure: error: APR not found.  Please read the documentation.
+```
+在[官网的安装页面][apache-install] 可以看到有个 Requirements 类表。
+
+apache 需要依赖于下面的一些东西。
+
+* APR and APR-Util
+* Perl-Compatible Regular Expressions Library (PCRE)
+* Disk Space
+* ANSI-C Compiler and Build System
+* Accurate time keeping
+* Perl 5 [OPTIONAL]
+
+然后我们可以 [apr][apache-apr] 的官网下载对应的东西即可。
+
+其实就是在 [apr下载页面][apache-apr-download-page] 找到[下载链接][apache-apr-download-source] .
+
+当然我们还要下载 [apr-util][apache-apr-util-download-source] .
+
+#### 安装apr
+
+```
+wget http://apache.fayea.com/apache-mirror//apr/apr-1.5.1.tar.gz
+tar zxvf  apr-1.5.1.tar.gz
+cd apr-1.5.1
+./configure --prefix=/usr/local/apr
+make && make install
+
+#提示
+Libraries have been installed in:
+   /usr/local/apr/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+   
+```
+#### 安装 apr-util
+
+```
+wget http://mirrors.cnnic.cn/apache//apr/apr-util-1.5.4.tar.gz
+tar zxvf  apr-util-1.5.4.tar.gz
+cd apr-util-1.5.4
+./configure --prefix=/usr/local/apr-util
+
+#提示不能找到 APR， 于是指定 APR 的位置
+configure: error: APR could not be located. Please use the --with-apr option.
+
+
+./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr/
+make && make install
+
+#  运行完后得到下面的提示
+Libraries have been installed in:
+   /usr/local/apr-util/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+```
+
+
+
+
+[apache-apr-util-download-source]: http://mirrors.cnnic.cn/apache//apr/apr-util-1.5.4.tar.gz
+[apache-apr-download-source]: http://apache.fayea.com/apache-mirror//apr/apr-1.5.1.tar.gz
+[apache-apr-download-page]: http://apr.apache.org/download.cgi
+[apache-apr]: http://apr.apache.org/
+[apache-install]: http://httpd.apache.org/docs/2.4/en/install.html
+[php-home]: http://cn2.php.net/downloads.php
+[php-source]: http://cn2.php.net/distributions/php-5.6.2.tar.gz
+[apache-httpd-2]: http://apache.dataguru.cn//httpd/httpd-2.4.10.tar.gz
+[httpd-apache-download]: http://httpd.apache.org/download.cgi#apache24
 [coreseek-2_1016_0]: http://www.coreseek.cn/forum/2_1016_0.html
 [coreseek-products-instal-mysql]: http://www.coreseek.cn/products-install/mysql/
 [coreseek-2_948_0]: http://www.coreseek.cn/forum/2_948_0.html
