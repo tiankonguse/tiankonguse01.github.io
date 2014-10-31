@@ -8,7 +8,7 @@ title: 关于 tiankonguse 的一些东西
 
 * 看书《浪潮之巅》 2014-09-15 ~ 2014-10-22 [读书笔记][On-Top-of-Tides]
 * 看书《重构~改善既有代码的设计》 2014-10-05 ~ 2014-10-24 读书笔记周末晚上写
-* 看书《编程之道》 2014-10-1 ~ 今
+* 看书《编程之道》 2014-10-1 ~ 2014-10-26 [读书笔记][the-tao-of-programming]
 * 看书《编程之禅》2014-10-1 ~ 今
 * 看书《计算机寓言-信息时代的启示》 2014-10-1 ~ 今
 
@@ -45,7 +45,7 @@ title: 关于 tiankonguse 的一些东西
 
 
 
-
+[the-tao-of-programming]: http://github.tiankonguse.com/blog/2014/10/29/the-tao-of-programming/
 [csdn]: http://blog.csdn.net/tiankonguse
 [github]: http://github.tiankonguse.com/
 [iteye]: http://tiankonguse.iteye.com/
