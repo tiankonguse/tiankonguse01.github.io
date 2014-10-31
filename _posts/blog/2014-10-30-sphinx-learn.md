@@ -5,6 +5,11 @@ category: blog
 description: 工作中需要使用 sphinx 来实现中文全文搜索，最后选择了 sphinx 这个工具，于是记录一下操作步骤。
 ---
 
+## 前言
+
+**下面的表纯属文章虚构，由于配置内容较多，部分省略，具体可以参考官方文档。**
+
+想吐槽一句：编译安装真浪费时间， configure && make && make install 一个软件就需要几十分钟。我这安装四五个，几个小时就没了。
 
 ## 安装
 
@@ -42,8 +47,9 @@ tiankonguse:sphinx-2.2.5-release # ./configure –prefix=/usr/local/sphinx
 tiankonguse:sphinx-2.2.5-release # make && make install
 ```
 
-> 可以使用 --prefix 指向sphinx的安装路径
-> 可以使用  --with-mysql 指向mysql的安装路径。
+> --prefix 指向sphinx的安装路径  
+> --with-mysql 指向mysql的安装路径  
+> 不指定时按默认路径选择
 
 安装完毕后查看一下 `/usr/local/sphinx` 下是否有 三个目录 bin etc var，如有，则安装无误！
 
