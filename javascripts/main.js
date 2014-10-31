@@ -604,7 +604,7 @@ jQuery(document).ready(function(){
     var $homeContact = $('.home-contact');
     function addContactData(name, href, img){
         name = name || "";
-        return '<a href="'+href+'" target="_blank" id = "'+id+'"><img src="'+img+'" alt="'+name+'"/></a>';
+        return '<a href="'+href+'" target="_blank" ><img src="'+img+'" alt="'+name+'"/></a>';
     }
     var contactTpl = "";
     contactTpl += addContactData("新浪微博","http://weibo.com/tiankonguse/","http://www.weibo.com/favicon.ico");
