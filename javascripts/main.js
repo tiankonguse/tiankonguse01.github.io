@@ -604,13 +604,22 @@ jQuery(document).ready(function(){
     var $homeContact = $('.home-contact');
     function addContactData(name, href, img){
         name = name || "";
-        return '<a href="'+href+'" target="_blank"><img src="'+img+'" alt="'+name+'"/></a>';
+        return '<a href="'+href+'" target="_blank" id = "'+id+'"><img src="'+img+'" alt="'+name+'"/></a>';
     }
     var contactTpl = "";
     contactTpl += addContactData("新浪微博","http://weibo.com/tiankonguse/","http://www.weibo.com/favicon.ico");
     contactTpl += addContactData("豆瓣","http://www.douban.com/people/tiankonguse/","http://www.douban.com/favicon.ico");
     contactTpl += addContactData("github","https://github.com/tiankonguse/","https://github.com/apple-touch-icon-114.png");
+    contactTpl += addContactData("rss","https://github.tiankonguse.com/atom.xml","https://github.tiankonguse.com/images/rss_24x24.png");
+    contactTpl += addContactData("微信","show-hide-weixin","github.tiankonguse.com/images/weixin_24x24.png");
+    
+    contactTpl += '<div class="weixin" style="display: none;"><img width="125" height="125" src="https://github.tiankonguse.com/images/weixin_code.png" alt="微信号：iProgrammer"></div>';
+    
     $homeContact.append(contactTpl);
+    $('[href="show-hide-weixin"]').click(function(){
+        $('.weixin').toggle(200);
+    });
+    
     $(".home-follow").click(function(e){
         e.preventDefault();
         if($homeContact.is(':visible')){
