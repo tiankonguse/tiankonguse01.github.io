@@ -492,5 +492,10 @@ COBOL 是什么呢？商业语言。
 > "Time for you to leave."  
 
 
+## 历史
+
+* 2014-10-29 记录第一章节中我的理解
+* 2014-10-31 记录第二章节中我的理解
+
 
 [me]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg
