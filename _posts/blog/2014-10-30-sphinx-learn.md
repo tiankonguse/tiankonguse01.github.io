@@ -99,7 +99,7 @@ tiankonguse:etc #  cp sphinx.conf.dist sphinx.conf
 tiankonguse:etc # ls
 example.sql  sphinx-min.conf.dist  sphinx.conf  sphinx.conf.dist
 
-skyyuan:etc $ vi sphinx.conf
+tiankonguse:etc $ vi sphinx.conf
 ```
 
 可以看到下面的内容设置数据源 source
@@ -162,8 +162,8 @@ source d_sphinx_testdb
     # sql_attr_float        = lat_radians
     
     # string attribute declaration
-    sql_attr_string       = c_title
-    sql_attr_string       = c_content
+    sql_field_string       = c_title
+    sql_field_string       = c_content
     
     # JSON attribute declaration
     # sql_attr_json     = properties
@@ -255,7 +255,7 @@ Copyright (c) 2001-2014, Andrew Aksyonoff
 Copyright (c) 2008-2014, Sphinx Technologies Inc (http://sphinxsearch.com)
 
 using config file '/usr/local/sphinx/etc/sphinx.conf'...
-indexing index 't_cover_sphinx_index'...
+indexing index 'd_sphinx_testdb_index'...
 collected 1000 docs, 0.4 MB
 sorted 0.0 Mhits, 100.0% done
 total 1000 docs, 408329 bytes
@@ -337,7 +337,7 @@ LoadModule php5_module modules/libphp5.so
     $sphinx = new SphinxClient(); 
     $sphinx->setServer('127.0.0.1', 9312); 
     $query =$_GET['query'];
-    $res = $sphinx->query($query, 't_cover_sphinx_index');
+    $res = $sphinx->query($query, 'd_sphinx_testdb_index');
     echo "<p>                                                                                                                                              
         query = $query
     </p>";
@@ -411,7 +411,7 @@ WARNING: attribute 'c_id' not found - IGNORING
 
 
 ```
-ERROR: index 't_cover_sphinx_index': No fields in schema - will not index
+ERROR: index 'd_sphinx_testdb_index': No fields in schema - will not index
 ```
 
 还是在[这里][coreseek-products-instal-mysql]找到了原因。
