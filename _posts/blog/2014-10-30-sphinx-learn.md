@@ -264,6 +264,17 @@ total 1006 reads, 0.002 sec, 1.0 kb/call avg, 0.0 msec/call avg
 total 14 writes, 0.001 sec, 106.9 kb/call avg, 0.1 msec/call avg
 ```
 
+## 启动停止 sphinx
+
+```
+# 启动
+/usr/local/sphinx/bin/searchd
+
+#停止
+/usr/local/sphinx/bin/searchd --stop
+```
+
+
 ## 测试
 
 测试前需要安装测试环境，以前 sphinx 的 bin 目录里面有个自带 search 程序，新版本没有了，所以只好使用api方式调用了。
@@ -317,6 +328,24 @@ LoadModule php5_module modules/libphp5.so
 </FilesMatch>
 ```
 
+
+### php 测试
+
+```
+<?php  
+    include('api/sphinxapi.php'); 
+    $sphinx = new SphinxClient(); 
+    $sphinx->setServer('127.0.0.1', 9312); 
+    $query =$_GET['query'];
+    $res = $sphinx->query($query, 't_cover_sphinx_index');
+    echo "<p>                                                                                                                                              
+        query = $query
+    </p>";
+    echo "<PRE>";  
+    print_r($res); 
+    echo "</pre> ";
+?>
+```
 
 ## 错误集
 
@@ -400,6 +429,7 @@ ERROR: index 't_cover_sphinx_index': No fields in schema - will not index
 
 ```
 WARNING: key 'sql_query_info' was permanently removed from Sphinx configuration. Refer to documentation for details.
+WARNING: key 'charset_type' was permanently removed from Sphinx configuration. Refer to documentation for details.
 ```
 
 好吧，我说怎么没有在配置文件中看到 sql_query_info 的说明呢，原来已经删除了，那就注释掉吧。  
@@ -407,7 +437,11 @@ WARNING: key 'sql_query_info' was permanently removed from Sphinx configuration.
 
 ### word overrun buffer
 
-还是搜[主键][coreseek-2_1016_0]搜到的原因是我的主键不是一个整数，而 sphinx 要求必须是一个整数。
+还是搜[主键][coreseek-2_1016_0]搜到的原因是我的主键不是一个整数，而 sphinx 要求必须是一个整数。  
+但是添加整数主键后还是出现这个问题，于是继续查找，最后找到是 sphinx 的一个 bug.
+但是 google 搜索，又没有搜索出来，于是猜想可能哪里配置不对。
+
+后来启动 ngram， 设置ngram_chars后，这个警告就没有了。
 
 ```
 WARNING: source : skipped 300 document(s) with zero/NULL ids
@@ -537,6 +571,36 @@ php和 apache 都安装完之后，访问写的一个php页面，浏览器却要
 ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql
 ```
 
+### sphinxclient No such file
+
+编写了一个php测试 sphinx ,但是提示没有这个文件，那就需要去[网上][google-code-sphinxapi]找一个。
+
+```
+PHP Warning:  include(sphinxclient.php): failed to open stream: No such file or directory in /usr/local/apache/htdocs/index.php on line 2
+```
+
+### unexpected T_STRING
+
+下载 sphinx api 文件后，提示下面的错误
+
+```
+PHP Parse error:  syntax error, unexpected T_STRING in /usr/local/apache/htdocs/api/sphinxapi.php on line 28
+```
+
+在[这里][phpcms-273392]找到解决方案的,原来下载的文件中由特殊字符，与我处理了一下特殊字符就ok了。  
+
+### unknown key name 'U'
+
+在配置中文的时候，提示下面的错误，后来发现是由于粘贴的字符串中反斜杠有问题，反斜杠后面不能有空白。
+
+```
+ERROR: unknown key name 'U' in /usr/local/sphinx/etc/sphinx.conf line 515 col 6.
+FATAL: failed to parse config file '/usr/local/sphinx/etc/sphinx.conf'
+```
+
+
+[phpcms-273392]: http://bbs.phpcms.cn/thread-273392-1-1.html
+[google-code-sphinxapi]: https://code.google.com/p/sphinxsearch/source/browse/trunk/api/sphinxapi.php
 [php-install-apache]: http://php.net/manual/zh/install.unix.apache2.php
 [apache-apr-util-download-source]: http://mirrors.cnnic.cn/apache//apr/apr-util-1.5.4.tar.gz
 [apache-apr-download-source]: http://apache.fayea.com/apache-mirror//apr/apr-1.5.1.tar.gz
