@@ -113,7 +113,8 @@ COBOL 是什么呢？商业语言。
 
 > "After three days without programming, life becomes meaningless."  
 
-
+三天不编程，就会感觉世界上缺少了些什么东西。  
+这个我不做评论。  
 
 
 ### 2.1
@@ -127,11 +128,23 @@ COBOL 是什么呢？商业语言。
 > The answer exists only in the Tao.  
 
 
+老的程序员，我们不能理解他们的想法，所以我们只能从他们的行为来揣测他们。  
+他们在不同的地方表现不同，没有人能够描述他们内心和思想的秘密的。
+
+
+
 ### 2.2
 
 > Grand Master Turing once dreamed that he was a machine. When he awoke he exclaimed:  
 
 > "I don't know whether I am Turing dreaming that I am a machine, or a machine dreaming that I am Turing!"  
+
+
+图灵曾经梦见自己变成了机器。  
+当他醒后说：我分不清我梦到自己变成机器，还是机器梦到变成我。  
+实际上这个真的没有办法判断的。  
+看过《黑客帝国》的人最后都会有个疑问：最后那个世界是真是的还是虚拟的。  
+看过《盗梦空间》的人也会有这样的想法。  
 
 
 ### 2.3
@@ -142,11 +155,24 @@ COBOL 是什么呢？商业语言。
 
 > "They are alive within the Tao."  
 
+
+大概意思是说在计算机大会上，见到的程序员行为随意，着装随意，发型随意，不关心礼仪规矩等等。  
+这不就是传说中的程序员吗？  
+头发很乱，衣服没有品位，夏天下身永远是短裤和拖鞋。  
+这不正是说的是我吗？  
+
+![夏天的我][http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg]
+
+
 ### 2.4
 
 > A novice asked the Master: "Here is a programmer that never designs, documents, or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?"  
 
 > The Master replies: "That programmer has mastered the Tao. He has gone beyond the need for design; he does not become angry when the system crashes, but accepts the universe without concern. He has gone beyond the need for documentation; he no longer cares if anyone else sees his code. He has gone beyond the need for testing; each of his programs are perfect within themselves, serene and elegant, their purpose self-evident. Truly, he has entered the mystery of the Tao."  
+
+虽然这样的人不存在：不用设计程序，编写文档，测试程序。  
+但是当一个人水平足够高的时候，真的可以不用那些繁琐的设计，繁琐的文档，繁琐的测试。  
+我曾听说过淘宝有这么一个人，一个人可以干一个部门的任务量，俗称扫地僧。  
 
 
 ## Book Three
