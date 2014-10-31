@@ -610,10 +610,10 @@ jQuery(document).ready(function(){
     contactTpl += addContactData("新浪微博","http://weibo.com/tiankonguse/","http://www.weibo.com/favicon.ico");
     contactTpl += addContactData("豆瓣","http://www.douban.com/people/tiankonguse/","http://www.douban.com/favicon.ico");
     contactTpl += addContactData("github","https://github.com/tiankonguse/","https://github.com/apple-touch-icon-114.png");
-    contactTpl += addContactData("rss","https://github.tiankonguse.com/atom.xml","https://github.tiankonguse.com/images/rss_24x24.png");
-    contactTpl += addContactData("微信","show-hide-weixin","github.tiankonguse.com/images/weixin_24x24.png");
+    contactTpl += addContactData("rss","http://github.tiankonguse.com/atom.xml","http://github.tiankonguse.com/images/rss_24x24.png");
+    contactTpl += addContactData("微信","show-hide-weixin","http://github.tiankonguse.com/images/weixin_24x24.png");
     
-    contactTpl += '<div class="weixin" style="display: none;"><img width="125" height="125" src="https://github.tiankonguse.com/images/weixin_code.png" alt="微信号：iProgrammer"></div>';
+    contactTpl += '<div class="weixin" style="display: none;"><img width="125" height="125" src="http://github.tiankonguse.com/images/weixin_code.png" alt="微信号：iProgrammer"></div>';
     
     $homeContact.append(contactTpl);
     $('[href="show-hide-weixin"]').click(function(){
