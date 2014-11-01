@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      计算机寓言 \- 信息时代的启示(持续更新中)
+title:      计算机寓言 - 信息时代的启示(持续更新中)
 category: blog
 description: 这本书的英文是《Computer Parables - Enlightenment in the Information Age》，同样没找到英文本的电子书。
 tag: 读书笔记, 计算机
----
+--- 
 
 
 ## 引言
