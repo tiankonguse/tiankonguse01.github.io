@@ -10,7 +10,7 @@ title: 关于 tiankonguse 的一些东西
 * 看书《重构~改善既有代码的设计》 2014-10-05 ~ 2014-10-24 读书笔记周末晚上写
 * 看书《编程之道》 2014-10-1 ~ 2014-10-26 [读书笔记][the-tao-of-programming]
 * 看书《编程之禅》2014-10-1 ~ 2014-10-26  [读书笔记][the-ten-of-programming]
-* 看书《计算机寓言-信息时代的启示》 2014-10-1 ~ 2014-10-26
+* 看书《计算机寓言-信息时代的启示》 2014-10-1 ~ 2014-10-26 [读书笔记][Computer-Parables-Enlightenment-in-the-Information-Age]
 
 
 
@@ -45,6 +45,7 @@ title: 关于 tiankonguse 的一些东西
 
 
 
+[Computer-Parables-Enlightenment-in-the-Information-Age]: http://github.tiankonguse.com/blog/2014/11/01/Computer-Parables-Enlightenment-in-the-Information-Age/
 [the-ten-of-programming]: http://github.tiankonguse.com/blog/2014/10/31/the-ten-of-programming/
 [the-tao-of-programming]: http://github.tiankonguse.com/blog/2014/10/29/the-tao-of-programming/
 [csdn]: http://blog.csdn.net/tiankonguse
