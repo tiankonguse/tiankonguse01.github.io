@@ -6,7 +6,7 @@ description: 很可惜，这本书没有找到英文版的电子书，只好看�
 ---
 
 ![编程之禅][cover]
-![编程之禅][cover1]
+![编程之禅][cover-g]
 
 ## 序
 
@@ -612,4 +612,4 @@ description: 很可惜，这本书没有找到英文版的电子书，只好看�
 
 [the-tao-of-programming-The-Silent-Void]: http://github.tiankonguse.com/blog/2014/10/29/the-tao-of-programming/#content-h3-The Silent Void
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3800736455.jpg
-[cover2]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3804473462.jpg
+[cover-g]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3804473462.jpg
