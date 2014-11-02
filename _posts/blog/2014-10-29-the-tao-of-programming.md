@@ -13,6 +13,7 @@ tag: 读书笔记, 计算机
 这本书附带了英文原文，看了之后发现翻译成英文后意思竟然变化这么大，果然是看英文原文比较好。  
 所以这里我就把英文原文写出来，然后说说我的类似经历或者想法吧。  
 
+![编程之道封面][cover]
 
 ## Book One
 
@@ -181,25 +182,29 @@ COBOL 是什么呢？商业语言。
 ### Design
 
 > Thus spake the master programmer:  
+> "When program is being tested, it is too late to make design changes."    
 
-> "When program is being tested, it is too late to make design changes."  
+当程序开始测试的时候，再改设计就太晚了。  
+一般情况下，现在我的风格是初期尽量设计的全面一下，然后在编码过程中边敲代码，边测试，然后还会简单的重构，从而稍微修改设计。  
+唯一缺少的就是文档，我这工作不需要文档。  
+当然当程序正式上线时，我会抽出一部分时间来在wiki上写一个简单的文档。  
+
 
 
 ### 3.1
 
 > There once was a man who went to a computer trade show. Each day as he entered, the man told the guard at the door:  
-
 > "I am a great thief, renowned for my feats of shoplifting. Be forewarned, for this trade show shall not escape unplundered."  
-
 > This speech disturbed the guard greatly, because there were millions of dollars of computer equipment inside, so he watched the man carefully. But the man merely wandered from booth to booth, humming quietly to himself.  
-
 > When the man left, the guard took him aside and searched his clothes, but nothing was to be found.  
-
 > On the next day of the trade show, the man returned and chided the guard saying: "I escaped with a vast booty yesterday, but today will be even better." So the guard watched him ever more closely, but to no avail.  
-
 > On the final day of the trade show, the guard could restrain his curiosity no longer. "Sir Thief," he said, "I am so perplexed, I cannot live in peace. Please enlighten me. What is it that you are stealing?"  
-
 > The man smiled. "I am stealing ideas," he said.  
+
+
+这个故事我不知道他想说什么。  
+
+
 
 
 ### 3.2
@@ -499,4 +504,5 @@ COBOL 是什么呢？商业语言。
 * 2014-10-31 记录第二章节中我的理解
 
 
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2481785402.jpg
 [me]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg

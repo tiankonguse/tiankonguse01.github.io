@@ -5,11 +5,14 @@ category: blog
 description: 工作中需要使用 sphinx 来实现中文全文搜索，最后选择了 sphinx 这个工具，于是记录一下操作步骤。
 ---
 
+![Sphinx logo][cover]
+
 ## 前言
 
 **下面的表纯属文章虚构，由于配置内容较多，部分省略，具体可以参考官方文档。**
 
 想吐槽一句：编译安装真浪费时间， configure && make && make install 一个软件就需要几十分钟。我这安装四五个，几个小时就没了。
+
 
 
 ## 安装
@@ -617,6 +620,7 @@ FATAL: failed to parse config file '/usr/local/sphinx/etc/sphinx.conf'
 * [基于apache + mysql + php编译安装过程详解][luowenjing-1178205]
 
 
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2503078963.png
 [sphinxsearch-docs]: http://sphinxsearch.com/docs/current.html
 [luochuan-7303829]: http://blog.csdn.net/luochuan/article/details/7303829
 [luochuan-7313052]: http://blog.csdn.net/luochuan/article/details/7313052

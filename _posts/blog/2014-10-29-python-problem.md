@@ -5,6 +5,8 @@ category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 ---
 
+![python logo][cover]
+
 ## 前言
 
 时间多的挺快的，从学习python到现在已经一个月了。
@@ -215,6 +217,7 @@ random.shuffle(list) # 将list中的元素顺序打乱
 random.sample(list, n) # 从list中随机挑n个元素
 ```
 
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2514466730.png
 [python-http-post]: http://github.tiankonguse.com/blog/2014/09/28/python-http-post/
 [python-json]: http://github.tiankonguse.com/blog/2014/09/29/python-json/
 [first-learn-python]: http://github.tiankonguse.com/blog/2014/09/25/first-learn-python/
