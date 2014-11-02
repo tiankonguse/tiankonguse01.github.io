@@ -6,6 +6,11 @@ description: 早就听说过这本书了，十一的时候，打印下来了，�
 tag: 读书笔记, 计算机
 ---
 
+
+![编程之道封面][cover]
+![编程之道封面][cover-g]
+
+
 ## 前言
 
 
@@ -13,7 +18,7 @@ tag: 读书笔记, 计算机
 这本书附带了英文原文，看了之后发现翻译成英文后意思竟然变化这么大，果然是看英文原文比较好。  
 所以这里我就把英文原文写出来，然后说说我的类似经历或者想法吧。  
 
-![编程之道封面][cover]
+
 
 ## Book One
 
@@ -203,7 +208,7 @@ COBOL 是什么呢？商业语言。
 
 
 这个故事我不知道他想说什么。  
-
+可能是你费尽心思想得到的东西原来是虚拟的。  
 
 
 
@@ -212,34 +217,39 @@ COBOL 是什么呢？商业语言。
 > There once was a master programmer who wrote unstructured programs. A novice programmer, seeking to imitate him, also began to write unstructured programs. When the novice asked the master to evaluate his progress, the master criticized him for writing unstructured programs, saying: "What is appropriate for the master is not appropriate for the novice. You must understand the Tao before transcending structure."  
 
 
+一个初级程序员，做一个项目的步骤是分析，设计，文档，编码，测试，发布。
+而高级的程序员就直接边编码边测试，最后发布了。  
+
+
 ### 3.3
 
 > There was once a programmer who was attached to the court of the warlord of Wu. The warlord asked the programmer: "Which is easier to design: an accounting package or an operating system?"  
-
 > "An operating system," replied the programmer.  
-
 > The warlord uttered an exclamation of disbelief. "Surely an accounting package is trivial next to the complexity of an operating system," he said.  
-
 > "Not so," said the programmer, "when designing an accounting package, the programmer operates as a mediator between people having different ideas: how it must operate, how its reports must appear, and how it must conform to the tax laws. By contrast, an operating system is not limited my outside appearances. When designing an operating system, the programmer seeks the simplest harmony between machine and ideas. This is why an operating system is easier to design."  
-
 > The warlord of Wu nodded and smiled. "That is all good and well, but which is easier to debug?"  
-
 > The programmer made no reply.  
+
+
+这个故事主要是想诉苦：程序员好苦，平常的项目为什么那么难了，为什么需要那么长时间呢？  
+今天产品经理来说这个项目增加一个需求，明天来说这个项目的某个需求有所变化。  
+结果是原先的这个项目的设计不能适应新的需求了。  
+这就是一个项目为什么总是不能按期完成的原因之一。  
 
 
 ### 3.4
 
 > A manager went to the master programmer and showed him the requirements document for a new application. The manager asked the master: "How long will it take to design this system if I assign five programmers to it?"  
-
 > "It will take one year," said the master promptly.  
-
 > "But we need this system immediately or even sooner! How long will it take it I assign ten programmers to it?"  
-
 > The master programmer frowned. "In that case, it will take two years."  
-
 > "And what if I assign a hundred programmers to it?"  
-
 > The master programmer shrugged. "Then the design will never be completed," he said.  
+
+
+做一个项目需要一定的人数，但是达到这个人数后，再增加时间就会无限延长了。  
+大家都听说过一个和尚有水喝，三个和尚没水喝吧。  
+另外一个项目由于往往有一定的复杂性，人多后交流起来也比较困难的。  
 
 
 ## Book Four
@@ -505,4 +515,5 @@ COBOL 是什么呢？商业语言。
 
 
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2481785402.jpg
+[cover-g]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3911178094.jpg
 [me]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3933663332.jpg
