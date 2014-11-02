@@ -398,7 +398,105 @@ chmod 644 filename
 
 
 
-## 测试命令
-
-
 ## 优化命令
+
+
+### readelf 
+
+作用很明显，是显示elf格式文件的信息
+
+ELF，全称 Executable and Linkable Format(可执行和可链接格式). 具体可参考 [wiki][elf].
+
+#### 格式
+
+* ELF文件的组成：ELF header
+* 程序头：描述段信息
+* Section头：链接与重定位需要的数据
+* 程序头与Section头需要的数据.text .data
+
+可以参考这张图片 ![ELF][elf-layout]
+
+
+含义如下
+
+* 代码(.text)
+* 数据
+    - .data 初始化了的全局静态变量和局部静态变量
+    - .bss 未初始化的全局变量和局部静态变量
+    - .rodata 只读数据(字符串常量)
+* 符号表(symble table)
+    - 包括：函数名、全局变量名、函数静态变量名
+    - 不包括：数据类型名、局部自动变量名
+* 其它(重定位、加载、动态链接、调试等信息)
+
+
+#### 作用
+
+现在作为 Linux 的目标文件格式.
+作为一种可移植的目标文件格式，可以在Intel体系结构上的很多操作系统中使用，从而减少重新编码和重新编译程序的需要
+
+
+#### 类型
+
+
+* 可重定位文件（Relocatable File）
+    包含适合于与其他目标文件链接来创建可执行文件或者共享目标文件的代码和数据。
+* 可执行文件（Executable File） 
+    包含适合于执行的一个程序，此文件规定了exec() 如何创建一个程序的进程映像。
+* 共享目标文件（Shared Object File）
+    包含可在两种上下文中链接的代码和数据。
+    首先链接编辑器可以将它和其它可重定位文件和共享目标文件一起处理，生成另外一个目标文件。
+    其次，动态链接器（Dynamic Linker）可能将它与某个可执行文件以及其它共享目标一起组合，创建进程映像。
+
+#### 常用命令
+
+* readelf -h 查看ELF文件头
+* readelf -a 查看ELF所有信息
+* readelf -s 查看ELF文件中的符号表
+* readelf -x .data .rodata.bss.text 查看指定节区
+
+
+### objdump
+
+常用来显示来自目标文件的信息  
+比如查看程序时32位的还是64位的。
+
+例如下面的architecture就可以看出是多少位的。
+
+```
+tiankonguse:src $ objdump -f  a.out 
+
+a.out:     file format elf64-x86-64
+architecture: i386:x86-64, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x0000000000400830
+```
+
+具体还可以干什么，可以参考文档。
+
+```
+  -a  Display archive header information
+  -f  Display the contents of the overall file header
+  -p  Display object format specific file header contents
+  -h  Display the contents of the section headers  目标文件的所有段概括
+  -x  Display the contents of all headers  以某种分类信息的形式把目标文档的数据组织
+  -d  Display assembler contents of executable sections 反汇编目标文件
+  -D  Display assembler contents of all sections
+  -S  Intermix source code with disassembly
+  -s  Display the full contents of all sections requested ELF文件节区内容
+  -g  Display debug information in object file
+  -e  Display debug information using ctags style
+  -G  Display (in raw form) any STABS info in the file
+  -W  Display DWARF info in the file
+  -t  Display the contents of the symbol table(s) 标文件的符号表
+  -T  Display the contents of the dynamic symbol table
+  -r  Display the relocation entries in the file
+  -R  Display the dynamic relocation entries in the file
+  -v  Display this program's version number
+  -i  List object formats and architectures supported
+  -H  Display this information
+```
+
+
+[elf-layout]: http://upload.wikimedia.org/wikipedia/commons/7/77/Elf-layout--en.svg
+[elf]: http://en.wikipedia.org/wiki/Executable_and_Linkable_Format
