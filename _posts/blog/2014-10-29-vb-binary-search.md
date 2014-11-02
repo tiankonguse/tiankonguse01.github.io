@@ -5,6 +5,7 @@ category: blog
 description: 女朋友突然有一天给我说她编了一个二分查找，但是不对，问我怎么了，于是我看了一看。
 ---
 
+![二分查找][cover]
 
 ## 背景
 
@@ -217,7 +218,7 @@ Private Sub Command1_Click()
 End Sub
 ```
 
-
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2550425436.jpg
 [25bswc76]: http://msdn.microsoft.com/zh-cn/library/25bswc76.aspx
 [csdn]: http://bbs.csdn.net/topics/10293015
 [InputBox]: http://msdn.microsoft.com/zh-cn/library/6z0ak68w(v=vs.90).aspx
