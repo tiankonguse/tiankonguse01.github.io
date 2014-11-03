@@ -60,5 +60,5 @@ title: 关于 tiankonguse 的一些东西
 [wordpress]: http://tiankonguse.com/blog/
 [firstblog]: http://tiankonguse.com/firstblog/
 [cnblogs]: http://www.cnblogs.com/tiankonguse/
-[qzone]: http://user.qzone.qq.com/804345178/2
+[qzone]: http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
 [On-Top-of-Tides]: http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/
