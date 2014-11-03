@@ -5,6 +5,8 @@ category: blog
 description: 想在自己的QQ空间加上自己的 google 广告，于是想到图片注入 javascript 的方法。
 ---
 
+![javascript 注入图片][cover-image]
+
 ## 背景
 
 其实一年可以转广告费只有2$, 主要是学习一些简单的注入技术。
@@ -72,6 +74,6 @@ typedef struct {
 
 
 
-
+[cover-image]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3781498896.png
 [o_sun_o-bmp]: http://blog.csdn.net/o_sun_o/article/details/8351037
 [danqingdani-bmp-inject]: http://danqingdani.blog.163.com/blog/static/186094195201392303213948
