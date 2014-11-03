@@ -8,24 +8,7 @@ title : 经典游戏之俄罗斯方块
 </p>
 <div id="tetris">
 </div>
-<div class="right-ad">
-<!-- 300 x 600 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:600px"
-     data-ad-client="ca-pub-2326969899478823"
-     data-ad-slot="1758482399"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-<div class="left-ad">
-<!-- 300 x 600 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:600px"
-     data-ad-client="ca-pub-2326969899478823"
-     data-ad-slot="1758482399"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
