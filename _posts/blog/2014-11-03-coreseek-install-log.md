@@ -219,6 +219,7 @@ searchd error: client version is higher than daemon version (client is v.1.30, d
 ```
 
 
+
 [coreseek-source-4-1]: http://www.coreseek.cn/uploads/csft/4.0/coreseek-4.1-beta.tar.gz
 [sphinx-learn]: http://github.tiankonguse.com/blog/2014/10/30/sphinx-learn/
 [coreseek]: http://www.coreseek.com/

@@ -319,9 +319,10 @@ php 目前的最新版本 [5.6.2][php-source], 建议去[官网下载页][php-ho
 wget http://cn2.php.net/distributions/php-5.6.2.tar.gz
 tar zxvf php-5.6.2.tar.gz
 cd php-5.6.2
-./configure --prefix=/usr/local/php  --with-apxs2=/usr/local/apache/bin/apxs --with-mysql
+./configure --prefix=/usr/local/php  --with-apxs2=/usr/local/apache/bin/apxs --with-mysql --enable-sockets  --enable-shmop
 make && make install
 ```
+
 
 ### 配置 apache 支持 php
 
@@ -620,6 +621,36 @@ FATAL: failed to parse config file '/usr/local/sphinx/etc/sphinx.conf'
 * [基于apache + mysql + php编译安装过程详解][luowenjing-1178205]
 
 
+### undefined function socket_create
+
+在[这里][Fatal-error-Call-to-undefined-function-socket]找到了答案，原来默认编译安装的 php不支持 socket,需要加上支持socket的参数 `--enable-sockets`。
+
+```
+Fatal error: Call to undefined function socket_create()
+```
+
+
+###  undefined function shmop_open
+
+和上面的问题一样，编译php时没有开启shmop_open，加上 ` --enable-shmop`参数即可。参考[这里][yebihai-562]
+
+```
+Fatal error: Call to undefined function shmop_open() in
+```
+
+### expected searchd protocol version
+
+得到下面的错误的原因是配错ip和host了。默认 sphinx的 post是9312，而我配成8080了.
+
+```
+expected searchd protocol version 1+, got version '0'
+```
+
+
+
+
+[yebihai-562]: http://www.yebihai.com/php/562.html
+[Fatal-error-Call-to-undefined-function-socket]: http://board.phpbuilder.com/showthread.php?10274229-Fatal-error-Call-to-undefined-function-socket_create()
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2503078963.png
 [sphinxsearch-docs]: http://sphinxsearch.com/docs/current.html
 [luochuan-7303829]: http://blog.csdn.net/luochuan/article/details/7303829
