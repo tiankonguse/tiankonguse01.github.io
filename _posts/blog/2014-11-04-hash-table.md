@@ -225,6 +225,9 @@ int del(void const * pkey) {
 }
 ```
 
+## 完整代码
+
+完整的代码请参考我的 [github][github-hash-table]
 
 
 [github-hash-table]: https://github.com/tiankonguse/ACM/blob/master/hash/hash_table1.cpp
