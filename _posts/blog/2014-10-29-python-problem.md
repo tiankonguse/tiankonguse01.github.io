@@ -217,6 +217,35 @@ random.shuffle(list) # 将list中的元素顺序打乱
 random.sample(list, n) # 从list中随机挑n个元素
 ```
 
+## 判断实例类型
+
+从数据库中导出数据，组装后再导出，但是 python 的数据库有点强大，数据库内是什么类型，取出来的数据就是什么类型。  
+这样的话我还要一个一个的转换类型，好麻烦，所以我需要使用循环判断类型，统一转化为字符串然后操作。
+
+type 与 isinstance 的区别就是，type 判断实例与基类为不相等，而 isinstance 判断为相等。
+
+```python
+num = 1
+type(num) # 'int'
+
+isinstance(num, int) #True
+
+
+```
+
+
+有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
+
+此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
+
+只能用下面的方法判断(参考 [stackoverflow][how-to-test-nonetype-in-python])
+
+```python
+if variable is None:
+```
+
+
+[how-to-test-nonetype-in-python]: http://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2514466730.png
 [python-http-post]: http://github.tiankonguse.com/blog/2014/09/28/python-http-post/
 [python-json]: http://github.tiankonguse.com/blog/2014/09/29/python-json/
