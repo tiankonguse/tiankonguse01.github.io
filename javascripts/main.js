@@ -564,7 +564,7 @@ tk.Composition(TK.Comment, {
             return;
         }
         if(this.shouldLoad()){
-            that.loadComment();
+            this.loadComment();
         }else{
             this.bindClick();
             this.laterLoad(this.time);
