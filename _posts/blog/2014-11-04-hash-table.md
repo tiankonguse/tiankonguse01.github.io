@@ -31,9 +31,28 @@ description: 我是敲c++的，经常听起面试喜欢问hash table与hash map�
 
 既然 hash table 是 hash 后储存到 array 上的称呼，又由于存在冲突后，会以链表的形式追加到后面，所以称为 hash table 还说的过去。
 
+## 实现原理
+
+首先需要知道的是 hash table 能够做什么。  
+在这里， **假设我们又很多值** ，这个值的类型不确定，可能自定义，也可能基本类型，这个无关紧要。  
+然后我们又大量的查询操作，当然也有插入，删除操作。  
+一般方法是定义一个数组，但是这样的时间复杂度是 O(n) 的，代价太大。
+我们想快点操作，于是 hash 技术就出来了， 可以近似 O(1) 的时间完成操作。
+
+基本原理都是
+
+1. 准备一个数组
+2. 把数据映射为一个整数位置，然后把这个数据存在那个位置上。 
+3. 当映射到一个位置时，那个位置已经有值时(冲突)，我们需要把这些值存为链表 
+4. 判断冲突需要一个判断是否相等的函数 
+5. 对于要保存的值怎么储存，可以在链表中加一个指针，也可以和链表的节点绑定在一起。 
+
+![基本原理][hash-img]
+
+
 ## 实现算法
 
-对于 hash table ,我们有先确定几件事。
+对于 hash table ,我们需要先看看基本原理然后确定几件事。
 
 1. 一个 hash table 的数组的大小要根据实际情况来设置，这个数组我们以后成为 桶(buckets).  
 2. 我们需要事先申请一批节点内存，如果在使用时申请内存，很浪费时间的。因此我们需要预先估计节点的个数(node_num)。  
@@ -41,7 +60,7 @@ description: 我是敲c++的，经常听起面试喜欢问hash table与hash map�
 4. 由于val我们不知道是什么，所以还要申请一批val的内存，这里我们可以直接把val的内存放到节点的后面,所以需要知道val的大小(node_size)。
 5. 我们还需要一个判断两个val是否相等的函数(fun_equal)
 
-有了上面的条件，我们就可以自己实现一个 hash map 了。
+有了上面的条件，我们就可以自己实现一个 hash table 了。
 
 ### 需要的变量
 
@@ -230,6 +249,7 @@ int del(void const * pkey) {
 完整的代码请参考我的 [github][github-hash-table]
 
 
+[hash-img]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/261547805.png
 [github-hash-table]: https://github.com/tiankonguse/ACM/blob/master/hash/hash_table1.cpp
 [Hash_table]: http://en.wikipedia.org/wiki/Hash_table
 [散列表]: http://zh.wikipedia.org/wiki/哈希表
