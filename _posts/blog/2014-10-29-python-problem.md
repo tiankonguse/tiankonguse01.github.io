@@ -176,7 +176,17 @@ json_obj = json.loads(str)
 str = json.dumps(json_obj)
 ```
 
+## 所有类型转化为字符串
 
+参考 [stackoverflow][converting-integer-to-string-in-python]
+
+目前 int， long，unicode，datetime.datetime 转化为字符串有效。
+
+对于 NoneType 需要特判。
+
+```python
+newStr = str(variable)
+```
 
 
 ## 整数 与 字符串 转化
@@ -233,7 +243,6 @@ isinstance(num, int) #True
 
 ```
 
-
 有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
 
 此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
@@ -244,7 +253,7 @@ isinstance(num, int) #True
 if variable is None:
 ```
 
-
+[converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 [how-to-test-nonetype-in-python]: http://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2514466730.png
 [python-http-post]: http://github.tiankonguse.com/blog/2014/09/28/python-http-post/
