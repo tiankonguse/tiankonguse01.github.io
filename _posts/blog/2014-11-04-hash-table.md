@@ -5,6 +5,8 @@ category: blog
 description: 我是敲c++的，经常听起面试喜欢问hash table与hash map的区别，我只能说对不起，我没听过这两个名词。
 ---
 
+![hash table 研究与实现][cover-img]
+
 ## 什么是 hash table 
 
 说这个的时候，大家需要回忆一下大学学的数据结构上关于hash那一块，噢，大学的课本上不叫hash,而叫散列表。
@@ -250,7 +252,7 @@ int del(void const * pkey) {
 
 完整的代码请参考我的 [github][github-hash-table]
 
-
+[cover-img]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2550503544.png
 [hash-img]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/261547805.png
 [github-hash-table]: https://github.com/tiankonguse/ACM/blob/master/hash/hash_table1.cpp
 [Hash_table]: http://en.wikipedia.org/wiki/Hash_table
