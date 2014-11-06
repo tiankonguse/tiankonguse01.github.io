@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Sphinx 使用记录
+title:      Sphinx 安装记录
 category: blog
 description: 工作中需要使用 sphinx 来实现中文全文搜索，最后选择了 sphinx 这个工具，于是记录一下操作步骤。
 ---
@@ -8,6 +8,10 @@ description: 工作中需要使用 sphinx 来实现中文全文搜索，最后�
 ![Sphinx logo][cover]
 
 ## 前言
+
+如果你想支持中文全文检索的话，请参考 [coreseek 安装记录][coreseek-install-log]。  
+如果你已经安装 sphinx 或者 coreseek, 只是想查找怎么配置和使用 sphinx 和 coreseek 的话，请参考 [coreeek 和 sphinx 的配置与使用][sphinx-use]
+
 
 **下面的表纯属文章虚构，由于配置内容较多，部分省略，具体可以参考官方文档。**
 
@@ -648,7 +652,9 @@ expected searchd protocol version 1+, got version '0'
 
 
 
-
+[sphinx-learn]: http://github.tiankonguse.com/blog/2014/10/30/sphinx-learn/
+[coreseek-install-log]: http://github.tiankonguse.com/blog/2014/11/03/coreseek-install-log/
+[sphinx-use]: http://github.tiankonguse.com/blog/2014/11/06/sphinx-config-and-use/
 [yebihai-562]: http://www.yebihai.com/php/562.html
 [Fatal-error-Call-to-undefined-function-socket]: http://board.phpbuilder.com/showthread.php?10274229-Fatal-error-Call-to-undefined-function-socket_create()
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2503078963.png

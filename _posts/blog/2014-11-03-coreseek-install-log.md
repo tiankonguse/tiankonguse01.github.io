@@ -11,6 +11,10 @@ description: 上周安装了 sphinx 后，发现搜索效果不好，于是尝�
 
 前几天我写了 [sphinx 的安装记录][sphinx-learn], 今天再来记录一下 coreseek 的安装记录。
 
+如果你只想使用简单的全文检索的话，请参考 [Sphinx 安装记录][sphinx-learn]。  
+如果你已经安装 sphinx 或者 coreseek, 只是想查找怎么配置和使用 sphinx 和 coreseek 的话，请参考 [coreeek 和 sphinx 的配置与使用][sphinx-use].  
+
+
 
 ## 关于 coreseek
 
@@ -219,7 +223,8 @@ searchd error: client version is higher than daemon version (client is v.1.30, d
 ```
 
 
-
+[coreseek-install-log]: http://github.tiankonguse.com/blog/2014/11/03/coreseek-install-log/
+[sphinx-use]: http://github.tiankonguse.com/blog/2014/11/06/sphinx-config-and-use/
 [coreseek-source-4-1]: http://www.coreseek.cn/uploads/csft/4.0/coreseek-4.1-beta.tar.gz
 [sphinx-learn]: http://github.tiankonguse.com/blog/2014/10/30/sphinx-learn/
 [coreseek]: http://www.coreseek.com/
