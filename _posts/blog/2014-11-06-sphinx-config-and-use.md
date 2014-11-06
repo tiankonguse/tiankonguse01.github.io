@@ -138,6 +138,28 @@ INSERT INTO t_blog_time_sphinx (c_time)VALUES(now());
 /usr/local/coreseek4/bin/searchd
 ```
 
+## 定时任务
+
+定时任务需要做的有这么几件事。  
+
+1. 实时重建当天的索引(增量索引)
+2. 晚上合并增量索引到主索引
+3. 更新辅助表的时间为当前时间(一般减去若干分钟，来使数据有几分钟的冗余，避免遗漏数据)
+
+
+```
+# 增量索引
+/usr/local/coreseek4/bin/indexer t_cover_sphinx_inc_index --rotate
+
+# 合并
+/usr/local/coreseek4/bin/indexer --merge t_cover_sphinx_index t_cover_sphinx_inc_index --rotate
+
+# 修改辅助表上次的合并时间
+update t_blog_time_sphinx set c_time = now() - 10*60;
+```
+
+
+
 ## php 测试程序
 
 在 coreseek 的测试目录下可以找到 sphinxapi.php 文件，复制到你的 php 源代码对应的位置。
