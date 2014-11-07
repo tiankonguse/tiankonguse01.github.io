@@ -25,11 +25,7 @@ title: 关于 tiankonguse 的一些东西
 ## 关于这个网站
 
 这个网站托管在[github][github-tiankonguse]上。  
-现在这个网站的桌面版不再挂载广告。  
-因为金钱是万恶之源。初期挂载了广告，后来就想多挂载广告，再后来就想着怎么使自己的网站的流量变大，从而。。。  
-金钱是万恶之源，那样就使自己迷失了自己的方向，迷失了自己做网站的初衷。  
-自己做网站不是为了赚钱，而是为了记录自己的生活，记录自己写下的文字，记录自己的成长。  
-在这里，想我曾经的读者  说一声抱歉。  
+现在这个网站的桌面版不再挂载广告。 
 
 
 ## 关于 tiankonguse 的记录集
@@ -47,7 +43,12 @@ title: 关于 tiankonguse 的一些东西
 工作后的2014 年，我开始使用 [github][] 来记录我想记录下来的东西。    
 
 
+## 读书使人快乐
 
+![book-list][]
+
+
+[book-list]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/430766252.png
 [qzone-china-people]: http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
 [github-tiankonguse]: https://github.com/tiankonguse/tiankonguse.github.io
 [Computer-Parables-Enlightenment-in-the-Information-Age]: http://github.tiankonguse.com/blog/2014/11/01/Computer-Parables-Enlightenment-in-the-Information-Age/
