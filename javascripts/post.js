@@ -236,7 +236,8 @@ jQuery(document).ready(function(){
             }
 
             if(/\#content-h/.test(location.hash)){
-                gotoSelectorPos(contentMap[location.hash]);
+                var hash = decodeURI(location.hash);
+                gotoSelectorPos(contentMap[hash]);
             }
 
         }else{
