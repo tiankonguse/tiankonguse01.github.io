@@ -178,8 +178,8 @@ expanding 代表是否有旧桶，有的话我们需要先判断当前 key 是�
 新桶范围是 0~ 2\^hashpower， 插入到新桶的值的范围是 0 ~ expand_bucket  
 旧桶范围是 0 ~ 2\^(hashpower - 1),旧桶的值范围是 expand_bucket ~ 2\^(hashpower - 1)  
 
-这时可能就会有人说不对呀，那 对于 2^(hashpower - 1) ~ 2^hashpower 的数据在哪呢？  
-其实，那些数据超过了 2^(hashpower - 1)， 所以会进行取模，这样就还在那个范围了。  
+这时可能就会有人说不对呀，那 对于 2\^(hashpower - 1) ~ 2\^hashpower 的数据在哪呢？  
+其实，那些数据超过了 2\^(hashpower - 1)， 所以会进行取模，这样就还在那个范围了。  
 什么意思呢？  
 对于新来的数据，只看范围，如果在 expand_bucket ~ 2\^(hashpower - 1)， 即使有新桶还会存在旧桶里。  
 
