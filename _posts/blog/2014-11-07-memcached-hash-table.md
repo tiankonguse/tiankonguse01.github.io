@@ -10,7 +10,7 @@ description: 之前写了两篇 memcached 源码阅读记录，没什么价值�
 昨晚用一个小时把 memcached 的服务端程序看了，发现踩到一个坑，大部分程序都在实现服务器的网络编程的部分。  
 而我是不懂网络编程的，于是又花了半个小时去找 memcached 的储存代码，发现时使用 hash table 储存的。  
 于是这里研究一下 memcached 的 hash table .  
-昨晚记录的 [memcached 源码阅读之原理篇][memcached-code] 最后说了，服务器端做两部分：一部分是网络编程方面。另一部分就是 hash table 的实现。  
+昨晚记录的 [memcached 源码阅读之原理篇][memcached-code-server] 最后说了，服务器端做两部分：一部分是网络编程方面。另一部分就是 hash table 的实现。  
 刚好前几天我自己实现过一个 [hash table 研究与实现][hash-table], 于是 memcached 的 hash table 可以很快的看完并理解。  
 这里就简单的讲解一下 memcached 的 hash table .
 
@@ -39,7 +39,7 @@ Node  * hash_bucket ; //指向桶内存的指针
 ### val 的改造
   
 首先我的 val 是一个对象，且所有的 val 必须有相同的内存大小。  
-这往往是不显示的，所以一个很简单的改造就是 val 修改为动态申请内存，然后用指针来储存在 Node 里面即可。  
+这往往是不现实的，所以一个很简单的改造就是 val 修改为动态申请内存，然后用指针来储存在 Node 里面即可。  
 
 ```
 class Node {
@@ -78,14 +78,15 @@ public:
 
 ### 内存管理
 
-大家还可以明显看到，我的内存管理其实更不显示。  
+大家还可以明显看到，我的内存管理其实更不现实。  
 使用前是根本不知道我们会插入多少个加点，所以这个内存需要时动态增加的。  
 关于这个实现，一会我们看 memcached 里面的实现方式吧。  
 
 
 ### 其他改造
 
-改造之后，发现我的 桶没有必要是 Node 节点，也就是链表不需要一个头，所以这个桶需要改造。
+改造之后，发现我的 桶没有必要是 Node 节点，也就是链表不需要一个头，所以这个桶需要改造。  
+当然链表又没有头的学问也很大，大家可以自己研究一番。  
 
 ```
 Node** hash_bucket;
@@ -98,7 +99,7 @@ Node** hash_bucket;
 memcached 的 hash table 有两个文件，一个 .c, 一个 .h .  
 这是他们的位置 [assoc.h][memcached-assoc-h] 和 [assoc.c][memcached-assoc-c] .  
 
-在 .h 中，代码就不足 10 行，可以看一下。  
+在 .h 中，代码就不足 10 行，可以看一下。  后两个是我自己加上的。
 
 ```
 /* associative array */
@@ -174,17 +175,17 @@ hv 代表 这个 字符串 key 的 hash 值。
 
 expanding 代表是否有旧桶，有的话我们需要先判断当前 key 是在新桶还是旧桶里面。  
 怎么判断呢？  
-新桶范围是 0~ 2^hashpower， 插入到新桶的值的范围是 0 ~ expand_bucket  
-旧桶范围是 0 ~ 2^(hashpower - 1),旧桶的值范围是 expand_bucket ~ 2^(hashpower - 1)  
+新桶范围是 0~ 2\^hashpower， 插入到新桶的值的范围是 0 ~ expand_bucket  
+旧桶范围是 0 ~ 2\^(hashpower - 1),旧桶的值范围是 expand_bucket ~ 2\^(hashpower - 1)  
 
 这时可能就会有人说不对呀，那 对于 2^(hashpower - 1) ~ 2^hashpower 的数据在哪呢？  
-其实，那些数据操作了 2^(hashpower - 1)， 所以会进行取模，这样就还在那个范围了。  
+其实，那些数据超过了 2^(hashpower - 1)， 所以会进行取模，这样就还在那个范围了。  
 什么意思呢？  
-对于新来的数据，只看范围，如果在 expand_bucket ~ 2^(hashpower - 1)， 即使有新桶还存在旧桶里。  
+对于新来的数据，只看范围，如果在 expand_bucket ~ 2\^(hashpower - 1)， 即使有新桶还会存在旧桶里。  
 
 it 指针指向当前 key 对应的桶的位置。  
 然后就可以循环判断了。  
-由于是内存比较，所以需要先比较长度，在比较内存，完全相同了就找到了。  
+由于是内存比较，所以需要先比较长度，再比较内存，完全相同了就找到了。  
 
 ```
 item *assoc_find(const char *key, const size_t nkey, const uint32_t hv) {
@@ -336,7 +337,7 @@ void stop_assoc_maintenance_thread() {
 
 ### 线程做的事 - 合并桶
 
-这个合并桶的线程做和两件事。  
+这个合并桶的线程只做两件事。  
 第一件事是桶内的节点一个一个的合并，合并完了回收旧桶。  
 第二事是旧桶释放后，开始监听是否增大桶，接收到信号，调用增大桶  assoc_expand 函数。
 
@@ -428,11 +429,12 @@ static void assoc_expand(void) {
 就像在 acm 比赛的时候，对于模拟题，我就感觉很简单 -- 不就是若干简单函数的实现嘛！  
 
 写到这文章也要结束了，打个广告，大家留意到了吗？  
-没上面没有提起对 key 的 hash 方法，那是因为 对 字符串的hash 又是一个很大的领域，我下篇文章慢慢介绍。
+没上面没有提起对 key 的 hash 方法，那是因为 对 字符串的hash 又是一个很大的学问，我下篇文章慢慢介绍。  
 
-这篇文章之所以介绍的这个详细，是为了补偿昨晚写的那两篇没有价值的记录 《[memcached 源码阅读之原理篇][memcached-code]》 和 《[memcached 源码阅读之库函数介绍][memcached-lib]》。
+这篇文章之所以介绍的这个详细，是为了补偿昨晚写的那两篇没有价值的记录 《[memcached 源码阅读之原理篇][memcached-code]》 和 《[memcached 源码阅读之库函数介绍][memcached-lib]》。  
 《完》
 
+[memcached-code-server]: http://github.tiankonguse.com/blog/2014/11/06/memcached-code/#content-h3-迟迟到来的原理
 [segmentfault-1010000000741529]: http://segmentfault.com/q/1010000000741529/a-1020000000741540
 [memcached-assoc-h]: https://github.com/tiankonguse/memcached/blob/master/assoc.h
 [memcached-assoc-c]: https://github.com/tiankonguse/memcached/blob/master/assoc.c
