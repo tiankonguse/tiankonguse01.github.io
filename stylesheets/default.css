@@ -97,7 +97,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .index-content .artical-cate li { display:inline-block; *float:left; zoom:1; font-size:18px; width:32%; cursor:pointer; }
 .index-content .artical-cate li a,
 .index-content .artical-cate li a:visited { display:inline-block; zoom:1; color:#000; width:100%; }
-.index-content .artical-cate li a:hover { text-decoration:none; }
+.index-content .artical-cate li a:hover { text-decoration:none;color:red; }
 .index-content .artical-cate li.on span{ color:red; }
 
 .index-content .cate-bar { height:3px; width:70%; margin:0 auto;margin-bottom:100px; }
