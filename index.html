@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 description: 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 keywords: tiankonguse, GitHub, Jekyll, Plugins, Archives, css, html, javascript, wordpress, logo, design, geek, linux, php, python, 源码, 算法, acm
 isIndex: true
@@ -16,13 +16,10 @@ isIndex: true
 <div class="index-content">
     <div class="section">
         <ul class="artical-cate">
-            <li class="on"><a href="/"><span>home</span></a></li>
-            <li style="text-align:center"><a href="/about"><span>About</span></a></li>
-            <li style="text-align:right"><a href="/resources"><span>Resources</span></a></li>
+            {% for nav in site.nav %}
+                <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
+            {% endfor %}
         </ul>
-
-        <div class="cate-bar"><span id="cateBar"></span></div>
-
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
@@ -31,8 +28,6 @@ isIndex: true
             </li>
             {% endfor %}
         </ul>
-        
-
         <div class="pagination-centered" id="pagination_bottom">
             <ul id="pager_bottom">
             {% for page in (1..paginator.total_pages) %}
@@ -46,7 +41,6 @@ isIndex: true
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function(){
         tk.loadPage({{ paginator.page }}, {{ paginator.total_pages }}, $("#pager_bottom"), "http://tiankonguse.github.io/");
