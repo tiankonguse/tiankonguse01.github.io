@@ -65,33 +65,33 @@ nav:
 
 #关注我
 follow:
-  - rss:
-      - url: http://github.tiankonguse.com/atom.xml
-      - img: http://github.tiankonguse.com/images/rss_24x24.png
-  - github:
-      - url: https://github.com/tiankonguse/
-      - img: https://github.com/apple-touch-icon-114.png
-  - weibo:
-      - url: http://weibo.com/tiankonguse/
-      - img: http://www.weibo.com/favicon.ico
-  - douban:
-      - url: http://www.douban.com/people/tiankonguse/
-      - img: http://www.douban.com/favicon.ico
-  - weixin:
-      - url: \#show-hide-weixin
-      - img: http://github.tiankonguse.com/images/weixin_24x24.png
-  - google+:
-      - url: https://plus.google.com/103623040770219910018?rel=author
-      - img: 
-  - twitter:
-      - url: https://twitter.com/tiankonguse
-      - img: 
-  - facebook:
-      - url: https://www.facebook.com/tiankonguse
-      - img: 
-  - linkedin:
-      - url: http://www.linkedin.com/pub/sky-yuan/87/723/776
-      - img: 
+  - url: http://github.tiankonguse.com/atom.xml
+    img: http://github.tiankonguse.com/images/rss_24x24.png
+    name: rss
+  - url: https://github.com/tiankonguse/
+    img: https://github.com/apple-touch-icon-114.png
+    name: github
+  - url: http://weibo.com/tiankonguse/
+    img: http://www.weibo.com/favicon.ico
+    name: weibo
+  - url: http://www.douban.com/people/tiankonguse/
+    img: http://www.douban.com/favicon.ico
+    name: douban
+  - url: \#show-hide-weixin
+    img: http://github.tiankonguse.com/images/weixin_24x24.png
+    name: weixin
+  - url: https://plus.google.com/103623040770219910018?rel=author
+    img: http://github.tiankonguse.com/images/google.ico
+    name: google plus
+  - url: https://twitter.com/tiankonguse
+    img: http://github.tiankonguse.com/images/twitter.ico
+    name: twitter
+  - url: https://www.facebook.com/tiankonguse
+    img: http://github.tiankonguse.com/images/facebook.ico
+    facebook:facebook
+  - url: http://www.linkedin.com/pub/sky-yuan/87/723/776
+    img: http://github.tiankonguse.com/images/linkedin.png
+    linkedin:linkedin
       
 #评论信息
 disqus:
