@@ -31,4 +31,4 @@ isArchive: true
 </li>
 {% endfor %}
 </ul>
-</div>
+</article>
