@@ -88,10 +88,10 @@ follow:
     name: twitter
   - url: https://www.facebook.com/tiankonguse
     img: http://github.tiankonguse.com/images/facebook.ico
-    facebook:facebook
+    facebook: facebook
   - url: http://www.linkedin.com/pub/sky-yuan/87/723/776
     img: http://github.tiankonguse.com/images/linkedin.png
-    linkedin:linkedin
+    linkedin: linkedin
       
 #评论信息
 disqus:
