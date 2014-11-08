@@ -3,7 +3,7 @@ layout:     post
 title:      memcached 源码阅读之 字符串 hash 与 搜集的一些 字符串 hash
 category: blog
 description: 阅读 memcached 源码的时候，发现 memcached 有两个字符串hash 的代码，于是研究一下,然后理解这个hash的时候，搜集了一些互联网上的字符串hash方法
-keyword: memcached, 源码阅读, hash, 字符串
+keywords: memcached, 源码阅读, hash, 字符串
 ---
 
 ## 前言

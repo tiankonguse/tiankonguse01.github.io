@@ -1,9 +1,9 @@
 ---
-    layout : post 
-    category : blog
-    description : 最近我在干什么呢？回忆一下。 
-    title : 最近我在做什么
-    keyword: 回忆录, 毕业, 画画, 工作
+layout : post 
+category : blog
+description : 最近我在干什么呢？回忆一下。 
+title : 最近我在做什么
+keywords: 回忆录, 毕业, 画画, 工作
 ---
 
 从[我的博客](http://tiankonguse.com)看来，我好久没有写博客了。

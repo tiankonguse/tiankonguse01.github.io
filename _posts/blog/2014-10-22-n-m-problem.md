@@ -3,7 +3,7 @@ layout:     post
 title:      n-m 问题
 category: blog
 description: 告诉你N个数, 其中只有一个数出现m次, 其他的数都出现n次.求出现m次的那个数.
-keyword: 位运算, 异或
+keywords: 位运算, 异或
 ---
 
 ## 前言

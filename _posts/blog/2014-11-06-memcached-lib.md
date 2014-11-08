@@ -3,7 +3,7 @@ layout:     post
 title:      memcached 源码阅读之库函数介绍
 category: blog
 description: 很早就听说过 memcached 了，但是一直没时间来研究一下，现在研究一下。
-keyword: memcached, 源码阅读, 库函数
+keywords: memcached, 源码阅读, 库函数
 ---
 
 ## 前言

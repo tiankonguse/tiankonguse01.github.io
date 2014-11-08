@@ -3,7 +3,7 @@ layout:     post
 title:      coreseek 安装记录
 category: blog
 description: 上周安装了 sphinx 后，发现搜索效果不好，于是尝试一下 coreseek .
-keyword: coreseek, sphinx, 源码安装, 使用教程, 全文检索, 搜索
+keywords: coreseek, sphinx, 源码安装, 使用教程, 全文检索, 搜索
 ---
 
 ![coreseek 封面][cover-image]

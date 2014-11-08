@@ -3,7 +3,7 @@ layout: post
 title: 初步学习Python高级语法
 description: 最近由于工作需要，需要快速学习python的高级语法.现在把学习的东西记录下来。
 category: blog
-keyword: python, 语法, 教程
+keywords: python, 语法, 教程
 ---
 
 ## python 高级特性

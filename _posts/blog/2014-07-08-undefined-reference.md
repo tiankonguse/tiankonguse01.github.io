@@ -3,7 +3,7 @@ layout : post
 category : blog
 description : 我犯了比较低级的错误:gcc和g++的区别
 title : undefined reference to std::ios_base::Init::Init()
-keyword: undefined, reference, 错误
+keywords: undefined, reference, 错误
 ---
 
 ## 问题背景
