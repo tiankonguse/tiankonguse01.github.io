@@ -1,49 +1,99 @@
 auto: true
-
-# encoding default is utf-8
 encoding : utf-8
-
-exclude: [ "README.md"]
+plugins: ./_plugins
+layouts:      ./_layouts
+# page  
+# such as /page2
+paginate_path: page:num
+paginate: 10
+timezone: null
+# markdown language
+markdown : rdiscount
+# code hight light
+pygments: true
 highlighter: pygments
+exclude: [ "README.md"]
+safe: false
+keep_files: [".git", ".svn"]
+textile_ext:  "textile"
 
-# base url
-# if you use your own domain, you should alter to your own domain.
-# such as baseurl : http://tiankonguse.com
 
-#baseurl : http://tiankonguse.github.io
+show_drafts:  null
+limit_posts:  0
+future:       true
+unpublished:  false
 
+lsi:          false
+excerpt_separator: "\n\n"
+
+
+
+# site info
 author : "tiankonguse"
-title: tiankonguse.github.io
+title: tiankonguse blog
+description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 url: http://tiankonguse.github.io
 feed: /atom.xml
 author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
 tagline: Site Tagline
-baseurl : http://github.tiankonguse.com
-production_url : http://github.tiankonguse.com/
+description: 这是 PIZn 的又一个博客，它是基于 Jekyll 
 
-# post url 
+# post url
 #year 文件名中的年份
 #month 文件名中的月份
 #day 文件名中的日期
 #title 文件名中的文章标题
 #categories 文章的分类，如果文章没有分类，会忽略
+
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
-
-
-
-
-# markdown language
-
-markdown : rdiscount
-#  pygments: true
-
-
-paginate: 10
-paginate_path: "page:num"
-
 permalink: /:categories/:year/:month/:day/:title/
 prelinkpath : ""
+baseurl : http://github.tiankonguse.com
+production_url : http://github.tiankonguse.com/
 
 
 
+# menu 
+nav:
+  - text: home
+    url: /index.html
+  - text: about
+    url: /about.html
+  - text: archives
+    url: /archives.html
+
+#关注我
+follow:
+  - rss:
+      - url: http://github.tiankonguse.com/atom.xml
+      - img: http://github.tiankonguse.com/images/rss_24x24.png
+  - github:
+      - url: https://github.com/tiankonguse/
+      - img: https://github.com/apple-touch-icon-114.png
+  - weibo:
+      - url: http://weibo.com/tiankonguse/
+      - img: http://www.weibo.com/favicon.ico
+  - douban:
+      - url: http://www.douban.com/people/tiankonguse/
+      - img: http://www.douban.com/favicon.ico
+  - weixin:
+      - url: \#show-hide-weixin
+      - img: http://github.tiankonguse.com/images/weixin_24x24.png
+  - google+:
+      - url: https://plus.google.com/103623040770219910018?rel=author
+      - img: 
+  - twitter:
+      - url: https://twitter.com/tiankonguse
+      - img: 
+  - facebook:
+      - url: https://www.facebook.com/tiankonguse
+      - img: 
+  - linkedin:
+      - url: http://www.linkedin.com/pub/sky-yuan/87/723/776
+      - img: 
+      
+#评论信息
+disqus:
+  config: true
+  id: piznblog

@@ -3,6 +3,7 @@ layout:     post
 title:      Linux 命令记录(持续更新中)
 category: blog
 description: linux下的命令学好了，走到哪里都不怕电脑死机了。
+keywords: linux, command, ls, cp, dd, pwd, mv, 语法, touch, 用户, 操作, 权限, lsblk, 优化命令, readelf, 格式, 常用命令, strings
 ---
 
 
@@ -496,6 +497,16 @@ start address 0x0000000000400830
   -i  List object formats and architectures supported
   -H  Display this information
 ```
+
+### strings
+
+获取二进制文件里面的字符串常量.  
+搜索二进制文件中的字符串，比如检查KEY泄露.  
+
+```
+strings –f *| grep '^.\{16\}$'
+```
+
 
 
 [elf-layout]: http://upload.wikimedia.org/wikipedia/commons/7/77/Elf-layout--en.svg
