@@ -56,13 +56,13 @@ production_url : http://github.tiankonguse.com/
 
 # menu 
 nav:
-  - text: home
+  - text: Home
     url: /index.html
     style: text-align:left
-  - text: about
+  - text: About
     url: /about.html
     style: text-align:center
-  - text: archives
+  - text: Archives
     url: /archives.html
     style: text-align:right
 
