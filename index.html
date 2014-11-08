@@ -34,7 +34,15 @@ isIndex: true
         
 
         <div class="pagination-centered" id="pagination_bottom">
-            <ul id="pager_bottom"></ul>
+            <ul id="pager_bottom">
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
