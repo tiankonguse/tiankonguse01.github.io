@@ -3,6 +3,7 @@
     category : blog
     description : 电脑最近变得非常的慢，于是想手动优化一下自己的系统。 
     title: 自己手动加速自己的电脑
+    keyword: 电脑, 优化, 加速, Ubuntu
 ---
 
 

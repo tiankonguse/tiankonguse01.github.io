@@ -1,8 +1,9 @@
 ---
     layout : post 
     category : blog
-    description : 最近遇到了发送http请求的需求，但是请求时会发送一个很大的数据，使用get会有个瓶颈，于是查查资料改为post请求。
+    description : 最近遇到了发送 http 请求的需求，但是请求时会发送一个很大的数据，使用get会有个瓶颈，于是查查资料改为post请求。
     title : Python 下发送 post 类型的 http请求
+    keywords: http, python, post 请求, Request, urlencode, urlopen
 ---
 
 
