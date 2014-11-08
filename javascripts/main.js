@@ -626,7 +626,7 @@ jQuery(document).ready(function(){
         e.preventDefault();
         if($homeContact.is(':visible')){
             $homeContact.slideUp(100);
-            weixin.hide();
+            $('.weixin').hide();
         }else{
             $homeContact.slideDown(100);
         }
