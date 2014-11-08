@@ -86,14 +86,14 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 
 .index-content .section { margin-left:15%; padding-top:80px; padding-right:15%; ;}
 
-.index-content .artical-list { width:70%; margin:0 auto; }
+.index-content .artical-list { width:70%; margin:0 auto; margin-top: 50px;}
 .index-content .artical-list li { margin-bottom:40px; }
 .index-content h2 { font-size:20px; margin-bottom:15px; word-break: break-all;}
 .index-content h2 a { color:#444 }
 .index-content h2 a:hover { color:#E50053; text-decoration:none; }
 .index-content .title-desc {color:#999;font-size:14px;line-height:1.6em;}
 
-.index-content .artical-cate { width:70%; margin:0 auto; width: 70%;margin: 0 auto;margin-bottom: 100px;}
+.index-content .artical-cate { width:70%; margin:0 auto; width: 70%;margin: 0 auto;margin-bottom: 20px;}
 .index-content .artical-cate li { display:inline-block; *float:left; zoom:1; font-size:18px; width:32%; cursor:pointer; }
 .index-content .artical-cate li a,
 .index-content .artical-cate li a:visited { display:inline-block; zoom:1; color:#000; width:100%; }
