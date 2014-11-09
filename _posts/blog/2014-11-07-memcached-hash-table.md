@@ -6,6 +6,8 @@ description: 之前写了两篇 memcached 源码阅读记录，没什么价值�
 keywords: memcached, 源码阅读, hash table
 ---
 
+![cover][]
+
 ## 前言
 
 昨晚用一个小时把 memcached 的服务端程序看了，发现踩到一个坑，大部分程序都在实现服务器的网络编程的部分。  
@@ -435,6 +437,7 @@ static void assoc_expand(void) {
 这篇文章之所以介绍的这个详细，是为了补偿昨晚写的那两篇没有价值的记录 《[memcached 源码阅读之原理篇][memcached-code]》 和 《[memcached 源码阅读之库函数介绍][memcached-lib]》。  
 《完》
 
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3064550786.png
 [memcached-code-server]: http://github.tiankonguse.com/blog/2014/11/06/memcached-code/#content-h3-迟迟到来的原理
 [segmentfault-1010000000741529]: http://segmentfault.com/q/1010000000741529/a-1020000000741540
 [memcached-assoc-h]: https://github.com/tiankonguse/memcached/blob/master/assoc.h

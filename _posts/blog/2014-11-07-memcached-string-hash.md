@@ -6,6 +6,8 @@ description: 阅读 memcached 源码的时候，发现 memcached 有两个字符
 keywords: memcached, 源码阅读, hash, 字符串
 ---
 
+![cover][]
+
 ## 前言
 
 在 [memcached 源码阅读之 hash table][memcached-hash-table]文章的最后我说了，要研究一下 memcached 的 字符串 hash 方法的。  
@@ -453,7 +455,7 @@ ub4 zobrist( char *key, ub4 len, ub4 mask, ub4 tab[MAXBYTES][256]){
 }
 ```
 
-
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3100784970.png
 [murmur3_hash]: https://github.com/tiankonguse/memcached/blob/master/murmur3_hash.c
 [jenkins_hash]: https://github.com/tiankonguse/memcached/blob/master/jenkins_hash.c
 [memcached-hash-table]: http://github.tiankonguse.com/blog/2014/11/07/memcached-hash-table/

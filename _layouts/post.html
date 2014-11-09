@@ -35,12 +35,26 @@ comment: true
     </div>
     <div class="entry">
         <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
-        <p class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</p>
+        <p>作者: <span  class="entry-authon">{{ site.author }}</span> | 发布日期: <span  class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</span></p>
         <p><blockquote>{{page.description}}</blockquote></p>
         {{ content }}
 
         <div class="ad-content-footer"></div>
         <footer class="unit-foot">
+            <div class="footer-post-info clearfix">
+                <ul>
+                    <li>
+                        作者「<a href="/contact.html" rel="author">tiankonguse</a>」于 
+                        <time>{% if page.updateData|date:"%Y-%m-%d" %}
+                            {{page.updateData}}
+                        {% else %}
+                            {{ page.date|date:"%Y-%m-%d" }}
+                        {% endif %}</time> 更新本文</li>
+                    <li>文章声明：自由转载-非商用-非衍生-保持署名  |  <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="nofollow">BY-NC-SA</a></li>
+                    <li>如果你觉得这篇文章对你有帮助，欢迎自由付费：</li>
+                </ul>
+                <a href="https://shenghuo.alipay.com/send/payment/submit.htm?payAmount=30&amp;optEmail=804345178%40qq.com&amp;title=donate%20to%20tiankonguse&amp;isSend=true&amp;smsNo=13944097701" target="_blank"><img alt="" src="http://tiankonguse.com/common/img/donate.jpg"></a>
+            </div>
             <div class="unit-inner unit-foot-inner">
                 <nav class="pagination">
                     <ul>

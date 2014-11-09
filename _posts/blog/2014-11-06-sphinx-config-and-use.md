@@ -6,6 +6,7 @@ description: sphinx 是搭建好了，但是还需要支持增量索引和闲时
 keywords: coreeek, sphinx, 安装, 配置, 教程, 全文索引, 搜索
 ---
 
+![cover][]
 
 ## 前言
 
@@ -207,7 +208,7 @@ print_r($res);
 echo "</pre> ";
 ```
 
-
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3071317700.png
 [matching-modes]: http://www.tapy.org/articles/sphinx1.0/sphinxManual.html#matching-modes
 [sphinx-learn]: http://github.tiankonguse.com/blog/2014/10/30/sphinx-learn/
 [coreseek-install-log]: http://github.tiankonguse.com/blog/2014/11/03/coreseek-install-log/
