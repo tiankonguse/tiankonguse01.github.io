@@ -1,5 +1,5 @@
 User-agent: *
-Disallow:/blog/2014/07/10/make-github-website/[/blog/2014/09/26/jekyll-base-record/]
+Disallow:/blog/2014/*
 Disallow:/blog/make-yourself-wordpress-themes/
 Disallow:/blog/make-github-website/
 Disallow:/blog/database-algorithm/
