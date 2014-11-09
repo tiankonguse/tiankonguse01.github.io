@@ -80,7 +80,7 @@ follow:
   - url: http://www.douban.com/people/tiankonguse/
     img: http://www.douban.com/favicon.ico
     name: douban
-  - url: .show-hide-weixin
+  - url: \#show-hide-weixin
     img: http://github.tiankonguse.com/images/weixin_24x24.png
     name: weixin
   - url: https://plus.google.com/103623040770219910018?rel=author
