@@ -616,7 +616,7 @@ jQuery(document).ready(function(){
     contactTpl += '<div class="weixin" style="display: none;"><img src="http://github.tiankonguse.com/images/weixin_code.png" alt="微信"></div>';
     
     $homeContact.append(contactTpl);
-    var weixin = $('[href="#show-hide-weixin"]');
+    var weixin = $('[href="http://weixin.qq.com/"]');
     weixin.click(function(){
         $('.weixin').toggle(200);
         return false;
