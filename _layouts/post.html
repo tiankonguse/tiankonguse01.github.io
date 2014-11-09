@@ -45,7 +45,7 @@ comment: true
                 <ul>
                     <li>
                         作者「<a href="/about.html" rel="author">tiankonguse</a>」于 
-                        <time>{% if page.updateData|date:"%Y-%m-%d" %}
+                        <time>{% if page.updateData %}
                             {{ page.updateData|date:"%Y-%m-%d %H:%M:%S" }}
                         {% else %}
                             {{ page.date|date:"%Y-%m-%d %H:%M:%S" }}
