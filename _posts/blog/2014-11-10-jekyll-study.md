@@ -301,14 +301,10 @@ page 是当前页面的根节点.
 ### 自动生成摘要
 
 ```
-<ul>
   { % for post in site.posts % }
-    <li>
-      <a href="{ { post.url } }">{ { post.title } }</a>
-      { { post.excerpt | remove: '<p>' | remove: '</p>' } }
-    </li>
+     { { post.url } } { { post.title } }
+      { { post.excerpt | remove: 'test' } }
   { % endfor % }
-</ul>
 ```
 
 ### 删除指定文本
