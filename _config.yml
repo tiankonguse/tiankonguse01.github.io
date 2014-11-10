@@ -1,44 +1,56 @@
+# Where things are
 auto: true
-encoding : utf-8
-plugins: ./_plugins
-layouts:      ./_layouts
-# page  
-# such as /page2
-paginate_path: page:num
-paginate: 10
-timezone: null
-# markdown language
-markdown : rdiscount
-# code hight light
-pygments: true
-highlighter: pygments
-exclude: [ "README.md"]
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+data_source: ./_data
+collections: null
+
+
+# Handling Reading
 safe: false
+include: [".htaccess"]
+exclude: ["README.md"]
 keep_files: [".git", ".svn"]
+encoding : utf-8
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 textile_ext:  "textile"
 
 
-show_drafts:  null
-limit_posts:  0
-future:       true
-unpublished:  false
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      true
+unpublished: false
 
-lsi:          false
+
+# Plugins
+whitelist: []
+gems:      []
+
+
+# Conversion
+markdown:    rdiscount
+highlighter: pygments
+pygments: true
+lsi: true
 excerpt_separator: "\n\n"
 
 
-
-# site info
-author : "tiankonguse"
-title: tiankonguse blog
-description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
+# Serving
+detach:  false
+port:    80
+host:    http://tiankonguse.github.io
+baseurl: "/" # does not include hostname
 url: http://tiankonguse.github.io
-feed: /atom.xml
-author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
-tagline: Site Tagline
-description: 这是 PIZn 的又一个博客，它是基于 Jekyll 
 
-# post url
+
+# Backwards-compatibility
+relative_permalinks: false
+
+# Outputting
+
 #year 文件名中的年份
 #month 文件名中的月份
 #day 文件名中的日期
@@ -47,11 +59,36 @@ description: 这是 PIZn 的又一个博客，它是基于 Jekyll
 
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
-permalink: /:categories/:year/:month/:day/:title/
-prelinkpath : ""
-baseurl : http://github.tiankonguse.com
-production_url : http://github.tiankonguse.com/
 
+permalink: /blog/:year/:month/:day/:title/
+paginate_path: page:num
+paginate: 10
+prelinkpath : ""
+production_url : http://github.tiankonguse.com/
+timezone:      null
+quiet:    false
+defaults: []
+
+# site info
+author : "tiankonguse"
+title: tiankonguse blog
+description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
+feed: /atom.xml
+author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
+tagline: Site Tagline
+description: 这是 PIZn 的又一个博客，它是基于 Jekyll 
+
+
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/atom.xml"
+        - "/feed.xml"
+        - "/feed/index.xml"
+    include_posts:
+        - "/index.html"
+    change_frequency_name: "change_frequency"
+    priority_name: "priority"
 
 
 # menu 
