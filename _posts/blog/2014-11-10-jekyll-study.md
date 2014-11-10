@@ -66,7 +66,7 @@ jekyll 的全局配置在 _config.yml 文件中配置.
 在模板中, 引入儿子的内容.
 
 ```
-\{\{ content \}\}
+{ { content } }
 ```
 
 在儿子中,指定父节点模板
@@ -293,7 +293,7 @@ page 是当前页面的根节点.
 输出变量直接使用两个大括号括起来即可.
 
 ```
-\{\{ page.title \}\}
+{ { page.title } }
 ```
 
 ### 循环
@@ -302,7 +302,7 @@ page 是当前页面的根节点.
 
 ```
 { % for post in site.posts % }
-    <a href="\{\{ post.url \}\}">\{\{ post.title \}\}</a>
+    <a href="{ { post.url } }">{ { post.title } }</a>
   { % endfor % }
 ```
 
@@ -310,8 +310,8 @@ page 是当前页面的根节点.
 
 ```
   { % for post in site.posts % }
-     \{\{ post.url \}\} \{\{ post.title \}\}
-      \{\{ post.excerpt | remove: 'test' \}\}
+     { { post.url } } { { post.title } }
+      { { post.excerpt | remove: 'test' } }
   { % endfor % }
 ```
 
@@ -320,7 +320,7 @@ page 是当前页面的根节点.
 remove 可以删除变量中的指定内容
 
 ```
-\{\{ post.url | remove: 'http' \}\}
+{ { post.url | remove: 'http' } }
 ```
 
 ### 删除 html 标签
@@ -328,13 +328,13 @@ remove 可以删除变量中的指定内容
 这个在摘要中很有用.
 
 ```
-\{\{ post.excerpt | strip_html \}\}
+{ { post.excerpt | strip_html } }
 ```
 
 ### 代码高亮
 
 ```
-{ % highlight ruby linenos% }
+{ % highlight ruby linenos % }
 \# some ruby code
 { % endhighlight % }
 ```
@@ -342,7 +342,7 @@ remove 可以删除变量中的指定内容
 ### 数组的大小
 
 ```
-\{\{ array | size \}\}
+{ { array | size } }
 ```
 
 ### 赋值
@@ -354,29 +354,29 @@ remove 可以删除变量中的指定内容
 ### 格式化时间
 
 ```
-\{\{ site.time | date_to_xmlschema \}\} 2008-11-07T13:07:54-08:00
-\{\{ site.time | date_to_rfc822 \}\} Mon, 07 Nov 2008 13:07:54 -0800
-\{\{ site.time | date_to_string \}\} 07 Nov 2008
-\{\{ site.time | date_to_long_string \}\} 07 November 2008
+{ { site.time | date_to_xmlschema } } 2008-11-07T13:07:54-08:00
+{ { site.time | date_to_rfc822 } } Mon, 07 Nov 2008 13:07:54 -0800
+{ { site.time | date_to_string } } 07 Nov 2008
+{ { site.time | date_to_long_string } } 07 November 2008
 ```
 
 ### 搜索指定key
 
 ```
 # Select all the objects in an array where the key has the given value.
-\{\{ site.members | where:"graduation_year","2014" \}\} 
+{ { site.members | where:"graduation_year","2014" } } 
 ```
 
 ### 排序
 
 ```
-\{\{ site.pages | sort: 'title', 'last' \}\}
+{ { site.pages | sort: 'title', 'last' } }
 ```
 
 ### to json
 
 ```
-\{\{ site.data.projects | jsonify \}\}
+{ { site.data.projects | jsonify } }
 ```
 
 ### 序列化
@@ -384,13 +384,13 @@ remove 可以删除变量中的指定内容
 把一个对象变成一个字符串
 
 ```
-\{\{ page.tags | array_to_sentence_string \}\}
+{ { page.tags | array_to_sentence_string } }
 ```
 
 ### 单词的个数
 
 ```
-\{\{ page.content | number_of_words \}\}
+{ { page.content | number_of_words } }
 ```
 
 ### 指定个数
