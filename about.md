@@ -23,6 +23,7 @@ isContact: true
 * 看书 《人月神话》 2014-11-02 ~ 今
 * 看书 《自己动手写搜索引擎》 2014-11-02 ~ 2014-11-03 全是JAVA代码(2/3),只看文字说明
 * 看书 《编程之美》 2014-10-05 ~ 今
+* 看电影 《蜘蛛侠》三部曲 2014-11-08晚上 [QQ空间记录][5a55f12fd7055f54d7060400]
 
 
 ## 关于这个网站
@@ -51,6 +52,7 @@ isContact: true
 ![book-list][]
 
 
+[5a55f12fd7055f54d7060400]: http://user.qzone.qq.com/804345178/mood/5a55f12fd7055f54d7060400.1
 [book-list]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/430766252.png
 [qzone-china-people]: http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
 [github-tiankonguse]: https://github.com/tiankonguse/tiankonguse.github.io
