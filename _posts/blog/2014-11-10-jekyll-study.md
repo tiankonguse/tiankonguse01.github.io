@@ -321,7 +321,7 @@ remove 可以删除变量中的指定内容
 
 ```
 { { post.excerpt | strip_html } }
-``
+```
 
 ### 代码高亮
 
