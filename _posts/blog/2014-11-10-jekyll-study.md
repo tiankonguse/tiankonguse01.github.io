@@ -280,7 +280,7 @@ page 是当前页面的根节点.
 
 
 
-** 输出变量 **
+### 输出变量
 
 输出变量直接使用两个大括号括起来即可.
 
@@ -288,7 +288,7 @@ page 是当前页面的根节点.
 { { page.title } }
 ```
 
-** 循环 **
+### 循环
 
 和平常的解释性语言很想.
 
@@ -298,7 +298,7 @@ page 是当前页面的根节点.
   { % endfor % }
 ```
 
-** 自动生成摘要 **
+### 自动生成摘要
 
 ```
 <ul>
@@ -311,7 +311,7 @@ page 是当前页面的根节点.
 </ul>
 ```
 
-** 删除指定文本 **
+### 删除指定文本
 
 remove 可以删除变量中的指定内容
 
@@ -319,7 +319,7 @@ remove 可以删除变量中的指定内容
 { { post.url | remove: 'http' } }
 ```
 
-** 删除 html 标签 **
+### 删除 html 标签
 
 这个在摘要中很有用.
 
@@ -327,7 +327,7 @@ remove 可以删除变量中的指定内容
 { { post.excerpt | strip_html } }
 ``
 
-** 代码高亮 **
+### 代码高亮
 
 ```
 { % highlight ruby linenos% }
@@ -335,19 +335,19 @@ remove 可以删除变量中的指定内容
 { % endhighlight % }
 ```
 
-** 数组的大小 **
+### 数组的大小
 
 ```
 { { array | size } }
 ```
 
-** 赋值 **
+### 赋值
 
 ```
 { % assign index = 1 % }
 ```
 
-** 格式化时间 **
+### 格式化时间
 
 ```
 { { site.time | date_to_xmlschema } } 2008-11-07T13:07:54-08:00
@@ -356,26 +356,26 @@ remove 可以删除变量中的指定内容
 { { site.time | date_to_long_string } } 07 November 2008
 ```
 
-** 搜索指定key **
+### 搜索指定key
 
 ```
 # Select all the objects in an array where the key has the given value.
 { { site.members | where:"graduation_year","2014" } } 
 ```
 
-** 排序 **
+### 排序
 
 ```
 { { site.pages | sort: 'title', 'last' } }
 ```
 
-** to json **
+### to json
 
 ```
 { { site.data.projects | jsonify } }
 ```
 
-** 序列化 **
+### 序列化
 
 把一个对象变成一个字符串
 
@@ -383,13 +383,13 @@ remove 可以删除变量中的指定内容
 { { page.tags | array_to_sentence_string } }
 ```
 
-** 单词的个数 **
+### 单词的个数
 
 ```
 { { page.content | number_of_words } }
 ```
 
-** 指定个数 **
+### 指定个数
 
 得到数组指定范围的结果集  
 
