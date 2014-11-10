@@ -9,6 +9,8 @@ tags: jekyll, github, 语法
 
 ## 前言
 
+\{\{ \}\}
+
 如果你只想快速搭建一个 github 的静态网站, 而暂时没有时间来研究 jekyll 语法的话,建议直接 fork 我的[这个][github-tiankonguse]
 
 当然,阅读一下之前我记录的一些笔记也可以增长一些知识.  
