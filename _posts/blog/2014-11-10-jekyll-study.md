@@ -54,7 +54,7 @@ jekyll 的全局配置在 _config.yml 文件中配置.
 使用时只需要引入即可.  
 
 ```
-\{% include filename %\}
+{ % include filename % }
 ```
 
 ** _layouts **
@@ -301,18 +301,18 @@ page 是当前页面的根节点.
 和平常的解释性语言很想.
 
 ```
-\{% for post in site.posts %\}
+{ % for post in site.posts % }
     <a href="\{\{ post.url \}\}">\{\{ post.title \}\}</a>
-  \{% endfor %\}
+  { % endfor % }
 ```
 
 ### 自动生成摘要
 
 ```
-  \{% for post in site.posts %\}
+  { % for post in site.posts % }
      \{\{ post.url \}\} \{\{ post.title \}\}
       \{\{ post.excerpt | remove: 'test' \}\}
-  \{% endfor %\}
+  { % endfor % }
 ```
 
 ### 删除指定文本
@@ -334,9 +334,9 @@ remove 可以删除变量中的指定内容
 ### 代码高亮
 
 ```
-\{% highlight ruby linenos%\}
+{ % highlight ruby linenos% }
 \# some ruby code
-\{% endhighlight %\}
+{ % endhighlight % }
 ```
 
 ### 数组的大小
@@ -348,7 +348,7 @@ remove 可以删除变量中的指定内容
 ### 赋值
 
 ```
-\{% assign index = 1 %\}
+{ % assign index = 1 % }
 ```
 
 ### 格式化时间
@@ -398,7 +398,7 @@ remove 可以删除变量中的指定内容
 得到数组指定范围的结果集  
 
 ```
-\{% for post in site.posts limit:20 %\}
+{ % for post in site.posts limit:20 % }
 ```
 
 
