@@ -4,6 +4,7 @@ title:      python 中的小问题(持续更新中)
 category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 keywords: python, 时间格式化, xml, json
+updateData: 14:55 2014/11/10
 ---
 
 ![python logo][cover]
@@ -252,6 +253,16 @@ isinstance(num, int) #True
 
 ```python
 if variable is None:
+```
+
+## 判断key是否在字典中
+
+下面两个方法都可以,但是推荐第一个.  
+第二个在 python3 中将弃用.
+
+```
+key in dict
+dict.has_key(key)
 ```
 
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
