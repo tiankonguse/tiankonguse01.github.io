@@ -331,7 +331,7 @@ remove 可以删除变量中的指定内容
 
 ```
 { % highlight ruby linenos% }
-# some ruby code
+\# some ruby code
 { % endhighlight % }
 ```
 
