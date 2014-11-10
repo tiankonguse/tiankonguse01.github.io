@@ -9,7 +9,8 @@ tags: jekyll, github, 语法
 
 ## 前言
 
-
+\\\{ => \{
+\\\% => \%
 
 如果你只想快速搭建一个 github 的静态网站, 而暂时没有时间来研究 jekyll 语法的话,建议直接 fork 我的[这个][github-tiankonguse]
 
@@ -280,7 +281,14 @@ page 是当前页面的根节点.
 * paginator.next_page 下一页的页数
 * paginator.next_page_path 下一页的路径
 
+### 字符转义
 
+有时候想输出 \{ 了,怎么办,使用 \\ 转义即可.
+
+```
+\\\{ => \{
+\\\% => \%
+```
 
 ### 输出变量
 
