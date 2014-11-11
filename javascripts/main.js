@@ -597,6 +597,14 @@ tk.Composition(TK, {
     }
 );
 
+TK.Composition(TK, {
+    frame : function(){
+        if(window == window.top){
+            window.top.location = window.location;
+        }
+    }
+});
+tk.frame();
 
 jQuery(document).ready(function(){
     //***********************
