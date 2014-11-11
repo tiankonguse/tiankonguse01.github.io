@@ -597,7 +597,7 @@ tk.Composition(TK, {
     }
 );
 
-TK.Composition(TK, {
+tk.Composition(TK, {
     frame : function(){
         if(window == window.top){
             window.top.location = window.location;
