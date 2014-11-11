@@ -20,16 +20,16 @@ isContact: true
 * 看书《编程之禅》2014-10-1 ~ 2014-10-26  [读书笔记][the-ten-of-programming]
 * 看书《计算机寓言-信息时代的启示》 2014-10-1 ~ 2014-10-26 [读书笔记][Computer-Parables-Enlightenment-in-the-Information-Age]
 * 看电影 《中国合伙人》 2014-11-02晚上 [QQ空间记录][qzone-china-people]
-* 看书 《人月神话》 2014-11-02 ~ 今
+* 看书 《人月神话》 2014-11-02 ~ 2014-11-11
 * 看书 《自己动手写搜索引擎》 2014-11-02 ~ 2014-11-03 全是JAVA代码(2/3),只看文字说明
 * 看书 《编程之美》 2014-10-05 ~ 今
 * 看电影 《蜘蛛侠》三部曲 2014-11-08晚上 [QQ空间记录][5a55f12fd7055f54d7060400]
+* 看论文 《The Use of Smart Meter Data to Forecast Electricity Demand》 2010-11-11晚
 
 
 ## 关于这个网站
 
-这个网站托管在[github][github-tiankonguse]上。  
-现在这个网站的桌面版不再挂载广告。 
+这个网站托管在[github][github-tiankonguse]上。   
 
 
 ## 关于 tiankonguse 的记录集
