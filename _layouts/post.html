@@ -4,14 +4,24 @@ isPost: true
 comment: true
 ---
 
+{% 
+    if page.updateData
+        assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S"
+    else
+        assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S"
+    endif
+%}
 {% if page.previous %}
     <link rel="prev" title="{{ page.previous.title }}" href="{{ page.previous.url }}">
 {% endif %}
-
 {% if page.next %}
     <link rel="next" title="{{ page.next.title }}" href="{{ page.next.url }}">
 {% endif %}
-
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:author" content="{{ site.author }}"/>
+<meta property="og:release_date" content="{{ lastData }}"/>
 <link rel="stylesheet" href="/javascripts/prettify/prettify.min.css" />
 <style type="text/css">
     body { background:#e8e8e8; }
