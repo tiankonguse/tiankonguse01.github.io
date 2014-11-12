@@ -4,13 +4,12 @@ isPost: true
 comment: true
 ---
 
-{% 
-    if page.updateData
-        assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S"
-    else
-        assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S"
-    endif
-%}
+{% if page.updateData %}
+{% assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S" %}
+{% else %}
+{% assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
+{% endif %}
+
 {% if page.previous %}
     <link rel="prev" title="{{ page.previous.title }}" href="{{ page.previous.url }}">
 {% endif %}
