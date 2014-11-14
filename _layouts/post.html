@@ -36,9 +36,9 @@ comment: true
     <div class="entry-header">
         <div class="index-content">
             <ul class="artical-cate">
-                <li><a href="/"><span>home</span></a></li>
-                <li style="text-align:center"><a href="/about"><span>About</span></a></li>
-                <li style="text-align:right"><a href="/resources"><span>Resources</span></a></li>
+                {% for nav in site.nav %}
+                    <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
