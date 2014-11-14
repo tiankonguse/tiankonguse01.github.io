@@ -22,7 +22,7 @@ isArchive: true
 
 </ul>
 <h3>{{ post_year1 }}</h3>
-<ul class="article-year fn-clear">
+<ul class="article-year clearfix">
 {% endif %}
 
 <li>
