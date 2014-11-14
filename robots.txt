@@ -14,3 +14,4 @@ Disallow:/blog/speed-PC-myself
 Disallow:/blog/remove-googleapis-fonts-in-wordpress
 Disallow:/blog/undefined-reference
 Disallow:/blog/make-yourself-wordpress-themes
+Disallow:*.show-hide-weixin
