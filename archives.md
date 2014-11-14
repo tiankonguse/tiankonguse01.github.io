@@ -7,14 +7,14 @@ isArchive: true
 ---
 
 <article class="main-article">
-{% capture post_year1 %}{{ 'now' | date: '%Y' }}{% endcapture %}
+{% capture post_year1 %}{{ 'now' | date: '%Y-%m' }}{% endcapture %}
 
 <h3>{{ post_year1 }}</h3>
 <ul class="article-year clearfix">
 
 {% for post in site.posts %}
 
-{% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% capture post_year2 %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
 
 {% if post_year1 != post_year2 %}
 
