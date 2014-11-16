@@ -333,6 +333,8 @@ int bitCount ( unsigned n ) {
 }
 ```
 
+注：最后一个算法时我在看 sphinx 源代码的时候看到的。  
+
 《完》
 
 [hakmem]: http://home.pipeline.com/~hbaker1/hakmem/hakmem.html
