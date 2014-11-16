@@ -104,8 +104,6 @@ jQuery(document).ready(function(){
 
         function genIndex(){
             var tmpl = genTmpl();
-            //var indexCon = '<div id="menuIndex" class="sidenav"></div>';
-            //$('#content').append(indexCon);
             var $next = $("#menuIndex-next");
             $menuIndex = $('#menuIndex');
             $menuIndex.append($(tmpl));
@@ -184,7 +182,6 @@ jQuery(document).ready(function(){
                     });
                 
                 }
-
             }else{
                 $menuIndex.css({
                     position:'static',
@@ -192,14 +189,10 @@ jQuery(document).ready(function(){
                     left:0
                 });
             }
-
-
         }
         
         if($('.entry h2').length > 0 &&  !ie6){
-
             genIndex();
-
             $.each($('#menuIndex li a'),function(index,item){
                 var id = $(item).attr('data-id');
                 var selector = id ? '#'+id : 'h1'
@@ -215,18 +208,17 @@ jQuery(document).ready(function(){
                 indexHeight = $menuIndex.height();
                 length = scrollTop.length;
                 
-                
                 $(document).bind('mousewheel DOMMouseScroll', function(event){
                     waitForFinalEvent(waitDoing);
                 });
-    
+                
                 $(window).resize(function(){
                     $menuIndex.css({
                         position:'static',
                         top:0,
                         left:0
                     });
-    
+                    
                     menuIndexTop = $menuIndex.offset().top;
                     menuIndexLeft = $menuIndex.offset().left;
     
