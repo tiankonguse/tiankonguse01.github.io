@@ -9,7 +9,6 @@ comment: true
 {% else %}
 {% assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
 {% endif %}
-
 {% if page.previous %}
     <link rel="prev" title="{{ page.previous.title }}" href="{{ page.previous.url }}">
 {% endif %}
@@ -31,7 +30,6 @@ comment: true
         body { background:#fff; }
     }
 </style>
-
 <div id="content" class="clearfix">
     <div class="entry-header">
         <div class="index-content">
@@ -47,7 +45,6 @@ comment: true
         <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 发布日期: <time  class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</time></p>
         <p><blockquote>{{ page.description }}</blockquote></p>
         {{ content }}
-
         <div class="ad-content-footer"></div>
         <footer class="unit-foot">
             <div class="footer-post-info clearfix">
@@ -121,7 +118,7 @@ comment: true
     </div>
 </div>
 <script>
-    tk.ad.isLoadGoogleJs = false;
+    tk.ad.isLoadGoogleJs = true;
 </script>
 
 <script src="/javascripts/post.min.js" type="text/javascript"></script>
