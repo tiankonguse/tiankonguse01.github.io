@@ -4,6 +4,7 @@ isPost: true
 comment: true
 ---
 
+{% assign publishData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
 {% if page.updateData %}
 {% assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S" %}
 {% else %}
@@ -42,7 +43,7 @@ comment: true
     </div>
     <div class="entry">
         <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
-        <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 发布日期: <time  class="entry-date">{{ page.date|date:"%Y-%m-%d" }}</time></p>
+        <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 更新日期: <time  class="entry-date">{{ lastData }}</time></p>
         <p><blockquote>{{ page.description }}</blockquote></p>
         {{ content }}
         <div class="ad-content-footer"></div>
@@ -51,11 +52,8 @@ comment: true
                 <ul>
                     <li>
                         作者「<a href="/about.html" rel="author">tiankonguse</a>」于 
-                        <time>{% if page.updateData %}
-                            {{ page.updateData|date:"%Y-%m-%d %H:%M:%S" }}
-                        {% else %}
-                            {{ page.date|date:"%Y-%m-%d %H:%M:%S" }}
-                        {% endif %}</time> 更新本文</li>
+                        <time>lastData</time> 更新本文」于 
+                        <time>publishData</time> 发布本文</li>
                     <li>文章声明：自由转载-非商用-非衍生-保持署名  |  <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="nofollow">BY-NC-SA</a></li>
                     <li>如果你觉得这篇文章对你有帮助，欢迎自由付费：</li>
                 </ul>
