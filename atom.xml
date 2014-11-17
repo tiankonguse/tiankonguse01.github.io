@@ -15,10 +15,10 @@ layout: nil
    </author>
 
    {% for post in site.posts limit:20 %}
-    {% if page.updateData %}
-    {% assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S" %}
+    {% if post.updateData %}
+    {% assign lastData =  post.updateData|date:"%Y-%m-%d %H:%M:%S" %}
     {% else %}
-    {% assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
+    {% assign lastData =  post.date|date:"%Y-%m-%d %H:%M:%S" %}
     {% endif %}
    <entry>
      <title>{{ post.title }}</title>
