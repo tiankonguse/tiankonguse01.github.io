@@ -25,20 +25,20 @@ module Jekyll
     end
   end
 
-  # Generator class invoked from Jekyll
-  class CategoryArchiveGenerator < Generator
-    def generate(site)
-      posts_group_by_category(site).each do |category, list|
-        site.pages << CategoryArchivePage.new(site, CategoryArchiveUtil.archive_base(site), category, list)
-      end
-    end
+    # Generator class invoked from Jekyll
+    class CategoryArchiveGenerator < Generator
+        def generate(site)
+            posts_group_by_category(site).each do |category, list|
+                site.pages << CategoryArchivePage.new(site, CategoryArchiveUtil.archive_base(site), category, list)
+            end
+        end
 
-    def posts_group_by_category(site)
-      category_map = {}
-      site.posts.each {|p| p.categories.each {|c| (category_map[c] ||= []) << p } }
-      category_map
+        def posts_group_by_category(site)
+            category_map = {}
+            site.posts.each {|p| p.categories.each {|c| (category_map[c] ||= []) << p } }
+            category_map
+        end
     end
-  end
 
   # Tag for generating a link to a category archive page
   class CategoryArchiveLinkTag < Liquid::Block
