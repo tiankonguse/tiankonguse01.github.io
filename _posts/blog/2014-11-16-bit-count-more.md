@@ -357,11 +357,11 @@ int bitCount ( unsigned n ) {
 
 为什么呢？ 这个你就该去查查 windows 的手册了，虽然现在 windows 也慢慢的开源了，但是它在程序员心中的丑陋印象还是很难改变的。  
 
-简单的说就是在 windows 下， 你使用 long long 的话， 需要使用 __int64 代替，否则肯定会出错。  
+简单的说就是在 windows 下， 你使用 long long 的话， 需要使用 \_\_int64 代替，否则肯定会出错。  
 至于为什么，那是因为在 windows 下根本就没有 long long 这个关键字。  
 大家可以看看windows下的[C++ Keywords][cpp-Keywords]。  
 当然，这个是 Microsoft C++ 编译器下的关键字，有人会说我安装的是 GNU 的 c++ 编译器。  
-虽然 windows 在[官网文档][Data-Type-Ranges]上一直强调 long long  与 __int64 等价，但是事实上并不等价的。  
+虽然 windows 在[官网文档][Data-Type-Ranges]上一直强调 long long  与 \_\_int64 等价，但是事实上并不等价的。  
 好了，不说废话了，我的所有程序都会加上下面这个宏的。  
 
 ```
