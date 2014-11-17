@@ -414,7 +414,7 @@ int countbits(ULL x) {
 }
 ```
 
-### MIT HACKMEM
+### 错误的MIT HACKMEM
 
 关于测试代码可以参考[这里][bit-count-64-test]
 
