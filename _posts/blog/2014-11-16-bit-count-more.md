@@ -5,7 +5,7 @@ category: blog
 description: 之前记录了一些得到二进制中1的个数的算法, 但是没有讲解为什么, 今天就详细的讲解一下啊. 
 tags: 算法, 位操作, acm, 复杂度
 keywords: 算法, 位操作, acm, 复杂度
-updateData: 13:36 2014/11/17
+updateData: 20:43 2014/11/17
 ---
 
 ![mit-hackmem-count][]
@@ -515,8 +515,78 @@ int bitCount ( ULL n ) {
 }
 ```
 
+### 加宽的 MIT HACKMEM
+
+64位，至少需要7位。  
+我们为了方便分治，只好采用8位了。  
+
+8位不刚好是二分的节奏嘛。  
+于是我们可以把二分的代码搬过来。  
+
+我们要做的是什么呢？  
+将64二进制数据按每八个一组，这8位并储存这八位1的个数。  
+做到这个很简单的，只需要第一次计算二位的，然后四位的，最后8位的即可。  
+
+```
+for(uint i=0,j=1; i<3; i++,j<<=1) {
+    x=(x & mitHeakMask[i]) + ((x>>j) & mitHeakMask[i]);
+}
+```
+
+这样进行三次就得到每8位的1的个数了。  
+
+然后我们可以得到这个公式  
+
+```
+x = a*256^8 + b*256^7 + c*256^6 + d*256^5 + e*256^4 + f*256^3 + g*256^2 + h*256^1 + i*256;
+```
+
+我们需要得到的是 `a + b + c + d + e + f + g + h + i ` 的和。  
+这个和远远小于 64, 于是我们可以取模 255 了。
+
+```
+  x % 255
+= (a*256^8 + b*256^7 + c*256^6 + d*256^5 + e*256^4 + f*256^3 + g*256^2 + h*256^1 + i*256) % 255
+= ((a*256^8)  % 255 + (b*256^7)  % 255 + (c*256^6)  % 255 + (d*256^5)  % 255 + (e*256^4)  % 255 + (f*256^3)  % 255 + (g*256^2)  % 255 + (h*256^1)  % 255 + i*256) % 255
+= (a + b + c + d + e + f + g + h + i) % 255
+= a + b + c + d + e + f + g + h + i
+```
+
+所以答案就是 `ans = x % 255`
+
+完整代码如下：
 
 
+
+关于测试代码可以参考[这里][bit-count-64-test]
+
+```
+ULL mitHeakMask[3];
+bool okMitHeak = false;
+int initMitHeakMask() {
+    if(okMitHeak) {
+        return true;
+    }
+    ULL a = 0x55ULL, b = 0x33ULL, c = 0x0FULL;
+    for(int i=0; i<8; i++) {
+        a = (a << 8) | 0x55ULL;
+        b = (b << 8) | 0x33ULL;
+        c = (c << 8) | 0x0FULL;
+    }
+    mitHeakMask[0] = a;
+    mitHeakMask[1] = b;
+    mitHeakMask[2] = c;
+    okMitHeak = true;
+    return 0;
+}
+uint countbits(ULL x) {
+    int a = initMitHeakMask();
+    for(uint i=0,j=1; i<3; i++,j<<=1) {
+        x=(x & mitHeakMask[i]) + ((x>>j) & mitHeakMask[i]);
+    }
+    return ans%255;
+}
+```
 
 
 《完》
