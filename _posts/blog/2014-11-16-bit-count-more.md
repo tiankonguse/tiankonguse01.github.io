@@ -355,7 +355,7 @@ int bitCount ( unsigned n ) {
 在开始之前我们定义一些类型吧。  
 按照 acm 的习惯，我喜欢把 long long 定义为 LL 。
 
-为什么呢？ 这个你就该去查查 windows 的手册了，虽然现在 windows 现在也慢慢的开源了，但是它在程序员中的印象还是很难改变的。  
+为什么呢？ 这个你就该去查查 windows 的手册了，虽然现在 windows 也慢慢的开源了，但是它在程序员心中的丑陋印象还是很难改变的。  
 
 简单的说就是在 windows 下， 你使用 long long 的话， 需要使用 __int64 代替，否则肯定会出错。  
 至于为什么，那是因为在 windows 下根本就没有 long long 这个关键字。  
