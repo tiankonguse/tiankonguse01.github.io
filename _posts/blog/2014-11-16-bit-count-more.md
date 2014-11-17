@@ -5,6 +5,7 @@ category: blog
 description: 之前记录了一些得到二进制中1的个数的算法, 但是没有讲解为什么, 今天就详细的讲解一下啊. 
 tags: 算法, 位操作, acm, 复杂度
 keywords: 算法, 位操作, acm, 复杂度
+updateData: 13:36 2014/11/17
 ---
 
 ![mit-hackmem-count][]
@@ -312,14 +313,15 @@ a * 64^k % 63 = a
 ```
   tmp % 63
 = (a*64^5 + b*64^4 + c*64^3 + d*64^2 + e*64^1 + f) % 63
-= (a*64^5 % 63) + (b*64^4 % 63) + (c*64^3 % 63) + (d*64^2 % 63) + (e*64^1 % 63) + (f%63)
-= a % 63 + b%63 + c%63 + d%63 + e%63 + f%63
+= ((a*64^5 % 63) + (b*64^4 % 63) + (c*64^3 % 63) + (d*64^2 % 63) + (e*64^1 % 63) + (f % 63)) % 63
+= (a % 63 + b%63 + c%63 + d%63 + e%63 + f%63) % 65
 = (a + b + c + d + e + f) % 63
 ```
 
 而我们32位的答案刚好最多是32, 所以可以模上63, 因此下面的公式就诞生了. 
 
 ```
+  tmp % 63
 = a + b + c + d + e + f
 ```
 
@@ -340,8 +342,115 @@ int bitCount ( unsigned n ) {
 
 注：最后一个算法时我在看 sphinx 源代码的时候看到的.   
 
+
+## 64位中二进制1的个数
+
+有位同学读了我的记录，然后很热情的反馈了很多问题。  
+最后他说他想要的其实是一个计算64位数字二进制1的个数，于是我便附加了一个小节。
+
+### windows 一个坑
+
+在开始之前我们定义一些类型吧。  
+按照 acm 的习惯，我喜欢把 long long 定义为 LL 。
+
+为什么呢？ 这个你就该去查查 windows 的手册了，虽然现在 windows 现在也慢慢的开源了，但是它在程序员中的印象还是很难改变的。  
+
+简单的说就是在 windows 下， 你使用 long long 的话， 需要使用 __int64 代替，否则肯定会出错。  
+至于为什么，那是因为在 windows 下根本就没有 long long 这个关键字。  
+大家可以看看windows下的[C++ Keywords][cpp-Keywords]。  
+当然，这个是 Microsoft C++ 编译器下的关键字，有人会说我安装的是 GNU 的 c++ 编译器。  
+虽然 windows 在[官网文档][Data-Type-Ranges]上一直强调 long long  与 __int64 等价，但是事实上并不等价的。  
+好了，不说废话了，我的所有程序都会加上下面这个宏的。  
+
+```
+#ifdef __int64
+    typedef __int64 LL;
+    typedef  unsigned __int64  LL;
+#else
+    typedef long long LL;
+    typedef unsigned long long LL;
+#endif
+```
+
+### 暴力求64位1的个数
+
+解释参考 32 位的解释。
+
+```
+int _countbits(ULL x) {
+    int n=0;
+    while(n +=(x&1) , x >>= 1);
+    return n;
+}
+```
+
+### 与1的个数有关复杂度
+
+```
+int _countbits(ULL x) {
+    int n=0;
+    while(x && (++n , x&=x-1));
+    return n;
+}
+```
+
+### 打表法
+
+```
+const int OneNumMax = 1<<16;
+ULL oneNum[OneNumMax];
+
+int init() {
+    for(int i = 1; i < OneNumMax; ++i) {
+        oneNum[i] = oneNum[i >> 1] + (i & 1);
+    }
+    return 0;
+}
+
+int countbits(ULL x) {
+    static int a = init();
+    return oneNum[x & ((1ULL << 16) - 1)] + oneNum[(x >> 16) & ((1ULL << 16) - 1)] + oneNum[(x >> 32) & ((1ULL << 16) - 1)] + oneNum[(x >> 48) & ((1ULL << 16) - 1)];
+}
+```
+
+### MIT HACKMEM
+
+关于测试代码可以参考[这里][bit-count-64-test]
+
+```
+ULL mitHeakArray[3];
+bool okMitHeak = false;
+int initMitHeakArray() {
+    if(okMitHeak) {
+        return true;
+    }
+    ULL a = 011ULL, b = 033ULL, c = 07ULL;
+    for(int i=0; i<11; i++) {
+        a = (a << 6) | 011ULL;
+        b = (b << 6) | 033ULL;
+        c = (c << 6) | 07ULL;
+    }
+    mitHeakArray[0] = a;
+    mitHeakArray[1] = b;
+    mitHeakArray[2] = c;
+    okMitHeak = true;
+    return 0;
+
+}
+int bitCount ( ULL n ) {
+    static int a = initMitHeakArray();
+    ULL tmp = n - ((n >> 1) & mitHeakArray[1]) - ((n >> 2) & mitHeakArray[0]);
+    return ( (tmp + (tmp >> 3) ) & mitHeakArray[2]) % 63;
+}
+
+```
+
+
 《完》
 
+[bit-count-64-test]: https://github.com/tiankonguse/ACM/blob/master/struct/bit-count-64-test.cpp
+[Data-Type-Ranges]: http://msdn.microsoft.com/en-us/library/s3f49ktz.aspx
+[cpp-Keywords]: http://msdn.microsoft.com/en-us/library/2e6a4at9.aspx
 [hakmem]: http://home.pipeline.com/~hbaker1/hakmem/hakmem.html
 [codeforces-472G]: http://github.tiankonguse.com/blog/2014/10/04/codeforces-472G/
 [bit-count]: http://github.tiankonguse.com/blog/2014/11/14/bit-count/
