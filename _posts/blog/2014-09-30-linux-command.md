@@ -4,6 +4,7 @@ title:      Linux 命令记录(持续更新中)
 category: blog
 description: linux下的命令学好了，走到哪里都不怕电脑死机了。
 keywords: linux, command, ls, cp, dd, pwd, mv, 语法, touch, 用户, 操作, 权限, lsblk, 优化命令, readelf, 格式, 常用命令, strings
+tags: linux, command
 ---
 
 
@@ -380,6 +381,17 @@ chmod g+x filename
 #三个数字分别为 档案拥有者、群组、其他
 chmod 644 filename
 ```
+
+### chown
+
+改变文件的用户名和组名。  
+
+这个命令的好处：
+
+1. 将一个目录的拥有权转移给一个用户  
+2. 多人属于同一个组，一个文件权限转移到一个组，是的这个组的所有人都有权限操作这个文件。  
+
+
 
 
 ## 监控命令
