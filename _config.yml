@@ -64,7 +64,7 @@ permalink: /blog/:year/:month/:day/:title/
 paginate_path: page:num
 paginate: 10
 prelinkpath : ""
-production_url : http://github.tiankonguse.com/
+production_url : http://github.tiankonguse.com
 timezone:      null
 quiet:    false
 defaults: []
@@ -74,7 +74,7 @@ author : "tiankonguse"
 title: tiankonguse blog
 description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 feed: /atom.xml
-author_info: <a href="http://tiankonguse.github.io/">tiankonguse</a>
+author_info: <a href="http://tiankonguse.github.io">tiankonguse</a>
 tagline: Site Tagline
 description: 这是 PIZn 的又一个博客，它是基于 Jekyll 
 
