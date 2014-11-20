@@ -1,17 +1,7 @@
 User-agent: *
-Disallow:/blog/2014/*
-Disallow:/blog/make-yourself-wordpress-themes/
-Disallow:/blog/make-github-website/
-Disallow:/blog/database-algorithm/
-Disallow:/blog/undefined-reference/
-Disallow:/blog/remove-googleapis-fonts-in-wordpress/
-Disallow:/blog/latest-what-I-am-doing/
-Disallow:/blog/speed-PC-myself/
-Disallow:/blog/make-github-website
-Disallow:/blog/database-algorithm
-Disallow:/blog/latest-what-I-am-doing
-Disallow:/blog/speed-PC-myself
-Disallow:/blog/remove-googleapis-fonts-in-wordpress
-Disallow:/blog/undefined-reference
-Disallow:/blog/make-yourself-wordpress-themes
+Disallow: /blog/*
+allow: /blog/20*
 Disallow:*.show-hide-weixin
+Disallow:/undefined-reference
+
+
