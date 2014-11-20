@@ -71,12 +71,12 @@ make install
 大概意思就是将扩展编译到php中去。  
 
 然后在第四和第五行可以看到 [Compiling shared PECL extensions with the pecl command][install-pecl-pear] 和 [Compiling shared PECL extensions with phpize][install-pecl-phpize].  
-大概意思就是 php 有两种方法动态添加模块扩展，一种是使用 pear, 另一种是使用 phpize.   
+大概意思就是 php 有两种方法动态添加模块扩展，一种是使用 pecl 命令, 另一种是使用 phpize.   
 
 
 接下来我们分别来看看。  
 
-### pecl 动态安装php模块扩展
+### pecl 命令 动态安装php模块扩展
 
 在 [pecl][install-pecl-pear]页面有简单的说明。  
 
