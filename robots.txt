@@ -3,3 +3,5 @@ Disallow: /blog/*
 allow: /blog/20*
 Disallow:*.show-hide-weixin
 Disallow:/undefined-reference
+Disallow:/make-yourself-wordpress-themes
+Disallow:/make-github-website
