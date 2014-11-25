@@ -1,0 +1,84 @@
+---
+layout: default
+isPost: false
+comment: true
+updateData: 9:32 2014/11/25
+---
+
+<div id="content" class="clearfix">
+    <div class="entry-header">
+        <div class="index-content">
+            <ul class="artical-cate">
+                {% for nav in site.nav %}
+                    <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="entry">
+        <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
+        <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 更新日期: <time  class="entry-date">{{ lastData }}</time></p>
+        <div style="text-align: center;margin: 50px;">
+        {{ content }}
+        </div>
+        <div id="disqus_container">
+            <a href="#" class="comment" onclick="return false;">点击查看评论</a>
+            <script type="text/javascript">var disqus_shortname = 'tiankonguse-record';</script>
+            <div id="disqus_thread"></div>
+        </div>
+    </div>
+    <div class="sidenav">
+        <h2>网站公告</h2>
+        <div>
+            1.另一个博客地址:<a href="http://tiankonguse.com">tiankonguse</a><br>
+            2.接受你的任何技术问题<br>
+            3.接受讲解任何算法<br>
+        </div>
+    </div>
+    
+    <div class="sidenav">
+        <h2>孩子的奶粉钱</h2>
+        <div>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:250px;height:250px"
+                 data-ad-client="ca-pub-2326969899478823"
+                 data-ad-slot="8884906795"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <div class="sidenav">
+        <h2>猜你喜欢</h2>
+        <ul class="artical-list">
+        {% for post in site.related_posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
+        <h2><a href="/about"><span>About</span></a></h2>
+
+        <h2><a href="/resources"><span>Resources</span></a></h2>
+        <ul class="artical-list">
+            <li><a href="/project/tetris/">俄罗斯方块游戏</a></li>
+            <li><a href="/project/format/">格式化/压缩代码</a></li>
+            <li><a href="/project/moondog/">纯CSS实现月食</a></li>
+        </ul>
+    </div> 
+
+    <div id="menuIndex" class="sidenav"></div>
+    <div id="menuIndex-next" class="sidenav">
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:250px;height:250px"
+             data-ad-client="ca-pub-2326969899478823"
+             data-ad-slot="8884906795"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
+<script>
+    tk.ad.isLoadGoogleJs = true;
+</script>
+
+<script src="/javascripts/post.min.js" type="text/javascript"></script>
