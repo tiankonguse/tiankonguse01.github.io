@@ -8,6 +8,9 @@ keywords: sphinx, 搜索引擎, 全文检索, 开源, 源代码, 快速排序, �
 updateData: 19:48 2014/11/24
 ---
 
+
+![cover][]
+
 ## 前言
 
 源码在 [sphinx 官网][sphinxsearch]上就可以下载到.  
@@ -360,6 +363,6 @@ T_COUNTER sphUniq ( T * pData, T_COUNTER iCount ){
 
 
 
-
+[cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/830003199.jpg
 [bit-count-more]: http://github.tiankonguse.com/blog/2014/11/16/bit-count-more/
 [sphinxsearch]: http://sphinxsearch.com/
