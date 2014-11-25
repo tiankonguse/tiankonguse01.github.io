@@ -164,7 +164,21 @@ static char * trim ( char * sLine ){
 
 
 ```
-void sphSplit ( CSphVector<CSphString> & dOut, const char * sIn, const char * sBounds );
+void sphSplit ( CSphVector<CSphString> & dOut, const char * sIn, const char * sBounds ){
+	if ( !sIn )return;
+
+	const char * p = (char*)sIn;
+	while ( *p ){
+		// skip until the first non-boundary character
+		const char * sNext = p;
+		while ( *p && !strchr ( sBounds, *p ) )p++;
+
+		// add the token, skip the char
+		dOut.Add().SetBinary ( sNext, p-sNext );
+		p++;
+	}
+}
+
 ```
 
 
@@ -174,7 +188,82 @@ void sphSplit ( CSphVector<CSphString> & dOut, const char * sIn, const char * sB
 主要用于检验一个字符串是否符合指定的格式。  
 
 ```
-bool sphWildcardMatch ( const char * sString, const char * sPattern );
+bool sphWildcardMatch ( const char * sString, const char * sPattern ){
+	if ( !sString || !sPattern )return false;
+
+	const char * s = sString;
+	const char * p = sPattern;
+	while ( *s ){
+		switch ( *p ){
+		case '\\':
+			// escaped char, strict match the next one literally
+			p++;
+			if ( *s++!=*p++ )return false;
+			break;
+		case '?':
+			// match any character
+			s++;
+			p++;
+			break;
+		case '%':
+			// gotta match either 0 or 1 characters
+			// well, lets look ahead and see what we need to match next
+			p++;
+
+			// just a shortcut, %* can be folded to just *
+			if ( *p=='*' )break;
+
+			// plain char after a hash? check the non-ambiguous cases
+			if ( !sphIsWild(*p) ){
+				if ( s[0]!=*p ){
+					// hash does not match 0 chars
+					// check if we can match 1 char, or it's a no-match
+					if ( s[1]!=*p )return false;
+					s++;
+					break;
+				} else{
+					// hash matches 0 chars
+					// check if we could ambiguously match 1 char too, though
+					if ( s[1]!=*p )break;
+					// well, fall through to "scan both options" route
+				}
+			}
+
+			// could not decide yet
+			// so just recurse both options
+			if ( sphWildcardMatch ( s, p ) )return true;
+			if ( sphWildcardMatch ( s+1, p ) )return true;
+			return false;
+		case '*':
+			// skip all the extra stars and question marks
+			for ( p++; *p=='*' || *p=='?'; p++ )
+				if ( *p=='?' ){
+					s++;
+					if ( !*s )return p[1]=='\0';
+				}
+
+				// short-circuit trailing star
+				if ( !*p )return true;
+
+				// so our wildcard expects a real character
+				// scan forward for its occurrences and recurse
+				for ( ;; ){
+					if ( !*s )return false;
+					if ( *s==*p && sphWildcardMatch ( s+1, p+1 ) )return true;
+					s++;
+				}
+				break;
+		default:
+			// default case, strict match
+			if ( *s++!=*p++ )return false;
+			break;
+		}
+	}
+
+	// string done
+	// pattern should be either done too, or a trailing star, or a trailing hash
+	return p[0]=='\0'|| ( p[0]=='*' && p[1]=='\0' )|| ( p[0]=='%' && p[1]=='\0' );
+}
 ```
 
 ## 日志系统
@@ -221,7 +310,132 @@ void sphLogDebug ( const char * sFmt, ... );
 这里就不多说这个自动机了。  
 
 ```
-static int sphVSprintf ( char * pOutput, const char * sFmt, va_list ap );
+static int sphVSprintf ( char * pOutput, const char * sFmt, va_list ap ){
+	enum eStates { SNORMAL, SPERCENT, SHAVEFILL, SINWIDTH, SINPREC };
+	eStates state = SNORMAL;
+	int iPrec = 0;
+	int iWidth = 0;
+	char cFill = ' ';
+	const char * pBegin = pOutput;
+	bool bHeadingSpace = true;
+
+	char c;
+	while ( ( c = *sFmt++ )!=0 ){
+		// handle percent
+		if ( c=='%' ){
+			if ( state==SNORMAL ){
+				state = SPERCENT;
+				iPrec = 0;
+				iWidth = 0;
+				cFill = ' ';
+			} else{
+				state = SNORMAL;
+				*pOutput++ = c;
+			}
+			continue;
+		}
+
+		// handle regular chars
+		if ( state==SNORMAL ){
+			*pOutput++ = c;
+			continue;
+		}
+
+		// handle modifiers
+		switch ( c ){
+            case '0':
+                if ( state==SPERCENT ){
+                    cFill = '0';
+                    state = SHAVEFILL;
+                    break;
+                }
+            case '1': case '2': case '3':
+            case '4': case '5': case '6':
+            case '7': case '8': case '9':
+                if ( state==SPERCENT || state==SHAVEFILL )
+                {
+                    state = SINWIDTH;
+                    iWidth = c - '0';
+                } else if ( state==SINWIDTH )
+                    iWidth = iWidth * 10 + c - '0';
+                else if ( state==SINPREC )
+                    iPrec = iPrec * 10 + c - '0';
+                break;
+
+            case '-':
+                if ( state==SPERCENT )
+                    bHeadingSpace = false;
+                else
+                    state = SNORMAL; // FIXME? means that bad/unhandled syntax with dash will be just ignored
+                break;
+
+            case '.':
+                state = SINPREC;
+                iPrec = 0;
+                break;
+
+            case 's': // string
+                {
+                    const char * pValue = va_arg ( ap, const char * );
+                    if ( !pValue )
+                        pValue = "(null)";
+                    int iValue = strlen ( pValue );
+
+                    if ( iWidth && bHeadingSpace )
+                        while ( iValue < iWidth-- )
+                            *pOutput++ = ' ';
+
+                    if ( iPrec && iPrec < iValue )
+                        while ( iPrec-- )
+                            *pOutput++ = *pValue++;
+                    else
+                        while ( *pValue )
+                            *pOutput++ = *pValue++;
+
+                    if ( iWidth && !bHeadingSpace )
+                        while ( iValue < iWidth-- )
+                            *pOutput++ = ' ';
+
+                    state = SNORMAL;
+                    break;
+                }
+
+            case 'p': // pointer
+                {
+                    void * pValue = va_arg ( ap, void * );
+                    uint64_t uValue = uint64_t ( pValue );
+                    UItoA ( &pOutput, uValue, 16, iWidth, iPrec, cFill );
+                    state = SNORMAL;
+                    break;
+                }
+
+            case 'x': // hex integer
+            case 'd': // decimal integer
+                {
+                    DWORD uValue = va_arg ( ap, DWORD );
+                    UItoA ( &pOutput, uValue, ( c=='x' ) ? 16 : 10, iWidth, iPrec, cFill );
+                    state = SNORMAL;
+                    break;
+                }
+
+            case 'l': // decimal int64
+                {
+                    int64_t iValue = va_arg ( ap, int64_t );
+                    UItoA ( &pOutput, iValue, 10, iWidth, iPrec, cFill );
+                    state = SNORMAL;
+                    break;
+                }
+
+            default:
+                state = SNORMAL;
+                *pOutput++ = c;
+		}
+	}
+
+	// final zero to EOL
+	*pOutput++ = '\n';
+	return pOutput - pBegin;
+}
 ```
 
 ## 二进制1的个数
@@ -287,14 +501,41 @@ template < typename T > struct SphAccessor_T{
 //COMP 比较函数
 //ACC 访问指针的类
 template < typename T, typename U, typename V >
-void sphSiftDown ( T * pData, int iStart, int iEnd, U COMP, V ACC );
+void sphSiftDown ( T * pData, int iStart, int iEnd, U COMP, V ACC ){
+	for ( ;; ){
+		int iChild = iStart*2+1;
+		if ( iChild>iEnd )return;
+
+		int iChild1 = iChild+1;
+		if ( iChild1<=iEnd && COMP.IsLess ( ACC.Key ( ACC.Add ( pData, iChild ) ), ACC.Key ( ACC.Add ( pData, iChild1 ) ) ) )
+			iChild = iChild1;
+
+		if ( COMP.IsLess ( ACC.Key ( ACC.Add ( pData, iChild ) ), ACC.Key ( ACC.Add ( pData, iStart ) ) ) )
+			return;
+		ACC.Swap ( ACC.Add ( pData, iChild ), ACC.Add ( pData, iStart ) );
+		iStart = iChild;
+	}
+}
 
 
 /// heap sort
 //奇葩的是先求出最大堆，然后反转，还边反转边维护堆。  
 //最终是个最小堆。  
 template < typename T, typename U, typename V >
-void sphHeapSort ( T * pData, int iCount, U COMP, V ACC );
+void sphHeapSort ( T * pData, int iCount, U COMP, V ACC ){
+	if ( !pData || iCount<=1 )
+		return;
+
+	// build a max-heap, so that the largest element is root
+	for ( int iStart=( iCount-2 )>>1; iStart>=0; iStart-- )
+		sphSiftDown ( pData, iStart, iCount-1, COMP, ACC );
+
+	// now keep popping root into the end of array
+	for ( int iEnd=iCount-1; iEnd>0; ){
+		ACC.Swap ( pData, ACC.Add ( pData, iEnd ) );
+		sphSiftDown ( pData, 0, --iEnd, COMP, ACC );
+	}
+}
 ```
 
 ## 快速排序
@@ -311,7 +552,79 @@ sphinx 的快速排序也很奇葩。
 
 ```
 template < typename T, typename U, typename V >
-void sphSort ( T * pData, int iCount, U COMP, V ACC );
+void sphSort ( T * pData, int iCount, U COMP, V ACC ){
+	if ( iCount<2 )return;
+
+	typedef T * P;
+	// st0 and st1 are stacks with left and right bounds of array-part.
+	// They allow us to avoid recursion in quicksort implementation.
+	P st0[32], st1[32], a, b, i, j;
+	typename V::MEDIAN_TYPE x;
+	int k;
+
+	const int SMALL_THRESH = 32;
+	int iDepthLimit = sphLog2 ( iCount );
+	iDepthLimit = ( ( iDepthLimit<<2 ) + iDepthLimit ) >> 1; // x2.5
+
+	k = 1;
+	st0[0] = pData;
+	st1[0] = ACC.Add ( pData, iCount-1 );
+	while ( k ){
+		k--;
+		i = a = st0[k];
+		j = b = st1[k];
+
+		// if quicksort fails on this data; switch to heapsort
+		if ( !k ){
+			if ( !--iDepthLimit ){
+				sphHeapSort ( a, ACC.Sub ( b, a )+1, COMP, ACC );
+				return;
+			}
+		}
+
+		// for tiny arrays, switch to insertion sort
+		int iLen = ACC.Sub ( b, a );
+		if ( iLen<=SMALL_THRESH ){
+			for ( i=ACC.Add ( a, 1 ); i<=b; i=ACC.Add ( i, 1 ) ){
+				for ( j=i; j>a; ){
+					P j1 = ACC.Add ( j, -1 );
+					if ( COMP.IsLess ( ACC.Key(j1), ACC.Key(j) ) )
+						break;
+					ACC.Swap ( j, j1 );
+					j = j1;
+				}
+			}
+			continue;
+		}
+
+		// ATTENTION! This copy can lead to memleaks if your CopyKey
+		// copies something which is not freed by objects destructor.
+		ACC.CopyKey ( &x, ACC.Add ( a, iLen/2 ) );
+		while ( a<b ){
+			while ( i<=j ){
+				while ( COMP.IsLess ( ACC.Key(i), x ) )
+					i = ACC.Add ( i, 1 );
+				while ( COMP.IsLess ( x, ACC.Key(j) ) )
+					j = ACC.Add ( j, -1 );
+				if ( i<=j ){
+					ACC.Swap ( i, j );
+					i = ACC.Add ( i, 1 );
+					j = ACC.Add ( j, -1 );
+				}
+			}
+
+			// Not so obvious optimization. We put smaller array-parts
+			// to the top of stack. That reduces peak stack size.
+			if ( ACC.Sub ( j, a )>=ACC.Sub ( b, i ) ){
+				if ( a<j ) { st0[k] = a; st1[k] = j; k++; }
+				a = i;
+			} else{
+				if ( i<b ) { st0[k] = i; st1[k] = b; k++; }
+				b = j;
+			}
+		}
+	}
+}
 ```
 
 ## 二分查找
