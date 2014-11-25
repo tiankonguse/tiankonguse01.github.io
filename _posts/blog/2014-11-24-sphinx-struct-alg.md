@@ -481,6 +481,8 @@ inline int sphLog2 ( uint64_t uValue )
 ## 模板 堆排序
 
 
+这个堆排序写的太奇葩了，哎，不能说什么了。  
+
 
 ```
 /// generic accessor
