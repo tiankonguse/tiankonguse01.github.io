@@ -142,13 +142,44 @@ python 直接可以处理的类型有：整数，浮点数，字符串，布尔�
 
 #### list
 
-ist是一种有序的集合，可以随时添加和删除其中的元素。
+list 是一种有序的集合，可以随时添加和删除其中的元素。
 
 * 初始化 [valueList]
 * 长度 len(list)
 * 添加 append(value)
 * 删除 pop(index)
 * 修改 insert(index, value)
+
+```
+array = ['one', 'two', 'three']
+print array
+#['one', 'two', 'three']
+
+print len(array)
+#3
+
+print array[1]
+#two
+
+print array[-1]
+#three
+ 
+array.append("four");
+print array
+#['one', 'two', 'three', 'four']
+ 
+array.insert(1, "one1")
+print array
+#['one', 'one1', 'two', 'three', 'four']
+
+array.pop()
+print array
+#['one', 'one1', 'two', 'three']
+  
+array.pop(1)
+print array
+#['one', 'two', 'three']
+```
 
 #### tuple
 

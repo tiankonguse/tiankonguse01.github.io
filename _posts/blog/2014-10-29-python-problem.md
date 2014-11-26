@@ -77,6 +77,14 @@ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 print datetime.datetime(2012,04,23).strftime("%w")
 ```
 
+## 获取几分钟、小时、天之前的时间
+
+```
+(datetime.datetime.now()-datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+# days, seconds, minutes, hours, weeks 控制时间
+```
+
+
 ## http 请求
 
 关于 post 请求详见 [Python 下发送 post 类型的 http请求][python-http-post]
@@ -386,6 +394,18 @@ f.read(size)
 ```
 f.write('Hello, world!')
 ```
+
+## 删除两端空白
+
+在其他语言中，一般都有删除两端空白的函数， 比如 trim, ltrim, rtrim 等。  
+但是在python 中发现名字换了， 换成 strip 了。  
+
+```
+trip   => trim 删除两边的空白。
+lstrip => trim 删除左边的空白
+rstrip => trim 删除右边的空白
+```
+
 
 
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
