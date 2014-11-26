@@ -93,7 +93,6 @@ comment: true
             3.接受讲解任何算法<br>
         </div>
     </div>
-    
     <div class="sidenav">
         <h2>孩子的奶粉钱</h2>
         <div>
@@ -111,6 +110,12 @@ comment: true
         <h2>猜你喜欢</h2>
         <ul class="artical-list">
         {% for post in site.related_posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
+        <h2>置顶文章</h2>
+        <ul class="artical-list">
+        {% for post in site.toppost.post %}
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
         </ul>
