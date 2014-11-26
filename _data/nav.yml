@@ -4,9 +4,6 @@
 -   text: About
     url: /about.html
     style: text-align:center
--   text: Tags
-    url: /tags.html
-    style: text-align:center
 -   text: Archives
     url: /archives.html
     style: text-align:right

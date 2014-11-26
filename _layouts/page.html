@@ -4,11 +4,7 @@ layout:           default
 
 <div id="content">
     <div class="entry-page index-content">
-        <ul class="artical-cate">
-            {% for nav in site.nav %}
-                <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
-            {% endfor %}
-        </ul>
+        {% include nav.md %}
         <h1 class="entry-title">{{ page.title }}</h1>
          {{ content }}
         <div id="disqus_container">

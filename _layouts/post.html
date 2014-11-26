@@ -34,11 +34,7 @@ comment: true
 <div id="content" class="clearfix">
     <div class="entry-header">
         <div class="index-content">
-            <ul class="artical-cate">
-                {% for nav in site.nav %}
-                    <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
-                {% endfor %}
-            </ul>
+            {% include nav.md %}
         </div>
     </div>
     <div class="entry">
