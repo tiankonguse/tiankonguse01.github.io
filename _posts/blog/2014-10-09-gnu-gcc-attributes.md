@@ -4,6 +4,7 @@ title:      函数属性 __attribute__
 category: blog
 description: 看别人的代码时，看到了函数属性，之前从来没有见过这个东西。于是查了一下资料。
 keywords: 函数属性, __attribute__, 宏, cpp
+tags: 函数属性 __attribute__ 宏 cpp
 ---
 
 

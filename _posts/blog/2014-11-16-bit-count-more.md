@@ -3,7 +3,7 @@ layout:     post
 title:      详解二进制数中1的个数
 category: blog
 description: 之前记录了一些得到二进制中1的个数的算法, 但是没有讲解为什么, 今天就详细的讲解一下啊. 
-tags: 算法, 位操作, acm, 复杂度
+tags: 算法 位操作 acm 复杂度
 keywords: 算法, 位操作, acm, 复杂度
 updateData: 9:44 2014/11/18
 ---

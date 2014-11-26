@@ -4,6 +4,7 @@ title:      python 中的小问题(持续更新中)
 category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 keywords: python, 时间格式化, xml, json
+tags: python 时间格式化 xml json
 updateData: 14:55 2014/11/10
 ---
 

@@ -4,6 +4,7 @@ title: bootstrap-paginator 页面总是刷新的问题
 description: github 的静态页面添加了分页功能，可是页面总是自动摔刷新。
 category: blog
 keywords: 刷新, bootstrap, paginator, github, 分页
+tags: 刷新 bootstrap paginator github 分页
 ---
 
 ## 问题现象

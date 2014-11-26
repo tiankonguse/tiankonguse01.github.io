@@ -4,6 +4,7 @@ title: 初步学习Python
 description: 最近由于工作需要，需要快速学习python.现在把学习的东西记录下来。
 category: blog
 keywords: python, 语法, 教程
+tags: python 语法 教程
 ---
 
 ## python 简介

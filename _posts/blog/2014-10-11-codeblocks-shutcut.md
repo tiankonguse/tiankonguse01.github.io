@@ -4,6 +4,7 @@ title:      codeblocks 使用研究
 category: blog
 description: 最近有人问题codeblock的一些问题，于是记录一下，磨刀不怕误砍柴。
 keywords: codeblocks, 使用, 记录, 教程
+tags: codeblocks 使用 记录 教程
 ---
 
 ## 使用前

@@ -4,6 +4,7 @@ title:      c 语言中嵌入 asm
 category: blog
 description: 以前在acm比赛的时候，经常听说某些人在代码中嵌入汇编把题水过去，今天查了一下资料。
 keywords: c 语言, asm, 嵌入式, 汇编
+tags: c 语言 asm 嵌入式 汇编
 ---
 
 

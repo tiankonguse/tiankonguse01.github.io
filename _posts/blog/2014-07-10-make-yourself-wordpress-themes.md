@@ -4,6 +4,7 @@ category : blog
 description : 记录下自己制作wordpress主题的过程 
 title : 制作自己的 wordpress 主题
 keywords: wordpress, 主题
+tags: wordpress 主题
 ---
 
 

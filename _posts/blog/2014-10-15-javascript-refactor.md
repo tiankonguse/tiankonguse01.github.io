@@ -4,6 +4,7 @@ title:      重构 javascript
 category: blog
 description: 工作的时候实现了一个可以拖拽就摆出一个页面的js模板引擎，但是现在这个引擎实现比较复杂，当需要增加一个组件的时候，工作量很大，于是想对这个引擎进行一下重构。
 keywords: javascript, 重构, js, 模板, 引擎, 面向对象
+tags: javascript 重构 js 模板 引擎 面向对象
 ---
 
 ## 前言

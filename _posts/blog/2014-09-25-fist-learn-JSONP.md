@@ -4,6 +4,7 @@ title: 初步认识JSONP
 description: 一个同事在纠结ajax中url为什么要写callback, 指定了callback却又没有被调用的问题，我于是搜索了一下资料，原来是JSONP捣的鬼。
 category: blog
 keywords: JSONP, callback, javascript
+tags: JSONP callback javascript
 ---
 
 ## 历史的根源
