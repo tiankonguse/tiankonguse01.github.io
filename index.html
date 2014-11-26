@@ -15,11 +15,9 @@ isIndex: true
 
 <div class="index-content">
     <div class="section">
-        <ul class="artical-cate">
-            {% for nav in site.nav %}
-                <li style="{{ nav.style }}"><a href="{{ size.url }}{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
-            {% endfor %}
-        </ul>
+        
+        {% include nav.md %}
+        
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
