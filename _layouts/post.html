@@ -59,13 +59,13 @@ comment: true
                 <nav class="pagination">
                     <ul>
                         {% if page.previous %}
-                        <li class="prev"><a class="internal" rel="prev"  href="{{ page.previous.url }}" title="View {{ page.previous.title }}">&laquo; {{ page.previous.title }}</a></li>
+                        <li class="prev"><a class="internal" rel="prev"  href="{{ site.url }}{{ page.previous.url }}" title="View {{ page.previous.title }}">&laquo; {{ page.previous.title }}</a></li>
                         {% endif %}
                         {% if page.previous and page.next %}
                         <li class="pipe"> | </li>
                         {% endif %}
                         {% if page.next %}
-                        <li class="next"><a class="internal" rel="next"  href="{{ page.next.url }}" title="View {{ page.next.title }}">{{ page.next.title }} &raquo;</a></li>
+                        <li class="next"><a class="internal" rel="next"  href="{{ site.url }}{{ page.next.url }}" title="View {{ page.next.title }}">{{ page.next.title }} &raquo;</a></li>
                         {% endif %}
                     </ul>
                 </nav>
