@@ -5,7 +5,7 @@ category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 keywords: python, 时间格式化, xml, json
 tags: python 时间格式化 xml json
-updateData: 14:55 2014/11/10
+updateData: 14:54 2014/11/26
 ---
 
 ![python logo][cover]
@@ -271,6 +271,55 @@ dict.has_key(key)
 ```
 str = conn.escape_string(str)
 ```
+
+
+## 字符串分割
+
+经常会遇到把指定的字符串按指定的字符分割，幸好 python 为我们提供了这么一个方法。
+
+```
+str="a b c d"
+print str.split()                                                                                                 
+print str.split(" ")
+print str.split(" ", 2)
+print str.split("b")
+```
+
+默认 split 使用空白当做分隔符，返回一个数组。  
+不过我们可以用第一个参数来指定分隔符。  
+指定分隔符后，也可以指定最多分多少个，分够之后剩余的会附加在最后一个元素上。  
+
+```
+skyyuan:test $ ./split.py 
+['a', 'b', 'c', 'd']
+['a', 'b', 'c', 'd']
+['a', 'b', 'c d']
+['a ', ' c d']
+```
+
+## 字符串合并
+
+有时候我们又一个字符串数组，想要用指定的字符串连接起来，这时候 join 就派上用场了。  
+
+```
+array = ['a', 'b', 'c', 'd']
+print " ".join(array);
+# a b c d
+
+
+print "-".join(array);
+# a-b-c-d
+```
+
+常用的有转换日期
+
+```
+array = "2014-11-26"
+print "/".join(array.split("-"))
+# 2014/11/26
+```
+
+
 
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 [how-to-test-nonetype-in-python]: http://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
