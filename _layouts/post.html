@@ -115,7 +115,7 @@ comment: true
         </ul>
         <h2>置顶文章</h2>
         <ul class="artical-list">
-        {% for post in site.toppost %}
+        {% for post in site.data.toppost %}
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
         </ul>
