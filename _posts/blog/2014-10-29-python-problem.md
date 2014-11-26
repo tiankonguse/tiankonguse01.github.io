@@ -319,6 +319,73 @@ print "/".join(array.split("-"))
 # 2014/11/26
 ```
 
+## 文件操作
+
+对于文件操作，常用的有两种：读，写。  
+其中读可能一次性读完，也可能按某个规则一个一个的读。  
+而写则有覆盖写和文件末尾追加两种方式。  
+
+### 打开文件
+
+```
+f = open(filepath, 'r')
+```
+
+打开文件可以指定三个参数，第一个参数的位置,第二个参数以什么方式打开文件，最后一个指定编码。   
+主要讲讲第一个参数  
+
+```
+r  读
+w  写之前会先清空文件
+a  在文件指定位置追加写，默认文件末尾
+b 以二进制的方式写
+r+, w+, a+ 可以读也可以写
+```
+
+### 文件关闭
+
+文件打开了，肯定需要关闭了。  
+
+```
+f.close()
+```
+
+
+
+###  打开文件失败
+
+有时候会打开文件失败，比如文件不存在，这个时候就需要使用异常捕捉了。  
+
+```
+try:
+    f = open(youkuFilePath, 'r')
+    # do some thing
+    
+    f.close()
+except IOError, e:
+    logging.error("Error %d: %s" % (e.args[0], e.args[1]))
+```
+
+### 读取文件
+
+```
+# 读取全部内容
+f.read() 
+
+# 读取一行内容
+f.readlines()
+ 
+# 读取指定大小的内容
+f.read(size)
+```
+
+### 写文件
+
+写文件比较简单，直接写即可。
+
+```
+f.write('Hello, world!')
+```
 
 
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
