@@ -5,7 +5,7 @@ category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 keywords: python, 时间格式化, xml, json
 tags: python 时间格式化 xml json
-updateData: 14:54 2014/11/26
+updateData: 11:43 2014/11/27
 ---
 
 ![python logo][cover]
@@ -405,6 +405,14 @@ trip   => trim 删除两边的空白。
 lstrip => trim 删除左边的空白
 rstrip => trim 删除右边的空白
 ```
+
+## 小数转百分比
+
+```
+a = 0.12345
+print "%.2f%%" % (a * 100)
+```
+
 
 
 
