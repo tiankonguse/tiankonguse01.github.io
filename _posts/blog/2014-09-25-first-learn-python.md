@@ -143,6 +143,7 @@ python 直接可以处理的类型有：整数，浮点数，字符串，布尔�
 #### list
 
 list 是一种有序的集合，可以随时添加和删除其中的元素。
+可以把list理解为数组，元素之间没有关系，可以是任意类型的。
 
 * 初始化 [valueList]
 * 长度 len(list)
@@ -151,34 +152,34 @@ list 是一种有序的集合，可以随时添加和删除其中的元素。
 * 修改 insert(index, value)
 
 ```
-array = ['one', 'two', 'three']
+array = ['one', 1, 'three']
 print array
-#['one', 'two', 'three']
+#['one', 1, 'three']
 
 print len(array)
 #3
 
 print array[1]
-#two
+# 1
 
 print array[-1]
 #three
  
 array.append("four");
 print array
-#['one', 'two', 'three', 'four']
+#['one', 1, 'three', 'four']
  
 array.insert(1, "one1")
 print array
-#['one', 'one1', 'two', 'three', 'four']
+#['one', 'one1', 1, 'three', 'four']
 
 array.pop()
 print array
-#['one', 'one1', 'two', 'three']
+#['one', 'one1', 1, 'three']
   
 array.pop(1)
 print array
-#['one', 'two', 'three']
+#['one', 1, 'three']
 ```
 
 #### tuple
@@ -203,6 +204,23 @@ dict, 又名map，使用键-值（key-value）存储，具有极快的查找速�
 
 变量是弱类型变量，即可以随意改变变量的类型。
 
+```
+# 定义一个整数
+name = 1
+
+# 定义一个字符串
+name = "hello word"
+
+
+# 定义一个数组(list)
+name = []
+name = ["one", [1,2]] # 数组长度为2
+
+# 定义一个字典
+
+name = {}
+name["key"] = "value"
+```
 
 ### 赋值
 
@@ -245,10 +263,34 @@ else:
     <执行4>
 ```
 
+例如
+
+```
+if 1>2:
+    print "hello"
+else:
+    print "word"
+    
+if len(list):
+    print "have value"
+else:
+    print "empty"
+```
+
 ### 循环
 
 * for...in循环，依次把list或tuple中的每个元素迭代出来
 * while循环，只要条件满足，就不断循环，条件不满足时退出循环
+
+```
+while i<10:
+    print i
+    i = i + 1
+    
+for key in dict:
+    val = dict[key]
+    print val
+```
 
 ### 函数
 
@@ -272,7 +314,12 @@ else:
 参数定义的顺序必须是：必选参数、默认参数、可变参数和关键字参数。
 
 
-
+```
+def main(argc):
+    print argc
+    return 1
+# end main
+```
 
 
 [python]: https://www.python.org
