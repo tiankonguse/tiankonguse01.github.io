@@ -6,11 +6,11 @@ isIndex: true
 ---
 
 {% if paginator.previous_page %}
-    <link rel="prev" title="上一页" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
+    <link rel="prev" title="上一页" href="{{ paginator.previous_page_path | prepend: site.url }}">
 {% endif %}
 
 {% if paginator.next_page %}
-    <link rel="next" title="下一个" href="{{ paginator.next_page_path | prepend: site.baseurl }}">
+    <link rel="next" title="下一个" href="{{ paginator.next_page_path | prepend: site.url }}">
 {% endif %}
 
 <div class="index-content">
@@ -19,7 +19,7 @@ isIndex: true
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
-            <h2><a href="{{ post.url | prepend: site.baseurl }}">{{post.title }}</a></h2>
+            <h2><a href="{{ post.url | prepend: site.url }}">{{post.title }}</a></h2>
             <div class="title-desc">{{ post.description }}</div>
             </li>
             {% endfor %}
