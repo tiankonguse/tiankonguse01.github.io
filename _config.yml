@@ -28,6 +28,7 @@ unpublished: false
 # Plugins
 whitelist: []
 gems:
+    - sitemap_generator
     - jekyll-sitemap
 
 
