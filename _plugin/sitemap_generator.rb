@@ -92,7 +92,7 @@ module Jekyll
 
             urlset = REXML::Element.new "urlset"
             urlset.add_attribute("xmlns", 
-                "http://www.sitemaps.org/schemas/sitemap/0.9")
+                "http://www.sitemaps.org/schemas/sitemap/0.91")
 
             @last_modified_post_date = fill_posts(site, urlset)
             fill_pages(site, urlset)
