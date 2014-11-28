@@ -245,7 +245,7 @@ module Jekyll
             end
             
             date = page_or_post.updateData
-            latest_date = date if (date > latest_date)
+            latest_date = date if (date != nil and date > latest_date)
 
             latest_date
         end

@@ -5,7 +5,7 @@ category: blog
 description: 由于工作需要，使用了sphinx这个软件，但是这个软件好多年没更新了，于是想着自己看看源码，尝试改造一下。第一步是了解sphinx自己封装的一些数据结构和算法了。
 tags: sphinx 搜索引擎 全文检索 开源 源代码
 keywords: sphinx, 搜索引擎, 全文检索, 开源, 源代码, 快速排序, 二分查找
-updateData: 19:48 2014/11/24
+updateData: 21:05 2014/11/28
 ---
 
 
