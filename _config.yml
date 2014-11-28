@@ -28,7 +28,8 @@ unpublished: false
 # Plugins
 whitelist: []
 gems:
-    - sitemap_generator
+    - categories
+    - jekyll-sitemap
 
 
 # Conversion
