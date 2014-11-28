@@ -376,12 +376,18 @@ except IOError, e:
 
 ### 读取文件
 
+
 ```
 # 读取全部内容
 f.read() 
 
 # 读取一行内容
+f.readline()
+
+
+# 读取所有行内容,返回一个 list
 f.readlines()
+ 
  
 # 读取指定大小的内容
 f.read(size)
@@ -413,7 +419,9 @@ a = 0.12345
 print "%.2f%%" % (a * 100)
 ```
 
+## 修改历史
 
+*  19:11 2014/11/28 谢谢 Maslino 提醒我， readlines 是读取多有行而不是一行。与我赶紧检查我项目中的代码，然后发现使用正确。我使用的是 `for line in f.readlines`.
 
 
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
