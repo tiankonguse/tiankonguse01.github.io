@@ -29,7 +29,6 @@ unpublished: false
 whitelist: []
 gems:
     - sitemap_generator
-    - jekyll-sitemap
 
 
 # Conversion
