@@ -5,7 +5,7 @@ category: blog
 description: 刚学习python，经常会遇到一些小的问题，于是总结一下
 keywords: python, 时间格式化, xml, json
 tags: python 时间格式化 xml json
-updateData: 11:43 2014/11/27
+updateData: 16:19 2014/12/1
 ---
 
 ![python logo][cover]
@@ -419,11 +419,63 @@ a = 0.12345
 print "%.2f%%" % (a * 100)
 ```
 
+## 编码检测 与转换编码
+
+有时候我们会有多个数据源，然后在一起操作时，发现明明相同的数据却不相等。  
+这个时候就要考虑是不是编码不同的原因了。  
+
+最简单的判断方法可以先用上面的 [判断实例类型][python-problem-check-type] 中的type 判断是 str 类型还是 unicode 类型就行了。  
+如果是 str 类型， 则输出可以看到 "\xXX\xXX" 的编码格式，这个是十六进制的编码格式，储存的是二进制，需要转码为 unicode. 
+如果是 unicode 类型， 则输出可以看到 "\uxxxx\uxxxx" 的编码格式，这个就是 unicode 的编码格式,不需要转码。 
+
+于是我们现在就需要对 str 类型的串进行转码了。  
+其中最简单的是不管什么编码，直接转码为 utf8 即可。  
+
+```
+data = data.decode("utf8")
+# or
+data = unicode(data, "utf8")
+```
+
+又是我们想判断一个串的编码具体是什么，这个时候就需要下面的方法了。  
+
+```
+import chardet 
+chardet.detect(data)
+```
+
+不过，这样的话，原先就是 unicode 的串再次进行 detect 的话，有个 警告。  
+
+```
+chardet/universaldetector.py:90: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+```
+
+于是我们需要加个特殊判断了。  
+
+```
+if not isinstance(data, unicode):
+    print chardet.detect(data)
+``` 
+
+一般执行 decode 或者 unicode 后的串就会变成 python 内部统一的编码格式。  
+我们输出的时候想要变回原先指定的格式，于是就需要下面的 encode 操作了。  
+
+```
+data = data.encode("utf8")
+```
+
+
+
+
 ## 修改历史
 
 *  19:11 2014/11/28 谢谢 Maslino 提醒我， readlines 是读取多有行而不是一行。与我赶紧检查我项目中的代码，然后发现使用正确。我使用的是 `for line in f.readlines`.
+* 16:19 2014/12/1 添加 编码检测 与转换编码 条目
 
 
+
+
+[python-problem-check-type]: http://github.tiankonguse.com//blog/2014/10/29/python-problem/#content-h2-判断实例类型
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 [how-to-test-nonetype-in-python]: http://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
 [cover]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2514466730.png
