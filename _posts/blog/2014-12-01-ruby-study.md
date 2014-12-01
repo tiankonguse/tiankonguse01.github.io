@@ -134,17 +134,17 @@ fun "tiankonguse"
 
 
 initialize 是类的构造函数。  
-`\@name` 是类的成员变量，默认是私有的。  
+`@ name` 是类的成员变量，默认是私有的。  
 还有，我们访问类的成员需要加个 `@` 符号。    
 
 
 ```
 class Greeter
     def initialize(name = "World")
-        \@name = name
+        @ name = name
     end
     def say
-        puts "hello #{\@name}!"
+        puts "hello #{@ name}!"
     end
 end
 ```
