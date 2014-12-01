@@ -134,24 +134,26 @@ fun "tiankonguse"
 
 
 initialize 是类的构造函数。  
-`@name` 是类的成员变量，默认是私有的。  
+`\@name` 是类的成员变量，默认是私有的。  
 还有，我们访问类的成员需要加个 `@` 符号。    
 
 
 ```
 class Greeter
     def initialize(name = "World")
-        @name = name
+        \@name = name
     end
     def say
-        puts "hello #{@name}!"
+        puts "hello #{\@name}!"
     end
 end
 ```
 
 ### 判断是不是公有成员
 
-想要判断一个成员是不是共有的可以使用下面的方法
+想要判断一个成员是不是共有的可以使用下面的方法  
+
+
 ```
 g = Greeter.new()
 
@@ -182,13 +184,13 @@ end
 
 比如可以测是否是公有的。  
 
-``
+```
 g.respond_to?("name")
 => true
 
 g.respond_to?("name=")
 => true
-``
+```
 
 
 ## 数组
