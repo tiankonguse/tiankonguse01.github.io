@@ -489,6 +489,14 @@ if not isinstance(data, unicode):
 data = data.encode("utf8")
 ```
 
+## 执行shell命令
+
+有时候我们需要执行 shell 命令还简化工作，C 语言中由 system 命令，那python 中呢？  
+发现还是 system 命令。  
+
+```
+print os.popen('cat /proc/cpuinfo').read()
+```
 
 
 
