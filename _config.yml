@@ -45,9 +45,9 @@ excerpt_separator: "\n\n"
 # Serving
 detach:  false
 port:    80
-host:    http://github.tiankonguse.com/
+host:    http://github.tiankonguse.com
 baseurl: "/" # does not include hostname
-url: http://github.tiankonguse.com/
+url: http://github.tiankonguse.com
 
 
 # Backwards-compatibility
@@ -78,7 +78,7 @@ author : "tiankonguse"
 title: tiankonguse blog
 description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 feed: /atom.xml
-author_info: <a href="http://github.tiankonguse.com/">tiankonguse</a>
+author_info: <a href="http://github.tiankonguse.com">tiankonguse</a>
 tagline: Site Tagline
 description: 这是 PIZn 的又一个博客，它是基于 Jekyll 
 
@@ -93,38 +93,7 @@ sitemap:
         - "/index.html"
     change_frequency_name: "change_frequency"
     priority_name: "priority"
-
-
-#关注我
-follow:
-  - url: http://github.tiankonguse.com/atom.xml
-    img: http://github.tiankonguse.com/images/rss_24x24.png
-    name: rss
-  - url: https://github.com/tiankonguse/
-    img: https://github.com/apple-touch-icon-114.png
-    name: github
-  - url: http://weibo.com/tiankonguse/
-    img: http://www.weibo.com/favicon.ico
-    name: weibo
-  - url: http://www.douban.com/people/tiankonguse/
-    img: http://www.douban.com/favicon.ico
-    name: douban
-  - url: http://weixin.qq.com/
-    img: http://github.tiankonguse.com/images/weixin_24x24.png
-    name: weixin
-  - url: https://plus.google.com/103623040770219910018?rel=author
-    img: http://github.tiankonguse.com/images/google.ico
-    name: google plus
-  - url: https://twitter.com/tiankonguse
-    img: http://github.tiankonguse.com/images/twitter.ico
-    name: twitter
-  - url: https://www.facebook.com/tiankonguse
-    img: http://github.tiankonguse.com/images/facebook.ico
-    facebook: facebook
-  - url: http://www.linkedin.com/pub/sky-yuan/87/723/776
-    img: http://github.tiankonguse.com/images/linkedin.png
-    linkedin: linkedin
-      
+  
 #评论信息
 disqus:
   config: true

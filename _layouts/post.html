@@ -5,23 +5,27 @@ comment: true
 ---
 
 {% assign publishData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
+
 {% if page.updateData %}
 {% assign lastData =  page.updateData|date:"%Y-%m-%d %H:%M:%S" %}
 {% else %}
 {% assign lastData =  page.date|date:"%Y-%m-%d %H:%M:%S" %}
 {% endif %}
+
 {% if page.previous %}
-    <link rel="prev" title="{{ page.previous.title }}" href="{{ page.previous.url }}">
+    <link rel="prev" title="{{ page.previous.title }}" href="{{ site.url }}{{ page.previous.url }}">
 {% endif %}
 {% if page.next %}
-    <link rel="next" title="{{ page.next.title }}" href="{{ page.next.url }}">
+    <link rel="next" title="{{ page.next.title }}" href="{{ site.url }}{{ page.next.url }}">
 {% endif %}
+
 <meta property="og:type" content="blog"/>
 <meta property="og:title" content="{{ page.title }}"/>
 <meta property="og:description" content="{{ page.description }}" />
 <meta property="og:author" content="{{ site.author }}"/>
 <meta property="og:release_date" content="{{ lastData }}"/>
-<link rel="stylesheet" href="/javascripts/prettify/prettify.min.css" />
+<link rel="stylesheet" href="{{ site.url }}/javascripts/prettify/prettify.min.css" />
+
 <style type="text/css">
     body { background:#e8e8e8; }
     @media screen and (max-width: 750px){
@@ -117,9 +121,9 @@ comment: true
             <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
         </ul>
-        <h2><a href="/about"><span>About</span></a></h2>
+        <h2><a href="{{ site.url }}/about"><span>About</span></a></h2>
 
-        <h2><a href="/resources"><span>Resources</span></a></h2>
+        <h2><a href="{{ site.url }}/resources"><span>Resources</span></a></h2>
         <ul class="artical-list">
             {% for post in site.data.resources %}
                 <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
@@ -142,4 +146,4 @@ comment: true
     tk.ad.isLoadGoogleJs = true;
 </script>
 
-<script src="/javascripts/post.min.js" type="text/javascript"></script>
+<script src="{{ site.url }}/javascripts/post.min.js" type="text/javascript"></script>

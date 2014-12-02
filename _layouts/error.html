@@ -56,13 +56,13 @@ updateData: 9:32 2014/11/25
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
         </ul>
-        <h2><a href="/about"><span>About</span></a></h2>
+        <h2><a href="{{ site.url }}/about"><span>About</span></a></h2>
 
-        <h2><a href="/resources"><span>Resources</span></a></h2>
+        <h2><a href="{{ site.url }}/resources"><span>Resources</span></a></h2>
         <ul class="artical-list">
-            <li><a href="/project/tetris/">俄罗斯方块游戏</a></li>
-            <li><a href="/project/format/">格式化/压缩代码</a></li>
-            <li><a href="/project/moondog/">纯CSS实现月食</a></li>
+            <li><a href="{{ site.url }}/project/tetris/">俄罗斯方块游戏</a></li>
+            <li><a href="{{ site.url }}/project/format/">格式化/压缩代码</a></li>
+            <li><a href="{{ site.url }}/project/moondog/">纯CSS实现月食</a></li>
         </ul>
     </div> 
 </div>
