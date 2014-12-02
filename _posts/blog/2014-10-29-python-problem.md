@@ -333,6 +333,31 @@ print "/".join(array.split("-"))
 其中读可能一次性读完，也可能按某个规则一个一个的读。  
 而写则有覆盖写和文件末尾追加两种方式。  
 
+### 判断文件是否存在
+
+操作文件首先需要判断文件是否存在了。  
+
+```
+if not os.path.exists(filePath):
+    print "not exit"
+```
+
+### 判断文件是不是目录
+
+
+有人可能会问：文件怎么会是目录呢？  
+这是因为在 Linux 系统下， 目录也算是文件的。  
+所以上面的只是判断了那个路径存在，但是不能判断就是文件。  
+所以就有了下面的命令
+
+```
+if os.path.isfile(filePath):
+    print "file"
+else:
+    print "directory"
+```
+
+
 ### 打开文件
 
 ```
