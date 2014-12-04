@@ -533,6 +533,14 @@ if ( iWordlistOffset>0 ){
 当然，取数据的时候会进行布尔操作，而且会加上权值计算，这样就搜索满足条件的前若干条了。  
 
 
+<style type="text/css">
+.background{
+    color:#fff;
+}
+</style>
+<span class="background">测试<span>  
+
+
 
 
 [sphinx-index]: https://github.com/tiankonguse/ACM/blob/master/sphinx_index.cpp
