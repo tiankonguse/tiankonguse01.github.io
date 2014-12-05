@@ -282,9 +282,6 @@ category: project
 
 <script>
 tk.comment.isHaveComment = false;
-tk.loadJSFile("./tetris.js?t=" + tk.time(), null, true);
-
-
 if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
