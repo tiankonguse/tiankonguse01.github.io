@@ -281,6 +281,9 @@ category: project
 </script>
 
 <script>
- $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
+ 
 tk.comment.isHaveComment = false;
+jQuery(document).ready(function(){
+   $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
+});
 </script>
