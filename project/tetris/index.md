@@ -1,5 +1,6 @@
 ---
 layout: default
+category: project
 title : 经典游戏之俄罗斯方块
 ---
 
