@@ -281,16 +281,6 @@ category: project
 </script>
 
 <script>
+ $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
 tk.comment.isHaveComment = false;
-if(tk.isMobile.any()){
-    tk.ad.isLoadGoogleJs = false;
-    tk.ad.isShowPageFoot = false;
-
-    tk.ad.loadGoogleJs(true);
-    jQuery(document).ready(function(){
-        $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
-    	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
-    	$(".ad-page-footer").show();
-    });
-}
 </script>
