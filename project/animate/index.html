@@ -1,14 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CSS3动画库</title>
-    <link rel="stylesheet" href="animate.css"/>
-</head>
-<body>
+---
+layout: default
+title : CSS3动画库
+category: project
+---
+
+
+<p style="padding: 0px;margin: 0px;">
+<link rel="stylesheet" href="animate.css"/>
+</p>
 
 <nav class="nav">
-    <li data-cite="home">首页</li>
+    <li data-cite="home"><a href="http://github.tiankonguse.com"><span>Home</span></a></li>
     <li data-cite="magic" class="selected">Magic</li>
     <li data-cite="animate">Animate</li>
 </nav>
@@ -227,7 +229,7 @@
     </div>
 </div>
 
-<script src="../javascripts/jquery-1.7.1.min.js"></script>
+
 <script>
     function animation() {
         var animate = $('#animate');
@@ -252,8 +254,6 @@
         })
     }
     animation();
-</script>
-<script>
     function page() {
         var nav = $('.nav');
         var tab = $('.live-tab');
@@ -279,5 +279,3 @@
     }
     page();
 </script>
-</body>
-</html>
