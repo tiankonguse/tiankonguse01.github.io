@@ -284,6 +284,6 @@ category: project
  
 tk.comment.isHaveComment = false;
 jQuery(document).ready(function(){
-   $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
+   $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%").css("z-index","11").css("background-color","rgb(80, 80, 80)");
 });
 </script>
