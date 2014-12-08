@@ -499,11 +499,119 @@ print os.popen('cat /proc/cpuinfo').read()
 ```
 
 
+## 字符串 常见操作
+
+
+### 字符串连接
+
+最简单就是 + 号连接符了，但是大家都说这样的效率很低。  
+
+```
+print "hello " + "word!"
+```
+
+然后有人使用数组转化为字符串的方法  
+
+```
+array = ["hello", "word"]
+print " ".join(array)
+```
+
+当然，也有人使用格式化字符串的方法来连接字符串  
+
+```
+print ("%s %s" % ("hello", "word"))
+```
+
+
+### 字符串截取
+
+这个需要先知道具体的位置。  
+
+比如得到某个位置的字符  
+
+```
+str = "hello word"
+print str[2] # l
+```
+
+当然可以得到连续的一个子串，如果是范围不包含上界。  
+
+```
+str = "hello word"
+print str[0,4]
+print str[1,-1]
+```
+
+### 字符串替换
+
+有两种替换方法。  
+一种是平常的字符串替换，另一种是正则表达式。   
+
+
+```
+str = "hello word"
+print str.replace('word','python')
+```
+
+
+### 字符串比较
+
+字符串比较也有两种方法。  
+
+一种直接比较，一种使用函数比较  
+
+```
+print "hello" == "word"
+print cmp("hello", "word")
+```
+
+### 字符串查找
+
+字符串的查找又是有两个方法  
+
+```
+str = "hello word"
+print str.find('word')  # 未找到就返回 -1  
+print str.find('word', 2) # 从指定位置开始查找  
+print str.index('word') # 没有找到抛出异常
+```
+
+
+### 字符串分割
+
+大多数语言都有这个方法，split 即可分割字符串。  
+
+```
+str = "hello word"
+print str.split(' ') # 返回一个数组
+```
+
+### 字符串翻转
+
+特有语法，记住即可。  
+
+```
+str = "hello word"
+print str[::-1]
+```
+
+### 字符串长度
+
+python 所有的得到长度的方法都是这个函数。  
+
+```
+str = "hello word"
+print len(str)
+```
+
 
 ## 修改历史
 
-*  19:11 2014/11/28 谢谢 Maslino 提醒我， readlines 是读取多有行而不是一行。与我赶紧检查我项目中的代码，然后发现使用正确。我使用的是 `for line in f.readlines`.
+* 14:57 2014/12/8 添加 字符串操作 条目
 * 16:19 2014/12/1 添加 编码检测 与转换编码 条目
+* 19:11 2014/11/28 谢谢 Maslino 提醒我， readlines 是读取多有行而不是一行。与我赶紧检查我项目中的代码，然后发现使用正确。我使用的是 `for line in f.readlines`.
+
 
 
 
