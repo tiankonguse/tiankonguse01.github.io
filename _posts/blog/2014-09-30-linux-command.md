@@ -519,6 +519,33 @@ start address 0x0000000000400830
 strings –f *| grep '^.\{16\}$'
 ```
 
+### nm
+
+nm 命令常用来获取二进制文件里面包含的符号(函数、变量)。  
+nm 命令常用来解决程序编译时undefined reference的错误，以及mutiple definition的错误  
+
+### ldd
+
+ldd 用来显示程序需要使用的动态库和实际使用的动态库.  
+一般可以解决运行库不匹配的问题。  
+
+```
+tiankonguse $ ldd /bin/ls
+        ntdll.dll => /cygdrive/c/windows/SYSTEM32/ntdll.dll (0x774a0000)
+        kernel32.dll => /cygdrive/c/windows/system32/kernel32.dll (0x77380000)
+        KERNELBASE.dll => /cygdrive/c/windows/system32/KERNELBASE.dll (0x7fefdb80000)
+        cygwin1.dll => /usr/bin/cygwin1.dll (0x180040000)
+        cygintl-8.dll => /usr/bin/cygintl-8.dll (0x3ee930000)
+        cygiconv-2.dll => /usr/bin/cygiconv-2.dll (0x3f03e0000)
+```
+
+
+### strip
+
+
+strip 用来去除二进制文件里面包含的符号  
+这样做可以减小目标文件大小，去除调试信息。  
+
 
 
 [elf-layout]: http://upload.wikimedia.org/wikipedia/commons/7/77/Elf-layout--en.svg
