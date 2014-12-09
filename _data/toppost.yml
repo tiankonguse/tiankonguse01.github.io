@@ -1,11 +1,24 @@
-- title: 初步学习Python
-  url: /blog/2014/09/25/first-learn-python/
-  
-- title: 初步学习Python高级语法
-  url: /blog/2014/09/25/first-learn-python-hight-lev/
-  
-- title: Python 风格规范
-  url: /blog/2014/10/08/python-style/
+- title: Linux 命令记录(持续更新中)
+  url: /blog/2014/09/30/linux-command/
   
 - title: python 中的小问题(持续更新中)
   url: /blog/2014/10/29/python-problem/
+  
+- title: 自己对 javascript 的一些封装(持续更新中)
+  url: /blog/2014/10/18/javascript-note-lib/
+  
+- title: C 语言中你想不到的一些问题
+  url: /blog/2014/12/05/c-base/
+  
+- title: 详解二进制数中1的个数
+  url: /blog/2014/11/16/bit-count-more/
+  
+- title: hash table 研究与实现
+  url: /blog/2014/11/04/hash-table/
+  
+- title: 浅谈数据库
+  url: /blog/2014/07/10/database-algorithm/
+  
+  
+  
+  
