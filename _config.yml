@@ -12,7 +12,7 @@ collections: null
 safe: false
 include: [".htaccess"]
 exclude: ["README.md", ".git", ".svn"]
-keep_files: [ "manual", "javascripts", "stylesheets", "images"]
+keep_files: [ "manual/", "javascripts/", "stylesheets/", "images/"]
 encoding : utf-8
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 textile_ext:  "textile"
