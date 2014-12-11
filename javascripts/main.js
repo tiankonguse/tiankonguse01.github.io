@@ -651,6 +651,10 @@ jQuery(document).ready(function(){
     }
     
     tk.ad.loadGoogleJs();
+    setTimeout(function(){
+        $(".home-follow").click();
+    }, 3000);
+    
 });
 
 
