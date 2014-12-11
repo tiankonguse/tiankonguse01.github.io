@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Optional Features</title>
+
+<meta name="description" content="Bash Reference Manual: Optional Features">
+<meta name="keywords" content="Bash Reference Manual: Optional Features">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Installing-Bash.html#Installing-Bash" rel="up" title="Installing Bash">
+<link href="Reporting-Bugs.html#Reporting-Bugs" rel="next" title="Reporting Bugs">
+<link href="Operation-Controls.html#Operation-Controls" rel="previous" title="Operation Controls">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Optional-Features"></a>
+<div class="header">
+<p>
+Previous: <a href="Operation-Controls.html#Operation-Controls" accesskey="p" rel="previous">Operation Controls</a>, Up: <a href="Installing-Bash.html#Installing-Bash" accesskey="u" rel="up">Installing Bash</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Optional-Features-1"></a>
+<h3 class="section">10.8 Optional Features</h3>
+
+<p>The Bash <code>configure</code> has a number of <samp>--enable-<var>feature</var></samp>
+options, where <var>feature</var> indicates an optional part of Bash.
+There are also several <samp>--with-<var>package</var></samp> options,
+where <var>package</var> is something like &lsquo;<samp>bash-malloc</samp>&rsquo; or &lsquo;<samp>purify</samp>&rsquo;.
+To turn off the default use of a package, use
+<samp>--without-<var>package</var></samp>.  To configure Bash without a feature
+that is enabled by default, use <samp>--disable-<var>feature</var></samp>.
+</p>
+<p>Here is a complete list of the <samp>--enable-</samp> and
+<samp>--with-</samp> options that the Bash <code>configure</code> recognizes. 
+</p>
+<dl compact="compact">
+<dt><code>--with-afs</code></dt>
+<dd><p>Define if you are using the Andrew File System from Transarc.
+</p>
+</dd>
+<dt><code>--with-bash-malloc</code></dt>
+<dd><p>Use the Bash version of
+<code>malloc</code> in the directory <samp>lib/malloc</samp>.  This is not the same
+<code>malloc</code> that appears in <small>GNU</small> libc, but an older version
+originally derived from the 4.2 <small>BSD</small> <code>malloc</code>.  This <code>malloc</code>
+is very fast, but wastes some space on each allocation.
+This option is enabled by default.
+The <samp>NOTES</samp> file contains a list of systems for
+which this should be turned off, and <code>configure</code> disables this
+option automatically for a number of systems.
+</p>
+</dd>
+<dt><code>--with-curses</code></dt>
+<dd><p>Use the curses library instead of the termcap library.  This should
+be supplied if your system has an inadequate or incomplete termcap
+database.
+</p>
+</dd>
+<dt><code>--with-gnu-malloc</code></dt>
+<dd><p>A synonym for <code>--with-bash-malloc</code>.
+</p>
+</dd>
+<dt><code>--with-installed-readline[=<var>PREFIX</var>]</code></dt>
+<dd><p>Define this to make Bash link with a locally-installed version of Readline
+rather than the version in <samp>lib/readline</samp>.  This works only with
+Readline 5.0 and later versions.  If <var>PREFIX</var> is <code>yes</code> or not
+supplied, <code>configure</code> uses the values of the make variables
+<code>includedir</code> and <code>libdir</code>, which are subdirectories of <code>prefix</code>
+by default, to find the installed version of Readline if it is not in
+the standard system include and library directories.
+If <var>PREFIX</var> is <code>no</code>, Bash links with the version in
+<samp>lib/readline</samp>.
+If <var>PREFIX</var> is set to any other value, <code>configure</code> treats it as
+a directory pathname and looks for
+the installed version of Readline in subdirectories of that directory
+(include files in <var>PREFIX</var>/<code>include</code> and the library in
+<var>PREFIX</var>/<code>lib</code>).
+</p>
+</dd>
+<dt><code>--with-purify</code></dt>
+<dd><p>Define this to use the Purify memory allocation checker from Rational
+Software.
+</p>
+</dd>
+<dt><code>--enable-minimal-config</code></dt>
+<dd><p>This produces a shell with minimal features, close to the historical
+Bourne shell.
+</p></dd>
+</dl>
+
+<p>There are several <samp>--enable-</samp> options that alter how Bash is
+compiled and linked, rather than changing run-time features.
+</p>
+<dl compact="compact">
+<dt><code>--enable-largefile</code></dt>
+<dd><p>Enable support for <a href="http://www.sas.com/standards/large_file/x_open.20Mar96.html">large files</a> if the operating system requires special compiler options
+to build programs which can access large files.  This is enabled by
+default, if the operating system provides large file support.
+</p>
+</dd>
+<dt><code>--enable-profiling</code></dt>
+<dd><p>This builds a Bash binary that produces profiling information to be
+processed by <code>gprof</code> each time it is executed.
+</p>
+</dd>
+<dt><code>--enable-static-link</code></dt>
+<dd><p>This causes Bash to be linked statically, if <code>gcc</code> is being used.
+This could be used to build a version to use as root&rsquo;s shell.
+</p></dd>
+</dl>
+
+<p>The &lsquo;<samp>minimal-config</samp>&rsquo; option can be used to disable all of
+the following options, but it is processed first, so individual
+options may be enabled using &lsquo;<samp>enable-<var>feature</var></samp>&rsquo;. 
+</p>
+<p>All of the following options except for &lsquo;<samp>disabled-builtins</samp>&rsquo; and
+&lsquo;<samp>xpg-echo-default</samp>&rsquo; are
+enabled by default, unless the operating system does not provide the
+necessary support.
+</p>
+<dl compact="compact">
+<dt><code>--enable-alias</code></dt>
+<dd><p>Allow alias expansion and include the <code>alias</code> and <code>unalias</code>
+builtins (see <a href="Aliases.html#Aliases">Aliases</a>).
+</p>
+</dd>
+<dt><code>--enable-arith-for-command</code></dt>
+<dd><p>Include support for the alternate form of the <code>for</code> command
+that behaves like the C language <code>for</code> statement
+(see <a href="Looping-Constructs.html#Looping-Constructs">Looping Constructs</a>).
+</p>
+</dd>
+<dt><code>--enable-array-variables</code></dt>
+<dd><p>Include support for one-dimensional array shell variables
+(see <a href="Arrays.html#Arrays">Arrays</a>).
+</p>
+</dd>
+<dt><code>--enable-bang-history</code></dt>
+<dd><p>Include support for <code>csh</code>-like history substitution
+(see <a href="History-Interaction.html#History-Interaction">History Interaction</a>).
+</p>
+</dd>
+<dt><code>--enable-brace-expansion</code></dt>
+<dd><p>Include <code>csh</code>-like brace expansion
+( <code>b{a,b}c</code> &rarr; <code>bac bbc</code> ).
+See <a href="Brace-Expansion.html#Brace-Expansion">Brace Expansion</a>, for a complete description.
+</p>
+</dd>
+<dt><code>--enable-casemod-attributes</code></dt>
+<dd><p>Include support for case-modifying attributes in the <code>declare</code> builtin
+and assignment statements.  Variables with the <var>uppercase</var> attribute,
+for example, will have their values converted to uppercase upon assignment.
+</p>
+</dd>
+<dt><code>--enable-casemod-expansion</code></dt>
+<dd><p>Include support for case-modifying word expansions.
+</p>
+</dd>
+<dt><code>--enable-command-timing</code></dt>
+<dd><p>Include support for recognizing <code>time</code> as a reserved word and for
+displaying timing statistics for the pipeline following <code>time</code>
+(see <a href="Pipelines.html#Pipelines">Pipelines</a>).
+This allows pipelines as well as shell builtins and functions to be timed.
+</p>
+</dd>
+<dt><code>--enable-cond-command</code></dt>
+<dd><p>Include support for the <code>[[</code> conditional command.
+(see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+</p>
+</dd>
+<dt><code>--enable-cond-regexp</code></dt>
+<dd><p>Include support for matching <small>POSIX</small> regular expressions using the
+&lsquo;<samp>=~</samp>&rsquo; binary operator in the <code>[[</code> conditional command.
+(see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+</p>
+</dd>
+<dt><code>--enable-coprocesses</code></dt>
+<dd><p>Include support for coprocesses and the <code>coproc</code> reserved word
+(see <a href="Pipelines.html#Pipelines">Pipelines</a>).
+</p>
+</dd>
+<dt><code>--enable-debugger</code></dt>
+<dd><p>Include support for the bash debugger (distributed separately).
+</p>
+</dd>
+<dt><code>--enable-directory-stack</code></dt>
+<dd><p>Include support for a <code>csh</code>-like directory stack and the
+<code>pushd</code>, <code>popd</code>, and <code>dirs</code> builtins
+(see <a href="The-Directory-Stack.html#The-Directory-Stack">The Directory Stack</a>).
+</p>
+</dd>
+<dt><code>--enable-disabled-builtins</code></dt>
+<dd><p>Allow builtin commands to be invoked via &lsquo;<samp>builtin xxx</samp>&rsquo;
+even after <code>xxx</code> has been disabled using &lsquo;<samp>enable -n xxx</samp>&rsquo;.
+See <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>, for details of the <code>builtin</code> and
+<code>enable</code> builtin commands.
+</p>
+</dd>
+<dt><code>--enable-dparen-arithmetic</code></dt>
+<dd><p>Include support for the <code>((&hellip;))</code> command
+(see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+</p>
+</dd>
+<dt><code>--enable-extended-glob</code></dt>
+<dd><p>Include support for the extended pattern matching features described
+above under <a href="Pattern-Matching.html#Pattern-Matching">Pattern Matching</a>.
+</p>
+</dd>
+<dt><code>--enable-extended-glob-default</code></dt>
+<dd><p>Set the default value of the <var>extglob</var> shell option described
+above under <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a> to be enabled.
+</p>
+</dd>
+<dt><code>--enable-help-builtin</code></dt>
+<dd><p>Include the <code>help</code> builtin, which displays help on shell builtins and
+variables (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+</p>
+</dd>
+<dt><code>--enable-history</code></dt>
+<dd><p>Include command history and the <code>fc</code> and <code>history</code>
+builtin commands (see <a href="Bash-History-Facilities.html#Bash-History-Facilities">Bash History Facilities</a>).
+</p>
+</dd>
+<dt><code>--enable-job-control</code></dt>
+<dd><p>This enables the job control features (see <a href="Job-Control.html#Job-Control">Job Control</a>),
+if the operating system supports them.
+</p>
+</dd>
+<dt><code>--enable-multibyte</code></dt>
+<dd><p>This enables support for multibyte characters if the operating
+system provides the necessary support.
+</p>
+</dd>
+<dt><code>--enable-net-redirections</code></dt>
+<dd><p>This enables the special handling of filenames of the form
+<code>/dev/tcp/<var>host</var>/<var>port</var></code> and
+<code>/dev/udp/<var>host</var>/<var>port</var></code>
+when used in redirections (see <a href="Redirections.html#Redirections">Redirections</a>).
+</p>
+</dd>
+<dt><code>--enable-process-substitution</code></dt>
+<dd><p>This enables process substitution (see <a href="Process-Substitution.html#Process-Substitution">Process Substitution</a>) if
+the operating system provides the necessary support.
+</p>
+</dd>
+<dt><code>--enable-progcomp</code></dt>
+<dd><p>Enable the programmable completion facilities
+(see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+If Readline is not enabled, this option has no effect.
+</p>
+</dd>
+<dt><code>--enable-prompt-string-decoding</code></dt>
+<dd><p>Turn on the interpretation of a number of backslash-escaped characters
+in the <code>$PS1</code>, <code>$PS2</code>, <code>$PS3</code>, and <code>$PS4</code> prompt
+strings.  See <a href="Printing-a-Prompt.html#Printing-a-Prompt">Printing a Prompt</a>, for a complete list of prompt
+string escape sequences.
+</p>
+</dd>
+<dt><code>--enable-readline</code></dt>
+<dd><p>Include support for command-line editing and history with the Bash
+version of the Readline library (see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>).
+</p>
+</dd>
+<dt><code>--enable-restricted</code></dt>
+<dd><p>Include support for a <em>restricted shell</em>.  If this is enabled, Bash,
+when called as <code>rbash</code>, enters a restricted mode.  See
+<a href="The-Restricted-Shell.html#The-Restricted-Shell">The Restricted Shell</a>, for a description of restricted mode.
+</p>
+</dd>
+<dt><code>--enable-select</code></dt>
+<dd><p>Include the <code>select</code> compound command, which allows the generation of
+simple menus (see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+</p>
+</dd>
+<dt><code>--enable-separate-helpfiles</code></dt>
+<dd><p>Use external files for the documentation displayed by the <code>help</code> builtin
+instead of storing the text internally.
+</p>
+</dd>
+<dt><code>--enable-single-help-strings</code></dt>
+<dd><p>Store the text displayed by the <code>help</code> builtin as a single string for
+each help topic.  This aids in translating the text to different languages.
+You may need to disable this if your compiler cannot handle very long string
+literals.
+</p>
+</dd>
+<dt><code>--enable-strict-posix-default</code></dt>
+<dd><p>Make Bash <small>POSIX</small>-conformant by default (see <a href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">Bash POSIX Mode</a>).
+</p>
+</dd>
+<dt><code>--enable-usg-echo-default</code></dt>
+<dd><p>A synonym for <code>--enable-xpg-echo-default</code>.
+</p>
+</dd>
+<dt><code>--enable-xpg-echo-default</code></dt>
+<dd><p>Make the <code>echo</code> builtin expand backslash-escaped characters by default,
+without requiring the <samp>-e</samp> option.
+This sets the default value of the <code>xpg_echo</code> shell option to <code>on</code>,
+which makes the Bash <code>echo</code> behave more like the version specified in
+the Single Unix Specification, version 3.
+See <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>, for a description of the escape sequences that
+<code>echo</code> recognizes.
+</p>
+</dd>
+</dl>
+
+<p>The file <samp>config-top.h</samp> contains C Preprocessor
+&lsquo;<samp>#define</samp>&rsquo; statements for options which are not settable from
+<code>configure</code>.
+Some of these are not meant to be changed; beware of the consequences if
+you do.
+Read the comments associated with each definition for more
+information about its effect.
+</p>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Operation-Controls.html#Operation-Controls" accesskey="p" rel="previous">Operation Controls</a>, Up: <a href="Installing-Bash.html#Installing-Bash" accesskey="u" rel="up">Installing Bash</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

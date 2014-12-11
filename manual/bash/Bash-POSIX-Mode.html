@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bash POSIX Mode</title>
+
+<meta name="description" content="Bash Reference Manual: Bash POSIX Mode">
+<meta name="keywords" content="Bash Reference Manual: Bash POSIX Mode">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bash-Features.html#Bash-Features" rel="up" title="Bash Features">
+<link href="Job-Control.html#Job-Control" rel="next" title="Job Control">
+<link href="The-Restricted-Shell.html#The-Restricted-Shell" rel="previous" title="The Restricted Shell">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bash-POSIX-Mode"></a>
+<div class="header">
+<p>
+Previous: <a href="The-Restricted-Shell.html#The-Restricted-Shell" accesskey="p" rel="previous">The Restricted Shell</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-POSIX-Mode-1"></a>
+<h3 class="section">6.11 Bash POSIX Mode</h3>
+<a name="index-POSIX-Mode"></a>
+
+<p>Starting Bash with the <samp>--posix</samp> command-line option or executing
+&lsquo;<samp>set -o posix</samp>&rsquo; while Bash is running will cause Bash to conform more
+closely to the <small>POSIX</small> standard by changing the behavior to
+match that specified by <small>POSIX</small> in areas where the Bash default differs.
+</p>
+<p>When invoked as <code>sh</code>, Bash enters <small>POSIX</small> mode after reading the
+startup files.
+</p>
+<p>The following list is what&rsquo;s changed when &lsquo;<small>POSIX</small> mode&rsquo; is in effect:
+</p>
+<ol>
+<li> When a command in the hash table no longer exists, Bash will re-search
+<code>$PATH</code> to find the new location.  This is also available with
+&lsquo;<samp>shopt -s checkhash</samp>&rsquo;.
+
+</li><li> The message printed by the job control code and builtins when a job
+exits with a non-zero status is &lsquo;Done(status)&rsquo;.
+
+</li><li> The message printed by the job control code and builtins when a job
+is stopped is &lsquo;Stopped(<var>signame</var>)&rsquo;, where <var>signame</var> is, for
+example, <code>SIGTSTP</code>.
+
+</li><li> The <code>bg</code> builtin uses the required format to describe each job placed
+in the background, which does not include an indication of whether the job
+is the current or previous job.
+
+</li><li> Reserved words appearing in a context where reserved words are recognized
+do not undergo alias expansion.
+
+</li><li> The <small>POSIX</small> <code>PS1</code> and <code>PS2</code> expansions of &lsquo;<samp>!</samp>&rsquo; to
+the history number and &lsquo;<samp>!!</samp>&rsquo; to &lsquo;<samp>!</samp>&rsquo; are enabled,
+and parameter expansion is performed on the values of <code>PS1</code> and
+<code>PS2</code> regardless of the setting of the <code>promptvars</code> option.
+
+</li><li> The <small>POSIX</small> startup files are executed (<code>$ENV</code>) rather than
+the normal Bash files.
+
+</li><li> Tilde expansion is only performed on assignments preceding a command
+name, rather than on all assignment statements on the line.
+
+</li><li> The default history file is <samp>~/.sh_history</samp> (this is the
+default value of <code>$HISTFILE</code>).
+
+</li><li> The output of &lsquo;<samp>kill -l</samp>&rsquo; prints all the signal names on a single line,
+separated by spaces, without the &lsquo;<samp>SIG</samp>&rsquo; prefix.
+
+</li><li> The <code>kill</code> builtin does not accept signal names with a &lsquo;<samp>SIG</samp>&rsquo;
+prefix.
+
+</li><li> Non-interactive shells exit if <var>filename</var> in <code>.</code> <var>filename</var>
+is not found.
+
+</li><li> Non-interactive shells exit if a syntax error in an arithmetic expansion
+results in an invalid expression.
+
+</li><li> Non-interactive shells exit if there is a syntax error in a script read
+with the <code>.</code> or <code>source</code> builtins, or in a string processed by
+the <code>eval</code> builtin.
+
+</li><li> Redirection operators do not perform filename expansion on the word
+in the redirection unless the shell is interactive.
+
+</li><li> Redirection operators do not perform word splitting on the word in the
+redirection.
+
+</li><li> Function names must be valid shell <code>name</code>s.  That is, they may not
+contain characters other than letters, digits, and underscores, and
+may not start with a digit.  Declaring a function with an invalid name
+causes a fatal syntax error in non-interactive shells.
+
+</li><li> <small>POSIX</small> special builtins are found before shell functions
+during command lookup.
+
+</li><li> The <code>time</code> reserved word may be used by itself as a command.  When
+used in this way, it displays timing statistics for the shell and its
+completed children.  The <code>TIMEFORMAT</code> variable controls the format
+of the timing information.
+
+</li><li> When parsing and expanding a ${&hellip;} expansion that appears within
+double quotes, single quotes are no longer special and cannot be used to
+quote a closing brace or other special character, unless the operator is
+one of those defined to perform pattern removal.  In this case, they do
+not have to appear as matched pairs.
+
+</li><li> The parser does not recognize <code>time</code> as a reserved word if the next
+token begins with a &lsquo;<samp>-</samp>&rsquo;.
+
+</li><li> If a <small>POSIX</small> special builtin returns an error status, a
+non-interactive shell exits.  The fatal errors are those listed in
+the <small>POSIX</small> standard, and include things like passing incorrect options,
+redirection errors, variable assignment errors for assignments preceding
+the command name, and so on.
+
+</li><li> A non-interactive shell exits with an error status if a variable
+assignment error occurs when no command name follows the assignment
+statements.
+A variable assignment error occurs, for example, when trying to assign
+a value to a readonly variable.
+
+</li><li> A non-interactive shell exists with an error status if a variable
+assignment error occurs in an assignment statement preceding a special
+builtin, but not with any other simple command.
+
+</li><li> A non-interactive shell exits with an error status if the iteration
+variable in a <code>for</code> statement or the selection variable in a
+<code>select</code> statement is a readonly variable.
+
+</li><li> Process substitution is not available.
+
+</li><li> Assignment statements preceding <small>POSIX</small> special builtins
+persist in the shell environment after the builtin completes.
+
+</li><li> Assignment statements preceding shell function calls persist in the
+shell environment after the function returns, as if a <small>POSIX</small>
+special builtin command had been executed.
+
+</li><li> The <code>export</code> and <code>readonly</code> builtin commands display their
+output in the format required by <small>POSIX</small>.
+
+</li><li> The <code>trap</code> builtin displays signal names without the leading
+<code>SIG</code>.
+
+</li><li> The <code>trap</code> builtin doesn&rsquo;t check the first argument for a possible
+signal specification and revert the signal handling to the original
+disposition if it is, unless that argument consists solely of digits and
+is a valid signal number.  If users want to reset the handler for a given
+signal to the original disposition, they should use &lsquo;<samp>-</samp>&rsquo; as the
+first argument.
+
+</li><li> The <code>.</code> and <code>source</code> builtins do not search the current directory
+for the filename argument if it is not found by searching <code>PATH</code>.
+
+</li><li> Subshells spawned to execute command substitutions inherit the value of
+the <samp>-e</samp> option from the parent shell.  When not in <small>POSIX</small> mode,
+Bash clears the <samp>-e</samp> option in such subshells.
+
+</li><li> Alias expansion is always enabled, even in non-interactive shells.
+
+</li><li> When the <code>alias</code> builtin displays alias definitions, it does not
+display them with a leading &lsquo;<samp>alias </samp>&rsquo; unless the <samp>-p</samp> option
+is supplied.
+
+</li><li> When the <code>set</code> builtin is invoked without options, it does not display
+shell function names and definitions.
+
+</li><li> When the <code>set</code> builtin is invoked without options, it displays
+variable values without quotes, unless they contain shell metacharacters,
+even if the result contains nonprinting characters.
+
+</li><li> When the <code>cd</code> builtin is invoked in <var>logical</var> mode, and the pathname
+constructed from <code>$PWD</code> and the directory name supplied as an argument
+does not refer to an existing directory, <code>cd</code> will fail instead of
+falling back to <var>physical</var> mode.
+
+</li><li> The <code>pwd</code> builtin verifies that the value it prints is the same as the
+current directory, even if it is not asked to check the file system with the
+<samp>-P</samp> option.
+
+</li><li> When listing the history, the <code>fc</code> builtin does not include an
+indication of whether or not a history entry has been modified.
+
+</li><li> The default editor used by <code>fc</code> is <code>ed</code>.
+
+</li><li> The <code>type</code> and <code>command</code> builtins will not report a non-executable
+file as having been found, though the shell will attempt to execute such a
+file if it is the only so-named file found in <code>$PATH</code>.
+
+</li><li> The <code>vi</code> editing mode will invoke the <code>vi</code> editor directly when
+the &lsquo;<samp>v</samp>&rsquo; command is run, instead of checking <code>$VISUAL</code> and
+<code>$EDITOR</code>.
+
+</li><li> When the <code>xpg_echo</code> option is enabled, Bash does not attempt to interpret
+any arguments to <code>echo</code> as options.  Each argument is displayed, after
+escape characters are converted.
+
+</li><li> The <code>ulimit</code> builtin uses a block size of 512 bytes for the <samp>-c</samp>
+and <samp>-f</samp> options.
+
+</li><li> The arrival of <code>SIGCHLD</code>  when a trap is set on <code>SIGCHLD</code> does
+not interrupt the <code>wait</code> builtin and cause it to return immediately.
+The trap command is run once for each child that exits.
+
+</li></ol>
+
+<p>There is other <small>POSIX</small> behavior that Bash does not implement by
+default even when in <small>POSIX</small> mode.
+Specifically:
+</p>
+<ol>
+<li> The <code>fc</code> builtin checks <code>$EDITOR</code> as a program to edit history
+entries if <code>FCEDIT</code> is unset, rather than defaulting directly to
+<code>ed</code>.  <code>fc</code> uses <code>ed</code> if <code>EDITOR</code> is unset.
+
+</li><li> As noted above, Bash requires the <code>xpg_echo</code> option to be enabled for
+the <code>echo</code> builtin to be fully conformant.
+
+</li></ol>
+
+<p>Bash can be configured to be <small>POSIX</small>-conformant by default, by specifying
+the <samp>--enable-strict-posix-default</samp> to <code>configure</code> when building
+(see <a href="Optional-Features.html#Optional-Features">Optional Features</a>).
+</p>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="The-Restricted-Shell.html#The-Restricted-Shell" accesskey="p" rel="previous">The Restricted Shell</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,949 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bash Builtins</title>
+
+<meta name="description" content="Bash Reference Manual: Bash Builtins">
+<meta name="keywords" content="Bash Reference Manual: Bash Builtins">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" rel="up" title="Shell Builtin Commands">
+<link href="Modifying-Shell-Behavior.html#Modifying-Shell-Behavior" rel="next" title="Modifying Shell Behavior">
+<link href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins" rel="previous" title="Bourne Shell Builtins">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bash-Builtins"></a>
+<div class="header">
+<p>
+Next: <a href="Modifying-Shell-Behavior.html#Modifying-Shell-Behavior" accesskey="n" rel="next">Modifying Shell Behavior</a>, Previous: <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins" accesskey="p" rel="previous">Bourne Shell Builtins</a>, Up: <a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" accesskey="u" rel="up">Shell Builtin Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-Builtin-Commands"></a>
+<h3 class="section">4.2 Bash Builtin Commands</h3>
+
+<p>This section describes builtin commands which are unique to
+or have been extended in Bash.
+Some of these commands are specified in the <small>POSIX</small> standard.
+</p>
+<dl compact="compact">
+<dt><code>alias</code></dt>
+<dd><a name="index-alias"></a>
+<div class="example">
+<pre class="example">alias [<code>-p</code>] [<var>name</var>[=<var>value</var>] &hellip;]
+</pre></div>
+
+<p>Without arguments or with the <samp>-p</samp> option, <code>alias</code> prints
+the list of aliases on the standard output in a form that allows
+them to be reused as input.
+If arguments are supplied, an alias is defined for each <var>name</var>
+whose <var>value</var> is given.  If no <var>value</var> is given, the name
+and value of the alias is printed.
+Aliases are described in <a href="Aliases.html#Aliases">Aliases</a>.
+</p>
+</dd>
+<dt><code>bind</code></dt>
+<dd><a name="index-bind"></a>
+<div class="example">
+<pre class="example">bind [-m <var>keymap</var>] [-lpsvPSV]
+bind [-m <var>keymap</var>] [-q <var>function</var>] [-u <var>function</var>] [-r <var>keyseq</var>]
+bind [-m <var>keymap</var>] -f <var>filename</var>
+bind [-m <var>keymap</var>] -x <var>keyseq:shell-command</var>
+bind [-m <var>keymap</var>] <var>keyseq:function-name</var>
+bind <var>readline-command</var>
+</pre></div>
+
+<p>Display current Readline (see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>)
+key and function bindings,
+bind a key sequence to a Readline function or macro,
+or set a Readline variable.
+Each non-option argument is a command as it would appear in a
+Readline initialization file (see <a href="Readline-Init-File.html#Readline-Init-File">Readline Init File</a>),
+but each binding or command must be passed as a separate argument;  e.g.,
+&lsquo;<samp>&quot;\C-x\C-r&quot;:re-read-init-file</samp>&rsquo;.
+</p>
+<p>Options, if supplied, have the following meanings:
+</p>
+<dl compact="compact">
+<dt><code>-m <var>keymap</var></code></dt>
+<dd><p>Use <var>keymap</var> as the keymap to be affected by
+the subsequent bindings.  Acceptable <var>keymap</var>
+names are
+<code>emacs</code>,
+<code>emacs-standard</code>,
+<code>emacs-meta</code>,
+<code>emacs-ctlx</code>,
+<code>vi</code>,
+<code>vi-move</code>,
+<code>vi-command</code>, and
+<code>vi-insert</code>.
+<code>vi</code> is equivalent to <code>vi-command</code>;
+<code>emacs</code> is equivalent to <code>emacs-standard</code>.
+</p>
+</dd>
+<dt><code>-l</code></dt>
+<dd><p>List the names of all Readline functions.
+</p>
+</dd>
+<dt><code>-p</code></dt>
+<dd><p>Display Readline function names and bindings in such a way that they
+can be used as input or in a Readline initialization file.
+</p>
+</dd>
+<dt><code>-P</code></dt>
+<dd><p>List current Readline function names and bindings.
+</p>
+</dd>
+<dt><code>-v</code></dt>
+<dd><p>Display Readline variable names and values in such a way that they
+can be used as input or in a Readline initialization file.
+</p>
+</dd>
+<dt><code>-V</code></dt>
+<dd><p>List current Readline variable names and values.
+</p>
+</dd>
+<dt><code>-s</code></dt>
+<dd><p>Display Readline key sequences bound to macros and the strings they output
+in such a way that they can be used as input or in a Readline
+initialization file.
+</p>
+</dd>
+<dt><code>-S</code></dt>
+<dd><p>Display Readline key sequences bound to macros and the strings they output.
+</p>
+</dd>
+<dt><code>-f <var>filename</var></code></dt>
+<dd><p>Read key bindings from <var>filename</var>.
+</p>
+</dd>
+<dt><code>-q <var>function</var></code></dt>
+<dd><p>Query about which keys invoke the named <var>function</var>.
+</p>
+</dd>
+<dt><code>-u <var>function</var></code></dt>
+<dd><p>Unbind all keys bound to the named <var>function</var>.
+</p>
+</dd>
+<dt><code>-r <var>keyseq</var></code></dt>
+<dd><p>Remove any current binding for <var>keyseq</var>.
+</p>
+</dd>
+<dt><code>-x <var>keyseq:shell-command</var></code></dt>
+<dd><p>Cause <var>shell-command</var> to be executed whenever <var>keyseq</var> is
+entered.
+When <var>shell-command</var> is executed, the shell sets the
+<code>READLINE_LINE</code> variable to the contents of the Readline line
+buffer and the <code>READLINE_POINT</code> variable to the current location
+of the insertion point.
+If the executed command changes the value of <code>READLINE_LINE</code> or
+<code>READLINE_POINT</code>, those new values will be reflected in the
+editing state.
+</p></dd>
+</dl>
+
+<p>The return status is zero unless an invalid option is supplied or an
+error occurs.
+</p>
+</dd>
+<dt><code>builtin</code></dt>
+<dd><a name="index-builtin"></a>
+<div class="example">
+<pre class="example">builtin [<var>shell-builtin</var> [<var>args</var>]]
+</pre></div>
+<p>Run a shell builtin, passing it <var>args</var>, and return its exit status.
+This is useful when defining a shell function with the same
+name as a shell builtin, retaining the functionality of the builtin within
+the function.
+The return status is non-zero if <var>shell-builtin</var> is not a shell
+builtin command.
+</p>
+</dd>
+<dt><code>caller</code></dt>
+<dd><a name="index-caller"></a>
+<div class="example">
+<pre class="example">caller [<var>expr</var>]
+</pre></div>
+<p>Returns the context of any active subroutine call (a shell function or
+a script executed with the <code>.</code> or <code>source</code> builtins).
+</p>
+<p>Without <var>expr</var>, <code>caller</code> displays the line number and source
+filename of the current subroutine call.
+If a non-negative integer is supplied as <var>expr</var>, <code>caller</code> 
+displays the line number, subroutine name, and source file corresponding
+to that position in the current execution call stack.  This extra
+information may be used, for example, to print a stack trace.  The
+current frame is frame 0.
+</p>
+<p>The return value is 0 unless the shell is not executing a subroutine
+call or <var>expr</var> does not correspond to a valid position in the
+call stack.
+</p>
+</dd>
+<dt><code>command</code></dt>
+<dd><a name="index-command"></a>
+<div class="example">
+<pre class="example">command [-pVv] <var>command</var> [<var>arguments</var> &hellip;]
+</pre></div>
+<p>Runs <var>command</var> with <var>arguments</var> ignoring any shell function
+named <var>command</var>.
+Only shell builtin commands or commands found by searching the
+<code>PATH</code> are executed.
+If there is a shell function named <code>ls</code>, running &lsquo;<samp>command ls</samp>&rsquo;
+within the function will execute the external command <code>ls</code>
+instead of calling the function recursively.
+The <samp>-p</samp> option means to use a default value for <code>PATH</code>
+that is guaranteed to find all of the standard utilities.
+The return status in this case is 127 if <var>command</var> cannot be
+found or an error occurred, and the exit status of <var>command</var>
+otherwise.
+</p>
+<p>If either the <samp>-V</samp> or <samp>-v</samp> option is supplied, a
+description of <var>command</var> is printed.  The <samp>-v</samp> option
+causes a single word indicating the command or file name used to
+invoke <var>command</var> to be displayed; the <samp>-V</samp> option produces
+a more verbose description.  In this case, the return status is
+zero if <var>command</var> is found, and non-zero if not.
+</p>
+</dd>
+<dt><code>declare</code></dt>
+<dd><a name="index-declare"></a>
+<div class="example">
+<pre class="example">declare [-aAfFilrtux] [-p] [<var>name</var>[=<var>value</var>] &hellip;]
+</pre></div>
+
+<p>Declare variables and give them attributes.  If no <var>name</var>s
+are given, then display the values of variables instead. 
+</p>
+<p>The <samp>-p</samp> option will display the attributes and values of each
+<var>name</var>.
+When <samp>-p</samp> is used with <var>name</var> arguments, additional options
+are ignored.
+</p>
+<p>When <samp>-p</samp> is supplied without <var>name</var> arguments, <code>declare</code>
+will display the attributes and values of all variables having the
+attributes specified by the additional options.
+If no other options are supplied with <samp>-p</samp>, <code>declare</code> will
+display the attributes and values of all shell variables.  The <samp>-f</samp>
+option will restrict the display to shell functions.
+</p>
+<p>The <samp>-F</samp> option inhibits the display of function definitions;
+only the function name and attributes are printed.
+If the <code>extdebug</code> shell option is enabled using <code>shopt</code>
+(see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>), the source file name and line number where
+the function is defined are displayed as well.
+<samp>-F</samp> implies <samp>-f</samp>.
+</p>
+<p>The <samp>-g</samp> option forces variables to be created or modified at
+the global scope, even when <code>declare</code> is executed in a shell function.
+It is ignored in all other cases.
+</p>
+<p>The following options can be used to restrict output to variables with
+the specified attributes or to give variables attributes:
+</p>
+<dl compact="compact">
+<dt><code>-a</code></dt>
+<dd><p>Each <var>name</var> is an indexed array variable (see <a href="Arrays.html#Arrays">Arrays</a>).
+</p>
+</dd>
+<dt><code>-A</code></dt>
+<dd><p>Each <var>name</var> is an associative array variable (see <a href="Arrays.html#Arrays">Arrays</a>).
+</p>
+</dd>
+<dt><code>-f</code></dt>
+<dd><p>Use function names only.
+</p>
+</dd>
+<dt><code>-i</code></dt>
+<dd><p>The variable is to be treated as
+an integer; arithmetic evaluation (see <a href="Shell-Arithmetic.html#Shell-Arithmetic">Shell Arithmetic</a>) is
+performed when the variable is assigned a value.
+</p>
+</dd>
+<dt><code>-l</code></dt>
+<dd><p>When the variable is assigned a value, all upper-case characters are
+converted to lower-case.
+The upper-case attribute is disabled.
+</p>
+</dd>
+<dt><code>-r</code></dt>
+<dd><p>Make <var>name</var>s readonly.  These names cannot then be assigned values
+by subsequent assignment statements or unset.
+</p>
+</dd>
+<dt><code>-t</code></dt>
+<dd><p>Give each <var>name</var> the <code>trace</code> attribute.
+Traced functions inherit the <code>DEBUG</code> and <code>RETURN</code> traps from
+the calling shell.
+The trace attribute has no special meaning for variables.
+</p>
+</dd>
+<dt><code>-u</code></dt>
+<dd><p>When the variable is assigned a value, all lower-case characters are
+converted to upper-case.
+The lower-case attribute is disabled.
+</p>
+</dd>
+<dt><code>-x</code></dt>
+<dd><p>Mark each <var>name</var> for export to subsequent commands via
+the environment.
+</p></dd>
+</dl>
+
+<p>Using &lsquo;<samp>+</samp>&rsquo; instead of &lsquo;<samp>-</samp>&rsquo; turns off the attribute instead,
+with the exceptions that &lsquo;<samp>+a</samp>&rsquo;
+may not be used to destroy an array variable and &lsquo;<samp>+r</samp>&rsquo; will not
+remove the readonly attribute.
+When used in a function, <code>declare</code> makes each <var>name</var> local,
+as with the <code>local</code> command, unless the &lsquo;<samp>-g</samp>&rsquo; option is used.
+If a variable name is followed by =<var>value</var>, the value of the variable
+is set to <var>value</var>.
+</p>
+<p>The return status is zero unless an invalid option is encountered,
+an attempt is made to define a function using &lsquo;<samp>-f foo=bar</samp>&rsquo;,
+an attempt is made to assign a value to a readonly variable,
+an attempt is made to assign a value to an array variable without
+using the compound assignment syntax (see <a href="Arrays.html#Arrays">Arrays</a>),
+one of the <var>names</var> is not a valid shell variable name,
+an attempt is made to turn off readonly status for a readonly variable,
+an attempt is made to turn off array status for an array variable,
+or an attempt is made to display a non-existent function with <samp>-f</samp>.
+</p>
+</dd>
+<dt><code>echo</code></dt>
+<dd><a name="index-echo"></a>
+<div class="example">
+<pre class="example">echo [-neE] [<var>arg</var> &hellip;]
+</pre></div>
+<p>Output the <var>arg</var>s, separated by spaces, terminated with a
+newline.
+The return status is always 0.
+If <samp>-n</samp> is specified, the trailing newline is suppressed.
+If the <samp>-e</samp> option is given, interpretation of the following
+backslash-escaped characters is enabled.
+The <samp>-E</samp> option disables the interpretation of these escape characters,
+even on systems where they are interpreted by default.
+The <code>xpg_echo</code> shell option may be used to
+dynamically determine whether or not <code>echo</code> expands these
+escape characters by default.
+<code>echo</code> does not interpret <samp>--</samp> to mean the end of options.
+</p>
+<p><code>echo</code> interprets the following escape sequences:
+</p><dl compact="compact">
+<dt><code>\a</code></dt>
+<dd><p>alert (bell)
+</p></dd>
+<dt><code>\b</code></dt>
+<dd><p>backspace
+</p></dd>
+<dt><code>\c</code></dt>
+<dd><p>suppress further output
+</p></dd>
+<dt><code>\e</code></dt>
+<dt><code>\E</code></dt>
+<dd><p>escape
+</p></dd>
+<dt><code>\f</code></dt>
+<dd><p>form feed
+</p></dd>
+<dt><code>\n</code></dt>
+<dd><p>new line
+</p></dd>
+<dt><code>\r</code></dt>
+<dd><p>carriage return
+</p></dd>
+<dt><code>\t</code></dt>
+<dd><p>horizontal tab
+</p></dd>
+<dt><code>\v</code></dt>
+<dd><p>vertical tab
+</p></dd>
+<dt><code>\\</code></dt>
+<dd><p>backslash
+</p></dd>
+<dt><code>\0<var>nnn</var></code></dt>
+<dd><p>the eight-bit character whose value is the octal value <var>nnn</var>
+(zero to three octal digits)
+</p></dd>
+<dt><code>\x<var>HH</var></code></dt>
+<dd><p>the eight-bit character whose value is the hexadecimal value <var>HH</var>
+(one or two hex digits)
+</p></dd>
+<dt><code>\u<var>HHHH</var></code></dt>
+<dd><p>the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value
+<var>HHHH</var> (one to four hex digits)
+</p></dd>
+<dt><code>\U<var>HHHHHHHH</var></code></dt>
+<dd><p>the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value
+<var>HHHHHHHH</var> (one to eight hex digits)
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>enable</code></dt>
+<dd><a name="index-enable"></a>
+<div class="example">
+<pre class="example">enable [-a] [-dnps] [-f <var>filename</var>] [<var>name</var> &hellip;]
+</pre></div>
+<p>Enable and disable builtin shell commands.
+Disabling a builtin allows a disk command which has the same name
+as a shell builtin to be executed without specifying a full pathname,
+even though the shell normally searches for builtins before disk commands.
+If <samp>-n</samp> is used, the <var>name</var>s become disabled.  Otherwise
+<var>name</var>s are enabled.  For example, to use the <code>test</code> binary
+found via <code>$PATH</code> instead of the shell builtin version, type
+&lsquo;<samp>enable -n test</samp>&rsquo;.
+</p>
+<p>If the <samp>-p</samp> option is supplied, or no <var>name</var> arguments appear,
+a list of shell builtins is printed.  With no other arguments, the list
+consists of all enabled shell builtins.
+The <samp>-a</samp> option means to list
+each builtin with an indication of whether or not it is enabled. 
+</p>
+<p>The <samp>-f</samp> option means to load the new builtin command <var>name</var>
+from shared object <var>filename</var>, on systems that support dynamic loading.
+The <samp>-d</samp> option will delete a builtin loaded with <samp>-f</samp>.
+</p>
+<p>If there are no options, a list of the shell builtins is displayed.
+The <samp>-s</samp> option restricts <code>enable</code> to the <small>POSIX</small> special
+builtins.  If <samp>-s</samp> is used with <samp>-f</samp>, the new builtin becomes
+a special builtin (see <a href="Special-Builtins.html#Special-Builtins">Special Builtins</a>).
+</p>
+<p>The return status is zero unless a <var>name</var> is not a shell builtin
+or there is an error loading a new builtin from a shared object.
+</p>
+</dd>
+<dt><code>help</code></dt>
+<dd><a name="index-help"></a>
+<div class="example">
+<pre class="example">help [-dms] [<var>pattern</var>]
+</pre></div>
+<p>Display helpful information about builtin commands.
+If <var>pattern</var> is specified, <code>help</code> gives detailed help
+on all commands matching <var>pattern</var>, otherwise a list of
+the builtins is printed.
+</p>
+<p>Options, if supplied, have the following meanings:
+</p>
+<dl compact="compact">
+<dt><code>-d</code></dt>
+<dd><p>Display a short description of each <var>pattern</var>
+</p></dd>
+<dt><code>-m</code></dt>
+<dd><p>Display the description of each <var>pattern</var> in a manpage-like format
+</p></dd>
+<dt><code>-s</code></dt>
+<dd><p>Display only a short usage synopsis for each <var>pattern</var>
+</p></dd>
+</dl>
+
+<p>The return status is zero unless no command matches <var>pattern</var>.
+</p>
+</dd>
+<dt><code>let</code></dt>
+<dd><a name="index-let"></a>
+<div class="example">
+<pre class="example">let <var>expression</var> [<var>expression</var>]
+</pre></div>
+<p>The <code>let</code> builtin allows arithmetic to be performed on shell
+variables.  Each <var>expression</var> is evaluated according to the
+rules given below in <a href="Shell-Arithmetic.html#Shell-Arithmetic">Shell Arithmetic</a>.  If the
+last <var>expression</var> evaluates to 0, <code>let</code> returns 1;
+otherwise 0 is returned.
+</p>
+</dd>
+<dt><code>local</code></dt>
+<dd><a name="index-local"></a>
+<div class="example">
+<pre class="example">local [<var>option</var>] <var>name</var>[=<var>value</var>] &hellip;
+</pre></div>
+<p>For each argument, a local variable named <var>name</var> is created,
+and assigned <var>value</var>.
+The <var>option</var> can be any of the options accepted by <code>declare</code>.
+<code>local</code> can only be used within a function; it makes the variable
+<var>name</var> have a visible scope restricted to that function and its
+children.  The return status is zero unless <code>local</code> is used outside
+a function, an invalid <var>name</var> is supplied, or <var>name</var> is a
+readonly variable.
+</p>
+</dd>
+<dt><code>logout</code></dt>
+<dd><a name="index-logout"></a>
+<div class="example">
+<pre class="example">logout [<var>n</var>]
+</pre></div>
+<p>Exit a login shell, returning a status of <var>n</var> to the shell&rsquo;s
+parent.
+</p>
+</dd>
+<dt><code>mapfile</code></dt>
+<dd><a name="index-mapfile"></a>
+<div class="example">
+<pre class="example">mapfile [-n <var>count</var>] [-O <var>origin</var>] [-s <var>count</var>] [-t] [-u <var>fd</var>] [
+-C <var>callback</var>] [-c <var>quantum</var>] [<var>array</var>]
+</pre></div>
+<p>Read lines from the standard input into the indexed array variable <var>array</var>,
+or from file descriptor <var>fd</var>
+if the <samp>-u</samp> option is supplied.
+The variable <code>MAPFILE</code> is the default <var>array</var>.
+Options, if supplied, have the following meanings:
+</p><dl compact="compact">
+<dt><code>-n</code></dt>
+<dd><p>Copy at most <var>count</var> lines.  If <var>count</var> is 0, all lines are copied.
+</p></dd>
+<dt><code>-O</code></dt>
+<dd><p>Begin assigning to <var>array</var> at index <var>origin</var>.
+The default index is 0.
+</p></dd>
+<dt><code>-s</code></dt>
+<dd><p>Discard the first <var>count</var> lines read.
+</p></dd>
+<dt><code>-t</code></dt>
+<dd><p>Remove a trailing newline from each line read.
+</p></dd>
+<dt><code>-u</code></dt>
+<dd><p>Read lines from file descriptor <var>fd</var> instead of the standard input.
+</p></dd>
+<dt><code>-C</code></dt>
+<dd><p>Evaluate <var>callback</var> each time <var>quantum</var>P lines are read.
+The <samp>-c</samp> option specifies <var>quantum</var>.
+</p></dd>
+<dt><code>-c</code></dt>
+<dd><p>Specify the number of lines read between each call to <var>callback</var>.
+</p></dd>
+</dl>
+
+<p>If <samp>-C</samp> is specified without <samp>-c</samp>, 
+the default quantum is 5000.
+When <var>callback</var>  is evaluated, it is supplied the index of the next
+array element to be assigned and the line to be assigned to that element
+as additional arguments.
+<var>callback</var> is evaluated after the line is read but before the 
+array element is assigned.
+</p>
+<p>If not supplied with an explicit origin, <code>mapfile</code> will clear <var>array</var>
+before assigning to it.
+</p>
+<p><code>mapfile</code> returns successfully unless an invalid option or option
+argument is supplied, <var>array</var> is invalid or unassignable, or <var>array</var>
+is not an indexed array.
+</p>
+</dd>
+<dt><code>printf</code></dt>
+<dd><a name="index-printf"></a>
+<div class="example">
+<pre class="example">printf [-v <var>var</var>] <var>format</var> [<var>arguments</var>]
+</pre></div>
+<p>Write the formatted <var>arguments</var> to the standard output under the
+control of the <var>format</var>.
+The <samp>-v</samp> option causes the output to be assigned to the variable
+<var>var</var> rather than being printed to the standard output.
+</p>
+<p>The <var>format</var> is a character string which contains three types of objects:
+plain characters, which are simply copied to standard output, character
+escape sequences, which are converted and copied to the standard output, and
+format specifications, each of which causes printing of the next successive
+<var>argument</var>.
+In addition to the standard <code>printf(1)</code> formats, <code>printf</code>
+interprets the following extensions:
+</p>
+<dl compact="compact">
+<dt><code>%b</code></dt>
+<dd><p>causes <code>printf</code> to expand backslash escape sequences in the
+corresponding <var>argument</var>,
+(except that &lsquo;<samp>\c</samp>&rsquo; terminates output, backslashes in
+&lsquo;<samp>\'</samp>&rsquo;, &lsquo;<samp>\&quot;</samp>&rsquo;, and &lsquo;<samp>\?</samp>&rsquo; are not removed, and octal escapes
+beginning with &lsquo;<samp>\0</samp>&rsquo; may contain up to four digits).
+</p></dd>
+<dt><code>%q</code></dt>
+<dd><p>causes <code>printf</code> to output the
+corresponding <var>argument</var> in a format that can be reused as shell input.
+</p></dd>
+<dt><code>%(<var>datefmt</var>)T</code></dt>
+<dd><p>causes <code>printf</code> to output the date-time string resulting from using
+<var>datefmt</var> as a format string for <code>strftime</code>(3).  The corresponding
+<var>argument</var> is an integer representing the number of seconds since the
+epoch.  Two special argument values may be used: -1 represents the current
+time, and -2 represents the time the shell was invoked.
+</p></dd>
+</dl>
+
+<p>Arguments to non-string format specifiers are treated as C language constants,
+except that a leading plus or minus sign is allowed, and if the leading
+character is a single or double quote, the value is the ASCII value of
+the following character.
+</p>
+<p>The <var>format</var> is reused as necessary to consume all of the <var>arguments</var>.
+If the <var>format</var> requires more <var>arguments</var> than are supplied, the
+extra format specifications behave as if a zero value or null string, as
+appropriate, had been supplied.  The return value is zero on success,
+non-zero on failure.
+</p>
+</dd>
+<dt><code>read</code></dt>
+<dd><a name="index-read"></a>
+<div class="example">
+<pre class="example">read [-ers] [-a <var>aname</var>] [-d <var>delim</var>] [-i <var>text</var>] [-n <var>nchars</var>] [-N <var>nchars</var>] [-p <var>prompt</var>] [-t <var>timeout</var>] [-u <var>fd</var>] [<var>name</var> &hellip;]
+</pre></div>
+<p>One line is read from the standard input, or from the file descriptor
+<var>fd</var> supplied as an argument to the <samp>-u</samp> option, and the first word
+is assigned to the first <var>name</var>, the second word to the second <var>name</var>,
+and so on, with leftover words and their intervening separators assigned
+to the last <var>name</var>.
+If there are fewer words read from the input stream than names,
+the remaining names are assigned empty values.
+The characters in the value of the <code>IFS</code> variable
+are used to split the line into words.
+The backslash character &lsquo;<samp>\</samp>&rsquo; may be used to remove any special
+meaning for the next character read and for line continuation.
+If no names are supplied, the line read is assigned to the
+variable <code>REPLY</code>.
+The return code is zero, unless end-of-file is encountered, <code>read</code>
+times out (in which case the return code is greater than 128), or an
+invalid file descriptor is supplied as the argument to <samp>-u</samp>.
+</p>
+<p>Options, if supplied, have the following meanings:
+</p>
+<dl compact="compact">
+<dt><code>-a <var>aname</var></code></dt>
+<dd><p>The words are assigned to sequential indices of the array variable
+<var>aname</var>, starting at 0.
+All elements are removed from <var>aname</var> before the assignment.
+Other <var>name</var> arguments are ignored.
+</p>
+</dd>
+<dt><code>-d <var>delim</var></code></dt>
+<dd><p>The first character of <var>delim</var> is used to terminate the input line,
+rather than newline.
+</p>
+</dd>
+<dt><code>-e</code></dt>
+<dd><p>Readline (see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>) is used to obtain the line.
+Readline uses the current (or default, if line editing was not previously
+active) editing settings.
+</p>
+</dd>
+<dt><code>-i <var>text</var></code></dt>
+<dd><p>If Readline is being used to read the line, <var>text</var> is placed into
+the editing buffer before editing begins.
+</p>
+</dd>
+<dt><code>-n <var>nchars</var></code></dt>
+<dd><p><code>read</code> returns after reading <var>nchars</var> characters rather than
+waiting for a complete line of input, but honor a delimiter if fewer
+than <var>nchars</var> characters are read before the delimiter.
+</p>
+</dd>
+<dt><code>-N <var>nchars</var></code></dt>
+<dd><p><code>read</code> returns after reading exactly <var>nchars</var> characters rather
+than waiting for a complete line of input, unless EOF is encountered or
+<code>read</code> times out.
+Delimiter characters encountered in the input are
+not treated specially and do not cause <code>read</code> to return until
+<var>nchars</var> characters are read.
+</p>
+</dd>
+<dt><code>-p <var>prompt</var></code></dt>
+<dd><p>Display <var>prompt</var>, without a trailing newline, before attempting
+to read any input.
+The prompt is displayed only if input is coming from a terminal.
+</p>
+</dd>
+<dt><code>-r</code></dt>
+<dd><p>If this option is given, backslash does not act as an escape character.
+The backslash is considered to be part of the line.
+In particular, a backslash-newline pair may not be used as a line
+continuation.
+</p>
+</dd>
+<dt><code>-s</code></dt>
+<dd><p>Silent mode.  If input is coming from a terminal, characters are
+not echoed.
+</p>
+</dd>
+<dt><code>-t <var>timeout</var></code></dt>
+<dd><p>Cause <code>read</code> to time out and return failure if a complete line of
+input is not read within <var>timeout</var> seconds.
+<var>timeout</var>  may be a decimal number with a fractional portion following
+the decimal point.
+This option is only effective if <code>read</code> is reading input from a
+terminal, pipe, or other special file; it has no effect when reading
+from regular files.
+If <var>timeout</var> is 0, <code>read</code> returns success if input is available on
+the specified file descriptor, failure otherwise.
+The exit status is greater than 128 if the timeout is exceeded.
+</p>
+</dd>
+<dt><code>-u <var>fd</var></code></dt>
+<dd><p>Read input from file descriptor <var>fd</var>.
+</p>
+</dd>
+</dl>
+
+</dd>
+<dt><code>readarray</code></dt>
+<dd><a name="index-readarray"></a>
+<div class="example">
+<pre class="example">readarray [-n <var>count</var>] [-O <var>origin</var>] [-s <var>count</var>] [-t] [-u <var>fd</var>] [
+-C <var>callback</var>] [-c <var>quantum</var>] [<var>array</var>]
+</pre></div>
+<p>Read lines from the standard input into the indexed array variable <var>array</var>,
+or from file descriptor <var>fd</var>
+if the <samp>-u</samp> option is supplied.
+</p>
+<p>A synonym for <code>mapfile</code>.
+</p>
+</dd>
+<dt><code>source</code></dt>
+<dd><a name="index-source"></a>
+<div class="example">
+<pre class="example">source <var>filename</var>
+</pre></div>
+<p>A synonym for <code>.</code> (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+</p>
+</dd>
+<dt><code>type</code></dt>
+<dd><a name="index-type"></a>
+<div class="example">
+<pre class="example">type [-afptP] [<var>name</var> &hellip;]
+</pre></div>
+<p>For each <var>name</var>, indicate how it would be interpreted if used as a
+command name.
+</p>
+<p>If the <samp>-t</samp> option is used, <code>type</code> prints a single word
+which is one of &lsquo;<samp>alias</samp>&rsquo;, &lsquo;<samp>function</samp>&rsquo;, &lsquo;<samp>builtin</samp>&rsquo;,
+&lsquo;<samp>file</samp>&rsquo; or &lsquo;<samp>keyword</samp>&rsquo;,
+if <var>name</var> is an alias, shell function, shell builtin,
+disk file, or shell reserved word, respectively.
+If the <var>name</var> is not found, then nothing is printed, and
+<code>type</code> returns a failure status.
+</p>
+<p>If the <samp>-p</samp> option is used, <code>type</code> either returns the name
+of the disk file that would be executed, or nothing if <samp>-t</samp>
+would not return &lsquo;<samp>file</samp>&rsquo;.
+</p>
+<p>The <samp>-P</samp> option forces a path search for each <var>name</var>, even if
+<samp>-t</samp> would not return &lsquo;<samp>file</samp>&rsquo;.
+</p>
+<p>If a command is hashed, <samp>-p</samp> and <samp>-P</samp> print the hashed value,
+not necessarily the file that appears first in <code>$PATH</code>.
+</p>
+<p>If the <samp>-a</samp> option is used, <code>type</code> returns all of the places
+that contain an executable named <var>file</var>.
+This includes aliases and functions, if and only if the <samp>-p</samp> option
+is not also used.
+</p>
+<p>If the <samp>-f</samp> option is used, <code>type</code> does not attempt to find
+shell functions, as with the <code>command</code> builtin.
+</p>
+<p>The return status is zero if all of the <var>names</var> are found, non-zero
+if any are not found.
+</p>
+</dd>
+<dt><code>typeset</code></dt>
+<dd><a name="index-typeset"></a>
+<div class="example">
+<pre class="example">typeset [-afFrxi] [-p] [<var>name</var>[=<var>value</var>] &hellip;]
+</pre></div>
+<p>The <code>typeset</code> command is supplied for compatibility with the Korn
+shell; however, it has been deprecated in favor of the <code>declare</code>
+builtin command.
+</p>
+</dd>
+<dt><code>ulimit</code></dt>
+<dd><a name="index-ulimit"></a>
+<div class="example">
+<pre class="example">ulimit [-abcdefilmnpqrstuvxHST] [<var>limit</var>]
+</pre></div>
+<p><code>ulimit</code> provides control over the resources available to processes
+started by the shell, on systems that allow such control.  If an
+option is given, it is interpreted as follows:
+</p><dl compact="compact">
+<dt><code>-S</code></dt>
+<dd><p>Change and report the soft limit associated with a resource.
+</p>
+</dd>
+<dt><code>-H</code></dt>
+<dd><p>Change and report the hard limit associated with a resource.
+</p>
+</dd>
+<dt><code>-a</code></dt>
+<dd><p>All current limits are reported.
+</p>
+</dd>
+<dt><code>-b</code></dt>
+<dd><p>The maximum socket buffer size.
+</p>
+</dd>
+<dt><code>-c</code></dt>
+<dd><p>The maximum size of core files created.
+</p>
+</dd>
+<dt><code>-d</code></dt>
+<dd><p>The maximum size of a process&rsquo;s data segment.
+</p>
+</dd>
+<dt><code>-e</code></dt>
+<dd><p>The maximum scheduling priority (&quot;nice&quot;).
+</p>
+</dd>
+<dt><code>-f</code></dt>
+<dd><p>The maximum size of files written by the shell and its children.
+</p>
+</dd>
+<dt><code>-i</code></dt>
+<dd><p>The maximum number of pending signals.
+</p>
+</dd>
+<dt><code>-l</code></dt>
+<dd><p>The maximum size that may be locked into memory.
+</p>
+</dd>
+<dt><code>-m</code></dt>
+<dd><p>The maximum resident set size (many systems do not honor this limit).
+</p>
+</dd>
+<dt><code>-n</code></dt>
+<dd><p>The maximum number of open file descriptors (most systems do not
+allow this value to be set).
+</p>
+</dd>
+<dt><code>-p</code></dt>
+<dd><p>The pipe buffer size.
+</p>
+</dd>
+<dt><code>-q</code></dt>
+<dd><p>The maximum number of bytes in POSIX message queues.
+</p>
+</dd>
+<dt><code>-r</code></dt>
+<dd><p>The maximum real-time scheduling priority.
+</p>
+</dd>
+<dt><code>-s</code></dt>
+<dd><p>The maximum stack size.
+</p>
+</dd>
+<dt><code>-t</code></dt>
+<dd><p>The maximum amount of cpu time in seconds.
+</p>
+</dd>
+<dt><code>-u</code></dt>
+<dd><p>The maximum number of processes available to a single user.
+</p>
+</dd>
+<dt><code>-v</code></dt>
+<dd><p>The maximum amount of virtual memory available to the shell, and, on
+some systems, to its children.
+</p>
+</dd>
+<dt><code>-x</code></dt>
+<dd><p>The maximum number of file locks.
+</p>
+</dd>
+<dt><code>-T</code></dt>
+<dd><p>The maximum number of threads.
+</p>
+</dd>
+</dl>
+
+<p>If <var>limit</var> is given, it is the new value of the specified resource;
+the special <var>limit</var> values <code>hard</code>, <code>soft</code>, and
+<code>unlimited</code> stand for the current hard limit, the current soft limit,
+and no limit, respectively.
+A hard limit cannot be increased by a non-root user once it is set;
+a soft limit may be increased up to the value of the hard limit.
+Otherwise, the current value of the soft limit for the specified resource
+is printed, unless the <samp>-H</samp> option is supplied.
+When setting new limits, if neither <samp>-H</samp> nor <samp>-S</samp> is supplied,
+both the hard and soft limits are set.
+If no option is given, then <samp>-f</samp> is assumed.  Values are in 1024-byte
+increments, except for <samp>-t</samp>, which is in seconds, <samp>-p</samp>,
+which is in units of 512-byte blocks, and <samp>-n</samp> and <samp>-u</samp>, which
+are unscaled values.
+</p>
+<p>The return status is zero unless an invalid option or argument is supplied,
+or an error occurs while setting a new limit.
+</p>
+</dd>
+<dt><code>unalias</code></dt>
+<dd><a name="index-unalias"></a>
+<div class="example">
+<pre class="example">unalias [-a] [<var>name</var> &hellip; ]
+</pre></div>
+
+<p>Remove each <var>name</var> from the list of aliases.  If <samp>-a</samp> is
+supplied, all aliases are removed.
+Aliases are described in <a href="Aliases.html#Aliases">Aliases</a>.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Modifying-Shell-Behavior.html#Modifying-Shell-Behavior" accesskey="n" rel="next">Modifying Shell Behavior</a>, Previous: <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins" accesskey="p" rel="previous">Bourne Shell Builtins</a>, Up: <a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" accesskey="u" rel="up">Shell Builtin Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

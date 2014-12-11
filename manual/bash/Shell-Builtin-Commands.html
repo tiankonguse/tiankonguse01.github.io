@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Shell Builtin Commands</title>
+
+<meta name="description" content="Bash Reference Manual: Shell Builtin Commands">
+<meta name="keywords" content="Bash Reference Manual: Shell Builtin Commands">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins" rel="next" title="Bourne Shell Builtins">
+<link href="Shell-Scripts.html#Shell-Scripts" rel="previous" title="Shell Scripts">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Shell-Builtin-Commands"></a>
+<div class="header">
+<p>
+Next: <a href="Shell-Variables.html#Shell-Variables" accesskey="n" rel="next">Shell Variables</a>, Previous: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="p" rel="previous">Basic Shell Features</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Shell-Builtin-Commands-1"></a>
+<h2 class="chapter">4 Shell Builtin Commands</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins" accesskey="1">Bourne Shell Builtins</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Builtin commands inherited from the Bourne
+				Shell.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bash-Builtins.html#Bash-Builtins" accesskey="2">Bash Builtins</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Table of builtins specific to Bash.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Modifying-Shell-Behavior.html#Modifying-Shell-Behavior" accesskey="3">Modifying Shell Behavior</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Builtins to modify shell attributes and
+				optional behavior.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Special-Builtins.html#Special-Builtins" accesskey="4">Special Builtins</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Builtin commands classified specially by
+				POSIX.
+</td></tr>
+</table>
+
+<p>Builtin commands are contained within the shell itself.
+When the name of a builtin command is used as the first word of
+a simple command (see <a href="Simple-Commands.html#Simple-Commands">Simple Commands</a>), the shell executes
+the command directly, without invoking another program.
+Builtin commands are necessary to implement functionality impossible
+or inconvenient to obtain with separate utilities.
+</p>
+<p>This section briefly describes the builtins which Bash inherits from
+the Bourne Shell, as well as the builtin commands which are unique
+to or have been extended in Bash.
+</p>
+<p>Several builtin commands are described in other chapters:  builtin
+commands which provide the Bash interface to the job control
+facilities (see <a href="Job-Control-Builtins.html#Job-Control-Builtins">Job Control Builtins</a>), the directory stack
+(see <a href="Directory-Stack-Builtins.html#Directory-Stack-Builtins">Directory Stack Builtins</a>), the command history
+(see <a href="Bash-History-Builtins.html#Bash-History-Builtins">Bash History Builtins</a>), and the programmable completion
+facilities (see <a href="Programmable-Completion-Builtins.html#Programmable-Completion-Builtins">Programmable Completion Builtins</a>).
+</p>
+<p>Many of the builtins have been extended by <small>POSIX</small> or Bash.
+</p>
+<p>Unless otherwise noted, each builtin command documented as accepting
+options preceded by &lsquo;<samp>-</samp>&rsquo; accepts &lsquo;<samp>--</samp>&rsquo;
+to signify the end of the options.
+The <code>:</code>, <code>true</code>, <code>false</code>, and <code>test</code>
+builtins do not accept options and do not treat &lsquo;<samp>--</samp>&rsquo; specially.
+The <code>exit</code>, <code>logout</code>, <code>break</code>, <code>continue</code>, <code>let</code>,
+and <code>shift</code> builtins accept and process arguments beginning
+with &lsquo;<samp>-</samp>&rsquo; without requiring &lsquo;<samp>--</samp>&rsquo;.
+Other builtins that accept arguments but are not specified as accepting
+options interpret arguments beginning with &lsquo;<samp>-</samp>&rsquo; as invalid options and
+require &lsquo;<samp>--</samp>&rsquo; to prevent this interpretation.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Shell-Variables.html#Shell-Variables" accesskey="n" rel="next">Shell Variables</a>, Previous: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="p" rel="previous">Basic Shell Features</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

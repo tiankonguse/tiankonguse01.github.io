@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Filename Expansion</title>
+
+<meta name="description" content="Bash Reference Manual: Filename Expansion">
+<meta name="keywords" content="Bash Reference Manual: Filename Expansion">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Shell-Expansions.html#Shell-Expansions" rel="up" title="Shell Expansions">
+<link href="Pattern-Matching.html#Pattern-Matching" rel="next" title="Pattern Matching">
+<link href="Word-Splitting.html#Word-Splitting" rel="previous" title="Word Splitting">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Filename-Expansion"></a>
+<div class="header">
+<p>
+Next: <a href="Quote-Removal.html#Quote-Removal" accesskey="n" rel="next">Quote Removal</a>, Previous: <a href="Word-Splitting.html#Word-Splitting" accesskey="p" rel="previous">Word Splitting</a>, Up: <a href="Shell-Expansions.html#Shell-Expansions" accesskey="u" rel="up">Shell Expansions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Filename-Expansion-1"></a>
+<h4 class="subsection">3.5.8 Filename Expansion</h4>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Pattern-Matching.html#Pattern-Matching" accesskey="1">Pattern Matching</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How the shell matches patterns.
+</td></tr>
+</table>
+<a name="index-expansion_002c-filename"></a>
+<a name="index-expansion_002c-pathname"></a>
+<a name="index-filename-expansion"></a>
+<a name="index-pathname-expansion"></a>
+
+<p>After word splitting, unless the <samp>-f</samp> option has been set
+(see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>), Bash scans each word for the characters
+&lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>?</samp>&rsquo;, and &lsquo;<samp>[</samp>&rsquo;.
+If one of these characters appears, then the word is
+regarded as a <var>pattern</var>,
+and replaced with an alphabetically sorted list of
+file names matching the pattern. If no matching file names are found,
+and the shell option <code>nullglob</code> is disabled, the word is left
+unchanged.
+If the <code>nullglob</code> option is set, and no matches are found, the word
+is removed.
+If the <code>failglob</code> shell option is set, and no matches are found,
+an error message is printed and the command is not executed.
+If the shell option <code>nocaseglob</code> is enabled, the match is performed
+without regard to the case of alphabetic characters.
+</p>
+<p>When a pattern is used for filename expansion, the character &lsquo;<samp>.</samp>&rsquo;
+at the start of a filename or immediately following a slash
+must be matched explicitly, unless the shell option <code>dotglob</code> is set.
+When matching a file name, the slash character must always be
+matched explicitly.
+In other cases, the &lsquo;<samp>.</samp>&rsquo; character is not treated specially.
+</p>
+<p>See the description of <code>shopt</code> in <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>,
+for a description of the <code>nocaseglob</code>, <code>nullglob</code>,
+<code>failglob</code>, and <code>dotglob</code> options.
+</p>
+<p>The <code>GLOBIGNORE</code>
+shell variable may be used to restrict the set of filenames matching a
+pattern.  If <code>GLOBIGNORE</code>
+is set, each matching filename that also matches one of the patterns in
+<code>GLOBIGNORE</code> is removed from the list of matches.  The filenames
+<samp>.</samp> and <samp>..</samp>
+are always ignored when <code>GLOBIGNORE</code>
+is set and not null.
+However, setting <code>GLOBIGNORE</code> to a non-null value has the effect of
+enabling the <code>dotglob</code>
+shell option, so all other filenames beginning with a
+&lsquo;<samp>.</samp>&rsquo; will match.
+To get the old behavior of ignoring filenames beginning with a
+&lsquo;<samp>.</samp>&rsquo;, make &lsquo;<samp>.*</samp>&rsquo; one of the patterns in <code>GLOBIGNORE</code>.
+The <code>dotglob</code> option is disabled when <code>GLOBIGNORE</code>
+is unset.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Quote-Removal.html#Quote-Removal" accesskey="n" rel="next">Quote Removal</a>, Previous: <a href="Word-Splitting.html#Word-Splitting" accesskey="p" rel="previous">Word Splitting</a>, Up: <a href="Shell-Expansions.html#Shell-Expansions" accesskey="u" rel="up">Shell Expansions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

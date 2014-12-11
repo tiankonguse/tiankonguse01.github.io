@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Tilde Expansion</title>
+
+<meta name="description" content="Bash Reference Manual: Tilde Expansion">
+<meta name="keywords" content="Bash Reference Manual: Tilde Expansion">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Shell-Expansions.html#Shell-Expansions" rel="up" title="Shell Expansions">
+<link href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion" rel="next" title="Shell Parameter Expansion">
+<link href="Brace-Expansion.html#Brace-Expansion" rel="previous" title="Brace Expansion">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Tilde-Expansion"></a>
+<div class="header">
+<p>
+Next: <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion" accesskey="n" rel="next">Shell Parameter Expansion</a>, Previous: <a href="Brace-Expansion.html#Brace-Expansion" accesskey="p" rel="previous">Brace Expansion</a>, Up: <a href="Shell-Expansions.html#Shell-Expansions" accesskey="u" rel="up">Shell Expansions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Tilde-Expansion-1"></a>
+<h4 class="subsection">3.5.2 Tilde Expansion</h4>
+<a name="index-tilde-expansion"></a>
+<a name="index-expansion_002c-tilde"></a>
+
+<p>If a word begins with an unquoted tilde character (&lsquo;<samp>~</samp>&rsquo;), all of the
+characters up to the first unquoted slash (or all characters,
+if there is no unquoted slash) are considered a <var>tilde-prefix</var>.
+If none of the characters in the tilde-prefix are quoted, the
+characters in the tilde-prefix following the tilde are treated as a
+possible <var>login name</var>.
+If this login name is the null string, the tilde is replaced with the
+value of the <code>HOME</code> shell variable.
+If <code>HOME</code> is unset, the home directory of the user executing the
+shell is substituted instead.
+Otherwise, the tilde-prefix is replaced with the home directory
+associated with the specified login name.
+</p>
+<p>If the tilde-prefix is &lsquo;<samp>~+</samp>&rsquo;, the value of
+the shell variable <code>PWD</code> replaces the tilde-prefix.
+If the tilde-prefix is &lsquo;<samp>~-</samp>&rsquo;, the value of the shell variable
+<code>OLDPWD</code>, if it is set, is substituted.
+</p>
+<p>If the characters following the tilde in the tilde-prefix consist of a
+number <var>N</var>, optionally prefixed by a &lsquo;<samp>+</samp>&rsquo; or a &lsquo;<samp>-</samp>&rsquo;,
+the tilde-prefix is replaced with the
+corresponding element from the directory stack, as it would be displayed
+by the <code>dirs</code> builtin invoked with the characters following tilde
+in the tilde-prefix as an argument (see <a href="The-Directory-Stack.html#The-Directory-Stack">The Directory Stack</a>).
+If the tilde-prefix, sans the tilde, consists of a number without a
+leading &lsquo;<samp>+</samp>&rsquo; or &lsquo;<samp>-</samp>&rsquo;, &lsquo;<samp>+</samp>&rsquo; is assumed.
+</p>
+<p>If the login name is invalid, or the tilde expansion fails, the word is
+left unchanged.
+</p>
+<p>Each variable assignment is checked for unquoted tilde-prefixes immediately
+following a &lsquo;<samp>:</samp>&rsquo; or the first &lsquo;<samp>=</samp>&rsquo;.
+In these cases, tilde expansion is also performed.
+Consequently, one may use file names with tildes in assignments to
+<code>PATH</code>, <code>MAILPATH</code>, and <code>CDPATH</code>,
+and the shell assigns the expanded value.
+</p>
+<p>The following table shows how Bash treats unquoted tilde-prefixes:
+</p>
+<dl compact="compact">
+<dt><code>~</code></dt>
+<dd><p>The value of <code>$HOME</code>
+</p></dd>
+<dt><code>~/foo</code></dt>
+<dd><p><samp>$HOME/foo</samp>
+</p>
+</dd>
+<dt><code>~fred/foo</code></dt>
+<dd><p>The subdirectory <code>foo</code> of the home directory of the user
+<code>fred</code>
+</p>
+</dd>
+<dt><code>~+/foo</code></dt>
+<dd><p><samp>$PWD/foo</samp>
+</p>
+</dd>
+<dt><code>~-/foo</code></dt>
+<dd><p><samp>${OLDPWD-'~-'}/foo</samp>
+</p>
+</dd>
+<dt><code>~<var>N</var></code></dt>
+<dd><p>The string that would be displayed by &lsquo;<samp>dirs +<var>N</var></samp>&rsquo;
+</p>
+</dd>
+<dt><code>~+<var>N</var></code></dt>
+<dd><p>The string that would be displayed by &lsquo;<samp>dirs +<var>N</var></samp>&rsquo;
+</p>
+</dd>
+<dt><code>~-<var>N</var></code></dt>
+<dd><p>The string that would be displayed by &lsquo;<samp>dirs -<var>N</var></samp>&rsquo;
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion" accesskey="n" rel="next">Shell Parameter Expansion</a>, Previous: <a href="Brace-Expansion.html#Brace-Expansion" accesskey="p" rel="previous">Brace Expansion</a>, Up: <a href="Shell-Expansions.html#Shell-Expansions" accesskey="u" rel="up">Shell Expansions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

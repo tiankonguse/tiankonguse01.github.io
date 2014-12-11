@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Double Quotes</title>
+
+<meta name="description" content="Bash Reference Manual: Double Quotes">
+<meta name="keywords" content="Bash Reference Manual: Double Quotes">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Quoting.html#Quoting" rel="up" title="Quoting">
+<link href="ANSI_002dC-Quoting.html#ANSI_002dC-Quoting" rel="next" title="ANSI-C Quoting">
+<link href="Single-Quotes.html#Single-Quotes" rel="previous" title="Single Quotes">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Double-Quotes"></a>
+<div class="header">
+<p>
+Next: <a href="ANSI_002dC-Quoting.html#ANSI_002dC-Quoting" accesskey="n" rel="next">ANSI-C Quoting</a>, Previous: <a href="Single-Quotes.html#Single-Quotes" accesskey="p" rel="previous">Single Quotes</a>, Up: <a href="Quoting.html#Quoting" accesskey="u" rel="up">Quoting</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Double-Quotes-1"></a>
+<h4 class="subsubsection">3.1.2.3 Double Quotes</h4>
+
+<p>Enclosing characters in double quotes (&lsquo;<samp>&quot;</samp>&rsquo;) preserves the literal value
+of all characters within the quotes, with the exception of
+&lsquo;<samp>$</samp>&rsquo;, &lsquo;<samp>`</samp>&rsquo;, &lsquo;<samp>\</samp>&rsquo;,
+and, when history expansion is enabled, &lsquo;<samp>!</samp>&rsquo;.
+The characters &lsquo;<samp>$</samp>&rsquo; and &lsquo;<samp>`</samp>&rsquo;
+retain their special meaning within double quotes (see <a href="Shell-Expansions.html#Shell-Expansions">Shell Expansions</a>).
+The backslash retains its special meaning only when followed by one of
+the following characters:
+&lsquo;<samp>$</samp>&rsquo;, &lsquo;<samp>`</samp>&rsquo;, &lsquo;<samp>&quot;</samp>&rsquo;, &lsquo;<samp>\</samp>&rsquo;, or <code>newline</code>.
+Within double quotes, backslashes that are followed by one of these
+characters are removed.  Backslashes preceding characters without a
+special meaning are left unmodified.
+A double quote may be quoted within double quotes by preceding it with
+a backslash.
+If enabled, history expansion will be performed unless an &lsquo;<samp>!</samp>&rsquo;
+appearing in double quotes is escaped using a backslash.
+The backslash preceding the &lsquo;<samp>!</samp>&rsquo; is not removed.
+</p>
+<p>The special parameters &lsquo;<samp>*</samp>&rsquo; and &lsquo;<samp>@</samp>&rsquo; have special meaning
+when in double quotes (see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bash History Facilities</title>
+
+<meta name="description" content="Bash Reference Manual: Bash History Facilities">
+<meta name="keywords" content="Bash Reference Manual: Bash History Facilities">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Using-History-Interactively.html#Using-History-Interactively" rel="up" title="Using History Interactively">
+<link href="Bash-History-Builtins.html#Bash-History-Builtins" rel="next" title="Bash History Builtins">
+<link href="Using-History-Interactively.html#Using-History-Interactively" rel="previous" title="Using History Interactively">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bash-History-Facilities"></a>
+<div class="header">
+<p>
+Next: <a href="Bash-History-Builtins.html#Bash-History-Builtins" accesskey="n" rel="next">Bash History Builtins</a>, Up: <a href="Using-History-Interactively.html#Using-History-Interactively" accesskey="u" rel="up">Using History Interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-History-Facilities-1"></a>
+<h3 class="section">9.1 Bash History Facilities</h3>
+<a name="index-command-history"></a>
+<a name="index-history-list"></a>
+
+<p>When the <samp>-o history</samp> option to the <code>set</code> builtin
+is enabled (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>),
+the shell provides access to the <em>command history</em>,
+the list of commands previously typed.
+The value of the <code>HISTSIZE</code> shell variable is used as the
+number of commands to save in a history list.
+The text of the last <code>$HISTSIZE</code>
+commands (default 500) is saved.
+The shell stores each command in the history list prior to
+parameter and variable expansion
+but after history expansion is performed, subject to the
+values of the shell variables
+<code>HISTIGNORE</code> and <code>HISTCONTROL</code>.
+</p>
+<p>When the shell starts up, the history is initialized from the
+file named by the <code>HISTFILE</code> variable (default <samp>~/.bash_history</samp>).
+The file named by the value of <code>HISTFILE</code> is truncated, if
+necessary, to contain no more than the number of lines specified by
+the value of the <code>HISTFILESIZE</code> variable.
+When an interactive shell exits, the last
+<code>$HISTSIZE</code> lines are copied from the history list to the file
+named by <code>$HISTFILE</code>.
+If the <code>histappend</code> shell option is set (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>),
+the lines are appended to the history file,
+otherwise the history file is overwritten.
+If <code>HISTFILE</code>
+is unset, or if the history file is unwritable, the history is
+not saved.  After saving the history, the history file is truncated
+to contain no more than <code>$HISTFILESIZE</code>
+lines.  If <code>HISTFILESIZE</code> is not set, no truncation is performed.
+</p>
+<p>If the <code>HISTTIMEFORMAT</code> is set, the time stamp information
+associated with each history entry is written to the history file,
+marked with the history comment character.
+When the history file is read, lines beginning with the history
+comment character followed immediately by a digit are interpreted
+as timestamps for the previous history line.
+</p>
+<p>The builtin command <code>fc</code> may be used to list or edit and re-execute
+a portion of the history list.
+The <code>history</code> builtin may be used to display or modify the history
+list and manipulate the history file.
+When using command-line editing, search commands
+are available in each editing mode that provide access to the
+history list (see <a href="Commands-For-History.html#Commands-For-History">Commands For History</a>).
+</p>
+<p>The shell allows control over which commands are saved on the history
+list.  The <code>HISTCONTROL</code> and <code>HISTIGNORE</code>
+variables may be set to cause the shell to save only a subset of the
+commands entered.
+The <code>cmdhist</code>
+shell option, if enabled, causes the shell to attempt to save each
+line of a multi-line command in the same history entry, adding
+semicolons where necessary to preserve syntactic correctness.
+The <code>lithist</code>
+shell option causes the shell to save the command with embedded newlines
+instead of semicolons.
+The <code>shopt</code> builtin is used to set these options.
+See <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>, for a description of <code>shopt</code>.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Bash-History-Builtins.html#Bash-History-Builtins" accesskey="n" rel="next">Bash History Builtins</a>, Up: <a href="Using-History-Interactively.html#Using-History-Interactively" accesskey="u" rel="up">Using History Interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

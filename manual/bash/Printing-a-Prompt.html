@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Printing a Prompt</title>
+
+<meta name="description" content="Bash Reference Manual: Printing a Prompt">
+<meta name="keywords" content="Bash Reference Manual: Printing a Prompt">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bash-Features.html#Bash-Features" rel="up" title="Bash Features">
+<link href="The-Restricted-Shell.html#The-Restricted-Shell" rel="next" title="The Restricted Shell">
+<link href="Directory-Stack-Builtins.html#Directory-Stack-Builtins" rel="previous" title="Directory Stack Builtins">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Printing-a-Prompt"></a>
+<div class="header">
+<p>
+Next: <a href="The-Restricted-Shell.html#The-Restricted-Shell" accesskey="n" rel="next">The Restricted Shell</a>, Previous: <a href="The-Directory-Stack.html#The-Directory-Stack" accesskey="p" rel="previous">The Directory Stack</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Controlling-the-Prompt"></a>
+<h3 class="section">6.9 Controlling the Prompt</h3>
+<a name="index-prompting"></a>
+
+<p>The value of the variable <code>PROMPT_COMMAND</code> is examined just before
+Bash prints each primary prompt.  If <code>PROMPT_COMMAND</code> is set and
+has a non-null value, then the
+value is executed just as if it had been typed on the command line.
+</p>
+<p>In addition, the following table describes the special characters which
+can appear in the prompt variables:
+</p>
+<dl compact="compact">
+<dt><code>\a</code></dt>
+<dd><p>A bell character.
+</p></dd>
+<dt><code>\d</code></dt>
+<dd><p>The date, in &quot;Weekday Month Date&quot; format (e.g., &quot;Tue May 26&quot;).
+</p></dd>
+<dt><code>\D{<var>format</var>}</code></dt>
+<dd><p>The <var>format</var> is passed to <code>strftime</code>(3) and the result is inserted
+into the prompt string; an empty <var>format</var> results in a locale-specific
+time representation.  The braces are required.
+</p></dd>
+<dt><code>\e</code></dt>
+<dd><p>An escape character.
+</p></dd>
+<dt><code>\h</code></dt>
+<dd><p>The hostname, up to the first &lsquo;.&rsquo;.
+</p></dd>
+<dt><code>\H</code></dt>
+<dd><p>The hostname.
+</p></dd>
+<dt><code>\j</code></dt>
+<dd><p>The number of jobs currently managed by the shell.
+</p></dd>
+<dt><code>\l</code></dt>
+<dd><p>The basename of the shell&rsquo;s terminal device name.
+</p></dd>
+<dt><code>\n</code></dt>
+<dd><p>A newline.
+</p></dd>
+<dt><code>\r</code></dt>
+<dd><p>A carriage return.
+</p></dd>
+<dt><code>\s</code></dt>
+<dd><p>The name of the shell, the basename of <code>$0</code> (the portion
+following the final slash).
+</p></dd>
+<dt><code>\t</code></dt>
+<dd><p>The time, in 24-hour HH:MM:SS format.
+</p></dd>
+<dt><code>\T</code></dt>
+<dd><p>The time, in 12-hour HH:MM:SS format.
+</p></dd>
+<dt><code>\@</code></dt>
+<dd><p>The time, in 12-hour am/pm format.
+</p></dd>
+<dt><code>\A</code></dt>
+<dd><p>The time, in 24-hour HH:MM format.
+</p></dd>
+<dt><code>\u</code></dt>
+<dd><p>The username of the current user.
+</p></dd>
+<dt><code>\v</code></dt>
+<dd><p>The version of Bash (e.g., 2.00)          
+</p></dd>
+<dt><code>\V</code></dt>
+<dd><p>The release of Bash, version + patchlevel (e.g., 2.00.0)
+</p></dd>
+<dt><code>\w</code></dt>
+<dd><p>The current working directory, with <code>$HOME</code> abbreviated with a tilde
+(uses the <code>$PROMPT_DIRTRIM</code> variable).
+</p></dd>
+<dt><code>\W</code></dt>
+<dd><p>The basename of <code>$PWD</code>, with <code>$HOME</code> abbreviated with a tilde.
+</p></dd>
+<dt><code>\!</code></dt>
+<dd><p>The history number of this command.
+</p></dd>
+<dt><code>\#</code></dt>
+<dd><p>The command number of this command.
+</p></dd>
+<dt><code>\$</code></dt>
+<dd><p>If the effective uid is 0, <code>#</code>, otherwise <code>$</code>.
+</p></dd>
+<dt><code>\<var>nnn</var></code></dt>
+<dd><p>The character whose ASCII code is the octal value <var>nnn</var>.
+</p></dd>
+<dt><code>\\</code></dt>
+<dd><p>A backslash.
+</p></dd>
+<dt><code>\[</code></dt>
+<dd><p>Begin a sequence of non-printing characters.  This could be used to
+embed a terminal control sequence into the prompt.
+</p></dd>
+<dt><code>\]</code></dt>
+<dd><p>End a sequence of non-printing characters.
+</p></dd>
+</dl>
+
+<p>The command number and the history number are usually different:
+the history number of a command is its position in the history
+list, which may include commands restored from the history file
+(see <a href="Bash-History-Facilities.html#Bash-History-Facilities">Bash History Facilities</a>), while the command number is
+the position in the sequence of commands executed during the current
+shell session.
+</p>
+<p>After the string is decoded, it is expanded via
+parameter expansion, command substitution, arithmetic
+expansion, and quote removal, subject to the value of the
+<code>promptvars</code> shell option (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="The-Restricted-Shell.html#The-Restricted-Shell" accesskey="n" rel="next">The Restricted Shell</a>, Previous: <a href="The-Directory-Stack.html#The-Directory-Stack" accesskey="p" rel="previous">The Directory Stack</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

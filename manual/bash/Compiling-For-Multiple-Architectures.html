@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Compiling For Multiple Architectures</title>
+
+<meta name="description" content="Bash Reference Manual: Compiling For Multiple Architectures">
+<meta name="keywords" content="Bash Reference Manual: Compiling For Multiple Architectures">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Installing-Bash.html#Installing-Bash" rel="up" title="Installing Bash">
+<link href="Installation-Names.html#Installation-Names" rel="next" title="Installation Names">
+<link href="Compilers-and-Options.html#Compilers-and-Options" rel="previous" title="Compilers and Options">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Compiling-For-Multiple-Architectures"></a>
+<div class="header">
+<p>
+Next: <a href="Installation-Names.html#Installation-Names" accesskey="n" rel="next">Installation Names</a>, Previous: <a href="Compilers-and-Options.html#Compilers-and-Options" accesskey="p" rel="previous">Compilers and Options</a>, Up: <a href="Installing-Bash.html#Installing-Bash" accesskey="u" rel="up">Installing Bash</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Compiling-For-Multiple-Architectures-1"></a>
+<h3 class="section">10.3 Compiling For Multiple Architectures</h3>
+
+<p>You can compile Bash for more than one kind of computer at the
+same time, by placing the object files for each architecture in their
+own directory.  To do this, you must use a version of <code>make</code> that
+supports the <code>VPATH</code> variable, such as GNU <code>make</code>.
+<code>cd</code> to the
+directory where you want the object files and executables to go and run
+the <code>configure</code> script from the source directory.  You may need to
+supply the <samp>--srcdir=PATH</samp> argument to tell <code>configure</code> where the
+source files are.  <code>configure</code> automatically checks for the
+source code in the directory that <code>configure</code> is in and in &lsquo;..&rsquo;.
+</p>
+<p>If you have to use a <code>make</code> that does not supports the <code>VPATH</code>
+variable, you can compile Bash for one architecture at a
+time in the source code directory.  After you have installed
+Bash for one architecture, use &lsquo;<samp>make distclean</samp>&rsquo; before
+reconfiguring for another architecture.
+</p>
+<p>Alternatively, if your system supports symbolic links, you can use the
+<samp>support/mkclone</samp> script to create a build tree which has
+symbolic links back to each file in the source directory.  Here&rsquo;s an
+example that creates a build directory in the current directory from a
+source directory <samp>/usr/gnu/src/bash-2.0</samp>:
+</p>
+<div class="example">
+<pre class="example">bash /usr/gnu/src/bash-2.0/support/mkclone -s /usr/gnu/src/bash-2.0 .
+</pre></div>
+
+<p>The <code>mkclone</code> script requires Bash, so you must have already built
+Bash for at least one architecture before you can create build
+directories for other architectures.
+</p>
+
+
+
+</body>
+</html>

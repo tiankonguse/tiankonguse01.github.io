@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Directory Stack Builtins</title>
+
+<meta name="description" content="Bash Reference Manual: Directory Stack Builtins">
+<meta name="keywords" content="Bash Reference Manual: Directory Stack Builtins">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="The-Directory-Stack.html#The-Directory-Stack" rel="up" title="The Directory Stack">
+<link href="Printing-a-Prompt.html#Printing-a-Prompt" rel="next" title="Printing a Prompt">
+<link href="The-Directory-Stack.html#The-Directory-Stack" rel="previous" title="The Directory Stack">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Directory-Stack-Builtins"></a>
+<div class="header">
+<p>
+Up: <a href="The-Directory-Stack.html#The-Directory-Stack" accesskey="u" rel="up">The Directory Stack</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Directory-Stack-Builtins-1"></a>
+<h4 class="subsection">6.8.1 Directory Stack Builtins</h4>
+
+<dl compact="compact">
+<dt><code>dirs</code></dt>
+<dd><a name="index-dirs"></a>
+<div class="example">
+<pre class="example">dirs [+<var>N</var> | -<var>N</var>] [-clpv]
+</pre></div>
+<p>Display the list of currently remembered directories.  Directories
+are added to the list with the <code>pushd</code> command; the
+<code>popd</code> command removes directories from the list.
+</p><dl compact="compact">
+<dt><code>+<var>N</var></code></dt>
+<dd><p>Displays the <var>N</var>th directory (counting from the left of the
+list printed by <code>dirs</code> when invoked without options), starting
+with zero.
+</p></dd>
+<dt><code>-<var>N</var></code></dt>
+<dd><p>Displays the <var>N</var>th directory (counting from the right of the
+list printed by <code>dirs</code> when invoked without options), starting
+with zero.
+</p></dd>
+<dt><code>-c</code></dt>
+<dd><p>Clears the directory stack by deleting all of the elements.
+</p></dd>
+<dt><code>-l</code></dt>
+<dd><p>Produces a longer listing; the default listing format uses a 
+tilde to denote the home directory.
+</p></dd>
+<dt><code>-p</code></dt>
+<dd><p>Causes <code>dirs</code> to print the directory stack with one entry per
+line.
+</p></dd>
+<dt><code>-v</code></dt>
+<dd><p>Causes <code>dirs</code> to print the directory stack with one entry per
+line, prefixing each entry with its index in the stack.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>popd</code></dt>
+<dd><a name="index-popd"></a>
+<div class="example">
+<pre class="example">popd [+<var>N</var> | -<var>N</var>] [-n]
+</pre></div>
+
+<p>Remove the top entry from the directory stack, and <code>cd</code>
+to the new top directory.
+When no arguments are given, <code>popd</code>
+removes the top directory from the stack and
+performs a <code>cd</code> to the new top directory.  The
+elements are numbered from 0 starting at the first directory listed with
+<code>dirs</code>; i.e., <code>popd</code> is equivalent to <code>popd +0</code>.
+</p><dl compact="compact">
+<dt><code>+<var>N</var></code></dt>
+<dd><p>Removes the <var>N</var>th directory (counting from the left of the
+list printed by <code>dirs</code>), starting with zero.
+</p></dd>
+<dt><code>-<var>N</var></code></dt>
+<dd><p>Removes the <var>N</var>th directory (counting from the right of the
+list printed by <code>dirs</code>), starting with zero.
+</p></dd>
+<dt><code>-n</code></dt>
+<dd><p>Suppresses the normal change of directory when removing directories
+from the stack, so that only the stack is manipulated.
+</p></dd>
+</dl>
+
+<a name="index-pushd"></a>
+</dd>
+<dt><code>pushd</code></dt>
+<dd><div class="example">
+<pre class="example">pushd [-n] [<var>+N</var> | <var>-N</var> | <var>dir</var> ]
+</pre></div>
+
+<p>Save the current directory on the top of the directory stack
+and then <code>cd</code> to <var>dir</var>.
+With no arguments, <code>pushd</code> exchanges the top two directories.
+</p>
+<dl compact="compact">
+<dt><code>-n</code></dt>
+<dd><p>Suppresses the normal change of directory when adding directories
+to the stack, so that only the stack is manipulated.
+</p></dd>
+<dt><code>+<var>N</var></code></dt>
+<dd><p>Brings the <var>N</var>th directory (counting from the left of the
+list printed by <code>dirs</code>, starting with zero) to the top of
+the list by rotating the stack.
+</p></dd>
+<dt><code>-<var>N</var></code></dt>
+<dd><p>Brings the <var>N</var>th directory (counting from the right of the
+list printed by <code>dirs</code>, starting with zero) to the top of
+the list by rotating the stack.
+</p></dd>
+<dt><code><var>dir</var></code></dt>
+<dd><p>Makes the current working directory be the top of the stack, and then
+executes the equivalent of &lsquo;<code>cd</code> <var>dir</var>&rsquo;.
+<code>cd</code>s to <var>dir</var>.
+</p></dd>
+</dl>
+
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Up: <a href="The-Directory-Stack.html#The-Directory-Stack" accesskey="u" rel="up">The Directory Stack</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

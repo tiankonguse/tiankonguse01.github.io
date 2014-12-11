@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Invoking Bash</title>
+
+<meta name="description" content="Bash Reference Manual: Invoking Bash">
+<meta name="keywords" content="Bash Reference Manual: Invoking Bash">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bash-Features.html#Bash-Features" rel="up" title="Bash Features">
+<link href="Bash-Startup-Files.html#Bash-Startup-Files" rel="next" title="Bash Startup Files">
+<link href="Bash-Features.html#Bash-Features" rel="previous" title="Bash Features">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Invoking-Bash"></a>
+<div class="header">
+<p>
+Next: <a href="Bash-Startup-Files.html#Bash-Startup-Files" accesskey="n" rel="next">Bash Startup Files</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Invoking-Bash-1"></a>
+<h3 class="section">6.1 Invoking Bash</h3>
+
+<div class="example">
+<pre class="example">bash [long-opt] [-ir] [-abefhkmnptuvxdBCDHP] [-o <var>option</var>] [-O <var>shopt_option</var>] [<var>argument</var> &hellip;]
+bash [long-opt] [-abefhkmnptuvxdBCDHP] [-o <var>option</var>] [-O <var>shopt_option</var>] -c <var>string</var> [<var>argument</var> &hellip;]
+bash [long-opt] -s [-abefhkmnptuvxdBCDHP] [-o <var>option</var>] [-O <var>shopt_option</var>] [<var>argument</var> &hellip;]
+</pre></div>
+
+<p>All of the single-character options used with the <code>set</code> builtin
+(see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>) can be used as options when the shell is invoked.
+In addition, there are several multi-character
+options that you can use.  These options must appear on the command
+line before the single-character options to be recognized. 
+</p>
+<dl compact="compact">
+<dt><code>--debugger</code></dt>
+<dd><p>Arrange for the debugger profile to be executed before the shell
+starts.  Turns on extended debugging mode (see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>
+for a description of the <code>extdebug</code> option to the <code>shopt</code>
+builtin).
+</p>
+</dd>
+<dt><code>--dump-po-strings</code></dt>
+<dd><p>A list of all double-quoted strings preceded by &lsquo;<samp>$</samp>&rsquo;
+is printed on the standard output
+in the <small>GNU</small> <code>gettext</code> PO (portable object) file format.
+Equivalent to <samp>-D</samp> except for the output format.
+</p>
+</dd>
+<dt><code>--dump-strings</code></dt>
+<dd><p>Equivalent to <samp>-D</samp>.
+</p>
+</dd>
+<dt><code>--help</code></dt>
+<dd><p>Display a usage message on standard output and exit successfully.
+</p>
+</dd>
+<dt><code>--init-file <var>filename</var></code></dt>
+<dt><code>--rcfile <var>filename</var></code></dt>
+<dd><p>Execute commands from <var>filename</var> (instead of <samp>~/.bashrc</samp>)
+in an interactive shell.
+</p>
+</dd>
+<dt><code>--login</code></dt>
+<dd><p>Equivalent to <samp>-l</samp>.
+</p>
+</dd>
+<dt><code>--noediting</code></dt>
+<dd><p>Do not use the <small>GNU</small> Readline library (see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>)
+to read  command lines when the shell is interactive.
+</p>
+</dd>
+<dt><code>--noprofile</code></dt>
+<dd><p>Don&rsquo;t load the system-wide startup file <samp>/etc/profile</samp>
+or any of the personal initialization files
+<samp>~/.bash_profile</samp>, <samp>~/.bash_login</samp>, or <samp>~/.profile</samp>
+when Bash is invoked as a login shell.
+</p>
+</dd>
+<dt><code>--norc</code></dt>
+<dd><p>Don&rsquo;t read the <samp>~/.bashrc</samp> initialization file in an
+interactive shell.  This is on by default if the shell is
+invoked as <code>sh</code>.
+</p>
+</dd>
+<dt><code>--posix</code></dt>
+<dd><p>Change the behavior of Bash where the default operation differs
+from the <small>POSIX</small> standard to match the standard.  This
+is intended to make Bash behave as a strict superset of that
+standard.  See <a href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">Bash POSIX Mode</a>, for a description of the Bash
+<small>POSIX</small> mode.
+</p>
+</dd>
+<dt><code>--restricted</code></dt>
+<dd><p>Make the shell a restricted shell (see <a href="The-Restricted-Shell.html#The-Restricted-Shell">The Restricted Shell</a>).
+</p>
+</dd>
+<dt><code>--verbose</code></dt>
+<dd><p>Equivalent to <samp>-v</samp>.  Print shell input lines as they&rsquo;re read.
+</p>
+</dd>
+<dt><code>--version</code></dt>
+<dd><p>Show version information for this instance of
+Bash on the standard output and exit successfully.
+</p>
+</dd>
+</dl>
+
+<p>There are several single-character options that may be supplied at
+invocation which are not available with the <code>set</code> builtin.
+</p>
+<dl compact="compact">
+<dt><code>-c <var>string</var></code></dt>
+<dd><p>Read and execute commands from <var>string</var> after processing the
+options, then exit.  Any remaining arguments are assigned to the
+positional parameters, starting with <code>$0</code>.
+</p>
+</dd>
+<dt><code>-i</code></dt>
+<dd><p>Force the shell to run interactively.  Interactive shells are
+described in <a href="Interactive-Shells.html#Interactive-Shells">Interactive Shells</a>.
+</p>
+</dd>
+<dt><code>-l</code></dt>
+<dd><p>Make this shell act as if it had been directly invoked by login.
+When the shell is interactive, this is equivalent to starting a
+login shell with &lsquo;<samp>exec -l bash</samp>&rsquo;.
+When the shell is not interactive, the login shell startup files will
+be executed.
+&lsquo;<samp>exec bash -l</samp>&rsquo; or &lsquo;<samp>exec bash --login</samp>&rsquo;
+will replace the current shell with a Bash login shell.
+See <a href="Bash-Startup-Files.html#Bash-Startup-Files">Bash Startup Files</a>, for a description of the special behavior
+of a login shell.
+</p>
+</dd>
+<dt><code>-r</code></dt>
+<dd><p>Make the shell a restricted shell (see <a href="The-Restricted-Shell.html#The-Restricted-Shell">The Restricted Shell</a>).
+</p>
+</dd>
+<dt><code>-s</code></dt>
+<dd><p>If this option is present, or if no arguments remain after option
+processing, then commands are read from the standard input.
+This option allows the positional parameters to be set
+when invoking an interactive shell.
+</p>
+</dd>
+<dt><code>-D</code></dt>
+<dd><p>A list of all double-quoted strings preceded by &lsquo;<samp>$</samp>&rsquo;
+is printed on the standard output.
+These are the strings that
+are subject to language translation when the current locale
+is not <code>C</code> or <code>POSIX</code> (see <a href="Locale-Translation.html#Locale-Translation">Locale Translation</a>).
+This implies the <samp>-n</samp> option; no commands will be executed.
+</p>
+</dd>
+<dt><code>[-+]O [<var>shopt_option</var>]</code></dt>
+<dd><p><var>shopt_option</var> is one of the shell options accepted by the
+<code>shopt</code> builtin (see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>).
+If <var>shopt_option</var> is present, <samp>-O</samp> sets the value of that option;
+<samp>+O</samp> unsets it.  
+If <var>shopt_option</var> is not supplied, the names and values of the shell
+options accepted by <code>shopt</code> are printed on the standard output.
+If the invocation option is <samp>+O</samp>, the output is displayed in a format
+that may be reused as input.
+</p>
+</dd>
+<dt><code>--</code></dt>
+<dd><p>A <code>--</code> signals the end of options and disables further option
+processing.
+Any arguments after the <code>--</code> are treated as filenames and arguments.
+</p>
+</dd>
+</dl>
+
+<a name="index-login-shell"></a>
+<p>A <em>login</em> shell is one whose first character of argument zero is
+&lsquo;<samp>-</samp>&rsquo;, or one invoked with the <samp>--login</samp> option.
+</p>
+<a name="index-interactive-shell"></a>
+<p>An <em>interactive</em> shell is one started without non-option arguments,
+unless <samp>-s</samp> is specified,
+without specifying the <samp>-c</samp> option, and whose input and output are both
+connected to terminals (as determined by <code>isatty(3)</code>), or one
+started with the <samp>-i</samp> option.  See <a href="Interactive-Shells.html#Interactive-Shells">Interactive Shells</a>, for more
+information.
+</p>
+<p>If arguments remain after option processing, and neither the
+<samp>-c</samp> nor the <samp>-s</samp>
+option has been supplied, the first argument is assumed to
+be the name of a file containing shell commands (see <a href="Shell-Scripts.html#Shell-Scripts">Shell Scripts</a>).
+When Bash is invoked in this fashion, <code>$0</code>
+is set to the name of the file, and the positional parameters
+are set to the remaining arguments.
+Bash reads and executes commands from this file, then exits.   
+Bash&rsquo;s exit status is the exit status of the last command executed
+in the script.  If no commands are executed, the exit status is 0.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Bash-Startup-Files.html#Bash-Startup-Files" accesskey="n" rel="next">Bash Startup Files</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

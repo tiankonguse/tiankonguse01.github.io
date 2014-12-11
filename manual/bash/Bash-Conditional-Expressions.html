@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bash Conditional Expressions</title>
+
+<meta name="description" content="Bash Reference Manual: Bash Conditional Expressions">
+<meta name="keywords" content="Bash Reference Manual: Bash Conditional Expressions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bash-Features.html#Bash-Features" rel="up" title="Bash Features">
+<link href="Shell-Arithmetic.html#Shell-Arithmetic" rel="next" title="Shell Arithmetic">
+<link href="Interactive-Shell-Behavior.html#Interactive-Shell-Behavior" rel="previous" title="Interactive Shell Behavior">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bash-Conditional-Expressions"></a>
+<div class="header">
+<p>
+Next: <a href="Shell-Arithmetic.html#Shell-Arithmetic" accesskey="n" rel="next">Shell Arithmetic</a>, Previous: <a href="Interactive-Shells.html#Interactive-Shells" accesskey="p" rel="previous">Interactive Shells</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-Conditional-Expressions-1"></a>
+<h3 class="section">6.4 Bash Conditional Expressions</h3>
+<a name="index-expressions_002c-conditional"></a>
+
+<p>Conditional expressions are used by the <code>[[</code> compound command
+and the <code>test</code> and <code>[</code> builtin commands.
+</p>
+<p>Expressions may be unary or binary.
+Unary expressions are often used to examine the status of a file.
+There are string operators and numeric comparison operators as well.
+If the <var>file</var> argument to one of the primaries is of the form
+<samp>/dev/fd/<var>N</var></samp>, then file descriptor <var>N</var> is checked.
+If the <var>file</var> argument to one of the primaries is one of
+<samp>/dev/stdin</samp>, <samp>/dev/stdout</samp>, or <samp>/dev/stderr</samp>, file
+descriptor 0, 1, or 2, respectively, is checked.
+</p>
+<p>When used with &lsquo;<samp>[[</samp>&rsquo;, the &lsquo;<samp>&lt;</samp>&rsquo; and &lsquo;<samp>&gt;</samp>&rsquo; operators sort
+lexicographically using the current locale.
+The <code>test</code> command uses ASCII ordering.
+</p>
+<p>Unless otherwise specified, primaries that operate on files follow symbolic
+links and operate on the target of the link, rather than the link itself.
+</p>
+<dl compact="compact">
+<dt><code>-a <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists.
+</p>
+</dd>
+<dt><code>-b <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a block special file.
+</p>
+</dd>
+<dt><code>-c <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a character special file.
+</p>
+</dd>
+<dt><code>-d <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a directory.
+</p>
+</dd>
+<dt><code>-e <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists.
+</p>
+</dd>
+<dt><code>-f <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a regular file.
+</p>
+</dd>
+<dt><code>-g <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and its set-group-id bit is set.
+</p>
+</dd>
+<dt><code>-h <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a symbolic link.
+</p>
+</dd>
+<dt><code>-k <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and its &quot;sticky&quot; bit is set.
+</p>
+</dd>
+<dt><code>-p <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a named pipe (FIFO).
+</p>
+</dd>
+<dt><code>-r <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is readable.
+</p>
+</dd>
+<dt><code>-s <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and has a size greater than zero.
+</p>
+</dd>
+<dt><code>-t <var>fd</var></code></dt>
+<dd><p>True if file descriptor <var>fd</var> is open and refers to a terminal.
+</p>
+</dd>
+<dt><code>-u <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and its set-user-id bit is set.
+</p>
+</dd>
+<dt><code>-w <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is writable.
+</p>
+</dd>
+<dt><code>-x <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is executable.
+</p>
+</dd>
+<dt><code>-G <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is owned by the effective group id.
+</p>
+</dd>
+<dt><code>-L <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a symbolic link.
+</p>
+</dd>
+<dt><code>-N <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and has been modified since it was last read.
+</p>
+</dd>
+<dt><code>-O <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is owned by the effective user id.
+</p>
+</dd>
+<dt><code>-S <var>file</var></code></dt>
+<dd><p>True if <var>file</var> exists and is a socket.
+</p>
+</dd>
+<dt><code><var>file1</var> -ef <var>file2</var></code></dt>
+<dd><p>True if <var>file1</var> and <var>file2</var> refer to the same device and
+inode numbers.
+</p>
+</dd>
+<dt><code><var>file1</var> -nt <var>file2</var></code></dt>
+<dd><p>True if <var>file1</var> is newer (according to modification date)
+than <var>file2</var>, or if <var>file1</var> exists and <var>file2</var> does not.
+</p>
+</dd>
+<dt><code><var>file1</var> -ot <var>file2</var></code></dt>
+<dd><p>True if <var>file1</var> is older than <var>file2</var>,
+or if <var>file2</var> exists and <var>file1</var> does not.
+</p>
+</dd>
+<dt><code>-o <var>optname</var></code></dt>
+<dd><p>True if the shell option <var>optname</var> is enabled.
+The list of options appears in the description of the <samp>-o</samp>
+option to the <code>set</code> builtin (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+</p>
+</dd>
+<dt><code>-v <var>varname</var></code></dt>
+<dd><p>True if the shell variable <var>varname</var> is set (has been assigned a value).
+</p>
+</dd>
+<dt><code>-z <var>string</var></code></dt>
+<dd><p>True if the length of <var>string</var> is zero.
+</p>
+</dd>
+<dt><code>-n <var>string</var></code></dt>
+<dt><code><var>string</var></code></dt>
+<dd><p>True if the length of <var>string</var> is non-zero.
+</p>
+</dd>
+<dt><code><var>string1</var> == <var>string2</var></code></dt>
+<dt><code><var>string1</var> = <var>string2</var></code></dt>
+<dd><p>True if the strings are equal.
+&lsquo;<samp>=</samp>&rsquo; should be used with the <code>test</code> command for <small>POSIX</small> conformance.
+</p>
+</dd>
+<dt><code><var>string1</var> != <var>string2</var></code></dt>
+<dd><p>True if the strings are not equal.
+</p>
+</dd>
+<dt><code><var>string1</var> &lt; <var>string2</var></code></dt>
+<dd><p>True if <var>string1</var> sorts before <var>string2</var> lexicographically.
+</p>
+</dd>
+<dt><code><var>string1</var> &gt; <var>string2</var></code></dt>
+<dd><p>True if <var>string1</var> sorts after <var>string2</var> lexicographically.
+</p>
+</dd>
+<dt><code><var>arg1</var> OP <var>arg2</var></code></dt>
+<dd><p><code>OP</code> is one of 
+&lsquo;<samp>-eq</samp>&rsquo;, &lsquo;<samp>-ne</samp>&rsquo;, &lsquo;<samp>-lt</samp>&rsquo;, &lsquo;<samp>-le</samp>&rsquo;, &lsquo;<samp>-gt</samp>&rsquo;, or &lsquo;<samp>-ge</samp>&rsquo;.
+These arithmetic binary operators return true if <var>arg1</var>
+is equal to, not equal to, less than, less than or equal to,
+greater than, or greater than or equal to <var>arg2</var>,
+respectively.  <var>Arg1</var> and <var>arg2</var>
+may be positive or negative integers.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Shell-Arithmetic.html#Shell-Arithmetic" accesskey="n" rel="next">Shell Arithmetic</a>, Previous: <a href="Interactive-Shells.html#Interactive-Shells" accesskey="p" rel="previous">Interactive Shells</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

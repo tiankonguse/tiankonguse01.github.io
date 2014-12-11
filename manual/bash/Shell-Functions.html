@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Shell Functions</title>
+
+<meta name="description" content="Bash Reference Manual: Shell Functions">
+<meta name="keywords" content="Bash Reference Manual: Shell Functions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Basic-Shell-Features.html#Basic-Shell-Features" rel="up" title="Basic Shell Features">
+<link href="Shell-Parameters.html#Shell-Parameters" rel="next" title="Shell Parameters">
+<link href="GNU-Parallel.html#GNU-Parallel" rel="previous" title="GNU Parallel">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Shell-Functions"></a>
+<div class="header">
+<p>
+Next: <a href="Shell-Parameters.html#Shell-Parameters" accesskey="n" rel="next">Shell Parameters</a>, Previous: <a href="Shell-Commands.html#Shell-Commands" accesskey="p" rel="previous">Shell Commands</a>, Up: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="u" rel="up">Basic Shell Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Shell-Functions-1"></a>
+<h3 class="section">3.3 Shell Functions</h3>
+<a name="index-shell-function"></a>
+<a name="index-functions_002c-shell"></a>
+
+<p>Shell functions are a way to group commands for later execution
+using a single name for the group.  They are executed just like
+a &quot;regular&quot; command.
+When the name of a shell function is used as a simple command name,
+the list of commands associated with that function name is executed.
+Shell functions are executed in the current
+shell context; no new process is created to interpret them.
+</p>
+<p>Functions are declared using this syntax:
+<a name="index-function"></a>
+</p><div class="example">
+<pre class="example"><var>name</var> () <var>compound-command</var> [ <var>redirections</var> ]
+or
+
+<code>function</code> <var>name</var> [()] <var>compound-command</var> [ <var>redirections</var> ]
+</pre></div>
+
+<p>This defines a shell function named <var>name</var>.  The reserved
+word <code>function</code> is optional.
+If the <code>function</code> reserved
+word is supplied, the parentheses are optional.
+The <var>body</var> of the function is the compound command
+<var>compound-command</var> (see <a href="Compound-Commands.html#Compound-Commands">Compound Commands</a>).
+That command is usually a <var>list</var> enclosed between { and }, but
+may be any compound command listed above.
+<var>compound-command</var> is executed whenever <var>name</var> is specified as the
+name of a command.
+Any redirections (see <a href="Redirections.html#Redirections">Redirections</a>) associated with the shell function
+are performed when the function is executed.
+</p>
+<p>A function definition may be deleted using the <samp>-f</samp> option to the
+<code>unset</code> builtin (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+</p>
+<p>The exit status of a function definition is zero unless a syntax error
+occurs or a readonly function with the same name already exists.
+When executed, the exit status of a function is the exit status of the
+last command executed in the body.
+</p>
+<p>Note that for historical reasons, in the most common usage the curly braces
+that surround the body of the function must be separated from the body by
+<code>blank</code>s or newlines.
+This is because the braces are reserved words and are only recognized
+as such when they are separated from the command list
+by whitespace or another shell metacharacter.
+Also, when using the braces, the <var>list</var> must be terminated by a semicolon,
+a &lsquo;<samp>&amp;</samp>&rsquo;, or a newline.
+</p>
+<p>When a function is executed, the arguments to the
+function become the positional parameters
+during its execution (see <a href="Positional-Parameters.html#Positional-Parameters">Positional Parameters</a>).
+The special parameter &lsquo;<samp>#</samp>&rsquo; that expands to the number of
+positional parameters is updated to reflect the change.
+Special parameter <code>0</code> is unchanged.
+The first element of the <code>FUNCNAME</code> variable is set to the
+name of the function while the function is executing.
+</p>
+<p>All other aspects of the shell execution
+environment are identical between a function and its caller
+with these exceptions:
+the <code>DEBUG</code> and <code>RETURN</code> traps
+are not inherited unless the function has been given the
+<code>trace</code> attribute using the <code>declare</code> builtin or
+the <code>-o functrace</code> option has been enabled with
+the <code>set</code> builtin,
+(in which case all functions inherit the <code>DEBUG</code> and <code>RETURN</code> traps),
+and the <code>ERR</code> trap is not inherited unless the <code>-o errtrace</code>
+shell option has been enabled.
+See <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>, for the description of the
+<code>trap</code> builtin.
+</p>
+<p>The <code>FUNCNEST</code> variable, if set to a numeric value greater
+than 0, defines a maximum function nesting level.  Function
+invocations that exceed the limit cause the entire command to
+abort.
+</p>
+<p>If the builtin command <code>return</code>
+is executed in a function, the function completes and
+execution resumes with the next command after the function
+call.
+Any command associated with the <code>RETURN</code> trap is executed
+before execution resumes.
+When a function completes, the values of the
+positional parameters and the special parameter &lsquo;<samp>#</samp>&rsquo;
+are restored to the values they had prior to the function&rsquo;s
+execution.  If a numeric argument is given to <code>return</code>,
+that is the function&rsquo;s return status; otherwise the function&rsquo;s
+return status is the exit status of the last command executed
+before the <code>return</code>.
+</p>
+<p>Variables local to the function may be declared with the
+<code>local</code> builtin.  These variables are visible only to
+the function and the commands it invokes.
+</p>
+<p>Function names and definitions may be listed with the
+<samp>-f</samp> option to the <code>declare</code> or <code>typeset</code>
+builtin commands (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+The <samp>-F</samp> option to <code>declare</code> or <code>typeset</code>
+will list the function names only
+(and optionally the source file and line number, if the <code>extdebug</code>
+shell option is enabled).
+Functions may be exported so that subshells
+automatically have them defined with the
+<samp>-f</samp> option to the <code>export</code> builtin
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+Note that shell functions and variables with the same name may result
+in multiple identically-named entries in the environment passed to the
+shell&rsquo;s children.
+Care should be taken in cases where this may cause a problem.
+</p>
+<p>Functions may be recursive.
+The <code>FUNCNEST</code> variable may be used to limit the depth of the
+function call stack and restrict the number of function invocations.
+By default, no limit is placed on the number of recursive  calls.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Shell-Parameters.html#Shell-Parameters" accesskey="n" rel="next">Shell Parameters</a>, Previous: <a href="Shell-Commands.html#Shell-Commands" accesskey="p" rel="previous">Shell Commands</a>, Up: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="u" rel="up">Basic Shell Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

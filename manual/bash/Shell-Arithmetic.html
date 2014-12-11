@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Shell Arithmetic</title>
+
+<meta name="description" content="Bash Reference Manual: Shell Arithmetic">
+<meta name="keywords" content="Bash Reference Manual: Shell Arithmetic">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bash-Features.html#Bash-Features" rel="up" title="Bash Features">
+<link href="Aliases.html#Aliases" rel="next" title="Aliases">
+<link href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions" rel="previous" title="Bash Conditional Expressions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Shell-Arithmetic"></a>
+<div class="header">
+<p>
+Next: <a href="Aliases.html#Aliases" accesskey="n" rel="next">Aliases</a>, Previous: <a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions" accesskey="p" rel="previous">Bash Conditional Expressions</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Shell-Arithmetic-1"></a>
+<h3 class="section">6.5 Shell Arithmetic</h3>
+<a name="index-arithmetic_002c-shell"></a>
+<a name="index-shell-arithmetic"></a>
+<a name="index-expressions_002c-arithmetic"></a>
+<a name="index-evaluation_002c-arithmetic"></a>
+<a name="index-arithmetic-evaluation"></a>
+
+<p>The shell allows arithmetic expressions to be evaluated, as one of
+the shell expansions or by the <code>let</code> and the <samp>-i</samp> option
+to the <code>declare</code> builtins.
+</p>
+<p>Evaluation is done in fixed-width integers with no check for overflow,
+though division by 0 is trapped and flagged as an error.
+The operators and their precedence, associativity, and values
+are the same as in the C language.
+The following list of operators is grouped into levels of
+equal-precedence operators.
+The levels are listed in order of decreasing precedence. 
+</p>
+<dl compact="compact">
+<dt><code><var>id</var>++ <var>id</var>--</code></dt>
+<dd><p>variable post-increment and post-decrement 
+</p>
+</dd>
+<dt><code>++<var>id</var> --<var>id</var></code></dt>
+<dd><p>variable pre-increment and pre-decrement
+</p>
+</dd>
+<dt><code>- +</code></dt>
+<dd><p>unary minus and plus
+</p>
+</dd>
+<dt><code>! ~</code></dt>
+<dd><p>logical and bitwise negation
+</p>
+</dd>
+<dt><code>**</code></dt>
+<dd><p>exponentiation
+</p>
+</dd>
+<dt><code>* / %</code></dt>
+<dd><p>multiplication, division, remainder
+</p>
+</dd>
+<dt><code>+ -</code></dt>
+<dd><p>addition, subtraction
+</p>
+</dd>
+<dt><code>&lt;&lt; &gt;&gt;</code></dt>
+<dd><p>left and right bitwise shifts
+</p>
+</dd>
+<dt><code>&lt;= &gt;= &lt; &gt;</code></dt>
+<dd><p>comparison
+</p>
+</dd>
+<dt><code>== !=</code></dt>
+<dd><p>equality and inequality
+</p>
+</dd>
+<dt><code>&amp;</code></dt>
+<dd><p>bitwise AND
+</p>
+</dd>
+<dt><code>^</code></dt>
+<dd><p>bitwise exclusive OR
+</p>
+</dd>
+<dt><code>|</code></dt>
+<dd><p>bitwise OR
+</p>
+</dd>
+<dt><code>&amp;&amp;</code></dt>
+<dd><p>logical AND
+</p>
+</dd>
+<dt><code>||</code></dt>
+<dd><p>logical OR
+</p>
+</dd>
+<dt><code>expr ? expr : expr</code></dt>
+<dd><p>conditional operator
+</p>
+</dd>
+<dt><code>= *= /= %= += -= &lt;&lt;= &gt;&gt;= &amp;= ^= |=</code></dt>
+<dd><p>assignment
+</p>
+</dd>
+<dt><code>expr1 , expr2</code></dt>
+<dd><p>comma
+</p></dd>
+</dl>
+
+<p>Shell variables are allowed as operands; parameter expansion is
+performed before the expression is evaluated. 
+Within an expression, shell variables may also be referenced by name
+without using the parameter expansion syntax.
+A shell variable that is null or unset evaluates to 0 when referenced
+by name without using the parameter expansion syntax.
+The value of a variable is evaluated as an arithmetic expression
+when it is referenced, or when a variable which has been given the  
+<var>integer</var> attribute using &lsquo;<samp>declare -i</samp>&rsquo; is assigned a value.
+A null value evaluates to 0.
+A shell variable need not have its <var>integer</var> attribute turned on
+to be used in an expression.
+</p>
+<p>Constants with a leading 0 are interpreted as octal numbers.
+A leading &lsquo;<samp>0x</samp>&rsquo; or &lsquo;<samp>0X</samp>&rsquo; denotes hexadecimal.  Otherwise,
+numbers take the form [<var>base</var><code>#</code>]<var>n</var>, where the optional <var>base</var>
+is a decimal number between 2 and 64 representing the arithmetic
+base, and <var>n</var> is a number in that base.  If <var>base</var><code>#</code> is
+omitted, then base 10 is used.
+The digits greater than 9 are represented by the lowercase letters,
+the uppercase letters, &lsquo;<samp>@</samp>&rsquo;, and &lsquo;<samp>_</samp>&rsquo;, in that order.
+If <var>base</var> is less than or equal to 36, lowercase and uppercase
+letters may be used interchangeably to represent numbers between 10
+and 35.
+</p>
+<p>Operators are evaluated in order of precedence.  Sub-expressions in
+parentheses are evaluated first and may override the precedence
+rules above.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Aliases.html#Aliases" accesskey="n" rel="next">Aliases</a>, Previous: <a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions" accesskey="p" rel="previous">Bash Conditional Expressions</a>, Up: <a href="Bash-Features.html#Bash-Features" accesskey="u" rel="up">Bash Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

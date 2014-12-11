@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Miscellaneous Commands</title>
+
+<meta name="description" content="Bash Reference Manual: Miscellaneous Commands">
+<meta name="keywords" content="Bash Reference Manual: Miscellaneous Commands">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Bindable-Readline-Commands.html#Bindable-Readline-Commands" rel="up" title="Bindable Readline Commands">
+<link href="Readline-vi-Mode.html#Readline-vi-Mode" rel="next" title="Readline vi Mode">
+<link href="Keyboard-Macros.html#Keyboard-Macros" rel="previous" title="Keyboard Macros">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Miscellaneous-Commands"></a>
+<div class="header">
+<p>
+Previous: <a href="Keyboard-Macros.html#Keyboard-Macros" accesskey="p" rel="previous">Keyboard Macros</a>, Up: <a href="Bindable-Readline-Commands.html#Bindable-Readline-Commands" accesskey="u" rel="up">Bindable Readline Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Some-Miscellaneous-Commands"></a>
+<h4 class="subsection">8.4.8 Some Miscellaneous Commands</h4>
+<dl compact="compact">
+<dt><code>re-read-init-file (C-x C-r)</code>
+<a name="index-re_002dread_002dinit_002dfile-_0028C_002dx-C_002dr_0029"></a>
+</dt>
+<dd><p>Read in the contents of the <var>inputrc</var> file, and incorporate
+any bindings or variable assignments found there.
+</p>
+</dd>
+<dt><code>abort (C-g)</code>
+<a name="index-abort-_0028C_002dg_0029"></a>
+</dt>
+<dd><p>Abort the current editing command and
+ring the terminal&rsquo;s bell (subject to the setting of
+<code>bell-style</code>).
+</p>
+</dd>
+<dt><code>do-uppercase-version (M-a, M-b, M-<var>x</var>, &hellip;)</code>
+<a name="index-do_002duppercase_002dversion-_0028M_002da_002c-M_002db_002c-M_002dx_002c-_2026_0029"></a>
+</dt>
+<dd><p>If the metafied character <var>x</var> is lowercase, run the command
+that is bound to the corresponding uppercase character.
+</p>
+</dd>
+<dt><code>prefix-meta (<span class="key">ESC</span>)</code>
+<a name="index-prefix_002dmeta-_0028ESC_0029"></a>
+</dt>
+<dd><p>Metafy the next character typed.  This is for keyboards
+without a meta key.  Typing &lsquo;<samp><span class="key">ESC</span> f</samp>&rsquo; is equivalent to typing
+<kbd>M-f</kbd>.
+</p>
+</dd>
+<dt><code>undo (C-_ or C-x C-u)</code>
+<a name="index-undo-_0028C_002d_005f-or-C_002dx-C_002du_0029"></a>
+</dt>
+<dd><p>Incremental undo, separately remembered for each line.
+</p>
+</dd>
+<dt><code>revert-line (M-r)</code>
+<a name="index-revert_002dline-_0028M_002dr_0029"></a>
+</dt>
+<dd><p>Undo all changes made to this line.  This is like executing the <code>undo</code>
+command enough times to get back to the beginning.
+</p>
+</dd>
+<dt><code>tilde-expand (M-&amp;)</code>
+<a name="index-tilde_002dexpand-_0028M_002d_0026_0029"></a>
+</dt>
+<dd><p>Perform tilde expansion on the current word.
+</p>
+</dd>
+<dt><code>set-mark (C-@)</code>
+<a name="index-set_002dmark-_0028C_002d_0040_0029"></a>
+</dt>
+<dd><p>Set the mark to the point.  If a
+numeric argument is supplied, the mark is set to that position.
+</p>
+</dd>
+<dt><code>exchange-point-and-mark (C-x C-x)</code>
+<a name="index-exchange_002dpoint_002dand_002dmark-_0028C_002dx-C_002dx_0029"></a>
+</dt>
+<dd><p>Swap the point with the mark.  The current cursor position is set to
+the saved position, and the old cursor position is saved as the mark.
+</p>
+</dd>
+<dt><code>character-search (C-])</code>
+<a name="index-character_002dsearch-_0028C_002d_005d_0029"></a>
+</dt>
+<dd><p>A character is read and point is moved to the next occurrence of that
+character.  A negative count searches for previous occurrences.
+</p>
+</dd>
+<dt><code>character-search-backward (M-C-])</code>
+<a name="index-character_002dsearch_002dbackward-_0028M_002dC_002d_005d_0029"></a>
+</dt>
+<dd><p>A character is read and point is moved to the previous occurrence
+of that character.  A negative count searches for subsequent
+occurrences.
+</p>
+</dd>
+<dt><code>skip-csi-sequence ()</code>
+<a name="index-skip_002dcsi_002dsequence-_0028_0029"></a>
+</dt>
+<dd><p>Read enough characters to consume a multi-key sequence such as those
+defined for keys like Home and End.  Such sequences begin with a
+Control Sequence Indicator (CSI), usually ESC-[.  If this sequence is
+bound to &quot;\e[&quot;, keys producing such sequences will have no effect
+unless explicitly bound to a readline command, instead of inserting
+stray characters into the editing buffer.  This is unbound by default,
+but usually bound to ESC-[.
+</p>
+</dd>
+<dt><code>insert-comment (M-#)</code>
+<a name="index-insert_002dcomment-_0028M_002d_0023_0029"></a>
+</dt>
+<dd><p>Without a numeric argument, the value of the <code>comment-begin</code>
+variable is inserted at the beginning of the current line.
+If a numeric argument is supplied, this command acts as a toggle:  if
+the characters at the beginning of the line do not match the value
+of <code>comment-begin</code>, the value is inserted, otherwise
+the characters in <code>comment-begin</code> are deleted from the beginning of
+the line.
+In either case, the line is accepted as if a newline had been typed.
+The default value of <code>comment-begin</code> causes this command
+to make the current line a shell comment.
+If a numeric argument causes the comment character to be removed, the line
+will be executed by the shell.
+</p>
+</dd>
+<dt><code>dump-functions ()</code>
+<a name="index-dump_002dfunctions-_0028_0029"></a>
+</dt>
+<dd><p>Print all of the functions and their key bindings to the
+Readline output stream.  If a numeric argument is supplied,
+the output is formatted in such a way that it can be made part
+of an <var>inputrc</var> file.  This command is unbound by default.
+</p>
+</dd>
+<dt><code>dump-variables ()</code>
+<a name="index-dump_002dvariables-_0028_0029"></a>
+</dt>
+<dd><p>Print all of the settable variables and their values to the
+Readline output stream.  If a numeric argument is supplied,
+the output is formatted in such a way that it can be made part
+of an <var>inputrc</var> file.  This command is unbound by default.
+</p>
+</dd>
+<dt><code>dump-macros ()</code>
+<a name="index-dump_002dmacros-_0028_0029"></a>
+</dt>
+<dd><p>Print all of the Readline key sequences bound to macros and the
+strings they output.  If a numeric argument is supplied,
+the output is formatted in such a way that it can be made part
+of an <var>inputrc</var> file.  This command is unbound by default.
+</p>
+</dd>
+<dt><code>glob-complete-word (M-g)</code>
+<a name="index-glob_002dcomplete_002dword-_0028M_002dg_0029"></a>
+</dt>
+<dd><p>The word before point is treated as a pattern for pathname expansion,
+with an asterisk implicitly appended.  This pattern is used to
+generate a list of matching file names for possible completions.
+</p>
+</dd>
+<dt><code>glob-expand-word (C-x *)</code>
+<a name="index-glob_002dexpand_002dword-_0028C_002dx-_002a_0029"></a>
+</dt>
+<dd><p>The word before point is treated as a pattern for pathname expansion,
+and the list of matching file names is inserted, replacing the word.
+If a numeric argument is supplied, a &lsquo;<samp>*</samp>&rsquo; is appended before
+pathname expansion.
+</p>
+</dd>
+<dt><code>glob-list-expansions (C-x g)</code>
+<a name="index-glob_002dlist_002dexpansions-_0028C_002dx-g_0029"></a>
+</dt>
+<dd><p>The list of expansions that would have been generated by
+<code>glob-expand-word</code> is displayed, and the line is redrawn.
+If a numeric argument is supplied, a &lsquo;<samp>*</samp>&rsquo; is appended before
+pathname expansion.
+</p>
+</dd>
+<dt><code>display-shell-version (C-x C-v)</code>
+<a name="index-display_002dshell_002dversion-_0028C_002dx-C_002dv_0029"></a>
+</dt>
+<dd><p>Display version information about the current instance of Bash.
+</p>
+</dd>
+<dt><code>shell-expand-line (M-C-e)</code>
+<a name="index-shell_002dexpand_002dline-_0028M_002dC_002de_0029"></a>
+</dt>
+<dd><p>Expand the line as the shell does.
+This performs alias and history expansion as well as all of the shell
+word expansions (see <a href="Shell-Expansions.html#Shell-Expansions">Shell Expansions</a>).
+</p>
+</dd>
+<dt><code>history-expand-line (M-^)</code>
+<a name="index-history_002dexpand_002dline-_0028M_002d_005e_0029"></a>
+</dt>
+<dd><p>Perform history expansion on the current line.
+</p>
+</dd>
+<dt><code>magic-space ()</code>
+<a name="index-magic_002dspace-_0028_0029"></a>
+</dt>
+<dd><p>Perform history expansion on the current line and insert a space
+(see <a href="History-Interaction.html#History-Interaction">History Interaction</a>).
+</p>
+</dd>
+<dt><code>alias-expand-line ()</code>
+<a name="index-alias_002dexpand_002dline-_0028_0029"></a>
+</dt>
+<dd><p>Perform alias expansion on the current line (see <a href="Aliases.html#Aliases">Aliases</a>).
+</p>
+</dd>
+<dt><code>history-and-alias-expand-line ()</code>
+<a name="index-history_002dand_002dalias_002dexpand_002dline-_0028_0029"></a>
+</dt>
+<dd><p>Perform history and alias expansion on the current line.
+</p>
+</dd>
+<dt><code>insert-last-argument (M-. or M-_)</code>
+<a name="index-insert_002dlast_002dargument-_0028M_002d_002e-or-M_002d_005f_0029"></a>
+</dt>
+<dd><p>A synonym for <code>yank-last-arg</code>.
+</p>
+</dd>
+<dt><code>operate-and-get-next (C-o)</code>
+<a name="index-operate_002dand_002dget_002dnext-_0028C_002do_0029"></a>
+</dt>
+<dd><p>Accept the current line for execution and fetch the next line
+relative to the current line from the history for editing.  Any
+argument is ignored.
+</p>
+</dd>
+<dt><code>edit-and-execute-command (C-xC-e)</code>
+<a name="index-edit_002dand_002dexecute_002dcommand-_0028C_002dxC_002de_0029"></a>
+</dt>
+<dd><p>Invoke an editor on the current command line, and execute the result as shell
+commands.
+Bash attempts to invoke
+<code>$VISUAL</code>, <code>$EDITOR</code>, and <code>emacs</code>
+as the editor, in that order.
+</p>
+
+
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Keyboard-Macros.html#Keyboard-Macros" accesskey="p" rel="previous">Keyboard Macros</a>, Up: <a href="Bindable-Readline-Commands.html#Bindable-Readline-Commands" accesskey="u" rel="up">Bindable Readline Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

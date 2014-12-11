@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Conditional Constructs</title>
+
+<meta name="description" content="Bash Reference Manual: Conditional Constructs">
+<meta name="keywords" content="Bash Reference Manual: Conditional Constructs">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Compound-Commands.html#Compound-Commands" rel="up" title="Compound Commands">
+<link href="Command-Grouping.html#Command-Grouping" rel="next" title="Command Grouping">
+<link href="Looping-Constructs.html#Looping-Constructs" rel="previous" title="Looping Constructs">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Conditional-Constructs"></a>
+<div class="header">
+<p>
+Next: <a href="Command-Grouping.html#Command-Grouping" accesskey="n" rel="next">Command Grouping</a>, Previous: <a href="Looping-Constructs.html#Looping-Constructs" accesskey="p" rel="previous">Looping Constructs</a>, Up: <a href="Compound-Commands.html#Compound-Commands" accesskey="u" rel="up">Compound Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Conditional-Constructs-1"></a>
+<h4 class="subsubsection">3.2.4.2 Conditional Constructs</h4>
+<a name="index-commands_002c-conditional"></a>
+
+<dl compact="compact">
+<dt><code>if</code></dt>
+<dd><a name="index-if"></a>
+<a name="index-then"></a>
+<a name="index-else"></a>
+<a name="index-elif"></a>
+<a name="index-fi"></a>
+<p>The syntax of the <code>if</code> command is:
+</p>
+<div class="example">
+<pre class="example">if <var>test-commands</var>; then
+  <var>consequent-commands</var>;
+[elif <var>more-test-commands</var>; then
+  <var>more-consequents</var>;]
+[else <var>alternate-consequents</var>;]
+fi
+</pre></div>
+
+<p>The <var>test-commands</var> list is executed, and if its return status is zero,
+the <var>consequent-commands</var> list is executed.
+If <var>test-commands</var> returns a non-zero status, each <code>elif</code> list
+is executed in turn, and if its exit status is zero,
+the corresponding <var>more-consequents</var> is executed and the   
+command completes.
+If &lsquo;<samp>else <var>alternate-consequents</var></samp>&rsquo; is present, and
+the final command in the final <code>if</code> or <code>elif</code> clause
+has a non-zero exit status, then <var>alternate-consequents</var> is executed.
+The return status is the exit status of the last command executed, or
+zero if no condition tested true.
+</p>
+</dd>
+<dt><code>case</code></dt>
+<dd><a name="index-case"></a>
+<a name="index-in"></a>
+<a name="index-esac"></a>
+<p>The syntax of the <code>case</code> command is:
+</p>
+<div class="example">
+<pre class="example"><code>case <var>word</var> in [ [(] <var>pattern</var> [| <var>pattern</var>]&hellip;) <var>command-list</var> ;;]&hellip; esac</code>
+</pre></div>
+
+<p><code>case</code> will selectively execute the <var>command-list</var> corresponding to
+the first <var>pattern</var> that matches <var>word</var>.
+If the shell option <code>nocasematch</code>
+(see the description of <code>shopt</code> in <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>)
+is enabled, the match is performed without regard to the case
+of alphabetic characters.
+The &lsquo;<samp>|</samp>&rsquo; is used to separate multiple patterns, and the &lsquo;<samp>)</samp>&rsquo;
+operator terminates a pattern list.
+A list of patterns and an associated command-list is known
+as a <var>clause</var>.
+</p>
+<p>Each clause must be terminated with &lsquo;<samp>;;</samp>&rsquo;, &lsquo;<samp>;&amp;</samp>&rsquo;, or &lsquo;<samp>;;&amp;</samp>&rsquo;.
+The <var>word</var> undergoes tilde expansion, parameter expansion, command
+substitution, arithmetic expansion, and quote removal before matching is
+attempted.  Each <var>pattern</var> undergoes tilde expansion, parameter
+expansion, command substitution, and arithmetic expansion.
+</p>
+<p>There may be an arbitrary number of <code>case</code> clauses, each terminated
+by a &lsquo;<samp>;;</samp>&rsquo;, &lsquo;<samp>;&amp;</samp>&rsquo;, or &lsquo;<samp>;;&amp;</samp>&rsquo;.
+The first pattern that matches determines the
+command-list that is executed.
+</p>
+<p>Here is an example using <code>case</code> in a script that could be used to
+describe one interesting feature of an animal:
+</p>
+<div class="example">
+<pre class="example">echo -n &quot;Enter the name of an animal: &quot;
+read ANIMAL
+echo -n &quot;The $ANIMAL has &quot;
+case $ANIMAL in
+  horse | dog | cat) echo -n &quot;four&quot;;;
+  man | kangaroo ) echo -n &quot;two&quot;;;
+  *) echo -n &quot;an unknown number of&quot;;;
+esac
+echo &quot; legs.&quot;
+</pre></div>
+
+
+<p>If the &lsquo;<samp>;;</samp>&rsquo; operator is used, no subsequent matches are attempted after
+the first pattern match.
+Using &lsquo;<samp>;&amp;</samp>&rsquo;  in place of &lsquo;<samp>;;</samp>&rsquo; causes execution to continue with
+the <var>command-list</var> associated with the next clause, if any.
+Using &lsquo;<samp>;;&amp;</samp>&rsquo; in place of &lsquo;<samp>;;</samp>&rsquo; causes the shell to test the patterns
+in the next clause, if any, and execute any associated <var>command-list</var>
+on a successful match.
+</p>
+<p>The return status is zero if no <var>pattern</var> is matched.  Otherwise, the
+return status is the exit status of the <var>command-list</var> executed.
+</p>
+</dd>
+<dt><code>select</code></dt>
+<dd><a name="index-select"></a>
+
+<p>The <code>select</code> construct allows the easy generation of menus.
+It has almost the same syntax as the <code>for</code> command:
+</p>
+<div class="example">
+<pre class="example">select <var>name</var> [in <var>words</var> &hellip;]; do <var>commands</var>; done
+</pre></div>
+
+<p>The list of words following <code>in</code> is expanded, generating a list
+of items.  The set of expanded words is printed on the standard
+error output stream, each preceded by a number.  If the
+&lsquo;<samp>in <var>words</var></samp>&rsquo; is omitted, the positional parameters are printed,
+as if &lsquo;<samp>in &quot;$@&quot;</samp>&rsquo; had been specified.
+The <code>PS3</code> prompt is then displayed and a line is read from the
+standard input.
+If the line consists of a number corresponding to one of the displayed
+words, then the value of <var>name</var> is set to that word.
+If the line is empty, the words and prompt are displayed again.
+If <code>EOF</code> is read, the <code>select</code> command completes.
+Any other value read causes <var>name</var> to be set to null.
+The line read is saved in the variable <code>REPLY</code>.
+</p>
+<p>The <var>commands</var> are executed after each selection until a
+<code>break</code> command is executed, at which
+point the <code>select</code> command completes.
+</p>
+<p>Here is an example that allows the user to pick a filename from the
+current directory, and displays the name and index of the file
+selected.
+</p>
+<div class="example">
+<pre class="example">select fname in *;
+do
+	echo you picked $fname \($REPLY\)
+	break;
+done
+</pre></div>
+
+</dd>
+<dt><code>((&hellip;))</code></dt>
+<dd><div class="example">
+<pre class="example">(( <var>expression</var> ))
+</pre></div>
+
+<p>The arithmetic <var>expression</var> is evaluated according to the rules
+described below (see <a href="Shell-Arithmetic.html#Shell-Arithmetic">Shell Arithmetic</a>).
+If the value of the expression is non-zero, the return status is 0;
+otherwise the return status is 1.  This is exactly equivalent to
+</p><div class="example">
+<pre class="example">let &quot;<var>expression</var>&quot;
+</pre></div>
+<p>See <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>, for a full description of the <code>let</code> builtin.
+</p>
+</dd>
+<dt><code>[[&hellip;]]</code></dt>
+<dd><a name="index-_005b_005b"></a>
+<a name="index-_005d_005d"></a>
+<div class="example">
+<pre class="example">[[ <var>expression</var> ]]
+</pre></div>
+
+<p>Return a status of 0 or 1 depending on the evaluation of
+the conditional expression <var>expression</var>.
+Expressions are composed of the primaries described below in
+<a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions">Bash Conditional Expressions</a>.
+Word splitting and filename expansion are not performed on the words
+between the &lsquo;<samp>[[</samp>&rsquo; and &lsquo;<samp>]]</samp>&rsquo;; tilde expansion, parameter and
+variable expansion, arithmetic expansion, command substitution, process
+substitution, and quote removal are performed.
+Conditional operators such as &lsquo;<samp>-f</samp>&rsquo; must be unquoted to be recognized
+as primaries.
+</p>
+<p>When used with &lsquo;<samp>[[</samp>&rsquo;, the &lsquo;<samp>&lt;</samp>&rsquo; and &lsquo;<samp>&gt;</samp>&rsquo; operators sort
+lexicographically using the current locale.
+</p>
+<p>When the &lsquo;<samp>==</samp>&rsquo; and &lsquo;<samp>!=</samp>&rsquo; operators are used, the string to the
+right of the operator is considered a pattern and matched according
+to the rules described below in <a href="Pattern-Matching.html#Pattern-Matching">Pattern Matching</a>.
+If the shell option <code>nocasematch</code>
+(see the description of <code>shopt</code> in <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>)
+is enabled, the match is performed without regard to the case
+of alphabetic characters.
+The return value is 0 if the string matches (&lsquo;<samp>==</samp>&rsquo;) or does not
+match (&lsquo;<samp>!=</samp>&rsquo;)the pattern, and 1 otherwise.
+Any part of the pattern may be quoted to force it to be matched as a
+string.
+</p>
+<p>An additional binary operator, &lsquo;<samp>=~</samp>&rsquo;, is available, with the same
+precedence as &lsquo;<samp>==</samp>&rsquo; and &lsquo;<samp>!=</samp>&rsquo;.
+When it is used, the string to the right of the operator is considered
+an extended regular expression and matched accordingly (as in <i>regex</i>3)).  
+The return value is 0 if the string matches
+the pattern, and 1 otherwise.
+If the regular expression is syntactically incorrect, the conditional
+expression&rsquo;s return value is 2.
+If the shell option <code>nocasematch</code>
+(see the description of <code>shopt</code> in <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>)
+is enabled, the match is performed without regard to the case
+of alphabetic characters.
+Any part of the pattern may be quoted to force it to be matched as a
+string.
+Substrings matched by parenthesized subexpressions within the regular
+expression are saved in the array variable <code>BASH_REMATCH</code>.
+The element of <code>BASH_REMATCH</code> with index 0 is the portion of the string
+matching the entire regular expression.
+The element of <code>BASH_REMATCH</code> with index <var>n</var> is the portion of the
+string matching the <var>n</var>th parenthesized subexpression.
+</p>
+<p>Expressions may be combined using the following operators, listed
+in decreasing order of precedence:
+</p>
+<dl compact="compact">
+<dt><code>( <var>expression</var> )</code></dt>
+<dd><p>Returns the value of <var>expression</var>.
+This may be used to override the normal precedence of operators.
+</p>
+</dd>
+<dt><code>! <var>expression</var></code></dt>
+<dd><p>True if <var>expression</var> is false.
+</p>
+</dd>
+<dt><code><var>expression1</var> &amp;&amp; <var>expression2</var></code></dt>
+<dd><p>True if both <var>expression1</var> and <var>expression2</var> are true.
+</p>
+</dd>
+<dt><code><var>expression1</var> || <var>expression2</var></code></dt>
+<dd><p>True if either <var>expression1</var> or <var>expression2</var> is true.
+</p></dd>
+</dl>
+<p>The <code>&amp;&amp;</code> and <code>||</code> operators do not evaluate <var>expression2</var> if the
+value of <var>expression1</var> is sufficient to determine the return
+value of the entire conditional expression.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Command-Grouping.html#Command-Grouping" accesskey="n" rel="next">Command Grouping</a>, Previous: <a href="Looping-Constructs.html#Looping-Constructs" accesskey="p" rel="previous">Looping Constructs</a>, Up: <a href="Compound-Commands.html#Compound-Commands" accesskey="u" rel="up">Compound Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

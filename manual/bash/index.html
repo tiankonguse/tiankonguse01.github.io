@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Top</title>
+
+<meta name="description" content="Bash Reference Manual: Top">
+<meta name="keywords" content="Bash Reference Manual: Top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Introduction.html#Introduction" rel="next" title="Introduction">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<h1 class="settitle" align="center">Bash Reference Manual</h1>
+
+
+
+
+
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction-1" href="Introduction.html#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a name="toc-What-is-Bash_003f-1" href="What-is-Bash_003f.html#What-is-Bash_003f">1.1 What is Bash?</a></li>
+    <li><a name="toc-What-is-a-shell_003f-1" href="What-is-a-shell_003f.html#What-is-a-shell_003f">1.2 What is a shell?</a></li>
+  </ul></li>
+  <li><a name="toc-Definitions-1" href="Definitions.html#Definitions">2 Definitions</a></li>
+  <li><a name="toc-Basic-Shell-Features-1" href="Basic-Shell-Features.html#Basic-Shell-Features">3 Basic Shell Features</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Shell-Syntax-1" href="Shell-Syntax.html#Shell-Syntax">3.1 Shell Syntax</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Shell-Operation-1" href="Shell-Operation.html#Shell-Operation">3.1.1 Shell Operation</a></li>
+      <li><a name="toc-Quoting-1" href="Quoting.html#Quoting">3.1.2 Quoting</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Escape-Character-1" href="Escape-Character.html#Escape-Character">3.1.2.1 Escape Character</a></li>
+        <li><a name="toc-Single-Quotes-1" href="Single-Quotes.html#Single-Quotes">3.1.2.2 Single Quotes</a></li>
+        <li><a name="toc-Double-Quotes-1" href="Double-Quotes.html#Double-Quotes">3.1.2.3 Double Quotes</a></li>
+        <li><a name="toc-ANSI_002dC-Quoting-1" href="ANSI_002dC-Quoting.html#ANSI_002dC-Quoting">3.1.2.4 ANSI-C Quoting</a></li>
+        <li><a name="toc-Locale_002dSpecific-Translation" href="Locale-Translation.html#Locale-Translation">3.1.2.5 Locale-Specific Translation</a></li>
+      </ul></li>
+      <li><a name="toc-Comments-1" href="Comments.html#Comments">3.1.3 Comments</a></li>
+    </ul></li>
+    <li><a name="toc-Shell-Commands-1" href="Shell-Commands.html#Shell-Commands">3.2 Shell Commands</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Simple-Commands-1" href="Simple-Commands.html#Simple-Commands">3.2.1 Simple Commands</a></li>
+      <li><a name="toc-Pipelines-1" href="Pipelines.html#Pipelines">3.2.2 Pipelines</a></li>
+      <li><a name="toc-Lists-of-Commands" href="Lists.html#Lists">3.2.3 Lists of Commands</a></li>
+      <li><a name="toc-Compound-Commands-1" href="Compound-Commands.html#Compound-Commands">3.2.4 Compound Commands</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Looping-Constructs-1" href="Looping-Constructs.html#Looping-Constructs">3.2.4.1 Looping Constructs</a></li>
+        <li><a name="toc-Conditional-Constructs-1" href="Conditional-Constructs.html#Conditional-Constructs">3.2.4.2 Conditional Constructs</a></li>
+        <li><a name="toc-Grouping-Commands" href="Command-Grouping.html#Command-Grouping">3.2.4.3 Grouping Commands</a></li>
+      </ul></li>
+      <li><a name="toc-Coprocesses-1" href="Coprocesses.html#Coprocesses">3.2.5 Coprocesses</a></li>
+      <li><a name="toc-GNU-Parallel-1" href="GNU-Parallel.html#GNU-Parallel">3.2.6 GNU Parallel</a></li>
+    </ul></li>
+    <li><a name="toc-Shell-Functions-1" href="Shell-Functions.html#Shell-Functions">3.3 Shell Functions</a></li>
+    <li><a name="toc-Shell-Parameters-1" href="Shell-Parameters.html#Shell-Parameters">3.4 Shell Parameters</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Positional-Parameters-1" href="Positional-Parameters.html#Positional-Parameters">3.4.1 Positional Parameters</a></li>
+      <li><a name="toc-Special-Parameters-1" href="Special-Parameters.html#Special-Parameters">3.4.2 Special Parameters</a></li>
+    </ul></li>
+    <li><a name="toc-Shell-Expansions-1" href="Shell-Expansions.html#Shell-Expansions">3.5 Shell Expansions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Brace-Expansion-1" href="Brace-Expansion.html#Brace-Expansion">3.5.1 Brace Expansion</a></li>
+      <li><a name="toc-Tilde-Expansion-1" href="Tilde-Expansion.html#Tilde-Expansion">3.5.2 Tilde Expansion</a></li>
+      <li><a name="toc-Shell-Parameter-Expansion-1" href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">3.5.3 Shell Parameter Expansion</a></li>
+      <li><a name="toc-Command-Substitution-1" href="Command-Substitution.html#Command-Substitution">3.5.4 Command Substitution</a></li>
+      <li><a name="toc-Arithmetic-Expansion-1" href="Arithmetic-Expansion.html#Arithmetic-Expansion">3.5.5 Arithmetic Expansion</a></li>
+      <li><a name="toc-Process-Substitution-1" href="Process-Substitution.html#Process-Substitution">3.5.6 Process Substitution</a></li>
+      <li><a name="toc-Word-Splitting-1" href="Word-Splitting.html#Word-Splitting">3.5.7 Word Splitting</a></li>
+      <li><a name="toc-Filename-Expansion-1" href="Filename-Expansion.html#Filename-Expansion">3.5.8 Filename Expansion</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Pattern-Matching-1" href="Pattern-Matching.html#Pattern-Matching">3.5.8.1 Pattern Matching</a></li>
+      </ul></li>
+      <li><a name="toc-Quote-Removal-1" href="Quote-Removal.html#Quote-Removal">3.5.9 Quote Removal</a></li>
+    </ul></li>
+    <li><a name="toc-Redirections-1" href="Redirections.html#Redirections">3.6 Redirections</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Redirecting-Input" href="Redirections.html#Redirecting-Input">3.6.1 Redirecting Input</a></li>
+      <li><a name="toc-Redirecting-Output" href="Redirections.html#Redirecting-Output">3.6.2 Redirecting Output</a></li>
+      <li><a name="toc-Appending-Redirected-Output" href="Redirections.html#Appending-Redirected-Output">3.6.3 Appending Redirected Output</a></li>
+      <li><a name="toc-Redirecting-Standard-Output-and-Standard-Error" href="Redirections.html#Redirecting-Standard-Output-and-Standard-Error">3.6.4 Redirecting Standard Output and Standard Error</a></li>
+      <li><a name="toc-Appending-Standard-Output-and-Standard-Error" href="Redirections.html#Appending-Standard-Output-and-Standard-Error">3.6.5 Appending Standard Output and Standard Error</a></li>
+      <li><a name="toc-Here-Documents" href="Redirections.html#Here-Documents">3.6.6 Here Documents</a></li>
+      <li><a name="toc-Here-Strings" href="Redirections.html#Here-Strings">3.6.7 Here Strings</a></li>
+      <li><a name="toc-Duplicating-File-Descriptors" href="Redirections.html#Duplicating-File-Descriptors">3.6.8 Duplicating File Descriptors</a></li>
+      <li><a name="toc-Moving-File-Descriptors" href="Redirections.html#Moving-File-Descriptors">3.6.9 Moving File Descriptors</a></li>
+      <li><a name="toc-Opening-File-Descriptors-for-Reading-and-Writing" href="Redirections.html#Opening-File-Descriptors-for-Reading-and-Writing">3.6.10 Opening File Descriptors for Reading and Writing</a></li>
+    </ul></li>
+    <li><a name="toc-Executing-Commands-1" href="Executing-Commands.html#Executing-Commands">3.7 Executing Commands</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Simple-Command-Expansion-1" href="Simple-Command-Expansion.html#Simple-Command-Expansion">3.7.1 Simple Command Expansion</a></li>
+      <li><a name="toc-Command-Search-and-Execution-1" href="Command-Search-and-Execution.html#Command-Search-and-Execution">3.7.2 Command Search and Execution</a></li>
+      <li><a name="toc-Command-Execution-Environment-1" href="Command-Execution-Environment.html#Command-Execution-Environment">3.7.3 Command Execution Environment</a></li>
+      <li><a name="toc-Environment-1" href="Environment.html#Environment">3.7.4 Environment</a></li>
+      <li><a name="toc-Exit-Status-1" href="Exit-Status.html#Exit-Status">3.7.5 Exit Status</a></li>
+      <li><a name="toc-Signals-1" href="Signals.html#Signals">3.7.6 Signals</a></li>
+    </ul></li>
+    <li><a name="toc-Shell-Scripts-1" href="Shell-Scripts.html#Shell-Scripts">3.8 Shell Scripts</a></li>
+  </ul></li>
+  <li><a name="toc-Shell-Builtin-Commands-1" href="Shell-Builtin-Commands.html#Shell-Builtin-Commands">4 Shell Builtin Commands</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Bourne-Shell-Builtins-1" href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">4.1 Bourne Shell Builtins</a></li>
+    <li><a name="toc-Bash-Builtin-Commands" href="Bash-Builtins.html#Bash-Builtins">4.2 Bash Builtin Commands</a></li>
+    <li><a name="toc-Modifying-Shell-Behavior-1" href="Modifying-Shell-Behavior.html#Modifying-Shell-Behavior">4.3 Modifying Shell Behavior</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-Set-Builtin-1" href="The-Set-Builtin.html#The-Set-Builtin">4.3.1 The Set Builtin</a></li>
+      <li><a name="toc-The-Shopt-Builtin-1" href="The-Shopt-Builtin.html#The-Shopt-Builtin">4.3.2 The Shopt Builtin</a></li>
+    </ul></li>
+    <li><a name="toc-Special-Builtins-1" href="Special-Builtins.html#Special-Builtins">4.4 Special Builtins</a></li>
+  </ul></li>
+  <li><a name="toc-Shell-Variables-1" href="Shell-Variables.html#Shell-Variables">5 Shell Variables</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Bourne-Shell-Variables-1" href="Bourne-Shell-Variables.html#Bourne-Shell-Variables">5.1 Bourne Shell Variables</a></li>
+    <li><a name="toc-Bash-Variables-1" href="Bash-Variables.html#Bash-Variables">5.2 Bash Variables</a></li>
+  </ul></li>
+  <li><a name="toc-Bash-Features-2" href="Bash-Features.html#Bash-Features">6 Bash Features</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invoking-Bash-1" href="Invoking-Bash.html#Invoking-Bash">6.1 Invoking Bash</a></li>
+    <li><a name="toc-Bash-Startup-Files-1" href="Bash-Startup-Files.html#Bash-Startup-Files">6.2 Bash Startup Files</a></li>
+    <li><a name="toc-Interactive-Shells-1" href="Interactive-Shells.html#Interactive-Shells">6.3 Interactive Shells</a>
+    <ul class="no-bullet">
+      <li><a name="toc-What-is-an-Interactive-Shell_003f-1" href="What-is-an-Interactive-Shell_003f.html#What-is-an-Interactive-Shell_003f">6.3.1 What is an Interactive Shell?</a></li>
+      <li><a name="toc-Is-this-Shell-Interactive_003f-1" href="Is-this-Shell-Interactive_003f.html#Is-this-Shell-Interactive_003f">6.3.2 Is this Shell Interactive?</a></li>
+      <li><a name="toc-Interactive-Shell-Behavior-1" href="Interactive-Shell-Behavior.html#Interactive-Shell-Behavior">6.3.3 Interactive Shell Behavior</a></li>
+    </ul></li>
+    <li><a name="toc-Bash-Conditional-Expressions-1" href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions">6.4 Bash Conditional Expressions</a></li>
+    <li><a name="toc-Shell-Arithmetic-1" href="Shell-Arithmetic.html#Shell-Arithmetic">6.5 Shell Arithmetic</a></li>
+    <li><a name="toc-Aliases-1" href="Aliases.html#Aliases">6.6 Aliases</a></li>
+    <li><a name="toc-Arrays-1" href="Arrays.html#Arrays">6.7 Arrays</a></li>
+    <li><a name="toc-The-Directory-Stack-1" href="The-Directory-Stack.html#The-Directory-Stack">6.8 The Directory Stack</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Directory-Stack-Builtins-1" href="Directory-Stack-Builtins.html#Directory-Stack-Builtins">6.8.1 Directory Stack Builtins</a></li>
+    </ul></li>
+    <li><a name="toc-Controlling-the-Prompt" href="Printing-a-Prompt.html#Printing-a-Prompt">6.9 Controlling the Prompt</a></li>
+    <li><a name="toc-The-Restricted-Shell-1" href="The-Restricted-Shell.html#The-Restricted-Shell">6.10 The Restricted Shell</a></li>
+    <li><a name="toc-Bash-POSIX-Mode-1" href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">6.11 Bash POSIX Mode</a></li>
+  </ul></li>
+  <li><a name="toc-Job-Control-1" href="Job-Control.html#Job-Control">7 Job Control</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Job-Control-Basics-1" href="Job-Control-Basics.html#Job-Control-Basics">7.1 Job Control Basics</a></li>
+    <li><a name="toc-Job-Control-Builtins-1" href="Job-Control-Builtins.html#Job-Control-Builtins">7.2 Job Control Builtins</a></li>
+    <li><a name="toc-Job-Control-Variables-1" href="Job-Control-Variables.html#Job-Control-Variables">7.3 Job Control Variables</a></li>
+  </ul></li>
+  <li><a name="toc-Command-Line-Editing-1" href="Command-Line-Editing.html#Command-Line-Editing">8 Command Line Editing</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-to-Line-Editing" href="Introduction-and-Notation.html#Introduction-and-Notation">8.1 Introduction to Line Editing</a></li>
+    <li><a name="toc-Readline-Interaction-1" href="Readline-Interaction.html#Readline-Interaction">8.2 Readline Interaction</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Readline-Bare-Essentials-1" href="Readline-Bare-Essentials.html#Readline-Bare-Essentials">8.2.1 Readline Bare Essentials</a></li>
+      <li><a name="toc-Readline-Movement-Commands-1" href="Readline-Movement-Commands.html#Readline-Movement-Commands">8.2.2 Readline Movement Commands</a></li>
+      <li><a name="toc-Readline-Killing-Commands-1" href="Readline-Killing-Commands.html#Readline-Killing-Commands">8.2.3 Readline Killing Commands</a></li>
+      <li><a name="toc-Readline-Arguments-1" href="Readline-Arguments.html#Readline-Arguments">8.2.4 Readline Arguments</a></li>
+      <li><a name="toc-Searching-for-Commands-in-the-History" href="Searching.html#Searching">8.2.5 Searching for Commands in the History</a></li>
+    </ul></li>
+    <li><a name="toc-Readline-Init-File-1" href="Readline-Init-File.html#Readline-Init-File">8.3 Readline Init File</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Readline-Init-File-Syntax-1" href="Readline-Init-File-Syntax.html#Readline-Init-File-Syntax">8.3.1 Readline Init File Syntax</a></li>
+      <li><a name="toc-Conditional-Init-Constructs-1" href="Conditional-Init-Constructs.html#Conditional-Init-Constructs">8.3.2 Conditional Init Constructs</a></li>
+      <li><a name="toc-Sample-Init-File-1" href="Sample-Init-File.html#Sample-Init-File">8.3.3 Sample Init File</a></li>
+    </ul></li>
+    <li><a name="toc-Bindable-Readline-Commands-1" href="Bindable-Readline-Commands.html#Bindable-Readline-Commands">8.4 Bindable Readline Commands</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Commands-For-Moving-1" href="Commands-For-Moving.html#Commands-For-Moving">8.4.1 Commands For Moving</a></li>
+      <li><a name="toc-Commands-For-Manipulating-The-History" href="Commands-For-History.html#Commands-For-History">8.4.2 Commands For Manipulating The History</a></li>
+      <li><a name="toc-Commands-For-Changing-Text" href="Commands-For-Text.html#Commands-For-Text">8.4.3 Commands For Changing Text</a></li>
+      <li><a name="toc-Killing-And-Yanking" href="Commands-For-Killing.html#Commands-For-Killing">8.4.4 Killing And Yanking</a></li>
+      <li><a name="toc-Specifying-Numeric-Arguments" href="Numeric-Arguments.html#Numeric-Arguments">8.4.5 Specifying Numeric Arguments</a></li>
+      <li><a name="toc-Letting-Readline-Type-For-You" href="Commands-For-Completion.html#Commands-For-Completion">8.4.6 Letting Readline Type For You</a></li>
+      <li><a name="toc-Keyboard-Macros-1" href="Keyboard-Macros.html#Keyboard-Macros">8.4.7 Keyboard Macros</a></li>
+      <li><a name="toc-Some-Miscellaneous-Commands" href="Miscellaneous-Commands.html#Miscellaneous-Commands">8.4.8 Some Miscellaneous Commands</a></li>
+    </ul></li>
+    <li><a name="toc-Readline-vi-Mode-1" href="Readline-vi-Mode.html#Readline-vi-Mode">8.5 Readline vi Mode</a></li>
+    <li><a name="toc-Programmable-Completion-1" href="Programmable-Completion.html#Programmable-Completion">8.6 Programmable Completion</a></li>
+    <li><a name="toc-Programmable-Completion-Builtins-1" href="Programmable-Completion-Builtins.html#Programmable-Completion-Builtins">8.7 Programmable Completion Builtins</a></li>
+  </ul></li>
+  <li><a name="toc-Using-History-Interactively-1" href="Using-History-Interactively.html#Using-History-Interactively">9 Using History Interactively</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Bash-History-Facilities-1" href="Bash-History-Facilities.html#Bash-History-Facilities">9.1 Bash History Facilities</a></li>
+    <li><a name="toc-Bash-History-Builtins-1" href="Bash-History-Builtins.html#Bash-History-Builtins">9.2 Bash History Builtins</a></li>
+    <li><a name="toc-History-Expansion" href="History-Interaction.html#History-Interaction">9.3 History Expansion</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Event-Designators-1" href="Event-Designators.html#Event-Designators">9.3.1 Event Designators</a></li>
+      <li><a name="toc-Word-Designators-1" href="Word-Designators.html#Word-Designators">9.3.2 Word Designators</a></li>
+      <li><a name="toc-Modifiers-1" href="Modifiers.html#Modifiers">9.3.3 Modifiers</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Installing-Bash-1" href="Installing-Bash.html#Installing-Bash">10 Installing Bash</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Basic-Installation-1" href="Basic-Installation.html#Basic-Installation">10.1 Basic Installation</a></li>
+    <li><a name="toc-Compilers-and-Options-1" href="Compilers-and-Options.html#Compilers-and-Options">10.2 Compilers and Options</a></li>
+    <li><a name="toc-Compiling-For-Multiple-Architectures-1" href="Compiling-For-Multiple-Architectures.html#Compiling-For-Multiple-Architectures">10.3 Compiling For Multiple Architectures</a></li>
+    <li><a name="toc-Installation-Names-1" href="Installation-Names.html#Installation-Names">10.4 Installation Names</a></li>
+    <li><a name="toc-Specifying-the-System-Type-1" href="Specifying-the-System-Type.html#Specifying-the-System-Type">10.5 Specifying the System Type</a></li>
+    <li><a name="toc-Sharing-Defaults-1" href="Sharing-Defaults.html#Sharing-Defaults">10.6 Sharing Defaults</a></li>
+    <li><a name="toc-Operation-Controls-1" href="Operation-Controls.html#Operation-Controls">10.7 Operation Controls</a></li>
+    <li><a name="toc-Optional-Features-1" href="Optional-Features.html#Optional-Features">10.8 Optional Features</a></li>
+  </ul></li>
+  <li><a name="toc-Reporting-Bugs-1" href="Reporting-Bugs.html#Reporting-Bugs">Appendix A Reporting Bugs</a></li>
+  <li><a name="toc-Major-Differences-From-The-Bourne-Shell-1" href="Major-Differences-From-The-Bourne-Shell.html#Major-Differences-From-The-Bourne-Shell">Appendix B Major Differences From The Bourne Shell</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Implementation-Differences-From-The-SVR4_002e2-Shell" href="Major-Differences-From-The-Bourne-Shell.html#Implementation-Differences-From-The-SVR4_002e2-Shell">B.1 Implementation Differences From The SVR4.2 Shell</a></li>
+  </ul></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a></li>
+  <li><a name="toc-Indexes-1" href="Indexes.html#Indexes">Appendix D Indexes</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Index-of-Shell-Builtin-Commands" href="Builtin-Index.html#Builtin-Index">D.1 Index of Shell Builtin Commands</a></li>
+    <li><a name="toc-Index-of-Shell-Reserved-Words" href="Reserved-Word-Index.html#Reserved-Word-Index">D.2 Index of Shell Reserved Words</a></li>
+    <li><a name="toc-Parameter-and-Variable-Index" href="Variable-Index.html#Variable-Index">D.3 Parameter and Variable Index</a></li>
+    <li><a name="toc-Function-Index-1" href="Function-Index.html#Function-Index">D.4 Function Index</a></li>
+    <li><a name="toc-Concept-Index-1" href="Concept-Index.html#Concept-Index">D.5 Concept Index</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="Introduction.html#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="previous">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-Features-1"></a>
+<h1 class="top">Bash Features</h1>
+
+<p>This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+</p>
+<p>This is Edition 4.2, last updated 28 December 2010,
+of <cite>The GNU Bash Reference Manual</cite>,
+for <code>Bash</code>, Version 4.2.
+</p>
+<p>Bash contains features that appear in other popular shells, and some
+features that only appear in Bash.  Some of the shells that Bash has
+borrowed concepts from are the Bourne Shell (<samp>sh</samp>), the Korn Shell
+(<samp>ksh</samp>), and the C-shell (<samp>csh</samp> and its successor,
+<samp>tcsh</samp>). The following menu breaks the features up into
+categories based upon which one of these other shells inspired the
+feature.
+</p>
+<p>This manual is meant as a brief introduction to features found in
+Bash.  The Bash manual page should be used as the definitive
+reference on shell behavior.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Introduction.html#Introduction" accesskey="1">Introduction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">An introduction to the shell.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Definitions.html#Definitions" accesskey="2">Definitions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Some definitions used in the rest of this
+				manual.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="3">Basic Shell Features</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The shell &quot;building blocks&quot;.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" accesskey="4">Shell Builtin Commands</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Commands that are a part of the shell.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Shell-Variables.html#Shell-Variables" accesskey="5">Shell Variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Variables used or set by Bash.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Bash-Features.html#Bash-Features" accesskey="6">Bash Features</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Features found only in Bash.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Job-Control.html#Job-Control" accesskey="7">Job Control</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What job control is and how Bash allows you
+				to use it.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Command-Line-Editing.html#Command-Line-Editing" accesskey="8">Command Line Editing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Chapter describing the command line
+				editing features.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Using-History-Interactively.html#Using-History-Interactively" accesskey="9">Using History Interactively</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Command History Expansion
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Installing-Bash.html#Installing-Bash">Installing Bash</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to build and install Bash on your system.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Reporting-Bugs.html#Reporting-Bugs">Reporting Bugs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to report bugs in Bash.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Major-Differences-From-The-Bourne-Shell.html#Major-Differences-From-The-Bourne-Shell">Major Differences From The Bourne Shell</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A terse list of the differences
+						between Bash and historical
+						versions of /bin/sh.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying and sharing this documentation.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Indexes.html#Indexes">Indexes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Various indexes for this manual.
+</td></tr>
+</table>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Introduction.html#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="previous">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

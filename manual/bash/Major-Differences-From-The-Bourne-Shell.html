@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Major Differences From The Bourne Shell</title>
+
+<meta name="description" content="Bash Reference Manual: Major Differences From The Bourne Shell">
+<meta name="keywords" content="Bash Reference Manual: Major Differences From The Bourne Shell">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License" rel="next" title="GNU Free Documentation License">
+<link href="Reporting-Bugs.html#Reporting-Bugs" rel="previous" title="Reporting Bugs">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Major-Differences-From-The-Bourne-Shell"></a>
+<div class="header">
+<p>
+Next: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="Reporting-Bugs.html#Reporting-Bugs" accesskey="p" rel="previous">Reporting Bugs</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Major-Differences-From-The-Bourne-Shell-1"></a>
+<h2 class="appendix">Appendix B Major Differences From The Bourne Shell</h2>
+
+<p>Bash implements essentially the same grammar, parameter and
+variable expansion, redirection, and quoting as the Bourne Shell. 
+Bash uses the <small>POSIX</small> standard as the specification of
+how these features are to be implemented.  There are some
+differences between the traditional Bourne shell and Bash; this
+section quickly details the differences of significance.  A
+number of these differences are explained in greater depth in
+previous sections.
+This section uses the version of <code>sh</code> included in SVR4.2 (the
+last version of the historical Bourne shell) as the baseline reference.
+</p>
+<ul>
+<li> Bash is <small>POSIX</small>-conformant, even where the <small>POSIX</small> specification
+differs from traditional <code>sh</code> behavior (see <a href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">Bash POSIX Mode</a>).
+
+</li><li> Bash has multi-character invocation options (see <a href="Invoking-Bash.html#Invoking-Bash">Invoking Bash</a>).
+
+</li><li> Bash has command-line editing (see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>) and
+the <code>bind</code> builtin.
+
+</li><li> Bash provides a programmable word completion mechanism
+(see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>), and builtin commands
+<code>complete</code>, <code>compgen</code>, and <code>compopt</code>, to
+manipulate it.
+
+</li><li> Bash has command history (see <a href="Bash-History-Facilities.html#Bash-History-Facilities">Bash History Facilities</a>) and the
+<code>history</code> and <code>fc</code> builtins to manipulate it.
+The Bash history list maintains timestamp information and uses the
+value of the <code>HISTTIMEFORMAT</code> variable to display it.
+
+</li><li> Bash implements <code>csh</code>-like history expansion
+(see <a href="History-Interaction.html#History-Interaction">History Interaction</a>).
+
+</li><li> Bash has one-dimensional array variables (see <a href="Arrays.html#Arrays">Arrays</a>), and the
+appropriate variable expansions and assignment syntax to use them.
+Several of the Bash builtins take options to act on arrays.
+Bash provides a number of built-in array variables.
+
+</li><li> The <code>$'&hellip;'</code> quoting syntax, which expands ANSI-C
+backslash-escaped characters in the text between the single quotes,
+is supported (see <a href="ANSI_002dC-Quoting.html#ANSI_002dC-Quoting">ANSI-C Quoting</a>).
+
+</li><li> Bash supports the <code>$&quot;&hellip;&quot;</code> quoting syntax to do
+locale-specific translation of the characters between the double
+quotes.  The <samp>-D</samp>, <samp>--dump-strings</samp>, and <samp>--dump-po-strings</samp>
+invocation options list the translatable strings found in a script
+(see <a href="Locale-Translation.html#Locale-Translation">Locale Translation</a>).
+
+</li><li> Bash implements the <code>!</code> keyword to negate the return value of
+a pipeline (see <a href="Pipelines.html#Pipelines">Pipelines</a>).
+Very useful when an <code>if</code> statement needs to act only if a test fails.
+The Bash &lsquo;<samp>-o pipefail</samp>&rsquo; option to <code>set</code> will cause a pipeline to
+return a failure status if any command fails.
+
+</li><li> Bash has the <code>time</code> reserved word and command timing (see <a href="Pipelines.html#Pipelines">Pipelines</a>).
+The display of the timing statistics may be controlled with the
+<code>TIMEFORMAT</code> variable.
+
+</li><li> Bash implements the <code>for (( <var>expr1</var> ; <var>expr2</var> ; <var>expr3</var> ))</code>
+arithmetic for command, similar to the C language (see <a href="Looping-Constructs.html#Looping-Constructs">Looping Constructs</a>).
+
+</li><li> Bash includes the <code>select</code> compound command, which allows the
+generation of simple menus (see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+
+</li><li> Bash includes the <code>[[</code> compound command, which makes conditional
+testing part of the shell grammar (see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>), including
+optional regular expression matching.
+
+</li><li> Bash provides optional case-insensitive matching for the <code>case</code> and
+<code>[[</code> constructs.
+
+</li><li> Bash includes brace expansion (see <a href="Brace-Expansion.html#Brace-Expansion">Brace Expansion</a>) and tilde
+expansion (see <a href="Tilde-Expansion.html#Tilde-Expansion">Tilde Expansion</a>).
+
+</li><li> Bash implements command aliases and the <code>alias</code> and <code>unalias</code>
+builtins (see <a href="Aliases.html#Aliases">Aliases</a>).
+
+</li><li> Bash provides shell arithmetic, the <code>((</code> compound command
+(see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>),
+and arithmetic expansion (see <a href="Shell-Arithmetic.html#Shell-Arithmetic">Shell Arithmetic</a>).
+
+</li><li> Variables present in the shell&rsquo;s initial environment are automatically
+exported to child processes.  The Bourne shell does not normally do
+this unless the variables are explicitly marked using the <code>export</code>
+command.
+
+</li><li> Bash supports the &lsquo;<samp>+=</samp>&rsquo; assignment operator, which appends to the value
+of the variable named on the left hand side.
+
+</li><li> Bash includes the <small>POSIX</small> pattern removal &lsquo;<samp>%</samp>&rsquo;, &lsquo;<samp>#</samp>&rsquo;, &lsquo;<samp>%%</samp>&rsquo;
+and &lsquo;<samp>##</samp>&rsquo; expansions to remove leading or trailing substrings from
+variable values (see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> The expansion <code>${#xx}</code>, which returns the length of <code>${xx}</code>,
+is supported (see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> The expansion <code>${var:</code><var>offset</var><code>[:</code><var>length</var><code>]}</code>,
+which expands to the substring of <code>var</code>&rsquo;s value of length
+<var>length</var>, beginning at <var>offset</var>, is present
+(see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> The expansion
+<code>${var/[/]</code><var>pattern</var><code>[/</code><var>replacement</var><code>]}</code>,
+which matches <var>pattern</var> and replaces it with <var>replacement</var> in
+the value of <code>var</code>, is available (see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> The expansion <code>${!<var>prefix}*</var></code> expansion, which expands to
+the names of all shell variables whose names begin with <var>prefix</var>,
+is available (see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> Bash has <var>indirect</var> variable expansion using <code>${!word}</code>
+(see <a href="Shell-Parameter-Expansion.html#Shell-Parameter-Expansion">Shell Parameter Expansion</a>).
+
+</li><li> Bash can expand positional parameters beyond <code>$9</code> using
+<code>${<var>num</var>}</code>.
+
+</li><li> The <small>POSIX</small> <code>$()</code> form of command substitution
+is implemented (see <a href="Command-Substitution.html#Command-Substitution">Command Substitution</a>),
+and preferred to the Bourne shell&rsquo;s <code>``</code> (which
+is also implemented for backwards compatibility).
+
+</li><li> Bash has process substitution (see <a href="Process-Substitution.html#Process-Substitution">Process Substitution</a>).
+
+</li><li> Bash automatically assigns variables that provide information about the
+current user (<code>UID</code>, <code>EUID</code>, and <code>GROUPS</code>), the current host
+(<code>HOSTTYPE</code>, <code>OSTYPE</code>, <code>MACHTYPE</code>, and <code>HOSTNAME</code>),
+and the instance of Bash that is running (<code>BASH</code>,
+<code>BASH_VERSION</code>, and <code>BASH_VERSINFO</code>).  See <a href="Bash-Variables.html#Bash-Variables">Bash Variables</a>,
+for details.
+
+</li><li> The <code>IFS</code> variable is used to split only the results of expansion,
+not all words (see <a href="Word-Splitting.html#Word-Splitting">Word Splitting</a>).
+This closes a longstanding shell security hole.
+
+</li><li> Bash implements the full set of <small>POSIX</small> filename expansion operators,
+including <var>character classes</var>, <var>equivalence classes</var>, and
+<var>collating symbols</var> (see <a href="Filename-Expansion.html#Filename-Expansion">Filename Expansion</a>).
+
+</li><li> Bash implements extended pattern matching features when the <code>extglob</code>
+shell option is enabled (see <a href="Pattern-Matching.html#Pattern-Matching">Pattern Matching</a>).
+
+</li><li> It is possible to have a variable and a function with the same name;
+<code>sh</code> does not separate the two name spaces.
+
+</li><li> Bash functions are permitted to have local variables using the
+<code>local</code> builtin, and thus useful recursive functions may be written
+(see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> Variable assignments preceding commands affect only that command, even
+builtins and functions (see <a href="Environment.html#Environment">Environment</a>).
+In <code>sh</code>, all variable assignments 
+preceding commands are global unless the command is executed from the
+file system.
+
+</li><li> Bash performs filename expansion on filenames specified as operands
+to input and output redirection operators (see <a href="Redirections.html#Redirections">Redirections</a>).
+
+</li><li> Bash contains the &lsquo;<samp>&lt;&gt;</samp>&rsquo; redirection operator, allowing a file to be
+opened for both reading and writing, and the &lsquo;<samp>&amp;&gt;</samp>&rsquo; redirection
+operator, for directing standard output and standard error to the same
+file (see <a href="Redirections.html#Redirections">Redirections</a>).
+
+</li><li> Bash includes the &lsquo;<samp>&lt;&lt;&lt;</samp>&rsquo; redirection operator, allowing a string to
+be used as the standard input to a command.
+
+</li><li> Bash implements the &lsquo;<samp>[n]&lt;&amp;<var>word</var></samp>&rsquo; and &lsquo;<samp>[n]&gt;&amp;<var>word</var></samp>&rsquo;
+redirection operators, which move one file descriptor to another.
+
+</li><li> Bash treats a number of filenames specially when they are
+used in redirection operators (see <a href="Redirections.html#Redirections">Redirections</a>).
+
+</li><li> Bash can open network connections to arbitrary machines and services
+with the redirection operators (see <a href="Redirections.html#Redirections">Redirections</a>).
+
+</li><li> The <code>noclobber</code> option is available to avoid overwriting existing
+files with output redirection (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+The &lsquo;<samp>&gt;|</samp>&rsquo; redirection operator may be used to override <code>noclobber</code>.
+
+</li><li> The Bash <code>cd</code> and <code>pwd</code> builtins (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>)
+each take <samp>-L</samp> and <samp>-P</samp> options to switch between logical and
+physical modes.
+
+</li><li> Bash allows a function to override a builtin with the same name, and provides
+access to that builtin&rsquo;s functionality within the function via the
+<code>builtin</code> and <code>command</code> builtins (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> The <code>command</code> builtin allows selective disabling of functions
+when command lookup is performed (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> Individual builtins may be enabled or disabled using the <code>enable</code>
+builtin (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> The Bash <code>exec</code> builtin takes additional options that allow users
+to control the contents of the environment passed to the executed
+command, and what the zeroth argument to the command is to be
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+
+</li><li> Shell functions may be exported to children via the environment
+using <code>export -f</code> (see <a href="Shell-Functions.html#Shell-Functions">Shell Functions</a>).
+
+</li><li> The Bash <code>export</code>, <code>readonly</code>, and <code>declare</code> builtins can
+take a <samp>-f</samp> option to act on shell functions, a <samp>-p</samp> option to
+display variables with various attributes set in a format that can be
+used as shell input, a <samp>-n</samp> option to remove various variable
+attributes, and &lsquo;<samp>name=value</samp>&rsquo; arguments to set variable attributes
+and values simultaneously.
+
+</li><li> The Bash <code>hash</code> builtin allows a name to be associated with
+an arbitrary filename, even when that filename cannot be found by
+searching the <code>$PATH</code>, using &lsquo;<samp>hash -p</samp>&rsquo;
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+
+</li><li> Bash includes a <code>help</code> builtin for quick reference to shell
+facilities (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> The <code>printf</code> builtin is available to display formatted output
+(see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> The Bash <code>read</code> builtin (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>)
+will read a line ending in &lsquo;<samp>\</samp>&rsquo; with
+the <samp>-r</samp> option, and will use the <code>REPLY</code> variable as a
+default if no non-option arguments are supplied.
+The Bash <code>read</code> builtin
+also accepts a prompt string with the <samp>-p</samp> option and will use
+Readline to obtain the line when given the <samp>-e</samp> option.
+The <code>read</code> builtin also has additional options to control input:
+the <samp>-s</samp> option will turn off echoing of input characters as
+they are read, the <samp>-t</samp> option will allow <code>read</code> to time out
+if input does not arrive within a specified number of seconds, the
+<samp>-n</samp> option will allow reading only a specified number of
+characters rather than a full line, and the <samp>-d</samp> option will read
+until a particular character rather than newline.
+
+</li><li> The <code>return</code> builtin may be used to abort execution of scripts
+executed with the <code>.</code> or <code>source</code> builtins
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+
+</li><li> Bash includes the <code>shopt</code> builtin, for finer control of shell
+optional capabilities (see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>), and allows these options
+to be set and unset at shell invocation (see <a href="Invoking-Bash.html#Invoking-Bash">Invoking Bash</a>).
+
+</li><li> Bash has much more optional behavior controllable with the <code>set</code>
+builtin (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+
+</li><li> The &lsquo;<samp>-x</samp>&rsquo; (<code>xtrace</code>) option displays commands other than
+simple commands when performing an execution trace
+(see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+
+</li><li> The <code>test</code> builtin (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>)
+is slightly different, as it implements the <small>POSIX</small> algorithm,
+which specifies the behavior based on the number of arguments.
+
+</li><li> Bash includes the <code>caller</code> builtin, which displays the context of
+any active subroutine call (a shell function or a script executed with
+the <code>.</code> or <code>source</code> builtins).  This supports the bash
+debugger.
+
+</li><li> The <code>trap</code> builtin (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>) allows a
+<code>DEBUG</code> pseudo-signal specification, similar to <code>EXIT</code>.
+Commands specified with a <code>DEBUG</code> trap are executed before every
+simple command, <code>for</code> command, <code>case</code> command,
+<code>select</code> command, every arithmetic <code>for</code> command, and before
+the first command executes in a shell function.
+The <code>DEBUG</code> trap is not inherited by shell functions unless the
+function has been given the <code>trace</code> attribute or the
+<code>functrace</code> option has been enabled using the <code>shopt</code> builtin.
+The <code>extdebug</code> shell option has additional effects on the
+<code>DEBUG</code> trap.
+
+<p>The <code>trap</code> builtin (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>) allows an
+<code>ERR</code> pseudo-signal specification, similar to <code>EXIT</code> and <code>DEBUG</code>.
+Commands specified with an <code>ERR</code> trap are executed after a simple
+command fails, with a few exceptions.
+The <code>ERR</code> trap is not inherited by shell functions unless the
+<code>-o errtrace</code> option to the <code>set</code> builtin is enabled.
+</p>
+<p>The <code>trap</code> builtin (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>) allows a
+<code>RETURN</code> pseudo-signal specification, similar to
+<code>EXIT</code> and <code>DEBUG</code>.
+Commands specified with an <code>RETURN</code> trap are executed before
+execution resumes after a shell function or a shell script executed with
+<code>.</code> or <code>source</code> returns.
+The <code>RETURN</code> trap is not inherited by shell functions unless the
+function has been given the <code>trace</code> attribute or the
+<code>functrace</code> option has been enabled using the <code>shopt</code> builtin.
+</p>
+</li><li> The Bash <code>type</code> builtin is more extensive and gives more information
+about the names it finds (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+
+</li><li> The Bash <code>umask</code> builtin permits a <samp>-p</samp> option to cause
+the output to be displayed in the form of a <code>umask</code> command
+that may be reused as input (see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+
+</li><li> Bash implements a <code>csh</code>-like directory stack, and provides the
+<code>pushd</code>, <code>popd</code>, and <code>dirs</code> builtins to manipulate it
+(see <a href="The-Directory-Stack.html#The-Directory-Stack">The Directory Stack</a>).
+Bash also makes the directory stack visible as the value of the
+<code>DIRSTACK</code> shell variable.
+
+</li><li> Bash interprets special backslash-escaped characters in the prompt
+strings when interactive (see <a href="Printing-a-Prompt.html#Printing-a-Prompt">Printing a Prompt</a>).
+
+</li><li> The Bash restricted mode is more useful (see <a href="The-Restricted-Shell.html#The-Restricted-Shell">The Restricted Shell</a>);
+the SVR4.2 shell restricted mode is too limited.
+
+</li><li> The <code>disown</code> builtin can remove a job from the internal shell
+job table (see <a href="Job-Control-Builtins.html#Job-Control-Builtins">Job Control Builtins</a>) or suppress the sending
+of <code>SIGHUP</code> to a job when the shell exits as the result of a
+<code>SIGHUP</code>.
+
+</li><li> Bash includes a number of features to support a separate debugger for
+shell scripts.
+
+</li><li> The SVR4.2 shell has two privilege-related builtins
+(<code>mldmode</code> and <code>priv</code>) not present in Bash.
+
+</li><li> Bash does not have the <code>stop</code> or <code>newgrp</code> builtins.
+
+</li><li> Bash does not use the <code>SHACCT</code> variable or perform shell accounting.
+
+</li><li> The SVR4.2 <code>sh</code> uses a <code>TIMEOUT</code> variable like Bash uses
+<code>TMOUT</code>.
+
+</li></ul>
+
+<p>More features unique to Bash may be found in <a href="Bash-Features.html#Bash-Features">Bash Features</a>.
+</p>
+
+<a name="Implementation-Differences-From-The-SVR4_002e2-Shell"></a>
+<h3 class="appendixsec">B.1 Implementation Differences From The SVR4.2 Shell</h3>
+
+<p>Since Bash is a completely new implementation, it does not suffer from
+many of the limitations of the SVR4.2 shell.  For instance:
+</p>
+<ul>
+<li> Bash does not fork a subshell when redirecting into or out of
+a shell control structure such as  an <code>if</code> or <code>while</code>
+statement.
+
+</li><li> Bash does not allow unbalanced quotes.  The SVR4.2 shell will silently
+insert a needed closing quote at <code>EOF</code> under certain circumstances.
+This can be the cause of some hard-to-find errors.
+
+</li><li> The SVR4.2 shell uses a baroque memory management scheme based on
+trapping <code>SIGSEGV</code>.  If the shell is started from a process with
+<code>SIGSEGV</code> blocked (e.g., by using the <code>system()</code> C library
+function call), it misbehaves badly.
+
+</li><li> In a questionable attempt at security, the SVR4.2 shell,
+when invoked without the <samp>-p</samp> option, will alter its real
+and effective <small>UID</small> and <small>GID</small> if they are less than some
+magic threshold value, commonly 100.
+This can lead to unexpected results.
+
+</li><li> The SVR4.2 shell does not allow users to trap <code>SIGSEGV</code>,
+<code>SIGALRM</code>, or <code>SIGCHLD</code>.
+
+</li><li> The SVR4.2 shell does not allow the <code>IFS</code>, <code>MAILCHECK</code>,
+<code>PATH</code>, <code>PS1</code>, or <code>PS2</code> variables to be unset.
+
+</li><li> The SVR4.2 shell treats &lsquo;<samp>^</samp>&rsquo; as the undocumented equivalent of
+&lsquo;<samp>|</samp>&rsquo;.
+
+</li><li> Bash allows multiple option arguments when it is invoked (<code>-x -v</code>);
+the SVR4.2 shell allows only one option argument (<code>-xv</code>).  In
+fact, some versions of the shell dump core if the second argument begins
+with a &lsquo;<samp>-</samp>&rsquo;.
+
+</li><li> The SVR4.2 shell exits a script if any builtin fails; Bash exits
+a script only if one of the <small>POSIX</small> special builtins fails, and
+only for certain failures, as enumerated in the <small>POSIX</small> standard.
+
+</li><li> The SVR4.2 shell behaves differently when invoked as <code>jsh</code>
+(it turns on job control).
+</li></ul>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="Reporting-Bugs.html#Reporting-Bugs" accesskey="p" rel="previous">Reporting Bugs</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

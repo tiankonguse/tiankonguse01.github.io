@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bash Variables</title>
+
+<meta name="description" content="Bash Reference Manual: Bash Variables">
+<meta name="keywords" content="Bash Reference Manual: Bash Variables">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Shell-Variables.html#Shell-Variables" rel="up" title="Shell Variables">
+<link href="Bash-Features.html#Bash-Features" rel="next" title="Bash Features">
+<link href="Bourne-Shell-Variables.html#Bourne-Shell-Variables" rel="previous" title="Bourne Shell Variables">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bash-Variables"></a>
+<div class="header">
+<p>
+Previous: <a href="Bourne-Shell-Variables.html#Bourne-Shell-Variables" accesskey="p" rel="previous">Bourne Shell Variables</a>, Up: <a href="Shell-Variables.html#Shell-Variables" accesskey="u" rel="up">Shell Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bash-Variables-1"></a>
+<h3 class="section">5.2 Bash Variables</h3>
+
+<p>These variables are set or used by Bash, but other shells
+do not normally treat them specially.
+</p>
+<p>A few variables used by Bash are described in different chapters:
+variables for controlling the job control facilities
+(see <a href="Job-Control-Variables.html#Job-Control-Variables">Job Control Variables</a>).
+</p>
+<dl compact="compact">
+<dt><code>BASH</code>
+<a name="index-BASH"></a>
+</dt>
+<dd><p>The full pathname used to execute the current instance of Bash.
+</p>
+</dd>
+<dt><code>BASHOPTS</code>
+<a name="index-BASHOPTS"></a>
+</dt>
+<dd><p>A colon-separated list of enabled shell options.  Each word in
+the list is a valid argument for the <samp>-s</samp> option to the
+<code>shopt</code> builtin command (see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>).
+The options appearing in <code>BASHOPTS</code> are those reported
+as &lsquo;<samp>on</samp>&rsquo; by &lsquo;<samp>shopt</samp>&rsquo;.
+If this variable is in the environment when Bash
+starts up, each shell option in the list will be enabled before
+reading any startup files.  This variable is readonly.
+</p>
+</dd>
+<dt><code>BASHPID</code>
+<a name="index-BASHPID"></a>
+</dt>
+<dd><p>Expands to the process ID of the current Bash process.
+This differs from <code>$$</code> under certain circumstances, such as subshells
+that do not require Bash to be re-initialized.
+</p>
+</dd>
+<dt><code>BASH_ALIASES</code>
+<a name="index-BASH_005fALIASES"></a>
+</dt>
+<dd><p>An associative array variable whose members correspond to the internal
+list of aliases as maintained by the <code>alias</code> builtin.
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+Elements added to this array appear in the alias list; unsetting array
+elements cause aliases to be removed from the alias list.
+</p>
+</dd>
+<dt><code>BASH_ARGC</code>
+<a name="index-BASH_005fARGC"></a>
+</dt>
+<dd><p>An array variable whose values are the number of parameters in each
+frame of the current bash execution call stack.  The number of
+parameters to the current subroutine (shell function or script executed
+with <code>.</code> or <code>source</code>) is at the top of the stack.  When a
+subroutine is executed, the number of parameters passed is pushed onto
+<code>BASH_ARGC</code>.
+The shell sets <code>BASH_ARGC</code> only when in extended debugging mode
+(see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>
+for a description of the <code>extdebug</code> option to the <code>shopt</code>
+builtin).
+</p>
+</dd>
+<dt><code>BASH_ARGV</code>
+<a name="index-BASH_005fARGV"></a>
+</dt>
+<dd><p>An array variable containing all of the parameters in the current bash
+execution call stack.  The final parameter of the last subroutine call
+is at the top of the stack; the first parameter of the initial call is
+at the bottom.  When a subroutine is executed, the parameters supplied
+are pushed onto <code>BASH_ARGV</code>.
+The shell sets <code>BASH_ARGV</code> only when in extended debugging mode
+(see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>
+for a description of the <code>extdebug</code> option to the <code>shopt</code>
+builtin).
+</p>
+</dd>
+<dt><code>BASH_CMDS</code>
+<a name="index-BASH_005fCMDS"></a>
+</dt>
+<dd><p>An associative array variable whose members correspond to the internal
+hash table of commands as maintained by the <code>hash</code> builtin
+(see <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>).
+Elements added to this array appear in the hash table; unsetting array
+elements cause commands to be removed from the hash table.
+</p>
+</dd>
+<dt><code>BASH_COMMAND</code>
+<a name="index-BASH_005fCOMMAND"></a>
+</dt>
+<dd><p>The command currently being executed or about to be executed, unless the
+shell is executing a command as the result of a trap,
+in which case it is the command executing at the time of the trap.
+</p>
+</dd>
+<dt><code>BASH_ENV</code>
+<a name="index-BASH_005fENV"></a>
+</dt>
+<dd><p>If this variable is set when Bash is invoked to execute a shell
+script, its value is expanded and used as the name of a startup file
+to read before executing the script.  See <a href="Bash-Startup-Files.html#Bash-Startup-Files">Bash Startup Files</a>.
+</p>
+</dd>
+<dt><code>BASH_EXECUTION_STRING</code>
+<a name="index-BASH_005fEXECUTION_005fSTRING"></a>
+</dt>
+<dd><p>The command argument to the <samp>-c</samp> invocation option.
+</p>
+</dd>
+<dt><code>BASH_LINENO</code>
+<a name="index-BASH_005fLINENO"></a>
+</dt>
+<dd><p>An array variable whose members are the line numbers in source files
+where each corresponding member of <var>FUNCNAME</var> was invoked.
+<code>${BASH_LINENO[$i]}</code> is the line number in the source file
+(<code>${BASH_SOURCE[$i+1]}</code>) where
+<code>${FUNCNAME[$i]}</code> was called (or <code>${BASH_LINENO[$i-1]}</code> if
+referenced within another shell function). 
+Use <code>LINENO</code> to obtain the current line number.
+</p>
+</dd>
+<dt><code>BASH_REMATCH</code>
+<a name="index-BASH_005fREMATCH"></a>
+</dt>
+<dd><p>An array variable whose members are assigned by the &lsquo;<samp>=~</samp>&rsquo; binary
+operator to the <code>[[</code> conditional command
+(see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>).
+The element with index 0 is the portion of the string
+matching the entire regular expression.
+The element with index <var>n</var> is the portion of the
+string matching the <var>n</var>th parenthesized subexpression.
+This variable is read-only.
+</p>
+</dd>
+<dt><code>BASH_SOURCE</code>
+<a name="index-BASH_005fSOURCE"></a>
+</dt>
+<dd><p>An array variable whose members are the source filenames where the
+corresponding shell function names in the <code>FUNCNAME</code> array
+variable are defined.
+The shell function <code>${FUNCNAME[$i]}</code> is defined in the file
+<code>${BASH_SOURCE[$i]}</code> and called from <code>${BASH_SOURCE[$i+1]}</code>
+</p>
+</dd>
+<dt><code>BASH_SUBSHELL</code>
+<a name="index-BASH_005fSUBSHELL"></a>
+</dt>
+<dd><p>Incremented by one each time a subshell or subshell environment is spawned.
+The initial value is 0.
+</p>
+</dd>
+<dt><code>BASH_VERSINFO</code>
+<a name="index-BASH_005fVERSINFO"></a>
+</dt>
+<dd><p>A readonly array variable (see <a href="Arrays.html#Arrays">Arrays</a>)
+whose members hold version information for this instance of Bash.
+The values assigned to the array members are as follows:
+</p>
+<dl compact="compact">
+<dt><code>BASH_VERSINFO[0]</code></dt>
+<dd><p>The major version number (the <var>release</var>).
+</p>
+</dd>
+<dt><code>BASH_VERSINFO[1]</code></dt>
+<dd><p>The minor version number (the <var>version</var>).
+</p>
+</dd>
+<dt><code>BASH_VERSINFO[2]</code></dt>
+<dd><p>The patch level.
+</p>
+</dd>
+<dt><code>BASH_VERSINFO[3]</code></dt>
+<dd><p>The build version.
+</p>
+</dd>
+<dt><code>BASH_VERSINFO[4]</code></dt>
+<dd><p>The release status (e.g., <var>beta1</var>).
+</p>
+</dd>
+<dt><code>BASH_VERSINFO[5]</code></dt>
+<dd><p>The value of <code>MACHTYPE</code>.
+</p>
+</dd>
+</dl>
+
+</dd>
+<dt><code>BASH_VERSION</code>
+<a name="index-BASH_005fVERSION"></a>
+</dt>
+<dd><p>The version number of the current instance of Bash.
+</p>
+</dd>
+<dt><code>BASH_XTRACEFD</code>
+<a name="index-BASH_005fXTRACEFD"></a>
+</dt>
+<dd><p>If set to an integer corresponding to a valid file descriptor, Bash
+will write the trace output generated when &lsquo;<samp>set -x</samp>&rsquo;
+is enabled to that file descriptor.
+This allows tracing output to be separated from diagnostic and error
+messages.
+The file descriptor is closed when <code>BASH_XTRACEFD</code> is unset or assigned
+a new value.
+Unsetting <code>BASH_XTRACEFD</code> or assigning it the empty string causes the
+trace output to be sent to the standard error.
+Note that setting <code>BASH_XTRACEFD</code> to 2 (the standard error file
+descriptor) and then unsetting it will result in the standard error
+being closed.
+</p>
+</dd>
+<dt><code>COLUMNS</code>
+<a name="index-COLUMNS"></a>
+</dt>
+<dd><p>Used by the <code>select</code> command to determine the terminal width
+when printing selection lists.  Automatically set upon receipt of a
+<code>SIGWINCH</code>.
+</p>
+</dd>
+<dt><code>COMP_CWORD</code>
+<a name="index-COMP_005fCWORD"></a>
+</dt>
+<dd><p>An index into <code>${COMP_WORDS}</code> of the word containing the current
+cursor position.
+This variable is available only in shell functions invoked by the
+programmable completion facilities (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COMP_LINE</code>
+<a name="index-COMP_005fLINE"></a>
+</dt>
+<dd><p>The current command line.
+This variable is available only in shell functions and external
+commands invoked by the
+programmable completion facilities (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COMP_POINT</code>
+<a name="index-COMP_005fPOINT"></a>
+</dt>
+<dd><p>The index of the current cursor position relative to the beginning of
+the current command.
+If the current cursor position is at the end of the current command,
+the value of this variable is equal to <code>${#COMP_LINE}</code>.
+This variable is available only in shell functions and external
+commands invoked by the
+programmable completion facilities (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COMP_TYPE</code>
+<a name="index-COMP_005fTYPE"></a>
+</dt>
+<dd><p>Set to an integer value corresponding to the type of completion attempted
+that caused a completion function to be called:
+<var>TAB</var>, for normal completion,
+&lsquo;<samp>?</samp>&rsquo;, for listing completions after successive tabs,
+&lsquo;<samp>!</samp>&rsquo;, for listing alternatives on partial word completion,
+&lsquo;<samp>@</samp>&rsquo;, to list completions if the word is not unmodified,
+or
+&lsquo;<samp>%</samp>&rsquo;, for menu completion.
+This variable is available only in shell functions and external
+commands invoked by the
+programmable completion facilities (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COMP_KEY</code>
+<a name="index-COMP_005fKEY"></a>
+</dt>
+<dd><p>The key (or final key of a key sequence) used to invoke the current
+completion function.
+</p>
+</dd>
+<dt><code>COMP_WORDBREAKS</code>
+<a name="index-COMP_005fWORDBREAKS"></a>
+</dt>
+<dd><p>The set of characters that the Readline library treats as word
+separators when performing word completion.
+If <code>COMP_WORDBREAKS</code> is unset, it loses its special properties,
+even if it is subsequently reset.
+</p>
+</dd>
+<dt><code>COMP_WORDS</code>
+<a name="index-COMP_005fWORDS"></a>
+</dt>
+<dd><p>An array variable consisting of the individual
+words in the current command line.
+The line is split into words as Readline would split it, using
+<code>COMP_WORDBREAKS</code> as described above.
+This variable is available only in shell functions invoked by the
+programmable completion facilities (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COMPREPLY</code>
+<a name="index-COMPREPLY"></a>
+</dt>
+<dd><p>An array variable from which Bash reads the possible completions
+generated by a shell function invoked by the programmable completion
+facility (see <a href="Programmable-Completion.html#Programmable-Completion">Programmable Completion</a>).
+</p>
+</dd>
+<dt><code>COPROC</code>
+<a name="index-COPROC"></a>
+</dt>
+<dd><p>An array variable created to hold the file descriptors
+for output from and input to an unnamed coprocess (see <a href="Coprocesses.html#Coprocesses">Coprocesses</a>).
+</p>
+</dd>
+<dt><code>DIRSTACK</code>
+<a name="index-DIRSTACK"></a>
+</dt>
+<dd><p>An array variable containing the current contents of the directory stack.
+Directories appear in the stack in the order they are displayed by the
+<code>dirs</code> builtin.
+Assigning to members of this array variable may be used to modify
+directories already in the stack, but the <code>pushd</code> and <code>popd</code>
+builtins must be used to add and remove directories.
+Assignment to this variable will not change the current directory.
+If <code>DIRSTACK</code> is unset, it loses its special properties, even if
+it is subsequently reset.
+</p>
+</dd>
+<dt><code>EMACS</code>
+<a name="index-EMACS"></a>
+</dt>
+<dd><p>If Bash finds this variable in the environment when the shell
+starts with value &lsquo;<samp>t</samp>&rsquo;, it assumes that the shell is running in an
+Emacs shell buffer and disables line editing.
+</p>
+</dd>
+<dt><code>ENV</code>
+<a name="index-ENV"></a>
+</dt>
+<dd><p>Similar to <code>BASH_ENV</code>; used when the shell is invoked in
+<small>POSIX</small> Mode (see <a href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">Bash POSIX Mode</a>).
+</p>
+</dd>
+<dt><code>EUID</code>
+<a name="index-EUID"></a>
+</dt>
+<dd><p>The numeric effective user id of the current user.  This variable
+is readonly.
+</p>
+</dd>
+<dt><code>FCEDIT</code>
+<a name="index-FCEDIT"></a>
+</dt>
+<dd><p>The editor used as a default by the <samp>-e</samp> option to the <code>fc</code>
+builtin command.
+</p>
+</dd>
+<dt><code>FIGNORE</code>
+<a name="index-FIGNORE"></a>
+</dt>
+<dd><p>A colon-separated list of suffixes to ignore when performing
+filename completion.
+A file name whose suffix matches one of the entries in 
+<code>FIGNORE</code>
+is excluded from the list of matched file names.  A sample
+value is &lsquo;<samp>.o:~</samp>&rsquo;
+</p>
+</dd>
+<dt><code>FUNCNAME</code>
+<a name="index-FUNCNAME"></a>
+</dt>
+<dd><p>An array variable containing the names of all shell functions
+currently in the execution call stack.
+The element with index 0 is the name of any currently-executing
+shell function.
+The bottom-most element (the one with the highest index)
+is <code>&quot;main&quot;</code>.
+This variable exists only when a shell function is executing.
+Assignments to <code>FUNCNAME</code> have no effect and return an error status.
+If <code>FUNCNAME</code> is unset, it loses its special properties, even if
+it is subsequently reset.
+</p>
+<p>This variable can be used with <code>BASH_LINENO</code> and <code>BASH_SOURCE</code>.
+Each element of <code>FUNCNAME</code> has corresponding elements in
+<code>BASH_LINENO</code> and <code>BASH_SOURCE</code> to describe the call stack.
+For instance, <code>${FUNCNAME[$i]}</code> was called from the file
+<code>${BASH_SOURCE[$i+1]}</code> at line number <code>${BASH_LINENO[$i]}</code>.
+The <code>caller</code> builtin displays the current call stack using this
+information.
+</p>
+</dd>
+<dt><code>FUNCNEST</code>
+<a name="index-FUNCNEST"></a>
+</dt>
+<dd><p>If set to a numeric value greater than 0, defines a maximum function
+nesting level.  Function invocations that exceed this nesting level
+will cause the current command to abort.
+</p>
+</dd>
+<dt><code>GLOBIGNORE</code>
+<a name="index-GLOBIGNORE"></a>
+</dt>
+<dd><p>A colon-separated list of patterns defining the set of filenames to
+be ignored by filename expansion.
+If a filename matched by a filename expansion pattern also matches one
+of the patterns in <code>GLOBIGNORE</code>, it is removed from the list
+of matches.
+</p>
+</dd>
+<dt><code>GROUPS</code>
+<a name="index-GROUPS"></a>
+</dt>
+<dd><p>An array variable containing the list of groups of which the current    
+user is a member.
+Assignments to <code>GROUPS</code> have no effect and return an error status.
+If <code>GROUPS</code> is unset, it loses its special properties, even if it is
+subsequently reset.
+</p>
+</dd>
+<dt><code>histchars</code>
+<a name="index-histchars"></a>
+</dt>
+<dd><p>Up to three characters which control history expansion, quick
+substitution, and tokenization (see <a href="History-Interaction.html#History-Interaction">History Interaction</a>).
+The first character is the
+<var>history expansion</var> character, that is, the character which signifies the
+start of a history expansion, normally &lsquo;<samp>!</samp>&rsquo;.  The second character is the
+character which signifies &lsquo;quick substitution&rsquo; when seen as the first
+character on a line, normally &lsquo;<samp>^</samp>&rsquo;.  The optional third character is the
+character which indicates that the remainder of the line is a comment when
+found as the first character of a word, usually &lsquo;<samp>#</samp>&rsquo;.  The history
+comment character causes history substitution to be skipped for the
+remaining words on the line.  It does not necessarily cause the shell
+parser to treat the rest of the line as a comment.
+</p>
+</dd>
+<dt><code>HISTCMD</code>
+<a name="index-HISTCMD"></a>
+</dt>
+<dd><p>The history number, or index in the history list, of the current
+command.  If <code>HISTCMD</code> is unset, it loses its special properties,
+even if it is subsequently reset.
+</p>
+</dd>
+<dt><code>HISTCONTROL</code>
+<a name="index-HISTCONTROL"></a>
+</dt>
+<dd><p>A colon-separated list of values controlling how commands are saved on
+the history list.
+If the list of values includes &lsquo;<samp>ignorespace</samp>&rsquo;, lines which begin
+with a space character are not saved in the history list.
+A value of &lsquo;<samp>ignoredups</samp>&rsquo; causes lines which match the previous
+history entry to not be saved.
+A value of &lsquo;<samp>ignoreboth</samp>&rsquo; is shorthand for
+&lsquo;<samp>ignorespace</samp>&rsquo; and &lsquo;<samp>ignoredups</samp>&rsquo;.
+A value of &lsquo;<samp>erasedups</samp>&rsquo; causes all previous lines matching the
+current line to be removed from the history list before that line
+is saved.
+Any value not in the above list is ignored.
+If <code>HISTCONTROL</code> is unset, or does not include a valid value, 
+all lines read by the shell parser are saved on the history list, 
+subject to the value of <code>HISTIGNORE</code>.
+The second and subsequent lines of a multi-line compound command are
+not tested, and are added to the history regardless of the value of
+<code>HISTCONTROL</code>.
+</p>
+</dd>
+<dt><code>HISTFILE</code>
+<a name="index-HISTFILE"></a>
+</dt>
+<dd><p>The name of the file to which the command history is saved.  The
+default value is <samp>~/.bash_history</samp>.
+</p>
+</dd>
+<dt><code>HISTFILESIZE</code>
+<a name="index-HISTFILESIZE"></a>
+</dt>
+<dd><p>The maximum number of lines contained in the history file.  When this
+variable is assigned a value, the history file is truncated, if
+necessary, by removing the oldest entries,
+to contain no more than that number of lines.
+The history file is also truncated to this size after
+writing it when an interactive shell exits.
+The default value is 500.
+</p>
+</dd>
+<dt><code>HISTIGNORE</code>
+<a name="index-HISTIGNORE"></a>
+</dt>
+<dd><p>A colon-separated list of patterns used to decide which command
+lines should be saved on the history list.  Each pattern is
+anchored at the beginning of the line and must match the complete
+line (no implicit &lsquo;<samp>*</samp>&rsquo; is appended).  Each pattern is tested
+against the line after the checks specified by <code>HISTCONTROL</code>
+are applied.  In addition to the normal shell pattern matching
+characters, &lsquo;<samp>&amp;</samp>&rsquo; matches the previous history line.  &lsquo;<samp>&amp;</samp>&rsquo;
+may be escaped using a backslash; the backslash is removed
+before attempting a match. 
+The second and subsequent lines of a multi-line compound command are
+not tested, and are added to the history regardless of the value of
+<code>HISTIGNORE</code>.
+</p>
+<p><code>HISTIGNORE</code> subsumes the function of <code>HISTCONTROL</code>.  A
+pattern of &lsquo;<samp>&amp;</samp>&rsquo; is identical to <code>ignoredups</code>, and a
+pattern of &lsquo;<samp>[ ]*</samp>&rsquo; is identical to <code>ignorespace</code>. 
+Combining these two patterns, separating them with a colon,
+provides the functionality of <code>ignoreboth</code>. 
+</p>
+</dd>
+<dt><code>HISTSIZE</code>
+<a name="index-HISTSIZE"></a>
+</dt>
+<dd><p>The maximum number of commands to remember on the history list.
+The default value is 500.
+</p>
+</dd>
+<dt><code>HISTTIMEFORMAT</code>
+<a name="index-HISTTIMEFORMAT"></a>
+</dt>
+<dd><p>If this variable is set and not null, its value is used as a format string
+for <var>strftime</var> to print the time stamp associated with each history
+entry displayed by the <code>history</code> builtin.
+If this variable is set, time stamps are written to the history file so
+they may be preserved across shell sessions.
+This uses the history comment character to distinguish timestamps from
+other history lines.
+</p>
+</dd>
+<dt><code>HOSTFILE</code>
+<a name="index-HOSTFILE"></a>
+</dt>
+<dd><p>Contains the name of a file in the same format as <samp>/etc/hosts</samp> that
+should be read when the shell needs to complete a hostname.
+The list of possible hostname completions may be changed while the shell
+is running;
+the next time hostname completion is attempted after the
+value is changed, Bash adds the contents of the new file to the
+existing list.
+If <code>HOSTFILE</code> is set, but has no value, or does not name a readable file,
+Bash attempts to read 
+<samp>/etc/hosts</samp> to obtain the list of possible hostname completions.
+When <code>HOSTFILE</code> is unset, the hostname list is cleared.
+</p>
+</dd>
+<dt><code>HOSTNAME</code>
+<a name="index-HOSTNAME"></a>
+</dt>
+<dd><p>The name of the current host.
+</p>
+</dd>
+<dt><code>HOSTTYPE</code>
+<a name="index-HOSTTYPE"></a>
+</dt>
+<dd><p>A string describing the machine Bash is running on.
+</p>
+</dd>
+<dt><code>IGNOREEOF</code>
+<a name="index-IGNOREEOF"></a>
+</dt>
+<dd><p>Controls the action of the shell on receipt of an <code>EOF</code> character
+as the sole input.  If set, the value denotes the number
+of consecutive <code>EOF</code> characters that can be read as the
+first character on an input line
+before the shell will exit.  If the variable exists but does not
+have a numeric value (or has no value) then the default is 10.
+If the variable does not exist, then <code>EOF</code> signifies the end of 
+input to the shell.  This is only in effect for interactive shells.
+</p>
+</dd>
+<dt><code>INPUTRC</code>
+<a name="index-INPUTRC"></a>
+</dt>
+<dd><p>The name of the Readline initialization file, overriding the default
+of <samp>~/.inputrc</samp>.
+</p>
+</dd>
+<dt><code>LANG</code>
+<a name="index-LANG"></a>
+</dt>
+<dd><p>Used to determine the locale category for any category not specifically
+selected with a variable starting with <code>LC_</code>.
+</p>
+</dd>
+<dt><code>LC_ALL</code>
+<a name="index-LC_005fALL"></a>
+</dt>
+<dd><p>This variable overrides the value of <code>LANG</code> and any other
+<code>LC_</code> variable specifying a locale category.
+</p>
+</dd>
+<dt><code>LC_COLLATE</code>
+<a name="index-LC_005fCOLLATE"></a>
+</dt>
+<dd><p>This variable determines the collation order used when sorting the
+results of filename expansion, and
+determines the behavior of range expressions, equivalence classes,
+and collating sequences within filename expansion and pattern matching
+(see <a href="Filename-Expansion.html#Filename-Expansion">Filename Expansion</a>).
+</p>
+</dd>
+<dt><code>LC_CTYPE</code>
+<a name="index-LC_005fCTYPE"></a>
+</dt>
+<dd><p>This variable determines the interpretation of characters and the
+behavior of character classes within filename expansion and pattern
+matching (see <a href="Filename-Expansion.html#Filename-Expansion">Filename Expansion</a>).
+</p>
+</dd>
+<dt><code>LC_MESSAGES</code>
+<a name="index-LC_005fMESSAGES-1"></a>
+</dt>
+<dd><p>This variable determines the locale used to translate double-quoted
+strings preceded by a &lsquo;<samp>$</samp>&rsquo; (see <a href="Locale-Translation.html#Locale-Translation">Locale Translation</a>).
+</p>
+</dd>
+<dt><code>LC_NUMERIC</code>
+<a name="index-LC_005fNUMERIC"></a>
+</dt>
+<dd><p>This variable determines the locale category used for number formatting.
+</p>
+</dd>
+<dt><code>LINENO</code>
+<a name="index-LINENO"></a>
+</dt>
+<dd><p>The line number in the script or shell function currently executing.
+</p>
+</dd>
+<dt><code>LINES</code>
+<a name="index-LINES"></a>
+</dt>
+<dd><p>Used by the <code>select</code> command to determine the column length
+for printing selection lists.  Automatically set upon receipt of a
+<code>SIGWINCH</code>.
+</p>
+</dd>
+<dt><code>MACHTYPE</code>
+<a name="index-MACHTYPE"></a>
+</dt>
+<dd><p>A string that fully describes the system type on which Bash
+is executing, in the standard <small>GNU</small> <var>cpu-company-system</var> format.
+</p>
+</dd>
+<dt><code>MAILCHECK</code>
+<a name="index-MAILCHECK"></a>
+</dt>
+<dd><p>How often (in seconds) that the shell should check for mail in the
+files specified in the <code>MAILPATH</code> or <code>MAIL</code> variables.
+The default is 60 seconds.  When it is time to check
+for mail, the shell does so before displaying the primary prompt.
+If this variable is unset, or set to a value that is not a number
+greater than or equal to zero, the shell disables mail checking.
+</p>
+</dd>
+<dt><code>MAPFILE</code>
+<a name="index-MAPFILE"></a>
+</dt>
+<dd><p>An array variable created to hold the text read by the
+<code>mapfile</code> builtin when no variable name is supplied.
+</p>
+</dd>
+<dt><code>OLDPWD</code>
+<a name="index-OLDPWD"></a>
+</dt>
+<dd><p>The previous working directory as set by the <code>cd</code> builtin.
+</p>
+</dd>
+<dt><code>OPTERR</code>
+<a name="index-OPTERR"></a>
+</dt>
+<dd><p>If set to the value 1, Bash displays error messages
+generated by the <code>getopts</code> builtin command.
+</p>
+</dd>
+<dt><code>OSTYPE</code>
+<a name="index-OSTYPE"></a>
+</dt>
+<dd><p>A string describing the operating system Bash is running on.
+</p>
+</dd>
+<dt><code>PIPESTATUS</code>
+<a name="index-PIPESTATUS"></a>
+</dt>
+<dd><p>An array variable (see <a href="Arrays.html#Arrays">Arrays</a>)
+containing a list of exit status values from the processes
+in the most-recently-executed foreground pipeline (which may
+contain only a single command).
+</p>
+</dd>
+<dt><code>POSIXLY_CORRECT</code>
+<a name="index-POSIXLY_005fCORRECT"></a>
+</dt>
+<dd><p>If this variable is in the environment when <code>bash</code> starts, the shell
+enters <small>POSIX</small> mode (see <a href="Bash-POSIX-Mode.html#Bash-POSIX-Mode">Bash POSIX Mode</a>) before reading the
+startup files, as if the <samp>--posix</samp> invocation option had been supplied.
+If it is set while the shell is running, <code>bash</code> enables <small>POSIX</small> mode,
+as if the command
+</p><div class="example">
+<pre class="example"><code>set -o posix</code>
+</pre></div>
+<p>had been executed.  
+</p>
+</dd>
+<dt><code>PPID</code>
+<a name="index-PPID"></a>
+</dt>
+<dd><p>The process <small>ID</small> of the shell&rsquo;s parent process.  This variable
+is readonly.
+</p>
+</dd>
+<dt><code>PROMPT_COMMAND</code>
+<a name="index-PROMPT_005fCOMMAND"></a>
+</dt>
+<dd><p>If set, the value is interpreted as a command to execute
+before the printing of each primary prompt (<code>$PS1</code>).
+</p>
+</dd>
+<dt><code>PROMPT_DIRTRIM</code>
+<a name="index-PROMPT_005fDIRTRIM"></a>
+</dt>
+<dd><p>If set to a number greater than zero, the value is used as the number of
+trailing directory components to retain when expanding the <code>\w</code> and
+<code>\W</code> prompt string escapes (see <a href="Printing-a-Prompt.html#Printing-a-Prompt">Printing a Prompt</a>).
+Characters removed are replaced with an ellipsis.
+</p>
+</dd>
+<dt><code>PS3</code>
+<a name="index-PS3"></a>
+</dt>
+<dd><p>The value of this variable is used as the prompt for the
+<code>select</code> command.  If this variable is not set, the
+<code>select</code> command prompts with &lsquo;<samp>#? </samp>&rsquo;
+</p>
+</dd>
+<dt><code>PS4</code>
+<a name="index-PS4"></a>
+</dt>
+<dd><p>The value is the prompt printed before the command line is echoed
+when the <samp>-x</samp> option is set (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+The first character of <code>PS4</code> is replicated multiple times, as
+necessary, to indicate multiple levels of indirection.
+The default is &lsquo;<samp>+ </samp>&rsquo;.
+</p>
+</dd>
+<dt><code>PWD</code>
+<a name="index-PWD"></a>
+</dt>
+<dd><p>The current working directory as set by the <code>cd</code> builtin.
+</p>
+</dd>
+<dt><code>RANDOM</code>
+<a name="index-RANDOM"></a>
+</dt>
+<dd><p>Each time this parameter is referenced, a random integer
+between 0 and 32767 is generated.  Assigning a value to this
+variable seeds the random number generator.
+</p>
+</dd>
+<dt><code>READLINE_LINE</code>
+<a name="index-READLINE_005fLINE"></a>
+</dt>
+<dd><p>The contents of the Readline line buffer, for use
+with &lsquo;<samp>bind -x</samp>&rsquo; (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+</p>
+</dd>
+<dt><code>READLINE_POINT</code>
+<a name="index-READLINE_005fPOINT"></a>
+</dt>
+<dd><p>The position of the insertion point in the Readline line buffer, for use
+with &lsquo;<samp>bind -x</samp>&rsquo; (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+</p>
+</dd>
+<dt><code>REPLY</code>
+<a name="index-REPLY"></a>
+</dt>
+<dd><p>The default variable for the <code>read</code> builtin.
+</p>
+</dd>
+<dt><code>SECONDS</code>
+<a name="index-SECONDS"></a>
+</dt>
+<dd><p>This variable expands to the number of seconds since the
+shell was started.  Assignment to this variable resets
+the count to the value assigned, and the expanded value
+becomes the value assigned plus the number of seconds
+since the assignment.
+</p>
+</dd>
+<dt><code>SHELL</code>
+<a name="index-SHELL"></a>
+</dt>
+<dd><p>The full pathname to the shell is kept in this environment variable.
+If it is not set when the shell starts,
+Bash assigns to it the full pathname of the current user&rsquo;s login shell.
+</p>
+</dd>
+<dt><code>SHELLOPTS</code>
+<a name="index-SHELLOPTS"></a>
+</dt>
+<dd><p>A colon-separated list of enabled shell options.  Each word in
+the list is a valid argument for the <samp>-o</samp> option to the
+<code>set</code> builtin command (see <a href="The-Set-Builtin.html#The-Set-Builtin">The Set Builtin</a>).
+The options appearing in <code>SHELLOPTS</code> are those reported
+as &lsquo;<samp>on</samp>&rsquo; by &lsquo;<samp>set -o</samp>&rsquo;.
+If this variable is in the environment when Bash
+starts up, each shell option in the list will be enabled before
+reading any startup files.  This variable is readonly.
+</p>
+</dd>
+<dt><code>SHLVL</code>
+<a name="index-SHLVL"></a>
+</dt>
+<dd><p>Incremented by one each time a new instance of Bash is started.  This is
+intended to be a count of how deeply your Bash shells are nested.
+</p>
+</dd>
+<dt><code>TIMEFORMAT</code>
+<a name="index-TIMEFORMAT"></a>
+</dt>
+<dd><p>The value of this parameter is used as a format string specifying
+how the timing information for pipelines prefixed with the <code>time</code>
+reserved word should be displayed.
+The &lsquo;<samp>%</samp>&rsquo; character introduces an
+escape sequence that is expanded to a time value or other
+information.
+The escape sequences and their meanings are as
+follows; the braces denote optional portions. 
+</p>
+<dl compact="compact">
+<dt><code>%%</code></dt>
+<dd><p>A literal &lsquo;<samp>%</samp>&rsquo;.
+</p>
+</dd>
+<dt><code>%[<var>p</var>][l]R</code></dt>
+<dd><p>The elapsed time in seconds. 
+</p>
+</dd>
+<dt><code>%[<var>p</var>][l]U</code></dt>
+<dd><p>The number of CPU seconds spent in user mode. 
+</p>
+</dd>
+<dt><code>%[<var>p</var>][l]S</code></dt>
+<dd><p>The number of CPU seconds spent in system mode. 
+</p>
+</dd>
+<dt><code>%P</code></dt>
+<dd><p>The CPU percentage, computed as (%U + %S) / %R. 
+</p></dd>
+</dl>
+
+<p>The optional <var>p</var> is a digit specifying the precision, the number of
+fractional digits after a decimal point.
+A value of 0 causes no decimal point or fraction to be output.
+At most three places after the decimal point may be specified; values
+of <var>p</var> greater than 3 are changed to 3.
+If <var>p</var> is not specified, the value 3 is used. 
+</p>
+<p>The optional <code>l</code> specifies a longer format, including minutes, of
+the form <var>MM</var>m<var>SS</var>.<var>FF</var>s.
+The value of <var>p</var> determines whether or not the fraction is included. 
+</p>
+<p>If this variable is not set, Bash acts as if it had the value
+</p><div class="example">
+<pre class="example"><code>$'\nreal\t%3lR\nuser\t%3lU\nsys\t%3lS'</code>
+</pre></div>
+<p>If the value is null, no timing information is displayed.
+A trailing newline is added when the format string is displayed.
+</p>
+</dd>
+<dt><code>TMOUT</code>
+<a name="index-TMOUT"></a>
+</dt>
+<dd><p>If set to a value greater than zero, <code>TMOUT</code> is treated as the
+default timeout for the <code>read</code> builtin (see <a href="Bash-Builtins.html#Bash-Builtins">Bash Builtins</a>).
+The <code>select</code> command (see <a href="Conditional-Constructs.html#Conditional-Constructs">Conditional Constructs</a>) terminates
+if input does not arrive after <code>TMOUT</code> seconds when input is coming
+from a terminal.
+</p>
+<p>In an interactive shell, the value is interpreted as
+the number of seconds to wait for input after issuing the primary
+prompt when the shell is interactive.
+Bash terminates after that number of seconds if input does
+not arrive.
+</p>
+</dd>
+<dt><code>TMPDIR</code>
+<a name="index-TMPDIR"></a>
+</dt>
+<dd><p>If set, Bash uses its value as the name of a directory in which
+Bash creates temporary files for the shell&rsquo;s use.
+</p>
+</dd>
+<dt><code>UID</code>
+<a name="index-UID"></a>
+</dt>
+<dd><p>The numeric real user id of the current user.  This variable is readonly.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Bourne-Shell-Variables.html#Bourne-Shell-Variables" accesskey="p" rel="previous">Bourne Shell Variables</a>, Up: <a href="Shell-Variables.html#Shell-Variables" accesskey="u" rel="up">Shell Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

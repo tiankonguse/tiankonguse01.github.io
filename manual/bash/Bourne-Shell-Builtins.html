@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Bourne Shell Builtins</title>
+
+<meta name="description" content="Bash Reference Manual: Bourne Shell Builtins">
+<meta name="keywords" content="Bash Reference Manual: Bourne Shell Builtins">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" rel="up" title="Shell Builtin Commands">
+<link href="Bash-Builtins.html#Bash-Builtins" rel="next" title="Bash Builtins">
+<link href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" rel="previous" title="Shell Builtin Commands">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Bourne-Shell-Builtins"></a>
+<div class="header">
+<p>
+Next: <a href="Bash-Builtins.html#Bash-Builtins" accesskey="n" rel="next">Bash Builtins</a>, Up: <a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" accesskey="u" rel="up">Shell Builtin Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Bourne-Shell-Builtins-1"></a>
+<h3 class="section">4.1 Bourne Shell Builtins</h3>
+
+<p>The following shell builtin commands are inherited from the Bourne Shell.
+These commands are implemented as specified by the <small>POSIX</small> standard.
+</p>
+<dl compact="compact">
+<dt><code>:    <span class="roman">(a colon)</span></code></dt>
+<dd><a name="index-_003a"></a>
+<div class="example">
+<pre class="example">: [<var>arguments</var>]
+</pre></div>
+<p>Do nothing beyond expanding <var>arguments</var> and performing redirections.
+The return status is zero.
+</p>
+</dd>
+<dt><code>.    <span class="roman">(a period)</span></code></dt>
+<dd><a name="index-_002e"></a>
+<div class="example">
+<pre class="example">. <var>filename</var> [<var>arguments</var>]
+</pre></div>
+<p>Read and execute commands from the <var>filename</var> argument in the
+current shell context.  If <var>filename</var> does not contain a slash,
+the <code>PATH</code> variable is used to find <var>filename</var>.
+When Bash is not in <small>POSIX</small> mode, the current directory is searched
+if <var>filename</var> is not found in <code>$PATH</code>.
+If any <var>arguments</var> are supplied, they become the positional
+parameters when <var>filename</var> is executed.  Otherwise the positional
+parameters are unchanged.
+The return status is the exit status of the last command executed, or
+zero if no commands are executed.  If <var>filename</var> is not found, or
+cannot be read, the return status is non-zero.
+This builtin is equivalent to <code>source</code>.
+</p>
+</dd>
+<dt><code>break</code></dt>
+<dd><a name="index-break"></a>
+<div class="example">
+<pre class="example">break [<var>n</var>]
+</pre></div>
+<p>Exit from a <code>for</code>, <code>while</code>, <code>until</code>, or <code>select</code> loop.
+If <var>n</var> is supplied, the <var>n</var>th enclosing loop is exited.
+<var>n</var> must be greater than or equal to 1.
+The return status is zero unless <var>n</var> is not greater than or equal to 1.
+</p>
+</dd>
+<dt><code>cd</code></dt>
+<dd><a name="index-cd"></a>
+<div class="example">
+<pre class="example">cd [-L|[-P [-e]]] [<var>directory</var>]
+</pre></div>
+<p>Change the current working directory to <var>directory</var>.
+If <var>directory</var> is not given, the value of the <code>HOME</code> shell
+variable is used.
+If the shell variable <code>CDPATH</code> exists, it is used as a search path.
+If <var>directory</var> begins with a slash, <code>CDPATH</code> is not used.
+</p>
+<p>The <samp>-P</samp> option means to not follow symbolic links; symbolic
+links are followed by default or with the <samp>-L</samp> option.
+If the <samp>-e</samp> option is supplied with <samp>-P</samp>
+and the current working directory cannot be successfully determined
+after a successful directory change, <code>cd</code> will return an unsuccessful
+status.
+If <var>directory</var> is &lsquo;<samp>-</samp>&rsquo;, it is equivalent to <code>$OLDPWD</code>.
+</p>
+<p>If a non-empty directory name from <code>CDPATH</code> is used, or if
+&lsquo;<samp>-</samp>&rsquo; is the first argument, and the directory change is
+successful, the absolute pathname of the new working directory is
+written to the standard output.
+</p>
+<p>The return status is zero if the directory is successfully changed,
+non-zero otherwise.
+</p>
+</dd>
+<dt><code>continue</code></dt>
+<dd><a name="index-continue"></a>
+<div class="example">
+<pre class="example">continue [<var>n</var>]
+</pre></div>
+<p>Resume the next iteration of an enclosing <code>for</code>, <code>while</code>,
+<code>until</code>, or <code>select</code> loop.
+If <var>n</var> is supplied, the execution of the <var>n</var>th enclosing loop
+is resumed.
+<var>n</var> must be greater than or equal to 1.
+The return status is zero unless <var>n</var> is not greater than or equal to 1.
+</p>
+</dd>
+<dt><code>eval</code></dt>
+<dd><a name="index-eval"></a>
+<div class="example">
+<pre class="example">eval [<var>arguments</var>]
+</pre></div>
+<p>The arguments are concatenated together into a single command, which is
+then read and executed, and its exit status returned as the exit status
+of <code>eval</code>.
+If there are no arguments or only empty arguments, the return status is
+zero.
+</p>
+</dd>
+<dt><code>exec</code></dt>
+<dd><a name="index-exec"></a>
+<div class="example">
+<pre class="example">exec [-cl] [-a <var>name</var>] [<var>command</var> [<var>arguments</var>]]
+</pre></div>
+<p>If <var>command</var>
+is supplied, it replaces the shell without creating a new process.
+If the <samp>-l</samp> option is supplied, the shell places a dash at the
+beginning of the zeroth argument passed to <var>command</var>.
+This is what the <code>login</code> program does.
+The <samp>-c</samp> option causes <var>command</var> to be executed with an empty
+environment.
+If <samp>-a</samp> is supplied, the shell passes <var>name</var> as the zeroth
+argument to <var>command</var>.
+If no <var>command</var> is specified, redirections may be used to affect
+the current shell environment.  If there are no redirection errors, the
+return status is zero; otherwise the return status is non-zero.
+</p>
+</dd>
+<dt><code>exit</code></dt>
+<dd><a name="index-exit"></a>
+<div class="example">
+<pre class="example">exit [<var>n</var>]
+</pre></div>
+<p>Exit the shell, returning a status of <var>n</var> to the shell&rsquo;s parent.
+If <var>n</var> is omitted, the exit status is that of the last command executed.
+Any trap on <code>EXIT</code> is executed before the shell terminates.
+</p>
+</dd>
+<dt><code>export</code></dt>
+<dd><a name="index-export"></a>
+<div class="example">
+<pre class="example">export [-fn] [-p] [<var>name</var>[=<var>value</var>]]
+</pre></div>
+<p>Mark each <var>name</var> to be passed to child processes
+in the environment.  If the <samp>-f</samp> option is supplied, the <var>name</var>s
+refer to shell functions; otherwise the names refer to shell variables.
+The <samp>-n</samp> option means to no longer mark each <var>name</var> for export.
+If no <var>names</var> are supplied, or if the <samp>-p</samp> option is given, a
+list of exported names is displayed.
+The <samp>-p</samp> option displays output in a form that may be reused as input.
+If a variable name is followed by =<var>value</var>, the value of
+the variable is set to <var>value</var>.
+</p>
+<p>The return status is zero unless an invalid option is supplied, one of
+the names is not a valid shell variable name, or <samp>-f</samp> is supplied
+with a name that is not a shell function.
+</p>
+</dd>
+<dt><code>getopts</code></dt>
+<dd><a name="index-getopts"></a>
+<div class="example">
+<pre class="example">getopts <var>optstring</var> <var>name</var> [<var>args</var>]
+</pre></div>
+<p><code>getopts</code> is used by shell scripts to parse positional parameters.
+<var>optstring</var> contains the option characters to be recognized; if a
+character is followed by a colon, the option is expected to have an
+argument, which should be separated from it by white space.
+The colon (&lsquo;<samp>:</samp>&rsquo;) and question mark (&lsquo;<samp>?</samp>&rsquo;) may not be
+used as option characters.
+Each time it is invoked, <code>getopts</code>
+places the next option in the shell variable <var>name</var>, initializing
+<var>name</var> if it does not exist,
+and the index of the next argument to be processed into the
+variable <code>OPTIND</code>.
+<code>OPTIND</code> is initialized to 1 each time the shell or a shell script
+is invoked.
+When an option requires an argument,
+<code>getopts</code> places that argument into the variable <code>OPTARG</code>.
+The shell does not reset <code>OPTIND</code> automatically; it must be manually
+reset between multiple calls to <code>getopts</code> within the same shell
+invocation if a new set of parameters is to be used.
+</p>
+<p>When the end of options is encountered, <code>getopts</code> exits with a
+return value greater than zero.
+<code>OPTIND</code> is set to the index of the first non-option argument,
+and <var>name</var> is set to &lsquo;<samp>?</samp>&rsquo;.
+</p>
+<p><code>getopts</code>
+normally parses the positional parameters, but if more arguments are
+given in <var>args</var>, <code>getopts</code> parses those instead.
+</p>
+<p><code>getopts</code> can report errors in two ways.  If the first character of
+<var>optstring</var> is a colon, <var>silent</var>
+error reporting is used.  In normal operation diagnostic messages
+are printed when invalid options or missing option arguments are
+encountered.
+If the variable <code>OPTERR</code>
+is set to 0, no error messages will be displayed, even if the first
+character of <code>optstring</code> is not a colon.
+</p>
+<p>If an invalid option is seen,
+<code>getopts</code> places &lsquo;<samp>?</samp>&rsquo; into <var>name</var> and, if not silent,
+prints an error message and unsets <code>OPTARG</code>.
+If <code>getopts</code> is silent, the option character found is placed in
+<code>OPTARG</code> and no diagnostic message is printed.
+</p>
+<p>If a required argument is not found, and <code>getopts</code>
+is not silent, a question mark (&lsquo;<samp>?</samp>&rsquo;) is placed in <var>name</var>,
+<code>OPTARG</code> is unset, and a diagnostic message is printed.
+If <code>getopts</code> is silent, then a colon (&lsquo;<samp>:</samp>&rsquo;) is placed in
+<var>name</var> and <code>OPTARG</code> is set to the option character found.
+</p>
+</dd>
+<dt><code>hash</code></dt>
+<dd><a name="index-hash"></a>
+<div class="example">
+<pre class="example">hash [-r] [-p <var>filename</var>] [-dt] [<var>name</var>]
+</pre></div>
+<p>Each time <code>hash</code> is invoked, it remembers the full pathnames of the
+commands specified as <var>name</var> arguments,
+so they need not be searched for on subsequent invocations.
+The commands are found by searching through the directories listed in
+<code>$PATH</code>.
+Any previously-remembered pathname is discarded.
+The <samp>-p</samp> option inhibits the path search, and <var>filename</var> is
+used as the location of <var>name</var>.
+The <samp>-r</samp> option causes the shell to forget all remembered locations.
+The <samp>-d</samp> option causes the shell to forget the remembered location
+of each <var>name</var>.
+If the <samp>-t</samp> option is supplied, the full pathname to which each
+<var>name</var> corresponds is printed.  If multiple <var>name</var> arguments are
+supplied with <samp>-t</samp> the <var>name</var> is printed before the hashed
+full pathname.
+The <samp>-l</samp> option causes output to be displayed in a format
+that may be reused as input.
+If no arguments are given, or if only <samp>-l</samp> is supplied,
+information about remembered commands is printed.
+The return status is zero unless a <var>name</var> is not found or an invalid
+option is supplied.
+</p>
+</dd>
+<dt><code>pwd</code></dt>
+<dd><a name="index-pwd"></a>
+<div class="example">
+<pre class="example">pwd [-LP]
+</pre></div>
+<p>Print the absolute pathname of the current working directory.
+If the <samp>-P</samp> option is supplied, the pathname printed will not
+contain symbolic links.
+If the <samp>-L</samp> option is supplied, the pathname printed may contain
+symbolic links.
+The return status is zero unless an error is encountered while
+determining the name of the current directory or an invalid option
+is supplied.
+</p>
+</dd>
+<dt><code>readonly</code></dt>
+<dd><a name="index-readonly"></a>
+<div class="example">
+<pre class="example">readonly [-aAf] [-p] [<var>name</var>[=<var>value</var>]] &hellip;
+</pre></div>
+<p>Mark each <var>name</var> as readonly.
+The values of these names may not be changed by subsequent assignment.
+If the <samp>-f</samp> option is supplied, each <var>name</var> refers to a shell
+function.
+The <samp>-a</samp> option means each <var>name</var> refers to an indexed
+array variable; the <samp>-A</samp> option means each <var>name</var> refers
+to an associative array variable.
+If both options are supplied, <samp>-A</samp> takes precedence.
+If no <var>name</var> arguments are given, or if the <samp>-p</samp>
+option is supplied, a list of all readonly names is printed.
+The other options may be used to restrict the output to a subset of
+the set of readonly names.
+The <samp>-p</samp> option causes output to be displayed in a format that
+may be reused as input.
+If a variable name is followed by =<var>value</var>, the value of
+the variable is set to <var>value</var>.
+The return status is zero unless an invalid option is supplied, one of
+the <var>name</var> arguments is not a valid shell variable or function name,
+or the <samp>-f</samp> option is supplied with a name that is not a shell function.
+</p>
+</dd>
+<dt><code>return</code></dt>
+<dd><a name="index-return"></a>
+<div class="example">
+<pre class="example">return [<var>n</var>]
+</pre></div>
+<p>Cause a shell function to exit with the return value <var>n</var>.
+If <var>n</var> is not supplied, the return value is the exit status of the
+last command executed in the function.
+This may also be used to terminate execution of a script being executed
+with the <code>.</code> (or <code>source</code>) builtin, returning either <var>n</var> or
+the exit status of the last command executed within the script as the exit
+status of the script.
+Any command associated with the <code>RETURN</code> trap is executed
+before execution resumes after the function or script.
+The return status is non-zero if <code>return</code> is used outside a function
+and not during the execution of a script by <code>.</code> or <code>source</code>.
+</p>
+</dd>
+<dt><code>shift</code></dt>
+<dd><a name="index-shift"></a>
+<div class="example">
+<pre class="example">shift [<var>n</var>]
+</pre></div>
+<p>Shift the positional parameters to the left by <var>n</var>.
+The positional parameters from <var>n</var>+1 &hellip; <code>$#</code> are
+renamed to <code>$1</code> &hellip; <code>$#</code>-<var>n</var>.
+Parameters represented by the numbers <code>$#</code> to <code>$#</code>-<var>n</var>+1
+are unset.
+<var>n</var> must be a non-negative number less than or equal to <code>$#</code>.
+If <var>n</var> is zero or greater than <code>$#</code>, the positional parameters
+are not changed.
+If <var>n</var> is not supplied, it is assumed to be 1.
+The return status is zero unless <var>n</var> is greater than <code>$#</code> or
+less than zero, non-zero otherwise.
+</p>
+</dd>
+<dt><code>test</code></dt>
+<dt><code>[</code></dt>
+<dd><a name="index-test"></a>
+<a name="index-_005b"></a>
+<p>Evaluate a conditional expression <var>expr</var>.
+Each operator and operand must be a separate argument.
+Expressions are composed of the primaries described below in
+<a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions">Bash Conditional Expressions</a>.
+<code>test</code> does not accept any options, nor does it accept and ignore
+an argument of <samp>--</samp> as signifying the end of options.
+</p>
+<p>When the <code>[</code> form is used, the last argument to the command must
+be a <code>]</code>.
+</p>
+<p>Expressions may be combined using the following operators, listed in
+decreasing order of precedence.
+The evaluation depends on the number of arguments; see below.
+Operator precedence is used when there are five or more arguments.
+</p>
+<dl compact="compact">
+<dt><code>! <var>expr</var></code></dt>
+<dd><p>True if <var>expr</var> is false.
+</p>
+</dd>
+<dt><code>( <var>expr</var> )</code></dt>
+<dd><p>Returns the value of <var>expr</var>.
+This may be used to override the normal precedence of operators.
+</p>
+</dd>
+<dt><code><var>expr1</var> -a <var>expr2</var></code></dt>
+<dd><p>True if both <var>expr1</var> and <var>expr2</var> are true.
+</p>
+</dd>
+<dt><code><var>expr1</var> -o <var>expr2</var></code></dt>
+<dd><p>True if either <var>expr1</var> or <var>expr2</var> is true.
+</p></dd>
+</dl>
+
+<p>The <code>test</code> and <code>[</code> builtins evaluate conditional
+expressions using a set of rules based on the number of arguments.
+</p>
+<dl compact="compact">
+<dt>0 arguments</dt>
+<dd><p>The expression is false.
+</p>
+</dd>
+<dt>1 argument</dt>
+<dd><p>The expression is true if and only if the argument is not null.
+</p>
+</dd>
+<dt>2 arguments</dt>
+<dd><p>If the first argument is &lsquo;<samp>!</samp>&rsquo;, the expression is true if and
+only if the second argument is null.
+If the first argument is one of the unary conditional operators
+(see <a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions">Bash Conditional Expressions</a>), the expression
+is true if the unary test is true.
+If the first argument is not a valid unary operator, the expression is
+false.
+</p>
+</dd>
+<dt>3 arguments</dt>
+<dd><p>The following conditions are applied in the order listed.
+If the second argument is one of the binary conditional
+operators (see <a href="Bash-Conditional-Expressions.html#Bash-Conditional-Expressions">Bash Conditional Expressions</a>), the
+result of the expression is the result of the binary test using the
+first and third arguments as operands.
+The &lsquo;<samp>-a</samp>&rsquo; and &lsquo;<samp>-o</samp>&rsquo; operators are considered binary operators
+when there are three arguments.
+If the first argument is &lsquo;<samp>!</samp>&rsquo;, the value is the negation of
+the two-argument test using the second and third arguments.
+If the first argument is exactly &lsquo;<samp>(</samp>&rsquo; and the third argument is
+exactly &lsquo;<samp>)</samp>&rsquo;, the result is the one-argument test of the second
+argument.
+Otherwise, the expression is false.
+</p>
+</dd>
+<dt>4 arguments</dt>
+<dd><p>If the first argument is &lsquo;<samp>!</samp>&rsquo;, the result is the negation of
+the three-argument expression composed of the remaining arguments.
+Otherwise, the expression is parsed and evaluated according to 
+precedence using the rules listed above.
+</p>
+</dd>
+<dt>5 or more arguments</dt>
+<dd><p>The expression is parsed and evaluated according to precedence
+using the rules listed above.
+</p></dd>
+</dl>
+
+<p>When used with <code>test</code> or &lsquo;<samp>[</samp>&rsquo;, the &lsquo;<samp>&lt;</samp>&rsquo; and &lsquo;<samp>&gt;</samp>&rsquo;
+operators sort lexicographically using ASCII ordering.
+</p>
+</dd>
+<dt><code>times</code></dt>
+<dd><a name="index-times"></a>
+<div class="example">
+<pre class="example">times
+</pre></div>
+<p>Print out the user and system times used by the shell and its children.
+The return status is zero.
+</p>
+</dd>
+<dt><code>trap</code></dt>
+<dd><a name="index-trap"></a>
+<div class="example">
+<pre class="example">trap [-lp] [<var>arg</var>] [<var>sigspec</var> &hellip;]
+</pre></div>
+<p>The commands in <var>arg</var> are to be read and executed when the
+shell receives signal <var>sigspec</var>.  If <var>arg</var> is absent (and
+there is a single <var>sigspec</var>) or
+equal to &lsquo;<samp>-</samp>&rsquo;, each specified signal&rsquo;s disposition is reset
+to the value it had when the shell was started.
+If <var>arg</var> is the null string, then the signal specified by
+each <var>sigspec</var> is ignored by the shell and commands it invokes.
+If <var>arg</var> is not present and <samp>-p</samp> has been supplied,
+the shell displays the trap commands associated with each <var>sigspec</var>.
+If no arguments are supplied, or
+only <samp>-p</samp> is given, <code>trap</code> prints the list of commands
+associated with each signal number in a form that may be reused as
+shell input.
+The <samp>-l</samp> option causes the shell to print a list of signal names
+and their corresponding numbers.
+Each <var>sigspec</var> is either a signal name or a signal number.
+Signal names are case insensitive and the <code>SIG</code> prefix is optional.
+</p>
+<p>If a <var>sigspec</var>
+is <code>0</code> or <code>EXIT</code>, <var>arg</var> is executed when the shell exits.
+If a <var>sigspec</var> is <code>DEBUG</code>, the command <var>arg</var> is executed
+before every simple command, <code>for</code> command, <code>case</code> command,
+<code>select</code> command, every arithmetic <code>for</code> command, and before
+the first command executes in a shell function.
+Refer to the description of the <code>extdebug</code> option to the
+<code>shopt</code> builtin (see <a href="The-Shopt-Builtin.html#The-Shopt-Builtin">The Shopt Builtin</a>) for details of its
+effect on the <code>DEBUG</code> trap.
+If a <var>sigspec</var> is <code>RETURN</code>, the command <var>arg</var> is executed
+each time a shell function or a script executed with the <code>.</code> or
+<code>source</code> builtins finishes executing.
+</p>
+<p>If a <var>sigspec</var> is <code>ERR</code>, the command <var>arg</var> 
+is executed whenever a simple command has a non-zero exit status,
+subject to the following conditions.
+The <code>ERR</code> trap is not executed if the failed command is part of the
+command list immediately following an <code>until</code> or <code>while</code> keyword,
+part of the test following the <code>if</code> or <code>elif</code> reserved words,
+part of a command executed in a <code>&amp;&amp;</code> or <code>||</code> list,
+or if the command&rsquo;s return
+status is being inverted using <code>!</code>.
+These are the same conditions obeyed by the <code>errexit</code> option.
+</p>
+<p>Signals ignored upon entry to the shell cannot be trapped or reset.
+Trapped signals that are not being ignored are reset to their original
+values in a subshell or subshell environment when one is created.
+</p>
+<p>The return status is zero unless a <var>sigspec</var> does not specify a
+valid signal.
+</p>
+</dd>
+<dt><code>umask</code></dt>
+<dd><a name="index-umask"></a>
+<div class="example">
+<pre class="example">umask [-p] [-S] [<var>mode</var>]
+</pre></div>
+<p>Set the shell process&rsquo;s file creation mask to <var>mode</var>.  If
+<var>mode</var> begins with a digit, it is interpreted as an octal number;
+if not, it is interpreted as a symbolic mode mask similar
+to that accepted by the <code>chmod</code> command.  If <var>mode</var> is
+omitted, the current value of the mask is printed.  If the <samp>-S</samp>
+option is supplied without a <var>mode</var> argument, the mask is printed
+in a symbolic format.
+If the  <samp>-p</samp> option is supplied, and <var>mode</var>
+is omitted, the output is in a form that may be reused as input.
+The return status is zero if the mode is successfully changed or if
+no <var>mode</var> argument is supplied, and non-zero otherwise.
+</p>
+<p>Note that when the mode is interpreted as an octal number, each number
+of the umask is subtracted from <code>7</code>.  Thus, a umask of <code>022</code>
+results in permissions of <code>755</code>.
+</p>
+</dd>
+<dt><code>unset</code></dt>
+<dd><a name="index-unset"></a>
+<div class="example">
+<pre class="example">unset [-fv] [<var>name</var>]
+</pre></div>
+<p>Each variable or function <var>name</var> is removed.
+If no options are supplied, or the <samp>-v</samp> option is given, each
+<var>name</var> refers to a shell variable. 
+If the <samp>-f</samp> option is given, the <var>name</var>s refer to shell
+functions, and the function definition is removed.
+Readonly variables and functions may not be unset.
+The return status is zero unless a <var>name</var> is readonly.
+</p></dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Bash-Builtins.html#Bash-Builtins" accesskey="n" rel="next">Bash Builtins</a>, Up: <a href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" accesskey="u" rel="up">Shell Builtin Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

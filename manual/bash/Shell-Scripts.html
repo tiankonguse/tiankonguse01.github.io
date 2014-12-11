@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Shell Scripts</title>
+
+<meta name="description" content="Bash Reference Manual: Shell Scripts">
+<meta name="keywords" content="Bash Reference Manual: Shell Scripts">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Basic-Shell-Features.html#Basic-Shell-Features" rel="up" title="Basic Shell Features">
+<link href="Shell-Builtin-Commands.html#Shell-Builtin-Commands" rel="next" title="Shell Builtin Commands">
+<link href="Signals.html#Signals" rel="previous" title="Signals">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Shell-Scripts"></a>
+<div class="header">
+<p>
+Previous: <a href="Executing-Commands.html#Executing-Commands" accesskey="p" rel="previous">Executing Commands</a>, Up: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="u" rel="up">Basic Shell Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Shell-Scripts-1"></a>
+<h3 class="section">3.8 Shell Scripts</h3>
+<a name="index-shell-script"></a>
+
+<p>A shell script is a text file containing shell commands.  When such
+a file is used as the first non-option argument when invoking Bash,
+and neither the <samp>-c</samp> nor <samp>-s</samp> option is supplied
+(see <a href="Invoking-Bash.html#Invoking-Bash">Invoking Bash</a>), 
+Bash reads and executes commands from the file, then exits.  This
+mode of operation creates a non-interactive shell.  The shell first
+searches for the file in the current directory, and looks in the
+directories in <code>$PATH</code> if not found there.
+</p>
+<p>When Bash runs
+a shell script, it sets the special parameter <code>0</code> to the name
+of the file, rather than the name of the shell, and the positional
+parameters are set to the remaining arguments, if any are given.
+If no additional arguments are supplied, the positional parameters
+are unset.
+</p>
+<p>A shell script may be made executable by using the <code>chmod</code> command
+to turn on the execute bit.  When Bash finds such a file while
+searching the <code>$PATH</code> for a command, it spawns a subshell to
+execute it.  In other words, executing
+</p><div class="example">
+<pre class="example">filename <var>arguments</var>
+</pre></div>
+<p>is equivalent to executing
+</p><div class="example">
+<pre class="example">bash filename <var>arguments</var>
+</pre></div>
+
+<p>if <code>filename</code> is an executable shell script.
+This subshell reinitializes itself, so that the effect is as if a
+new shell had been invoked to interpret the script, with the
+exception that the locations of commands remembered by the parent
+(see the description of <code>hash</code> in <a href="Bourne-Shell-Builtins.html#Bourne-Shell-Builtins">Bourne Shell Builtins</a>)
+are retained by the child.
+</p>
+<p>Most versions of Unix make this a part of the operating system&rsquo;s command
+execution mechanism.  If the first line of a script begins with
+the two characters &lsquo;<samp>#!</samp>&rsquo;, the remainder of the line specifies
+an interpreter for the program.
+Thus, you can specify Bash, <code>awk</code>, Perl, or some other
+interpreter and write the rest of the script file in that language.
+</p>
+<p>The arguments to the interpreter
+consist of a single optional argument following the interpreter
+name on the first line of the script file, followed by the name of
+the script file, followed by the rest of the arguments.  Bash
+will perform this action on operating systems that do not handle it
+themselves.  Note that some older versions of Unix limit the interpreter
+name and argument to a maximum of 32 characters.
+</p>
+<p>Bash scripts often begin with <code>#! /bin/bash</code> (assuming that
+Bash has been installed in <samp>/bin</samp>), since this ensures that
+Bash will be used to interpret the script, even if it is executed
+under another shell.
+</p>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Executing-Commands.html#Executing-Commands" accesskey="p" rel="previous">Executing Commands</a>, Up: <a href="Basic-Shell-Features.html#Basic-Shell-Features" accesskey="u" rel="up">Basic Shell Features</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

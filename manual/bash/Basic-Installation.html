@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This text is a brief description of the features that are present in
+the Bash shell (version 4.2, 28 December 2010).
+
+This is Edition 4.2, last updated 28 December 2010,
+of The GNU Bash Reference Manual,
+for Bash, Version 4.2.
+
+Copyright (C) 1988-2011 Free Software Foundation, Inc.
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: You are free to copy and modify
+this GNU manual.  Buying copies from GNU Press supports the FSF in
+developing GNU and promoting software freedom."
+ -->
+<!-- Created by Texinfo 4.13.90+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Bash Reference Manual: Basic Installation</title>
+
+<meta name="description" content="Bash Reference Manual: Basic Installation">
+<meta name="keywords" content="Bash Reference Manual: Basic Installation">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2any">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Indexes.html#Indexes" rel="index" title="Indexes">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Installing-Bash.html#Installing-Bash" rel="up" title="Installing Bash">
+<link href="Compilers-and-Options.html#Compilers-and-Options" rel="next" title="Compilers and Options">
+<link href="Installing-Bash.html#Installing-Bash" rel="previous" title="Installing Bash">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Basic-Installation"></a>
+<div class="header">
+<p>
+Next: <a href="Compilers-and-Options.html#Compilers-and-Options" accesskey="n" rel="next">Compilers and Options</a>, Up: <a href="Installing-Bash.html#Installing-Bash" accesskey="u" rel="up">Installing Bash</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Basic-Installation-1"></a>
+<h3 class="section">10.1 Basic Installation</h3>
+<a name="index-installation"></a>
+<a name="index-configuration"></a>
+<a name="index-Bash-installation"></a>
+<a name="index-Bash-configuration"></a>
+
+<p>These are installation instructions for Bash.
+</p>
+<p>The simplest way to compile Bash is:
+</p>
+<ol>
+<li> <code>cd</code> to the directory containing the source code and type
+&lsquo;<samp>./configure</samp>&rsquo; to configure Bash for your system.  If you&rsquo;re
+using <code>csh</code> on an old version of System V, you might need to
+type &lsquo;<samp>sh ./configure</samp>&rsquo; instead to prevent <code>csh</code> from trying
+to execute <code>configure</code> itself.
+
+<p>Running <code>configure</code> takes some time.
+While running, it prints messages telling which features it is
+checking for.
+</p>
+</li><li> Type &lsquo;<samp>make</samp>&rsquo; to compile Bash and build the <code>bashbug</code> bug
+reporting script.
+
+</li><li> Optionally, type &lsquo;<samp>make tests</samp>&rsquo; to run the Bash test suite.
+
+</li><li> Type &lsquo;<samp>make install</samp>&rsquo; to install <code>bash</code> and <code>bashbug</code>.
+This will also install the manual pages and Info file.
+
+</li></ol>
+
+<p>The <code>configure</code> shell script attempts to guess correct
+values for various system-dependent variables used during
+compilation.  It uses those values to create a <samp>Makefile</samp> in
+each directory of the package (the top directory, the
+<samp>builtins</samp>, <samp>doc</samp>, and <samp>support</samp> directories,
+each directory under <samp>lib</samp>, and several others).  It also creates a
+<samp>config.h</samp> file containing system-dependent definitions. 
+Finally, it creates a shell script named <code>config.status</code> that you
+can run in the future to recreate the current configuration, a
+file <samp>config.cache</samp> that saves the results of its tests to
+speed up reconfiguring, and a file <samp>config.log</samp> containing
+compiler output (useful mainly for debugging <code>configure</code>). 
+If at some point
+<samp>config.cache</samp> contains results you don&rsquo;t want to keep, you
+may remove or edit it. 
+</p>
+<p>To find out more about the options and arguments that the
+<code>configure</code> script understands, type 
+</p>
+<div class="example">
+<pre class="example">bash-2.04$ ./configure --help
+</pre></div>
+
+<p>at the Bash prompt in your Bash source directory.
+</p>
+<p>If you need to do unusual things to compile Bash, please
+try to figure out how <code>configure</code> could check whether or not
+to do them, and mail diffs or instructions to
+<a href="mailto:bash-maintainers@gnu.org">bash-maintainers@gnu.org</a> so they can be
+considered for the next release.
+</p>
+<p>The file <samp>configure.in</samp> is used to create <code>configure</code>
+by a program called Autoconf.  You only need
+<samp>configure.in</samp> if you want to change it or regenerate
+<code>configure</code> using a newer version of Autoconf.  If
+you do this, make sure you are using Autoconf version 2.50 or
+newer.
+</p>
+<p>You can remove the program binaries and object files from the
+source code directory by typing &lsquo;<samp>make clean</samp>&rsquo;.  To also remove the
+files that <code>configure</code> created (so you can compile Bash for
+a different kind of computer), type &lsquo;<samp>make distclean</samp>&rsquo;.
+</p>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Compilers-and-Options.html#Compilers-and-Options" accesskey="n" rel="next">Compilers and Options</a>, Up: <a href="Installing-Bash.html#Installing-Bash" accesskey="u" rel="up">Installing Bash</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Indexes.html#Indexes" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
