@@ -82,7 +82,7 @@ C 语言中我们使用 ifdef 这个 宏定义来判断， nodejs 中自动帮�
 
 我们有时候发现 require 文件时，大多数时候都没有加后缀 `.js`。  
 
-这事因为当找不到对应的文件时，会依次去找 `.js`, `.json`, 最后是 `.node` 。  
+这是因为当找不到对应的文件时，会依次去找 `.js`, `.json`, 最后是 `.node` 。  
 
 
 ### require 路径问题
@@ -95,7 +95,7 @@ C 语言中我们使用 ifdef 这个 宏定义来判断， nodejs 中自动帮�
 
 没找到了，会抛出 `MODULE_NOT_FOUND` 错误。  
 
-实际上还有一种情况，那就是直接是文件的名字。比如 文件 `/home/tiankonguse/projects/foo.js` 
+实际上还有一种情况，那就是直接是文件的名字。比如 文件 `/home/tiankonguse/projects/foo.js`  的内容是下面的一行代码  
 
 ``
 require('bar.js')
@@ -103,7 +103,7 @@ require('bar.js')
 
 则在 父目录下的 node_modules  目录中查找， 即 `/home/tiankonguse/projects/node_modules/bar.js` .  
 
-没找到就再去父路径，知道根路径。  
+没找到就再去父路径，直到根路径。  
 
 ```
 /home/tiankonguse/projects/node_modules/bar.js
@@ -171,6 +171,70 @@ var square = require('./square.js');
 var mySquare = square(2);
 console.log('The area of my square is ' + mySquare);
 ```
+
+### 为什么不使用 exports
+
+如果你理解 javascript 的引用的话就好理解了。  
+
+我们可以近似的实现这个 exports, 其中 module 已经是全局变量了。  
+
+
+我们的一个文件可以看做是一个闭包的函数。  
+
+```
+(function(module){
+    module.exports = {};
+    var exports = module.exports;
+
+    //do some thing 
+    exports.fun = function(){
+        console.log("hello word");
+    }
+
+    return module.exports;
+})(module)
+
+```
+
+但是如果我们直接给 exports 赋值为函数时，其实是给变量 exports 重新付了一个变量。  
+
+```
+(function(module){
+    module.exports = {};
+    var exports = module.exports;
+
+    //do some thing 
+    exports = function(){
+        console.log("hello word");
+    }
+
+    return module.exports;
+})(module)
+
+```
+
+
+但是我们使用 module.exports 就可以保存住我们想传出来的东西。  
+
+
+```
+(function(module){
+    module.exports = {};
+    var exports = module.exports;
+
+    //do some thing 
+    module.exports = function(){
+        console.log("hello word");
+    }
+
+    return module.exports;
+})(module)
+```
+
+
+
+
+
 
 
 [nodejs-api-modules]: http://nodejs.org/api/modules.html
