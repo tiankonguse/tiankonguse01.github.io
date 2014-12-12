@@ -25,6 +25,28 @@ tiankonguse 假设你已经有 javascript 的基础知识了。
 * 一切对象都可以当做参数的。  
 
 
+## 基础代码
+
+先来看看一个最简单的服务器吧。  
+
+```
+var http = require("http");
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}).listen(8080);
+```
+
+我们先假设 `require("http")` 就创建了 http 服务， 然后监听 8080 端口。  
+
+来请求了就返回 `Hello World` .  
+
+恩，一切都很简单的样子。  
+
+但是有一些细节我要注意，下面就慢慢道来。  
+
 
 ## require 
 
