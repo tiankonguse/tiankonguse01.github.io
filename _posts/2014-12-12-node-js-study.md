@@ -176,7 +176,7 @@ console.log('The area of my square is ' + mySquare);
 
 如果你理解 javascript 的引用的话就好理解了。  
 
-我们可以近似的实现这个 exports, 其中 module 已经是全局变量了。  
+我们可以近似的实现这个 exports, 其中 module 已经是一个对象了。  
 
 
 我们的一个文件可以看做是一个闭包的函数。  
@@ -192,7 +192,7 @@ console.log('The area of my square is ' + mySquare);
     }
 
     return module.exports;
-})(module)
+})({})
 
 ```
 
@@ -209,7 +209,7 @@ console.log('The area of my square is ' + mySquare);
     }
 
     return module.exports;
-})(module)
+})({})
 
 ```
 
@@ -228,7 +228,7 @@ console.log('The area of my square is ' + mySquare);
     }
 
     return module.exports;
-})(module)
+})({})
 ```
 
 
