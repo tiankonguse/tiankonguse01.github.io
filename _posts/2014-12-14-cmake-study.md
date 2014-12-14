@@ -40,7 +40,7 @@ updateData:  22:35 2014/12/14
 
 ## cmake 基本语法
 
-当时做了一个笔记，一张A4纸就够了，感觉图片不清晰的话，可以看这个 [pdf][note-cmake-pdf].  
+当时做了一个笔记，一张A4纸就够了，感觉图片不清晰的话，可以看这个 [pdf][note-cmake-pdf] 或 [图片][note-cmake-img-pan].  
 
 ![note-cmake-img][]  
 
@@ -324,5 +324,6 @@ config.json.cmake  文件的简单含义是先定义一下目录的绝对路径�
 
 [cmake]: http://www.cmake.org/
 [note-cmake-pdf]: http://pan.baidu.com/s/1ntt9b7N
+[note-cmake-img-pan]: http://pan.baidu.com/s/1sj5Chh7
 [note-cmake-img]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/1933500176.png
 [book-cmake-practice]: http://pan.baidu.com/s/1bn4cKRt
