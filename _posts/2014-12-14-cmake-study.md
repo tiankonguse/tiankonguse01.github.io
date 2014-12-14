@@ -42,7 +42,7 @@ updateData:  22:35 2014/12/14
 
 当时做了一个笔记，一张A4纸就够了，感觉图片不清晰的话，可以看这个 [pdf][note-cmake-pdf].  
 
-[note-cmake-img][]  
+![note-cmake-img][]  
 
 
 接下来我再简单的介绍一下。   
