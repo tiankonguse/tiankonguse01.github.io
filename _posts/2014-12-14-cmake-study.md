@@ -273,12 +273,89 @@ config.json.cmake  文件的简单含义是先定义一下目录的绝对路径�
 
 其中那个 `IF ($ENV{IS_64BITS_OS})` 语句主要是判断系统时多少位的，然后会把生成的 lib 库放到合适的位置。  
 
-而 `IF(NOT TARGET json)` 语句则判断目标文件 .lib 库 是否存在， 不存在则生成那个目标文件。  
+而 `IF(NOT TARGET json)` 语句则判断目标文件 .a 库 是否存在， 不存在则生成那个目标文件。  
 
 如果这个库依赖其他的库，则需要先 INCLUDE 对应的 配置文件(`INCLUDE($ENV{PUBLIC_LIB_PATH}/A/config.A.cmake)`)，然后链接对应的依赖库(`add_dependencies(json A)`) 即可。  
 
-最后，在 bulid 中执行 `./run.sh`， 你去 lib 或 lib64 下看看是不是已经生成了 .lib 库文件。  
+最后，在 bulid 中执行 `./run.sh`， 你去 lib 或 lib64 下看看是不是已经生成了 .a 库文件。  
 
+
+### 静态编译公共库
+
+上面的门编译了 json 这个库，然后使用时发现还会重新编译生成。   
+
+原来我们简单的使用 `IF(NOT TARGET packet)` 来判断是不行的。  
+
+那我们就需要换一种静态编译公共库的方法了。  
+
+我们 src 下的 CMakeLists 单独写一份来专门生成 .a 库。  
+
+```
+SET(CMAKE_CXX_FLAGS "-fPIC -g -Wall -o2")
+
+IF ($ENV{IS_64BITS_OS})
+    SET(json_lib_path ${PROJECT_SOURCE_DIR}/lib64)
+ELSE()
+    SET(json_lib_path ${PROJECT_SOURCE_DIR}/lib)
+ENDIF($ENV{IS_64BITS_OS})
+
+SET(json_src_path ${PROJECT_SOURCE_DIR}/src)
+
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+
+AUX_SOURCE_DIRECTORY(${json_src_path} X_SRC)
+ADD_LIBRARY(json STATIC ${X_SRC})
+
+SET_TARGET_PROPERTIES(json PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${json_lib_path}")
+```
+
+然后我们在 config.json.cmake 中专门提供 json 库的信息即可。
+
+```
+IF(NOT json_path)
+
+SET(json_path $ENV{PUBLIC_LIBS_PATH}/json)
+
+IF ($ENV{IS_64BITS_OS})
+    SET(json_lib_path ${json_path}/lib64)
+ELSE()
+    SET(json_lib_path ${json_path}/lib)
+ENDIF($ENV{IS_64BITS_OS})
+
+INCLUDE_DIRECTORIES(${json_path}/include)
+
+ADD_LIBRARY(json STATIC IMPORTED)
+SET_PROPERTY(TARGET json PROPERTY IMPORTED_LOCATION ${json_lib_path}/json.a)
+
+ENDIF()
+```
+
+上面这两段代码什么意思呢？  
+
+第一个是 CMakeLists.txt, 用于生成 静态库， 我们指定的名字是 json, 编译之后会生成 libjson.a 库或 libjson.so 库， 这个就看我们的第二个参数了。
+
+* SHARED 动态库
+* STATIC 静态库
+* MODULE 在使用dyld的系统有效，如果不支持dyld，则被当作SHARED对待。
+  
+第二个指定库的头文件和使用库。  
+
+
+### 库的几个命令
+
+
+** ADD_LIBRARY **
+
+上面两段代码中都使用了 ADD_LIBRARY 这个命令。  
+
+第一个命令 `ADD_LIBRARY(json STATIC ${X_SRC})` 是生成 静态库大家应该都没有什么疑问。   
+
+第二个命令 `ADD_LIBRARY(json STATIC IMPORTED)` 的意思也可以猜到: 使用外部静态库。  
+
+
+** SET_TARGET_PROPERTIES 和 SET_PROPERTY **
+
+SET_TARGET_PROPERTIES 和 SET_PROPERTY 的作用是为 TARGET 附加一下信息，比如指定输出的位置。  
 
 
 ### 特殊的公共库  
