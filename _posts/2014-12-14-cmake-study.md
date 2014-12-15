@@ -44,7 +44,8 @@ updateData:  22:35 2014/12/14
 
 ## cmake 基本语法
 
-当时做了一个笔记，一张A4纸就够了，感觉图片不清晰的话，可以看这个 [pdf][note-cmake-pdf] 或 [图片][note-cmake-img-pan].  
+当时做了一个笔记，一张A4纸就够了，感觉图片不清晰的话，可以看这个 [pdf][note-cmake-pdf] 或 [图片][note-cmake-img-pan] (现在的百度云的压缩策略改变了，一张高清图片被缩略的这么不清晰).  
+
 
 ![note-cmake-img][]  
 
@@ -56,6 +57,8 @@ updateData:  22:35 2014/12/14
 > 一般每个目录有放一个 CMakeLists.txt, 本目录的 CMakeLists.txt 负责管理本目录的项目。 
 > 这样我们通过一个树形的 CMakeLists.txt 就很容易管理一个大型项目了。
 
+
+.
 
 
 ### 我的编译命令
@@ -215,6 +218,7 @@ lib/
 lib64/
 src/
 ```
+
 其中 看到的那个 CMakeLists.txt 实际上很简单。  
 
 ```
@@ -224,13 +228,16 @@ ADD_SUBDIRECTORY(src)
 
 然后 src 下面的也有个 CMakeLists.txt, 内容如下  
 
-我们可以看到，我们又引用了上面列表中的那个 config.json.cmake 文件。  
-也就是说有的信息我们都写在 config.json.cmake 里面了。  
-
 ```
 SET(CMAKE_CXX_FLAGS "-fPIC -g -Wall -o2")
 INCLUDE($ENV{PUBLIC_LIBS_PATH}/json/config.json.cmake)
 ```
+
+
+我们可以看到，我们src 里面的 CMakeLists.txt 又引用了上面列表中的那个 config.json.cmake 文件。  
+
+也就是说我们把主要的描述信息都写在 config.json.cmake 里面了。  
+
 
 config.json.cmake 文件的内容如下  
 
@@ -246,22 +253,38 @@ ELSE()
 ENDIF($ENV{IS_64BITS_OS})
 
 INCLUDE_DIRECTORIES(${json_path}/include)
+INCLUDE($ENV{PUBLIC_LIB_PATH}/A/config.A.cmake)
+INCLUDE($ENV{PUBLIC_LIB_PATH}/B/config.B.cmake)
 
 IF(NOT TARGET json)
 
 AUX_SOURCE_DIRECTORY(${json_src_path} json_xpp_src)
 ADD_LIBRARY(json STATIC ${json_xpp_src})
 
+add_dependencies(json A)
+add_dependencies(json B)
+
 SET_TARGET_PROPERTIES(json PROPERTIES ARCHIVE_OUTPUT_DIRECTORY "${json_lib_path}")
 
 ENDIF()
 ```
+
 config.json.cmake  文件的简单含义是先定义一下目录的绝对路径，  导入 include， 如果没有 lib 则生成 lib .  
+
+其中那个 `IF ($ENV{IS_64BITS_OS})` 语句主要是判断系统时多少位的，然后会把生成的 lib 库放到合适的位置。  
+
+而 `IF(NOT TARGET json)` 语句则判断目标文件 .lib 库 是否存在， 不存在则生成那个目标文件。  
+
+如果这个库依赖其他的库，则需要先 INCLUDE 对应的 配置文件(`INCLUDE($ENV{PUBLIC_LIB_PATH}/A/config.A.cmake)`)，然后链接对应的依赖库(`add_dependencies(json A)`) 即可。  
+
+最后，在 bulid 中执行 `./run.sh`， 你去 lib 或 lib64 下看看是不是已经生成了 .lib 库文件。  
+
 
 
 ### 特殊的公共库  
 
-有些公共库只是一些头文件，没有 lib 文件，这个时候我们只写个  config.json.cmake 即可。  
+有些公共库只是一些头文件，没有 lib 文件，这个时候我们只写个  config.json.cmake 即可， 而且也不需要编译生成 lib 了。  
+  
 
 
 ## 后话
