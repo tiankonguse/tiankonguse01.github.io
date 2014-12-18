@@ -374,7 +374,7 @@ SET_TARGET_PROPERTIES 和 SET_PROPERTY 的作用是为 TARGET 附加一下信息
 
 cmake 还有很多语法，我没有介绍，我这里就不介绍了。  
 
-《完》
+《完了》
 
 
 
