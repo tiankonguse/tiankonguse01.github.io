@@ -725,7 +725,7 @@ static const char *parse_number(cJSON *item,const char *num) {
 
 最后读取 ']' 即可。  
 
-
+```
 /* Build an array from input text. */
 static const char *parse_array(cJSON *item,const char *value) {
     cJSON *child;
@@ -757,8 +757,7 @@ static const char *parse_array(cJSON *item,const char *value) {
     ep=value;
     return 0;/* malformed. */
 }
-
-
+```
 
 
 ### 解析对象
@@ -768,7 +767,7 @@ static const char *parse_array(cJSON *item,const char *value) {
 
 
 
-
+```
 /* Build an object from the text. */
 static const char *parse_object(cJSON *item,const char *value) {
     cJSON *child;
@@ -816,7 +815,7 @@ static const char *parse_object(cJSON *item,const char *value) {
     ep=value;
     return 0;/* malformed. */
 }
-
+```
 
 这样都实现后， 字符串解析为 json 对象就实现了。  
 
