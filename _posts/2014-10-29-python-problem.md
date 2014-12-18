@@ -176,6 +176,13 @@ except MySQLdb.Error, e:
 
 比如我的这篇文章:[python mysql 更新和插入数据无效][python-update-invalid]，数据怎么也没有插件去，后来找到是没有 commit 的原因。
 
+### mysql blob 二进制数据
+
+```
+sql = "INSERT INTO test (theblobcolumn) VALUES (%s)"
+cursor.execute(sql, (blobdata,))
+```
+
 
 ## 字符串 与 json 转化
 
