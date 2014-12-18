@@ -11,6 +11,7 @@ updateData:  16:25 2014/12/18
 
 ## 前言
 
+
 cjson 的代码只有 1000+ 行， 而且只是简单的几个函数的调用。  
 
 而且 cjson 还有很多不完善的地方， 推荐大家看完之后自己实现一个 封装好的功能完善的 cjson 程序。  
@@ -18,11 +19,12 @@ cjson 的代码只有 1000+ 行， 而且只是简单的几个函数的调用。
 
 ## json 基本信息
 
+
 在阅读 json 之前， 建议阅读一下 [json 的官方介绍][json-org]。   
 
 如果上面的英文吓到你了的话， 可以看看这个[中文翻译版本][json-org-zh].  
 
-我的 这个 cjson 是从官网指定的地方下载的 [http://sourceforge.net/projects/cjson/][cjson].  
+我的 这个 cjson 是从官网指定的地方下载的 [ourceforge][cjson].  
 
 
 在看完官网的介绍后，我们知道 json 的 value 存在这么几种类型: 对象， 数组， 字符串， 数字， true, false, null。  
@@ -30,6 +32,7 @@ cjson 的代码只有 1000+ 行， 而且只是简单的几个函数的调用。
 其中对象是一个 key-value 的集合， 而数组是一些 value 的有序列表。  
 
 于是 cjson 中在 头文件中定义了 这些类型的数字编号和 cJSON value 的结构体。  
+
 
 ```
 /* cJSON Types: */
@@ -48,12 +51,14 @@ cjson 的代码只有 1000+ 行， 而且只是简单的几个函数的调用。
 
 例如  
 
+
 ```
 enum {cJSON_False, cJSON_True, cJSON_NULL, cJSON_Number, cJSON_String, cJSON_Array, cJSON_Object, cJSON_IsReference=256};
 ```
 
 
 然后是 json 一个 value 的结构，看注释也都可以明白干什么的。  
+
 
 ```
 /* The cJSON structure: */
@@ -74,7 +79,9 @@ typedef struct cJSON {
 
 ## json 内存管理
 
+
 ### hook 管理函数
+
 
 在 c 语言中内存一般是 malloc 和 free 的。  
 
@@ -122,6 +129,7 @@ static cJSON *cJSON_New_Item(void) {
 
 然后通过再设置具体的类型即生成对应类型的节点。  
 
+
 ```
 /* Create basic types: */
 cJSON *cJSON_CreateNull(void) {
@@ -157,10 +165,12 @@ cJSON *cJSON_CreateArray(void);
 cJSON *cJSON_CreateObject(void);
 ```
 
+
 上面我们看到一个 cJSON_strdup 函数， 简单的理解就是复制字符串，返回新的字符串的指针。  
 
 
 ### 删除节点
+
 
 删除节点很简单， 先删除儿子，然后清理内存即可。  
 
@@ -184,7 +194,9 @@ void cJSON_Delete(cJSON *c) {
 }
 ```
 
+
 ## 节点操作
+
 
 有了内存管理，我们就可以得到一些列不同类型的节点了。  
 
@@ -201,6 +213,7 @@ void cJSON_Delete(cJSON *c) {
 
 
 ### 添加儿子节点
+
 
 添加儿子节点有两种情况，一种是给 object 增加儿子， 一种是给 array 增加儿子。  
 
@@ -245,6 +258,7 @@ void   cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item) {
 
 比如我们平常给 object 增加一个 false 儿子需要这样 
 
+
 ```
 cJSON_AddItemToObject(object, name, cJSON_CreateFalse())
 ```
@@ -282,6 +296,7 @@ cJSON *cJSON_CreateFloatArray(const float *numbers,int count);
 cJSON *cJSON_CreateDoubleArray(const double *numbers,int count);
 cJSON *cJSON_CreateStringArray(const char **strings,int count);
 ```
+
 
 另外， 当我们要添加的节点已经在一个树上的时候， 再向另一个树中添加这个节点时， 这个节点的 pre 和 next 指针会被覆盖。  
 
@@ -322,6 +337,7 @@ static cJSON *create_reference(cJSON *item) {
 ### 删除儿子节点
 
 删除也是从 array 和 object 中删除，实现就比较简洁了。  
+
 
 ```
 void   cJSON_DeleteItemFromArray(cJSON *array,int which) {
@@ -664,7 +680,7 @@ static const char *parse_string(cJSON *item,const char *str) {
 
 数字解析需要考虑科学计数法， 即大概形式如下图   
 
-[number-gif][]
+![number-gif][]
 
 ```
 /* Parse the input text to generate a number, and populate the result into item. */
@@ -701,7 +717,7 @@ static const char *parse_number(cJSON *item,const char *num) {
 ### 解析数组
 
 
-解析数组， 需要先遇到 '[' 这个符号， 然后挨个的读取节点内容， 节点使用 ',' 分隔， ',' 前后还可能有空格， 最后以 ']' 结尾。  
+解析数组， 需要先遇到 '\[' 这个符号， 然后挨个的读取节点内容， 节点使用 ',' 分隔， ',' 前后还可能有空格， 最后以 ']' 结尾。  
 
 我们要编写的也是这样。  
 
