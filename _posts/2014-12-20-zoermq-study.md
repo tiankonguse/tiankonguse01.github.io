@@ -367,6 +367,10 @@ void zmq_version (int *major, int *minor, int *patch);
 
 最后呈现一个最基本的demo程序吧。  
 
+
+### server demo
+
+
 server 程序如下， 只是简单的返回一个随机数(虽然只是简单的加1模10， 但还是一个伪随机数的)  
 
 ```
@@ -470,6 +474,10 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
+
+
+### client demo
+
 
 客户端请求后，把收到的消息打印出来  
 
