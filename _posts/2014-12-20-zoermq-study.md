@@ -2,9 +2,9 @@
 layout: post
 title: 网络编程 与 ZeroMQ
 category: blog
-description: shell 命令太强大了，我没有时间系统的学习，只好一点一滴的记录下学到的东西吧。    
-tags:  shell
-keywords: shell
+description: 我之前从来没有写过网络编程 ，现在要写一个用ZeroMQ来写一个服务器了，记录一下我的笔记与思考。 
+tags:  ZeroMQ
+keywords: ZeroMQ
 updateData:  10:01 2014/12/11
 ---
 
@@ -146,6 +146,8 @@ zmq_ctx_set (context, ZMQ_MAX_SOCKETS, 256);
 ** 初始化消息 **  
 
 zmq 提供了三个初始化消息的函数， 但是这三个函数时互斥的，所以我们只能选一个来初始化一个消息。  
+
+第一次编写的时候我使用 zmq_msg_init_data 这个方法，结果抛出`malloc(): memory corruption` 的错误， 查看了好久代码和文档都没有找到错在哪里了， 最后使用 zmq_msg_init_size 方法实现了 demo 程序。  
 
 ```
 // 直接初始化
