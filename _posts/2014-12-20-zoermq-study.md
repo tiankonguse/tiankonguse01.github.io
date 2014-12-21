@@ -5,7 +5,7 @@ category: blog
 description: 我之前从来没有写过网络编程 ，现在要写一个用ZeroMQ来写一个服务器了，记录一下我的笔记与思考。 
 tags:  ZeroMQ
 keywords: ZeroMQ
-updateData:  10:01 2014/12/11
+updateData:  16:44 2014/12/21
 ---
 
 
@@ -18,6 +18,7 @@ updateData:  10:01 2014/12/11
 于是来简单的聊聊网络编程与 ZMQ 这个东西吧。  
 
 > <span class="red">声明：这是我第一次写网络编程程序， 理解错误或解释错误时不可避免的， 有错欢迎指出来。 </span>   
+
 
 
 ## 背景
