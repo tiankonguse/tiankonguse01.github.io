@@ -306,7 +306,7 @@ cp /usr/local/php/bin/* /etc/bin/*
 [zeromq-org]: http://zeromq.org/bindings%3aphp
 [zoermq-study]: http://github.tiankonguse.com/blog/2014/12/20/zoermq-study/
 [google-protobuf]: https://code.google.com/p/protobuf/
-[allegro-php-protobuf] https://github.com/allegro/php-protobuf
+[allegro-php-protobuf]: https://github.com/allegro/php-protobuf
 [mkoppanen-php-zmq]: https://github.com/mkoppanen/php-zmq
 [stackoverflow1]: http://stackoverflow.com/questions/17896191/fatal-error-class-zmqcontext-not-found-but-it-is-installed-and-works-on-the
 [stackoverflow2]: http://stackoverflow.com/questions/9241210/php-an-external-class-library-is-accessible-from-apache-but-not-from-phpunit
