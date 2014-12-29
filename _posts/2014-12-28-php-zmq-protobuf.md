@@ -281,7 +281,12 @@ good, 没有提示找不到 ProtobufMessage 了。
 
 于是我采用比较暴力的方法， 把 `/usr/local/php/bin/` 里的文件复制一份到 `/etc/bin/` 下面。  
 
+当然，覆盖前先把原先的文件备份一下。  
+
 ```
+ls /usr/local/php/bin/
+pear        peardev     pecl        phar        phar.phar   php         php-cgi     php-config  phpize
+
 cp /usr/local/php/bin/* /etc/bin/*
 ```
 
@@ -293,6 +298,11 @@ cp /usr/local/php/bin/* /etc/bin/*
 出现这些问题了， 先确认是不是配置文件的问题， 不是了再确认是不是版本的原因。  
 
 《完》
+
+
+|------|-sucess-|-appId or appKey error-|-api id not found-|
+| num  |  1     | 1                     | 1                |
+| rate |  1     | 1                     | 1                |
 
 
 [bug1]: https://bugs.php.net/bug.php?id=61575
