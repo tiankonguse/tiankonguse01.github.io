@@ -300,9 +300,6 @@ cp /usr/local/php/bin/* /etc/bin/*
 《完》
 
 
-|------|-sucess-|-appId or appKey error-|-api id not found-|
-| num  |  1     | 1                     | 1                |
-| rate |  1     | 1                     | 1                |
 
 
 [bug1]: https://bugs.php.net/bug.php?id=61575
