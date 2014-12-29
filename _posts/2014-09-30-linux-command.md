@@ -393,6 +393,57 @@ chmod 644 filename
 
 
 
+### rename
+
+这个函数经常用来批量修改文件名。  
+
+```
+rename [options] expression replacement file...
+```
+
+
+比如我们有一批文件 `foo1, ..., foo9, foo10, ..., foo278`, 我们想在数字前面加上前导0， 怎么做呢？  
+
+```
+rename foo foo0 foo?
+rename foo foo0 foo??
+```
+
+可以看出来， 问号是占位符，代表任何字符。  
+
+
+想批量修改文件的后缀，下面的命令就可以  
+
+```
+rename .html .md *.html
+```
+
+这些替换是比较简单的替换， 但有时候我们想进行复杂的替换， 怎么办呢？  
+
+如果能够进行正则替换就好了。  
+
+比如想要把下面的文件替换一下。  
+
+```
+Friends - 6x03 - Tow Ross' Denial.srt
+Friends - 6x20 - Tow Mac and C.H.E.E.S.E..srt
+Friends - 6x05 - Tow Joey's Porshe.srt
+
+=>
+
+S06E03.srt
+S06E20.srt
+S06E05.srt
+```
+
+[stackoverflow][rename-files-using-regular-expression-in-linux] 上说下面的就可以， 即常见的正则替换， 但是我运行失败了，提示不存在 n 这个参数，可能我这个版本的 linux 没有这个功能吧。  
+
+```
+rename -n 's/(\w+) - (\d{1})x(\d{2}).*$/S0$2E$3\.srt/' *.srt
+```
+
+
+
 
 ## 监控命令
 
@@ -408,6 +459,71 @@ chmod 644 filename
 
 * -b 以bytes 为单位显示块大小，默认以 human-readable 的方式显示
 * -m 显示设备的拥有者，组和模式。
+
+
+### netstat
+
+netstat 功能复杂，我用一个记录一个吧。  
+
+前端时间写了一个 server, 使用 TCP 通信。  
+
+有时候需要查看一下这个 server 对应端口的情况，于是使用下面的命令查看。  
+
+服务端检查一个端口  
+
+```
+netstat -alpn | grep 5555
+
+-l, --listening
+    Show only listening sockets.  (These are omitted by default.)
+
+-a, --all
+    Show both listening and non-listening (for TCP this means established connections) sockets.  With the --interfaces option, show interfaces that are not marked
+    
+-p, --program
+    Show the PID and name of the program to which each socket belongs.
+    
+--numeric , -n
+    Show numerical addresses instead of trying to determine symbolic host, port or user names.
+```
+
+### telnet
+
+有时候我们需要查看一台服务器的 是否正常工作， 可以使用 telnet 来尝试连接一下。  
+
+客户端查看指定ip的端口是否正常  
+
+
+```
+telnet 127.0.0.1 5555
+```
+
+### strace
+
+网络通信的时候，我们怀疑IO有问题，这个时候就可以使用 strace 来查看一下在 IO 的哪一步出现问题了。  
+
+```
+strace -s 3000 -tt  ./server
+```
+
+但是有时候我们的程序已经在运行了，这个时候我们就需要通过端口来监听这个 server 的 OI 情况了。  
+
+```
+strace -p 80 -s 3000 -tt 
+```
+
+### tcpdump
+
+有时候我们 server 的 IO 有问题了， 我们确定是网络 IO 的问题。  
+
+这个时候就可以抓取指定端口的包来看看哪里的问题了。  
+
+```
+sudo tcpdump -ieth1 -Xlpns0 port 5555
+
+-i     Listen on interface.  If unspecified, tcpdump searches the system interface list for the lowest numbered, configured up interface (excluding loopback).
+-X     When parsing and printing, in addition to printing the headers of each packet, print the data of each packet (minus its link  level  header) in hex and ASCII.  This is very handy for analysing new protocols.
+```
 
 
 
@@ -547,6 +663,6 @@ strip 用来去除二进制文件里面包含的符号
 这样做可以减小目标文件大小，去除调试信息。  
 
 
-
+[rename-files-using-regular-expression-in-linux]: http://stackoverflow.com/questions/11809666/rename-files-using-regular-expression-in-linux
 [elf-layout]: http://upload.wikimedia.org/wikipedia/commons/7/77/Elf-layout--en.svg
 [elf]: http://en.wikipedia.org/wiki/Executable_and_Linkable_Format
