@@ -101,28 +101,31 @@ ls usb
 Bus 001 Device 006: ID 2955:1001
 ```
 
-后来得知 
+后来得知   
 
+```
 0x148f,0x7601 MT 6370 
 0x2955,0x0001 XiaoDu wifi
 0x2955,0x1001 XiaoDu wifi
 0x148F,0x760B 360 WIFI 2
 0x2717,0x4106 XiaoMi wifi
+```
 
-修改common/rtusb_dev_id.c文件
+修改common/rtusb_dev_id.c文件   
 
+```
 {USB_DEVICE(0x148f,0x7601)}, /* MT 6370 */下面加上
 {USB_DEVICE(0x2955,0x0001)}, /* XiaoDu Wifi */
 {USB_DEVICE(0x2955,0x1001)}, /* XiaoDu Wifi */
 {USB_DEVICE(0x148f,0x760b)}, /* 360 Wifi */
-
+```
 
 ### 下载MT7601U USB驱动源码包
 
 
-使用make 命令编译后，执行make install 
+使用make 命令编译后，执行make install   
 
-根据iwpriv_usage.txt，执行初始化或重启系统，网卡就可以使用了
+根据iwpriv_usage.txt，执行初始化或重启系统，网卡就可以使用了  
 
 
 ### 修改键盘风格
