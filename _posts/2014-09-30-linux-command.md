@@ -88,6 +88,30 @@ skyyuan.bashrc: OK
 md5sum: WARNING: 1 of 2 computed checksums did NOT match
 ```
 
+想得到字符串的 md5 值怎么办呢？  
+
+```
+skyyuan:demo $ echo 'tiankonguse' | md5sum
+70a19872bf17b6939447f8a299f69455  -
+```
+
+有人可能会发现这个 md5 值不对， 原来 echo 输出的时候默认在输出的文本后面加上了一个换行符。    
+
+怎么避免这个换行符呢？  
+
+
+```
+skyyuan:demo $ echo -n 'tiankonguse' | md5sum
+77192a8e3dc5fb2b7428566f9741ebfc  -
+```
+
+这也是 md5 与 md5sum 的区别吧。  
+
+很多人会遇着这个问题， 甚至有人猜想是由于算法不同或者位数不同的原因，没想到是多了一个换行符的原因。  
+
+参考资料：[iteye][], [map4b][], [jiunile][].  
+
+
 ### dd
 
 转换或复制文件
@@ -663,6 +687,10 @@ strip 用来去除二进制文件里面包含的符号
 这样做可以减小目标文件大小，去除调试信息。  
 
 
+
+[iteye]: http://wolfdream.iteye.com/blog/1543481
+[map4b]: http://www.map4b.com/2011/10/23/php-md5-vs-linux-md5sum/
+[jiunile]: http://blog.jiunile.com/php%E7%9A%84md5%E4%B8%8Elinux%E7%9A%84md5sum%E7%9A%84%E5%8C%BA%E5%88%AB.html
 [rename-files-using-regular-expression-in-linux]: http://stackoverflow.com/questions/11809666/rename-files-using-regular-expression-in-linux
 [elf-layout]: http://upload.wikimedia.org/wikipedia/commons/7/77/Elf-layout--en.svg
 [elf]: http://en.wikipedia.org/wiki/Executable_and_Linkable_Format
