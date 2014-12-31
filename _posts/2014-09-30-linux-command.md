@@ -524,6 +524,9 @@ telnet 127.0.0.1 5555
 
 ### strace
 
+strace跟踪程序的每个系统调用.  
+
+
 网络通信的时候，我们怀疑IO有问题，这个时候就可以使用 strace 来查看一下在 IO 的哪一步出现问题了。  
 
 ```
@@ -535,6 +538,22 @@ strace -s 3000 -tt  ./server
 ```
 strace -p 80 -s 3000 -tt 
 ```
+
+有时候想把结果输出到文件怎么办呢？使用 `-o` 参数。  
+
+```
+strace -s 3000 -tt  -o strace.log ./server
+```
+
+### ltrace
+
+ltrace能够跟踪进程的库函数调用.  
+
+它会显现出哪个库函数被调用.  
+
+默认不显示系统调用函数，不过加上 `-S` 参数就可以输出系统函数了。  
+
+
 
 ### tcpdump
 
@@ -548,6 +567,88 @@ sudo tcpdump -ieth1 -Xlpns0 port 5555
 -i     Listen on interface.  If unspecified, tcpdump searches the system interface list for the lowest numbered, configured up interface (excluding loopback).
 -X     When parsing and printing, in addition to printing the headers of each packet, print the data of each packet (minus its link  level  header) in hex and ASCII.  This is very handy for analysing new protocols.
 ```
+
+
+### pmap
+
+Pmap 提供了进程的内存映射，pmap命令用于显示一个或多个进程的内存状态。  
+
+```
+pmap PIDList
+```
+
+* Address: 内存开始地址  
+* Kbytes: 占用内存的字节数（KB）  
+* RSS: 保留内存的字节数（KB）  
+* Dirty: 脏页的字节数（包括共享和私有的）（KB）  
+* Mode: 内存的权限：read、write、execute、shared、private (写时复制)  
+* Mapping: 占用内存的文件、或[anon]（分配的内存）、或[stack]（堆栈）  
+* Offset: 文件偏移  
+* Device: 设备名 (major:minor)  
+
+
+参考资料：  
+
+* [Linux Pmap Command - Find How Much Memory Process Use][pmap-command]
+
+
+### gprof
+
+gprof 可以为 Linux平台上的程序精确分析性能瓶颈。  
+
+gprof精确地给出函数被调用的时间和次数，给出函数调用关系。  
+
+
+** 原理 **  
+
+通过在编译和链接程序的时候（使用 -pg 编译和链接选项），gcc 在你应用程序的每个函数中都加入了一个名为mcount ( or  “_mcount”  , or  “__mcount” , 依赖于编译器或操作系统)的函数，也就是说你的应用程序里的每一个函数都会调用mcount, 而mcount 会在内存中保存一张函数调用图，并通过函数调用堆栈的形式查找子函数和父函数的地址。这张调用图也保存了所有与函数相关的调用时间，调用次数等等的所有信息。
+
+** 使用流程 **
+ 
+1. 在编译和链接时 加上-pg选项。一般我们可以加在 makefile 中。
+2. 执行编译的二进制程序。执行参数和方式同以前。
+3. 在程序运行目录下 生成 gmon.out 文件。如果原来有gmon.out 文件，将会被重写。
+4. 结束进程。这时 gmon.out 会再次被刷新。
+5. 用 gprof 工具分析 gmon.out 文件。
+
+
+
+参考资料：  
+
+* [GNU gprof][gprof-doc]
+
+
+### top
+
+
+TOP命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况。  
+
+TOP是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.  
+
+如果在前台执行该命令,它将独占前台,直到用户终止该程序为止.  
+
+比较准确的说,top命令提供了实时的对系统处理器的状态监视.  
+
+它将显示系统中CPU最“敏感”的任务列表.  
+
+该命令可以按CPU使用.内存使用和执行时间对任务进行排序  
+
+而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定.
+
+
+### free
+
+free的输出一共有四行，第四行为交换区的信息，分别是交换的总量（total），使用量（used）和有多少空闲的交换区（free）。  
+
+
+* total:总计物理内存的大小。
+* used:已使用多大。
+* free:可用有多少。
+* Shared:多个进程共享的内存总额。
+* Buffers/cached:磁盘缓存的大小。
+
+
+
 
 
 
@@ -687,7 +788,96 @@ strip 用来去除二进制文件里面包含的符号
 这样做可以减小目标文件大小，去除调试信息。  
 
 
+### gdb
 
+
+** 断点 **  
+
+```
+# 设置断点
+break [行号]
+break [函数名]
+break [行号] if [条件]
+
+
+# 删除断点
+delete [行号]
+```
+
+
+** 运行 **  
+
+```
+# 开始运行程序
+r [程序的输入参数（如果有的话）]
+
+
+# 从当前断点继续运行程序
+continue
+```
+
+** 变量 **  
+
+```
+watch [变量]
+
+# 这条语句会显示所有的局部变量以及它们的值
+info locals
+
+
+# 显示特定变量的值
+p [变量]
+
+
+# 显示变量的类型
+ptype [变量]
+
+
+# 覆盖变量的值。
+# 注意：你不能创建一个新的变量或改变变量的类型
+set var [变量] = [新的值]
+```
+
+** 回溯功能 **  
+
+```
+回溯功能（backtrace）可以让我们知道程序如何到达这条语句的。
+```
+
+
+** 单步调试 **  
+
+```
+# 单步调试：运行到下一条语句，有可能进入到一个函数里面。
+step
+
+# 直接运行下一条语句，而不进入子函数内部。
+next
+```
+
+
+** 退出GDB **  
+
+
+```
+# 退出GDB
+quit
+```
+
+> gdb中，大多数的命令单词都可以简写为一个字母。    
+
+
+参考资料：
+
+[How to debug a C/C++ program with GDB command-line debugger][gdb-command-line-debugger]
+
+
+
+
+
+[gprof-doc]: https://sourceware.org/binutils/docs-2.17/gprof/index.html
+[gdb-command-line-debugger]: http://xmodulo.com/gdb-command-line-debugger.html
+[pmap-command]: http://linoxide.com/linux-command/pmap-command/
 [iteye]: http://wolfdream.iteye.com/blog/1543481
 [map4b]: http://www.map4b.com/2011/10/23/php-md5-vs-linux-md5sum/
 [jiunile]: http://blog.jiunile.com/php%E7%9A%84md5%E4%B8%8Elinux%E7%9A%84md5sum%E7%9A%84%E5%8C%BA%E5%88%AB.html
