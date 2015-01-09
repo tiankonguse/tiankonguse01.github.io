@@ -606,6 +606,28 @@ tk.Composition(TK, {
 });
 tk.frame();
 
+tk.Composition(TK, {
+    fixConsole : function(){
+        var console = (window.console = window.console || {});
+        var methods = [
+            'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+            'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+            'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+            'timeStamp', 'trace', 'warn'
+        ];
+        var noop = function () {};
+        var length = methods.length;
+        var method;
+        while (length--) {
+            method = methods[length];
+            if (!console[method]) {
+                console[method] = noop;
+            }
+        }
+    }
+});
+tk.fixConsole();
+
 jQuery(document).ready(function(){
     //***********************
     // home follow
