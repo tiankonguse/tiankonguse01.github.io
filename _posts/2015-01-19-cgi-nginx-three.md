@@ -294,7 +294,8 @@ spawn-fcgi: child spawned successfully: PID: 11987
 
 即下面的配置  
 
-> cgi 位置在 `/home/skyyuan/test/cgi-bin/` 下。    
+> cgi 位置在 `/home/skyyuan/test/cgi-bin/` 下。      
+
 
 ```
 location ~ ^/cgi-bin/.*$ {
@@ -330,9 +331,18 @@ skyyuan:~ $ ll ./cgi-bin/*
 
 > 背景知识: user_00 的组名称也是  users。  
 
+
 于是我尝试使用 组试试。  
 
+
+```
+skyyuan:~ $ spawn-fcgi -a 10.12.191.112 -p 9000 -C 10  -f  /usr/local/sbin/fcgiwrap  -g users 
+```
+
+
 结果就可以了。  
+
+
 
 ### Address already in use
 
