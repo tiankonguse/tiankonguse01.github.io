@@ -174,7 +174,7 @@ DELETE FROM d_test.t_test;
 
 什么？ 数据量有多大呢？  
 
-大概有几百万吧。  
+至少有五百万吧。  
 
 ### DROP AND CREATE 
 
@@ -203,8 +203,10 @@ CREATE TABLE d_test.t_test(
 
 
 
-> A default build of SQLite, if a DELETE statement has no WHERE clause and operates on a table with no triggers, an optimization occurs that causes the DELETE to occur by dropping and recreating the table.   
-> Dropping and recreating a table is usually much faster than deleting the table content row by row.   
+> A default build of SQLite, if a DELETE statement has no WHERE clause and operates on a table with no triggers, an optimization occurs that causes the DELETE to occur by dropping and recreating the table.  
+ 
+> Dropping and recreating a table is usually much faster than deleting the table content row by row.  
+ 
 > This is the "truncate optimization".  
 
 
@@ -217,10 +219,15 @@ TRUNCATE TABLE d_test.t_test;
 官网是这样介绍的。  
 
 > TRUNCATE TABLE empties a table completely.   
+
 > It requires the DROP privilege.  
+
 > Logically, TRUNCATE TABLE is similar to a DELETE statement that deletes all rows, or a sequence of DROP TABLE and CREATE TABLE statements.   
+
 > To achieve high performance, it bypasses the DML method of deleting data.   
+
 > Thus, it cannot be rolled back, it does not cause ON DELETE triggers to fire, and it cannot be performed for InnoDB tables with parent-child foreign key relationships.  
+
 > Although TRUNCATE TABLE is similar to DELETE, it is classified as a DDL statement rather than a DML statement.   
 
 
