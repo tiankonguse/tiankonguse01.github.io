@@ -63,7 +63,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .entry-page ul li, .entry ul li, .entry-header ul li{margin-bottom:5px;list-style:disc;line-height:1.8em;}
 .entry-page ol, .entry ol, .entry-header ol{margin-bottom:25px;margin-left:25px;}
 .entry-page ol li, .entry ol li, .entry-header ol li{margin-bottom:5px;list-style:decimal;line-height:1.1em;}
-.entry-page blockquote, .entry blockquote, .entry-header blockquote{margin: 0 0 20px;padding: 10px 20px;margin-left:25px;font-size:14px;font-style:italic;background-color: #F0E3E3;}
+.entry-page blockquote, .entry blockquote, .entry-header blockquote{margin: 0 0 20px;padding: 10px 20px;margin-left:25px;font-size:14px;background-color: #FAFAFA;}
 .entry-page img, .entry img, .entry-header img{max-width:670px;width: 100%;display:block;margin:10px auto;}
 
 .entry-header{
