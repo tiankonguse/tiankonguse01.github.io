@@ -129,7 +129,7 @@ select something from d_test.t_test where c_id > c_max_id;
 
 有没有更好的方法呢？  
 
-后来我通过把 `c_state` 和 `c_max_id` 结合， 想出一个比较使用的方法。  
+后来我通过把 `c_state` 和 `c_max_id` 结合， 想出一个比较实用的方法。  
 
 添加一个新字段 `c_times`, 来代表当前跑数据的id.  
 
