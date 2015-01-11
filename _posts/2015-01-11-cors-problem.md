@@ -24,27 +24,25 @@ updateData:  19:37 2015/1/11
 代码如下  
 
 
-```
-<form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">  
-    <input type="file" name="files[]" multiple="">  
-<form>  
-<iframe frameborder="0" style="height: 0px; width: 0px; position: absolute;" id="fileupload-iframe" ></iframe>  
-<button type="submit" class="btn btn-primary" id="start">start</button>  
-<script>  
-(function () {
-	$("#fileupload").fileupload({  
-		add : function(e, data) {
-			//do something  
-			$("#start").click(function() {
-                data.submit();  
-                return false;  
+    <form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">  
+        <input type="file" name="files[]" multiple="">  
+    <form>  
+    <iframe frameborder="0" style="height: 0px; width: 0px; position: absolute;" id="fileupload-iframe" ></iframe>  
+    <button type="submit" class="btn btn-primary" id="start">start</button>  
+    <script>  
+    (function () {
+        $("#fileupload").fileupload({  
+            add : function(e, data) {
+                //do something  
+                $("#start").click(function() {
+                    data.submit();  
+                    return false;  
 
-            });  
-		}
-	});  
-})()  
-</script>  
-```
+                });  
+            }
+        });  
+    })()  
+    </script>  
 
 
 
@@ -84,24 +82,23 @@ updateData:  19:37 2015/1/11
 删完之后是这个样子  
 
 
-```
-<input id="fileupload" type="file" name="files[]" multiple="">  
-<button type="submit" class="btn btn-primary" id="start">start</button>  
-<script>  
-(function () {
-	$("#fileupload").fileupload({  
-		add : function(e, data) {
-			//do something  
-			$("#start").click(function() {
-                data.submit();  
-                return false;  
+    <input id="fileupload" type="file" name="files[]" multiple="">  
+    <button type="submit" class="btn btn-primary" id="start">start</button>  
+    <script>  
+    (function () {
+        $("#fileupload").fileupload({  
+            add : function(e, data) {
+                //do something  
+                $("#start").click(function() {
+                    data.submit();  
+                    return false;  
 
-            });  
-		}
-	});  
-})()  
-</script>  
-```
+                });  
+            }
+        });  
+    })()  
+    </script>  
+
 
 
 为什么不要 form 和 iframe 呢？  
