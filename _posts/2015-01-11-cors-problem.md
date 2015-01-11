@@ -24,7 +24,7 @@ updateData:  19:37 2015/1/11
 代码如下  
 
 
-```  
+```
 <form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">  
     <input type="file" name="files[]" multiple="">  
 <form>  
@@ -44,7 +44,7 @@ updateData:  19:37 2015/1/11
 	});  
 })()  
 </script>  
-```  
+```
 
 
 
@@ -84,7 +84,7 @@ updateData:  19:37 2015/1/11
 删完之后是这个样子  
 
 
-```  
+```
 <input id="fileupload" type="file" name="files[]" multiple="">  
 <button type="submit" class="btn btn-primary" id="start">start</button>  
 <script>  
@@ -101,7 +101,7 @@ updateData:  19:37 2015/1/11
 	});  
 })()  
 </script>  
-```  
+```
 
 
 为什么不要 form 和 iframe 呢？  
