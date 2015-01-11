@@ -180,9 +180,13 @@ A simple cross-site request is one that:
 
 
 > It uses methods other than GET, HEAD or POST.  
-  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, or text/plain, e.g.   
+
+  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, or text/plain, e.g. 
+  
   if the POST request sends an XML payload to the server using application/xml or text/xml, then the request is preflighted.  
+  
 > It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)  
+
 
 重点在这里： 使用 POST，但请求数据为 application/x-www-form-urlencoded, multipart/form-data 或者 text/plain 以外的数据类型。  
 
