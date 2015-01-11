@@ -278,7 +278,7 @@ skyyuan:~ $ sudo ln -s /usr/local/lib/libfcgi.so.0.0.0 /usr/lib64/libfcgi.so.0
 然后再执行 `fcgiwrap` 没有出错， 于是再执行那个命令试试吧。  
 
 ```
-skyyuan:~ $ spawn-fcgi -a 10.12.191.112 -p 9001 -C 10  -f  /usr/local/sbin/fcgiwrap  -u user_00
+skyyuan:~ $ spawn-fcgi -a 10.12.191.112 -p 9001 -C 10  -f  /usr/local/sbin/fcgiwrap  -u www
 spawn-fcgi: child spawned successfully: PID: 11987
 ```
 
@@ -329,7 +329,7 @@ skyyuan:~ $ ll ./cgi-bin/*
 ```
 
 
-> 背景知识: user_00 的组名称也是  users。  
+> 背景知识: www 的组名称也是  users。  
 
 
 于是我尝试使用 组试试。  
