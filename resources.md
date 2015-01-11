@@ -47,12 +47,18 @@ title: resources
 * [zmq][]
 
 
-
-
 ## Javascript  
 
+
+* [JavaScript Basics][jqfundamentals-javascript-basics]
+* [jQuery Basics][jqfundamentals-jquery-basics]
+* [Traversing & Manipulating][jqfundamentals-traversing-manipulating]
+* [Events and Event Delegation][jqfundamentals-events]
+* [Animating Your Pages with jQuery][jqfundamentals-effects]
+* [AJAX & Deferreds][jqfundamentals-ajax-deferreds]
+
+
 <ul>
-    <li><a href="http://jqfundamentals.com/book/index.html">jQuery Fundamentals</a> - jQuery 入门教程。</li>
     <li><a href="http://www.cn-cuckoo.com/deconstructed/index.html">JavaScript库 代码解构</a> - 将JavaScript流行框架源代码条分缕析展现出来</li>
     <li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" title="汤姆大叔的深入理解Javascript系列">深入理解Javascript系列</a></li>
     <li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" title="&lt;Script&gt;的defer和async的区别">&lt;Script&gt;的defer和async的区别</a></li>
@@ -480,6 +486,13 @@ title: resources
     });
 </script>
 
+
+[jqfundamentals-javascript-basics]: http://jqfundamentals.com/chapter/javascript-basics
+[jqfundamentals-jquery-basics]: http://jqfundamentals.com/chapter/jquery-basics
+[jqfundamentals-traversing-manipulating]: http://jqfundamentals.com/chapter/traversing-manipulating
+[jqfundamentals-events]: http://jqfundamentals.com/chapter/events
+[jqfundamentals-effects]: http://jqfundamentals.com/chapter/effects
+[jqfundamentals-ajax-deferreds]: http://jqfundamentals.com/chapter/ajax-deferreds
 [zmq]: http://zeromq.org/intro:read-the-manual
 [c-faq-en]: http://c-faq.com/
 [ccfaq-zh]: http://c-faq-chn.sourceforge.net/ccfaq/index.html
