@@ -159,6 +159,7 @@ updateData:  19:37 2015/1/11
 A simple cross-site request is one that:  
 
 > Only uses GET, HEAD or POST. If POST is used to send data to the server, the Content-Type of the data sent to the server with the HTTP POST request is one of application/x-www-form-urlencoded, multipart/form-data, or text/plain.  
+
 > Does not set custom headers with the HTTP Request (such as X-Modified, etc.)  
 
 
