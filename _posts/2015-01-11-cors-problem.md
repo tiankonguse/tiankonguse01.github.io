@@ -24,7 +24,7 @@ updateData:  19:37 2015/1/11
 代码如下  
 
 
-```
+```html
 <form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">  
     <input type="file" name="files[]" multiple="">  
 <form>  
@@ -84,7 +84,7 @@ updateData:  19:37 2015/1/11
 删完之后是这个样子  
 
 
-```
+```html
 <input id="fileupload" type="file" name="files[]" multiple="">  
 <button type="submit" class="btn btn-primary" id="start">start</button>  
 <script>  
