@@ -1,11 +1,11 @@
 ---  
 layout: post  
-title: 上传文件遇到的一个问题
+title: 上传文件遇到的一个问题  
 category: blog  
 description:  以前，我一直在模仿。现在看来是时候去学习背后的一些东西了。  
-tags:  CORS javascript 跨域
+tags:  CORS javascript 跨域  
 keywords: CORS, javascript, 跨域  
-updateData:  19:37 2015/1/11
+updateData:  19:37 2015/1/11  
 ---  
 
 
@@ -16,34 +16,36 @@ updateData:  19:37 2015/1/11
 直到上周， 同事在做一个项目， 需要上传图片， 于是找我帮忙看看为什么，我于是走上了一条不归路。  
 
  
-## 背景介绍
+## 背景介绍  
 
 
 我们使用的是 jQuery 的 fileUpload 插件来上传图片的。  
 
-代码如下
+代码如下  
 
-```
-<form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">
-    <input type="file" name="files[]" multiple="">
-<form>
-<iframe frameborder="0" style="height: 0px; width: 0px; position: absolute;" id="fileupload-iframe" ></iframe>
-<button type="submit" class="btn btn-primary" id="start">start</button>
-<script>
+
+```  
+<form id="fileupload"  method="POST" enctype="multipart/form-data" target="fileupload-iframe">  
+    <input type="file" name="files[]" multiple="">  
+<form>  
+<iframe frameborder="0" style="height: 0px; width: 0px; position: absolute;" id="fileupload-iframe" ></iframe>  
+<button type="submit" class="btn btn-primary" id="start">start</button>  
+<script>  
 (function () {
-	$("#fileupload").fileupload({
+	$("#fileupload").fileupload({  
 		add : function(e, data) {
-			//do something
+			//do something  
 			$("#start").click(function() {
-                data.submit();
-                return false;
+                data.submit();  
+                return false;  
 
-            });
+            });  
 		}
-	});
-})()
-</script>
-```
+	});  
+})()  
+</script>  
+```  
+
 
 
 最初的时候我问跨域了吗？ 他说没有。  
@@ -77,28 +79,30 @@ updateData:  19:37 2015/1/11
 
 我说我都配置过了， 都不行。  
 
-于是他在哪里研究了一番，后来他说可以了， 原来它把很多没有必要的东西删了。
+于是他在哪里研究了一番，后来他说可以了， 原来它把很多没有必要的东西删了。  
 
-删完之后是这个样子
+删完之后是这个样子  
 
-```
-<input id="fileupload" type="file" name="files[]" multiple="">
-<button type="submit" class="btn btn-primary" id="start">start</button>
-<script>
+
+```  
+<input id="fileupload" type="file" name="files[]" multiple="">  
+<button type="submit" class="btn btn-primary" id="start">start</button>  
+<script>  
 (function () {
-	$("#fileupload").fileupload({
+	$("#fileupload").fileupload({  
 		add : function(e, data) {
-			//do something
+			//do something  
 			$("#start").click(function() {
-                data.submit();
-                return false;
+                data.submit();  
+                return false;  
 
-            });
+            });  
 		}
-	});
-})()
-</script>
-```
+	});  
+})()  
+</script>  
+```  
+
 
 为什么不要 form 和 iframe 呢？  
 
@@ -112,19 +116,19 @@ updateData:  19:37 2015/1/11
 
 之前我曾想着设置为 xml 试试， 但是一直没事， 现在看在使用 xml 试试的话应该也会成功的。  
 
-所以这个问题的解决方案就是服务端支持返回json格式的代码就行了，也就是修改服务器端的代码， 如果服务器段我们不能控制，那只好使用 text 或 xml 的方式先得到数据， 然后再手动转化为 json 吧?
+所以这个问题的解决方案就是服务端支持返回json格式的代码就行了，也就是修改服务器端的代码， 如果服务器段我们不能控制，那只好使用 text 或 xml 的方式先得到数据， 然后再手动转化为 json 吧?  
 
 好了， 背景介绍完了。  
 
 
-## 一个疑惑
+## 一个疑惑  
 
 
 其实， 我之前的问题不是这个， 我知道跨域 POST 的时候会有两个请求， 一个是 OPETION , 一个是 POST.  
 
 而我的请求一直没有那个 OPETION 请求包。  
 
-组长说他看了[ CORS 的文档][Access_control_CORS]后解决问题的， 于是我也去看了一下这个文档， 然后找到了答案。
+组长说他看了[ CORS 的文档][Access_control_CORS]后解决问题的， 于是我也去看了一下这个文档， 然后找到了答案。  
 
 现在就来讲解一下 CORS， 答案就在里面。    
  
@@ -134,7 +138,7 @@ updateData:  19:37 2015/1/11
 
 跨站 HTTP 请求(Cross-site HTTP request)是指发起请求的资源所在域不同于该请求所指向资源所在的域的 HTTP 请求.  
 
-出于安全考虑，浏览器会限制脚本中发起的跨站请求。
+出于安全考虑，浏览器会限制脚本中发起的跨站请求。  
 
 针对API容器的, W3C 的 Web 应用工作组推荐了一种新的机制，即跨源资源共享.  
 
@@ -142,14 +146,14 @@ updateData:  19:37 2015/1/11
 
 
 跨源资源共享标准通过新增一系列 HTTP 头，让服务器能声明那些来源可以通过浏览器访问该服务器上的资源。  
-另外，对那些会对服务器数据造成破坏性影响的 HTTP 请求方法（特别是 GET 以外的 HTTP 方法，或者搭配某些MIME类型的POST请求），标准强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。
+另外，对那些会对服务器数据造成破坏性影响的 HTTP 请求方法（特别是 GET 以外的 HTTP 方法，或者搭配某些MIME类型的POST请求），标准强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。  
 
 
 
-## access control scenarios
+## access control scenarios  
 
 
-### Simple requests
+### Simple requests  
 
 
 A simple cross-site request is one that:  
@@ -161,12 +165,12 @@ A simple cross-site request is one that:
 什么意思呢？  
 
 只使用 GET, HEAD 或者 POST 请求方法。  
-如果使用 POST 向服务器端传送数据，则数据类型(Content-Type)只能是 application/x-www-form-urlencoded, multipart/form-data 或 text/plain中的一种。
+如果使用 POST 向服务器端传送数据，则数据类型(Content-Type)只能是 application/x-www-form-urlencoded, multipart/form-data 或 text/plain中的一种。  
 
 当然， 服务器段还要配置 `Access-Control-Allow-Origin:*` 来接受任何客户端的请求， 由于我的服务端已经默认配置了， 所以我不需要担心这个问题了。  
 
 
-### Preflighted requests
+### Preflighted requests  
 
 不同于上面讨论的简单请求，“预请求”要求必须先发送一个 OPTIONS 请求给目的站点，来查明这个跨站请求对于目的站点是不是安全可接受的。  
 
@@ -189,33 +193,33 @@ A simple cross-site request is one that:
 看到这， 图片不能成功上传的第二个原因就在这个 `multipart/form-data` 上了， 把它删了就可以了。  
 
 
-### Requests with credentials
+### Requests with credentials  
 
 XMLHttpRequest和访问控制功能，最有趣的特性就是，发送凭证请求（HTTP Cookies和验证信息）的功能。  
 
 一般而言，对于跨站请求，浏览器是不会发送凭证信息的。  
 
-但如果将XMLHttpRequest的一个特殊标志位设置为true，浏览器就将允许该请求的发送。
+但如果将XMLHttpRequest的一个特殊标志位设置为true，浏览器就将允许该请求的发送。  
 
 如果服务器端的响应中，如果没有返回Access-Control-Allow-Credentials: true的响应头，那么浏览器将不会把响应结果传递给发出请求的脚步程序，以保证信息的安全。  
 
 
-## 解决问题
+## 解决问题  
 
 文档看到这， 应该就可以解决问题了。  
 
 需要做三件事：  
 
-* 不使用 jsnp 发送数据, 返回的数据需要时 json 格式
-* 服务器段配置 `Access-Control-Allow-Origin` , 代表接受这个客户端
+* 不使用 jsnp 发送数据, 返回的数据需要时 json 格式  
+* 服务器段配置 `Access-Control-Allow-Origin` , 代表接受这个客户端  
 * 请求的包头不能有 application/x-www-form-urlencoded, multipart/form-data 或者 text/plain。  
 
 
-## 参考文档
+## 参考文档  
 
-* [HTTP access control (CORS)][Access_control_CORS]
-* [jQuery File Upload Demo][jQuery-File-Upload]
+* [HTTP access control (CORS)][Access_control_CORS]  
+* [jQuery File Upload Demo][jQuery-File-Upload]  
 
 
-[jQuery-File-Upload]: https://blueimp.github.io/jQuery-File-Upload/
-[Access_control_CORS]: https://developer.mozilla.org/zh/docs/Web/HTTP/Access_control_CORS
+[jQuery-File-Upload]: https://blueimp.github.io/jQuery-File-Upload/  
+[Access_control_CORS]: https://developer.mozilla.org/zh/docs/Web/HTTP/Access_control_CORS  
