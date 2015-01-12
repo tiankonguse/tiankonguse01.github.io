@@ -133,18 +133,28 @@ updateData:  19:37 2015/1/11
  
 ## CORS 的背景 
 
-跨站 HTTP 请求(Cross-site HTTP request)是指发起请求的资源所在域不同于该请求所指向资源所在的域的 HTTP 请求.  
+> Cross-site HTTP requests are HTTP requests for resources from a different domain than the domain of the resource making the request.    
+
+跨站 HTTP 请求(Cross-site HTTP request)是跨域的 HTTP 请求。  
+
+
+> Cross-site HTTP requests initiated from within scripts have been subject to well-known restrictions, for well-understood security reasons.   
+  
 
 出于安全考虑，浏览器会限制脚本中发起的跨站请求。  
 
-针对API容器的, W3C 的 Web 应用工作组推荐了一种新的机制，即跨源资源共享.  
 
-这种机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能.  
+> The Web Applications Working Group within the W3C has recommended the new Cross-Origin Resource Sharing (CORS) mechanism, which provides a way for web servers to support cross-site access controls, which enable secure cross-site data transfers.   
 
 
-跨源资源共享标准通过新增一系列 HTTP 头，让服务器能声明那些来源可以通过浏览器访问该服务器上的资源。  
-另外，对那些会对服务器数据造成破坏性影响的 HTTP 请求方法（特别是 GET 以外的 HTTP 方法，或者搭配某些MIME类型的POST请求），标准强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。  
+W3C 的 Web 应用工作组推荐了一种新的机制，即跨源资源共享.  这种机制让Web应用服务器能支持跨站访问控制，从而使得安全地进行跨站数据传输成为可能.    
 
+
+这里需要了解一个词：跨域。  
+
+不同的子域名，或者端口不同都是跨域的。  
+
+具体可以参考 [wiki][Same-origin_policy].  
 
 
 ## access control scenarios  
@@ -153,11 +163,12 @@ updateData:  19:37 2015/1/11
 ### Simple requests  
 
 
-A simple cross-site request is one that:  
-
+>A simple cross-site request is one that:  
+>
 > Only uses GET, HEAD or POST. If POST is used to send data to the server, the Content-Type of the data sent to the server with the HTTP POST request is one of application/x-www-form-urlencoded, multipart/form-data, or text/plain.  
-
+>
 > Does not set custom headers with the HTTP Request (such as X-Modified, etc.)  
+>
 
 
 什么意思呢？  
@@ -177,13 +188,15 @@ A simple cross-site request is one that:
 当请求具备以下条件，就会被当成预请求处理：  
 
 
+>
 > It uses methods other than GET, HEAD or POST.  
-
-  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, or text/plain, e.g. 
-  
-  if the POST request sends an XML payload to the server using application/xml or text/xml, then the request is preflighted.  
-  
+>
+>  Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, or text/plain, e.g. 
+>  
+>  if the POST request sends an XML payload to the server using application/xml or text/xml, then the request is preflighted.  
+>  
 > It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)  
+>
 
 
 重点在这里： 使用 POST，但请求数据为 application/x-www-form-urlencoded, multipart/form-data 或者 text/plain 以外的数据类型。  
@@ -222,6 +235,6 @@ XMLHttpRequest和访问控制功能，最有趣的特性就是，发送凭证请
 * [HTTP access control (CORS)][Access_control_CORS]  
 * [jQuery File Upload Demo][jQuery-File-Upload]  
 
-
+[Same-origin_policy]: http://en.wikipedia.org/wiki/Same-origin_policy
 [jQuery-File-Upload]: https://blueimp.github.io/jQuery-File-Upload/  
-[Access_control_CORS]: https://developer.mozilla.org/zh/docs/Web/HTTP/Access_control_CORS  
+[Access_control_CORS]: https://developer.mozilla.org/en/docs/Web/HTTP/Access_control_CORS 
