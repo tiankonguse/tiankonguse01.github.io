@@ -58,10 +58,11 @@ json.dumps(item, ensure_ascii=False)
 urllib.urlencode(postdata)
 ```
 
-由于 python 默认是 unicode 编码， 所以 json.dumps 时， 特殊字符将会以 unicode 编码， 即是 "\uXXXX" 的形式， 这样的数据传给其他语言肯定不能正常识别了。  
+由于 python 默认是 unicode 编码， 所以 json.dumps 时， 特殊字符将会以 unicode 编码， 即是 "\uXXXX" 的形式， 这样的数据传给其他语言就可能不能正常识别了([我的服务器端恰好不能识别][json-dump-more])。  
 
 第二个就是 postdata 数据需要进行 urlencode， ，否则 value 如果有 `&`  的话，将会是一个难以发现的 bug.  
 
 
+[json-dump-more]: http://github.tiankonguse.com/blog/2015/01/14/json-dump-more/
 [python-problem]: http://github.tiankonguse.com/blog/2014/10/29/python-problem/
 [python-http-post]: http://github.tiankonguse.com/blog/2014/10/29/python-problem/#content-h2-http%20%E8%AF%B7%E6%B1%82

@@ -14,7 +14,7 @@ updateData:  9:24 2015/1/14
 
 但是后来在使用 json.dumps 时遇到一个编码问题怎么也解决不了， 这个过程中有更深的了解了 python 的编码知识。  
 
-当然， 那个 json.dumps 问题， 回去睡了一觉，来之后瞬间就解决了。  
+当然， 那个 [json.dumps 问题][json-dump-more]， 回去睡了一觉，来之后瞬间就解决了。  
 
 
 ## 背景知识
@@ -100,7 +100,7 @@ Unicode code unit又是什么东西呢？一个Unicode code unit是一个16-bit�
 * print unicode不会乱码。现在我们常用的Linux、Windows系统，都是支持unicode的
 
 
-
+[json-dump-more]: http://github.tiankonguse.com/blog/2015/01/14/json-dump-more/
 [string_encode]: http://www.tutorialspoint.com/python/string_encode.htm
 [string_decode]: http://www.tutorialspoint.com/python/string_decode.htm
 [python-problem]: http://github.tiankonguse.com/blog/2014/10/29/python-problem/#content-h2-%E7%BC%96%E7%A0%81%E6%A3%80%E6%B5%8B%20%E4%B8%8E%E8%BD%AC%E6%8D%A2%E7%BC%96%E7%A0%81
