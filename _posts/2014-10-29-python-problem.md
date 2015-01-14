@@ -89,11 +89,43 @@ print datetime.datetime(2012,04,23).strftime("%w")
 
 关于 post 请求详见 [Python 下发送 post 类型的 http请求][python-http-post]
 
+### http get 请求
+
 
 ```python
 try:
     req = urllib2.Request(url)
     page = urllib2.urlopen(req)
+    ret_str = page.read()
+    
+    print ret_str
+except urllib2.HTTPError, e:
+    print('(%s)http request error code - %s.' % (url, e.code))
+except urllib2.URLError, e:
+    print('(%s)http request error reason - %s.' % (url, e.reason))
+except Exception:                                                                                       
+    print('(%s)http request generic exception: %s.' % (url, traceback.format_exc()))
+```
+
+### http post 请求
+
+
+```python
+try:
+
+    item = {}
+    item["value"] = "测试"
+    
+    postdata = {}
+    postdata["data"] = json.dumps(item, ensure_ascii=False)
+    postdata["username"] = "tiankonguse"
+    
+    encodedata = urllib.urlencode(postdata)
+    
+    req = urllib2.Request(url, encodedata)
+    
+    page = urllib2.urlopen(req)
+    
     ret_str = page.read()
     
     print ret_str
