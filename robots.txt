@@ -5,3 +5,4 @@ Disallow:*.show-hide-weixin$
 Disallow:/undefined-reference$
 Disallow:/make-yourself-wordpress-themes$
 Disallow:/make-github-website$
+Disallow:/manual/bash/*
