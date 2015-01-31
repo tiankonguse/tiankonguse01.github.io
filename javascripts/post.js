@@ -35,12 +35,12 @@ jQuery(document).ready(function(){
         var menuIndexLeft = $menuIndex.offset().left;
         var winHeight =  tk.min($(window).height(), screen.height);
         var bottomHeight;
-                
+            
         var indexHeight = 0;
         var length = 0;
         var shouldPos = winHeight / 5;;
         
-        
+        console.log("menuIndexLeft = " + menuIndexLeft);
         function initHeading(){
             var h2 = [];
             var h3 = [];
@@ -167,18 +167,19 @@ jQuery(document).ready(function(){
             
             
             if(nowTop+20 > menuIndexTop){
+                console.log("menuIndexLeft = " + menuIndexLeft);
                 if(winHeight >= indexHeight){
                     $menuIndex.css({
                         position:'fixed'
                         ,top:'10px'
-                        ,left:menuIndexLeft
+                        ,left:menuIndexLeft + "px"
                     });
                 }else{
                     var mytop  = getNowTop(index, nowTop);
                     $menuIndex.css({
                         position:'fixed',
                         top: mytop  + 'px',
-                        left:menuIndexLeft
+                        left:menuIndexLeft+"px"
                     });
                 
                 }
@@ -221,6 +222,7 @@ jQuery(document).ready(function(){
                     console.log("resize"); 
                     menuIndexTop = $menuIndex.offset().top;
                     menuIndexLeft = $menuIndex.offset().left;
+                    console.log("menuIndexLeft = " + menuIndexLeft);
     
                     $(window).trigger('scroll');
                     waitForFinalEvent(waitDoing);
