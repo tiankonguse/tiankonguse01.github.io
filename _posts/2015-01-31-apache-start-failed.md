@@ -149,8 +149,11 @@ PHP Fatal error:  Class 'DOMDocument' not found in XXX on line 110
 我把那个页面的重要的话引用出来吧。  
 
 > 开始以为是版本不匹配的问题，但是在网上﻿并没有找到apache和PHP的匹配版本的信息。  
+>  
 > 后来在PHP的主站上发现有人提到apache与PHP的冲突，是PHP的个别扩展功能的问题。  
+>  
 > 于是在安装PHP的时候，先把所有的Extentions都变为了差X，然后只选择了MSQLi,OpenSSL  
+>  
 > 等几个自己觉得有用的扩展，结果安装完成后，再启动apache就没有问题了。  
 
 
@@ -166,10 +169,6 @@ PHP Fatal error:  Class 'DOMDocument' not found in XXX on line 110
 
 
 解决方案就是找到对应的模块， 删除之。   
-
-
-
-
 
 
 
