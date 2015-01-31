@@ -49,6 +49,9 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 
 /************layout style*****************/
 #content {width:1260px;margin:90px auto 10px auto;min-height:400px;height:auto !important;}
+.ad-page-footer{
+    width:1260px;
+}
 
 
 /****************entry style**************/
@@ -152,6 +155,9 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 @media screen and (max-width: 750px){
     body {font-size:14px;}
     #content {width:85%;margin:100px auto 10px auto; }
+    .ad-page-footer{
+        width:85%;
+    }
 
     h2{font-size:20px;}
     h3{font-size:16px;}
@@ -185,6 +191,9 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .index-content .artical-cate { width:85%; }
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
     #content {width:85%;margin:100px auto 10px auto; }
+    .ad-page-footer{
+        width:85%;
+    }
 }
 @media (max-width: 1300px){
     .home-menu { position:absolute; }
@@ -232,6 +241,11 @@ hr {
     padding-top: 30px;
 }
 
+.ad-page-footer{
+    padding-top: 5px;
+    background: #fff;
+    margin: 5px auto 5px auto;
+}
 
 .sidenav>.adsbygoogle{
     margin-top: 10px;
