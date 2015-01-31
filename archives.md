@@ -10,7 +10,7 @@ isArchive: true
 <article class="main-article">
 {% capture post_year1 %}{{ 'now' | date: '%Y-%m' }}{% endcapture %}
 
-<h3>{{ post_year1 }}</h3>
+<h2>{{ post_year1 }}</h2>
 <ul class="article-year clearfix">
 
 {% for post in site.posts %}
@@ -22,7 +22,7 @@ isArchive: true
 {% assign post_year1 = post_year2 %}
 
 </ul>
-<h3>{{ post_year1 }}</h3>
+<h2>{{ post_year1 }}</h2>
 <ul class="article-year clearfix">
 {% endif %}
 
