@@ -154,6 +154,10 @@ PHP Fatal error:  Class 'DOMDocument' not found in XXX on line 110
 > 等几个自己觉得有用的扩展，结果安装完成后，再启动apache就没有问题了。  
 
 
+再后来， 运维查看系统日志时， 发现了 apache 的错误日志在 系统日志 `var/log/message` 里面。  
+
+好吧， 以后查问题还要去`var/log/message` 里面去看看。  
+
 
 
 
