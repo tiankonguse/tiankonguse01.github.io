@@ -146,9 +146,15 @@ jQuery(document).ready(function(){
             }
             return mytop - nowTop;
         }
-        
+        var preTop ; 
         function waitDoing(){
             var nowTop = $(window).scrollTop();
+
+            if(nowTop === preTop){
+                return;
+            }
+            preTop = nowTop;
+
             var index;
             if(nowTop+60 > scrollTop[length-1]){
                 index = length;
@@ -211,7 +217,9 @@ jQuery(document).ready(function(){
                 $(document).bind('mousewheel DOMMouseScroll', function(event){
                     waitForFinalEvent(waitDoing);
                 });
-                
+                setInterval(function(){
+                    waitForFinalEvent(waitDoing);
+                },1000) 
                 $(window).resize(function(){
                     $menuIndex.css({
                         position:'static',
