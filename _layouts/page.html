@@ -17,7 +17,7 @@ layout:           default
             {% include nav.md %}
         </div>
     </div>
-    <div class="entry-page index-content">
+    <div class="entry">
         <h1 class="entry-title">{{ page.title }}</h1>
          {{ content }}
         <div id="disqus_container">
@@ -25,5 +25,8 @@ layout:           default
             <script type="text/javascript">var disqus_shortname = 'tiankonguse-record';</script>
             <div id="disqus_thread"></div>
         </div>
+    </div>
+    <div class="sidenav-frame">
+        {% include sidenav.md %}
     </div>
 </div>
