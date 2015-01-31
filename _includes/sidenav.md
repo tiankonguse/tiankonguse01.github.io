@@ -44,3 +44,13 @@
 	</ul>
 </div> 
 
+<div id="menuIndex" class="sidenav"></div>
+<div id="menuIndex-next" class="sidenav">
+	<ins class="adsbygoogle"
+		 style="display:inline-block;width:250px;height:250px"
+		 data-ad-client="ca-pub-2326969899478823"
+		 data-ad-slot="8884906795"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
