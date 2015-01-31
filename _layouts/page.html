@@ -2,9 +2,22 @@
 layout:           default
 ---
 
-<div id="content">
+<style type="text/css">
+    body { background:#e8e8e8; }
+    @media screen and (max-width: 750px){
+        body { background:#fff; }
+    }
+    @media screen and (max-width: 1020px){
+        body { background:#fff; }
+    }
+</style>
+<div id="content" class="clearfix">
+    <div class="entry-header">
+        <div class="index-content">
+            {% include nav.md %}
+        </div>
+    </div>
     <div class="entry-page index-content">
-        {% include nav.md %}
         <h1 class="entry-title">{{ page.title }}</h1>
          {{ content }}
         <div id="disqus_container">

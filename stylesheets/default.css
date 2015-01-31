@@ -24,13 +24,6 @@ body .hide{display:none;}
 .left,.right{display:inline;}
 .left{float:left;}
 .right{float:right;}
-body { background:#e8e8e8; }
-@media screen and (max-width: 750px){
-    body { background:#fff; }
-}
-@media screen and (max-width: 1020px){
-    body { background:#fff; }
-}
 
 /***********default settings**********/
 body {font-family: "微软雅黑","Arial","Helvetica","sans-serif";font-size:16px;}
