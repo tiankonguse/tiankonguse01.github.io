@@ -52,6 +52,10 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 
 
 /****************entry style**************/
+.sidenav-frame{
+    width:300px;
+    float:right;
+}
 .sidenav { width:300px; background:#fff; float:right; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px #ccc; }
 .sidenav h2 { font-size:18px; color:#333; margin-bottom:15px; }
 .sidenav ul { margin-bottom:50px; }
@@ -153,6 +157,9 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     h3{font-size:16px;}
     embed {display:none;}
     .sidenav{
+        display:none;
+    }
+    .sidenav-frame{
         display:none;
     }
     .entry-title,.entry-title a {font-size:24px;}
