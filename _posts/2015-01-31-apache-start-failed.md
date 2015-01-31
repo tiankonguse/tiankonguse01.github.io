@@ -159,6 +159,20 @@ PHP Fatal error:  Class 'DOMDocument' not found in XXX on line 110
 好吧， 以后查问题还要去`var/log/message` 里面去看看。  
 
 
+## 故障原因及解决方案
+
+
+上面的最主要的故障原因是安装 php 时， php 的某些模块和 apache 的模块冲突的缘故。  
+
+
+解决方案就是找到对应的模块， 删除之。   
+
+
+
+
+
+
+
 
 
 [bluechilli-1786480]: http://www.cnblogs.com/bluechilli/archive/2010/07/27/1786480.html  
