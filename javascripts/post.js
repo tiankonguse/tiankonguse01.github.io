@@ -170,7 +170,7 @@ jQuery(document).ready(function(){
                 if(winHeight >= indexHeight){
                     $menuIndex.css({
                         position:'fixed'
-                        ,top:'20px'
+                        ,top:'10px'
                         ,left:menuIndexLeft
                     });
                 }else{
@@ -218,7 +218,7 @@ jQuery(document).ready(function(){
                         top:0,
                         left:0
                     });
-                    
+                    console.log("resize"); 
                     menuIndexTop = $menuIndex.offset().top;
                     menuIndexLeft = $menuIndex.offset().left;
     
