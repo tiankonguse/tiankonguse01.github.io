@@ -39,7 +39,7 @@ updateData:  9:44 2015/2/28
 
 看了教程，发现有两种使用方法。  
 
-一种是使用简洁语法 `{\{ }}` 的方式， 另一种是使用原生语法 `<% %>` 的方式。  
+一种是使用简洁语法 {% highlight %}{{ }}{% endhighlight%} 的方式， 另一种是使用原生语法 `<% %>` 的方式。  
 
 
 ### 简洁语法
@@ -48,44 +48,44 @@ updateData:  9:44 2015/2/28
 
 #### 防XSS输出
 
-```
-\{\{content}}
-```
+{% highlight %}
+{{content}}
+{% endhighlight%}
 
 
 #### 直接输出
 
-```
-\{\{#content}}
-```
+{% highlight %}
+{{#content}}
+{% endhighlight%}
 
 
 #### 条件
 
-```
-\{\{if 1}}
-    \{\{1}}
-\{\{else if 2}}
-    \{\{2}}
-\{\{else}}
-    \{\{3}}
-\{\{/if}}
-```
+{% highlight %}
+{{if 1}}
+    {{1}}
+{{else if 2}}
+    {{2}}
+{{else}}
+    {{3}}
+{{/if}}
+{% endhighlight%}
 
 #### 循环
 
 
-```
-\{\{each list as value index}}
-    \{\{index}} - \{\{value}}
-\{\{/each}}
+{% highlight %}
+{{each list as value index}}
+    {{index}} - {{value}}
+{{/each}}
 
 //也可以省略后面的value index
 
-\{\{each list}}
-    \{\{$index}} - \{\{$value.user}}
-\{\{/each}}
-```
+{{each list}}
+    {{$index}} - {{$value.user}}
+{{/each}}
+{% endhighlight%}
 
 
 ### 原生语法
