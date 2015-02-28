@@ -49,42 +49,42 @@ updateData:  9:44 2015/2/28
 #### 防XSS输出
 
 ```
-{{content}}
+\{\{content}}
 ```
 
 
 #### 直接输出
 
 ```
-{{#content}}
+\{\{#content}}
 ```
 
 
 #### 条件
 
 ```
-{{if 1}}
-    {{1}}
-{{else if 2}}
-    {{2}}
-{{else}}
-    {{3}}
-{{/if}}
+\{\{if 1}}
+    \{\{1}}
+\{\{else if 2}}
+    \{\{2}}
+\{\{else}}
+    \{\{3}}
+\{\{/if}}
 ```
 
 #### 循环
 
 
 ```
-{{each list as value index}}
-    {{index}} - {{value}}
-{{/each}}
+\{\{each list as value index}}
+    \{\{index}} - \{\{value}}
+\{\{/each}}
 
 //也可以省略后面的value index
 
-{{each list}}
-    {{$index}} - {{$value.user}}
-{{/each}}
+\{\{each list}}
+    \{\{$index}} - \{\{$value.user}}
+\{\{/each}}
 ```
 
 
