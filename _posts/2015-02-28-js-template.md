@@ -48,44 +48,37 @@ updateData:  9:44 2015/2/28
 
 #### 防XSS输出
 
-{% highlight %}
-{{content}}
-{% endhighlight%}
+    {{content}}
 
 
 #### 直接输出
 
-{% highlight %}
-{{#content}}
-{% endhighlight%}
-
+    {{#content}}
 
 #### 条件
 
-{% highlight %}
-{{if 1}}
-    {{1}}
-{{else if 2}}
-    {{2}}
-{{else}}
-    {{3}}
-{{/if}}
-{% endhighlight%}
+    {{if 1}}
+        {{1}}
+    {{else if 2}}
+        {{2}}
+    {{else}}
+        {{3}}
+    {{/if}}
 
 #### 循环
 
 
-{% highlight %}
-{{each list as value index}}
-    {{index}} - {{value}}
-{{/each}}
 
-//也可以省略后面的value index
+    {{each list as value index}}
+        {{index}} - {{value}}
+    {{/each}}
 
-{{each list}}
-    {{$index}} - {{$value.user}}
-{{/each}}
-{% endhighlight%}
+    //也可以省略后面的value index
+
+    {{each list}}
+        {{$index}} - {{$value.user}}
+    {{/each}}
+
 
 
 ### 原生语法
