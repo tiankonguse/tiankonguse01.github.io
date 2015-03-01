@@ -21,7 +21,7 @@ updateData:  18:50 2015/3/1
 
 ### 正常类型指针
 
-对于平常的指针，比如整形指针，我们直接可以像[下面的形式操作][https://github.com/tiankonguse/empty/blob/master/comfun/normal.cpp]。
+对于平常的指针，比如整形指针，我们直接可以像[下面的形式操作][normal]。
 
 ```
 void normal() {
@@ -51,7 +51,7 @@ void normal() {
 
 ### 正常函数指针
 
-那[函数指针][https://github.com/tiankonguse/empty/blob/master/comfun/pointFun.cpp]是什么样子呢？  
+那[函数指针][pointFun]是什么样子呢？  
 
 ```
 void testPointFun(int num) {
@@ -422,6 +422,8 @@ cmd3(1,2);
 * [C/C++宏的奇技淫巧][cppblog-misakamm-164258]
 * [C 语言中你想不到的一些问题][github-tiankonguse-c-base]
 
+[pointFun]: https://github.com/tiankonguse/empty/blob/master/comfun/pointFun.cpp
+[normal]: https://github.com/tiankonguse/empty/blob/master/comfun/normal.cpp
 [firstPointFun]: https://github.com/tiankonguse/empty/blob/master/comfun/firstPointFun.cpp
 [secondPointFun]: https://github.com/tiankonguse/empty/blob/master/comfun/secondPointFun.cpp
 [threePointFun]: https://github.com/tiankonguse/empty/blob/master/comfun/threePointFun.cpp
