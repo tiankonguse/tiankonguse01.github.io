@@ -109,24 +109,24 @@ $result = "12a34" +1;  # $result = 13
 
 ### 整数比较操作符
 
-| 符号| 描述 |
-| <   | 小于 |
-| >   | 大于 |
-| ==  | 等于 |
-| <=  | 小于等于 |
-| >=  | 大于等于 |
-| !=  | 不等于 |
-| <=> | 比较，返回 1(第一个值大), 0(两个值相等), -1(第二个值大) |
+| 符号| 描述                                                     |
+| <   | 小于                                                     |
+| >   | 大于                                                     |
+| ==  | 等于                                                     |
+| <=  | 小于等于                                                 |
+| >=  | 大于等于                                                 |
+| !=  | 不等于                                                   |
+| <=> | 比较，返回 1(第一个值大), 0(两个值相等), -1(第二个值大)  |
 
 ### 字符串比较操作符
 
-| 符号 | 描述 |
-| lt | 小于 |
-| gt | 大于 |
-| eq | 等于 |
-| le | 小于等于 |
-| ge |大于等于 |
-| ne | 不等于 |
+| 符号 | 描述                                                  |
+| lt | 小于                                                    |
+| gt | 大于                                                    |
+| eq | 等于                                                    |
+| le | 小于等于                                                |
+| ge |大于等于                                                 |
+| ne | 不等于                                                  |
 | cmp | 比较，返回1(第一个值大), 0(两个值相等), -1(第二个值大) |
 
 
@@ -155,16 +155,16 @@ $result = "12a34" +1;  # $result = 13
 
 ### 赋值操作符
 
-| =     | Assignment only |
-| +=    | Addition and assignment |
-| -=    | Subtraction and assignment |
+| =     | Assignment only               |
+| +=    | Addition and assignment       |
+| -=    | Subtraction and assignment    |
 | \*=   | Multiplication and assignment |
-| /=    | Division and assignment |
-| %=    | Remainder and assignment |
+| /=    | Division and assignment       |
+| %=    | Remainder and assignment      |
 | \*\*= | Exponentiation and assignment |
-| &=    | Bitwise AND and assignment |
-| |=    | Bitwise OR and assignment |
-| ^=    | Bitwise XOR and assignment |
+| &=    | Bitwise AND and assignment    |
+| \|=   | Bitwise OR and assignment     |
+| ^=    | Bitwise XOR and assignment    |
 
 ### 自增自减操作符
 
@@ -240,29 +240,28 @@ $condvar == 43 ? $var1 = 14 : $var2 = 14;
 
 ### 操作符的次序
 
-| 操作符  |  描述 |
-| ++, --  |  自增，自减 |
+| 操作符   |  描述 |
+| ++, --   |  自增，自减 |
 | -, ~, !  |  单目 |
-| \*\*  |  乘方 |
-| =~, !~  |  模式匹配 |
+| \*\*     |  乘方 |
+| =~, !~   |  模式匹配 |
 | \*, /, %, x  |  乘，除，取余，重复 |
 | +, -, .  |  加，减，联接 |
-| <<, >>  |  移位 |
+| <<, >>   |  移位 |
 | -e, -r, etc.  |  文件状态 |
 | <, <=, >, >=, lt, le, gt, ge  |  不等比较 |
 | ==, !=, <=>, eq, ne, cmp  |  相等比较 |
-| &  |  位与 |
-| |, ^  |  位或，位异或 |
-| &&  |  逻辑与 |
-| ||  |  逻辑或 |
-| ..  |  列表范围 |
-| ? and :  |  条件操作符 |
+| &         |  位与 |
+| |, ^      |  位或，位异或 |
+| &&        |  逻辑与 |
+| \|\|      |  逻辑或 |
+| ..        |  列表范围 |
+| ? and :   |  条件操作符 |
 | =, +=, -=, \*=,  |  赋值 |
-| and so on  |  　 |
-| ,  |  逗号操作符 |
-| not  |  Low-precedence logical NOT |
-| and  |  Low-precedence logical AND |
-| or, xor  |  Low-precedence logical OR and XOR |
+| ,         |  逗号操作符 |
+| not       |  Low-precedence logical NOT |
+| and       |  Low-precedence logical AND |
+| or, xor   |  Low-precedence logical OR and XOR |
 
 
 ## 列表与数组
