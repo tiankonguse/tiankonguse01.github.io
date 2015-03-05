@@ -164,6 +164,7 @@ $result = "12a34" +1;  # $result = 13
 
 ### 赋值操作符
 
+| 符号 | 描述                                                  |
 |:-----:|:-----------------------------:|
 | =     | Assignment only               |
 | +=    | Addition and assignment       |
