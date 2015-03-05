@@ -109,13 +109,13 @@ $result = "12a34" +1;  # $result = 13
 
 ### 整数比较操作符
 
-|  符号 | 描述 |
-| < | 小于 |
-| > | 大于 |
-| == | 等于 |
-| <= | 小于等于 |
-| >= | 大于等于 |
-| != | 不等于 |
+| 符号| 描述 |
+| <   | 小于 |
+| >   | 大于 |
+| ==  | 等于 |
+| <=  | 小于等于 |
+| >=  | 大于等于 |
+| !=  | 不等于 |
 | <=> | 比较，返回 1(第一个值大), 0(两个值相等), -1(第二个值大) |
 
 ### 字符串比较操作符
@@ -125,14 +125,14 @@ $result = "12a34" +1;  # $result = 13
 | gt | 大于 |
 | eq | 等于 |
 | le | 小于等于 |
-| ge	大于等于 |
+| ge |大于等于 |
 | ne | 不等于 |
 | cmp | 比较，返回1(第一个值大), 0(两个值相等), -1(第二个值大) |
 
 
 ### 逻辑操作符
 
-* 逻辑或：$a || $b 或 $a or $b
+* 逻辑或：$a \|\| $b 或 $a or $b
 * 逻辑与：$a && $b 或 $a and $b
 * 逻辑非：! $a 或 not $a
 * 逻辑异或：$a xor $b
@@ -141,7 +141,7 @@ $result = "12a34" +1;  # $result = 13
 ### 位操作符 
 
 * 位与：& 
-* 位或：|
+* 位或：\|
 * 位非：~
 * 位异或：^
 * 左移：$x << 1
@@ -155,16 +155,16 @@ $result = "12a34" +1;  # $result = 13
 
 ### 赋值操作符
 
-| * = | Assignment only |
-| * += | Addition and assignment |
-| * -= | Subtraction and assignment |
-| * \*= | Multiplication and assignment |
-| * /= | Division and assignment |
-| * %= | Remainder and assignment |
-| * \*\*= | Exponentiation and assignment |
-| * &= | Bitwise AND and assignment |
-| * |= | Bitwise OR and assignment |
-| * ^= | Bitwise XOR and assignment |
+| =     | Assignment only |
+| +=    | Addition and assignment |
+| -=    | Subtraction and assignment |
+| \*=   | Multiplication and assignment |
+| /=    | Division and assignment |
+| %=    | Remainder and assignment |
+| \*\*= | Exponentiation and assignment |
+| &=    | Bitwise AND and assignment |
+| |=    | Bitwise OR and assignment |
+| ^=    | Bitwise XOR and assignment |
 
 ### 自增自减操作符
 
