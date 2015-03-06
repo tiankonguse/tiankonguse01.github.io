@@ -190,7 +190,7 @@ def installProxy():
     urllib2.install_opener(opener) 
 # end installProxy
 ```
-## http请求临时代理
+### http请求临时代理
 
 ```python
 proxy_handler = urllib2.ProxyHandler({"http" : 'tiankonguse.com:8080'})
@@ -297,7 +297,7 @@ cursor.execute(sql, (blobdata,))
 ```
 
 
-## mysql 字符串转义
+### mysql 字符串转义
 
 ```
 str = conn.escape_string(str)
