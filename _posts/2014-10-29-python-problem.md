@@ -92,20 +92,20 @@ print "/".join(array.split("-"))
 # 2014/11/26
 ```
 
-## sleep 操作
+### sleep 操作
 
 有时我们需要让程序等待一会，c 语言中有 sleep 函数， python 中应该也有的。  
 
 简单的说 python 使用 sleep 函数来等待， 指定的时间以秒为一个单位，想表示更小的单位需要使用小数。  
 
-### sleep 秒级
+#### sleep 秒级
 
 ```
 t = 1
 time.sleep(t)
 ```
 
-### sleep 毫秒级
+#### sleep 毫秒级
 
 ```
 t = 0.001
@@ -303,20 +303,7 @@ cursor.execute(sql, (blobdata,))
 str = conn.escape_string(str)
 ```
 
-
-
-## 字符串
-
-
-### 字符串 与 json 转化
-
-详见我的另一篇文章[Python 下 json 的基本操作与转换][python-json]
-
-
-```python
-json_obj = json.loads(str)
-str = json.dumps(json_obj)
-```
+## 类型
 
 
 ### 所有类型转化为字符串
@@ -340,8 +327,50 @@ str = str(123) # "123"
 ```
 
 
+### 判断实例类型
 
-## 字符串分割
+从数据库中导出数据，组装后再导出，但是 python 的数据库有点强大，数据库内是什么类型，取出来的数据就是什么类型。  
+这样的话我还要一个一个的转换类型，好麻烦，所以我需要使用循环判断类型，统一转化为字符串然后操作。
+
+type 与 isinstance 的区别就是，type 判断实例与基类为不相等，而 isinstance 判断为相等。
+
+```python
+num = 1
+type(num) # 'int'
+
+isinstance(num, int) #True
+
+
+```
+
+有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
+
+此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
+
+只能用下面的方法判断(参考 [stackoverflow][how-to-test-nonetype-in-python])
+
+```python
+if variable is None:
+```
+
+
+
+## 字符串
+
+
+### 字符串 与 json 转化
+
+详见我的另一篇文章[Python 下 json 的基本操作与转换][python-json]
+
+
+```python
+json_obj = json.loads(str)
+str = json.dumps(json_obj)
+```
+
+
+
+### 字符串分割
 
 经常会遇到把指定的字符串按指定的字符分割，幸好 python 为我们提供了这么一个方法。
 
@@ -365,7 +394,7 @@ skyyuan:test $ ./split.py
 ['a ', ' c d']
 ```
 
-## 字符串合并
+### 字符串合并
 
 有时候我们又一个字符串数组，想要用指定的字符串连接起来，这时候 join 就派上用场了。  
 
@@ -379,7 +408,7 @@ print "-".join(array);
 # a-b-c-d
 ```
 
-## 删除两端空白
+### 删除两端空白
 
 在其他语言中，一般都有删除两端空白的函数， 比如 trim, ltrim, rtrim 等。  
 但是在python 中发现名字换了， 换成 strip 了。  
@@ -495,8 +524,54 @@ print len(str)
 ```
 
 
+## 编码相关
 
-##  类型 编码 其他
+
+### 编码检测 与转换编码
+
+
+有时候我们会有多个数据源，然后在一起操作时，发现明明相同的数据却不相等。  
+这个时候就要考虑是不是编码不同的原因了。  
+
+最简单的判断方法可以先用上面的 [判断实例类型][python-problem-check-type] 中的type 判断是 str 类型还是 unicode 类型就行了。  
+如果是 str 类型， 则输出可以看到 "\xXX\xXX" 的编码格式，这个是十六进制的编码格式，储存的是二进制，需要转码为 unicode. 
+如果是 unicode 类型， 则输出可以看到 "\uxxxx\uxxxx" 的编码格式，这个就是 unicode 的编码格式,不需要转码。 
+
+于是我们现在就需要对 str 类型的串进行转码了。  
+其中最简单的是不管什么编码，直接转码为 utf8 即可。  
+
+```
+data = data.decode("utf8")
+# or
+data = unicode(data, "utf8")
+```
+
+又是我们想判断一个串的编码具体是什么，这个时候就需要下面的方法了。  
+
+```
+import chardet 
+chardet.detect(data)
+```
+
+不过，这样的话，原先就是 unicode 的串再次进行 detect 的话，有个 警告。  
+
+```
+chardet/universaldetector.py:90: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+```
+
+于是我们需要加个特殊判断了。  
+
+```
+if not isinstance(data, unicode):
+    print chardet.detect(data)
+``` 
+
+一般执行 decode 或者 unicode 后的串就会变成 python 内部统一的编码格式。  
+我们输出的时候想要变回原先指定的格式，于是就需要下面的 encode 操作了。  
+
+```
+data = data.encode("utf8")
+```
 
 
 ### 整数 与 ansci 编码转换
@@ -517,6 +592,10 @@ char = chr(48) # '1'
 # coding:UTF-8
 ```
 
+
+##  类型 编码 其他
+
+
 ### 随机数生成
 
 ```python
@@ -530,31 +609,6 @@ random.shuffle(list) # 将list中的元素顺序打乱
 random.sample(list, n) # 从list中随机挑n个元素
 ```
 
-### 判断实例类型
-
-从数据库中导出数据，组装后再导出，但是 python 的数据库有点强大，数据库内是什么类型，取出来的数据就是什么类型。  
-这样的话我还要一个一个的转换类型，好麻烦，所以我需要使用循环判断类型，统一转化为字符串然后操作。
-
-type 与 isinstance 的区别就是，type 判断实例与基类为不相等，而 isinstance 判断为相等。
-
-```python
-num = 1
-type(num) # 'int'
-
-isinstance(num, int) #True
-
-
-```
-
-有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
-
-此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
-
-只能用下面的方法判断(参考 [stackoverflow][how-to-test-nonetype-in-python])
-
-```python
-if variable is None:
-```
 
 ### 判断key是否在字典中
 
@@ -673,50 +727,6 @@ a = 0.12345
 print "%.2f%%" % (a * 100)
 ```
 
-## 编码检测 与转换编码
-
-有时候我们会有多个数据源，然后在一起操作时，发现明明相同的数据却不相等。  
-这个时候就要考虑是不是编码不同的原因了。  
-
-最简单的判断方法可以先用上面的 [判断实例类型][python-problem-check-type] 中的type 判断是 str 类型还是 unicode 类型就行了。  
-如果是 str 类型， 则输出可以看到 "\xXX\xXX" 的编码格式，这个是十六进制的编码格式，储存的是二进制，需要转码为 unicode. 
-如果是 unicode 类型， 则输出可以看到 "\uxxxx\uxxxx" 的编码格式，这个就是 unicode 的编码格式,不需要转码。 
-
-于是我们现在就需要对 str 类型的串进行转码了。  
-其中最简单的是不管什么编码，直接转码为 utf8 即可。  
-
-```
-data = data.decode("utf8")
-# or
-data = unicode(data, "utf8")
-```
-
-又是我们想判断一个串的编码具体是什么，这个时候就需要下面的方法了。  
-
-```
-import chardet 
-chardet.detect(data)
-```
-
-不过，这样的话，原先就是 unicode 的串再次进行 detect 的话，有个 警告。  
-
-```
-chardet/universaldetector.py:90: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
-```
-
-于是我们需要加个特殊判断了。  
-
-```
-if not isinstance(data, unicode):
-    print chardet.detect(data)
-``` 
-
-一般执行 decode 或者 unicode 后的串就会变成 python 内部统一的编码格式。  
-我们输出的时候想要变回原先指定的格式，于是就需要下面的 encode 操作了。  
-
-```
-data = data.encode("utf8")
-```
 
 ## 执行shell命令
 
