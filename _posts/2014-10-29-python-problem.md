@@ -21,7 +21,9 @@ updateData: 16:19 2014/12/1
 现在总结一下遇到的一些常见的问题，或者需求吧。
 
 
-## 时间的年月日
+## 日期时间相关
+
+### 时间的年月日
 
 ```python
 localtime = time.localtime(time.time())
@@ -35,8 +37,7 @@ wday = localtime.tm_wday #0到6 (0是周一)
 yday = localtime.tm_yday #1 到 366
 ```
 
-
-## 格式化 字符串  
+### 时间格式化为字符串  
 
 ```python
 time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
@@ -71,23 +72,49 @@ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 ```
 
 
-##  指定 日期 是 周几
+###  指定 日期 是 周几
 
 ```python
 print datetime.datetime(2012,04,23).strftime("%w")
 ```
 
-## 获取几分钟、小时、天之前的时间
+### 获取几分钟、小时、天之前的时间
 
 ```
 (datetime.datetime.now()-datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 # days, seconds, minutes, hours, weeks 控制时间
 ```
+### 常用的有转换日期
+
+```
+array = "2014-11-26"
+print "/".join(array.split("-"))
+# 2014/11/26
+```
+
+## sleep 操作
+
+有时我们需要让程序等待一会，c 语言中有 sleep 函数， python 中应该也有的。  
+
+简单的说 python 使用 sleep 函数来等待， 指定的时间以秒为一个单位，想表示更小的单位需要使用小数。  
+
+### sleep 秒级
+
+```
+t = 1
+time.sleep(t)
+```
+
+### sleep 毫秒级
+
+```
+t = 0.001
+time.sleep(t)
+```
 
 
-## http 请求
+## 网络相关
 
-关于 post 请求详见 [Python 下发送 post 类型的 http请求][python-http-post]
 
 ### http get 请求
 
@@ -108,6 +135,8 @@ except Exception:
 ```
 
 ### http post 请求
+
+关于 post 请求详见 [Python 下发送 post 类型的 http请求][python-http-post]  
 
 
 ```python
@@ -138,13 +167,13 @@ except Exception:
 ```
 
 
-## 对 url 中的val 转义
+### 对 url 中的val 转义
 
 ```python
 name = urllib.quote(name)
 ```
 
-## 对 post 数据转义
+### 对 post 数据转义
 
 ```python
 postdata = {}
@@ -152,7 +181,7 @@ postdata["key"] = val
 postdata = urllib.urlencode(postdata)
 ```
 
-## 注册 指定 代理
+### http请求永久代理
 
 ```python
 def installProxy():
@@ -161,7 +190,7 @@ def installProxy():
     urllib2.install_opener(opener) 
 # end installProxy
 ```
-## 临时 使用 代理
+## http请求临时代理
 
 ```python
 proxy_handler = urllib2.ProxyHandler({"http" : 'tiankonguse.com:8080'})
@@ -174,7 +203,52 @@ ret_str = page.read()
 print ret_str
 ```
 
-## mysql 操作
+### http 下载文件
+
+
+Python中最流行的方法就是通过Http利用urllib或者urllib2模块。  
+当然你也可以利用ftplib从ftp站点下载文件。  
+此外Python还提供了另外一种方法[requests][docs-python-requests]。
+
+
+#### urllib 下载
+
+```
+import urllib
+urllib.urlretrieve(url, "code.zip")
+```
+
+#### urllib2 下载
+
+```
+import urllib2
+f = urllib2.urlopen(url)
+data = f.read()
+with open("code2.zip", "wb") as code:
+    code.write(data)
+```
+
+#### requests 下载
+
+```
+r = requests.get(url)
+with open("code3.zip", "wb") as code:
+    code.write(r.content)
+```
+
+>  
+> We use the with statement because it will automatically close a file and simplifies the code.     
+> Note that just using "read()" can be dangerous if the file is large.     
+> It would be better to read it in pieces by passing read a size.  
+>  
+
+
+
+## mysql数据库操作
+
+
+### 打开关闭数据库
+
 
 ```python
 test_dbcfg = {'host' : 'tiankonguse.com', 'port' : 3306, 'user' : 'test', 'passwd' : 'test', 'db' : 'test'}
@@ -183,30 +257,37 @@ try:
     dbcfg=test_dbcfg
     conn = MySQLdb.connect(host=dbcfg["host"], user=dbcfg["user"], passwd=dbcfg["passwd"], db=dbcfg["db"], port=dbcfg["port"], charset='utf8')
     cur = conn.cursor()
-
-    #查询
-    sql = "SELECT id,name FROM test.test;"
-    cur.execute(sql)
-
-    results = cur.fetchall()
-
-    for x in results:
-        print x[0]," ",x[1] 
-    
-
-    sql = "INSERT INTO test.test(id,name) VALUES('1','tiankonguse');"
-    cur.execute(sql)
-    
-    # 删除，添加，修改需要提交才会生效.
-    # 一次提交代表一个事物
-    conn.commit()
         
     conn.close();        
 except MySQLdb.Error, e:
     print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 ```
 
+### 增删改查样例
+
+
 比如我的这篇文章:[python mysql 更新和插入数据无效][python-update-invalid]，数据怎么也没有插件去，后来找到是没有 commit 的原因。
+
+
+```python
+#查询
+sql = "SELECT id,name FROM test.test;"
+cur.execute(sql)
+
+results = cur.fetchall()
+
+for x in results:
+    print x[0]," ",x[1] 
+
+
+sql = "INSERT INTO test.test(id,name) VALUES('1','tiankonguse');"
+cur.execute(sql)
+
+# 删除，添加，修改需要提交才会生效.
+# 一次提交代表一个事物
+conn.commit()
+```
+
 
 ### mysql blob 二进制数据
 
@@ -216,7 +297,18 @@ cursor.execute(sql, (blobdata,))
 ```
 
 
-## 字符串 与 json 转化
+## mysql 字符串转义
+
+```
+str = conn.escape_string(str)
+```
+
+
+
+## 字符串
+
+
+### 字符串 与 json 转化
 
 详见我的另一篇文章[Python 下 json 的基本操作与转换][python-json]
 
@@ -226,7 +318,8 @@ json_obj = json.loads(str)
 str = json.dumps(json_obj)
 ```
 
-## 所有类型转化为字符串
+
+### 所有类型转化为字符串
 
 参考 [stackoverflow][converting-integer-to-string-in-python]
 
@@ -239,85 +332,13 @@ newStr = str(variable)
 ```
 
 
-## 整数 与 字符串 转化
+### 整数 与 字符串 转化
 
 ```python
 num = int("123") # 123
 str = str(123) # "123"
 ```
 
-## 整数 与 ansci 编码转换
-
-```python
-num = ord("1") # 49
-char = chr(48) # '1'
-```
-
-## Non-ASCII character
-
-想输出一些变量时遇到 `SyntaxError: Non-ASCII character` 这个问题，原来默认按 ASCII 识别了，所以我们需要设置编码格式。
-
-一般前两行是这个样子
-
-```python
-#!/usr/bin/python
-# coding:UTF-8
-```
-
-## 随机数生成
-
-```python
-
-random.random() # 生成一个0到1的随机浮点数
-random.uniform(a, b) #生成一个指定范围内的浮点数
-random.randint(a, b) #生成一个指定范围内的整数
-random.randrange(a, b, c) #生成一个指定等差数列内的数
-random.choice(list) # 从list中随机选择一个元素
-random.shuffle(list) # 将list中的元素顺序打乱
-random.sample(list, n) # 从list中随机挑n个元素
-```
-
-## 判断实例类型
-
-从数据库中导出数据，组装后再导出，但是 python 的数据库有点强大，数据库内是什么类型，取出来的数据就是什么类型。  
-这样的话我还要一个一个的转换类型，好麻烦，所以我需要使用循环判断类型，统一转化为字符串然后操作。
-
-type 与 isinstance 的区别就是，type 判断实例与基类为不相等，而 isinstance 判断为相等。
-
-```python
-num = 1
-type(num) # 'int'
-
-isinstance(num, int) #True
-
-
-```
-
-有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
-
-此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
-
-只能用下面的方法判断(参考 [stackoverflow][how-to-test-nonetype-in-python])
-
-```python
-if variable is None:
-```
-
-## 判断key是否在字典中
-
-下面两个方法都可以,但是推荐第一个.  
-第二个在 python3 中将弃用.
-
-```
-key in dict
-dict.has_key(key)
-```
-
-## mysql 字符串转义
-
-```
-str = conn.escape_string(str)
-```
 
 
 ## 字符串分割
@@ -358,113 +379,6 @@ print "-".join(array);
 # a-b-c-d
 ```
 
-常用的有转换日期
-
-```
-array = "2014-11-26"
-print "/".join(array.split("-"))
-# 2014/11/26
-```
-
-## 文件操作
-
-对于文件操作，常用的有两种：读，写。  
-其中读可能一次性读完，也可能按某个规则一个一个的读。  
-而写则有覆盖写和文件末尾追加两种方式。  
-
-### 判断文件是否存在
-
-操作文件首先需要判断文件是否存在了。  
-
-```
-if not os.path.exists(filePath):
-    print "not exit"
-```
-
-### 判断文件是不是目录
-
-
-有人可能会问：文件怎么会是目录呢？  
-这是因为在 Linux 系统下， 目录也算是文件的。  
-所以上面的只是判断了那个路径存在，但是不能判断就是文件。  
-所以就有了下面的命令
-
-```
-if os.path.isfile(filePath):
-    print "file"
-else:
-    print "directory"
-```
-
-
-### 打开文件
-
-```
-f = open(filepath, 'r')
-```
-
-打开文件可以指定三个参数，第一个参数的位置,第二个参数以什么方式打开文件，最后一个指定编码。   
-主要讲讲第一个参数  
-
-```
-r  读
-w  写之前会先清空文件
-a  在文件指定位置追加写，默认文件末尾
-b 以二进制的方式写
-r+, w+, a+ 可以读也可以写
-```
-
-### 文件关闭
-
-文件打开了，肯定需要关闭了。  
-
-```
-f.close()
-```
-
-
-
-###  打开文件失败
-
-有时候会打开文件失败，比如文件不存在，这个时候就需要使用异常捕捉了。  
-
-```
-try:
-    f = open(youkuFilePath, 'r')
-    # do some thing
-    
-    f.close()
-except IOError, e:
-    logging.error("Error %d: %s" % (e.args[0], e.args[1]))
-```
-
-### 读取文件
-
-
-```
-# 读取全部内容
-f.read() 
-
-# 读取一行内容
-f.readline()
-
-
-# 读取所有行内容,返回一个 list
-f.readlines()
- 
- 
-# 读取指定大小的内容
-f.read(size)
-```
-
-### 写文件
-
-写文件比较简单，直接写即可。
-
-```
-f.write('Hello, world!')
-```
-
 ## 删除两端空白
 
 在其他语言中，一般都有删除两端空白的函数， 比如 trim, ltrim, rtrim 等。  
@@ -475,70 +389,6 @@ trip   => trim 删除两边的空白。
 lstrip => trim 删除左边的空白
 rstrip => trim 删除右边的空白
 ```
-
-## 小数转百分比
-
-```
-a = 0.12345
-print "%.2f%%" % (a * 100)
-```
-
-## 编码检测 与转换编码
-
-有时候我们会有多个数据源，然后在一起操作时，发现明明相同的数据却不相等。  
-这个时候就要考虑是不是编码不同的原因了。  
-
-最简单的判断方法可以先用上面的 [判断实例类型][python-problem-check-type] 中的type 判断是 str 类型还是 unicode 类型就行了。  
-如果是 str 类型， 则输出可以看到 "\xXX\xXX" 的编码格式，这个是十六进制的编码格式，储存的是二进制，需要转码为 unicode. 
-如果是 unicode 类型， 则输出可以看到 "\uxxxx\uxxxx" 的编码格式，这个就是 unicode 的编码格式,不需要转码。 
-
-于是我们现在就需要对 str 类型的串进行转码了。  
-其中最简单的是不管什么编码，直接转码为 utf8 即可。  
-
-```
-data = data.decode("utf8")
-# or
-data = unicode(data, "utf8")
-```
-
-又是我们想判断一个串的编码具体是什么，这个时候就需要下面的方法了。  
-
-```
-import chardet 
-chardet.detect(data)
-```
-
-不过，这样的话，原先就是 unicode 的串再次进行 detect 的话，有个 警告。  
-
-```
-chardet/universaldetector.py:90: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
-```
-
-于是我们需要加个特殊判断了。  
-
-```
-if not isinstance(data, unicode):
-    print chardet.detect(data)
-``` 
-
-一般执行 decode 或者 unicode 后的串就会变成 python 内部统一的编码格式。  
-我们输出的时候想要变回原先指定的格式，于是就需要下面的 encode 操作了。  
-
-```
-data = data.encode("utf8")
-```
-
-## 执行shell命令
-
-有时候我们需要执行 shell 命令还简化工作，C 语言中由 system 命令，那python 中呢？  
-发现还是 system 命令。  
-
-```
-print os.popen('cat /proc/cpuinfo').read()
-```
-
-
-## 字符串 常见操作
 
 
 ### 字符串连接
@@ -645,25 +495,238 @@ print len(str)
 ```
 
 
-## sleep 操作
 
-有时我们需要让程序等待一会，c 语言中有 sleep 函数， python 中应该也有的。  
+##  类型 编码 其他
 
-简单的说 python 使用 sleep 函数来等待， 指定的时间以秒为一个单位，想表示更小的单位需要使用小数。  
 
-### sleep 秒级
+### 整数 与 ansci 编码转换
 
-```
-t = 1
-time.sleep(t)
+```python
+num = ord("1") # 49
+char = chr(48) # '1'
 ```
 
-### sleep 毫秒级
+### Non-ASCII character
+
+想输出一些变量时遇到 `SyntaxError: Non-ASCII character` 这个问题，原来默认按 ASCII 识别了，所以我们需要设置编码格式。
+
+一般前两行是这个样子
+
+```python
+#!/usr/bin/python
+# coding:UTF-8
+```
+
+### 随机数生成
+
+```python
+
+random.random() # 生成一个0到1的随机浮点数
+random.uniform(a, b) #生成一个指定范围内的浮点数
+random.randint(a, b) #生成一个指定范围内的整数
+random.randrange(a, b, c) #生成一个指定等差数列内的数
+random.choice(list) # 从list中随机选择一个元素
+random.shuffle(list) # 将list中的元素顺序打乱
+random.sample(list, n) # 从list中随机挑n个元素
+```
+
+### 判断实例类型
+
+从数据库中导出数据，组装后再导出，但是 python 的数据库有点强大，数据库内是什么类型，取出来的数据就是什么类型。  
+这样的话我还要一个一个的转换类型，好麻烦，所以我需要使用循环判断类型，统一转化为字符串然后操作。
+
+type 与 isinstance 的区别就是，type 判断实例与基类为不相等，而 isinstance 判断为相等。
+
+```python
+num = 1
+type(num) # 'int'
+
+isinstance(num, int) #True
+
 
 ```
-t = 0.001
-time.sleep(t)
+
+有时候数据库中取出的数据时 null, 这个时候这个变量就是 `<type 'NoneType'>` 了。
+
+此时我们不能用 `isinstance(num, NoneType)` 来判断，也不能用 null 来判断。
+
+只能用下面的方法判断(参考 [stackoverflow][how-to-test-nonetype-in-python])
+
+```python
+if variable is None:
 ```
+
+### 判断key是否在字典中
+
+下面两个方法都可以,但是推荐第一个.  
+第二个在 python3 中将弃用.
+
+```
+key in dict
+dict.has_key(key)
+```
+
+
+## 文件操作
+
+对于文件操作，常用的有两种：读，写。  
+其中读可能一次性读完，也可能按某个规则一个一个的读。  
+而写则有覆盖写和文件末尾追加两种方式。  
+
+### 判断文件是否存在
+
+操作文件首先需要判断文件是否存在了。  
+
+```
+if not os.path.exists(filePath):
+    print "not exit"
+```
+
+### 判断文件是不是目录
+
+
+有人可能会问：文件怎么会是目录呢？  
+这是因为在 Linux 系统下， 目录也算是文件的。  
+所以上面的只是判断了那个路径存在，但是不能判断就是文件。  
+所以就有了下面的命令
+
+```
+if os.path.isfile(filePath):
+    print "file"
+else:
+    print "directory"
+```
+
+
+### 打开文件
+
+```
+f = open(filepath, 'r')
+```
+
+打开文件可以指定三个参数，第一个参数的位置,第二个参数以什么方式打开文件，最后一个指定编码。   
+主要讲讲第一个参数  
+
+```
+r  读
+w  写之前会先清空文件
+a  在文件指定位置追加写，默认文件末尾
+b 以二进制的方式写
+r+, w+, a+ 可以读也可以写
+```
+
+### 文件关闭
+
+文件打开了，肯定需要关闭了。  
+
+```
+f.close()
+```
+
+
+
+###  打开文件失败
+
+有时候会打开文件失败，比如文件不存在，这个时候就需要使用异常捕捉了。  
+
+```
+try:
+    f = open(youkuFilePath, 'r')
+    # do some thing
+    
+    f.close()
+except IOError, e:
+    logging.error("Error %d: %s" % (e.args[0], e.args[1]))
+```
+
+### 读取文件
+
+
+```
+# 读取全部内容
+f.read() 
+
+# 读取一行内容
+f.readline()
+
+
+# 读取所有行内容,返回一个 list
+f.readlines()
+ 
+ 
+# 读取指定大小的内容
+f.read(size)
+```
+
+### 写文件
+
+写文件比较简单，直接写即可。
+
+```
+f.write('Hello, world!')
+```
+
+## 小数转百分比
+
+```
+a = 0.12345
+print "%.2f%%" % (a * 100)
+```
+
+## 编码检测 与转换编码
+
+有时候我们会有多个数据源，然后在一起操作时，发现明明相同的数据却不相等。  
+这个时候就要考虑是不是编码不同的原因了。  
+
+最简单的判断方法可以先用上面的 [判断实例类型][python-problem-check-type] 中的type 判断是 str 类型还是 unicode 类型就行了。  
+如果是 str 类型， 则输出可以看到 "\xXX\xXX" 的编码格式，这个是十六进制的编码格式，储存的是二进制，需要转码为 unicode. 
+如果是 unicode 类型， 则输出可以看到 "\uxxxx\uxxxx" 的编码格式，这个就是 unicode 的编码格式,不需要转码。 
+
+于是我们现在就需要对 str 类型的串进行转码了。  
+其中最简单的是不管什么编码，直接转码为 utf8 即可。  
+
+```
+data = data.decode("utf8")
+# or
+data = unicode(data, "utf8")
+```
+
+又是我们想判断一个串的编码具体是什么，这个时候就需要下面的方法了。  
+
+```
+import chardet 
+chardet.detect(data)
+```
+
+不过，这样的话，原先就是 unicode 的串再次进行 detect 的话，有个 警告。  
+
+```
+chardet/universaldetector.py:90: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+```
+
+于是我们需要加个特殊判断了。  
+
+```
+if not isinstance(data, unicode):
+    print chardet.detect(data)
+``` 
+
+一般执行 decode 或者 unicode 后的串就会变成 python 内部统一的编码格式。  
+我们输出的时候想要变回原先指定的格式，于是就需要下面的 encode 操作了。  
+
+```
+data = data.encode("utf8")
+```
+
+## 执行shell命令
+
+有时候我们需要执行 shell 命令还简化工作，C 语言中由 system 命令，那python 中呢？  
+发现还是 system 命令。  
+
+```
+print os.popen('cat /proc/cpuinfo').read()
+```
+
 
 
 
@@ -678,7 +741,8 @@ time.sleep(t)
 
 
 
-
+[python-101-how-to-download-a-file]: http://www.blog.pythonlibrary.org/2012/06/07/python-101-how-to-download-a-file/
+[docs-python-requests]: http://docs.python-requests.org/en/latest/ 
 [python-problem-check-type]: http://github.tiankonguse.com//blog/2014/10/29/python-problem/#content-h2-判断实例类型
 [converting-integer-to-string-in-python]: http://stackoverflow.com/questions/961632/converting-integer-to-string-in-python
 [how-to-test-nonetype-in-python]: http://stackoverflow.com/questions/23086383/how-to-test-nonetype-in-python
