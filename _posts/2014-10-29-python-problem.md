@@ -224,16 +224,20 @@ urllib.urlretrieve(url, "code.zip")
 import urllib2
 f = urllib2.urlopen(url)
 data = f.read()
-with open("code2.zip", "wb") as code:
-    code.write(data)
+
+file = open("code2.zip", "wb")
+file.write(data)
+file.close()
 ```
 
 #### requests 下载
 
 ```
 r = requests.get(url)
-with open("code3.zip", "wb") as code:
-    code.write(r.content)
+
+file = open("code2.zip", "wb")
+file.write(r.content)
+file.close()
 ```
 
 >  
@@ -241,6 +245,37 @@ with open("code3.zip", "wb") as code:
 > Note that just using "read()" can be dangerous if the file is large.     
 > It would be better to read it in pieces by passing read a size.  
 >  
+
+
+### http 代理下载文件
+
+简单的说就是先设置永久代理，再使用下载函数下载。  
+
+```
+#设置代理  
+proxy_handler = urllib2.ProxyHandler({"http" : 'tiankonguse.com:8080'}) 
+opener = urllib2.build_opener(proxy_handler,urllib2.HTTPHandler)  
+urllib2.install_opener(opener)  
+          
+#下载       
+urllib.urlretrieve(url,local,urlcallback)  
+```
+
+
+那我们想临时下载一个东西，设置成永久代理不太好吧。  
+是的，所以我们也可以使用临时代理下载文件。  
+
+
+```
+proxy_handler = urllib2.ProxyHandler({"http" : 'tiankonguse.com:8080'}) 
+page = urllib2.urlopen(url, proxies=proxy_handler)
+data = page.read()
+
+file = open("code2.zip", "wb")
+file.write(data)
+file.close()
+```
+
 
 
 ### FTP上传
