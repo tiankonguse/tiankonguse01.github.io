@@ -2,7 +2,7 @@
 layout: post  
 title: gdb 学习记录
 category: blog  
-description:  一个下午，突然收到编辑反馈，sphinx搜索不到数据， 我简单看了一下，一台机器上的apache挂了，于是想法解决了问题。  
+description:  写的server遇到一种情况：log输出怎么  也不能定位到问题，只好学了一下 GDB, 发现挺实用的，现在用了两个月GDB了，记录一下。  
 tags:  gdb  
 keywords: gdb  
 updateData:  22:54 2015/3/10
