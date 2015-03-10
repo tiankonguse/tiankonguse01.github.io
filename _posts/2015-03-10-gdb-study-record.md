@@ -490,14 +490,15 @@ show environment [varname]
 
 我们用break命令来设置断点。正面有几点设置断点的方法：  
 
-* break <function>  在进入指定函数时停住。C++中可以使用class::function或function(type,type)格式来指定函数名。
-* break <linenum> 在指定行号停住。
-* break +/-offset   在当前行号的前面或后面的offset行停住。offiset为自然数。
-* break filename:linenum  在源文件filename的linenum行处停住。
-* break filename:function  在源文件filename的function函数的入口处停住。
-* break \*address 在程序运行的内存地址处停住。
-* break  break命令没有参数时，表示在下一条指令处停住。
-* break ... if <condition> ...可以是上述的参数，condition表示条件，在条件成立时停住。比如在循环境体中，可以设置break if i=100，表示当i为100时停住程序。
+* `break <function>`  在进入指定函数时停住。C++中可以使用class::function或function(type,type)格式来指定函数名。
+* `break <linenum>` 在指定行号停住。
+* `break +/-offset`   在当前行号的前面或后面的offset行停住。offiset为自然数。
+* `break filename:linenum`  在源文件filename的linenum行处停住。
+* `break filename:function`  在源文件filename的function函数的入口处停住。
+* `break *address` 在程序运行的内存地址处停住。
+* `break`  break命令没有参数时，表示在下一条指令处停住。
+* `break ... if <condition>` ...可以是上述的参数，condition表示条件，在条件成立时停住。  
+  比如在循环境体中，可以设置break if i=100，表示当i为100时停住程序。
 
 
 #### 设置观察点 WatchPoint
@@ -507,10 +508,10 @@ show environment [varname]
 我们有下面的几种方法来设置观察点：  
 
     
-* watch <expr> 为表达式（变量）expr设置一个观察点。一量表达式值有变化时，马上停住程序。
-* rwatch <expr> 当表达式（变量）expr被读时，停住程序。
-* awatch <expr> 当表达式（变量）的值被读或被写时，停住程序。
-* info watchpoints 列出当前所设置了的所有观察点。
+* `watch <expr>` 为表达式（变量）expr设置一个观察点。一量表达式值有变化时，马上停住程序。
+* `rwatch <expr>` 当表达式（变量）expr被读时，停住程序。
+* `awatch <expr>` 当表达式（变量）的值被读或被写时，停住程序。
+* `info watchpoints` 列出当前所设置了的所有观察点。
 
 
 #### 设置捕捉点CatchPoint
@@ -524,13 +525,13 @@ catch <event>
 
 当event发生时，停住程序。event可以是下面的内容：
 
-1. throw 一个C++抛出的异常。（throw为关键字）
-2. catch 一个C++捕捉到的异常。（catch为关键字）
-3. exec 调用系统调用exec时。（exec为关键字，目前此功能只在HP-UX下有用）
-4. fork 调用系统调用fork时。（fork为关键字，目前此功能只在HP-UX下有用）
-5. vfork 调用系统调用vfork时。（vfork为关键字，目前此功能只在HP-UX下有用）
-6. load 或 load <libname> 载入共享库（动态链接库）时。（load为关键字，目前此功能只在HP-UX下有用）
-7. unload 或 unload <libname> 卸载共享库（动态链接库）时。（unload为关键字，目前此功能只在HP-UX下有用）
+1. `throw` 一个C++抛出的异常。（throw为关键字）
+2. `catch` 一个C++捕捉到的异常。（catch为关键字）
+3. `exec` 调用系统调用exec时。（exec为关键字，目前此功能只在HP-UX下有用）
+4. `fork` 调用系统调用fork时。（fork为关键字，目前此功能只在HP-UX下有用）
+5. `vfork` 调用系统调用vfork时。（vfork为关键字，目前此功能只在HP-UX下有用）
+6. `load` 或 `load <libname>` 载入共享库（动态链接库）时。（load为关键字，目前此功能只在HP-UX下有用）
+7. `unload` 或 `unload <libname>` 卸载共享库（动态链接库）时。（unload为关键字，目前此功能只在HP-UX下有用）
 
 ```
 tcatch <event> 
@@ -551,7 +552,7 @@ print <expr>
 print /<f> <expr>        
 ```     
 
-<expr>是表达式，是你所调试的程序的语言的表达式（GDB可以调试多种编程语言），<f>是输出的格式。  
+`<expr>`是表达式，是你所调试的程序的语言的表达式（GDB可以调试多种编程语言），`<f>`是输出的格式。  
 比如，如果要把表达式按16进制的格式输出，那么就是/x。  
 
 
@@ -564,9 +565,9 @@ print和许多GDB的命令一样，可以接受一个表达式，GDB会根据当
     
 在表达式中，有几种GDB所支持的操作符，它们可以用在任何一种语言中。  
     
-* @ 是一个和数组有关的操作符，在后面会有更详细的说明。
-* :: 指定一个在文件或是一个函数中的变量。
-* \{<type>} <addr>  表示一个指向内存地址<addr>的类型为type的一个对象。
+* `@`是一个和数组有关的操作符，在后面会有更详细的说明。
+* `::` 指定一个在文件或是一个函数中的变量。
+* `{<type>} <addr>`  表示一个指向内存地址<addr>的类型为type的一个对象。
 
 
 #### 程序变量
@@ -734,21 +735,21 @@ GDB会打出一张表格，向你报告当然调试中设置了多少个自动�
 
 上面说了如何设置程序的停止点，GDB中的停止点也就是上述的三类。在GDB中，如果你觉得已定义好的停止点没有用了，你可以使用delete、clear、disable、enable这几个命令来进行维护。
 
-* clear 清除所有的已定义的停止点。
-* clear <function>
-* clear <filename:function> 清除所有设置在函数上的停止点。
-* clear <linenum>
-* clear <filename:linenum> 清除所有设置在指定行上的停止点。
-* delete \[breakpoints] \[range...] 删除指定的断点，breakpoints为断点号。
+* `clear` 清除所有的已定义的停止点。
+* `clear <function>`
+* `clear <filename:function>` 清除所有设置在函数上的停止点。
+* `clear <linenum>`
+* `clear <filename:linenum>` 清除所有设置在指定行上的停止点。
+* `delete [breakpoints] [range...]` 删除指定的断点，breakpoints为断点号。
   如果不指定断点号，则表示删除所有的断点。range 表示断点号的范围（如：3-7）。其简写命令为d。
 
 
 比删除更好的一种方法是disable停止点，disable了的停止点，GDB不会删除，当你还需要时，enable即可，就好像回收站一样。  
 
-* disable \[breakpoints] \[range...] disable所指定的停止点，breakpoints为停止点号。如果什么都不指定，表示disable所有的停止点。简写命令是dis.
-* enable \[breakpoints] \[range...] enable所指定的停止点，breakpoints为停止点号。
-* enable \[breakpoints] once range... enable所指定的停止点一次，当程序停止后，该停止点马上被GDB自动disable。
-* enable \[breakpoints] delete range... enable所指定的停止点一次，当程序停止后，该停止点马上被GDB自动删除。
+* `disable [breakpoints] [range...]` disable所指定的停止点，breakpoints为停止点号。如果什么都不指定，表示disable所有的停止点。简写命令是dis.
+* `enable [breakpoints] [range...]` enable所指定的停止点，breakpoints为停止点号。
+* `enable [breakpoints] once range...` enable所指定的停止点一次，当程序停止后，该停止点马上被GDB自动disable。
+* `enable [breakpoints] delete range...` enable所指定的停止点一次，当程序停止后，该停止点马上被GDB自动删除。
 
  
 
@@ -756,28 +757,28 @@ GDB会打出一张表格，向你报告当然调试中设置了多少个自动�
 
 当程序被停住了，你可以用continue命令恢复程序的运行直到程序结束，或下一个断点到来。也可以使用step或next命令单步跟踪程序。  
 
-* continue [ignore-count]
-  c [ignore-count]
-  fg [ignore-count]
+* `continue [ignore-count]`
+  `c [ignore-count]`
+  `fg [ignore-count]`
   恢复程序运行，直到程序结束，或是下一个断点到来。  
   ignore-count表示忽略其后的断点次数。continue，c，fg三个命令都是一样的意思。
-* step <count>
+* `step <count>`
   单步跟踪，如果有函数调用，他会进入该函数。  
   进入函数的前提是，此函数被编译有debug信息。  
   很像VC等工具中的step in。  
   后面可以加count也可以不加，不加表示一条条地执行，加表示执行后面的count条指令，然后再停住。
-* next <count>
+* `next <count>`
   同样单步跟踪，如果有函数调用，他不会进入该函数。
   很像VC等工具中的step over。  
   后面可以加count也可以不加，不加表示一条条地执行，加表示执行后面的count条指令，然后再停住。
-* set step-mode
-  set step-mode on
+* `set step-mode`
+  `set step-mode on`
   打开step-mode模式，于是，在进行单步跟踪时，程序不会因为没有debug信息而不停住。这个参数有很利于查看机器码。
-* set step-mod off 关闭step-mode模式。
-* finish 运行程序，直到当前函数完成返回。并打印函数返回时的堆栈地址和返回值及参数值等信息。
-* until 或 u 当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环体。
-* stepi 或 si
-  nexti 或 ni
+* `set step-mod off` 关闭step-mode模式。
+* `finish` 运行程序，直到当前函数完成返回。并打印函数返回时的堆栈地址和返回值及参数值等信息。
+* `until` 或 u 当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环体。
+* `stepi` 或 si
+  `nexti` 或 ni
   单步跟踪一条机器指令！
   一条程序代码有可能由数条机器指令完成，stepi和nexti可以单步执行机器指令。
   与之一样有相同功能的命令是“display/i $pc” ，当运行完这个命令后，单步跟踪会在打出程序代码的同时打出机器指令（也就是汇编代码）
@@ -863,13 +864,13 @@ jump <address>
  
 直观地来看，加入你正在使用GDB7.0以上版本的调试器并且运行在支持反向调试的平台，你就可以用以下几条命令来调试程序：  
 
-* reverse-continue 反向运行程序知道遇到一个能使程序中断的事件（比如断点，观察点，异常）。
-* reverse-step 反向运行程序到上一次被执行的源代码行。
-* reverse-stepi 反向运行程序到上一条机器指令
-* reverse-next 反向运行到上一次被执行的源代码行，但是不进入函数。
-* reverse-nexti 反向运行到上一条机器指令，除非这条指令用来返回一个函数调用、整个函数将会被反向执行。
-* reverse-finish 反向运行程序回到调用当前函数的地方。
-* set exec-direction \[forward | reverse] 设置程序运行方向，可以用平常的命令step和continue等来执行反向的调试命令。
+* `reverse-continue` 反向运行程序知道遇到一个能使程序中断的事件（比如断点，观察点，异常）。
+* `reverse-step` 反向运行程序到上一次被执行的源代码行。
+* `reverse-stepi` 反向运行程序到上一条机器指令
+* `reverse-next` 反向运行到上一次被执行的源代码行，但是不进入函数。
+* `reverse-nexti` 反向运行到上一条机器指令，除非这条指令用来返回一个函数调用、整个函数将会被反向执行。
+* `reverse-finish` 反向运行程序回到调用当前函数的地方。
+* `set exec-direction [forward | reverse]` 设置程序运行方向，可以用平常的命令step和continue等来执行反向的调试命令。
  
 上面的反向运行也可以理解为撤销后面运行的语句所产生的效果，回到以前的状态。  
 
