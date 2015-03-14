@@ -672,7 +672,26 @@ $26 = 1100101
 x命令的语法如下所示：  
 
 ```
-#n、f、u是可选的参数
+(gdb) help x
+Examine memory: x/FMT ADDRESS.
+
+ADDRESS is an expression for the memory address to examine.
+
+FMT is a repeat count followed by a format letter and a size letter.
+
+Format letters are o(octal), x(hex), d(decimal), u(unsigned decimal),t(binary), f(float), a(address), i(instruction), c(char), s(string) and z(hex, zero padded on the left).
+    
+Size letters are b(byte), h(halfword), w(word), g(giant, 8 bytes).
+    
+The specified number of objects of the specified size are printed according to the format.
+
+Defaults for format and size letters are those previously used.
+
+Default count is 1.  
+
+Default address is following last thing printed with this command or "print".
+
+#简写如下
 x/<n/f/u> <addr> 
 ```
 
