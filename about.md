@@ -9,7 +9,15 @@ isContact: true
 ## 关于 tiankonguse
 
 我是 tiankonguse, 一个安静的程序员。  
-一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
+
+关于我的介绍，可以看看[这里][lab-kirichik]  
+
+大学四年 acmer,期间用php写过一些小系统。  
+
+现在专注于c++方向的东西。  
+
+
+简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
 
 
 ## 关于看书
@@ -133,3 +141,4 @@ isContact: true
 [cnblogs]: http://www.cnblogs.com/tiankonguse/
 [qzone]: http://user.qzone.qq.com/804345178/
 [On-Top-of-Tides]: http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/
+[lab-kirichik]: http://tiankonguse.com/lab/kirichik/
