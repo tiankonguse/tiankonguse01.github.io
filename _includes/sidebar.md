@@ -14,7 +14,7 @@
                         <span class="screen-reader-text">搜索：</span>
                         <input type="search" class="search-field" placeholder="搜索…" value="" name="s" title="搜索：">
                     </label>
-                    <a href="" class="search-submit" value="搜索"> search </a>
+                    <a href="" target="_blank" class="search-submit" value="搜索"> search </a>
                 </form>
             </aside>
         </div>
