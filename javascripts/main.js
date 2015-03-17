@@ -682,7 +682,7 @@ jQuery(document).ready(function(){
 });
 
 function loadSidebar(){
-    $(".home-menu-ex, sidebar-close").click(function(){
+    $(".home-menu-ex, sidebar-close,close-icon").click(function(){
         $("body").toggleClass("sidebar-visible");
     });
 }

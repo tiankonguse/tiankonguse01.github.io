@@ -354,12 +354,14 @@ hr {
 
 
 .sidebar-visible .sidebar.left{
-    z-index: 5;
-}
-.sidebar.left{
     transform: translateX(0%);
     -webkit-transform: translateX(0%);    
-    -ms-transform: translateX(0%);
+    -ms-transurm: translateX(0%);
+}
+.sidebar.left{
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
     left: 0;
     box-shadow: 1px 0 15px rgba(0,0,0,.5);
     background-color: #ECF0F1;
@@ -368,7 +370,7 @@ hr {
     transition: transform .35s ease;
     overflow-y: auto;
     position: fixed;
-    z-index: -1;
+    z-index: 5;
     top: 0;
     font-size: .95em;
     height: 100%;
