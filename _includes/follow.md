@@ -1,7 +1,8 @@
 <div class="home-menu">
     <div class="home-icon-con">
-        <a class="home-menu-icon" href="{{ site.url }}">tiankonguse</a>
-        <a class="home-follow" href="{{ site.url }}#" title="Contact Me">+</a>
+        <a class="home-menu-icon home-link" href="{{ site.url }}">tiankonguse</a>
+        <a class="home-follow home-link" href="{{ site.url }}#" title="Contact Me">+</a>
+        <a class="home-menu-ex home-link" href="#" title="Extend Menu">≡</a>
     </div>
     <div class="home-contact">
         {% for follow in site.data.follow %}

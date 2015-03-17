@@ -28,7 +28,7 @@ body .hide{display:none;}
 /***********default settings**********/
 body {font-family: "微软雅黑","Arial","Helvetica","sans-serif";font-size:16px;}
 a {color:#4A75B5;text-decoration:none;outline:none;}
-a:hover {text-decoration:underline}
+a:hover {text-decoration:none;}
 a.external {padding-right:13px;}
 a.external:hover {background-position:right -15px;}
 .entry-title,.entry-title a {font-size:30px;font-weight:bold;margin-bottom:6px;color:#000;text-align:center;word-wrap: break-word;}
@@ -135,13 +135,44 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 #menuIndex li.h3{padding-left:25px;}
 
 .home-menu { position:fixed; top:15px; left:15px; z-index:5; font-size:0; }
-.home-menu-icon { line-height:38px; padding:0 8px; display:inline-block; color:#fff; font-size:18px;  background:#000; }
-.home-follow { margin-left:2px; line-height:38px; padding:0 8px; display:inline-block; color:#fff; font-size:18px; background:#000;  }
-.home-menu-icon:hover,
-.home-follow:hover { color:#fff; text-decoration:none; }
-.home-contact { color:#fff; margin-top:2px; background:#DBC3FF; padding:8px 0 7px; text-align:center; display:none;}
-.home-contact a { width:30px; display:inline-block; }
-.home-contact img { width:18px; }
+
+.home-link {
+    margin-left: 2px;
+    line-height: 48px;
+    padding: 0 8px;
+    display: inline-block;
+    color: #fff;
+    font-size: 28px;
+    background: #000;
+}
+.home-menu-icon { 
+
+}
+.home-follow {
+
+}
+.home-link-ex{
+
+}
+.home-menu-icon:hover,.home-follow:hover { 
+    color:#fff;
+    text-decoration:none;
+}
+.home-contact { 
+    color:#fff;
+    margin-top:2px;
+    background:#DBC3FF;
+    padding:8px 0 7px;
+    text-align:center;
+    display:none;
+}
+.home-contact a { 
+    width:30px;
+    display:inline-block;
+}
+.home-contact img { 
+    width:18px;
+}
 
 .weixin img{
     width: 300px;
