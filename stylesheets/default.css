@@ -352,7 +352,11 @@ hr {
     z-index: 1;
 }
 
+
 .sidebar-visible .sidebar.left{
+    z-index: 5;
+}
+.sidebar.left{
     transform: translateX(0%);
     -webkit-transform: translateX(0%);    
     -ms-transform: translateX(0%);
@@ -364,7 +368,7 @@ hr {
     transition: transform .35s ease;
     overflow-y: auto;
     position: fixed;
-    z-index: 5;
+    z-index: -1;
     top: 0;
     font-size: .95em;
     height: 100%;
