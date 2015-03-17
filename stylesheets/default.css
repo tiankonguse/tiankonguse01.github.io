@@ -369,7 +369,7 @@ hr {
     transform: translateX(-110%);
     left: 0;
     box-shadow: 1px 0 15px rgba(0,0,0,.5);
-    background-color: #ECF0F1;
+    background-color: #000000;
     width: 25%;
     max-width: 30em;
     transition: transform .35s ease;
@@ -411,7 +411,9 @@ hr {
 .menu-icon, .close-icon, .social-icon-fill{
     fill: #4C4C4C;
 }
-
+.close-icon:hover, .social-icon-fill:hover{
+    fill: #77FF61;
+}
 .sidebar-content{
     margin: 0 5%;
 }
@@ -496,7 +498,7 @@ hr {
     padding: 0 .7em;
     border: 1px solid silver;
     border-radius: 3px;
-    background: 0 0;
+    background-color: rgb(219, 219, 219);
     cursor: pointer;
     -webkit-appearance: button;
     font-weight: 300;
@@ -504,7 +506,11 @@ hr {
     vertical-align: middle;
     margin: 0;
     margin-left: .25em;
+    padding-top: 4px;
 }
 
+.search-field:hover,.search-submit:hover{
+    background-color: rgb(255, 255, 255);
+}
 
 
