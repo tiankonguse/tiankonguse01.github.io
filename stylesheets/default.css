@@ -358,6 +358,11 @@ hr {
     -webkit-transform: translateX(0%);    
     -ms-transurm: translateX(0%);
 }
+@media screen and (max-width: 550px){
+    .sidebar.left{
+        width: 55%;
+    }
+}
 .sidebar.left{
     -webkit-transform: translateX(-110%);
     -ms-transform: translateX(-110%);
