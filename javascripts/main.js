@@ -677,8 +677,14 @@ jQuery(document).ready(function(){
         $(".home-follow").click();
     }, 3000);
     
+    loadSidebar();
+
 });
 
-
+function loadSidebar(){
+    $(".home-menu-ex, sidebar-close").click(function(){
+        $("body").toggleClass("sidebar-visible");
+    });
+}
 
 

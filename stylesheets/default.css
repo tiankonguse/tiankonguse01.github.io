@@ -351,3 +351,108 @@ hr {
 #menuIndex{
     z-index: 1;
 }
+
+.sidebar-visible .sidebar.left{
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);    
+    -ms-transform: translateX(0%);
+    left: 0;
+    box-shadow: 1px 0 15px rgba(0,0,0,.5);
+    background-color: #ECF0F1;
+    width: 25%;
+    max-width: 30em;
+    transition: transform .35s ease;
+    overflow-y: auto;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    font-size: .95em;
+    height: 100%;
+}
+
+.sidebar-top{
+    top: 0;
+    border-color: #00B0CC;
+    background-color: #ECF0F1;
+    z-index: 1;
+    width: 100%;
+    border-bottom: 1px solid #00B0CC;
+    margin-bottom: 7.5%;
+    cursor: pointer;
+}
+
+
+.sidebar-close{
+    padding: 2.5%;
+    transition: opacity .25s ease-out;
+    display: block;
+    box-sizing: content-box;
+    height: 1.4em;
+    border: none;
+    opacity: 1;
+}
+
+.sidebar-close img, .sidebar-close svg{
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.menu-icon, .close-icon, .social-icon-fill{
+    fill: #4C4C4C;
+}
+
+.sidebar-content{
+    margin: 0 5%;
+}
+
+.widget{
+    margin: 0 0 1.5em;
+}
+
+.search-form{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    max-width: 27.5em;
+    margin: 0 auto 2.5%;
+}
+
+
+.search-form label{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+
+.screen-reader-text{
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+}
+
+input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url]{
+    -webkit-transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
+    transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
+    color: silver;
+    width: 100%;
+    height: 2.15em;
+    padding: .3em;
+    border: 1px solid silver;
+    border-radius: 3px;
+    background: 0 0;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+}
