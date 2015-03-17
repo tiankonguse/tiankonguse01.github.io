@@ -467,3 +467,26 @@ input[type=email], input[type=password], input[type=search], input[type=tel], in
 input[type=search] {
     -webkit-appearance: textfield;
 }
+
+input[type=submit]{
+    color: #00B0CC;
+    -webkit-transition: border .25s ease-out,color .25s ease-out;
+  transition: border .25s ease-out,color .25s ease-out;
+  height: 2.15em;
+  padding: 0 .7em;
+  border: 1px solid silver;
+  border-radius: 3px;
+  background: 0 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  font-weight: 300;
+  line-height: 1.5;
+    vertical-align: middle;
+  margin: 0;
+}
+
+.search-submit {
+  margin-left: .25em;
+}
+
+
