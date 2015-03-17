@@ -452,7 +452,7 @@ hr {
     margin: -1px;
 }
 
-input[type=email], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url]{
+.search-submit {
     -webkit-transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
     transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
     color: silver;
@@ -464,11 +464,8 @@ input[type=email], input[type=password], input[type=search], input[type=tel], in
     background: 0 0;
 }
 
-input[type=search] {
-    -webkit-appearance: textfield;
-}
 
-input[type=submit]{
+.search-submit {
     color: #00B0CC;
     -webkit-transition: border .25s ease-out,color .25s ease-out;
   transition: border .25s ease-out,color .25s ease-out;
@@ -483,10 +480,8 @@ input[type=submit]{
   line-height: 1.5;
     vertical-align: middle;
   margin: 0;
-}
-
-.search-submit {
   margin-left: .25em;
 }
+
 
 

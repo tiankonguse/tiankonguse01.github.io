@@ -685,6 +685,15 @@ function loadSidebar(){
     $(".home-menu-ex, .sidebar-close,.close-icon").click(function(){
         $("body").toggleClass("sidebar-visible");
     });
+    var googleUrl = "https://www.google.com/search?q=site%3Atiankonguse.com+";
+    $(".search-submit").click(function(){
+        var that = $(this);
+        var val = $(".search-field").val();
+        that.attr("href", googleUrl + val);
+        return true;
+    });
+
+
 }
 
 
