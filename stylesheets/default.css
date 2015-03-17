@@ -147,7 +147,12 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     font-size: 28px;
     background: #000;
 }
-a.home-link:hover,a.home-link:focus{
+
+a.home-link:focus{
+    color: #fff;
+}
+
+a.home-link:hover{
     color: #22FA14;
 }
 .home-menu-icon { 
