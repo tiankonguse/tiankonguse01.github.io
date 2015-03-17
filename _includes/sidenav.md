@@ -28,17 +28,17 @@
 </div>
 
 <div class="sidenav">
-	<h2>最近记录</h2>
-	<ul class="artical-list">
-	{% for post in site.related_posts %}
-		<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
-	</ul>
 	<h2><a href="{{ site.url }}/resources"><span>Resources</span></a></h2>
 	<ul class="artical-list">
 		{% for post in site.data.resources %}
 			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 		{% endfor %}
+	</ul>
+	<h2>最近记录</h2>
+	<ul class="artical-list">
+	{% for post in site.related_posts %}
+		<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+	{% endfor %}
 	</ul>
 </div> 
 
