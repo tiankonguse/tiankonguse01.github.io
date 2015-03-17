@@ -452,7 +452,7 @@ hr {
     margin: -1px;
 }
 
-.search-submit {
+.search-field,.search-submit {
     -webkit-transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
     transition: border .25s ease-out,color .25s ease-out,background .25s ease-out;
     color: silver;
@@ -488,7 +488,7 @@ hr {
 }
 
 
-.search-submit {
+.search-field,.search-submit {
     color: #00B0CC;
     -webkit-transition: border .25s ease-out,color .25s ease-out;
     transition: border .25s ease-out,color .25s ease-out;
