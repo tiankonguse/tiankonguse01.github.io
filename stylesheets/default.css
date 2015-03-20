@@ -513,4 +513,9 @@ hr {
     background-color: rgb(255, 255, 255);
 }
 
-
+.entry h2, .entry h3 {
+  background-color: rgba(246, 229, 229, 0.49);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
