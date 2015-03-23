@@ -92,6 +92,31 @@ isContact: true
 
 * 《艋舺》
 
+## 关于我听的音乐
+
+### 最常听的音乐
+
+* 《明天你好》 牛奶@咖啡
+* 《习惯了寂寞》 牛奶@咖啡
+* 《老男孩》
+* 《我的好兄弟》
+* 《拯救》
+* 《知足》
+* 《最初的梦想》
+
+### 偶尔听的音乐
+
+* 《Yesterday Once More》
+* 《同桌的你》
+* 《Say You Say Me》
+* 《如果没有你》
+* 《Right Here Waiting》
+* 《海阔天空》
+
+### 尝试听的音乐
+
+* 《make love out of nothing at all》
+
 
 ## 关于动漫和漫画 
 
