@@ -687,6 +687,107 @@ char = chr(48) # '1'
 其中读可能一次性读完，也可能按某个规则一个一个的读。  
 而写则有覆盖写和文件末尾追加两种方式。  
 
+### 只运行一个实例
+
+有时候我们想让程序在同一个时间只运行一个，简称为程序只运行一个实例。  
+现在是2015年3月23日，我在网上搜了很多很多教程，都是千篇一律的一个方法。  
+
+我使用万能的粘贴复制代码，然后运行，同一个程序还是可以再同一时间运行多个。  
+
+最后，我终于在一个[老外的博客][how-can-i-avoid-running-a-python-script-multiple-times-implement-file-locking]的评论中找到了方法。  
+
+无效的方法是这个 lockFile 代码。  
+
+```
+import fcntl
+def lockFile(lockfile):
+    fp = open(lockfile, 'w')
+    try:
+        fcntl.lockf(fp, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except IOError:
+        return False
+
+    return True
+
+if not lockFile(".lock.pod"):
+        sys.exit(0)
+```
+
+
+对我有效的代码
+
+```
+import fcntl
+def lockFile(lockfile):
+    #fd = open(lockfile, 'w')
+    fd = os.open(lockfile, os.O_CREAT | os.O_TRUNC | os.O_WRONLY)
+    try:
+        # Request exclusive (EX) non-blocking (NB) advisory lock.
+        fcntl.lockf(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except IOError:
+        return False
+
+    return True
+
+if not lockFile(".lock.pod"):
+        sys.exit(0)
+```
+
+评论的原话：  
+
+
+>  
+> The problem is that the nuilt-in open() function was used which return a file object.   
+> You need to use os.open instead which return an integer file descriptor.  
+>  
+
+
+
+
+什么意思呢？  
+lockf 函数需要第一个参数是文件描述符，也就是所谓的fd.  
+
+而open的官网文档是这样说的  
+
+
+>  
+> Open a file, returning an object of the file type described in section .  
+>  
+
+
+所以我们需要得到fd,查看一下 bltin-file-objects 的文档，发现 fileno 函数可以返回fd.  
+
+
+>  
+> Return the integer “file descriptor” that is used by the underlying implementation to request I/O operations from the operating system.   
+> This can be useful for other, lower level interfaces that use file descriptors, such as the fcntl module or os.read() and friends.  
+>  
+>  Note File-like objects which do not have a real file descriptor should not provide this method!  
+>  
+
+什么意思呢？ 这个函数返回的‘文件描述符’只能用来io操作，他并不是真实的文件描述符。  
+于是我尝试了下面的代码，果然还是不能实现只运行一个实例的目的。  
+
+```
+import fcntl
+def lockFile(lockfile):
+    fp = open(lockfile, 'w')
+    try:
+        fcntl.lockf(fp.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except IOError:
+        return False
+
+    return True
+
+if not lockFile(".lock.pod"):
+        sys.exit(0)
+```
+
+好了， 不管怎样，我们以 os.open 的方式成功的实现了只运行一个实例的目的。  
+很多东西还是自己跑一下才知道。  
+
+
+
 ### 判断文件是否存在
 
 操作文件首先需要判断文件是否存在了。  
@@ -852,3 +953,4 @@ print os.popen('cat /proc/cpuinfo').read()
 [first-learn-python-hight-lev]: http://github.tiankonguse.com/blog/2014/09/25/first-learn-python-hight-lev/
 [python-style]: http://github.tiankonguse.com/blog/2014/10/08/python-style/
 [python-update-invalid]: http://github.tiankonguse.com/blog/2014/10/20/python-update-invalid/
+[how-can-i-avoid-running-a-python-script-multiple-times-implement-file-locking]: http://linux.byexamples.com/archives/494/how-can-i-avoid-running-a-python-script-multiple-times-implement-file-locking/#comment-100304
