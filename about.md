@@ -43,10 +43,13 @@ isContact: true
 
 * 《UNIX环境高级编程》2015-02-19 ~ 今
 * 《黑客与画家-en》2015-03-25 ~ 今
-* 《高性能mysql》2015-03-25 ~ 今
+* 《[高性能mysql 3rd][douban-High-Performance-MySQL-3rd]》2015-03-25 ~ 今
 
 ### 想看
 
+
+* 《[高可用MySQL][douban-MySQL-High-Availability]》
+* 《[SQL学习指南][douban-Learning-SQL]》
 * 《六顶思考帽》
 * 《软件设计架构模式》
 * 《程序员修炼之道》
@@ -59,7 +62,8 @@ isContact: true
 * 《UNIX系统V网络编程》
 * 《TCP/IP详解》
 * 《从0到1》
-
+* 《[SQL反模式][douban-SQL-Antipatterns]》
+* 《[MySQL性能调优与架构设计][douban-mysql-3729677]》
 
 ## 关于电影和电视剧
 
@@ -173,3 +177,8 @@ isContact: true
 [qzone]: http://user.qzone.qq.com/804345178/
 [On-Top-of-Tides]: http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/
 [lab-kirichik]: http://tiankonguse.com/lab/kirichik/
+[douban-Learning-SQL]: http://book.douban.com/subject/4872454/
+[douban-High-Performance-MySQL-3rd]: http://book.douban.com/subject/23008813/
+[douban-MySQL-High-Availability]: http://book.douban.com/subject/6847455/
+[douban-SQL-Antipatterns]: http://book.douban.com/subject/6800774/
+[douban-mysql-3729677]: http://book.douban.com/subject/3729677/
