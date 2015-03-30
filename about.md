@@ -65,6 +65,14 @@ isContact: true
 * 《从0到1》
 * 《[SQL反模式][douban-SQL-Antipatterns]》
 * 《[MySQL性能调优与架构设计][douban-mysql-3729677]》
+* 《松本行弘的程序世界》
+* 《科技想要什么》
+* 《失控》
+* 《在难搞的人资笑出声来》
+
+
+
+
 
 ## 关于电影和电视剧
 
