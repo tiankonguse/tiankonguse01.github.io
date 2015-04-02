@@ -562,6 +562,10 @@ ul.list-articles-category li {
     height: 30px;
 }
 
+.entry-tag a{
+    color: #000000;
+}
+
 ul.list-of-tags li {
   list-style: none;
 }
