@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      浪潮之巅 阅读笔记
-category: blog
 description: 很早就听说《浪潮之巅》这本书了，工作后静下心来，每天在闲暇时间看几页书也算是一种享受吧。
 keywords: 读书笔记, 浪潮之巅, 互联网
 tags: 读书笔记 浪潮之巅 互联网
+categories: [书籍阅读]
 ---
 
 ## 关于作者

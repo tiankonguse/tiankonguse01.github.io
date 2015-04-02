@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      编程之禅阅读笔记(持续更新中)
-category: blog
 description: 很可惜，这本书没有找到英文版的电子书，只好看中文了。
 keywords: 编程之禅, 读书笔记
 tags: 编程之禅 读书笔记
+categories: [书籍阅读]
 ---
 
 ![编程之禅][cover]

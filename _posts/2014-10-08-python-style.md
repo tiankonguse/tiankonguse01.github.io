@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      Python 风格规范
-category: blog
 description: 今天 hades 给我建议 python 的语句不要加分号，于是整理一下 python 的风格规范。
 keywords: Python, 代码风格, 代码规范, 分号, 缩进风格
 tags: Python 代码风格 代码规范 分号 缩进风格
+categories: [python]
 ---
 
 

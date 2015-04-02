@@ -1,10 +1,10 @@
 ---
 layout:     page
 title:      The 39th ACM-ICPC Asia Anshan Regional Onsite Contest
-category: blog
 description: 2014 鞍山现场赛排名
 keywords: 鞍山, 现场赛, rank, acm, icpc
 tags: 鞍山 现场赛 rank acm icpc
+categories: [算法的世界]
 ---
 
 <link href="/stylesheets/ranking.css" type="text/css" rel="stylesheet">

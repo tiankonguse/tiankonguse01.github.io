@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      VB 实现二分查找
-category: blog
 description: 女朋友突然有一天给我说她编了一个二分查找，但是不对，问我怎么了，于是我看了一看。
 keywords: VB, 二分查找
 tags: VB 二分查找
+categories: [VB语言]
 ---
 
 ![二分查找][cover]

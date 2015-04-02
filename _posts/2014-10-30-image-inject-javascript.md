@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      图片注入 javascript 测试
-category: blog
 description: 想在自己的QQ空间加上自己的 google 广告，于是想到图片注入 javascript 的方法。
 keywords: javascript, 图片, 嵌入代码
 tags: javascript 图片 嵌入代码
+categories: [前端技术]
 ---
 
 ![javascript 注入图片][cover-image]

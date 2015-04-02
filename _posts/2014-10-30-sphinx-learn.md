@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      Sphinx 安装记录
-category: blog
 description: 工作中需要使用 sphinx 来实现中文全文搜索，最后选择了 sphinx 这个工具，于是记录一下操作步骤。
 keywords: sphinx, 全文索引, 搜索, coreseek, 源码安装
 tags: sphinx 全文索引 搜索 coreseek 源码安装
+categories: [全文检索]
 ---
 
 ![Sphinx logo][cover]

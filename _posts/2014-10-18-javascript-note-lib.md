@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      自己对 javascript 的一些封装(持续更新中)
-category: blog
 description: 在使用 javascript 时，很多需要的功能都没有，或者实现复杂，所以自己封装了一下自己的 javascript 代码。
 keywords: javascript, 函数封装, json, xml, 时间格式化
 tags: javascript 函数封装 json xml 时间格式化
+categories: [前端技术]
 ---
 
 

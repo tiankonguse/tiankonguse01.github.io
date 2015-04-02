@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      python mysql 更新和插入数据无效
-category: blog
 description: 之前使用 python 一直是查询mysql语句，今天进行插入数据发现没有生效，于是查找了一下资料，发现需要 commit 事务。 
 keywords: python, mysql, insert, update, 无效, 事务, commit
 tags: python mysql insert update 无效 事务 commit
+categories: [python]
 ---
 
 

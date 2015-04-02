@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      网站中使用的 robots.txt 
-category: blog
 description: 之前看到 robots.txt 的规则，但是为了简单，就直接只放禁止访问的网站列表，就然也生效了，现在需要使用正确的语法来禁止抓取某些内容了。
 keywords: 网站, robots, 搜索引擎
 tags: 网站 robots 搜索引擎
+categories: [前端技术]
 ---
 
 ## robots.txt 认识

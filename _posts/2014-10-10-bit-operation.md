@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      位运算 的探究
-category: blog
 description: 给学弟出了一道题, 告诉你n个数, 其中只有一个数出现一次, 其他的数都出现三次.求出现一次的那个数.
 keywords: 位运算, 暴力, 排序, 异或
 tags: 位运算 暴力 排序 异或
+categories: [算法的世界]
 ---
 
 ## 前言
