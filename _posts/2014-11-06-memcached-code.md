@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      memcached 源码阅读之原理篇
-category: blog
 description: 阅读了半天 memcached ，发现那些代码都是没用的代码，所以直接搜索找到 memcached 的核心代码，然后终于看懂了。
 keywords: memcached, 源码阅读, hash table
 tags: memcached 源码阅读 hash_table
+categories: [软件研究]
 ---
 
 ## 初期阅读

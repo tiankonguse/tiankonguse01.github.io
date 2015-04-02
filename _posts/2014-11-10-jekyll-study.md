@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Jekyll 语法简单笔记
-category: blog
 description: 之前写过 github 搭建静态网站,但是功能特别少,现在看看 Jekyll 的官方文档,记录下一个博客需要的基础知识
 keywords: Jekyll, github, 语法, 静态网站, 免费网站, 快速
 tags: jekyll  github 语法
+categories: [网站]
 ---
 
 ## 前言

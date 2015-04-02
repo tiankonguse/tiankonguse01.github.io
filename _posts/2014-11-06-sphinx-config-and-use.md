@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      coreeek 和 sphinx 的配置与使用
-category: blog
 description: sphinx 是搭建好了，但是还需要支持增量索引和闲时索引合并，于是又研究了一番。
 keywords: coreeek, sphinx, 安装, 配置, 教程, 全文索引, 搜索
 tags: coreeek sphinx 安装 配置 教程 全文索引 搜索
+categories: [软件研究]
 ---
 
 ![cover][]

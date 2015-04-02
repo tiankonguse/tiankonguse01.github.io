@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      tiankonguse 致读者的一封道歉信
-category: blog
 description: 可能是周末睡眠时间太长，或者是晚上老鼠动静太大，睡不着了，于是思考了一下自己最近的生活。
 keywords: 道歉, 广告
 tags: 道歉 广告
+categories: [天空的生活]
 ---
 
 ![道歉信][cover-sorry]

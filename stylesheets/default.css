@@ -519,3 +519,26 @@ hr {
   padding-bottom: 10px;
   padding-left: 10px;
 }
+
+.list-of-categories span {
+  font-size: .7em;
+  vertical-align: super;
+}
+
+a.list-of-categories:hover {
+  background-color: #08c;
+  border-radius: 4px;
+  color: #FFF;
+}
+
+ul.list-articles-category li time {
+  color: #8F8F8F;
+  display: inline-block;
+  font: .9em 'PT Sans','Helvetica Neue',Arial,Sans-Serif;
+  width: 7em;
+}
+
+ul.list-articles-category {
+  list-style: none outside none;
+  margin: 0 0 0 5px;
+}

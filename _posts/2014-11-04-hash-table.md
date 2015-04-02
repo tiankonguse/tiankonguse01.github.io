@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      hash table 研究与实现
-category: blog
 description: 我是敲c++的，经常听起面试喜欢问hash table与hash map的区别，我只能说对不起，我没听过这两个名词。
 keywords: hash, hash table, hash map, wiki
 tags: hash hash_table hash_map wiki
+categories: [软件研究]
 ---
 
 ![hash table 研究与实现][cover-img]
