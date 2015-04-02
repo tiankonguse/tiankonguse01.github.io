@@ -552,6 +552,16 @@ ul.list-articles-category li {
   list-style: none;
 }
 
+
+.entry-tag .form-search{
+    padding: 20px;
+    text-align: center;
+}
+
+.entry-tag .filterinput{
+    height: 30px;
+}
+
 ul.list-of-tags li {
   list-style: none;
 }
@@ -565,6 +575,11 @@ ul.list-of-tags li {
 
 .list-of-tags a{
     color: #000000;
+}
+
+.list-of-tags a:hover{
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .list-of-tags li {

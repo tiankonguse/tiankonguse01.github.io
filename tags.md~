@@ -6,7 +6,7 @@ description: Jekyll 中使用标签得到文章。
 ---
 
 
-<div class="row-fluid">
+<div class="row-fluid entry-tag">
     <div class="offset1">
         <form class="form-search">
             <input type="text" class="input-medium search-query filterinput" placeholder="Find a tag">
@@ -21,7 +21,7 @@ description: Jekyll 中使用标签得到文章。
     </div>
 </div>
 
-<div class="row-fluid">
+<div class="row-fluid entry-tag">
     <div class="offset">
         {% for tag in site.tags %}
         <h2 class="tag-title">{{ tag.first }}</h2><span id="{{ tag.first }}-ref"></span>
