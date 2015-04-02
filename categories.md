@@ -22,10 +22,24 @@ updateData:  21:25 2015/4/2
                         {{ categoryName }}<span>{{  articlesList | size }}</span>
                     </a>
                 </div>
+                
+                <div id="{{ categoryName.slug }}-ref" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul class="list-articles-category">
+                            {% for article in articlesList %} 
+                            <li>
+                                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date }}</time>
+                                <a href="{{ article.url }}">{{ article.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
             
             {% endfor %}
         </div>
     </div>
 </div>
+
 
