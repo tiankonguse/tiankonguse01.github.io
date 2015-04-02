@@ -5,7 +5,7 @@ description: 最近半年一直使用 github 当做自己的网站，但是时�
 tags: ruby  教程 学习笔记 ruby Jekyll
 keywords: ruby, 教程, 学习笔记, ruby, Jekyll
 updateData: 23:07 2014/12/1
-categories: [ruby]
+categories: [程序人生]
 ---
 
 ![ruby1][]

@@ -523,6 +523,7 @@ hr {
 .list-of-categories span {
   font-size: .7em;
   vertical-align: super;
+    padding-left: 3px;
 }
 
 a.list-of-categories:hover {
