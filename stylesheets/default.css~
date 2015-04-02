@@ -552,6 +552,10 @@ ul.list-articles-category li {
   list-style: none;
 }
 
+ul.list-of-tags li {
+  list-style: none;
+}
+
 .list-of-tags {
   font-family: 'Helvetica Neue',Helvetica,Arial,Sans-Serif;
   list-style: none;
