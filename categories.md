@@ -15,24 +15,11 @@ updateData:  21:25 2015/4/2
             {% capture categoryName %}{{ category | first }}{% endcapture %}
             {% capture articlesList %}{{ category | last }}{% endcapture %}
             
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryName.slug }}-ref">
-                        {{ categoryName }}<span>{{  articlesList | count }}</span>
-                    </a>
-                </div>
-                <div id="{{ categoryName.slug }}-ref" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <ul class="list-articles-category">
-                            {% for article in articlesList %} 
-                            <li><time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }} {%if article.subtitle %} <small> {{ article.subtitle }} </small> {% endif %} </a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {{ categoryName }} {{  articlesList | count }}
+            
             {% endfor %}
         </div>
     </div>
 </div>
+
 
