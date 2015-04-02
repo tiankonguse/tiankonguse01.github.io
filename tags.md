@@ -14,7 +14,7 @@ description: Jekyll 中使用标签得到文章。
         <ul class="list-of-tags">
             {% for tag in site.tags %}
             <li>
-            <a href="{{ site.url }}{{ page.url }}#{{ tag.first }}-ref">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
+            <a href="#{{ tag.first }}-ref">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
             </li>
             {% endfor %}
         </ul>
