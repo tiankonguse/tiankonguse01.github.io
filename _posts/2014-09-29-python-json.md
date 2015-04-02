@@ -1,6 +1,5 @@
 ---
 layout : post 
-category : blog
 title : Python 下 json 的基本操作与转换
 description : 我现在编程，有两个库不能缺少：1.json库, 2.正则表达式库。现在需要使用 json 了。查了一下资料，记录下来。
 keywords: json, 正则表达式, http 请求, python, 字符串, 转换

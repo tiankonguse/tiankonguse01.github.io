@@ -1,11 +1,11 @@
 ---
 layout : post 
-category : blog
 description : 最近wordpress站点打开缓慢，抓包后发现是google fonts的缘故，因此需要删掉那个东西。 
 date : 2014-07-13
 title : 删除 wordpress 中的 googleapis 字体 
 keywords: googleapis, 字体, wordpress, 缓慢
 tags: googleapis 字体 wordpress 缓慢
+categories: [网站]
 ---
 
 

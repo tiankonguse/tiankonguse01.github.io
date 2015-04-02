@@ -1,10 +1,10 @@
 ---
 layout : post 
-category : blog
 description : 记录下自己制作github的过程 
 title : 在github上制作一个静态网站 
 keywords: github, 静态网站, Jekyll, 域名
 tags: github 静态网站 Jekyll 域名
+categories: [网站]
 ---
 
 
