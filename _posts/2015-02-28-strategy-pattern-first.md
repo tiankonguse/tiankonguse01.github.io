@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: Strategy Pattern 学习
-category: blog  
 description: 之前只接触过简单的设计模式。现在了解 Loki库的时候，了解到Policy-based Design，发现类似的设计模式可以应用到我最近的一个项目中，于是学习一下。
 tag: c++ Loki 设计模式 策略模式 设计模式
 keywords: c++, Loki, 设计模式, 策略模式, 设计模式
 updateData:  17:07 2015/2/28
+categories: [设计模式]
 ---  
 
 ##  背景  

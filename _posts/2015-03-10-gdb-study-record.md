@@ -1,11 +1,11 @@
 ---
 layout: post  
 title: gdb 学习记录
-category: blog  
 description:  写的server遇到一种情况：log输出怎么  也不能定位到问题，只好学了一下 GDB, 发现挺实用的，现在用了两个月GDB了，记录一下。  
 tags:  gdb  
 keywords: gdb  
 updateData:  22:54 2015/3/10
+categories: [程序人生]
 ---
 
 

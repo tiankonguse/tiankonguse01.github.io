@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: 通用型函数指针
-category: blog  
 description: 看了 kevinlynx 的一篇文章，然后按自己的理解重新实现一个通用型函数指针。
 tag: 函数 指针
 keywords: 函数,指针
 updateData:  18:50 2015/3/1
+categories: [程序人生]
 ---  
 
 ## 前言

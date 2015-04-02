@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: rsync 原生的无密码同步方法记录
-category: blog  
 description:  前几天记录了使用rsync的基本语法， 但是那个运行时需要手动输入密码， 很不方便，现在记录一下无密码同步。 
 tags:  rsync
 keywords: rsync
 updateData:  23:06 2015/1/16
+categories: [程序人生]
 ---  
 
 ## 前言

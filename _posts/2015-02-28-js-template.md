@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: 简单使用js模板引擎
-category: blog  
 description: 以前很少使用模板，都是使用字符串来实现的。后来重构一个js写的组件时，尝试了一下js的模板，代码清晰多了。
 tag: js 模板
 keywords: js,模板   
 updateData:  9:44 2015/2/28
+categories: [前端技术]
 ---  
 
 ## 前言的前言

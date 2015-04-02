@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 上传文件遇到的一个问题
-category: blog
 description:  以前，我一直在模仿。现在看来是时候去学习背后的一些东西了。  
 tags:  CORS javascript 跨域
 keywords: CORS, javascript, 跨域
 updateData:  19:37 2015/1/11
+categories: [前端技术]
 ---
 
 

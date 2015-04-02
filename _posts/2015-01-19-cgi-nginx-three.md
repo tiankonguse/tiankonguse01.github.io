@@ -1,11 +1,11 @@
 ---
 layout: post
 title: cgi 探索之路(三)
-category: blog
 description: 半年前自己曾研究过cgi这个东西，现在又要搭建一个 nginx 下的 cgi 服务器了，记录一下。      
 tags:  nginx  cgi spawn-fcgi fcgiwrap php-cgi
 keywords: nginx, cgi, spawn-fcgi, fcgiwrap, php-cgi
 updateData:  20:48 2015/1/9
+categories: [程序人生]
 ---
 
 

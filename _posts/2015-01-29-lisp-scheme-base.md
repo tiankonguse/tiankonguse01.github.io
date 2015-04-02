@@ -1,11 +1,11 @@
 ---
 layout: post
 title: lisp 方言之 Scheme 简单学习
-category: blog
 description:  之前只知道 lisp 是门很古老的语言，想着没有机会接触了。现在看 SICP 这本书时，发现还是有必要学一下这类语言的。  
 tags:  lisp Scheme
 keywords: lisp,Scheme
 updateData:  22:10 2015/1/27
+categories: [程序人生]
 ---
 
 

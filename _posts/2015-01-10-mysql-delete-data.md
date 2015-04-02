@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: 浅谈 mysql 删除或清空表的数据  
-category: blog  
 description: 我的工作岗位，算是管理数据的吧，于是经常要和数据打交道，经常有清空表的数据的这个需求了。  
 tags:  mysql truncate delete  
 keywords: mysql, truncate, delete  
 updateData:  17:32 2015/1/10  
+categories: [数据库]
 ---  
 
 

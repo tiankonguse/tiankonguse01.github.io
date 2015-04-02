@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: python 发送 post 请求
-category: blog  
 description:  之前曾记录过post请求，但是那个是阅读文档得到的，现在这个是经验得到的。
 tags:  python post
 keywords: python, post
 updateData:  9:24 2015/1/14
+categories: [python]
 ---  
 
 ## 前言

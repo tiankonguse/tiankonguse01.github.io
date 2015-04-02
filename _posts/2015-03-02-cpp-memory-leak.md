@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title:  简单了解C/C++内存检测软件
-category: blog  
 description: 网上找了一个开源的定时器，但是仅仅是测试定时器，效率低下，内存开销大等。于是我改造内指针的形式，于是就需要检测是否有内存泄露的问题了。  
 tag: 内存 指针 内存泄露
 keywords: 内存,指针,内存泄露
 updateData:  21:01 2015/3/2
+categories: [程序人生]
 ---  
 
 ## 前言

@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title:  重返ubuntu系统
-category: blog  
 description: 新电脑买之前，我有半年的时间没有电脑，买了电脑后有三个月没安装ubuntu， 现在想想都不可思议。    
 tag: ubuntu
 keywords: ubuntu
 updateData:  2015-03-14 18:58:13 
+categories: [软件研究]
 ---
 
 

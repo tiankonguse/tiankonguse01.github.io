@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title:  sphinx 实时更新笔记
-category: blog  
 description: 之前搭建了采用定时增量更新索引的方式搭建了一个sphinx搜索服务，最近需要改成实时更新索引，简单记录一下。  
 tag: sphinx
 keywords: sphinx
 updateData:  20:32 2015/3/20
+categories: [软件研究]
 ---  
 
 

@@ -1,11 +1,11 @@
 ---  
 layout: post  
 title: python 中 json 序列化的一些问题
-category: blog  
 description:  一直使用 json.dumps 来序列化对象，但是昨天遇到一个中文编码问题，于是发现猜到一个坑。
 tags:  python post
 keywords: python, post
 updateData:  9:24 2015/1/14
+categories: [python]
 ---  
 
 ## 前言
