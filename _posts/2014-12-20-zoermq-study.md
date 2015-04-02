@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 网络编程 与 ZeroMQ
-category: blog
 description: 我之前从来没有写过网络编程 ，现在要写一个用ZeroMQ来写一个服务器了，记录一下我的笔记与思考。 
 tags:  ZeroMQ
 keywords: ZeroMQ
 updateData:  16:44 2014/12/21
+categories: [网络编程]
 ---
 
 

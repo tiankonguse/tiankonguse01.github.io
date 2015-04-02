@@ -1,11 +1,11 @@
 ---
 layout: post
 title: raspberry pi 体验记录
-category: blog
 description: 最近笔记本被我拆了，还没有还原，手里又没钱，只好买了一个 raspberry pi 来当做我的电脑。     
 tags:  raspberry pi
 keywords: raspberry pi
 updateData:  19:01 2014/12/18
+categories: [硬件]
 ---
 
 

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 信号接口的含义与图片参考
-category: blog
 description: 买了一个树莓派，由于不懂这些信号接口需要什么线，  一直没做什么。现在先把背景知识了解一下。  
 tags:  树莓派 信号接口 USB VGA RCA 
 keywords: 树莓派, 信号接口, USB, VGA, RCA
 updateData:  19:34 2014/12/5
+categories: [硬件]
 ---
 
 ![cover][]

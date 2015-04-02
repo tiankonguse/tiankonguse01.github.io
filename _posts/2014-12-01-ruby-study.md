@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 初步学习 ruby
-category: blog
 description: 最近半年一直使用 github 当做自己的网站，但是时间久了，文章多了，发现文章需要归档，分类，于是想着写个插件来完成分类和归档。又由于github 使用的是 Jekyll 模板引擎，而 Jekyll  是基于 ruby 的，于是需要了解一下 ruby 的基本语法。
 tags: ruby  教程 学习笔记 ruby Jekyll
 keywords: ruby, 教程, 学习笔记, ruby, Jekyll
 updateData: 23:07 2014/12/1
+categories: [ruby]
 ---
 
 ![ruby1][]

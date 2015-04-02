@@ -1,11 +1,11 @@
 ---
 layout: post
 title: cmake 学习笔记
-category: blog
 description: 三个月前就学习了怎么使用cmake, 但是感觉简单就没做记录，现在发现还是有必要记一下。  
 tags:  cmake 编译 链接 makefile 依赖库 
 keywords: cmake, 编译, 链接,  makefile, 依赖库 
 updateData:  22:35 2014/12/14
+categories: [程序人生]
 ---
 
 ## 前言
