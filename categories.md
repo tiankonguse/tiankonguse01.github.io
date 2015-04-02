@@ -12,10 +12,10 @@ updateData:  21:25 2015/4/2
         <div class="accordion" id="accordion2">
             {% for category in site.categories %}
             
-            {% capture categoryName %}{{ category | first }}{% endcapture %}
-            {% capture articlesList %}{{ category | last }}{% endcapture %}
+            {% capture categoryName %}{{ category.first }}{% endcapture %}
+            {% capture articlesList %}{{ category.last }}{% endcapture %}
             
-            {{ categoryName }} {{  articlesList | count }}
+            {{ categoryName }}
             
             {% endfor %}
         </div>
