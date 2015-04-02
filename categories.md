@@ -7,31 +7,27 @@ isArchive: true
 updateData:  21:25 2015/4/2
 ---
 
-
-
-<article class="main-article">
-{% capture post_year1 %}{{ 'now' | date: '%Y-%m' }}{% endcapture %}
-
-<h2>{{ post_year1 }}</h2>
-<ul class="article-year clearfix">
-
-{% for postList in site.categories %}
-
-{% capture post_year2 %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
-
-{% if post_year1 != post_year2 %}
-
-{% assign post_year1 = post_year2 %}
-
-</ul>
-<h2>{{ post_year1 }}</h2>
-<ul class="article-year clearfix">
-{% endif %}
-
-<li>
-<span>{{ post.date | date_to_utc | date: '%Y-%m-%d' }}</span>
-<a href="{{site.url}}{{ post.url }}">{{ post.title }}</a>
-</li>
-{% endfor %}
-</ul>
-</article>
+<div class="row-fluid">
+    <div class="span8 offset2">
+        <div class="accordion" id="accordion2">
+            {% for category, articles in site.categories %}
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ category.slug }}-ref">
+                        {{ category }}<span>{{  articles|count }}</span>
+                    </a>
+                </div>
+                <div id="{{ category.slug }}-ref" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul class="list-articles-category">
+                            {% for article in articles %} 
+                            <li><time pubdate="pubdate" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }} {%if article.subtitle %} <small> {{ article.subtitle }} </small> {% endif %} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
