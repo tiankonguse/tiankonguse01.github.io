@@ -13,22 +13,25 @@ updateData:  21:25 2015/4/2
             {% for category in site.categories %}
             
             {% capture categoryName %}{{ category.first }}{% endcapture %}
+            {% capture categoryNameMD5 %}{{ categoryName | md5 }}{% endcapture %}
             {% capture articlesList %}{{ category.last }}{% endcapture %}
             
 
             <div class="accordion-group">
                 <div class="accordion-heading">
-                    <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryName.slug }}-ref">
+                    <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryNameMD5 }}-ref">
                         {{ categoryName }}<span>{{  articlesList | size }}</span>
                     </a>
                 </div>
                 
-                <div id="{{ categoryName.slug }}-ref" class="accordion-body collapse">
+                <div id="{{ categoryNameMD5 }}-ref" class="accordion-body collapse">
                     <div class="accordion-inner">
                         <ul class="list-articles-category">
                             {% for article in articlesList %} 
                             <li>
-                                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date }}</time>
+                                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">
+                                    {{ article.date|date:"%Y-%m-%d" }}
+                                </time>
                                 <a href="{{ article.url }}">{{ article.title }}</a>
                             </li>
                             {% endfor %}
@@ -36,7 +39,6 @@ updateData:  21:25 2015/4/2
                     </div>
                 </div>
             </div>
-            
             {% endfor %}
         </div>
     </div>
