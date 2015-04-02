@@ -563,6 +563,10 @@ ul.list-of-tags li {
   overflow: hidden;
 }
 
+.list-of-tags a{
+    color: #000000;
+}
+
 .list-of-tags li {
   float: left;
   line-height: 28px;

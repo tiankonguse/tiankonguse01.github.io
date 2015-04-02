@@ -28,7 +28,7 @@ description: Jekyll 中使用标签得到文章。
         <ul class="articles-in-tag list-articles-category">
             {% for article in tag.last %}
             <li>
-                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.locale_date }}</time>
+                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date }}</time>
                 <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
             {% endfor %}
         </ul>
