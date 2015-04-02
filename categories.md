@@ -7,6 +7,3 @@ isArchive: true
 updateData:  21:25 2015/4/2
 ---
 
-{% block content %}
-test
-{% endblock %}
