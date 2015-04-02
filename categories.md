@@ -15,11 +15,17 @@ updateData:  21:25 2015/4/2
             {% capture categoryName %}{{ category.first }}{% endcapture %}
             {% capture articlesList %}{{ category.last }}{% endcapture %}
             
-            {{ categoryName }}
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryName.slug }}-ref">
+                        {{ categoryName }}<span>{{  articlesList | size }}</span>
+                    </a>
+                </div>
+            </div>
             
             {% endfor %}
         </div>
     </div>
 </div>
-
 
