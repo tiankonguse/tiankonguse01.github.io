@@ -24,11 +24,11 @@ description: Jekyll 中使用标签得到文章。
 <div class="row-fluid">
     <div class="offset">
         {% for tag in site.tags %}
-        <h2 id="{{ tag.first }}-ref" class="tag-title">{{ tag.first }}</h2>
-        <ul class="articles-in-tag list-articles-category">
+        <h2 class="tag-title">{{ tag.first }}</h2><span id="{{ tag.first }}-ref"></span>
+        <ul class="articles-in-tag list-articles-category" >
             {% for article in tag.last %}
             <li>
-                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date }}</time>
+                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date|date:"%Y-%m-%d" }}</time>
                 <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
             {% endfor %}
         </ul>
