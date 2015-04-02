@@ -4,7 +4,8 @@ title: Jekyll 中输出转义的字符
 description: 使用 github 做静态网站，写文章的时候避免不了要显示大括号这个符号，但是大括号是 jekyll 的转义字符，所以我们需要想办法输出这个符号了。
 category: blog
 keywords: github, Jekyll, 字符, 转义, 插件, plugin, markdown
-tags: github Jekyll 字符 转义 插件 plugin markdown
+tags: [github, Jekyll, 字符, 转义, 插件, plugin, markdown]
+categories: [程序人生, jekyll]
 ---
 
 ## 安装插件
