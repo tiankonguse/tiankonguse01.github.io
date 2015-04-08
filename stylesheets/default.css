@@ -171,7 +171,7 @@ a.home-link:hover{
 .home-contact { 
     color:#fff;
     margin-top:2px;
-    background:#DBC3FF;
+    background:#FFFFFF;
     padding:8px 0 7px;
     text-align:center;
     display:none;
@@ -179,9 +179,17 @@ a.home-link:hover{
 .home-contact a { 
     width:30px;
     display:inline-block;
+    font-size: 10px;
 }
 .home-contact img { 
     width:18px;
+}
+
+.home-contact .fa-stack{
+    color: #797979;
+}
+.home-contact .fa-stack:hover,.home-contact .fa-stack:focus{
+    color: #000000;
 }
 
 .weixin img{
