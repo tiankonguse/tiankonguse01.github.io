@@ -17,6 +17,12 @@ h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500;}
 q:before,q:after {content:'';}
 sup{vertical-align:text-top;}
 sub{vertical-align:text-bottom;}
+*{
+    line-height: 1.7em;
+    text-align: justify; 
+    text-justify: ideographic;
+    font-style: normal;
+}
 
 .clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
 .clearfix{zoom:1;}
@@ -614,3 +620,5 @@ ul.list-of-tags li {
   vertical-align: super;
   padding-left: 2px;
 }
+
+
