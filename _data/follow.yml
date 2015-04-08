@@ -1,27 +1,37 @@
 -   url: http://github.tiankonguse.com/atom.xml
     img: http://github.tiankonguse.com/images/rss_24x24.png
     name: rss
+    showImg: 1 
 -   url: https://github.com/tiankonguse/
     img: https://github.com/apple-touch-icon-114.png
     name: github
+    showImg: 1 
 -   url: http://weibo.com/tiankonguse/
     img: http://www.weibo.com/favicon.ico
     name: weibo
+    showImg: 0
+    class: fa-weibo
 -   url: http://www.douban.com/people/tiankonguse/
     img: http://www.douban.com/favicon.ico
     name: douban
+    showImg: 1 
 -   url: http://weixin.qq.com/
     img: http://github.tiankonguse.com/images/weixin_24x24.png
     name: weixin
+    showImg: 1 
 -   url: https://plus.google.com/103623040770219910018?rel=author
     img: http://github.tiankonguse.com/images/google.ico
     name: google plus
+    showImg: 1 
 -   url: https://twitter.com/tiankonguse
     img: http://github.tiankonguse.com/images/twitter.ico
     name: twitter
+    showImg: 1 
 -   url: https://www.facebook.com/tiankonguse
     img: http://github.tiankonguse.com/images/facebook.ico
-    facebook: facebook
+    name: facebook
+    showImg: 1 
 -   url: http://www.linkedin.com/pub/sky-yuan/87/723/776
     img: http://github.tiankonguse.com/images/linkedin.png
-    linkedin: linkedin
+    name: linkedin
+    showImg: 1 
