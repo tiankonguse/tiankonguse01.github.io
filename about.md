@@ -177,11 +177,19 @@ updateData:  21:25 2015/4/2
 工作后的2014 年，我开始使用 [github][] 来记录我想记录下来的东西。    
 
 
+如果喜欢我的文章，可以赠一本书。
+
+![zhifubao_code][]
+
+
+
 ## 读书使人快乐
 
 ![book-list][]
 
 
+
+[zhifubao_code]: /images/zhifubao_code.jpg
 [5a55f12fd7055f54d7060400]: http://user.qzone.qq.com/804345178/mood/5a55f12fd7055f54d7060400.1
 [book-list]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/430766252.png
 [qzone-china-people]: http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
