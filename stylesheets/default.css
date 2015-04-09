@@ -544,7 +544,7 @@ hr {
     padding-left: 3px;
 }
 
-a.list-of-categories:hover {
+.entry .list-of-categories:hover {
   background-color:#000;
   border-radius: 4px;
   color: #FFF;
