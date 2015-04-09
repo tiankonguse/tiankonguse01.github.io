@@ -39,7 +39,7 @@ updateData:  21:25 2015/4/2
 <script>
     (function ($) {
         $(document).ready(function(){
-            $(".entry-title").append('<span class="fa-stack fa-lg" style="width: 30px;display: inline-block;font-size: 15px;"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-th-large fa-stack-1x fa-inverse"></i></span>');
+            $(".entry-title").append('<span class="fa-stack fa-lg" style="cursor: pointer;width: 30px;display: inline-block;font-size: 15px;"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-th-large fa-stack-1x fa-inverse"></i></span>');
             $(".entry-title .fa-stack").bind("click", function(){
                 $(".entry-title .fa-stack-1x").toggleClass("fa-th-large");
                 $(".entry-title .fa-stack-1x").toggleClass("fa-list-ul");

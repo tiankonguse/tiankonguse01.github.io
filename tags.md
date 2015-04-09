@@ -14,7 +14,7 @@ description: Jekyll 中使用标签得到文章。
         <ul class="list-of-tags">
             {% for tag in site.tags %}
             <li>
-            <a href="#{{ tag.first }}_ref_">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
+            <a href="#{{ tag.first }}_ref_head">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
             </li>
             {% endfor %}
         </ul>
@@ -25,7 +25,7 @@ description: Jekyll 中使用标签得到文章。
     <div class="accordion" id="accordion2">
         {% for tag in site.tags %}
         <div class="accordion-heading">
-            <h2 class="tag-title accordion-toggle list-of-categories" id="{{ tag.first }}_ref_" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}_ref_">{{ tag.first }}</h2>
+            <h2 class="tag-title accordion-toggle list-of-categories" id="{{ tag.first }}_ref_" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}_ref_" id="{{ tag.first }}_ref_head">{{ tag.first }}</h2>
         </div>
         <div id="{{ tag.first }}_ref_" class="accordion-body collapse">
             <div class="accordion-inner">
