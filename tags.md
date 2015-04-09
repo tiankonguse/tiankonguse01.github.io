@@ -22,17 +22,23 @@ description: Jekyll 中使用标签得到文章。
 </div>
 
 <div class="row-fluid entry-tag">
-    <div class="offset">
+    <div class="accordion" id="accordion2">
         {% for tag in site.tags %}
-        <h2 class="tag-title">{{ tag.first }}</h2><span id="{{ tag.first }}-ref"></span>
-        <ul class="articles-in-tag list-articles-category" >
-            {% for article in tag.last %}
-            <li>
-                <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date|date:"%Y-%m-%d" }}</time>
-                <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
+        <div class="accordion-heading">
+            <h2 class="tag-title accordion-toggle list-of-categories" id="{{ tag.first }}-ref" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}-ref">{{ tag.first }}</h2>
+        </div>
+        <div id="{{ tag.first }}-ref" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <ul class="articles-in-tag list-articles-category" >
+                {% for article in tag.last %}
+                <li>
+                    <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date|date:"%Y-%m-%d" }}</time>
+                    <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
     </div>
 </div>
 
