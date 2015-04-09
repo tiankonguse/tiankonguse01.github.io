@@ -50,16 +50,13 @@ Unix时间戳(Unix timestamp)转北京时间
 
 
 北京时间转Uix时间戳(Unix timestamp)  
-
-<script type="text/javascript">
-    
+<script>
     function unix2human() {
         var val = +$("#input-timestamp").val();
         var dateObj = new Date(val * 1000);
         var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
         $("#turn-result-time").val(UnixTimeToDate);
     }
-
     var currentTimeActive = 0; 
     var unixTimer = null;
     function startTimer() {
@@ -79,4 +76,3 @@ Unix时间戳(Unix timestamp)转北京时间
     }
     currentTime();
 </script>
-
