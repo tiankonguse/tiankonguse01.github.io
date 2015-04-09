@@ -24,8 +24,8 @@ description: Jekyll 中使用标签得到文章。
 <div class="row-fluid entry-tag">
     <div class="accordion" id="accordion2">
         {% for tag in site.tags %}
-        <div class="accordion-heading">
-            <h2 class="tag-title accordion-toggle list-of-categories" id="{{ tag.first }}_ref_head" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}_ref_" >{{ tag.first }}</h2>
+        <div class="accordion-heading" id="{{ tag.first }}_ref_head">
+            <h2 class="tag-title accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}_ref_" >{{ tag.first }}</h2>
         </div>
         <div id="{{ tag.first }}_ref_" class="accordion-body collapse">
             <div class="accordion-inner">
