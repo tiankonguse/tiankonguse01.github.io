@@ -7,30 +7,28 @@ isArchive: true
 updateData:  21:25 2015/4/2
 ---
 
-
+{% capture postYear0 %}0{% endcapture %}
+{% capture postYear1 %}0{% endcapture %}
 <article class="main-article">
-{% capture post_year1 %}{{ 'now' | date: '%Y-%m' }}{% endcapture %}
-
-<h2>{{ post_year1 }}</h2>
-<ul class="article-year clearfix">
-
 {% for post in site.posts %}
-
-{% capture post_year2 %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
-
-{% if post_year1 != post_year2 %}
-
-{% assign post_year1 = post_year2 %}
-
-</ul>
-<h2>{{ post_year1 }}</h2>
-<ul class="article-year clearfix">
-{% endif %}
-
-<li>
-<span>{{ post.date | date_to_utc | date: '%Y-%m-%d' }}</span>
-<a href="{{site.url}}{{ post.url }}">{{ post.title }}</a>
+    {% capture postYear2 %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
+    {% if postYear1 != postYear2 %}
+        {% if postYear1 != postYear0  %}
+                </ul>
+            </div>
+        {% endif %}
+        {% assign postYear1 = postYear2 %}
+        <div class="accordion-heading">
+            <h2 class="accordion-toggle list-of-categories" data-toggle="collapse" href="#{{ postYear1 }}-ref">{{ postYear1 }}</h2>
+        </div>
+        <div id="{{ postYear1}}-ref" class="accordion-body collapse">
+            <ul class="article-year clearfix list-articles-category">
+    {% endif %}
+    <li>
+    <time pubdate="pubdate" datetime="{{ post.date|date:'%Y-%m-%d' }}">{{ post.date|date:'%Y-%m-%d' }}</time>
+    <a href="{{site.url}}{{ post.url }}">{{ post.title }}</a>
 </li>
 {% endfor %}
-</ul>
+    </ul>
+</div>
 </article>
