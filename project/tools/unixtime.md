@@ -38,7 +38,7 @@ category: project
 	<span class="fa-img" onclick="currentTime();"><i class="fa fa-refresh"></i></span>&nbsp;
 </div>
 
-Unix时间戳(Unix timestamp) → 北京时间    
+Unix时间戳(Unix timestamp)转北京时间    
 
 <div> 
     Unix时间戳(Unix timestamp) 
@@ -49,9 +49,7 @@ Unix时间戳(Unix timestamp) → 北京时间
 <div>
 
 
-北京时间 → Uix时间戳Unix timestamp  
-
-
+北京时间转Uix时间戳(Unix timestamp)  
 
 <script type="text/javascript">
     
@@ -81,3 +79,4 @@ Unix时间戳(Unix timestamp) → 北京时间
     }
     currentTime();
 </script>
+
