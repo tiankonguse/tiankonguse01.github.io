@@ -14,21 +14,16 @@ updateData:  21:25 2015/4/2
     {% capture postYear2 %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
     {% if postYear1 != postYear2 %}
         {% if postYear1 != postYear0  %}
-                </ul>
-            </div>
+</ul>
+</div>
         {% endif %}
         {% assign postYear1 = postYear2 %}
-        <div class="accordion-heading">
-            <h2 class="accordion-toggle list-of-categories" data-toggle="collapse" href="#{{ postYear1 }}-ref">{{ postYear1 }}</h2>
-        </div>
-        <div id="{{ postYear1}}-ref" class="accordion-body collapse">
-            <ul class="article-year clearfix list-articles-category">
+<div class="accordion-heading"><h2 class="accordion-toggle list-of-categories" data-toggle="collapse" href="#{{ postYear1 }}-ref">{{ postYear1 }}</h2></div>
+<div id="{{ postYear1}}-ref" class="accordion-body collapse">
+<ul class="article-year clearfix list-articles-category">
     {% endif %}
-    <li>
-    <time pubdate="pubdate" datetime="{{ post.date|date:'%Y-%m-%d' }}">{{ post.date|date:'%Y-%m-%d' }}</time>
-    <a href="{{site.url}}{{ post.url }}">{{ post.title }}</a>
-</li>
+<li><time pubdate="pubdate" datetime="{{ post.date|date:'%Y-%m-%d' }}">{{ post.date|date:'%Y-%m-%d' }}</time><a href="{{site.url}}{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
-    </ul>
+</ul>
 </div>
 </article>
