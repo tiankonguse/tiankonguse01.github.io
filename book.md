@@ -17,6 +17,10 @@ updateData:  13:34 2015/4/10
         <ul class="article-year clearfix list-articles-category">
             {% for book in bookState.list %}
                 <li>
+                
+                            <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">
+                                {{ article.date|date:"%Y-%m-%d" }}
+                            </time>
 {% if book.bookLink %}  
     <a href="{{book.bookLink}}">{{ book.bookName }}</a>
 {% else %} 
