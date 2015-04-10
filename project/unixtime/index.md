@@ -78,7 +78,7 @@ category: project
 function unix2human() {
     var val = +$("#input-timestamp").val();
     var dateObj = new Date(val * 1000);
-    var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
+    var UnixTimeToDate = dateObj.getFullYear() + '-' + (dateObj.getMonth() + 1) + '-' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
     $("#turn-result-date").val(UnixTimeToDate);
 }
 function human2unix() {
