@@ -7,7 +7,7 @@ layout: page
         <div class="cate-bar"><span id="cateBar"></span></div>
 
         <ul class="artical-list">
-        {% for post in site.categories.project %}
+        {% for post in site.categorie.project %}
             <li>
                 <h2>
                     <a href="{{ post.url }}">{{ post.title }}</a>
