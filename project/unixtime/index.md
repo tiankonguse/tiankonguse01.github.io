@@ -39,7 +39,9 @@ category: project
 
 <div class="timestamp">
 
+
 ## 实时时间
+
 
 <div>
 	现在的Unix时间戳(Unix timestamp)是&nbsp;&nbsp;&nbsp;
@@ -49,7 +51,9 @@ category: project
 	<span class="fa-img" onclick="currentTime();"><i class="fa fa-refresh"></i></span>&nbsp;
 </div>
 
+
 ## 时间戳转日期
+
 
 <div> 
     时间戳<input type="text" id="input-timestamp" size="30"> 
@@ -60,9 +64,10 @@ category: project
 
 ## 日期转时间戳
 
+
 <div> 
     日期<input type="text" id="input-date" size="30" placeholder="YYYY-MM-DD hh-mm-ss">
-    <span class="fa-img" onclick="human2unix();"><i class="icon-repeat"></i></span>&nbsp;
+    <span class="fa-img" onclick="human2unix();"><i class="fa fa-repeat"></i></span>&nbsp;
     时间戳<input type="text" size="30" id="turn-result-timestam" readonly="readonly">
 </div>
 
