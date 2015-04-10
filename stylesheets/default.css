@@ -528,7 +528,7 @@ hr {
 }
 
 .entry h2, .entry h3 {
-  background-color: rgba(246, 229, 229, 0.49);
+  background-color: rgba(248, 244, 244, 0.49)
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -632,4 +632,11 @@ ul.list-of-tags li {
 .aboutme-group ul.list-articles-category li:hover{
   background-color: rgb(60, 60, 60);
   color: rgb(197, 197, 197);
+}
+
+
+.aboutme-group .accordion-group{
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid #e5e5e5;
 }
