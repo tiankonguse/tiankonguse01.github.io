@@ -24,10 +24,9 @@ updateData:  21:25 2015/4/2
 
 ## 关于看书
 
-
+<div class="offset1">
 {% for bookState in site.data.book %}
-<div class="accordion-group aboutme-group">
-    <div class="offset1">
+    <div class="accordion-group aboutme-group">
         <div class="accordion-heading">
             <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
         </div>   
@@ -52,17 +51,16 @@ updateData:  21:25 2015/4/2
             </ul>
         </div>
     </div>
-</div>
 {% endfor %}
-
+</div>
 
 
 
 ## 关于电影和电视剧
 
+<div class="offset1">
 {% for videoState in site.data.video %}
-<div class="accordion-group aboutme-group">
-    <div class="offset1">
+    <div class="accordion-group aboutme-group">
         <div class="accordion-heading">
             <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
         </div>   
@@ -86,8 +84,8 @@ updateData:  21:25 2015/4/2
             </ul>
         </div>
     </div>
-</div>
 {% endfor %}
+</div>
 
 ## 关于我听的音乐
 
