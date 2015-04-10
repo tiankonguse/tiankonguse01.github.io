@@ -49,7 +49,7 @@ Unix时间戳(Unix timestamp)转北京时间
     <input type="button" value="转换" onclick="unix2human();">
     北京时间
     <input type="text" size="30" id="turn-result-time" readonly="readonly">
-<div>
+</div>
 
 
 北京时间转Uix时间戳(Unix timestamp)   
