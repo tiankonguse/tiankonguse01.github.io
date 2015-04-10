@@ -83,7 +83,7 @@ function unix2human() {
 }
 function human2unix() {
     var val = +$("#input-date").val();
-    var time = parseInt((new Date(t)).getTime()/1000);
+    var time = parseInt((new Date(val)).getTime()/1000);
 	$("#turn-result-timestam").val(time);
 }
 var currentTimeActive = 0; 
