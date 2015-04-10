@@ -52,50 +52,50 @@ Unix时间戳(Unix timestamp)转北京时间
 <div>
 
 
-北京时间转Uix时间戳(Unix timestamp)  
+北京时间转Uix时间戳(Unix timestamp)   
 
 
 
 <script>
-    var $$$ = (function(){
-        var $obj = {};
-        var fun = {
-            val : function(v){
-                if(v){
-                    $obj.value = v;
-                }else{
-                    return  $obj.value;
-                }
+var $$$ = (function(){
+    var $obj = {};
+    var fun = {
+        val : function(v){
+            if(v){
+                $obj.value = v;
+            }else{
+                return  $obj.value;
             }
-        };
-        return (function(id){
-            $obj = document.getElementById(id);
-            return fun;
-        });
-    }());
-
-    function unix2human() {
-        var val = +$("#input-timestamp").val();
-        var dateObj = new Date(val * 1000);
-        var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
-        $("#turn-result-time").val(UnixTimeToDate);
-    }
-    var currentTimeActive = 0; 
-    var unixTimer = null;
-    function startTimer() {
-        currentTimeActive = 1;
-        currentTime();
-    }
-    function currentTime() {
-        var timeNow = new Date();
-        $("#currentunixtime").val(Math.round(timeNow.getTime()/1000));
-        if (currentTimeActive) {
-            unixTimer = setTimeout("currentTime()", 1000);
         }
-    }
-    function stopTimer() {
-        currentTimeActive = 0;
-        clearTimeout(unixTimer);
-    }
+    };
+    return (function(id){
+        $obj = document.getElementById(id);
+        return fun;
+    });
+}());
+
+function unix2human() {
+    var val = +$("#input-timestamp").val();
+    var dateObj = new Date(val * 1000);
+    var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
+    $("#turn-result-time").val(UnixTimeToDate);
+}
+var currentTimeActive = 0; 
+var unixTimer = null;
+function startTimer() {
+    currentTimeActive = 1;
     currentTime();
+}
+function currentTime() {
+    var timeNow = new Date();
+    $("#currentunixtime").val(Math.round(timeNow.getTime()/1000));
+    if (currentTimeActive) {
+        unixTimer = setTimeout("currentTime()", 1000);
+    }
+}
+function stopTimer() {
+    currentTimeActive = 0;
+    clearTimeout(unixTimer);
+}
+currentTime();
 </script>
