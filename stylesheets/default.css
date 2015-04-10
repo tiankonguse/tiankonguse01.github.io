@@ -630,6 +630,6 @@ ul.list-of-tags li {
 
 
 .aboutme-group ul.list-articles-category li:hover{
-  background-color: rgb(60, 60, 60)
+  background-color: rgb(60, 60, 60);
   color: rgb(197, 197, 197);
 }
