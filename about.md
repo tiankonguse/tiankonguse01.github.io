@@ -26,14 +26,30 @@ updateData:  21:25 2015/4/2
 
 
 {% for bookState in site.data.book %}
-
-### {{ bookState.name }}
-
-{% for book in bookState.list %}{% if book.bookLink %}
-* [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
-{% else %}
-* {{ book.bookName }} {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
-{% endif %}{% endfor %}
+<div class="accordion-group aboutme-group">
+    <div class="accordion-heading">
+        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
+    </div>   
+    <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
+        <ul class="article-year clearfix list-articles-category">
+            {% for book in bookState.list %}
+            <li>
+                {% if book.bookLink %}  
+                <a href="{{book.bookLink}}">{{ book.bookName }}</a>
+                {% else %} 
+                {{ book.bookName }}  
+                {% endif %}
+                
+                {{ book.readTime }}  
+                
+                {% if book.readLink %} 
+                <a href="{{ book.readLink }}">读书笔记</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endfor %}
 
 
