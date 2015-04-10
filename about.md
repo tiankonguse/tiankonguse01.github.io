@@ -24,6 +24,7 @@ updateData:  21:25 2015/4/2
 
 ## 关于看书
 
+<div class="row-fluid">
 <div class="offset1">
 {% for bookState in site.data.book %}
     <div class="accordion-group aboutme-group">
@@ -53,11 +54,12 @@ updateData:  21:25 2015/4/2
     </div>
 {% endfor %}
 </div>
-
+</div>
 
 
 ## 关于电影和电视剧
 
+<div class="row-fluid">
 <div class="offset1">
 {% for videoState in site.data.video %}
     <div class="accordion-group aboutme-group">
@@ -85,6 +87,7 @@ updateData:  21:25 2015/4/2
         </div>
     </div>
 {% endfor %}
+</div>
 </div>
 
 ## 关于我听的音乐
