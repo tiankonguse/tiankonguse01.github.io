@@ -57,23 +57,6 @@ Unix时间戳(Unix timestamp)转北京时间
 
 
 <script>
-var $$$ = (function(){
-    var $obj = {};
-    var fun = {
-        val : function(v){
-            if(v){
-                $obj.value = v;
-            }else{
-                return  $obj.value;
-            }
-        }
-    };
-    return (function(id){
-        $obj = document.getElementById(id);
-        return fun;
-    });
-}());
-
 function unix2human() {
     var val = +$("#input-timestamp").val();
     var dateObj = new Date(val * 1000);
