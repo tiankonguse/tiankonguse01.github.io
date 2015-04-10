@@ -24,59 +24,17 @@ updateData:  21:25 2015/4/2
 
 ## 关于看书
 
-### 已看
 
-* 《算法导论》 2011-02 ~ 2013-10(前三遍) 
-* 《浪潮之巅》 2014-09-15 ~ 2014-10-22 [读书笔记][On-Top-of-Tides]
-* 《重构~改善既有代码的设计》 2014-10-05 ~ 2014-10-24 
-* 《编程之道》 2014-10-1 ~ 2014-10-26 [读书笔记][the-tao-of-programming]
-* 《编程之禅》2014-10-1 ~ 2014-10-26  [读书笔记][the-ten-of-programming]
-* 《计算机寓言-信息时代的启示》 2014-10-1 ~ 2014-10-26 [读书笔记][Computer-Parables-Enlightenment-in-the-Information-Age]
-* 《人月神话》 2014-11-02 ~ 2014-11-11
-* 《自己动手写搜索引擎》 2014-11-02 ~ 2014-11-03 全是JAVA代码(2/3),只看文字说明
-* 《深入搜索引擎》2014-11-21 ~ 2014-12-04
-* 《代码的未来》2014-12-23 ~ 2015-01-12
-* 《计算机程序的构造和解释》2015-01-23 ~ 2015-03-14
-* 《write clean code》2015-02-03 ~ 2015-03-25
-* 《编程之美》 2014-10-05 ~ 断看
-* 《机器学习导论》2014-11-11 ~ 断看
-* 《Programming Ruby》2014-11-18 ~ 断看
-
-### 在看
-
-* 《UNIX环境高级编程》2015-02-19 ~ 今
-* 《黑客与画家-en》2015-03-25 ~ 今
-* 《[高性能mysql 3rd][douban-High-Performance-MySQL-3rd]》2015-03-25 ~ 今
-
-### 想看
-
-
-* 《[高可用MySQL][douban-MySQL-High-Availability]》
-* 《[SQL学习指南][douban-Learning-SQL]》
-* 《六顶思考帽》
-* 《软件设计架构模式》
-* 《程序员修炼之道》
-* 《深入理解计算机系统》
-* 《罗素的故事》
-* 《大道至简》
-* 《linux/unix设计思想》
-* 《暗时间》
-* 《UNIX操作系统》
-* 《UNIX网络编程》
-* 《UNIX系统V网络编程》
-* 《TCP/IP详解》
-* 《从0到1》
-* 《[SQL反模式][douban-SQL-Antipatterns]》
-* 《[MySQL性能调优与架构设计][douban-mysql-3729677]》
-* 《松本行弘的程序世界》
-* 《科技想要什么》
-* 《失控》
-* 《在难搞的人资笑出声来》
-* 《计算机程序设计艺术》
-* 《编码：隐匿在计算机软硬件背后的语言》
-* 《修改代码的艺术》
-* 《人件集：人性化的软件开发》
-
+{% for bookState in site.data.book %}
+### {{ bookState.name }}
+{% for book in bookState.list %}
+{% if book.bookLink %}
+*  [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
+{% else %}
+*  {{ book.bookName }} {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 
 
