@@ -8,7 +8,7 @@
         -   bookName: 《浪潮之巅》 
             bookLink: 
             readTime: 2014-09-15 ~ 2014-10-22 
-            readLink: On-Top-of-Tides
+            readLink: http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/
             
         -   bookName: 《重构~改善既有代码的设计》
             bookLink: 
@@ -18,17 +18,17 @@
         -   bookName: 《编程之道》
             bookLink: 
             readTime: 2014-10-1 ~ 2014-10-26
-            readLink: the-tao-of-programming
+            readLink: http://github.tiankonguse.com/blog/2014/10/29/the-tao-of-programming/
                         
         -   bookName: 《编程之禅》
             bookLink: 
             readTime: 2014-10-1 ~ 2014-10-26 
-            readLink: the-ten-of-programming
+            readLink: http://github.tiankonguse.com/blog/2014/10/31/the-ten-of-programming/
                         
         -   bookName: 《计算机寓言-信息时代的启示》 
             bookLink: 
             readTime: 2014-10-1 ~ 2014-10-26
-            readLink: Computer-Parables-Enlightenment-in-the-Information-Age
+            readLink: http://github.tiankonguse.com/blog/2014/11/01/Computer-Parables-Enlightenment-in-the-Information-Age/
                         
         -   bookName: 《人月神话》 
             bookLink: 
@@ -93,24 +93,24 @@
             readLink:
                         
         -   bookName: 高性能mysql 3rd
-            bookLink: douban-High-Performance-MySQL-3rd
+            bookLink: http://book.douban.com/subject/23008813/
             readTime: 2015-03-25 ~ 今
             readLink:
             
 -   name: 计划阅读的书籍
     list:
         -   bookName: 《UNIX环境高级编程》
-            bookLink: douban-MySQL-High-Availability
+            bookLink: 
             readTime:  
             readLink:
                         
         -   bookName: 高可用MySQL
-            bookLink: douban-MySQL-High-Availability
+            bookLink: http://book.douban.com/subject/6847455/
             readTime: 
             readLink:
                         
         -   bookName: SQL学习指南
-            bookLink: douban-Learning-SQL
+            bookLink: http://book.douban.com/subject/4872454/
             readTime: 
             readLink:
                         
@@ -180,12 +180,12 @@
             readLink:
                         
         -   bookName: 《SQL反模式》
-            bookLink: douban-SQL-Antipatterns
+            bookLink: http://book.douban.com/subject/6800774/
             readTime: 
             readLink:
                         
         -   bookName: 《MySQL性能调优与架构设计》 
-            bookLink: douban-mysql-3729677
+            bookLink: http://book.douban.com/subject/3729677/
             readTime: 
             readLink:
                         

@@ -17,14 +17,14 @@ updateData:  13:34 2015/4/10
         <ul class="article-year clearfix list-articles-category">
             {% for book in bookState.list %}
                 <li>
-{% if book.bookLink %} 
-    [{{ book.bookName }}][{{book.bookLink}}]   
+{% if book.bookLink %}  
+    <a href="{{book.bookLink}}">{{ book.bookName }}</a>
 {% else %} 
     {{ book.bookName }}  
  {% endif %}
 {{ book.readTime }}  
 {% if book.readLink %} 
-    [读书笔记][{{ book.readLink }}]  
+    <a href="{{ book.readLink }}">读书笔记</a>
 {% endif %}
                 </li>
             {% endfor %}
