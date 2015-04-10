@@ -14,17 +14,17 @@ updateData:  13:34 2015/4/10
         <h2 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h2>
     </div>   
     <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
-        <ul class="article-year clearfix list-articles-category">
             {% for book in bookState.list %}
             
+            
 {% if book.bookLink %}
-* [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %} [读书笔记][{{ book.readLink }}] {% endif %}
+* [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %} [读书笔记][{{ book.readLink }}] {% endif %}  
 {% else %}
-* {{ book.bookName }} {{ book.readTime }} {% if book.readLink %} [读书笔记][{{ book.readLink }}] {% endif %}
+* {{ book.bookName }} {{ book.readTime }} {% if book.readLink %} [读书笔记][{{ book.readLink }}] {% endif %}  
 {% endif %}
 
+
             {% endfor %}
-        </ul>
     </div>
 </div>
 {% endfor %}
