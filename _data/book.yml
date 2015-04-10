@@ -1,11 +1,26 @@
 -   name: 阅读过的书籍
     list:
-        - 《算法导论》 2011-02 ~ 2013-10(前三遍) 
-        - 《浪潮之巅》 2014-09-15 ~ 2014-10-22 [读书笔记][On-Top-of-Tides]
-        - 《重构~改善既有代码的设计》 2014-10-05 ~ 2014-10-24 
+        -   bookName: 《算法导论》
+            bookLink: 
+            readTime:  2011-02 ~ 2013-10(前三遍)
+            more:
+        -   bookName: 《浪潮之巅》 
+            bookLink: 
+            readTime:  2014-09-15 ~ 2014-10-22 
+            more: <a href="http://github.tiankonguse.com/blog/2014/10/22/On-Top-of-Tides/" target="_blank">读书笔记</a>
+        -   bookName: 《重构~改善既有代码的设计》
+            bookLink: 
+            readTime:  2014-10-05 ~ 2014-10-24 
+            more:
 -   name: 正在阅读的书籍
     list:
-        - 《UNIX环境高级编程》2015-02-19 ~ 今
+        -   bookName: 《UNIX环境高级编程》
+            bookLink: 
+            readTime:  2015-02-19 ~ 今
+            more:
 -   name: 计划阅读的书籍
     list:
-        - 《[高可用MySQL][douban-MySQL-High-Availability]》
+        -   bookName: 《UNIX环境高级编程》
+            bookLink: douban-MySQL-High-Availability
+            readTime:  
+            more:
