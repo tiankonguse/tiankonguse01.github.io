@@ -9,14 +9,14 @@ updateData:  13:34 2015/4/10
 
 
 {% for bookState in site.data.book %}
-    ### {{ bookState.name }}
-    {% for book in bookState.list %}
-        {% if book.bookLink %}
-        *  [{{ book.bookName }}][book.bookLink] {{ book.readTime }} {{ book.more }}
-        {% else %}
-        *  {{ book.bookName }} {{ book.readTime }}  {{ book.more }}
-        {% endif %}
-    {% endfor %}
+### {{ bookState.name }}
+{% for book in bookState.list %}
+    {% if book.bookLink %}
+    *  [{{ book.bookName }}][book.bookLink] {{ book.readTime }} {{ book.more }}
+    {% else %}
+    *  {{ book.bookName }} {{ book.readTime }}  {{ book.more }}
+    {% endif %}
+{% endfor %}
 {% endfor %}
 
 
