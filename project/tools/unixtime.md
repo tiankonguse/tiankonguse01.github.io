@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: default
 title:时间戳转换工具 
 category: project
 ---
-
+<p style="padding: 0px;margin: 0px;">
 <style type="text/css">
 .fa-img{
     display: block;
@@ -29,6 +29,7 @@ category: project
     margin-bottom: 5px;
 }
 </style>
+</p>
 
 <div>
 	现在的Unix时间戳(Unix timestamp)是&nbsp;&nbsp;&nbsp;
