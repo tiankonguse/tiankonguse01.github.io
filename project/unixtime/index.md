@@ -33,6 +33,10 @@ category: project
     padding: 5px;
     margin-bottom: 5px;
 }
+
+.block-demo{
+    margin: 20px;
+}
 </style>
 </p>
 
@@ -43,7 +47,7 @@ category: project
 <h2>实时时间</h2>
 
 
-<div>
+<div class="block-demo">
 	现在的Unix时间戳(Unix timestamp)是&nbsp;&nbsp;&nbsp;
     <input type="text" id="currentunixtime"> &nbsp; 
     <span class="fa-img" onclick="startTimer();"><i class="fa fa-play"></i></span>&nbsp;
@@ -54,7 +58,7 @@ category: project
 
 <h2>时间戳转日期</h2>
 
-<div> 
+<div class="block-demo"> 
     时间戳<input type="text" id="input-timestamp" size="30"> 
     <span class="fa-img" onclick="unix2human();"><i class="fa fa-undo"></i></span>&nbsp;
     日期<input type="text" size="30" id="turn-result-date" readonly="readonly">
@@ -64,7 +68,7 @@ category: project
 <h2>日期转时间戳</h2>
 
 
-<div> 
+<div class="block-demo"> 
     日期<input type="text" id="input-date" size="30" placeholder="YYYY-MM-DD hh-mm-ss">
     <span class="fa-img" onclick="human2unix();"><i class="fa fa-repeat"></i></span>&nbsp;
     时间戳<input type="text" size="30" id="turn-result-timestam" readonly="readonly">
