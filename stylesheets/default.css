@@ -638,5 +638,6 @@ ul.list-of-tags li {
 .aboutme-group.accordion-group{
   border-right: none;
   border-bottom: none;
+  border-top: none;
   border-left: 1px solid #e5e5e5;
 }
