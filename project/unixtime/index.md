@@ -6,13 +6,17 @@ category: project
 
 <p style="padding: 0px;margin: 0px;">
 <style type="text/css">
+.timestamp input{
+    height: 32px;
+}
+
 .fa-img{
-    display: block;
     color: #222222;
     line-height: 32px;
     height: 32px;
-    padding-left: 10px;
+    padding: 5px;
     border-radius: 4px;
+    cursor: pointer;
 }
 #currentunixtime{
     color: #FF3300;
@@ -33,6 +37,10 @@ category: project
 </p>
 
 
+<div class="timestamp">
+
+## 实时时间
+
 <div>
 	现在的Unix时间戳(Unix timestamp)是&nbsp;&nbsp;&nbsp;
     <input type="text" id="currentunixtime"> &nbsp; 
@@ -41,19 +49,24 @@ category: project
 	<span class="fa-img" onclick="currentTime();"><i class="fa fa-refresh"></i></span>&nbsp;
 </div>
 
-Unix时间戳(Unix timestamp)转北京时间    
+## 时间戳转日期
 
 <div> 
-    Unix时间戳(Unix timestamp) 
-    <input type="text" id="input-timestamp" size="30">
-    <input type="button" value="转换" onclick="unix2human();">
-    北京时间
-    <input type="text" size="30" id="turn-result-time" readonly="readonly">
+    时间戳<input type="text" id="input-timestamp" size="30"> 
+    <span class="fa-img" onclick="unix2human();"><i class="fa fa-undo"></i></span>&nbsp;
+    日期<input type="text" size="30" id="turn-result-date" readonly="readonly">
 </div>
 
 
-北京时间转Uix时间戳(Unix timestamp)   
+## 日期转时间戳
 
+<div> 
+    日期<input type="text" id="input-date" size="30" placeholder="YYYY-MM-DD hh-mm-ss">
+    <span class="fa-img" onclick="human2unix();"><i class="icon-repeat"></i></span>&nbsp;
+    时间戳<input type="text" size="30" id="turn-result-timestam" readonly="readonly">
+</div>
+
+</div>
 
 
 <script>
@@ -61,7 +74,12 @@ function unix2human() {
     var val = +$("#input-timestamp").val();
     var dateObj = new Date(val * 1000);
     var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
-    $("#turn-result-time").val(UnixTimeToDate);
+    $("#turn-result-date").val(UnixTimeToDate);
+}
+function human2unix() {
+    var val = +$("#input-date").val();
+    var time = parseInt((new Date(t)).getTime()/1000);
+	$("#turn-result-timestam").val(time);
 }
 var currentTimeActive = 0; 
 var unixTimer = null;
