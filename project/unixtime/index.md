@@ -57,7 +57,7 @@ Unix时间戳(Unix timestamp)转北京时间
 
 
 <script>
-    var $ = (function(){
+    var $$$ = (function(){
         var $obj = {};
         var fun = {
             val : function(v){
@@ -75,10 +75,10 @@ Unix时间戳(Unix timestamp)转北京时间
     }());
 
     function unix2human() {
-        var val = +$("input-timestamp").val();
+        var val = +$("#input-timestamp").val();
         var dateObj = new Date(val * 1000);
         var UnixTimeToDate = dateObj.getFullYear() + '/' + (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes() + ':' + dateObj.getSeconds();
-        $("turn-result-time").val(UnixTimeToDate);
+        $("#turn-result-time").val(UnixTimeToDate);
     }
     var currentTimeActive = 0; 
     var unixTimer = null;
@@ -88,7 +88,7 @@ Unix时间戳(Unix timestamp)转北京时间
     }
     function currentTime() {
         var timeNow = new Date();
-        $("currentunixtime").val(Math.round(timeNow.getTime()/1000));
+        $("#currentunixtime").val(Math.round(timeNow.getTime()/1000));
         if (currentTimeActive) {
             unixTimer = setTimeout("currentTime()", 1000);
         }
