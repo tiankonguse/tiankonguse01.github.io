@@ -26,14 +26,14 @@ updateData:  21:25 2015/4/2
 
 
 {% for bookState in site.data.book %}
+
 ### {{ bookState.name }}
-{% for book in bookState.list %}
-{% if book.bookLink %}
-*  [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
+
+{% for book in bookState.list %}{% if book.bookLink %}
+* [{{ book.bookName }}][{{book.bookLink}}] {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
 {% else %}
-*  {{ book.bookName }} {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
-{% endif %}
-{% endfor %}
+* {{ book.bookName }} {{ book.readTime }} {% if book.readLink %}[读书笔记][{{ book.readLink }}]{% endif %}
+{% endif %}{% endfor %}
 {% endfor %}
 
 
