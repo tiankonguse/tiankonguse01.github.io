@@ -29,6 +29,7 @@ updateData:  21:25 2015/4/2
 <div class="accordion-group aboutme-group">
     <div class="accordion-heading">
         <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
+        <span>{{  bookState.list | size }}</span>
     </div>   
     <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
         <ul class="article-year clearfix list-articles-category">
@@ -45,6 +46,7 @@ updateData:  21:25 2015/4/2
                 {% if book.readLink %} 
                 <a href="{{ book.readLink }}">读书笔记</a>
                 {% endif %}
+                
             </li>
             {% endfor %}
         </ul>
@@ -58,40 +60,34 @@ updateData:  21:25 2015/4/2
 ## 关于电影和电视剧
 
 
-### 看过
 
-* 《中国合伙人》 2014-11-02晚上 [QQ空间记录][qzone-china-people]
-* 《蜘蛛侠》三部曲 2014-11-08晚上 [QQ空间记录][5a55f12fd7055f54d7060400]
-* 《蝙蝠侠》三部曲 2014-11-10 ~ 2014-11-11 
-* 《钢铁侠》二部曲 2014-11-13 ~ 2014-11-15 
-* 《匆匆那年》2014-12
-* 《有种你爱我》2015-01
-* 《有一个地方只有我们知道》 2015-02
-* 《千里千寻》 2015-02-20, 2015-03-21
-* 《霍比特人3：五军之战》 2015-03-14
-* 《狼图腾》2015-03-14
-* 《五十五度灰》 2015-03-14
-* 《鸟人》 2015-03-14
-* 《吸血鬼日记1》已看完
-* 《吸血鬼日记2》已看完
-* 《吸血鬼日记3》已看完
-* 《吸血鬼日记4》已看完i
-* 《艋舺》2015-03-26
-* 《星际穿越》2015-04-05
-* 《天空之城》2015-04-06~2015-04-07
-
-
-### 在看
-
-* 《吸血鬼日记5》在看
-
-
-### 计划看的电影
-
-
-* 《1942》
-* 《第四公民》
-* 《禁闭岛》
+{% for videoState in site.data.video %}
+<div class="accordion-group aboutme-group">
+    <div class="accordion-heading">
+        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
+        <span>{{  videoState.list | size }}</span>
+    </div>   
+    <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
+        <ul class="article-year clearfix list-articles-category">
+            {% for video in videoState.list %}
+            <li>
+                {% if video.link %}  
+                <a href="{{video.link}}">{{ video.name }}</a>
+                {% else %} 
+                {{ video.name }}  
+                {% endif %}
+                
+                {{ video.time }}  
+                
+                {% if video.record %} 
+                <a href="{{ video.record }}">记录</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
 
 ## 关于我听的音乐
 
@@ -119,13 +115,7 @@ updateData:  21:25 2015/4/2
 * 《make love out of nothing at all》
 
 
-## 关于动漫和漫画 
 
-* 《火影忍者》看完
-* 《死神》看完
-* 《魔法禁书目录1》看完
-* 《魔法禁书目录2》看了部分，放弃看了
-* 《海贼王》在看
 
 
 ## 关于论文
