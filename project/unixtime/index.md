@@ -82,7 +82,7 @@ function unix2human() {
     $("#turn-result-date").val(UnixTimeToDate);
 }
 function human2unix() {
-    var val = +$("#input-date").val();
+    var val = $("#input-date").val();
     var time = parseInt((new Date(val)).getTime()/1000);
 	$("#turn-result-timestam").val(time);
 }
