@@ -27,28 +27,30 @@ updateData:  21:25 2015/4/2
 
 {% for bookState in site.data.book %}
 <div class="accordion-group aboutme-group">
-    <div class="accordion-heading">
-        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
-    </div>   
-    <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
-        <ul class="article-year clearfix list-articles-category">
-            {% for book in bookState.list %}
-            <li>
-                {% if book.bookLink %}  
-                <a href="{{book.bookLink}}">{{ book.bookName }}</a>
-                {% else %} 
-                {{ book.bookName }}  
-                {% endif %}
-                
-                {{ book.readTime }}  
-                
-                {% if book.readLink %} 
-                <a href="{{ book.readLink }}">读书笔记</a>
-                {% endif %}
-                
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="offset1">
+        <div class="accordion-heading">
+            <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
+        </div>   
+        <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
+            <ul class="article-year clearfix list-articles-category">
+                {% for book in bookState.list %}
+                <li>
+                    {% if book.bookLink %}  
+                    <a href="{{book.bookLink}}">{{ book.bookName }}</a>
+                    {% else %} 
+                    {{ book.bookName }}  
+                    {% endif %}
+                    
+                    {{ book.readTime }}  
+                    
+                    {% if book.readLink %} 
+                    <a href="{{ book.readLink }}">读书笔记</a>
+                    {% endif %}
+                    
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 {% endfor %}
@@ -60,27 +62,29 @@ updateData:  21:25 2015/4/2
 
 {% for videoState in site.data.video %}
 <div class="accordion-group aboutme-group">
-    <div class="accordion-heading">
-        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
-    </div>   
-    <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
-        <ul class="article-year clearfix list-articles-category">
-            {% for video in videoState.list %}
-            <li>
-                {% if video.videoLink %}  
-                <a href="{{video.videoLink}}">{{ video.videNname }}</a>
-                {% else %} 
-                {{ video.videNname }}  
-                {% endif %}
-                
-                {{ video.videoTime }}  
-                
-                {% if video.videoRecord %} 
-                <a href="{{ video.videoRecord }}">记录</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="offset1">
+        <div class="accordion-heading">
+            <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
+        </div>   
+        <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
+            <ul class="article-year clearfix list-articles-category">
+                {% for video in videoState.list %}
+                <li>
+                    {% if video.videoLink %}  
+                    <a href="{{video.videoLink}}">{{ video.videNname }}</a>
+                    {% else %} 
+                    {{ video.videNname }}  
+                    {% endif %}
+                    
+                    {{ video.videoTime }}  
+                    
+                    {% if video.videoRecord %} 
+                    <a href="{{ video.videoRecord }}">记录</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 {% endfor %}
