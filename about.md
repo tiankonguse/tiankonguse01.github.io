@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 关于 tiankonguse 的一些东西
-description: tiankonguse 的博客历史与个人经历
+description: tiankonguse 的博客历史、书籍，视频，音乐，个人经历等。  
 keywords:  About, Author, Site, tiankonguse, Jekyll, GitHub, Chrome, Firefox, Safari, IE, MS, Contact, Change, Log, SEO
 isContact: true
 updateData:  21:25 2015/4/2
@@ -39,13 +39,10 @@ updateData:  21:25 2015/4/2
                 {% else %} 
                 {{ book.bookName }}  
                 {% endif %}
-                
                 {{ book.readTime }}  
-                
                 {% if book.readLink %} 
                 <a href="{{ book.readLink }}">读书笔记</a>
                 {% endif %}
-                
             </li>
             {% endfor %}
         </ul>
@@ -89,28 +86,36 @@ updateData:  21:25 2015/4/2
 
 ## 关于我听的音乐
 
-### 最常听的音乐
 
-* 《明天你好》 牛奶@咖啡
-* 《习惯了寂寞》 牛奶@咖啡
-* 《老男孩》
-* 《我的好兄弟》
-* 《拯救》
-* 《知足》
-* 《最初的梦想》
+{% for videoState in site.data.music %}
+<div class="accordion-group aboutme-group">
+    <div class="accordion-heading">
+        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
+    </div>   
+    <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
+        <ul class="article-year clearfix list-articles-category">
+            {% for video in videoState.list %}
+            <li>
+                {% if video.videoLink %}  
+                <a href="{{video.videoLink}}">{{ video.videNname }}</a>
+                {% else %} 
+                {{ video.videNname }}  
+                {% endif %}
+                
+                {{ video.videoTime }}  
+                
+                {% if video.videoRecord %} 
+                <a href="{{ video.videoRecord }}">记录</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
 
-### 偶尔听的音乐
 
-* 《Yesterday Once More》
-* 《同桌的你》
-* 《Say You Say Me》
-* 《如果没有你》
-* 《Right Here Waiting》
-* 《海阔天空》
 
-### 尝试听的音乐
-
-* 《make love out of nothing at all》
 
 
 ## 关于这个网站

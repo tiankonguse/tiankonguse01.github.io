@@ -1,7 +1,7 @@
 ---
 layout : post 
-description : 记录下自己制作github的过程 
-title : 在github上制作一个静态网站 
+description : 记录下自己制作github的过程，中间由于没有背景知识，踩了很多坑，最后终于弄好了。  
+title : 在github上制作一个轻量级免费的静态网站 
 keywords: github, 静态网站, Jekyll, 域名
 tags: github 静态网站 Jekyll 域名
 categories: [网站]

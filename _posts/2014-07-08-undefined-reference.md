@@ -1,7 +1,7 @@
 ---
 layout : post 
-description : 我犯了比较低级的错误:gcc和g++的区别
-title : undefined reference to std::ios_base::Init::Init()
+description : 我犯了比较低级的错误, 最后发现是因为gcc和g++的区别导致的。  
+title : undefined reference to std::ios\_base::Init::Init
 keywords: undefined, reference, 错误
 tags: [reference, gcc, ios_base]
 categories: [程序人生]

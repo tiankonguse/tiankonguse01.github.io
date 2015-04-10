@@ -22,7 +22,7 @@ categories: [网站]
 
 去主题的　header.php　里找了找，发现没有。
 
-后来想想肯定没有了，　这个主题是[自己编写]({{site.prelinkpath}}make-yourself-wordpress-themes)的，自己肯定不会使用别人的资源了，多么不可靠呀。
+后来想想肯定没有了，　这个主题是 [自己编写][make-yourself-wordpress-themes] 的，自己肯定不会使用别人的资源了，多么不可靠呀。
 
 那只有在 wordpress 的自带文件里了。
 
@@ -91,3 +91,5 @@ $disable_google_fonts = new Disable_Google_Fonts;
 * [删除wordpress内置的googleapis在线字体](http://blog.motea.org/29.html)
 
 (完)
+
+[make-yourself-wordpress-themes]: http://github.tiankonguse.com/blog/2014/07/10/make-yourself-wordpress-themes/
