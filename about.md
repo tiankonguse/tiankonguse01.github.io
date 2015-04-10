@@ -60,33 +60,6 @@ updateData:  21:25 2015/4/2
 
 
 
-{% for videoState in site.data.video %}
-<div class="accordion-group aboutme-group">
-    <div class="accordion-heading">
-        <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
-    </div>   
-    <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
-        <ul class="article-year clearfix list-articles-category">
-            {% for video in videoState.list %}
-            <li>
-                {% if video.link %}  
-                <a href="{{video.link}}">{{ video.name }}</a>
-                {% else %} 
-                {{ video.name }}  
-                {% endif %}
-                
-                {{ video.time }}  
-                
-                {% if video.record %} 
-                <a href="{{ video.record }}">记录</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
-{% endfor %}
-
 ## 关于我听的音乐
 
 ### 最常听的音乐
