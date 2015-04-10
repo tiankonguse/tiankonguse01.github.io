@@ -13,7 +13,7 @@ updateData:  13:34 2015/4/10
 ### {{ bookState.name }}
 
 {% for book in bookState.list %}
-* {{ book }}
+* {{# book }}
 {% endfor %}
 
 {% endfor %}
