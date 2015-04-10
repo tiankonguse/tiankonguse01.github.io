@@ -1,146 +1,146 @@
 -   name: 看过的视频与漫画
     list:
-        -   name: 《中国合伙人》
-            link: 
-            time: 2014-11-02晚上
-            record: http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
+        -   videNname: 《中国合伙人》
+            link:  
+            time:  2014-11-02晚上
+            record:  http://user.qzone.qq.com/804345178/mood/5a55f12f770d55540bcc0300.
             
-        -   name: 《蜘蛛侠》三部曲 
-            link: 
-            time: 2014-11-08晚上
-            record: http://user.qzone.qq.com/804345178/mood/5a55f12fd7055f54d7060400.1
+        -   videNname: 《蜘蛛侠》三部曲 
+            link:  
+            time:  2014-11-08晚上
+            record:  http://user.qzone.qq.com/804345178/mood/5a55f12fd7055f54d7060400.1
             
-        -   name: 《蝙蝠侠》三部曲 
-            link: 
-            time: 2014-11-10 ~ 2014-11-11 
+        -   videNname: 《蝙蝠侠》三部曲 
+            link:  
+            time:  2014-11-10 ~ 2014-11-11 
+            record:  
+            
+        -   videNname: 《钢铁侠》二部曲 
+            link:  
+            time:  2014-11-13 ~ 2014-11-15  
             record: 
             
-        -   name:《钢铁侠》二部曲 
-            link: 
-            time: 2014-11-13 ~ 2014-11-15  
-            record:
+        -   videNname: 《匆匆那年》 
+            link:  
+            time:  2014-12 某日
+            record: 
             
-        -   name:《匆匆那年》 
-            link: 
-            time: 2014-12 某日
-            record:
+        -   videNname: 《有种你爱我》 
+            link:  
+            time:  2015-01 某日
+            record: 
             
-        -   name:《有种你爱我》 
-            link: 
-            time: 2015-01 某日
-            record:
+        -   videNname: 《有一个地方只有我们知道》 
+            link:  
+            time:  2015-02某日
+            record: 
             
-        -   name:《有一个地方只有我们知道》 
-            link: 
-            time: 2015-02某日
-            record:
+        -   videNname: 《千里千寻》 
+            link:  
+            time:  2015-02-20, 2015-03-21 
+            record: 
             
-        -   name:《千里千寻》 
-            link: 
-            time: 2015-02-20, 2015-03-21 
-            record:
+        -   videNname: 《霍比特人3：五军之战》 
+            link:  
+            time:  2015-03-14晚
+            record: 
             
-        -   name:《霍比特人3：五军之战》 
-            link: 
-            time: 2015-03-14晚
-            record:
+        -   videNname: 《狼图腾》 
+            link:  
+            time:  2015-03-14晚
+            record: 
             
-        -   name:《狼图腾》 
-            link: 
-            time: 2015-03-14晚
-            record:
+        -   videNname: 《五十五度灰》 
+            link:  
+            time:  2015-03-14晚
+            record: 
             
-        -   name:《五十五度灰》 
-            link: 
-            time: 2015-03-14晚
-            record:
+        -   videNname: 《鸟人》 
+            link:  
+            time:  2015-03-14晚
+            record: 
             
-        -   name:《鸟人》 
-            link: 
-            time: 2015-03-14晚
-            record:
+        -   videNname: 《吸血鬼日记1》 
+            link:  
+            time:  2014-08 ~ 2014-09 
+            record: 
             
-        -   name:《吸血鬼日记1》 
-            link: 
-            time: 2014-08 ~ 2014-09 
-            record:
+        -   videNname: 《吸血鬼日记2》 
+            link:  
+            time:  2014-10 ~ 2014-11 
+            record: 
             
-        -   name:《吸血鬼日记2》 
-            link: 
-            time: 2014-10 ~ 2014-11 
-            record:
+        -   videNname: 《吸血鬼日记3》 
+            link:  
+            time:  2014-12 ~ 2015-01 
+            record: 
             
-        -   name:《吸血鬼日记3》 
-            link: 
-            time: 2014-12 ~ 2015-01 
-            record:
+        -   videNname: 《吸血鬼日记4》 
+            link:  
+            time:  2015-02 ~ 2015-03 
+            record: 
             
-        -   name:《吸血鬼日记4》 
-            link: 
-            time: 2015-02 ~ 2015-03 
-            record:
+        -   videNname: 《艋舺》 
+            link:  
+            time:  2015-03-26晚
+            record: 
             
-        -   name:《艋舺》 
-            link: 
-            time: 2015-03-26晚
-            record:
+        -   videNname: 《星际穿越》 
+            link:  
+            time:  2015-04-05晚
+            record: 
             
-        -   name:《星际穿越》 
-            link: 
-            time: 2015-04-05晚
-            record:
-            
-        -   name:《天空之城》 
-            link: 
+        -   videNname: 《天空之城》 
+            link:  
             time:2015-04-06 ~ 2015-04-07 
-            record:
-            
-        -   name: 《火影忍者》
-            link: 
-            time: 2010 ~ 2015
             record: 
             
-        -   name: 《死神》
-            link: 
-            time: 2010 ~ 2014
-            record: 
+        -   videNname: 《火影忍者》
+            link:  
+            time:  2010 ~ 2015
+            record:  
             
-        -   name: 《魔法禁书目录1》
-            link: 
-            time: 2012 ~ 2012
-            record: 
+        -   videNname: 《死神》
+            link:  
+            time:  2010 ~ 2014
+            record:  
             
-        -   name: 《魔法禁书目录2》
-            link: 
-            time: 2012 ~ 2012
-            record: 
+        -   videNname: 《魔法禁书目录1》
+            link:  
+            time:  2012 ~ 2012
+            record:  
+            
+        -   videNname: 《魔法禁书目录2》
+            link:  
+            time:  2012 ~ 2012
+            record:  
             
 -   name: 还在看的视频与漫画
     list:
-        -   name: 《海贼王》
-            link: 
-            time: 2010 ~ 今
-            record: 
+        -   videNname: 《海贼王》
+            link:  
+            time:  2010 ~ 今
+            record:  
             
-        -   name: 《吸血鬼日记5》
-            link: 
-            time: 2015-04 ~ 今
-            record:            
+        -   videNname: 《吸血鬼日记5》
+            link:  
+            time:  2015-04 ~ 今
+            record:             
             
 -   name: 计划看的视频与漫画
     list:
-        -   name: 《1942》
-            link: 
-            time: 
-            record: 
+        -   videNname: 《1942》
+            link:  
+            time:  
+            record:  
             
-        -   name: 《第四公民》
-            link: 
-            time: 
-            record: 
+        -   videNname: 《第四公民》
+            link:  
+            time:  
+            record:  
             
-        -   name: 《禁闭岛》
-            link: 
-            time: 
-            record: 
+        -   videNname: 《禁闭岛》
+            link:  
+            time:  
+            record:  
 
