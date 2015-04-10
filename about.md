@@ -29,7 +29,6 @@ updateData:  21:25 2015/4/2
 <div class="accordion-group aboutme-group">
     <div class="accordion-heading">
         <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ bookState.name }}-ref">{{ bookState.name }}</h3>
-        <span>{{  bookState.list | size }}</span>
     </div>   
     <div id="{{ bookState.name }}-ref" class="accordion-body collapse">
         <ul class="article-year clearfix list-articles-category">
@@ -65,7 +64,6 @@ updateData:  21:25 2015/4/2
 <div class="accordion-group aboutme-group">
     <div class="accordion-heading">
         <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>
-        <span>{{  videoState.list | size }}</span>
     </div>   
     <div id="{{ videoState.name }}-ref" class="accordion-body collapse">
         <ul class="article-year clearfix list-articles-category">
