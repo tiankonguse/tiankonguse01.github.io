@@ -2,13 +2,15 @@
     var TK = win.TK || function(){};
     if(!TK.prototype){
         TK.prototype = TK.constructor.prototype;
+        win.tk = TK;
+    }else{
+        win.tk = new TK();
     }
     TK.prototype.version = "v20130112";
     TK.prototype.author = "tiankonguse";
     TK.prototype.homepage = "http://tiankonguse.com";
     TK.prototype.QQ = "804345178";
     win.TK = TK;
-    win.tk = new TK();
 }(window);
 
 TK.prototype.Composition = function Composition(target, source){
