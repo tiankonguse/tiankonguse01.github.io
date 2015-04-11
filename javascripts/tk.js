@@ -1,8 +1,7 @@
 !function(win){
     var TK = win.TK || function(){};
     if(!TK.prototype){
-        TK.prototype = TK.constructor.prototype;
-        win.tk = TK;
+        TK.prototype = TK;
     }else{
         win.tk = new TK();
     }
@@ -11,6 +10,7 @@
     TK.prototype.homepage = "http://tiankonguse.com";
     TK.prototype.QQ = "804345178";
     win.TK = TK;
+    
 }(window);
 
 TK.prototype.Composition = function Composition(target, source){
