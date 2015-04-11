@@ -1,5 +1,8 @@
 !function(win){
     var TK = win.TK || function(){};
+    if(!TK.prototype){
+        TK.prototype = TK.constructor.prototype;
+    }
     TK.prototype.version = "v20130112";
     TK.prototype.author = "tiankonguse";
     TK.prototype.homepage = "http://tiankonguse.com";
@@ -673,4 +676,8 @@ tk.Composition(TK, {
 
 
 
+/*
+放在最后执行
+*/
+tk.__INIT__();
 
