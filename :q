@@ -1,0 +1,708 @@
+[1mdiff --git a/_data/book.yml b/_data/book.yml[m
+[1mindex d71d84b..d723626 100755[m
+[1m--- a/_data/book.yml[m
+[1m+++ b/_data/book.yml[m
+[36m@@ -227,4 +227,14 @@[m
+         -   bookName: 《人件集：人性化的软件开发》[m
+             bookLink: [m
+             readTime: [m
+[31m-            readLink:[m
+\ No newline at end of file[m
+[32m+[m[32m            readLink:[m
+[32m+[m[41m                        [m
+[32m+[m[32m        -   bookName: 《构建web高性能架构》[m[41m [m
+[32m+[m[32m            bookLink:[m[41m [m
+[32m+[m[32m            readTime:[m[41m [m
+[32m+[m[32m            readLink:[m
+[32m+[m[41m                        [m
+[32m+[m[32m        -   bookName: 《构建高可用linux服务器》[m
+[32m+[m[32m            bookLink:[m[41m [m
+[32m+[m[32m            readTime:[m[41m [m
+[32m+[m[32m            readLink:[m
+[1mdiff --git a/_layouts/default.html b/_layouts/default.html[m
+[1mindex a2a969b..a3dcef0 100644[m
+[1m--- a/_layouts/default.html[m
+[1m+++ b/_layouts/default.html[m
+[36m@@ -15,10 +15,6 @@[m
+         <link rel="shortcut icon" href="http://tiankonguse.com/common/img/logo.ico" type="image/x-icon" />[m
+         <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.url }}{{ site.feed }}" />[m
+         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">[m
+[31m-        <script src="{{ site.url }}/javascripts/jquery-1.7.1.min.min.js" type="text/javascript"></script>[m
+[31m-        <script src="{{ site.url }}/javascripts/bootstrapv3.min.js" type="text/javascript" ></script>[m
+[31m-        <script src="{{ site.url }}/javascripts/bootstrap-paginator.min.js" type="text/javascript"></script>[m
+[31m-        <script src="{{ site.url }}/javascripts/main.js" type="text/javascript"></script>[m
+     </head>[m
+     <body>[m
+         {{ content }}[m
+[36m@@ -26,6 +22,11 @@[m
+         <!-- footer -->[m
+         <div class="ad-page-footer" ></div>[m
+         {% include sidebar.md %}[m
+[32m+[m[32m        <script src="{{ site.url }}/javascripts/jquery-1.7.1.min.min.js" type="text/javascript"></script>[m
+[32m+[m[32m        <script src="{{ site.url }}/javascripts/bootstrapv3.min.js" type="text/javascript" ></script>[m
+[32m+[m[32m        <script src="{{ site.url }}/javascripts/bootstrap-paginator.min.js" type="text/javascript"></script>[m
+[32m+[m[32m        <script src="{{ site.url }}/javascripts/tk.js" type="text/javascript"></script>[m
+[32m+[m[32m        <script src="{{ site.url }}/javascripts/main.js" type="text/javascript"></script>[m
+         <script>[m
+         document.write(unescape("%3Cscript src='http://hm.baidu.com/h.js%3Ffbbb9e62b837218bf39d4fe819e04e04' type='text/javascript' async %3E%3C/script%3E"));[m
+         </script>[m
+[1mdiff --git a/javascripts/main.js b/javascripts/main.js[m
+[1mindex 1929cdb..b4b2640 100644[m
+[1m--- a/javascripts/main.js[m
+[1m+++ b/javascripts/main.js[m
+[36m@@ -1,633 +1,3 @@[m
+[31m-!function(win){[m
+[31m-    var TK = win.TK || function(){};[m
+[31m-    TK.prototype.version = "v20130112";[m
+[31m-    TK.prototype.author = "tiankonguse";[m
+[31m-    TK.prototype.homepage = "http://tiankonguse.com";[m
+[31m-    TK.prototype.QQ = "804345178";[m
+[31m-    win.TK = TK;[m
+[31m-    win.tk = new TK();[m
+[31m-}(window);[m
+[31m-[m
+[31m-TK.prototype.Composition = function Composition(target, source){[m
+[31m-    for(var key in source){[m
+[31m-        target.prototype[key] = source[key];[m
+[31m-    }[m
+[31m-};[m
+[31m-TK.prototype.AddMethod = function AddMethod(target, source){[m
+[31m-    for(var key in source){[m
+[31m-        target[key] = source[key];[m
+[31m-    }[m
+[31m-};[m
+[31m-[m
+[31m-/* min max */[m
+[31m-tk.Composition(TK, {[m
+[31m-    "min" : function min(){[m
+[31m-        var a = arguments;[m
+[31m-        var r = a[0];[m
+[31m-        var l = a.length;[m
+[31m-        for(var i in a){[m
+[31m-            r = r < a[i] ? r : a[i];[m
+[31m-        }[m
+[31m-        return r;[m
+[31m-    },[m
+[31m-    "max" : function max(){[m
+[31m-        var a = arguments;[m
+[31m-        var r = a[0];[m
+[31m-        var l = a.length;[m
+[31m-        for(var i in a){[m
+[31m-            r = r > a[i] ? r : a[i];[m
+[31m-        }[m
+[31m-        return r;[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* replace */[m
+[31m-tk.Composition(TK,{[m
+[31m-    replace : function replace(str, key, val) {[m
+[31m-        return str.split(key).join(val);[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-[m
+[31m-/* Format timr */[m
+[31m-tk.Composition(TK,{[m
+[31m-    Format : function Format(data, fmt) {[m
+[31m-        var o = {[m
+[31m-            "M+": data.getMonth() + 1,[m
+[31m-            "d+": data.getDate(),[m
+[31m-            "h+": data.getHours(),[m
+[31m-            "m+": data.getMinutes(),[m
+[31m-            "s+": data.getSeconds()[m
+[31m-        };[m
+[31m-        if (/(y+)/.test(fmt)){[m
+[31m-            var match = RegExp.$1;[m
+[31m-            var length = 4 - tk.min(match.length, 4);[m
+[31m-            var replace = (data.getFullYear() + "");[m
+[31m-            replace = replace.substr(length);[m
+[31m-            fmt = tk.replace(fmt, match, replace);[m
+[31m-        }[m
+[31m-        if (/(S+)/.test(fmt)){[m
+[31m-            var match = RegExp.$1;[m
+[31m-            var replace = data.getMilliseconds() + "";[m
+[31m-            var length = tk.max(tk.min(match.length, 3), replace.length)[m
+[31m-            replace = "00" + replace;[m
+[31m-            length = replace.length - length;[m
+[31m-            replace = replace.substr(length);[m
+[31m-            fmt = tk.replace(fmt, match, replace);[m
+[31m-        }[m
+[31m-        for (var k in o){[m
+[31m-            if (new RegExp("(" + k + ")").test(fmt)){[m
+[31m-                var match = RegExp.$1;[m
+[31m-                var replace = o[k] + "";[m
+[31m-                var length = tk.max(tk.min(match.length, 2), replace.length);[m
+[31m-                replace = "0" + replace;[m
+[31m-                length = replace.length - length;[m
+[31m-                replace = replace.substr(length);[m
+[31m-                fmt = tk.replace(fmt, match, replace);[m
+[31m-            }[m
+[31m-        }[m
+[31m-        return fmt;[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-[m
+[31m-/* UTF8Length */[m
+[31m-tk.Composition(TK,{[m
+[31m-    UTF8Length : function UTF8Length(s) {[m
+[31m-        var l = 0;[m
+[31m-        var c;[m
+[31m-        for (var i = 0; i < s.length; i++) {[m
+[31m-            c = s.charCodeAt(i);[m
+[31m-            if (c <= 0x007f) {[m
+[31m-                l = l + 1;[m
+[31m-            } else if ((0x0080 <= c) && (c <= 0x07ff)) {[m
+[31m-                l += 2;[m
+[31m-            } else if ((0x0800 <= c) && (c <= 0xffff)) {[m
+[31m-                l += 3;[m
+[31m-            }[m
+[31m-        }[m
+[31m-        return l;[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* Cookie */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    Cookie : function Cookie(){}[m
+[31m-});[m
+[31m-tk.Composition(TK.Cookie,{[m
+[31m-    set: function set(name, value, domain, path) {[m
+[31m-        document.cookie = name + "=" + value + "; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.cm.com;"));[m
+[31m-        return true;[m
+[31m-    },[m
+[31m-    get: function get(name) {[m
+[31m-        var r = new RegExp("(?:^|;+|\\s+)" + name + "=([^;]*)"),[m
+[31m-        m = document.cookie.match(r);[m
+[31m-        return (!m ? "": m[1]);[m
+[31m-    },[m
+[31m-    del: function del(name, domain, path) {[m
+[31m-        document.cookie = name + "=; expires=Mon, 26 Jul 1997 05:00:00 GMT; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.tiankonguse.com;"));[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK,{[m
+[31m-    cookie : new TK.Cookie()[m
+[31m-});[m
+[31m-[m
+[31m-/* customDropDown */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    customDropDown : function customDropDown(ele){[m
+[31m-        this.dropdown = ele;[m
+[31m-        this.placeholder = this.dropdown.find(".placeholder");[m
+[31m-        this.options = this.dropdown.find("ul.dropdown-menu > li:not(.hide)");[m
+[31m-        this.val = '';[m
+[31m-        this.index = -1;//默认为-1;[m
+[31m-        this.initEvents();[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK.customDropDown,{[m
+[31m-    initEvents : function initEvents() {[m
+[31m-        var obj = this;[m
+[31m-        //这个方法可以不写，因为点击事件被Bootstrap本身就捕获了，显示下面下拉列表[m
+[31m-        obj.dropdown.on("click", function(event) {[m
+[31m-            $(this).toggleClass("active");[m
+[31m-        });[m
+[31m-        //点击下拉列表的选项[m
+[31m-        obj.options.on("click", function() {[m
+[31m-            var opt = $(this);[m
+[31m-            obj.text = opt.find("a").text();[m
+[31m-            obj.val = opt.attr("value");[m
+[31m-            obj.index = opt.index();[m
+[31m-            obj.placeholder.text(obj.text);[m
+[31m-        });[m
+[31m-    },[m
+[31m-    getText : function getText() {[m
+[31m-        return this.text;[m
+[31m-    },[m
+[31m-    getValue : function getValue() {[m
+[31m-        return this.val;[m
+[31m-    },[m
+[31m-    getIndex : function getIndex() {[m
+[31m-        return this.index;[m
+[31m-    },[m
+[31m-    selectFirst : function selectFirst() {[m
+[31m-        this.options[0].click();[m
+[31m-    },[m
+[31m-    hide : function hide() {[m
+[31m-        this.dropdown.hide()[m
+[31m-    },[m
+[31m-    show : function show() {[m
+[31m-        this.dropdown.show()[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* JSON */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    JSON : function JSON(ele){[m
+[31m-        ele = ele || "{}";[m
+[31m-        this.parse = window.JSON.parse;[m
+[31m-        this.stringify = window.JSON.stringify;[m
+[31m-        if(typeof ele == "string"){[m
+[31m-            this.str = ele;[m
+[31m-            this.object = this.parse(ele);[m
+[31m-        }else{[m
+[31m-            this.object = ele;[m
+[31m-            this.str = this.stringify(ele, null, 0);[m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK.JSON,{[m
+[31m-    toObject : function toObject(src){[m
+[31m-        return this.parse(src);[m
+[31m-    },[m
+[31m-    toString : function toString(format){[m
+[31m-        var str;[m
+[31m-        if(format){[m
+[31m-            str = this.stringify(this.object);[m
+[31m-        }else{[m
+[31m-            str = this.str;[m
+[31m-        }[m
+[31m-        return str;[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK, {[m
+[31m-    json : new TK.JSON()[m
+[31m-});[m
+[31m-[m
+[31m-/* XML */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    XML : function XML(ele){[m
+[31m-        ele = ele || "";[m
+[31m-        this.ok = false;[m
+[31m-        this.json = {};[m
+[31m-        if(typeof ele == "string"){[m
+[31m-            if (ele.trim().length == 0) {[m
+[31m-                this.ok = true;[m
+[31m-            }else{[m
+[31m-                var xmlDom = jQuery.parseXML(ele);[m
+[31m-                if (xmlDom.nodeType == 9) {[m
+[31m-                    this.xmlDom = xmlDom.childNodes[0];[m
+[31m-                }else{[m
+[31m-                    this.ok = true;[m
+[31m-                }[m
+[31m-            }[m
+[31m-        }else{[m
+[31m-            this.xmlDom = ele;[m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK.XML,{[m
+[31m-    toXMLDom : function toXMLDom(ele){[m
+[31m-        ele = ele || "";[m
+[31m-        this.ok = false;[m
+[31m-        this.json = {};[m
+[31m-        if(typeof ele == "string"){[m
+[31m-            if (ele.trim().length == 0) {[m
+[31m-                this.ok = true;[m
+[31m-            }else{[m
+[31m-                var xmlDom = jQuery.parseXML(ele);[m
+[31m-                if (xmlDom.nodeType == 9) {[m
+[31m-                    this.xmlDom = xmlDom.childNodes[0];[m
+[31m-                }else{[m
+[31m-                    this.ok = true;[m
+[31m-                }[m
+[31m-            }[m
+[31m-        }else{[m
+[31m-            this.xmlDom = ele;[m
+[31m-        }[m
+[31m-        return this.xmlDom;[m
+[31m-    },[m
+[31m-    toJSON : function toJSON(ele){[m
+[31m-        if(ele){[m
+[31m-            this.toXMLDom(ele);[m
+[31m-        }[m
+[31m-        if(this.ok){[m
+[31m-            return this.json;[m
+[31m-        }[m
+[31m-        var xml = this.xmlDom;[m
+[31m-        var obj = {};[m
+[31m-        if (xml.nodeType == 1) {[m
+[31m-            // element[m
+[31m-            // do attributes[m
+[31m-            if (xml.attributes.length > 0) {[m
+[31m-                obj["@attributes"] = {};[m
+[31m-                for (var j = 0; j < xml.attributes.length; j++) {[m
+[31m-                    var attribute = xml.attributes.item(j);[m
+[31m-                    obj["@attributes"][attribute.nodeName] = attribute.nodeValue;[m
+[31m-                }[m
+[31m-            }[m
+[31m-        } else if (xml.nodeType == 3) { // text[m
+[31m-            obj = xml.nodeValue;[m
+[31m-        }[m
+[31m-        // do children[m
+[31m-        if (xml.hasChildNodes()) {[m
+[31m-            for (var i = 0; i < xml.childNodes.length; i++) {[m
+[31m-                var item = xml.childNodes.item(i);[m
+[31m-                var nodeName = item.nodeName;[m
+[31m-                if (typeof (obj[nodeName]) == "undefined") {[m
+[31m-                    obj[nodeName] = this.xmlToJson(item);[m
+[31m-                } else {[m
+[31m-                    if (typeof (obj[nodeName].push) == "undefined") {[m
+[31m-                        var old = obj[nodeName];[m
+[31m-                        obj[nodeName] = [];[m
+[31m-                        obj[nodeName].push(old);[m
+[31m-                    }[m
+[31m-                    obj[nodeName].push(xmlToJson(item));[m
+[31m-                }[m
+[31m-            }[m
+[31m-        }[m
+[31m-        return obj;[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK, {[m
+[31m-    xml : new TK.XML()[m
+[31m-});[m
+[31m-[m
+[31m-/* hashString */[m
+[31m-tk.Composition(TK,{[m
+[31m-    hashString : function hashString(str, caseSensitive){[m
+[31m-        str = str.toString();[m
+[31m-        if (!caseSensitive) {[m
+[31m-            str = str.toLowerCase();[m
+[31m-        }[m
+[31m-        // 1315423911=b'1001110011001111100011010100111'[m
+[31m-        var hash = 1315423911, i, ch;[m
+[31m-        for (i = str.length - 1; i >= 0; i--) {[m
+[31m-            ch = str.charCodeAt(i);[m
+[31m-            hash ^= ((hash << 5) + ch + (hash >> 2));[m
+[31m-        }[m
+[31m-        return (hash & 0x7FFFFFFF);[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* loadImg */[m
+[31m-tk.Composition(TK,{[m
+[31m-    loadImg : function loadImg(imgList, callback){[m
+[31m-        if(typeof imgList == "string"){[m
+[31m-            imgList = [imgList];[m
+[31m-        }[m
+[31m-        window.TK = window.TK || {};[m
+[31m-        var hashMap = {};[m
+[31m-        var img = window.TK.img;[m
+[31m-        window.TK.img = '';[m
+[31m-        [m
+[31m-        window.TK.callback = function(){[m
+[31m-            window.TK.img = img;[m
+[31m-            if(callback){[m
+[31m-                callback();[m
+[31m-            }[m
+[31m-        };[m
+[31m-        for(var i in imgList){[m
+[31m-            var url = imgList[i];[m
+[31m-            var key = "" + tk.hashString(url);[m
+[31m-            if(hashMap[key])continue;[m
+[31m-            hashMap[key] = 1;[m
+[31m-            window.TK.img += '<img src=\''+url+'\' /><script>window.onload = function() { parent.TK.callback(); }</script>';[m
+[31m-        }[m
+[31m-        if(window.TK.img){[m
+[31m-            $("body").append('<iframe src="javascript:parent.TK.img;" height="0px" width="0px"></iframe>');[m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* imgRealSize */[m
+[31m-tk.Composition(TK,{[m
+[31m-    imgRealSize : function imgRealSize(url, callback){[m
+[31m-    var img = new Image();[m
+[31m-    img.src = url;[m
+[31m-    if(img.complete){[m
+[31m-        callBack(img.width, img.height);[m
+[31m-        img = null;[m
+[31m-    }else{[m
+[31m-        img.onload=function(){[m
+[31m-            callBack(img.width, img.height);[m
+[31m-            img = null;[m
+[31m-        };[m
+[31m-    }[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* Mobile */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    Mobile : function Mobile(){[m
+[31m-        this.agent = navigator.userAgent;[m
+[31m-    }[m
+[31m-});   [m
+[31m-tk.Composition(TK.Mobile,{[m
+[31m-   Android: function Android() {[m
+[31m-        return this.agent.match(/Android/i);[m
+[31m-    },[m
+[31m-    BlackBerry: function BlackBerry() {[m
+[31m-        return this.agent.match(/BlackBerry/i);[m
+[31m-    },[m
+[31m-    iOS: function iOS() {[m
+[31m-        return this.agent.match(/iPhone|iPad|iPod/i);[m
+[31m-    }[m
+[31m-    ,Opera: function Opera() {[m
+[31m-        return this.agent.match(/Opera Mini/i);[m
+[31m-    },[m
+[31m-    Windows: function Windows() {[m
+[31m-        return this.agent.match(/IEMobile/i);[m
+[31m-    },[m
+[31m-    QQ : function QQ(){[m
+[31m-        return this.agent.match(/QQ\//i);[m
+[31m-    },[m
+[31m-    any: function() {[m
+[31m-        return (this.Android() || this.BlackBerry() || this.iOS() || this.Opera() || this.Windows());[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK, {[m
+[31m-    isMobile  : new TK.Mobile()[m
+[31m-});[m
+[31m-[m
+[31m-/* loadJSFile */[m
+[31m-[m
+[31m-[m
+[31m-tk.Composition(TK, {[m
+[31m-    loadJSFile  : function loadJSFile(url, cb, async, innerText){[m
+[31m-        try {[m
+[31m-            var head = document.body || document.getElementsByTagName("body")[0] || document.documentElement;[m
+[31m-            var script = document.createElement('script');[m
+[31m-            var done = false;[m
+[31m-            script.src = url;[m
+[31m-            script.async = !!async;[m
+[31m-            [m
+[31m-            if (!!innerText) {[m
+[31m-            /* IE8 and below throws an exception when calling appendChild on a script tag */[m
+[31m-                try {[m
+[31m-                    script.appendChild(document.createTextNode(innerText));[m
+[31m-                } catch(e) {[m
+[31m-                    script.text = innerText;[m
+[31m-                }[m
+[31m-            }[m
+[31m-            [m
+[31m-            script.onload = script.onreadystatechange = function() {[m
+[31m-                if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {[m
+[31m-                    done = true;[m
+[31m-                    script.onload = script.onreadystatechange = null;[m
+[31m-                    cb && cb();[m
+[31m-                }[m
+[31m-            };[m
+[31m-            /* head.insertBefore(script, head.firstChild); */[m
+[31m-           head.appendChild(script); [m
+[31m-        } catch (e) { [m
+[31m-            console.log("loadJSFile "+ url +" error. msg: " + err.message); [m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* loadPage */[m
+[31m-tk.Composition(TK, {[m
+[31m-    loadPage : function loadPage(nowPage, allPage, $pageDom, url){[m
+[31m-        var first = true;[m
+[31m-        if(nowPage == 1){[m
+[31m-            first = false;[m
+[31m-        }[m
+[31m-        if (allPage > 1) {[m
+[31m-            $pageDom.html("");[m
+[31m-            var op = {[m
+[31m-                bootstrapMajorVersion : 3,[m
+[31m-                currentPage : nowPage,[m
+[31m-                totalPages : allPage,[m
+[31m-                onPageChanged : function(e, oldPage, newPage) {[m
+[31m-                    if(first == true){[m
+[31m-                        first = false;[m
+[31m-                        return;[m
+[31m-                    }[m
+[31m-                    if(newPage > 1){[m
+[31m-                        window.location.href=url+"page"+newPage;[m
+[31m-                    }else{[m
+[31m-                        window.location.href=url;[m
+[31m-                    }[m
+[31m-                },[m
+[31m-                useBootstrapTooltip : true,[m
+[31m-                tooltipTitles : function(type, page, current) {[m
+[31m-                    switch (type) {[m
+[31m-                        case "first" :[m
+[31m-                            return "第一页";[m
+[31m-                        case "prev" :[m
+[31m-                            return "上一页";[m
+[31m-                        case "next" :[m
+[31m-                            return "下一页";[m
+[31m-                        case "last" :[m
+[31m-                            return "最后一页";[m
+[31m-                        case "page" :[m
+[31m-                            return "第" + page + "页";[m
+[31m-                    }[m
+[31m-                },[m
+[31m-                pageUrl : function(type, page, current){[m
+[31m-                    if(page == 1){[m
+[31m-                        return url;[m
+[31m-                    }else{[m
+[31m-                        return url+"page"+page;[m
+[31m-                    }[m
+[31m-                    [m
+[31m-                }[m
+[31m-            };[m
+[31m-            $pageDom.bootstrapPaginator(op);[m
+[31m-        } [m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* time */[m
+[31m-tk.Composition(TK, {[m
+[31m-    time : function time(){[m
+[31m-        return new Date().getTime();[m
+[31m-    }[m
+[31m-});[m
+[31m-[m
+[31m-/* AD */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    AD : function AD(){[m
+[31m-        this.isShowPageFoot = true;[m
+[31m-        this.isLoadGoogleJs = true;[m
+[31m-        this.alreadyLoad = false;[m
+[31m-        this.adList = [];[m
+[31m-        this.endText = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK.AD,{[m
+[31m-    showPageFoot: function showPageFoot(className, key, force) {[m
+[31m-        if(!this.isShowPageFoot && !force){[m
+[31m-            return;[m
+[31m-        }[m
+[31m-        this.showAd(className, key);[m
+[31m-    },[m
+[31m-    showAd : function showAd(className, key){[m
+[31m-        $("." + className).html(this.getAd(key));[m
+[31m-    },[m
+[31m-    loadGoogleJs : function loadGoogleJs(force){[m
+[31m-        if(!this.isLoadGoogleJs && !force && !this.alreadyLoad){[m
+[31m-            return;[m
+[31m-        }[m
+[31m-        this.alreadyLoad = true;[m
+[31m-        try{[m
+[31m-            tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);[m
+[31m-        }catch(err){[m
+[31m-            tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);[m
+[31m-        }[m
+[31m-    },[m
+[31m-    addAd : function addAd(key, val){[m
+[31m-        if(!this.adList[key]){[m
+[31m-            this.adList[key] = val;[m
+[31m-        }[m
+[31m-    },[m
+[31m-    getAd : function getAd(key){[m
+[31m-        return (this.adList[key] || "") + this.endText;[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK, {[m
+[31m-        ad : (function(){[m
+[31m-            var ad = new TK.AD();[m
+[31m-            ad.addAd("300-250", "<!-- phone-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8417451596\"></ins>");[m
+[31m-            ad.addAd("728-90","<!-- footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5074793995\"></ins>");[m
+[31m-            ad.addAd("320-50",'<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="2712008393"></ins>');[m
+[31m-            ad.addAd("300-250","<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");[m
+[31m-            ad.addAd("728-90","<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");[m
+[31m-            [m
+[31m-            return ad;[m
+[31m-        })()[m
+[31m-    }[m
+[31m-);[m
+[31m-[m
+[31m-/* Comment */[m
+[31m-tk.AddMethod(TK,{[m
+[31m-    Comment : function Comment(){[m
+[31m-        this.isHaveComment = true;[m
+[31m-        this.disqus_shortname = 'tiankonguse-record';[m
+[31m-        this.hash = location.hash;[m
+[31m-        this.time = 5000;[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK.Comment, {[m
+[31m-    init : function init(dom){[m
+[31m-        this.dom = dom;[m
+[31m-        if(!this.isHaveComment || this.dom.length == 0){[m
+[31m-            return;[m
+[31m-        }[m
+[31m-        if(this.shouldLoad()){[m
+[31m-            this.loadComment();[m
+[31m-        }else{[m
+[31m-            this.bindClick();[m
+[31m-            this.laterLoad(this.time);[m
+[31m-        }[m
+[31m-        [m
+[31m-    },[m
+[31m-    laterLoad : function laterLoad(t){[m
+[31m-        var that = this;[m
+[31m-        setTimeout(function(){[m
+[31m-            that.loadComment();[m
+[31m-        }, t);[m
+[31m-    },[m
+[31m-    shouldLoad  : function shouldLoad(){[m
+[31m-        return /\#comment/.test(this.hash );[m
+[31m-    },[m
+[31m-    bindClick : function bindClick(){[m
+[31m-        var that = this;[m
+[31m-        this.dom.on('click',function(){[m
+[31m-            that.loadComment();[m
+[31m-        });[m
+[31m-    },[m
+[31m-    loadComment : function loadComment(){[m
+[31m-        var that = this.dom;[m
+[31m-        that.html('加载中...');[m
+[31m-        $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.Composition(TK, {[m
+[31m-        comment : new TK.Comment()[m
+[31m-    }[m
+[31m-);[m
+[31m-[m
+[31m-tk.Composition(TK, {[m
+[31m-    frame : function(){[m
+[31m-        if(window != window.top){[m
+[31m-            window.top.location = window.location;[m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.frame();[m
+[31m-[m
+[31m-tk.Composition(TK, {[m
+[31m-    fixConsole : function(){[m
+[31m-        var console = (window.console = window.console || {});[m
+[31m-        var methods = [[m
+[31m-            'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',[m
+[31m-            'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',[m
+[31m-            'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',[m
+[31m-            'timeStamp', 'trace', 'warn'[m
+[31m-        ];[m
+[31m-        var noop = function () {};[m
+[31m-        var length = methods.length;[m
+[31m-        var method;[m
+[31m-        while (length--) {[m
+[31m-            method = methods[length];[m
+[31m-            if (!console[method]) {[m
+[31m-                console[method] = noop;[m
+[31m-            }[m
+[31m-        }[m
+[31m-    }[m
+[31m-});[m
+[31m-tk.fixConsole();[m
+[31m-[m
+ jQuery(document).ready(function(){[m
+     //***********************[m
+     // home follow[m
+[36m@@ -637,12 +7,6 @@[m [mjQuery(document).ready(function(){[m
+         return '<a href="'+href+'" target="_blank" ><img src="'+img+'" alt="'+name+'"/></a>';[m
+     }[m
+     var contactTpl = "";[m
+[31m-    //contactTpl += addContactData("新浪微博","http://weibo.com/tiankonguse/","http://www.weibo.com/favicon.ico");[m
+[31m-    //contactTpl += addContactData("豆瓣","http://www.douban.com/people/tiankonguse/","http://www.douban.com/favicon.ico");[m
+[31m-    //contactTpl += addContactData("github","https://github.com/tiankonguse/","https://github.com/apple-touch-icon-114.png");[m
+[31m-    //contactTpl += addContactData("rss","http://github.tiankonguse.com/atom.xml","http://github.tiankonguse.com/images/rss_24x24.png");[m
+[31m-    //contactTpl += addContactData("微信","#show-hide-weixin","http://github.tiankonguse.com/images/weixin_24x24.png");[m
+[31m-    [m
+     contactTpl += '<div class="weixin" style="display: none;"><img src="http://github.tiankonguse.com/images/weixin_code.png" alt="微信"></div>';[m
+     [m
+     $homeContact.append(contactTpl);[m
+[36m@@ -696,8 +60,6 @@[m [mfunction loadSidebar(){[m
+         that.attr("href", googleUrl + val);[m
+         return true;[m
+     });[m
+[31m-[m
+[31m-[m
+ }[m
+ [m
+ [m
