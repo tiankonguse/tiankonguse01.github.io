@@ -3,3 +3,4 @@ build/
 _drafts/
 .DS_Store
 *.swp
+*~
