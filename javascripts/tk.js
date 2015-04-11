@@ -2,6 +2,7 @@
     var TK = win.TK || function(){};
     if(!TK.prototype){
         TK.prototype = TK;
+        win.tk = TK;
     }else{
         win.tk = new TK();
     }
