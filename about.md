@@ -15,7 +15,14 @@ updateData:  21:25 2015/4/2
 
 大学四年 acmer,期间用php写过一些小系统。  
 
-现在专注于c++方向的东西。  
+
+目前，就职与[腾讯][tencent]公司，从事后台开发。  
+
+工作目前涉及到的语言有:c/c++(CGI,服务,独立程序), python(独立程序), perl(独立程序), php(网站后台), 前台html+css+js开发。  
+
+涉及到技术有：　独立系统设计，　系统数据库独立设计，　sphinx搜索搭建与维护，　各种接口设计与维护。  
+
+
 
 
 简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
@@ -173,3 +180,4 @@ updateData:  21:25 2015/4/2
 [douban-MySQL-High-Availability]: http://book.douban.com/subject/6847455/
 [douban-SQL-Antipatterns]: http://book.douban.com/subject/6800774/
 [douban-mysql-3729677]: http://book.douban.com/subject/3729677/
+[tencent]: http://tencent.com/
