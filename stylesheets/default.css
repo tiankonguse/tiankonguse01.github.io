@@ -548,6 +548,7 @@ hr {
   background-color:#000;
   border-radius: 4px;
   color: #FFF;
+    cursor: pointer;
 }
 
 ul.list-articles-category li time {
