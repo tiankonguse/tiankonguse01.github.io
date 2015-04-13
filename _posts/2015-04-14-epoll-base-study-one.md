@@ -11,13 +11,13 @@ updateData:   2015-04-14 02:12:45
 
 ## epoll　是什么
 
-介绍 epoll 之前，需要先介绍一下　文件描述符，　也就是人们常说的　FD.  
+介绍 epoll 之前，需要先介绍一下　文件描述符,也就是人们常说的　FD.  
 
-在　linux　中，　我们对文件的操作映射到一个文件描述符（其实就是一个数字），　然后我们对这个文件描述符的操作都会对应到具体的文件上。  
+在　linux　中,我们对文件的操作映射到一个文件描述符（其实就是一个数字）,然后我们对这个文件描述符的操作都会对应到具体的文件上。  
 
-后来，由于文件描述符如此好用，　我们就把文件描述符抽象出来，　比如网络操作，数据库操作等都映射到文件描述符。这样我们的所有这些IO操作都可以当做文件一样来操作就行了。  
+后来，由于文件描述符如此好用,我们就把文件描述符抽象出来,比如网络操作，数据库操作等都映射到文件描述符。这样我们的所有这些IO操作都可以当做文件一样来操作就行了。  
 
-然后由于某些原因，比如网络延迟，文件加锁等等吧，　那些“文件”暂时是不可用的，　此时我们就需要等待了。  
+然后由于某些原因，比如网络延迟，文件加锁等等吧,那些“文件”暂时是不可用的,此时我们就需要等待了。  
 
 一个网络程序是经常进行网络操作的，如果等待的时间长了，那程序的效率显然比较底下了。  
 
@@ -29,7 +29,7 @@ updateData:   2015-04-14 02:12:45
 
 ## 打开epoll文件描述符
 
-使用`epoll_create`函数可以打开一个epoll文件描述符。  
+使用epoll_create函数可以打开一个epoll文件描述符。  
 
 ```
 #include <sys/epoll.h>
@@ -38,19 +38,19 @@ int epoll_create(int size);
 int epoll_create1(int flags);
 ```
 
-上面的代码说明了　`epoll_create` 函数需要　`sys/epoll.h`　头文件。  
+上面的代码说明了epoll_create 函数需要sys/epoll.h头文件。  
 
-`epoll_create` 函数会创建一个　epoll 实例，　然后申请创建size个描述符空间。  
+epoll_create函数会创建一个epoll实例,然后申请创建size个描述符空间。  
 但是采用原先创建的方法必然会造成文件描述符的浪费，所以系统只会参考这个size, 实际上创建的个数比这个少，之后需要时会动态创建文件描述符的。  
-但是也要注意，　这个size不能为０。  
+但是也要注意,这个size不能为０。  
 
-关于`epoll_create1`函数，　当flags是０的时候，　作用和`epoll_create` 相同。  
-当参数不为０时，应该只能为　EPOLL_CLOEXEC 了，　这里就不讲解这个功能了，　初级的我们忽略 `epoll_create1` 函数吧。  
+关于epoll_create1函数,当flags是０的时候,作用和epoll_create相同。  
+当参数不为０时，应该只能为EPOLL_CLOEXEC了,这里就不讲解这个功能了,初级的我们忽略epoll_create1函数吧。  
 
 
 这里还要简单的介绍一下返回值。  
 
-默认成功返回非负的epoll文件描述符，　返回-1代表出错了，　错误把设置在　errno　上。  
+默认成功返回非负的epoll文件描述符,返回-1代表出错了,错误把设置在　errno　上。  
 
 错误码如下  
 
@@ -63,7 +63,7 @@ int epoll_create1(int flags);
 
 ## 管理epoll下监听的文件描述符集
 
-使用`epoll_ctl`函数来管理监听的文件描述符集，　这个集合我们统称为事件吧。  
+使用epoll_ctl函数来管理监听的文件描述符集,这个集合我们统称为事件吧。  
 
 主要可以做的是增加新事件，修改已有的事件，删除已有的事件。  
 
@@ -97,7 +97,7 @@ int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
 ## 等待epoll事件
 
 
-注册完事件了，接下来我们就可以使用`epoll_wait`或`epoll_pwait` 等待事件触发了。  
+注册完事件了，接下来我们就可以使用epoll_wait或epoll_pwait等待事件触发了。  
 
 
 ```
@@ -132,9 +132,9 @@ int epoll_pwait(int epfd, struct epoll_event *events,int maxevents, int timeout,
 
 ### epoll_event结构
 
-`epoll_wait`时的那个　epoll_event　相当简单，只有两个值。  
+epoll_wait时的那个　epoll_event　相当简单，只有两个值。  
 
-一个是事件配置信息, 一个是注册这个事件时的一些数据，存在　`epoll_data_t`　结构中。  
+一个是事件配置信息, 一个是注册这个事件时的一些数据，存在epoll_data_t结构中。  
 
 ```
 struct epoll_event {
@@ -145,8 +145,7 @@ struct epoll_event {
 
 ### epoll_data_t 结构
 
-
-`epoll_data_t` 是一个联合体，事件触发时，我们就当做是事件描述符就行了。  
+epoll_data_t是一个联合体，事件触发时，我们就当做是事件描述符就行了。  
 
 ```
 typedef union epoll_data {
