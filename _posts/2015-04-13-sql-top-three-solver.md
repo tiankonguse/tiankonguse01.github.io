@@ -10,12 +10,12 @@ updateData:  13:12 2015/4/13
 
 ## 背景
 
-网上遇到一道mysql问题，我懒得建数据库测试，于是直接去写sql语句，然后发给对方，对方反馈一下我的sql是正确的还是错误的。  
+网上遇到一道[mysql问题][sql-top]，我懒得建数据库测试，于是直接去写sql语句，然后发给对方，对方反馈一下我的sql是正确的还是错误的。  
 
 这样一来一回，结果浪费了一个小时时间才写出正确的sql语句来。   
 
 
-前几天我也把这个问题贴出来了，大家可以在这里看到 《[一条mysql语句查询top数据][sql-top]》。  
+前几天我也把这个问题贴出来了，大家可以在这里看到 《[一条mysql语句查询top数据][department-top-three-salaries]》。  
 
 
 
@@ -750,5 +750,5 @@ select t2.Name, t2.Pay, t3.CompanyName  as Company, t3.Rank from  Programmer t2 
 关于具体怎么优化，这里就不继续下去了， 如果有时间，我可以补上一些关于 mysql 优化的一些记录吧。  
 
 
-
+[sql-top]: http://github.tiankonguse.com/blog/2015/04/02/sql-top/
 [department-top-three-salaries]: https://github.com/tiankonguse/leetcode-solutions/tree/master/department-top-three-salaries
