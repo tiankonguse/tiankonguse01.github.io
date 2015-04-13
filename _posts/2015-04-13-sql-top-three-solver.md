@@ -486,7 +486,7 @@ possible_keys: NULL
 
 上面的查询语句让人很满意， 但是我们的问题还没有解决。  
 
-因为我们做了假设：假设每个公司内员工的薪水互不相同， 这在显示生活中怎么可能呢？  
+因为我们做了假设：假设每个公司内员工的薪水互不相同， 这在现实生活中怎么可能呢？  
 
 于是我们需要继续改造我们的 sql 语句了。  
 
@@ -496,7 +496,7 @@ possible_keys: NULL
 我们还是假设只有一个公司吧。  
 
 
-首先展示一下我们的查询语句吧。  
+首先展示一下我们的查询数据吧。  
 
 ```
 mysql> SELECT t0.Id as Id, t0.Name as Name, t0.Pay as Pay, t0.Company as Company FROM test.Programmer t0;
