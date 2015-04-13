@@ -1234,6 +1234,11 @@ select t2.Name, t2.Pay, t3.CompanyName  as Company, t3.Rank from  Programmer t2 
 
 关于具体怎么优化，这里就不继续下去了， 如果有时间，我可以补上一些关于 mysql 优化的一些记录吧。  
 
+## 尾记
+
+好吧，我以前是学算法的，所以我只能从数据量，输入，输出简单来估计复杂度。  
+
+对于那些索引，内存缓存表，磁盘缓存表等复杂度的数量级也相差很大，所以这里就不说那些了。  
 
 [sql-top]: http://github.tiankonguse.com/blog/2015/04/02/sql-top/
 [department-top-three-salaries]: https://github.com/tiankonguse/leetcode-solutions/tree/master/department-top-three-salaries
