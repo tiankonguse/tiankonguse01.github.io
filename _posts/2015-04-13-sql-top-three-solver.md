@@ -35,13 +35,15 @@ updateData:  13:12 2015/4/13
 
 具体的原题，大家可以参考这里 [Department Top Three Salaries][department-top-three-salaries].  
 
+PS:公司换成部门即可  
+
 
 ## 问题分析
 
 
 ### 疑问:公司内输出记录个数
 
-看到这里，我们的第一个疑问是：对于同一个公司，最终输出时三个员工吗？ 还是工资相同时，员工按一个的。  
+看到这里，我们的第一个疑问是：对于同一个公司，最终输出最多是三个员工吗？ 还是工资相同时，按一个的统计。  
 
 这里我们先假设一下吧。  
 
@@ -52,9 +54,9 @@ updateData:  13:12 2015/4/13
 ### 问题简化
 
 
-虽然问题的出入有两个表，但是本质上只有第一个表有用。  
+虽然问题要查两个表，但是本质上只有第一个表有用。  
 
-假设我们已经挑出符合要求的所有员工了，在和公司表联合查一下，再拍一下序，答案就出来了。  
+假设我们已经挑出符合要求的所有员工了，再和公司表联合查一下，再排一下序，答案就出来了。  
 
 
 所以这里我们把焦点聚集在第一个表吧，公司名就暂时用公司ID来代替。  
@@ -65,7 +67,7 @@ updateData:  13:12 2015/4/13
 
 这个时候，大家应该都会有所想法吧。   
 
-比如先搜出所有的员工，按显然公司排序，再按薪水排序，最后输出。  
+比如先搜出所有的员工，先按公司排序，再按薪水排序，最后输出。  
 
 
 
@@ -84,18 +86,24 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t
 +---------+------------+-------+
 6 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t0  order by t0.Company, Pay desc;
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra          |
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using filesort |
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t0  order by t0.Company, Pay desc \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using filesort
 1 row in set (0.00 sec)
 ```
 
 
 >  
->  当然，我们现在先不要说效率什么的， 我们假设只有十几条数据吧， 最后我们相处解决方案后，在考虑效率的问题。    
+>  当然，我们现在先不要说效率什么的， 我们假设只有十几条数据吧， 最后我们解决方案后，在考虑效率的问题。    
 >  
 
 
@@ -142,12 +150,18 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t
 +---------+------------+-------+
 4 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t0  order by Pay desc;
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra          |
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using filesort |
-+----+-------------+-------+------+---------------+------+---------+------+------+----------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay FROM Programmer t0  order by Pay desc \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using filesort
 1 row in set (0.00 sec)
 ```
 
@@ -171,13 +185,29 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank
 +---------+------------+-------+------+
 3 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Pay <= t1.Pay) group by t0.Name having(count(*)<=3) order by rank;
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using temporary; Using filesort |
-|  1 | SIMPLE      | t1    | ALL  | NULL          | NULL | NULL    | NULL |    4 |                                 |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Pay <= t1.Pay) group by t0.Name having(count(*)<=3) order by rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: 
 2 rows in set (0.00 sec)
 ```
 
@@ -195,13 +225,29 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank
 +---------+------------+-------+------+
 3 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 ,Programmer t1 where t0.Pay <= t1.Pay group by t0.Name having(count(*)<=3) order by rank;
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using temporary; Using filesort |
-|  1 | SIMPLE      | t1    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using where; Using join buffer  |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 ,Programmer t1 where t0.Pay <= t1.Pay group by t0.Name having(count(*)<=3) order by rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using where; Using join buffer
 2 rows in set (0.00 sec)
 ```
 
@@ -218,22 +264,52 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*)
 +---------+------------+-------+------+
 3 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*) from Programmer t1 where t0.Pay <= t1.Pay) as rank FROM Programmer t0 where 3 >= (select count(*) from Programmer t1 where t0.Pay <= t1.Pay) order by rank;
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
-| id | select_type        | table | type | possible_keys | key  | key_len | ref  | rows | Extra                       |
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
-|  1 | PRIMARY            | t0    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using where; Using filesort |
-|  3 | DEPENDENT SUBQUERY | t1    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using where                 |
-|  2 | DEPENDENT SUBQUERY | t1    | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using where                 |
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*) from Programmer t1 where t0.Pay <= t1.Pay) as rank FROM Programmer t0 where 3 >= (select count(*) from Programmer t1 where t0.Pay <= t1.Pay) order by rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using where; Using filesort
+*************************** 2. row ***************************
+           id: 3
+  select_type: DEPENDENT SUBQUERY
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using where
+*************************** 3. row ***************************
+           id: 2
+  select_type: DEPENDENT SUBQUERY
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using where
 3 rows in set (0.00 sec)
 ```
 
 
-大家可以看到上面三种方法都查到了薪水前三的员工， 效率嘛，这里我们先不谈效率，先能做出来在考虑怎么优化。  
+大家可以看到上面三种方法都查到了薪水前三的员工，其实哪三种方法还是一个方法:和自身关联统计，只不过形式不一样罢了。  
+
+
+效率嘛，这里我们先不谈效率，先能做出来在考虑怎么优化。  
 
 
 突然发现，如果只考虑一个公司且薪水都不同的话， 我们已经搜出答案来了。  
+
 
 ### 分组 top n 问题
 
@@ -282,13 +358,29 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank
 +---------+------------+-------+------+
 5 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Name having(count(*)<=3) order by Company,rank;
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary; Using filesort |
-|  1 | SIMPLE      | t1    | ALL  | NULL          | NULL | NULL    | NULL |    6 |                                 |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Name having(count(*)<=3) order by Company,rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: 
 2 rows in set (0.00 sec)
 ```
 
@@ -308,13 +400,29 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank
 +---------+------------+-------+------+
 5 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 ,Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay group by t0.Company, t0.Name having(count(*)<=3) order by Company,rank;
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary; Using filesort |
-|  1 | SIMPLE      | t1    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using where; Using join buffer  |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 ,Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay group by t0.Company, t0.Name having(count(*)<=3) order by Company,rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using where; Using join buffer
 2 rows in set (0.00 sec)
 ```
 
@@ -333,14 +441,40 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*)
 +---------+------------+-------+------+
 5 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*) from Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay) as rank FROM Programmer t0 where 3 >= (select count(*) from Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay) order by Company,rank;
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
-| id | select_type        | table | type | possible_keys | key  | key_len | ref  | rows | Extra                       |
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
-|  1 | PRIMARY            | t0    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using where; Using filesort |
-|  3 | DEPENDENT SUBQUERY | t1    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using where                 |
-|  2 | DEPENDENT SUBQUERY | t1    | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using where                 |
-+----+--------------------+-------+------+---------------+------+---------+------+------+-----------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, (select count(*) from Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay) as rank FROM Programmer t0 where 3 >= (select count(*) from Programmer t1 where t0.Company = t1.Company and t0.Pay <= t1.Pay) order by Company,rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using where; Using filesort
+*************************** 2. row ***************************
+           id: 3
+  select_type: DEPENDENT SUBQUERY
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using where
+*************************** 3. row ***************************
+           id: 2
+  select_type: DEPENDENT SUBQUERY
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using where
 3 rows in set (0.00 sec)
 ```
 
@@ -396,13 +530,29 @@ mysql> SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank
 +---------+------------+-------+------+
 3 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Pay <= t1.Pay) group by t0.Name having(count(*)<=3) order by rank;
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary; Using filesort |
-|  1 | SIMPLE      | t1    | ALL  | NULL          | NULL | NULL    | NULL |    9 |                                 |
-+----+-------------+-------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Company, t0.Name as Programmer, t0.Pay as Pay, count(*) as rank FROM Programmer t0 left join Programmer t1 on(t0.Pay <= t1.Pay) group by t0.Name having(count(*)<=3) order by rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t1
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: 
 2 rows in set (0.00 sec)
 ```
 
@@ -426,12 +576,18 @@ mysql> select distinct  Pay,Company from Programmer;
 +-------+---------+
 4 rows in set (0.00 sec)
 
-mysql> explain select distinct  Pay,Company from Programmer;
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra           |
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
-|  1 | SIMPLE      | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary |
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
+mysql> explain select distinct  Pay,Company from Programmer \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
 1 row in set (0.00 sec)
 ```
 
@@ -449,15 +605,51 @@ mysql> SELECT t0.Pay as Pay, count(*) as rank FROM (select distinct Pay from Pro
 +-------+------+
 3 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Pay as Pay, count(*) as rank FROM (select distinct Pay from Programmer) t0 left join (select distinct Pay from Programmer) t1 on(t0.Pay <= t1.Pay) group by t0.Pay having(count(*)<=3) order by rank;
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using temporary; Using filesort |
-|  1 | PRIMARY     | <derived3> | ALL  | NULL          | NULL | NULL    | NULL |    4 |                                 |
-|  3 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary                 |
-|  2 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary                 |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Pay as Pay, count(*) as rank FROM (select distinct Pay from Programmer) t0 left join (select distinct Pay from Programmer) t1 on(t0.Pay <= t1.Pay) group by t0.Pay having(count(*)<=3) order by rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: 
+*************************** 3. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary
 4 rows in set (0.00 sec)
 ```
 
@@ -476,17 +668,73 @@ mysql> select t2.Name, t2.Pay, t2.Company, t3.Rank from Programmer t2 inner join
 +------+-------+---------+------+
 5 rows in set (0.00 sec)
 
-mysql> explain select t2.Name, t2.Pay, t2.Company, t3.Rank from Programmer t2 inner join (SELECT t0.Pay as Pay, count(*) as Rank FROM (select distinct Pay from Programmer) t0 left join (select distinct Pay from Programmer) t1 on(t0.Pay <= t1.Pay) group by t0.Pay having(count(*)<=3)) t3 on(t2.Pay = t3.Pay) order by Rank;
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL  | NULL          | NULL | NULL    | NULL |    3 | Using temporary; Using filesort |
-|  1 | PRIMARY     | t2         | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using where; Using join buffer  |
-|  2 | DERIVED     | <derived3> | ALL  | NULL          | NULL | NULL    | NULL |    4 | Using temporary; Using filesort |
-|  2 | DERIVED     | <derived4> | ALL  | NULL          | NULL | NULL    | NULL |    4 |                                 |
-|  4 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary                 |
-|  3 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary                 |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain select t2.Name, t2.Pay, t2.Company, t3.Rank from Programmer t2 inner join (SELECT t0.Pay as Pay, count(*) as Rank FROM (select distinct Pay from Programmer) t0 left join (select distinct Pay from Programmer) t1 on(t0.Pay <= t1.Pay) group by t0.Pay having(count(*)<=3)) t3 on(t2.Pay = t3.Pay) order by Rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t2
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using where; Using join buffer
+*************************** 3. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: Using temporary; Using filesort
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived4>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 4
+        Extra: 
+*************************** 5. row ***************************
+           id: 4
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary
+*************************** 6. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary
 6 rows in set (0.00 sec)
 ```
 
@@ -515,12 +763,18 @@ mysql> SELECT t0.Id as Id, t0.Name as Name, t0.Pay as Pay, t0.Company as Company
 +----+------+-------+---------+
 9 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Id as Id, t0.Name as Name, t0.Pay as Pay, t0.Company as Company FROM Programmer t0;
-+----+-------------+-------+------+---------------+------+---------+------+------+-------+
-| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra |
-+----+-------------+-------+------+---------------+------+---------+------+------+-------+
-|  1 | SIMPLE      | t0    | ALL  | NULL          | NULL | NULL    | NULL |    9 |       |
-+----+-------------+-------+------+---------------+------+---------+------+------+-------+
+mysql> explain SELECT t0.Id as Id, t0.Name as Name, t0.Pay as Pay, t0.Company as Company FROM Programmer t0 \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: t0
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: 
 1 row in set (0.00 sec)
 ```
 
@@ -541,12 +795,18 @@ mysql> SELECT distinct Pay , Company FROM Programmer;
 +-------+---------+
 6 rows in set (0.00 sec)
 
-mysql> explain SELECT distinct Pay , Company FROM Programmer;
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra           |
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
-|  1 | SIMPLE      | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary |
-+----+-------------+------------+------+---------------+------+---------+------+------+-----------------+
+mysql> explain SELECT distinct Pay , Company FROM Programmer \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
 1 row in set (0.00 sec)
 ```
 
@@ -566,15 +826,51 @@ mysql> SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as rank FROM (SELE
 +-------+---------+------+
 5 rows in set (0.00 sec)
 
-mysql> explain SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3) order by Company, rank;
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary; Using filesort |
-|  1 | PRIMARY     | <derived3> | ALL  | NULL          | NULL | NULL    | NULL |    6 |                                 |
-|  3 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary                 |
-|  2 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary                 |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3) order by Company, rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: 
+*************************** 3. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
 4 rows in set (0.00 sec)
 ```
 
@@ -597,17 +893,73 @@ mysql> select t2.Name, t2.Pay, t2.Company, t3.Rank from  Programmer t2 inner joi
 +------+-------+---------+------+
 8 rows in set (0.00 sec)
 
-mysql> explain select t2.Name, t2.Pay, t2.Company, t3.Rank from  Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, rank;
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL  | NULL          | NULL | NULL    | NULL |    5 | Using temporary; Using filesort |
-|  1 | PRIMARY     | t2         | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using where; Using join buffer  |
-|  2 | DERIVED     | <derived3> | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary; Using filesort |
-|  2 | DERIVED     | <derived4> | ALL  | NULL          | NULL | NULL    | NULL |    6 |                                 |
-|  4 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary                 |
-|  3 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary                 |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain select t2.Name, t2.Pay, t2.Company, t3.Rank from  Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 5
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t2
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using where; Using join buffer
+*************************** 3. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived4>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: 
+*************************** 5. row ***************************
+           id: 4
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
+*************************** 6. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
 6 rows in set (0.00 sec)
 ```
 
@@ -634,18 +986,84 @@ mysql> select t2.Name, t2.Pay, t3.CompanyName  as Company, t3.Rank from  Program
 +------+-------+----------+------+
 8 rows in set (0.00 sec)
 
-mysql> explain select t2.Name, t2.Pay, t3.CompanyName  as Company, t3.Rank from  Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as Rank,t0.CompanyName as CompanyName FROM (SELECT distinct Pay , Company, Company.Name as CompanyName FROM Programmer inner join Company on(Programmer.Company = Company.Id)) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, Rank;
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-| id | select_type | table      | type | possible_keys | key  | key_len | ref  | rows | Extra                           |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL  | NULL          | NULL | NULL    | NULL |    5 | Using temporary; Using filesort |
-|  1 | PRIMARY     | t2         | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using where; Using join buffer  |
-|  2 | DERIVED     | <derived3> | ALL  | NULL          | NULL | NULL    | NULL |    6 | Using temporary; Using filesort |
-|  2 | DERIVED     | <derived4> | ALL  | NULL          | NULL | NULL    | NULL |    6 |                                 |
-|  4 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using temporary                 |
-|  3 | DERIVED     | Company    | ALL  | PRIMARY       | NULL | NULL    | NULL |    2 | Using temporary                 |
-|  3 | DERIVED     | Programmer | ALL  | NULL          | NULL | NULL    | NULL |    9 | Using where; Using join buffer  |
-+----+-------------+------------+------+---------------+------+---------+------+------+---------------------------------+
+mysql> explain select t2.Name, t2.Pay, t3.CompanyName  as Company, t3.Rank from  Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as Rank,t0.CompanyName as CompanyName FROM (SELECT distinct Pay , Company, Company.Name as CompanyName FROM Programmer inner join Company on(Programmer.Company = Company.Id)) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, Rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 5
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t2
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using where; Using join buffer
+*************************** 3. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived4>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: 
+*************************** 5. row ***************************
+           id: 4
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
+*************************** 6. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Company
+         type: ALL
+possible_keys: PRIMARY
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 2
+        Extra: Using temporary
+*************************** 7. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using where; Using join buffer
 7 rows in set (0.00 sec)
 ```
 
@@ -682,18 +1100,84 @@ mysql> select t2.Name, t2.Pay, t4.Name  as Company, t3.Rank from  Company t4 inn
 +------+-------+----------+------+
 8 rows in set (0.00 sec)
 
-mysql> explain select t2.Name, t2.Pay, t4.Name  as Company, t3.Rank from  Company t4 inner join Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as Rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t4.Id and t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, Rank;
-+----+-------------+------------+--------+---------------+---------+---------+-----------------+------+---------------------------------+
-| id | select_type | table      | type   | possible_keys | key     | key_len | ref             | rows | Extra                           |
-+----+-------------+------------+--------+---------------+---------+---------+-----------------+------+---------------------------------+
-|  1 | PRIMARY     | <derived2> | ALL    | NULL          | NULL    | NULL    | NULL            |    5 | Using temporary; Using filesort |
-|  1 | PRIMARY     | t2         | ALL    | NULL          | NULL    | NULL    | NULL            |    9 | Using where; Using join buffer  |
-|  1 | PRIMARY     | t4         | eq_ref | PRIMARY       | PRIMARY | 4       | test.t2.Company |    1 | Using where                     |
-|  2 | DERIVED     | <derived3> | ALL    | NULL          | NULL    | NULL    | NULL            |    6 | Using temporary; Using filesort |
-|  2 | DERIVED     | <derived4> | ALL    | NULL          | NULL    | NULL    | NULL            |    6 |                                 |
-|  4 | DERIVED     | Programmer | ALL    | NULL          | NULL    | NULL    | NULL            |    9 | Using temporary                 |
-|  3 | DERIVED     | Programmer | ALL    | NULL          | NULL    | NULL    | NULL            |    9 | Using temporary                 |
-+----+-------------+------------+--------+---------------+---------+---------+-----------------+------+---------------------------------+
+mysql> explain select t2.Name, t2.Pay, t4.Name  as Company, t3.Rank from  Company t4 inner join Programmer t2 inner join (SELECT t0.Pay as Pay, t0.Company  as Company, count(*) as Rank FROM (SELECT distinct Pay , Company FROM Programmer) t0 left join (SELECT distinct Pay , Company FROM Programmer) t1 on(t0.Company = t1.Company and t0.Pay <= t1.Pay) group by t0.Company, t0.Pay having(count(*)<=3)) t3 on(t2.Company = t4.Id and t2.Company = t3.Company and t2.Pay = t3.Pay) order by Company, Rank \G
+*************************** 1. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: <derived2>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 5
+        Extra: Using temporary; Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t2
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using where; Using join buffer
+*************************** 3. row ***************************
+           id: 1
+  select_type: PRIMARY
+        table: t4
+         type: eq_ref
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 4
+          ref: test.t2.Company
+         rows: 1
+        Extra: Using where
+*************************** 4. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived3>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: Using temporary; Using filesort
+*************************** 5. row ***************************
+           id: 2
+  select_type: DERIVED
+        table: <derived4>
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+        Extra: 
+*************************** 6. row ***************************
+           id: 4
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
+*************************** 7. row ***************************
+           id: 3
+  select_type: DERIVED
+        table: Programmer
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 9
+        Extra: Using temporary
 7 rows in set (0.00 sec)
 ```
 
