@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      简单分析一条mysql语句查询top数据(没有几个人能够解决这个问题)
-description: 前几天发了一道sql问题，很多人发了自己的答案但是都有问题，今天来分析一下怎么解决这个问题吧。  
+description: 前几天发了一道sql问题，很多人发了自己的答案但是错误的，今天来分析一下怎么解决这个问题吧。  
 keywords: [mysql]
 tags: [mysql]
 categories: [数据库]
