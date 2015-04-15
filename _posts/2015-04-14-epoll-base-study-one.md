@@ -143,6 +143,20 @@ struct epoll_event {
 };
 ```
 
+events 事件如下：  
+
+
+* EPOLLIN 对 read(2) 操作有效。
+* EPOLLOUT 对 write(2) 操作有效。
+* EPOLLRDHUP  流套接口对端关闭连接，或把写端关闭
+* EPOLLPRI 存在对 read(2) 操作有效的紧急数据
+* EPOLLERR 错误状态：总是等待这个事件，它不需要设置。
+* EPOLLHUP 阻塞：总是等待这个事件，不需要设置。
+* EPOLLET 设置为边缘触发行为。对 epoll 默认的行为是水平触发的。
+* EPOLLONESHOT 设置为一次性有效。
+
+
+
 ### epoll_data_t 结构
 
 epoll_data_t是一个联合体，事件触发时，我们就当做是事件描述符就行了。  
