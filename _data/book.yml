@@ -74,14 +74,15 @@
             bookLink: 
             readTime: 2014-11-18 ~ 断看
             readLink:
+        
+        -   bookName: 《高性能mysql 3rd》
+            bookLink: http://book.douban.com/subject/23008813/
+            readTime: 2015-02-25 ~ 2015-04-17
+            readLink:
+            
             
 -   name: 正在阅读的书籍
     list:
-        -   bookName: 《UNIX环境高级编程》
-            bookLink: 
-            readTime: 2015-02-19 ~ 今
-            readLink:
-                        
         -   bookName: 《UNIX环境高级编程》
             bookLink: 
             readTime: 2015-02-19 ~ 今
@@ -91,19 +92,15 @@
             bookLink: 
             readTime: 2015-03-25 ~ 今
             readLink:
-                        
-        -   bookName: 《高性能mysql 3rd》
-            bookLink: http://book.douban.com/subject/23008813/
-            readTime: 2015-03-25 ~ 今
+
+        -   bookName: 《编程高手箴言》
+            bookLink: http://book.douban.com/subject/1139244/
+            readTime: 2015-04-05 ~ 今
             readLink:
-            
+                        
+                        
 -   name: 计划阅读的书籍
     list:
-        -   bookName: 《UNIX环境高级编程》
-            bookLink: 
-            readTime:  
-            readLink:
-                        
         -   bookName: 《高可用MySQL》
             bookLink: http://book.douban.com/subject/6847455/
             readTime: 
