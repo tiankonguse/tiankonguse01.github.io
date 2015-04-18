@@ -528,7 +528,7 @@ hr {
 }
 
 .entry h2, .entry h3 {
-  background-color: rgba(248, 244, 244, 0.49)
+  background-color: rgba(248, 244, 244, 0.49);
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -544,10 +544,14 @@ hr {
     padding-left: 3px;
 }
 
+.list-of-categories:hover a{
+    color: #FFF;
+}
+
 .entry .list-of-categories:hover {
-  background-color:#000;
-  border-radius: 4px;
-  color: #FFF;
+    background-color:#000;
+    border-radius: 4px;
+    color: #FFF;
     cursor: pointer;
 }
 

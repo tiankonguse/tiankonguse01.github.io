@@ -1,12 +1,12 @@
 ---
 layout: page
-title: tiankonguse的视频与漫画
-description: 大学毕业后,看的视频与漫画
+title: tiankonguse的音乐
+description: 我与音乐
 isContact: true
 updateData:  15:25 2015/4/10
 ---
 
-{% for videoState in site.data.video %}
+{% for videoState in site.data.music %}
 <div class="accordion-group aboutme-group">
     <div class="accordion-heading">
         <h3 class="accordion-toggle list-of-categories" data-toggle="collapse"  href="#{{ videoState.name }}-ref">{{ videoState.name }}</h3>

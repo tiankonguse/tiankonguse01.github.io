@@ -3,7 +3,6 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
    <title>{{ site.title }}</title>
    <link href="{{ site.url }}{{ site.feed }}" rel="self" type="application/atom+xml"/>
    <link href="{{ site.url }}" rel="alternate" type="text/html" />
@@ -13,7 +12,6 @@ layout: nil
      <name>{{ site.author.name }}</name>
      <email>{{ site.author.email }}</email>
    </author>
-
    {% for post in site.posts limit:20 %}
     {% if post.updateData %}
     {% assign lastData =  post.updateData|date:"%Y-%m-%d %H:%M:%S" %}

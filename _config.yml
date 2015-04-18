@@ -20,7 +20,7 @@ textile_ext:  "textile"
 
 # Filtering Content
 show_drafts: null
-limit_posts: 0
+limit_posts: 999999
 future:      true
 unpublished: false
 
@@ -43,6 +43,7 @@ excerpt_separator: "\n\n"
 
 # Serving
 detach:  false
+#port:    8080
 port:    80
 host:    http://github.tiankonguse.com
 baseurl: "/" # does not include hostname

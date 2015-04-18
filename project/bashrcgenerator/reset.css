@@ -1,0 +1,130 @@
+/* `XHTML, HTML4, HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+
+
+
+.content html,
+.content body {
+  height: 100%;
+}
+.content a {
+	text-decoration:underline;
+	cursor:pointer;
+}
+.content article,
+.content aside,
+.content details,
+.content figcaption,
+.content figure,
+.content footer,
+.content header,
+.content hgroup,
+.content menu,
+.content nav,
+.content section {
+/*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block;
+}
+
+.content b,
+.content strong {
+/*
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
+*/
+  font-weight: bold;
+}
+
+.content img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+/*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic;
+}
+
+.content ol,
+.content ul {
+  list-style: none;
+}
+
+.content li {
+/*
+  For IE6 + IE7:
+
+  "display: list-item" keeps bullets from
+  disappearing if hasLayout is triggered.
+*/
+  display: list-item;
+}
+
+.content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.content th,
+.content td,
+.content caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+.content q {
+  quotes: none;
+}
+
+.content q:before,
+.content q:after {
+  content: '';
+  content: none;
+}
+
+.content sub,
+.content sup,
+.content small {
+  font-size: 75%;
+}
+
+.content sub,
+.content sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.content sub {
+  bottom: -0.25em;
+}
+
+.content sup {
+  top: -0.5em;
+}
+
+.content svg {
+/*
+  For IE9. Without, occasionally draws shapes
+  outside the boundaries of <svg> rectangle.
+*/
+  overflow: hidden;
+}
+/* ugly chrome input border */
+.content textarea:focus, input:focus{
+	outline: none;
+}
+.content input {
+	margin:0;
+	padding:2px;
+
+}

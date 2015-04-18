@@ -1,12 +1,51 @@
+  
+- title: 关于我
+  url: /about.html
+  content: 
+  
+- title: 记录与标签
+  url: /tags.html
+  content: 
+  
+  
+- title: 记录与时间
+  url: /archives.html
+  content:
+  
+- title: 记录与分类
+  url: /categories.html
+  content: 
+  
 - title: 俄罗斯方块游戏
-  url: http://github.tiankonguse.com/project/tetris/
+  url: /project/tetris/
   
 - title: 格式化/压缩代码
-  url: http://github.tiankonguse.com/project/format/
+  url: /project/format/
   
 - title: Bash 手册 
   url: http://tiankonguse.com/manual/bash/
+  content: 
   
 - title: 时间戳转换工具
-  url: http://github.tiankonguse.com/project/unixtime/
+  url: /project/unixtime/
+  content: 
 
+  
+- title: 一些算法
+  url: /algorithm.html
+  content: 
+ 
+- title: 资源收集
+  url: /resources.html
+  content: 
+  
+- title: cracking-the-coding-interview
+  url: /cracking-the-coding-interview.html
+  content: 
+  
+
+  
+
+  
+  
+  

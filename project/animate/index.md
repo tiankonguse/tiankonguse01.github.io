@@ -1,7 +1,7 @@
 ---
 layout: default
 title : CSS3动画库
-category: project
+categories: [project]
 ---
 
 

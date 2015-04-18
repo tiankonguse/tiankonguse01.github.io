@@ -785,7 +785,7 @@ tk.Composition(TK.Tetris, {
         if(w < 1400){
             w -= 700;
             h -= 150;
-            oneSize = parseInt(w * 0.7 / widthNum);
+            oneSize = parseInt(w * 0.5 / widthNum);
             cw = oneSize * widthNum;
             ch = oneSize * parseInt(h/oneSize);
             

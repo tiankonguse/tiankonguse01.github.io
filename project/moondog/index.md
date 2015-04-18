@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 纯CSS实现月食
-category: project
+categories: [project]
 ---
 
 <link rel="stylesheet" href="./moondog.css" type="text/css" /> 

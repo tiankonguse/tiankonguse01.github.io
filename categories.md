@@ -15,8 +15,8 @@ updateData:  21:25 2015/4/2
         {% capture categoryName %}{{ category | first }}{% endcapture %}
         {% capture categoryNameMD5 %}{{ categoryName | md5 }}{% endcapture %}
         <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryNameMD5 }}-ref">
+            <div class="list-of-categories">
+                <a class="accordion-toggle accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#{{ categoryNameMD5 }}-ref">
                     {{ categoryName }}<span>{{  category | last | size }}</span>
                 </a>
             </div>
