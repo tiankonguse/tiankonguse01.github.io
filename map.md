@@ -10,7 +10,7 @@ updateData:  21:25 2015/4/2
 
 {% for tool in site.data.tools %}
 <div class="accordion-group">
-    <div class="accordion-heading">
+    <div class="accordion-heading" class="list-of-categories">
         <h2> <a class="list-of-categories" href="{{ tool.url }}"> {{ tool.title }} </a> </h2>
     </div>
     <div  class="accordion-body">
