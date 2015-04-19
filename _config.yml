@@ -45,9 +45,9 @@ excerpt_separator: "\n\n"
 detach:  false
 #port:    8080
 port:    80
-host:    http://github.tiankonguse.com
+#host:    http://github.tiankonguse.com
 baseurl: "/" # does not include hostname
-url: http://github.tiankonguse.com
+#url: http://github.tiankonguse.com
 
 
 # Backwards-compatibility
