@@ -199,7 +199,7 @@ tiankonguse .
 * [我的bash学习笔记][bash-study]  
 * UNIX环境高级编程
 
-[img-shell-pie]: /images/20150421092600.jpg
+[img-shell-pie]: http://tiankonguse.com/lab/cloudLink/weiyun.php?url=/cbecfe4407e95f55e3734485dc5e21d5.jpg
 [bash-study-command-1]: https://github.com/tiankonguse/bash-study/blob/master/command.md#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E5%92%8C%E5%BC%95%E7%94%A8
 [bash-study]: https://github.com/tiankonguse/bash-study
 [honghuzhilangzixin-7073312]: http://blog.csdn.net/honghuzhilangzixin/article/details/7073312
