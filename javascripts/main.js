@@ -61,14 +61,14 @@ function loadSidebar(){
         return true;
     });
     $(".js-menu-trigger").hide();
-    $(".home-menu-ex").on("click touchstart", function(e){ 
+    $(".home-menu-ex").bind("click", function(e){ 
         $(".js-menu").addClass("is-visible");
         $(".menu-screen").addClass("is-visible");
         $(".js-menu-trigger").show();
         e.preventDefault();
     });
     
-    $(".js-menu-trigger").on("click touchstart", function(e) {
+    $(".js-menu-trigger").bind("click", function(e) {
         $(".js-menu").removeClass("is-visible");
         $(".menu-screen").removeClass("is-visible");
         $(".js-menu-trigger").hide();
