@@ -7,7 +7,6 @@
   url: /tags.html
   content: 
   
-  
 - title: 记录与时间
   url: /archives.html
   content:
@@ -16,8 +15,17 @@
   url: /categories.html
   content: 
   
+- title: CSS3动画库
+  url: /project/animate/
+  
 - title: 俄罗斯方块游戏
   url: /project/tetris/
+  
+- title: 纯CSS实现月食
+  url: /project/moondog/
+  
+- title: 在线配置PS1样式
+  url: /project/bashrcgenerator/
   
 - title: 格式化/压缩代码
   url: /project/format/
@@ -29,7 +37,15 @@
 - title: 时间戳转换工具
   url: /project/unixtime/
   content: 
-
+  
+- title: IEEE-754 浮点数二进制储存表示
+  url: /project/IEEE/754
+  content: 
+  
+- title: 练习键盘的小游戏
+  url: /project/ztype/
+  content: 
+  
   
 - title: 一些算法
   url: /algorithm.html
