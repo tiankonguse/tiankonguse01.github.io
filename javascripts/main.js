@@ -60,6 +60,21 @@ function loadSidebar(){
         that.attr("href", googleUrl + val);
         return true;
     });
+    $(".js-menu-trigger").hide();
+    $(".home-menu-ex").on("click touchstart", function(e){ 
+        $(".js-menu").addClass("is-visible");
+        $(".menu-screen").addClass("is-visible");
+        $(".js-menu-trigger").show();
+        e.preventDefault();
+    });
+    
+    $(".js-menu-trigger").on("click touchstart", function(e) {
+        $(".js-menu").removeClass("is-visible");
+        $(".menu-screen").removeClass("is-visible");
+        $(".js-menu-trigger").hide();
+        e.preventDefault();
+    });
+    
 }
 
 

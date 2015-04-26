@@ -513,7 +513,7 @@ hr {
     border: 1px solid silver;
     border-radius: 3px;
     background-color: rgb(219, 219, 219);
-    cursor: pointer;
+    cursor: auto;
     -webkit-appearance: button;
     font-weight: 300;
     line-height: 1.5;
@@ -646,3 +646,243 @@ ul.list-of-tags li {
   border-top: none;
   border-left: 1px solid #e5e5e5;
 }
+
+
+.sliding-menu-button {
+    position: fixed;
+    top: 1.618em;
+    right: 1.618em;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #000;
+    outline: 0;
+    padding: 0;
+    border: 2.5px solid transparent;
+    cursor: pointer;
+    z-index: 5;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: right 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: right 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: right 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    text-align: center;
+}
+
+@media screen and (min-width: 48em) {
+    .sliding-menu-button {
+        -webkit-transform:0;
+        -moz-transform: 0;
+        -ms-transform: 0;
+        -o-transform: 0;
+        transform: 0
+    }
+}
+
+.sliding-menu-button {
+    -webkit-transition: right 500ms ease-in-out;
+    -moz-transition: right 500ms ease-in-out;
+    transition: right 500ms ease-in-out
+}
+
+@media screen and (min-width: 48em) {
+    .sliding-menu-button {
+        left:90%
+    }
+}
+
+.sliding-menu-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.375em 0;
+    text-align: center;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-transition: 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: #000;
+    z-index: 5;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+}
+
+@media screen and (min-width: 48em) {
+    .sliding-menu-content {
+        text-align:left
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .sliding-menu-content {
+        height:100%;
+        width: 87%
+    }
+}
+
+.sliding-menu-content.is-visible {
+    visibility: visible;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: 500ms ease-in-out;
+    -moz-transition: 500ms ease-in-out;
+    transition: 500ms ease-in-out
+}
+
+.menu-screen {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s;
+    background: #000;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+    text-align: center;
+}
+
+.menu-screen.is-visible {
+    opacity: .4;
+    visibility: visible;
+}
+
+.menulines {
+    display: inline-block;
+    width: 30px;
+    height: 4.28571px;
+    background: #fff;
+    border-radius: 2.14286px;
+    transition: 0.3s;
+    position: relative;
+    text-align: center;
+}
+
+.menulines:before,.menulines:after {
+    display: inline-block;
+    width: 30px;
+    height: 4.28571px;
+    background: #fff;
+    border-radius: 2.14286px;
+    transition: 0.3s;
+    position: absolute;
+    left: 0;
+    content: '';
+    -webkit-transform-origin: 2.14286px center;
+    transform-origin: 2.14286px center;
+}
+
+.menulines:before {
+    top: 7.5px;
+}
+
+.menulines:after {
+    top: -7.5px;
+}
+
+.menulines-button:hover .menulines:before {
+    top: 8.57143px;
+}
+
+.menulines-button:hover .menulines:after {
+    top: -8.57143px;
+}
+
+.menulines-button.arrow .menulines:before,.menulines-button.arrow .menulines:after {
+    top: 0;
+    width: 16.66667px;
+}
+
+.menulines-button.arrow .menulines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 40deg);
+    transform: rotate3d(0, 0, 1, 40deg);
+}
+
+.menulines-button.arrow .menulines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -40deg);
+    transform: rotate3d(0, 0, 1, -40deg);
+}
+
+.menulines-button.arrow-up {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+    transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+}
+
+.menulines-button.minus .lines:before,.menulines-button.minus .lines:after {
+    -webkit-transform: none;
+    transform: none;
+    top: 0;
+    width: 30px;
+}
+
+.menulines-button.x .menulines {
+    background: transparent;
+}
+
+.menulines-button.x .menulines:before,.menulines-button.x .menulines:after {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: 0;
+    width: 30px;
+}
+
+.menulines-button.x .menulines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.menulines-button.x .menulines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.menulines-button.x2 .menulines {
+    transition: background .3s .5s ease;
+}
+
+.menulines-button.x2 .menulines:before,.menulines-button.x2 .menulines:after {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: top .3s .6s ease, -webkit-transform .3s ease;
+    transition: top .3s .6s ease, transform .3s ease;
+}
+
+.menulines-button.x2 .menulines {
+    transition: background .3s 0s ease;
+    background: transparent;
+}
+
+.menulines-button.x2 .menulines:before,.menulines-button.x2 .menulines:after {
+    transition: top .3s ease, -webkit-transform .3s .5s ease;
+    transition: top .3s ease, transform .3s .5s ease;
+    top: 0;
+    width: 30px;
+}
+
+.menulines-button.x2 .menulines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.menulines-button.x2 .menulines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+}
+
+
