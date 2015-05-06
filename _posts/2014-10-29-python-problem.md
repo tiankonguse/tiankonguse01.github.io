@@ -812,6 +812,18 @@ else:
     print "directory"
 ```
 
+### 得到一个目录下的文件
+
+
+这里的文件指的是目录和文件。  
+
+```
+dir="/hone/tiankonguse/github/"
+files = os.listdir(dir)  
+for f in files:  
+    print f  
+``` 
+
 
 ### 打开文件
 
@@ -881,6 +893,43 @@ f.read(size)
 f.write('Hello, world!')
 ```
 
+## 执行shell命令
+
+有时候我们需要执行 shell 命令还简化工作，C 语言中由 system 命令，那python 中呢？  
+发现还是 system 命令。  
+
+
+### system 命令
+
+这个命令的缺点是不能得到命令的输出结果。  
+
+```
+os.system("ls")
+```
+
+### popen 命令
+
+popen 命令将结果当做字符串返回。  
+
+```
+print os.popen('cat /proc/cpuinfo').read()
+```
+
+
+### commands 命令  
+
+```
+commands.getstatusoutput(cmd)  #返回（status,output)
+commands.getoutput(cmd)  #只返回输出结果
+commands.getstatus(file) #返回`ls -ld file `的执行结果字符串，调用了getoutput。
+```
+
+### subprocess  命令 
+
+使用subprocess模块可以创建新的进程，可以与新建进程的输入/输出/错误管道连通，并可以获得新建进程执行的返回状态。  
+使用subprocess模块的目的是替代os.system()、os.popen()、commands等旧的函数或模块。  
+
+
 
 ##  其他
 
@@ -918,21 +967,9 @@ print "%.2f%%" % (a * 100)
 ```
 
 
-### 执行shell命令
-
-有时候我们需要执行 shell 命令还简化工作，C 语言中由 system 命令，那python 中呢？  
-发现还是 system 命令。  
-
-```
-print os.popen('cat /proc/cpuinfo').read()
-```
-
-
-
-
-
 ## 修改历史
 
+* 20:45 2015/5/6 增加执行shell命令小节
 * 16:34 2014/12/17 添加 时间的 sleep 操作
 * 14:57 2014/12/8 添加 字符串操作 条目
 * 16:19 2014/12/1 添加 编码检测 与转换编码 条目

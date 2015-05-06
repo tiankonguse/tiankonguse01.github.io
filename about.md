@@ -11,7 +11,7 @@ updateData:  21:25 2015/4/2
 
 我是 tiankonguse, 一个安静的程序员。  
 
-关于我的介绍，可以看看[这里][lab-kirichik]  
+关于我的详细介绍，可以看看[这里][lab-kirichik]  
 
 大学四年 acmer,期间用php写过一些小系统。  
 
