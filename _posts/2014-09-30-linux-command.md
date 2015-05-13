@@ -5,6 +5,7 @@ description: linux下的命令学好了，走到哪里都不怕电脑死机了�
 keywords: linux, command, ls, cp, dd, pwd, mv, 语法, touch, 用户, 操作, 权限, lsblk, 优化命令, readelf, 格式, 常用命令, strings
 tags: [linux, command]
 categories: [程序人生]
+updateData:   22:31 2015/5/13
 ---
 
 
@@ -614,6 +615,13 @@ sudo tcpdump -ieth1 -Xlpns0 port 5555
 
 -i     Listen on interface.  If unspecified, tcpdump searches the system interface list for the lowest numbered, configured up interface (excluding loopback).
 -X     When parsing and printing, in addition to printing the headers of each packet, print the data of each packet (minus its link  level  header) in hex and ASCII.  This is very handy for analysing new protocols.
+```
+
+如果是本机到本机的测试，就会发现不能抓到包了。  
+原因是本机间通信，根本没有走接口eth1， 所以我们需要换一个接口。没错，即使本地的 lo 。  
+
+```
+sudo tcpdump -ilo -Xlpns0 port 5555
 ```
 
 
