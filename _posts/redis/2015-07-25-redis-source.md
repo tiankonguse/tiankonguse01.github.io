@@ -18,9 +18,10 @@ categories: [程序人生]
 
 ## 源代码
 
-redis 的源代码在[这里][github-redis]. 
+redis 的源代码在 [这里][github-redis] . 
 
 这个文章测试一下。
 
 
 [github-redis]: https://github.com/tiankonguse/redis
+
