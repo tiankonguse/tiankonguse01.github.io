@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
             href = href.toLowerCase();
             if(href.indexOf('#') == 0){
             }else if ( href.indexOf('/') == 0 || href.indexOf('tiankonguse.com')>-1 ||  href.indexOf('tiankonguse.github.io')>-1){
-                if(href.indexOf('/page')>-1 || that.attr("data-original-title") !== undefined){
+                if(href.indexOf('/page')>-1 || that.attr("data-original-title") != undefined){
                 
                 }else{
                     that.attr('target','_blank');
