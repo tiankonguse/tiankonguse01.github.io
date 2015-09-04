@@ -14,7 +14,7 @@
 	{% endfor %}
 	</ul>
 </div>
-<div class="sidenav" style="display: none;">
+<div class="sidenav" >
 	<h2>孩子的奶粉钱</h2>
 	<div>
 		<ins class="adsbygoogle"
