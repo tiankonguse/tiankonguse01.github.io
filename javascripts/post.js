@@ -14,7 +14,7 @@ jQuery(document).ready(function(){
         var href = $(this).attr('href');
         if(href){
             if(href.indexOf('#') == 0){
-            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ){
+            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ||  href.toLowerCase().indexOf('tiankonguse.github.io')>-1){
                 if( $(this).attr("data-local") == 1){
                 
                 }else{
@@ -22,8 +22,13 @@ jQuery(document).ready(function(){
                 }
             }else if ($(element).has('img').length){
             }else{
-                $(this).attr('target','_blank');
-                $(this).addClass('external');
+                if( $(this).attr("data-local") == 1){
+                
+                }else{
+                    $(this).attr('target','_blank');
+                    $(this).addClass('external');
+                }
+
             }
         }
     });
