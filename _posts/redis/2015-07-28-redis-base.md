@@ -16,7 +16,7 @@ categories: [程序人生]
 
 ## 资料
 
-我这次阅读 redis 主要参考这么两个网站: [Redis中文官方网站](redis-cn) 和 [Redis 命令参考](redis-com).  
+我这次阅读 redis 主要参考这么两个网站: [Redis中文官方网站][redis-cn] 和 [Redis 命令参考][redis-com].  
 
 
 ## 介绍
