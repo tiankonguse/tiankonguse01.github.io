@@ -15,20 +15,15 @@ jQuery(document).ready(function(){
         if(href){
             if(href.indexOf('#') == 0){
             }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ||  href.toLowerCase().indexOf('tiankonguse.github.io')>-1){
-                if( $(this).attr("data-local") == 1){
+                if(href.toLowerCase().indexOf('/page')>-1){
                 
                 }else{
                     $(this).attr('target','_blank');
                 }
             }else if ($(element).has('img').length){
             }else{
-                if( $(this).attr("data-local") == 1){
-                
-                }else{
-                    $(this).attr('target','_blank');
-                    $(this).addClass('external');
-                }
-
+                $(this).attr('target','_blank');
+                $(this).addClass('external');
             }
         }
     });
