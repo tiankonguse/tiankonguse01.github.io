@@ -1,6 +1,5 @@
 ---
-layout: page
-title: tiankonguse's 代码世界
+layout: default
 description: 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 keywords: tiankonguse, GitHub, Jekyll, Plugins, Archives, css, html, javascript, wordpress, logo, design, geek, linux, php, python, 源码, 算法, acm
 isIndex: true
@@ -16,6 +15,7 @@ isIndex: true
 
 <div class="index-content">
     <div class="section">
+        {% include nav.md %}
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
