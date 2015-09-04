@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
         if(href){
             if(href.indexOf('#') == 0){
             }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ){
-                if( $(this).attr("attr-local") == 1){
+                if( $(this).attr("data-local") == 1){
                 
                 }else{
                     $(this).attr('target','_blank');
