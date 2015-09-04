@@ -150,6 +150,10 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 #menuIndex li.h1{font-size:14px;font-weight:normal;padding-left:0;margin-bottom:10px;}
 #menuIndex li.h3{padding-left:25px;}
 
+#menuIndex li.h1, #menuIndex li.h3{
+    margin-top: auto;
+}
+
 .home-menu { position:fixed; top:15px; left:15px; z-index:5; font-size:0; }
 
 .home-link {
