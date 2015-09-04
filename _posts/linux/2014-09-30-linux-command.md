@@ -468,9 +468,126 @@ rename -n 's/(\w+) - (\d{1})x(\d{2}).*$/S0$2E$3\.srt/' *.srt
 ```
 
 
+### write 
+
+给指定的用户发送消息.  
+
+这个可以在两个终端之间聊天.  
+
+
+```
+tiankonguse:~ $ write tiankonguse pts/19
+
+Message from tiankonguse@tiankonguse on pts/19 at 11:40 ...
+
+I'm 18. <<< 18
+I'm 19 . from 19
+helllo . from 18
+^Ctiankonguse:~ $ EOF
+
+tiankonguse:~ $ 
+
+
+tiankonguse:~ $ 
+Message from tiankonguse@tiankonguse on pts/18 at 11:40 ...
+
+tiankonguse:~ $ write tiankonguse pts/18
+
+I'm 18. <<< 18
+I'm 19 . from 19
+helllo . from 18
+EOF
+^Ctiankonguse:~ $ 
+```
+
 
 
 ## 监控命令
+
+
+### last
+
+列出最后登录的用户.  
+
+比如下面的就是我执行的结果.  
+
+```
+tiankonguse:~ $ last -n 5
+tiankong pts/12       :0               Fri Sep  4 11:10   still logged in   
+tiankong pts/4        :0               Fri Sep  4 11:06   still logged in   
+tiankong pts/3        :0               Fri Sep  4 10:28   still logged in   
+tiankong :0           :0               Fri Sep  4 10:03   still logged in   
+reboot   system boot  3.13.0-62-generi Fri Sep  4 09:48 - 11:11  (01:23)    
+
+wtmp begins Wed Sep  2 00:53:03 2015
+```
+
+打开一个终端窗口,就会有一条记录.  
+可以看出来,我打开了三个终端窗口.  
+
+建议使用这个命令.  
+
+```
+tiankonguse:~ $ last -f /var/log/wtmp -Faixw -n 7
+tiankonguse pts/12       Fri Sep  4 11:10:04 2015   still logged in                       0.0.0.0
+tiankonguse pts/4        Fri Sep  4 11:06:18 2015   still logged in                       0.0.0.0
+tiankonguse pts/3        Fri Sep  4 10:28:11 2015   still logged in                       0.0.0.0
+tiankonguse :0           Fri Sep  4 10:03:51 2015   still logged in                       0.0.0.0
+runlevel (to lvl 2)   Fri Sep  4 09:48:12 2015 - Fri Sep  4 11:19:32 2015  (01:31)     0.0.0.0
+reboot   system boot  Fri Sep  4 09:48:12 2015 - Fri Sep  4 11:19:32 2015  (01:31)     0.0.0.0
+shutdown system down  Fri Sep  4 02:20:49 2015 - Fri Sep  4 09:48:12 2015  (07:27)     0.0.0.0
+
+wtmp begins Wed Sep  2 00:53:03 2015
+```
+
+参数大概意思如下:  
+
+* -f 指定从那个文件加载登录信息, 默认 `/var/log/wtmp`  
+* -n num 指定显示最近几条信息, -num 含义相同  
+* -F 显示完整的登录和退出时间日期  
+* -d 把登录ip转化为登录的host, 默认不使用
+* -a hostname 在最后一列显示  
+* -i 显示ip, 不显示host
+* -x 显示关机和level变动的信息  
+* -w 显示完整的名字和域名  
+
+
+显示ip这个参数很重要, 我们可以根据ip来判断我们的服务器有没有非法登录.  
+
+
+### iftop
+
+这个命令用于显示出口流量.  
+
+```
+sudo iftop -np
+```
+
+### ps
+
+查看当前进程的信息.  
+
+这个命令输出的东西较多, 我常会加个 grep 来搜搜我想要的进程的信息.  
+
+```
+tiankonguse:~ $ ps aux | grep -v "root\|tianko\|nobody"
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+syslog     841  0.0  0.0 255840  1576 ?        Ssl  09:48   0:00 rsyslogd
+message+   846  0.0  0.0  40236  2524 ?        Ss   09:48   0:02 dbus-daemon --system --fork
+kernoops  1191  0.0  0.0  37140  1008 ?        Ss   09:48   0:00 /usr/sbin/kerneloops
+whoopsie  1208  0.0  0.1 361204  5132 ?        Ssl  09:48   0:00 whoopsie
+redis     1230  0.0  0.1  36992  7316 ?        Ssl  09:48   0:02 /usr/bin/redis-server 127.0.0.1:6379       
+mysql     1280  0.0  1.4 492752 58516 ?        Ssl  09:48   0:05 /usr/sbin/mysqld
+www-data  1974  0.0  0.1 315036  6208 ?        S    09:48   0:00 /usr/sbin/apache2 -k start
+www-data  1975  0.0  0.1 315036  6208 ?        S    09:48   0:00 /usr/sbin/apache2 -k start
+www-data  1976  0.0  0.1 315036  6208 ?        S    09:48   0:00 /usr/sbin/apache2 -k start
+www-data  1977  0.0  0.1 315036  6208 ?        S    09:48   0:00 /usr/sbin/apache2 -k start
+www-data  1978  0.0  0.1 315036  6208 ?        S    09:48   0:00 /usr/sbin/apache2 -k start
+rtkit     2226  0.0  0.0 168912  1300 ?        SNl  09:48   0:00 /usr/lib/rtkit/rtkit-daemon
+colord    2381  0.0  0.1 301508  5736 ?        Sl   09:48   0:00 /usr/lib/colord/colord
+lp        4663  0.0  0.0  63156  2220 ?        S    10:11   0:00 /usr/lib/cups/notifier/dbus dbus:// 
+lp        4664  0.0  0.0  63156  2220 ?        S    10:11   0:00 /usr/lib/cups/notifier/dbus dbus://
+```
 
 ### lsblk
 
