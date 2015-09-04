@@ -123,6 +123,10 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .index-content .cate-bar { height:3px; width:70%; margin:0 auto;margin-bottom:100px; }
 .index-content #cateBar { display:inline-block; zoom:1; height:3px; background:red; position:relative; width:0; }
 
+.pagination-centered {
+  text-align: center;
+}
+
 /***************Wiki Style*****************/
 .wiki h2{cursor:pointer;}
 .wiki ul{margin-left:30px;margin-bottom:20px;list-style:disc}
