@@ -531,8 +531,8 @@ tk.Composition(TK, {
 */
 tk.AddMethod(TK,{
     AD : function AD(){
-        this.isShowPageFoot = true;
-        this.isLoadGoogleJs = true;
+        this.isShowPageFoot = false;
+        this.isLoadGoogleJs = false;
         this.alreadyLoad = false;
         this.adList = [];
         this.endText = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
