@@ -11,19 +11,21 @@ jQuery(document).ready(function(){
 
 
     $('.entry a').each(function(index,element){
-        var href = $(this).attr('href');
+        var that = $(this);
+        var href = that.attr('href');
         if(href){
+            href = href.toLowerCase();
             if(href.indexOf('#') == 0){
-            }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ||  href.toLowerCase().indexOf('tiankonguse.github.io')>-1){
-                if(href.toLowerCase().indexOf('/page')>-1){
+            }else if ( href.indexOf('/') == 0 || href.indexOf('tiankonguse.com')>-1 ||  href.indexOf('tiankonguse.github.io')>-1){
+                if(href.indexOf('/page')>-1){
                 
                 }else{
-                    $(this).attr('target','_blank');
+                    //that.attr('target','_blank');
                 }
             }else if ($(element).has('img').length){
             }else{
-                $(this).attr('target','_blank');
-                $(this).addClass('external');
+                that.attr('target','_blank');
+                that.addClass('external');
             }
         }
     });
