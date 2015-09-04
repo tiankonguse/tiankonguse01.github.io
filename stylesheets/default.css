@@ -240,7 +240,7 @@ a.home-link:hover{
 
     .index-content .aside { display:none;position:relative; width:100%; height:300px; max-width:none; }
     .index-content .section { margin-left:0; padding-right:0; }
-    .index-content .section ul { width:85%; }
+    .index-content .section ul {  width: 96%; }
     .index-content .cate-bar { width:85%; }
     .index-content .artical-cate { margin-top:50px; }
 
@@ -252,7 +252,7 @@ a.home-link:hover{
     .index-content .artical-list,
     .index-content .artical-cate { width:85%; }
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
-    #content {width:85%;margin:100px auto 10px auto; }
+    #content {width:90%;margin:100px auto 10px auto; }
     .ad-page-footer{
         width:85%;
     }
