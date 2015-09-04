@@ -111,7 +111,9 @@ jQuery(document).ready(function(){
                     e.preventDefault();
                     gotoSelectorPos($(this).attr('data-id'));
                 });
-            $menuIndex.append($next.children());
+            if(tk && tk.ad && tk.ad.isLoadGoogleJs){
+                $menuIndex.append($next.children());
+            }
             $next.remove();
         }
 
