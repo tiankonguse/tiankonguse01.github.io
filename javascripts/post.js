@@ -1,34 +1,7 @@
 jQuery(document).ready(function(){
     var $ = jQuery;
     
-    if(tk.isMobile.any()){
-        tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
-    }else{
-         tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
-    }
-    
-    $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
-
-
-    $('.entry a').each(function(index,element){
-        var that = $(this);
-        var href = that.attr('href');
-        if(href){
-            href = href.toLowerCase();
-            if(href.indexOf('#') == 0){
-            }else if ( href.indexOf('/') == 0 || href.indexOf('tiankonguse.com')>-1 ||  href.indexOf('tiankonguse.github.io')>-1){
-                if(href.indexOf('/page')>-1 || that.attr("data-original-title") != undefined){
-                
-                }else{
-                    that.attr('target','_blank');
-                }
-            }else if ($(element).has('img').length){
-            }else{
-                that.attr('target','_blank');
-                that.addClass('external');
-            }
-        }
-    });
+ 
 
     (function(){
         var ie6 = ($.browser && $.browser.msie && $.browser.version=="6.0") ? true : false;
@@ -261,7 +234,35 @@ jQuery(document).ready(function(){
         prettyPrint();
     });
 
+   if(tk.isMobile.any()){
+        tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
+    }else{
+         tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
+    }
+    
+    $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
 
+
+    $('.entry a').each(function(index,element){
+        var that = $(this);
+        var href = that.attr('href');
+        if(href){
+            href = href.toLowerCase();
+            if(href.indexOf('#') == 0){
+            }else if ( href.indexOf('/') == 0 || href.indexOf('tiankonguse.com')>-1 ||  href.indexOf('tiankonguse.github.io')>-1){
+                if(href.indexOf('/page')>-1 || that.attr("data-original-title") != undefined){
+                
+                }else{
+                    that.attr('target','_blank');
+                }
+            }else if ($(element).has('img').length){
+            }else{
+                that.attr('target','_blank');
+                that.addClass('external');
+            }
+        }
+    });
+    
     if(/css3-animation/.test(location.href)){
         $("head").append("<link rel='stylesheet' type='text/css' href='/stylesheets/css3-ani.css'/>");
         $.getScript('/javascripts/css3-ani.js',function(){});
