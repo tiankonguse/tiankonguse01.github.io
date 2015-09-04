@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: page
+title: tiankonguse's 代码世界
 description: 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 tiankonguse 在学习上，工作上，生活上的记录。
 keywords: tiankonguse, GitHub, Jekyll, Plugins, Archives, css, html, javascript, wordpress, logo, design, geek, linux, php, python, 源码, 算法, acm
 isIndex: true
@@ -13,29 +14,24 @@ isIndex: true
     <link rel="next" title="下一个" href="{{ paginator.next_page_path | prepend: site.url }}">
 {% endif %}
 
-<div class="index-content">
-    <div class="section">
-        {% include nav.md %}
-        <ul class="artical-list">
-            {% for post in paginator.posts %}
-            <li>
-            <h2><a href="{{ post.url | prepend: site.url }}">{{post.title }}</a></h2>
-            <div class="title-desc">{{ post.description }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="pagination-centered" id="pagination_bottom">
-            <ul id="pager_bottom">
-            {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                    <li class="current"><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
-                {% else %}
-                    <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-        </div>
-    </div>
+<ul class="artical-list">
+    {% for post in paginator.posts %}
+    <li>
+    <h2><a href="{{ post.url | prepend: site.url }}">{{post.title }}</a></h2>
+    <div class="title-desc">{{ post.description }}</div>
+    </li>
+    {% endfor %}
+</ul>
+<div class="pagination-centered" id="pagination_bottom">
+    <ul id="pager_bottom">
+    {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+            <li class="current"><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+        {% else %}
+            <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
 </div>
 <script>
     $(document).ready(function(){
