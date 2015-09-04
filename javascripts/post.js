@@ -242,7 +242,9 @@ jQuery(document).ready(function(){
 
         }else{
             var $next = $("#menuIndex-next");
-            $menuIndex.append($next.children());
+            if(tk && tk.ad && tk.ad.isLoadGoogleJs){
+                $menuIndex.append($next.children());
+            }
             $next.remove();
         }
     })();
