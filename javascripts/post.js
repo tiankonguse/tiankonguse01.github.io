@@ -15,7 +15,11 @@ jQuery(document).ready(function(){
         if(href){
             if(href.indexOf('#') == 0){
             }else if ( href.indexOf('/') == 0 || href.toLowerCase().indexOf('tiankonguse.com')>-1 ){
-                $(this).attr('target','_blank');
+                if( $(this).attr("attr-local") == 1){
+                
+                }else{
+                    $(this).attr('target','_blank');
+                }
             }else if ($(element).has('img').length){
             }else{
                 $(this).attr('target','_blank');
