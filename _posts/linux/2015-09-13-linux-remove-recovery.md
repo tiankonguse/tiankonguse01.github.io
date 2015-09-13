@@ -107,7 +107,7 @@ skyyuan@skyyuan-PC3:test $ tree
 
 1 directory, 2 files
 
-skyyuan@skyyuan-PC3:test $ rm -rf bulid/*
+skyyuan@skyyuan-PC3:test $ rm -rf bulid/\*
 
 skyyuan@skyyuan-PC3:test $ tree
 .
