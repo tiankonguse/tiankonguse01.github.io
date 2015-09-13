@@ -7,6 +7,12 @@
 	</ol>
 </div>
 <div class="sidenav">
+	<h2>关注公众号,接收最新消息</h2>
+	<ol class="artical-list">
+	<li><img src="/images/weixin-12cm.jpg" border="0" width="100%" height="100%" alt="" class="img_weixin"></li>
+	</ol>
+</div>
+<div class="sidenav">
 	<h2>置顶文章</h2>
 	<ul class="artical-list">
 	{% for post in site.data.toppost %}
