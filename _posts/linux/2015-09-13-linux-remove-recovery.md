@@ -264,7 +264,7 @@ skyyuan/test/screenshot_hash.cpp~
 ```
 root@10.123.10.23:[/recovery]: ext3grep /dev/vdb1 --restore-file skyyuan/test/screenshot_hash.cpp
 Running ext3grep version 0.10.2
-WARNING: I don't know what EXT3_FEATURE_COMPAT_EXT_ATTR is.
+WARNING: I don\'t know what EXT3_FEATURE_COMPAT_EXT_ATTR is.
 WARNING: EXT3_FEATURE_INCOMPAT_RECOVER is set. This either means that your partition is still mounted, and/or the file system is in an unclean state.
 Number of groups: 1456
 Minimum / maximum journal block: 23790082 / 23823397
