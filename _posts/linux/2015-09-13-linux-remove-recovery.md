@@ -107,7 +107,7 @@ skyyuan@skyyuan-PC3:test $ tree
 
 1 directory, 2 files
 
-skyyuan@skyyuan-PC3:test $ rm -rf bulid/\*
+skyyuan@skyyuan-PC3:test $ rm -rf bulid/*
 
 skyyuan@skyyuan-PC3:test $ tree
 .
@@ -197,7 +197,7 @@ root@10.123.10.23:[/]: umount /data
 ```
 root@10.123.10.23:[/]: ext3grep /dev/vdb1 --ls --inode 2
 Running ext3grep version 0.10.2
-WARNING: I don't know what EXT3_FEATURE_COMPAT_EXT_ATTR is.
+WARNING: I don\'t know what EXT3_FEATURE_COMPAT_EXT_ATTR is.
 WARNING: EXT3_FEATURE_INCOMPAT_RECOVER is set. This either means that your partition is still mounted, and/or the file system is in an unclean state.
 Number of groups: 1456
 Loading group metadata... done
