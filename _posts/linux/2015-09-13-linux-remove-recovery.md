@@ -10,7 +10,7 @@ updateData:   16:05 2015/9/13
 
 ## 前言的前言
 
-最近在忙一些没有意义的东西:收集数据.  
+最近在忙一些没有意义的东西:收集互联网数据,什么CSND账号呀, QQ群关系呀, 12306账号呀什么的.  
 后果是我那 cache 的关键一篇记录迟迟没有写出来, 算了, 收集数据的事暂时不做了, 下周抽时间继续做cache的事情吧.  
 
 
@@ -21,7 +21,7 @@ updateData:   16:05 2015/9/13
 以前我每个周五都是十二点之后才走的, 因为我负责的打点系统在好声音视频出来后, 需要确认打点是否正常.  
 这个打点系统目前平均访问是每分钟200K, 峰值是每分钟450K.后续会上几个功能, 峰值应该会突破每分钟500K.  
 若干天前, 由于我有优先级更高的项目, 打点这个项目交接给另一个同事了, 从此我终于可以抽一个完整的时间做自己的需求了.  
-下午那位同事发布了打点相关的东西, 运维对他说今晚后好声音很多老板在关注,需要他晚上也关注一下,结果下午吃饭的时候他就不见了.   
+下午那位同事发布了打点相关的东西, 运维对他说今晚上很多老板都在关注好声音,需要他晚上也关注一下,结果下午吃饭的时候他就不见了.   
 晚上编辑说打点有问题了...
 
 
@@ -43,14 +43,14 @@ updateData:   16:05 2015/9/13
 
 
 DBA找我得时候, 我猜想是autodata出问题了, 毕竟autodata里面全是各种like, 左值, 子查询等sql语句.  
-但是我稍微观察了一下, sql来源竟然不是autodata账号, 于是改进查看来源ip, 再查查ip所在机器属于谁负责.  
-结果发现时搜索小组负责的, 于是拉取哪个组的运维, 组长等人.  
-后来, 问题严重到主从同步延迟两个小时了, 于是搜索小组把相关任务停止, DBA手动杀死相关SQL, 猜得到缓解.  
+但是我稍微观察了一下, 发现sql来源竟然不是autodata, 于是赶紧查看来源ip, 再查查ip所在机器属于谁负责.  
+结果发现是搜索小组负责的, 于是拉取那个组的运维, 组长等人.  
+后来, 问题严重到主从同步延迟两个小时了, 于是搜索小组把相关任务停止, DBA手动杀死相关SQL, 才得到缓解.  
 后来, 慢慢的恢复正常了.  
 
 
 
-那位同事误删项目时, 我以为是清楚cmake的中间文件时误操作的, 结果是管理项目时误操作导致的.  
+那位同事误删项目时, 我以为是清除cmake的临时文件时误操作的, 结果是管理项目时误操作导致的.  
 比如有个 bulid 目录, 你想删除 bulid 下的东西, 一般是进入bulid目录, 然后删除即可.  
 
 ```
@@ -61,10 +61,13 @@ kyyuan@skyyuan-PC3:test $ tree
 └── file
 
 1 directory, 2 files
-skyyuan@skyyuan-PC3:test $
+
 skyyuan@skyyuan-PC3:test $ cd bulid/
+
 skyyuan@skyyuan-PC3:bulid $ rm -rf *
+
 skyyuan@skyyuan-PC3:bulid $ cd ..
+
 skyyuan@skyyuan-PC3:test $ tree
 .
 ├── bulid
@@ -78,6 +81,7 @@ skyyuan@skyyuan-PC3:test $ tree
 
 ```
 skyyuan@skyyuan-PC3:test $ touch bulid/tmp
+
 skyyuan@skyyuan-PC3:test $ tree
 .
 ├── bulid
@@ -85,7 +89,9 @@ skyyuan@skyyuan-PC3:test $ tree
 └── file
 
 1 directory, 2 files
+
 skyyuan@skyyuan-PC3:test $ rm -rf bulid/*
+
 skyyuan@skyyuan-PC3:test $ tree
 .
 ├── bulid
@@ -98,6 +104,7 @@ skyyuan@skyyuan-PC3:test $ tree
 
 ```
 skyyuan@skyyuan-PC3:test $ touch bulid/tmp
+
 skyyuan@skyyuan-PC3:test $ tree
 .
 ├── bulid
@@ -105,7 +112,9 @@ skyyuan@skyyuan-PC3:test $ tree
 └── file
 
 1 directory, 2 files
+
 skyyuan@skyyuan-PC3:test $ rm -rf bulid/ *
+
 skyyuan@skyyuan-PC3:test $ tree
 .
 
@@ -113,9 +122,9 @@ skyyuan@skyyuan-PC3:test $ tree
 ```
 
 
-大概这位同事就是这样发生悲剧的.  
+大概这位同事在管理项目时, 就是类似的发生悲剧的.  
 
-不过行为的是, 这台机器有两个磁盘, 系统在小磁盘上, 数据在大磁盘上.  
+不过幸运的是, 这台机器有两个磁盘, 系统在小磁盘上, 数据在大磁盘上.  
 这里可以把大磁盘卸载了, 来慢慢恢复数据.  
 
 ```
@@ -139,7 +148,7 @@ Number  Start   End    Size   Type     File system  标志
 
 试了之后发现都不理想, 后来加上 ext3 这个关键字, 搜到了 ext3grep 这个工具.  
 
-然后源码下载安装.  
+然后下载源码安装.  
 
 ```
 wget https://ext3grep.googlecode.com/files/ext3grep-0.10.2.tar.gz
@@ -160,7 +169,7 @@ root@10.123.10.23:[/]: df -k
 tmpfs                  8085312       880   8084432   1% /dev/shm
 /dev/vdb1            187846260  88430136  89874096  50% /data
 
-root@10.123.10.23:[/]: fuser -k /data0
+root@10.123.10.23:[/]: fuser -k /data
 root@10.123.10.23:[/]: umount /data
 ```
 
@@ -203,13 +212,17 @@ root@10.123.10.23:[/recovery]: ll
 总用量 2808
 -rw-r--r-- 1 root root  124904  9月 13 18:08 scan.log
 -rw-r--r-- 1 root root 2737031  9月 13 17:27 vdb1.ext3grep.stage1
+
 root@10.123.10.23:[/recovery]: mv vdb1.ext3grep.stage1 vdb1.ext3grep.stage1.bak01
+
 root@10.123.10.23:[/recovery]: ll
 总用量 2808
 -rw-r--r-- 1 root root  124904  9月 13 18:08 scan.log
 -rw-r--r-- 1 root root 2737031  9月 13 17:27 vdb1.ext3grep.stage1.bak01
+
 root@10.123.10.23:[/recovery]: ext3grep /dev/vdb1 --accept-all --ls --inode 2  > scan.log
 WARNING: Failed to open file 'locate_output'. See locate.cc
+
 root@10.123.10.23:[/recovery]: 
 ```
 
