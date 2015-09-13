@@ -8,7 +8,7 @@ categories: [程序人生]
 updateData:   16:05 2015/9/13
 ---
 
-![image](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2339100698.png)
+<!-- ![image](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2339100698.png) -->
 
 
 ## 前言的前言
