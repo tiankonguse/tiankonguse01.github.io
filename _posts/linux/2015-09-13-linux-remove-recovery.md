@@ -8,6 +8,9 @@ categories: [程序人生]
 updateData:   16:05 2015/9/13
 ---
 
+![image](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2339100698.png)
+
+
 ## 前言的前言
 
 最近在忙一些没有意义的东西:收集互联网数据,什么CSND账号呀, QQ群关系呀, 12306账号呀什么的.  
