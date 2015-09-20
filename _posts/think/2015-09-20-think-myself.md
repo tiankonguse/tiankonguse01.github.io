@@ -8,6 +8,9 @@ categories: [天空的生活]
 ---
 
 
+![book](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/723599133.jpg)
+
+
 9月20，晴，微风。  
 今天我在思考一件事:最近我是怎么了？  
 
@@ -59,8 +62,4 @@ categories: [天空的生活]
 
 
 好久没看书了, 需要静下心来看看书了.    
-
-
-![book](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/723599133.jpg)
-
 
