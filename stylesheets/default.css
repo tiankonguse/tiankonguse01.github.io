@@ -911,7 +911,7 @@ ul.list-of-tags li {
 }
 
 
-.weixin-zhifu, .taobao-zhifu{
+img.weixin-zhifu, img.taobao-zhifu{
     display: inline-block;
     border: 1px solid #717171;
     border-radius: .7em;
@@ -919,12 +919,12 @@ ul.list-of-tags li {
     padding: 0;
 }
 
-.weixin-zhifu{
+img.weixin-zhifu{
     width: 43%;
 }
 
 
-.taobao-zhifu{
+img.taobao-zhifu{
     width: 47%;
 }
 
