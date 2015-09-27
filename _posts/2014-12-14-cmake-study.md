@@ -382,4 +382,4 @@ cmake 还有很多语法，我没有介绍，我这里就不介绍了。
 [note-cmake-pdf]: http://pan.baidu.com/s/1ntt9b7N
 [note-cmake-img-pan]: http://pan.baidu.com/s/1sj5Chh7
 [note-cmake-img]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/1933500176.png
-[book-cmake-practice]: http://pan.baidu.com/s/1bn4cKRt
+[book-cmake-practice]: http://pan.baidu.com/s/1kTB1Iy7 

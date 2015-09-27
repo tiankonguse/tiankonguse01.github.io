@@ -911,3 +911,21 @@ ul.list-of-tags li {
 }
 
 
+.weixin-zhifu, .taobao-zhifu{
+    display: inline-block;
+    border: 1px solid #717171;
+    border-radius: .7em;
+    margin: 0;
+    padding: 0;
+}
+
+.weixin-zhifu{
+    width: 43%;
+}
+
+
+.taobao-zhifu{
+    width: 47%;
+}
+
+
