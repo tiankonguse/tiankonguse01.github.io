@@ -106,7 +106,7 @@ chrome 插件有一个核心文件, 叫做 manifest.json .
 
 安装说明可以参考这里 : [chrome扩展集合](https://github.com/tiankonguse/personal-chrome-extensions)
 
-好了, 欢迎大家使用.  
+好了, 欢迎大家互相宣传来使用.  
 
 
 
