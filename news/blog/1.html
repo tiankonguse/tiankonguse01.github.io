@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <meta name="referrer" content="origin-when-cross-origin">
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon22c41b.ico">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="format-detection" content="telephone=no">
-        <title> 自己实现的一个chrome插件 </title>
-        <link rel="stylesheet" type="text/css" href="../css/page_mp_article_improve2826cc.css">
-        <style>
-        </style>
-        <!--[if lt IE 9]>
-            <link rel="stylesheet" type="text/css" href="../css/appmsg/page_mp_article_improve_pc2826cc.css">
-        <![endif]-->
-        <link rel="stylesheet" type="text/css" href="../css/not_in_mm2637ae.css">
+        <title>
+            自己实现的一个chrome插件
+        </title>
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
     </head>
     
-    <body id="activity-detail" class="zh_CN mm_appmsg not_in_mm" ontouchstart="">
-        <div id="js_article" class="rich_media">
-            <div class="rich_media_inner">
-                <div id="img-content" class="rich_media_area_primary">
-                    <h2 class="rich_media_title" id="activity-name">
+    <body>
+        <div class="helloword">
+            <div class="helloword_inner">
+                <div class="helloword_area_primary">
+                    <h2 class="helloword_title">
                         自己实现的一个chrome插件
                     </h2>
-                    <div class="rich_media_meta_list">
-                        <em id="post-date" class="rich_media_meta rich_media_meta_text">
+                    <div class="helloword_meta_list">
+                        <em id="post-date" class="helloword_meta helloword_meta_text">
                             2015-09-27
                         </em>
-                        <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname"
-                        href="javascript:void(0);" id="post-user">
+                        <a class="helloword_meta helloword_meta_link helloword_meta_nickname"
+                        href="javascript:void(0);">
                             天空的代码世界
                         </a>
-                        <span class="rich_media_meta rich_media_meta_text rich_media_meta_nickname">
+                        <span class="helloword_meta helloword_meta_text helloword_meta_nickname">
                             天空的代码世界
                         </span>
                     </div>
-                    <div class="rich_media_thumb_wrp" id="media">
-                        <img class="rich_media_thumb" id="js_cover" onerror="this.parentNode.removeChild(this)"
-                        data-s="300,640" src="../img/ibIkTFicotcCbwhkI4Amia7RtLMleX9QOotp90rmfnNax5IXs8ibxJHLzlibrpsbeZngOrBLfsnHibQ7IuMy6q7icAviag.png">
+                    <div class="helloword_thumb_wrp">
+                        <img class="helloword_thumb" data-s="300,640" src="../img/ibIkTFicotcCbwhkI4Amia7RtLMleX9QOotp90rmfnNax5IXs8ibxJHLzlibrpsbeZngOrBLfsnHibQ7IuMy6q7icAviag.png">
                     </div>
-                    <div class="rich_media_content" id="js_content">
+                    <div class="helloword_content">
                         <h2>
                             <span style="font-size: 24px;">
                                 <strong>
@@ -152,8 +143,8 @@
                             比如这样:
                         </p>
                         <p style="box-sizing: border-box; line-height: 1.8em; text-align: justify; margin-top: 0px; margin-bottom: 40px; padding: 0px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Helvetica, sans-serif; white-space: normal;">
-                            <img data-s="300,640" data-type="png" 
-                            data-ratio="0.39763779527559057" data-w="" src="http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3291134711.png"
+                            <img data-s="300,640" data-type="png" data-ratio="0.39763779527559057"
+                            data-w="" src="http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3291134711.png"
                             style="width: auto !important; visibility: visible !important; height: auto !important;">
                             <br>
                         </p>
@@ -164,8 +155,8 @@
                             比如这样:
                         </p>
                         <p style="box-sizing: border-box; line-height: 1.8em; text-align: justify; margin-top: 0px; margin-bottom: 40px; padding: 0px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Helvetica, sans-serif; white-space: normal;">
-                            <img data-s="300,640" data-type="png" data-src=""
-                            data-ratio="0.4625984251968504" src="http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3287997551.png"
+                            <img data-s="300,640" data-type="png" data-src="" data-ratio="0.4625984251968504"
+                            src="http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3287997551.png"
                             style="width: auto !important; visibility: visible !important; height: auto !important;">
                             <br>
                         </p>
@@ -193,8 +184,7 @@
                             像这个样子:
                         </p>
                         <p style="box-sizing: border-box; line-height: 1.8em; text-align: justify; margin-top: 0px; margin-bottom: 40px; padding: 0px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Helvetica, sans-serif; white-space: normal;">
-                            <img data-type="gif"  
-                            data-ratio="0.5767716535433071" src="http://7d9r3t.com1.z0.glb.clouddn.com/pce-acm-help.gif"
+                            <img data-type="gif" data-ratio="0.5767716535433071" src="http://7d9r3t.com1.z0.glb.clouddn.com/pce-acm-help.gif"
                             style="width: auto ; visibility: visible !important; height: auto ;max-width: 670px;">
                             <br>
                         </p>
@@ -206,16 +196,19 @@
                         </p>
                     </div>
                 </div>
-
-                 <link rel="stylesheet" type="text/css" href="../css/page_mp_article_improve_combo2826cc.css">
+                <link rel="stylesheet" type="text/css" href="../css/page_mp_article_improve_combo2826cc.css">
                 <div id="helloword" style="text-align: center;">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2326969899478823" data-ad-slot="8239263590" data-ad-format="auto"></ins>
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2326969899478823"
+                    data-ad-slot="8239263590" data-ad-format="auto">
+                    </ins>
                 </div>
                 <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                    (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
-                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+                </script>
             </div>
         </div>
     </body>
+
 </html>
