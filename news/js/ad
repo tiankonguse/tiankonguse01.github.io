@@ -1,0 +1,12 @@
+              
+               <!-- script  src="http://7d9r3t.com1.z0.glb.clouddn.com/jquery-1.7.1.min.js" ></script -->
+                /*
+                jQuery(document).ready(function(){
+                    return;
+                    if(window.innerWidth > 840){
+                        jQuery("#helloword").append('<ins id="helloword-big" class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="9544970390"></ins>');
+                    }else{
+                        jQuery("#helloword").append('<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="8417451596"></ins>');
+                    }
+                });
+                */
