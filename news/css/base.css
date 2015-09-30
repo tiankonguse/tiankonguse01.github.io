@@ -268,6 +268,11 @@ img {
     height: auto!important
 }
 
+#helloword{
+    min-height: 80px;
+}
+
+
 @media(min-device-width: 375px) and (max-device-width:667px) and (-webkit-min-device-pixel-ratio:2) {
     .mm_appmsg .helloword_inner,.mm_appmsg .helloword_meta,.mm_appmsg .discuss_list,.mm_appmsg .helloword_extra,.mm_appmsg .title_tips .tips {
         font-size:17px
@@ -276,11 +281,19 @@ img {
     .mm_appmsg .meta_original_tag {
         font-size: 15px
     }
+
+    #helloword{
+        min-height: 30px;
+    }
 }
 
 @media(min-device-width: 414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3) {
     .mm_appmsg .helloword_title {
         font-size:25px
+    }
+
+    #helloword{
+        min-height: 30px;
     }
 }
 
