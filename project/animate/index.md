@@ -10,15 +10,13 @@ categories: [project]
 </p>
 
 <nav class="nav">
-    <li data-cite="home"><a href="http://github.tiankonguse.com">Home</a></li>
-    <li data-cite="magic" class="selected">Magic</li>
-    <li data-cite="animate">Animate</li>
+    <li data-cite="home"><a href="{{ site.url }}">Home</a></li>
+    <li data-cite="magic" class="selected"><a href="#magic">Magic</a></li>
+    <li data-cite="animate"><a href="#animate">Animate</a></li>
 </nav>
 
 <div class="page">
-
     <div class="views">
-
         <div class="u-img">
             <img id="animate" src="logo.png" width="100" alt=""/>
         </div>
@@ -284,7 +282,7 @@ categories: [project]
  
 tk.comment.isHaveComment = false;
 jQuery(document).ready(function(){
-   $(".ad-page-footer").css("position","fixed").css("bottom","5px").css("width","100%");
+   $(".ad-page-footer").css("position","fixed").css("bottom","0px").css("width","100%");
    $(".ad-page-footer").css("z-index","11");
    $(".ad-page-footer").css("background-color","rgb(80, 80, 80)");
 });
