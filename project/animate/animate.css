@@ -8611,7 +8611,9 @@ body{color:rgba(255,255,255,0.9);background:#464646;overflow-x:hidden}
 a{color:rgba(255,255,255,0.9)}
 .btn{display:inline-block;text-align:center;padding:10px 16px;background:#666;margin-bottom:6px;cursor:default;color:rgba(255,255,255,0.7);font-size:16px;font-weight:100;line-height:24px;-webkit-transition:background 200ms ease-in-out;border-radius:2px}.btn:hover{background:#282828}
 .btn:active{background:#000}
-.nav{height:40px;line-height:40px;text-align:center;list-style:none;display:-webkit-box;background:#1d1d1d;background:-webkit-linear-gradient(top, #3f3f3f, #1f1f1f);border-bottom:1px solid #000;box-shadow:0 1px 0 0 #505050;cursor:default;font-family:arial,sans-serif;position:fixed;z-index:3000;top:0;left:0;width:100%}.nav li{width:80px;padding:0 10px}
+.nav{height:40px;line-height:40px;text-align:center;list-style:none;display:-webkit-box;background:#1d1d1d;background:-webkit-linear-gradient(top, #3f3f3f, #1f1f1f);border-bottom:1px solid #000;box-shadow:0 1px 0 0 #505050;cursor:default;font-family:arial,sans-serif;position:fixed;z-index:3000;top:0;left:0;width:100%}
+.nav li{width:100px;padding:0 10px}
+.nav li a{text-align: center;}
 .nav .selected{background:#1d1d1d}
 .views{position:fixed;z-index:2000;top:40px;left:0;width:100%;height:200px;background:rgba(70,70,70,0.95)}.views .u-img{position:fixed;z-index:1000;left:20%;top:100px;background:#3d3d3d;}
 .views img{display:block;-webkit-filter:brightness(.6);margin:-3px 0 0 -3px}

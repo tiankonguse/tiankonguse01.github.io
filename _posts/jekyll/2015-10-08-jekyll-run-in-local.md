@@ -13,7 +13,7 @@ updateData:   23:54 2015/10/08
 最近一年多, 一直使用[github](https://github.com/tiankonguse/tiankonguse.github.io) 来当作自己的 [记录集](http://github.tiankonguse.com/),俗称博客.  
 使用github当作记录集有一个问题就是:网站有任何改动, 只有提交了才能看到效果.  
 如果发现有问题了, 需要修改后再次提交.  
-这也是为什么我的提交次数很高的缘故. [^1](https://github.com/tiankonguse/tiankonguse.github.io/commits/master).  
+这也是为什么我的提交次数很高的缘故. [1](https://github.com/tiankonguse/tiankonguse.github.io/commits/master).  
 
 
 实际上刚开始搭建 自己的 [记录集](http://github.tiankonguse.com/)时, 我在我的电脑上搭建了一个本地的jekyll环境, 然是后来换电脑了, 就再也没搭建了.  
@@ -80,7 +80,7 @@ Build Warning: Layout 'nil' requested in atom.xml does not exist.
 ```
   
 
-原因是我们使用旧版的语法, 新版本使用 `null` 代替了 ^[2](https://github.com/jekyll/jekyll/issues/2712).  
+原因是我们使用旧版的语法, 新版本使用 `null` 代替了 [2](https://github.com/jekyll/jekyll/issues/2712).  
 所以我们把 `nil` 换成 `null` 即可.  
 
 
