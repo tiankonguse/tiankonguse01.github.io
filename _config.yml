@@ -45,10 +45,10 @@ excerpt_separator: "\n\n"
 detach:  false
 port:    80
 #host: http://github.tiankonguse.com
-host:    127.0.0.1
+host:    192.168.31.137
 baseurl: "/" # does not include hostname
 url: http://github.tiankonguse.com
-#url: http://127.0.0.1
+#url: http://192.168.31.137
 
 # Backwards-compatibility
 relative_permalinks: false

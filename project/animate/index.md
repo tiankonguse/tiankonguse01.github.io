@@ -25,10 +25,7 @@ categories: [project]
     <div class="live-tab">
 
         <div data-cite="magic" class="item magic selected">
-            <h1>Magic</h1>
             <div class="group">
-                <h2></h2>
-
                 <div class="list">
 
                     <h3>Magic Effects</h3>
@@ -126,10 +123,7 @@ categories: [project]
         </div>
 
         <div  data-cite="animate" class="item animate">
-            <h1>Animate</h1>
             <div class="group">
-                <h2></h2>
-
                 <div class="list">
 
                     <h3>attention_seekers</h3>
