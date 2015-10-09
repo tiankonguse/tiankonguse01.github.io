@@ -13,7 +13,7 @@
         </div>
     </div>
 </nav>
-<button type="button" class="js-menu-trigger sliding-menu-button menulines-button x2" role="button" aria-label="Toggle Navigation">
+<button type="button" class="js-menu-trigger sliding-menu-button menulines-button x2" role="button" aria-label="Toggle Navigation" style="display: none;">
 	<span class="menulines"></span>
 </button>
 <div class="js-menu-screen menu-screen"></div>
