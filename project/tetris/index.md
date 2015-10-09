@@ -47,7 +47,7 @@ if(tk.isMobile.any()){
 
     tk.ad.loadGoogleJs(true);
     jQuery(document).ready(function(){
-    	tk.ad.showPageFoot("ad-page-footer","320-50" ,true);
+    	tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     	$(".ad-page-footer").show();
     });
 }
