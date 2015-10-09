@@ -781,7 +781,7 @@ tk.Composition(TK.Tetris, {
         $("#tetris").css("width", w+"px");
         
         //$("#tetris").css("padding-top", tetrisPad+"px");
-        $("#tetris").css("padding-top", "1.7em");
+        $("#tetris").css("padding-top", "2.7em");
     }else{
         if(w < 1400){
             w -= 700;

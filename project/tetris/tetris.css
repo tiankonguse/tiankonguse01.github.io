@@ -91,7 +91,9 @@ body {
     top: 200px;
 }
 @media screen and (min-width: 751px) and (max-width: 1400px) {
-    
+    .home-link{
+        line-height: 1.4em;
+    }
     .right-ad {
         top: 50px;
     }
@@ -130,6 +132,10 @@ body {
 }
 
 @media screen and (max-width: 750px) {
+    
+    .home-link{
+        line-height: 1.4em;
+    }
     
     .home-menu {
         top: 0px;
