@@ -41,7 +41,7 @@ body {
 }
 
 #info p {
-    margin-bottom: 10px;
+    margin-bottom: 0.2em;
     line-height: 1.3em;
 }
 
@@ -125,7 +125,7 @@ body {
         height: 100%;
     }
     #info p {
-        margin-bottom: 10px;
+        margin-bottom: 0.2em;
     }
 }
 
