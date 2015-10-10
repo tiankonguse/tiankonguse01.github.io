@@ -38,6 +38,15 @@ title : 经典游戏之俄罗斯方块
 
 <script>
 tk.comment.isHaveComment = false;
+if(tk.isMobile.any()){
+    tk.ad.isLoadGoogleJs = false;
+    tk.ad.isShowPageFoot = false;
+    jQuery(document).ready(function(){
+        tk.ad.loadGoogleJs(true);
+        $(".ad-page-footer").show();
+	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
+    });
+}
 
 function loadTetris() {
     var tetris = new TK.Tetris();
@@ -131,15 +140,7 @@ function loadTetris() {
 }
 
 tk.loadJSFile("./tetris.js?t=" + tk.time(), loadTetris, true);
-if(tk.isMobile.any()){
-    tk.ad.isLoadGoogleJs = false;
-    tk.ad.isShowPageFoot = false;
-    jQuery(document).ready(function(){
-        tk.ad.loadGoogleJs(true);
-        $(".ad-page-footer").show();
-	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
-    });
-}
+
 
 
 
