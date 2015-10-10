@@ -180,3 +180,11 @@ body {
 }
 
 
+.wrapper {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sub-wrapper {
+  overflow: auto;
+}

@@ -8,7 +8,15 @@ title : 经典游戏之俄罗斯方块
 <p style="padding: 0px;margin: 0px;">
 <link rel="stylesheet" href="./tetris.css" type="text/css" />
 </p>
-<div id="tetris">
+
+
+<div class="wrapper">
+  <div class="sub-wrapper">
+    <div class="scroller">
+        <div id="tetris">
+        </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -176,6 +184,26 @@ function showMessage(score, cb) {
     }
 }
 
+function preventDefault(ev) {
+  ev.preventDefault()
+}
+
+document.addEventListener('touchmove', preventDefault, false)
+
+function isScroller(el) {
+
+  // 判断元素是否为 scroller
+  return el.classList.contains('scroller')
+}
+
+document.body.addEventListener('touchmove', function (ev) {
+  var target = ev.target
+
+  // 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
+  if (isScroller(target)) {
+    ev.stopPropagation()
+  }
+}, false)
 
 </script>
 
