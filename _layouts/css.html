@@ -18,13 +18,16 @@ comment: true
 
 {{ content }}
 
-<script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/javascripts/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="javascripts/dtree.js"></script>
 
 <script>
 $(function () {
 	$("#menu").load("ex_left.html");
 });
+    jQuery(document).ready(function(){
+        tk.ad.loadGoogleJs(true);
+        $(".ad-page-footer").show();
+	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
+    });
 </script>
 
