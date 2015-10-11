@@ -12,7 +12,7 @@
 	{% endfor %}
 	</ul>
 </div>
-<div class="sidenav" style="max-height:300px">
+<div class="sidenav">
 	<h2>孩子的奶粉钱</h2>
 	<div>
     <ins class="adsbygoogle"
@@ -65,7 +65,7 @@
 </div>
 
 <div id="menuIndex" class="sidenav"></div>
-<div id="menuIndex-next" class="sidenav"  style="max-height:300px">
+<div id="menuIndex-next" class="sidenav">
     <ins class="adsbygoogle"
 		 style="display:inline-block;width:250px;height:250px"
 		 data-ad-client="ca-pub-2326969899478823"
