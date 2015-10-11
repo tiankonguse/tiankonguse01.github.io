@@ -1,51 +1,27 @@
   
-- title: 关于我
+- title: 关于我 - aboutme
   url: /about.html
-  content: 
+  content: 关于tiankonguse的简单介绍
   
-- title: 记录与标签
+- title: 标签 - tags
   url: /tags.html
-  content: 
+  content: 按关键词来管理记录
   
-- title: 记录与时间
+- title: 归档 - archives
   url: /archives.html
-  content:
+  content: 按时间来管理记录
   
-- title: 记录与分类
+- title: 分类 - categories
   url: /categories.html
-  content: 
+  content: 按分类来管理记录
   
-- title: CSS3动画库
-  url: /project/animate/
-  
-- title: 俄罗斯方块游戏
-  url: /project/tetris/
-  
-- title: 纯CSS实现月食
-  url: /project/moondog/
-  
-- title: 在线配置PS1样式
-  url: /project/bashrcgenerator/
-  
-- title: 格式化/压缩代码
-  url: /project/format/
+- title: 项目 - project
+  url: /project/
+  content: 一些好玩的小作品
   
 - title: Bash 手册 
   url: http://tiankonguse.com/manual/bash/
   content: 
-  
-- title: 时间戳转换工具
-  url: /project/unixtime/
-  content: 
-  
-- title: IEEE-754 浮点数二进制储存表示
-  url: /project/IEEE/754
-  content: 
-  
-- title: 练习键盘的小游戏
-  url: /project/ztype/
-  content: 
-  
   
 - title: 一些算法
   url: /algorithm.html

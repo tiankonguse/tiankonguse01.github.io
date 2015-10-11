@@ -47,7 +47,27 @@ comment: true
         <p><blockquote>{{ page.description }}</blockquote></p>
         {{ content }}
         <div class="ad-content-footer"></div>
+
+        
         <footer class="unit-foot">
+            <section>
+            {% unless page.categories == empty %}
+                <ul class="tag-box inline">
+                    <li>分类:</li>
+                    {% assign categories_list = page.categories %}
+                    {% include categories_list.md %}
+                </ul>
+            {% endunless %}
+            </section>
+            <section>
+            {% unless page.tags == empty %}
+                <ul class="tag-box inline">
+                    <li>标签:</li>
+                    {% assign tags_list = page.tags %}
+                    {% include tags_list.md %}
+                </ul>
+            {% endunless %}
+            </section>
             <div class="footer-post-info clearfix">
                 <ul>
                     <li>

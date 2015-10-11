@@ -14,7 +14,7 @@ description: Jekyll 中使用标签得到文章。
         <ul class="list-of-tags">
             {% for tag in site.tags %}
             <li>
-            <a href="#{{ tag.first }}_ref_head">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
+            <a href="#{{ tag.first }}-tag-ref">{{ tag.first }}<span>{{ tag | last | size }}</span></a>
             </li>
             {% endfor %}
         </ul>
@@ -24,18 +24,22 @@ description: Jekyll 中使用标签得到文章。
 <div class="row-fluid entry-tag">
     <div class="accordion" id="accordion2">
         {% for tag in site.tags %}
-        <div class="accordion-heading" id="{{ tag.first }}_ref_head">
-            <h2 class="tag-title accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}_ref_" >{{ tag.first }}</h2>
-        </div>
-        <div id="{{ tag.first }}_ref_" class="accordion-body collapse">
-            <div class="accordion-inner">
-                <ul class="articles-in-tag list-articles-category" >
-                {% for article in tag.last %}
-                <li>
-                    <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date|date:"%Y-%m-%d" }}</time>
-                    <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
-                {% endfor %}
-                </ul>
+        <div class="accordion-group">
+            <div class="accordion-heading" id="{{ tag.first }}-tag-ref">
+                <a href="#{{ tag.first }}-tag-ref" >
+                <h2 class="tag-title accordion-toggle list-of-categories" data-toggle="collapse" data-parent="#accordion2" href="#{{ tag.first }}-tag-collapse">{{ tag.first }}</h2>
+                </a>
+            </div>
+            <div id="{{ tag.first }}-tag-collapse" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <ul class="articles-in-tag list-articles-category" >
+                    {% for article in tag.last %}
+                    <li>
+                        <time pubdate="pubdate" datetime="{{ article.date|date:"%Y-%m-%d %H:%M:%S" }}">{{ article.date|date:"%Y-%m-%d" }}</time>
+                        <a href="{{ site.url }}{{ article.url }}">{{ article.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     {% endfor %}

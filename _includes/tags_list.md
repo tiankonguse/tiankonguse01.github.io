@@ -1,0 +1,33 @@
+{% comment %}<!--
+The tags_list include is a listing helper for tags.
+Usage:
+  1) assign the 'tags_list' variable to a valid array of tags.
+  2) include tags_list.md
+  example:
+    <ul>
+  	  {% assign tags_list = site.tags %}  
+  	  {% include tags_list.md %}
+  	</ul>
+  
+  Notes: 
+    Tags can be either a Hash of tag objects (hashes) or an Array of tag-names (strings).
+    The encapsulating 'if' statement checks whether tags_list is a Hash or Array.
+    site.tags is a Hash while page.tags is an array.
+    
+-->{% endcomment %}
+
+
+{% if tags_list.first[0] == null %}
+    {% for tag in tags_list %} 
+        <li><a href="{{ site.url }}{{ site.tags_path }}#{{ tag }}-tag-ref">
+            {{ tag | join: "/" }} <span>{{ site.tags[tag].size }}</span>
+        </a></li>
+    {% endfor %}
+{% else %}
+    {% for tag in tags_list %} 
+        <li><a href="{{ site.url }}{{ site.tags_path }}#{{ tag[0] }}-tag-ref">
+        {{ tag[0] | join: "/" }} <span>{{ tag[1].size }}</span>
+        </a></li>
+    {% endfor %}
+{% endif %}
+{% assign categories_list = nil %}
