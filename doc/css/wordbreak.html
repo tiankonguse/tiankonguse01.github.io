@@ -1,0 +1,34 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">word-break</span>版本：IE5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>word-break : </b><span class="cssDefault"><b>normal</b></span> | <b>break-all</b> | <b>keep-all</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> normal </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。允许在词间换行</td></tr>
+<tr><td nowrap=""><b> break-all </b></td><td nowrap=""><b>:</b></td><td>该行为与亚洲语言的<b> normal </b>相同。也允许非亚洲语言文本行的任意字内断开。该值适合包含一些非亚洲文本的亚洲文本</td></tr>
+<tr><td nowrap=""><b> keep-all </b></td><td nowrap=""><b>:</b></td><td>与所有非亚洲语言的<b> normal </b>相同。对于中文，韩文，日文，不允许字断开。适合包含少量亚洲文本的非亚洲文本</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内文本的字内换行行为。尤其在出现多种语言时。<br/>
+对于中文，应该使用<b> break-all </b>。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> wordBreak </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div {word-break : break-all; } 
+</div>
+
+</div>
+

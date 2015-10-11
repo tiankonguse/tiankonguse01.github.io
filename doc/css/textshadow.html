@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-shadow</span>版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-shadow : </b><i>color</i> || <i>length</i> || <i>length</i> || <i>opacity</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> color </i></td><td nowrap=""><b>:</b></td><td>指定颜色。请参阅<a href="color.html"> 颜色单位 </a>和<a href="color.html"> 附录：颜色表 </a></td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值。可为负值。指定阴影的水平延伸距离。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值。可为负值。指定阴影的垂直延伸距离。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+<tr><td nowrap=""><i> opacity </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值。不可为负值。指定模糊效果的作用距离。如果你仅仅需要模糊效果，将前两个<b> length </b>全部设定为<b> 0 </b>。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象中文本的文字是否有阴影及模糊效果。<br/>
+可以设定多组效果，方式是用逗号隔开。<br/>
+可以被用于伪类<a href="firstletter.html"> :first-letter </a>和<a href="firstline.html"> :first-line </a>。<br/>
+对应的脚本特性为<b> textShadow </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p { text-shadow: 0px 0px 20px yellow, 0px 0px 10px orange, red 5px -5px; }<br/>p:first-letter { font-size: 36px; color: red; text-shadow: red 0px 0px 5px;}
+</div>
+
+</div>
+

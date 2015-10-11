@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">background-position</span>版本：CSS1　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>background-position : </b><i>length</i> || <i> length</i>
+<br/><b>background-position : </b><i>position</i> || <i> position</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>百分数 | 由浮点数字和单位标识符组成的长度值。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+<tr><td nowrap=""><i> position </i></td><td nowrap=""><b>:</b></td><td><b>top | center | bottom | left | center | right</b></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象的背景图像位置。必须先指定<a href="backgroundimage.html"> background-image </a>属性。<br/>
+该属性定位不受对象的补丁属性(<a href="padding.html"> padding </a>)设置影响。<br/>
+默认值为：<span class="cssDefault"> 0% 0% </span>。此时背景图片将被定位于对象不包括补丁(<a href="padding.html"> padding </a>)的内容区域的左上角。<br/>
+如果只指定了一个值，该值将用于横坐标。纵坐标将默认为<span class="cssDefault"> 50% </span>。如果指定了两个值，第二个值将用于纵坐标。
+如果设置值为<b> right center </b>，因为<b>  right </b>作为横坐标值将会覆盖<b> center </b>值，所以背景图片将被居右定位。<br/>
+对应的脚本特性为<b> backgroundPosition </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { background: url("images/aardvark.gif");  background-position: 35% 80%; } <br/>menu { background: url("images/aardvark.gif"); background-position: 35% 2.5cm;  } <br/>a { background: url("images/aardvark.gif"); background-position: 3.25in; } <br/>body { background: url("images/aardvark.gif"); background-position: top right; } 
+</div>
+
+</div>
+

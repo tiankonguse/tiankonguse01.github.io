@@ -1,0 +1,32 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">@page</span>版本：CSS1　 兼容性：IE5.5+</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b> @page </b><i> pseudo-class </i><b> { </b><i>sRules</i><b> } </b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> pseudo-class </i></td><td nowrap=""><b>:</b></td><td>伪类。<a href="first.html">:first</a> | <a href="left.html">:left</a> | <a href="right.html">:right</a></td></tr>
+<tr><td nowrap=""><i> sRules </i></td><td nowrap=""><b>:</b></td><td>样式表定义</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置页面容器的版式，方向，补丁等。此规则无默认值。<br/>
+页面容器是一个矩形区域，包括页面内容区域和补丁区域。页面内容区域包含页面的内容，像文本和图片等，补丁区域环绕内容区域外围。<br/>
+虽然此规则定义会被描述在IE5.5+的样式表对象模型内，但是这些定义并不会被IE默认的打印模板使用。它们能够被MSHTML宿主程序用于打印模板开发。在这些程序中，像<a href="size.html"> size </a>和<a href="margin.html"> margin </a>等不被明确提供的属性作为自定义(<b> expando </b>)属性被使用。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+@page thin:first { size: 3in 8in }
+</div>
+
+</div>
+

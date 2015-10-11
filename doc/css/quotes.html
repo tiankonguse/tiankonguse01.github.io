@@ -1,0 +1,38 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">quotes</span>版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>quotes : </b><span class="cssDefault"><b>none</b></span> | <i>string</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。<a href="content.html"> content </a>属性的<b> open-quote </b>和<b> close-quote </b>值将不会生成任何嵌套标记</td></tr>
+<tr><td nowrap=""><i> string </i></td><td nowrap=""><b>:</b></td><td>用引号括起的嵌套标记定义。两个为一组。第一个<i> string </i>定义前标记（例："&lt;"），第二个<i> string </i>定义后标记（例："&gt;"）。组之间用空格格开。嵌套标记的应用深度按定义顺序内推</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内使用的嵌套标记。<br/>
+对应的脚本特性为<b> quotes </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+blockquote[lang-=fr] { quotes: "\201C" "\201D" }
+<br/>blockquote[lang-=en] { quotes: "\00AB" "\00BB" }
+<br/>blockquote:before { content: open-quote }
+<br/>blockquote:after { content: close-quote }
+<br/> <br/>q { quotes: """ """ "'" "'"; }
+<br/> <br/>&lt;q&gt;This is an &lt;q&gt;emedded&lt;/q&gt; quote.&lt;/q&gt;
+<br/> <br/>显示结果如下：
+<br/> <br/>"This is an 'embedded' quote."
+</div>
+
+</div>
+

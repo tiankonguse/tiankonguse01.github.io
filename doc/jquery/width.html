@@ -1,0 +1,49 @@
+---
+layout: jquery
+title: jquery:width([val|fn]) | jQuery API 中文手册
+description: jquery:取得第一个匹配元素当前计算的宽度值（px）。在 jQuery 1.2 以后可以用来获取 window 和 document 的宽 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="width">
+<h2><span>返回值:Integer</span>width([val|fn])</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>取得第一个匹配元素当前计算的宽度值（px）。</p>
+<div class="longdesc">
+<p>在 jQuery 1.2 以后可以用来获取 window 和 document 的宽</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>val</strong><span>String, Number, Function</span><em>V1.0</em></h4>
+<p>设定CSS中 'width' 的值，可以是字符串或者数字，还可以是一个函数，返回要设置的数值。函数接受两个参数，第一个参数是元素在原先集合中的索引位置，第二个参数为原先的宽度。</p>
+<h4><strong>function(index, height)</strong><span>String, Number, Function</span><em>V1.4.1</em></h4>
+<p>返回用于设置宽度的一个函数。接收元素的索引位置和元素旧的宽度值作为参数。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>无参数描述:</h4>
+<p>获取第一段的宽</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").width();</code></pre>
+<h4>参数val 描述:</h4>
+<p>把所有段落的宽设为 20:</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").width(20);</code></pre>
+<h4>参数function(index, height) 描述:</h4>
+<p>以 10 像素的幅度增加 p 元素的宽度</p>
+<h5>jQuery 代码:</h5>
+<pre><code>  $("button").click(function(){
+    $("p").width(function(n,c){
+    return c+10;
+    });
+  });</code></pre>
+</div>
+</div>
+
+</div>
+

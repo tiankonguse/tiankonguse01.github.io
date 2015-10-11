@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">visibility</span>版本：CSS2　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>visibility  : </b><span class="cssDefault"><b>inherit</b></span> | <b>visible</b> | <b>collapse</b> | <b>hidden</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> inherit </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。继承父对象的可见性</td></tr>
+<tr><td nowrap=""><b> visible </b></td><td nowrap=""><b>:</b></td><td>对象可视</td></tr>
+<tr><td nowrap=""><b class="cssNone"> collapse </b></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。主要用来隐藏表格的行或列。隐藏的行或列能够被其他内容使用。对于表格外的其他对象，其作用等同于<b> hidden </b></td></tr>
+<tr><td nowrap=""><b> hidden </b></td><td nowrap=""><b>:</b></td><td>对象隐藏</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索是否显示对象。<br/>
+与<a href="display.html"> display </a>属性不同，此属性为隐藏的对象保留其占据的物理空间。<br/>
+在IE5.0+中，当父对象不可视时子对象是能被设为可视的。而在此前的浏览器版本中，如果希望对象为可视，其父对象也必须是可视的。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> visibility </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+img { visibility: inherit; float: right; }
+</div>
+
+</div>
+

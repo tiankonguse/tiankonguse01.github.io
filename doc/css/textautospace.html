@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-autospace</span>版本：IE5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-autospace : </b><span class="cssDefault"><b>none</b></span> | <b>ideograph-alpha</b>|<b>ideograph-numeric</b> | <b>ideograph-parenthesis</b> | <b>ideograph-space</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无调整发生</td></tr>
+<tr><td nowrap=""><b> ideograph-alpha </b></td><td nowrap=""><b>:</b></td><td>在表意字和非表意字(如Latin-based，Greek，Cyrillic，Arabic，Hebrew文本)之间创建额外空格</td></tr>
+<tr><td nowrap=""><b> ideograph-numeric </b></td><td nowrap=""><b>:</b></td><td>在表意字和数字字符之间创建额外空格</td></tr>
+<tr><td nowrap=""><b> ideograph-parenthesis </b></td><td nowrap=""><b>:</b></td><td>在常规(非等宽)插入语和表意字之间创建额外空格</td></tr>
+<tr><td nowrap=""><b> ideograph-space </b></td><td nowrap=""><b>:</b></td><td>当空格相邻表意字符时，扩展空格的宽度</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象文本的自动空格和紧缩空格宽度调整的方式。<br/>
+表意字是东亚编写系统中的字符，表示一个概念或方法，但不是一个特定的字或词。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> textAutospace </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div {text-autospace: ideograph-alpha; }
+</div>
+
+</div>
+

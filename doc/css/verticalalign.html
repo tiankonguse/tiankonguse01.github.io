@@ -1,0 +1,41 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">vertical-align</span>版本：CSS1/CSS2　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>vertical-align : </b><b>auto</b> | <span class="cssDefault"><b>baseline</b></span> | <b>sub</b> | <b>super</b> | <b>top</b> | <b>text-top</b> | <b>middle</b> | <b>bottom</b> | <b>text-bottom</b> | <i>length</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>根据<a href="layoutflow.html"> layout-flow </a>属性的值对齐对象内容</td></tr>
+<tr><td nowrap=""><b> baseline </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td><b>默认值</b>。将支持<b> valign </b>特性的对象的内容与基线对齐</td></tr>
+<tr><td nowrap=""><b> sub </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>垂直对齐文本的下标</td></tr>
+<tr><td nowrap=""><b> super </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>垂直对齐文本的上标</td></tr>
+<tr><td nowrap=""><b> top </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>将支持<b> valign </b>特性的对象的内容对象顶端对齐</td></tr>
+<tr><td nowrap=""><b> text-top </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>将支持<b> valign </b>特性的对象的文本与对象顶端对齐</td></tr>
+<tr><td nowrap=""><b> middle </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>将支持<b> valign </b>特性的对象的内容与对象中部对齐</td></tr>
+<tr><td nowrap=""><b> bottom </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>将支持<b> valign </b>特性的对象的内容与对象底端对齐</td></tr>
+<tr><td nowrap=""><b> text-bottom </b></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS1 </td><td>将支持<b> valign </b>特性的对象的文本与对象顶端对齐</td></tr>
+<tr><td nowrap=""><i class="cssNone"> length </i></td><td nowrap=""><b>:</b></td><td class="cssVersion" nowrap=""> CSS2 </td><td>由浮点数字和单位标识符组成的长度值 | 百分数。可为负数。定义由基线算起的偏移量。基线对于数值来说为0，对于百分数来说就是0%。请参阅<a href="length.html"> 长度单位 </a>。目前IE尚未实现此参数</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内容的垂直对其方式。<br/>
+对于<b> currentStyle </b>对象而言此属性的默认值为<span class="cssDefault"><b> auto </b></span>。对于其他对象而言是<span class="cssDefault"><b> baseline </b></span>。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> verticalAlign </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+td { vertical-align : middle; } 
+</div>
+
+</div>
+

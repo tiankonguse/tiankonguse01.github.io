@@ -1,0 +1,50 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-justify</span>版本：IE5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-justify : </b><span class="cssDefault"><b>auto</b></span> | <b>distribute</b> | <b>distribute-all-lines</b> | <b>distribute-center-last</b> | <b>inter-cluster</b> | <b>inter-ideograph</b> | <b>inter-word</b> | <b>kashida</b> | <b>newspaper</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td>
+<td><b>默认值</b>。允许浏览器代理用户确定使用的两端对齐法则</td></tr>
+<tr><td nowrap=""><b> distribute </b></td><td nowrap=""><b>:</b></td>
+<td>处理空格很像<b> newspaper </b>，适用于东亚文档。尤其是泰文</td></tr>
+<tr><td nowrap=""><b> distribute-all-lines </b></td><td nowrap=""><b>:</b></td>
+<td>两端对齐行的方式与<b> distribute </b>相同，也同样不包含两段对齐段落的最后一行。适用于表意字文档</td></tr>
+<tr><td nowrap=""><b> distribute-center-last </b></td><td nowrap=""><b>:</b></td>
+<td>未实现</td></tr>
+<tr><td nowrap=""><b> inter-cluster </b></td><td nowrap=""><b>:</b></td>
+<td>调整文本无词间空格的行。这种模式的调整是用于优化亚洲语言文档的</td></tr>
+<tr><td nowrap=""><b> inter-ideograph </b></td><td nowrap=""><b>:</b></td>
+<td>为表意字文本提供完全两端对齐。他增加或减少表意字和词间的空格</td></tr>
+<tr><td nowrap=""><b> inter-word </b></td><td nowrap=""><b>:</b></td>
+<td>通过增加字之间的空格对齐文本。该行为是对齐所有文本行最快的方法。它的两端对齐行为对段落的最后一行无效</td></tr>
+<tr><td nowrap=""><b> kashida </b></td><td nowrap=""><b>:</b></td>
+<td>通过拉长选定点的字符调整文本。这种调整模式是特别为阿拉伯脚本语言提供的。需要IE5.5+支持</td></tr>
+<tr><td nowrap=""><b> newspaper </b></td><td nowrap=""><b>:</b></td>
+<td>通过增加或减少字或字母之间的空格对齐文本。是用于拉丁文字母表两端对齐的最精确格式</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内调整文本使用的对齐方式。<br/>
+因为这个属性影响文本布局，所以<a href="textalign.html"> text-align </a>属性必须被设置为<b> justify </b>。<br/>
+此属性只作用于块对象。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> textJustify </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div {text-justify : auto; text-align:justify; } 
+</div>
+
+</div>
+

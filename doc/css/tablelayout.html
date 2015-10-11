@@ -1,0 +1,41 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">table-layout</span>版本：CSS2　 兼容性：IE5+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>table-layout : </b><span class="cssDefault"><b>auto</b></span> | <b>fixed</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。默认的自动算法。布局将基于各单元格的内容。表格在每一单元格内所有内容读取计算之后才会显示出来</td></tr>
+<tr><td nowrap=""><b> fixed </b></td><td nowrap=""><b>:</b></td><td>固定布局的算法。在这种算法中，表格和列的宽度取决于<b> col </b>对象的宽度总和，假如没有指定，则会取决于第一行每个单元格的宽度。假如表格没有指定宽度(<a href="width.html"> width </a>)属性，则表格被呈递的默认宽度为<b> 100% </b>。</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索表格的布局算法。<br/>
+你可以通过此属性改善表格呈递性能。此属性导致IE以一次一行的方式呈递表格内容从而提供给信息用户更快的速度。此属性依据此下顺序使用其中一种方式布置表格栏宽度：<br/>
+<ol>
+<li>使用<b> col </b>或<b> colGroup </b>对象的宽度(<b> width </b>)属性信息。<br/>
+</li><li>使用表格第一行内的单元格的宽度(<b> width </b>)信息。<br/>
+</li><li>依据表格列数等分表格宽度。而不考虑表格内容的实际宽度。
+</li></ol>
+假如单元格的内容超过了列宽度，内容将会被换行。假如无法换行，则内容会被裁切。假如此属性被设置为<b> fixed </b>，则<a href="overflow.html"> overflow </a>能够被用于控制处理溢出单元格(<b> td </b>)宽度的内容。假如表格行高度被指定了，那么换行的内容如果超出了指定表格行高度也会在纵向上被裁切。<br/>
+设置此属性值为<b> fixed </b>，有助于提高表格性能。对于长表格效果尤其显着。<br/>
+设置表格行高可以进一步提高呈递速度，浏览器不需要检测行内每一个单元格内容去确定行高就可以开始解析以及呈递。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> tableLayout </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+table { table-layout: fixed; }
+</div>
+
+</div>
+

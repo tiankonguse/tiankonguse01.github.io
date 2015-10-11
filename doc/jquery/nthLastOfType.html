@@ -1,0 +1,49 @@
+---
+layout: jquery
+title: jquery::nth-last-of-type() | jQuery API 中文手册
+description: jquery:选择的所有他们的父级元素的第n个子元素，计数从最后一个元素到第一个。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="nthLastOfType">
+<h2><span>返回值:jQuery</span>:nth-last-of-type(n|even|odd|formula)</h2>
+<h3><em>V1.9</em>概述</h3>
+<div class="desc">
+<p>选择的所有他们的父级元素的第n个子元素，计数从最后一个元素到第一个。</p>
+<div class="longdesc">
+<p>因为jQuery的实现:nth-是严格来自CSS规范，n值是“1-indexed”，也就是说，从1开始计数。 对于所有其他选择器表达式比如:eq() 或 :even ，jQuery遵循JavaScript的“0索引”的计数。因此，给定一个单一&lt;ul&gt;包含3个&lt;li&gt;，$('li:nth-last-of-type(1)')选择第3个，也就是最后一个&lt;li&gt;。</p>
+<p>这个不寻常的用法，可进一步讨论中找到 <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS specification</a>.</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>n</strong><span></span><em>V1.9</em></h4>
+<p>The index of each child to match.<br/>
+<br/>
+      Must be a number. The first element has the index number 1.</p>
+<h4><strong>even</strong><span></span><em>V1.9</em></h4>
+<p>Selects each even child element</p>
+<h4><strong>odd</strong><span></span><em>V1.9</em></h4>
+<p>Selects each odd child element</p>
+<h4><strong>formula</strong><span></span><em>V1.9</em></h4>
+<p>Specifies which child element(s) to be selected with a formula (<em>an</em> + <em>b</em>). Example: p:nth-last-child(3n+2) selects each 3rd paragraph, starting at the last 2nd child</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<p>在每个匹配的ul中查找倒数第二个li</p>
+<pre>
+&lt;ul&gt;
+	&lt;li&gt;1&lt;/li&gt;
+	&lt;li&gt;2&lt;/li&gt;
+	&lt;li&gt;3&lt;/li&gt;
+	&lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+
+$("ul li:nth-last-of-type(2)");</pre>
+</div>
+</div>
+
+</div>
+

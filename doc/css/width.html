@@ -1,0 +1,39 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">width</span>版本：CSS1　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>width : </b><span class="cssDefault"><b>auto</b></span> | <i>length</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无特殊定位，根据HTML定位规则分配</td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值 | 百分数。百分数是基于父对象的宽度。不可为负数。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象的宽度。<br/>
+对于<b> img </b>来说，仅指定此属性，其<a href="width.html"> height </a>值将根据图片源尺寸等比例缩放。<br/>
+按照样式表的规则，对象的实际宽度为其下列属性值之和：<br/>
+<a href="marginleft.html">margin-left</a> + <a href="borderleft.html">border-left</a> + <a href="paddingleft.html">padding-left</a>
+ + <b>width</b> + <a href="paddingright.html">padding-right</a> + <a href="borderright.html">border-right</a> + <a href="marginright.html">margin-right</a><br/>
+ 在IE6中使用<b> !DOCTYPE </b>声明指定<b> standards-compliant </b>模式可以实现这一点。<br/>
+而在IE6中如果没有将<b> !DOCTYPE </b>声明指定<b> standards-compliant mode</b>，以及以前的浏览器版本，对象的实际宽度等于：<br/>
+<a href="marginleft.html">margin-left</a> + <b>width</b> + <a href="marginright.html">margin-right</a><br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> width </b>。其值为一字符串，所以不可用于脚本(Scripts)中的计算。请使用<b> style </b>对象的<b> posWidth </b>，<b> pixelWidth </b>，以及对象的<b> offsetWidth </b>等特性。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { width: 1in; }<br/>div { position:absolute; top:-3px; width:6px; } 
+</div>
+
+</div>
+

@@ -1,0 +1,53 @@
+---
+layout: jquery
+title: jquery:event.isImmediatePropagationStopped() | jQuery API 中文手册
+description: jquery:根据事件对象中是否调用过 event.stopImmediatePropagation() 方法来返回一个布尔值。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.isImmediatePropagationStopped">
+<h2><span>返回值:Boolean</span>event.isImmediatePropagationStopped()</h2>
+<h3><em>V1.3</em>概述</h3>
+<div class="desc">
+<p>根据事件对象中是否调用过 event.stopImmediatePropagation() 方法来返回一个布尔值。</p>
+<div class="longdesc"> </div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>检测 event.stopImmediatePropagation() 是否被调用过。</p>
+<h5>代码: </h5>
+<pre>&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button&gt;click me&lt;/button&gt;
+    &lt;div id="stop-log"&gt;&lt;/div&gt;
+    &lt;script&gt;
+   function immediatePropStopped(e) {
+    var msg = "";
+    if ( e.isImmediatePropagationStopped() ) {
+      msg =  "called";
+    } else {
+      msg = "not called";
+    }
+    $("#stop-log").append( "&lt;div&gt;" + msg + "&lt;/div&gt;" );
+   }
+    $("button").click(function(event) {
+    immediatePropStopped(event);
+    event.stopImmediatePropagation();
+    immediatePropStopped(event);
+  });
+    &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</pre>
+</div>
+</div>
+
+</div>
+

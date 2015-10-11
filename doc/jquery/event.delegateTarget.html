@@ -1,0 +1,31 @@
+---
+layout: jquery
+title: jquery:event.delegateTarget | jQuery API 中文手册
+description: jquery:当currently-called的jQuery事件处理程序附加元素。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.delegateTarget">
+<h2><span>返回值: Element</span>event.delegateTarget</h2>
+<h3><em>V1.7</em>概述</h3>
+<div class="desc">
+<p> 当currently-called的jQuery事件处理程序附加元素。 </p>
+<div class="longdesc">
+<p>此属性是最经常有用是通过过<a href="delegate.html">.delegate()</a> 或<a href="on.html">.on()</a>附加委派的事件，事件处理程序附加在正在处理的元素的祖先上。它可用于，例如，指明委派识别和删除事件处理程序。 This property is most often useful in delegated events attached by <a href="delegate.html">.delegate()</a> or <a href="on.html">.on()</a>, where the event handler is attached at an ancestor of the element being processed. It can be used, for example, to identify and remove event handlers at the delegation point.</p>
+<p>对于非授权的事件处理程序，直接连接到一个元素，event.delegateTarget 总是等价于event.currentTarget.</p>
+</div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>When a button in any box class is clicked, change the box's background color to red.</p>
+<h5>jQuery 代码: </h5>
+<pre>$(".box").on("click", "button", function(event) {<br/>  $(event.delegateTarget).css("background-color", "red");<br/>}); </pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,34 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">background</span>版本：CSS1　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>background : </b><a href="backgroundcolor.html"><b>background-color</b></a> || <a href="backgroundimage.html"><b>background-image</b></a> || <a href="backgroundrepeat.html"><b>background-repeat</b></a> || <a href="backgroundattachment.html"><b>background-attachment</b></a> || <a href="backgroundposition.html"><b>background-position</b></a>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap="">该属性是复合属性。请参阅各参数对应的属性。<br/>默认值为：<span class="cssDefault">transparent none repeat scroll 0% 0%</span>。</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置对象的背景样式。<br/>
+如使用该复合属性定义其单个参数，则其他参数的默认值将无条件覆盖各自对应的单个属性设置。<br/>
+例如：设置<b> background : white </b>等于设置<b> background : white none repeat scroll 0% 0% </b>。如果在此之前设置了<a href="backgroundimage.html"> background-image </a>属性，则其设置将被<a href="backgroundimage.html"> background-image </a>的默认值<b> none </b>覆盖。<br/>
+背景样式属性的作用区域为对象的内容区域与内补丁(<a href="padding.html"> padding </a>)区域。不包括边框(<a href="border.html"> border </a>)与外补丁(<a href="margin.html"> margin </a>)区域。
+尽管该属性不可继承，但如果未指定，其父对象的背景颜色和背景图将在对象下面显示。<br/>
+对应的脚本特性为<b> background </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { background: red no-repeat scroll 5% 60%; } <br/>body { background: url("images/aardvark.gif") repeat-y; } <br/>pre { background: url("images/aardvark.gif") top; } <br/>caption { background: fuchsia; } 
+</div>
+
+</div>
+

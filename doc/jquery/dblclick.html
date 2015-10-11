@@ -1,0 +1,38 @@
+---
+layout: jquery
+title: jquery:dblclick([[data],fn]) | jQuery API 中文手册
+description: jquery:当双击元素时，会发生 dblclick 事件。当鼠标指针停留在元素上方，然后按下并松开鼠标左键时，就会发生一次 click。在很短的时间内发生两次 click，即是一次 double click 事件。提示：如果把 dblclick 和 click 事件应用于同一元素，可能会产生问题。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="dblclick">
+<h2><span>返回值:jQuery</span>dblclick([[data],fn])</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>当双击元素时，会发生 dblclick 事件。</p>
+<div class="longdesc">
+<p>当鼠标指针停留在元素上方，然后按下并松开鼠标左键时，就会发生一次 click。在很短的时间内发生两次 click，即是一次 double click 事件。提示：如果把 dblclick 和 click 事件应用于同一元素，可能会产生问题。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>fn</strong><span>Function</span><em>V1.0</em></h4>
+<p>在每一个匹配元素的dblclick事件中绑定的处理函数。</p>
+<h4><strong>[data],fn</strong><span>String,Function</span><em>V1.4.3</em></h4>
+<p><strong>data</strong>:dblclick([Data], fn) 可传入data供函数fn处理。</p>
+<p><strong>fn</strong>:在每一个匹配元素的dblclick事件中绑定的处理函数。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>给页面上每个段落的双击事件绑上 "Hello World!" 警告框</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").dblclick( function () { alert("Hello World!"); });</code></pre>
+</div>
+</div>
+
+</div>
+

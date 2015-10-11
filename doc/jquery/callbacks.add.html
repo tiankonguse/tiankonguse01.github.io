@@ -1,0 +1,62 @@
+---
+layout: jquery
+title: jquery:callbacks.add(callbacks) | jQuery API 中文手册
+description: jquery:回调列表中添加一个回调或回调的集合。  - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="callbacks.add">
+<h2><span>返回值:undefined</span>callbacks.add(callbacks)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>回调列表中添加一个回调或回调的集合。 </p>
+<div class="longdesc">
+<p></p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>callbacks </strong><em>V1.7</em></h4>
+<p> 一个函数，或者一个函数数组用来添加到回调列表。 .</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>使用 callbacks.add() 添加新的回调到回调列表：</p>
+<h5>jQuery 代码:</h5>
+<pre><code>// a sample logging function to be added to a callbacks list
+var foo = function( value ){
+    console.log( 'foo:' + value );
+}
+
+// another function to also be added to the list
+var bar = function( value ){
+    console.log( 'bar:' + value );
+}
+
+var callbacks = $.Callbacks();
+
+// add the function 'foo' to the list
+callbacks.add( foo );
+
+// fire the items on the list
+callbacks.fire( 'hello' );  
+// outputs: 'foo: hello'
+
+// add the function 'bar' to the list
+callbacks.add( bar );
+
+// fire the items on the list again
+callbacks.fire( 'world' );  
+
+// outputs:
+// 'foo: world'
+// 'bar: world'</code></pre>
+</div>
+</div>
+
+</div>
+

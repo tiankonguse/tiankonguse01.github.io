@@ -1,0 +1,33 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">speak-header</span>版本：CSS2　 兼容性：无　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>speak-header  : </b><span class="cssDefault"><b>once</b></span> | <b>always</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> once </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。表格标题在一系列单元格之前发声一次</td></tr>
+<tr><td nowrap=""><b> always </b></td><td nowrap=""><b>:</b></td><td>标题在每一个与之关联的单元格前发声</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+当表格(<b> table </b>)通过语音发生器说话时，数据单元格(<b> td </b>)和表格标题之间的关联必须被迅速确定。<br/>
+一些语音浏览器允许用户在二维空间内移动。因而给他们机会映射空间区域关联。当这一点不可实现的时候，就需要通过样式表指定表格标题的发声点。<br/>
+此属性设置或检索表格标题是在所有的单元格之前发声，还是到一个不与之关联的单元格就结束发声。<br/>
+对应的脚本特性为<b> speakHeader </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+table { speak-header: once }
+</div>
+
+</div>
+

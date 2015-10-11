@@ -1,0 +1,31 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">counter-increment</span>版版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>counter-increment : </b><span class="cssDefault"><b>none</b></span> | <i>identifier number</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。阻止计数器增加</td></tr>
+<tr><td nowrap=""><i> identifier number </i></td><td nowrap=""><b>:</b></td><td><i> identifier </i>定义一个将被增加计数的选择符(selector)，id，或者class。<i> number </i>定义增加的数值。可以为负值。默认值是<span class="cssDefault"> 1 </span></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设定当一个选择符(selector)发生时计数器增加的值。<br/>
+对应的脚本特性为<b> counterIncrement </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p:before { content: "paragraph" counter(paragraph);  counter-increment: paragraph; }
+</div>
+
+</div>
+

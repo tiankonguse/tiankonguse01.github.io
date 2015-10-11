@@ -1,0 +1,33 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">bottom</span>版本：CSS2　 兼容性：IE4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>bottom : </b><span class="cssDefault"><b>auto</b></span> | <i>length</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无特殊定位，根据HTML定位规则在文档流中分配</td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值 | 百分数。必须定义<a href="position.html"> position </a>属性值为<b> absolute </b>或者<b> relative </b>此取值方可生效。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象与其最近一个具有定位设置的父对象底边相关的位置。<br/>
+此属性仅仅在对象的定位(<a href="position.html"> position </a>)属性被设置时可用。否则，此属性设置会被忽略。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> bottom </b>。其值为一字符串，所以不可用于脚本(Scripts)中的计算。请使用<b> style </b>对象的<b> posBottom </b>，<b> pixelBottom </b>等运行时特性。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { position: absolute; bottom: 1in; }<br/>div { position:relative; bottom:6px; } 
+</div>
+
+</div>
+

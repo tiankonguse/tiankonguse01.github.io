@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">list-style-position</span>版本：CSS1　 兼容性：IE4+ NS6+　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>list-style-position : </b><span class="cssDefault"><b>outside</b></span> | <b>inside</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> outside </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。列表项目标记放置在文本以外，且环绕文本不根据标记对齐</td></tr>
+<tr><td nowrap=""><b> inside </b></td><td nowrap=""><b>:</b></td><td>列表项目标记放置在文本以内，且环绕文本根据标记对齐</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索作为对象的列表项标记如何根据文本排列。<br/>
+假如一个列表项目的左外补丁(<a href="marginleft.html"> margin-left </a>)被设置为<b> 0 </b>，则列表项目标记不会被显示。左外补丁(<a href="marginleft.html"> margin-left </a>)最小可以被设置为<b> 30 </b>。<br/>
+仅作用于具有<a href="display.html"> display </a>属性值等于<b> list-item </b>的对象。如<b> li </b>对象。<br/>
+注意：<b> ol </b>对象和<b> ul </b>对象的<b> type </b>属性为其后的所有列表项目(如<b> li </b>对象)指明列表属性。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> listStylePosition </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+ul.in { display: list-item; list-style-position: inside; } 
+</div>
+
+</div>
+

@@ -1,0 +1,73 @@
+---
+layout: jquery
+title: jquery:slice(start, [end]) | jQuery API 中文手册
+description: jquery:选取一个匹配的子集。与原来的slice方法类似 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="slice">
+<h2><span>返回值:jQuery</span>slice(start, <em class="optional">[end]</em>)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>选取一个匹配的子集</p>
+<div class="longdesc">
+<p>与原来的slice方法类似</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>start</strong><span>Integer</span><em>V1.1.4</em></h4>
+<p>开始选取子集的位置。第一个元素是0.如果是负数，则可以从集合的尾部开始选起。</p>
+<h4><strong>end<em> </em></strong><span>Integer</span><em>V1.1.4</em></h4>
+<p>结束选取自己的位置，如果不指定，则就是本身的结尾。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>选择第一个p元素</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").slice(0, 1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+<h4>描述:</h4>
+<p>选择前两个p元素</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").slice(0, 2).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;,&lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+<h4>描述:</h4>
+<p>只选取第二个p元素</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").slice(1, 2).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+<h4>描述:</h4>
+<p>只选取第二第三个p元素</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").slice(1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt;, &lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+<h4>描述:</h4>
+<p>选取第最后一个p元素</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").slice(-1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+</div>
+</div>
+
+</div>
+

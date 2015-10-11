@@ -1,0 +1,37 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">ruby-align</span>版本：IE5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>ruby-align  : </b><span class="cssDefault"><b>auto</b></span> | <b>left</b> | <b>center</b> | <b>right</b> | <b>distribute-letter</b> | <b>distribute-space</b> | <b>line-edge</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。由浏览器确定对齐方式。对于ideographic(东亚)文本以<b> distribute-space </b>值对齐。对于Latin文本以<b> center </b>值对齐</td></tr>
+<tr><td nowrap=""><b> left </b></td><td nowrap=""><b>:</b></td><td>根据基本宽度左对齐</td></tr>
+<tr><td nowrap=""><b> center </b></td><td nowrap=""><b>:</b></td><td>根据基本宽度居中对齐。如果基本宽度小于<b> ruby </b>文本的宽度，那么基本宽度在<b> ruby </b>文本的宽度中居中</td></tr>
+<tr><td nowrap=""><b> right </b></td><td nowrap=""><b>:</b></td><td>根据基本宽度右对齐</td></tr>
+<tr><td nowrap=""><b> distribute-letter </b></td><td nowrap=""><b>:</b></td><td>如果ruby文本的宽度小于基本宽度，则<b> ruby </b>文本在基本宽度中均匀分布。如果<b> ruby </b>文本的宽度大于或等于基本宽度，居中对齐</td></tr>
+<tr><td nowrap=""><b> distribute-space </b></td><td nowrap=""><b>:</b></td><td>如果<b> ruby </b>文本的宽度小于基本宽度，则<b> ruby </b>文本在基本宽度中均匀分布。在<b> ruby </b>文本中，在第一个字符的前面后最后字符的后面有半个字距的空白区域。如果<b> ruby </b>文本的宽度大于或等于基本宽度，居中对齐</td></tr>
+<tr><td nowrap=""><b> line-edge </b></td><td nowrap=""><b>:</b></td><td>如果<b> ruby </b>文本不相邻行边缘，则其被居中。否则<b> ruby </b>文本行在基本文本边的上方</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索通过<b> rt </b>对象指定的注释文本或发音指南(参考<b> ruby </b>对象)的对齐位置。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> rubyAlign </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+ruby { ruby-align: right; } 
+</div>
+
+</div>
+

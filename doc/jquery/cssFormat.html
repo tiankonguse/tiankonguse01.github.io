@@ -1,0 +1,89 @@
+---
+layout: jquery
+title: CSS压缩/格式化
+description: CSS压缩/格式化 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+<style type="text/css">
+body {text-align:left;color:#333;font:13px Verdana,Tahoma, Arial, Helvetica, sans-serif;line-height:16px;margin:0;padding:0;}
+a{ text-decoration:none;}
+a,a:link,a:visited{color:rgb(79,129,189);}
+a:active{color:black;}
+a:hover{color:white;background: rgb(79,129,189);}
+#content{ margin: 5px 10px;width:816px;}
+.return{ color:#666; overflow: hidden;zoom:1;font-size:14px; }
+.return a{ float:left;font-size:14px;}
+.return .retLeft{ float:left;}
+.return .retRight{ float:right;}
+.return .retRight a{ color:#900;}
+.return .retRight a:hover{ color:#FFF; background-color:#900;}
+h1.bt{ font-weight:normal; text-align:center; background:#4F81BD; color:#FFF; font-family:"黑体";padding:8px 0; margin:5px 0; font-size:27px;}
+.navigation{ border-top:1px solid #95B3D7; overflow:hidden; font-size:14px; padding-top:5px;zoom:1;line-height: 18px;clear: both; margin-top:5px;}
+.navigation .alignleft{ float:left;}
+.navigation .alignright{ float:right;}
+</style>
+<script type="text/javascript"> 
+var lCSSCoder={ 
+    format    : function(s){//格式化代码 
+        s=s.replace(/\s*([\{\}\:\;\,])\s*/g,"$1"); 
+        s=s.replace(/;\s*;/g,";");//清除连续分号 
+        s=s.replace(/\,[\s\.\#\d]*{/g,"{"); 
+        s=s.replace(/([^\s])\{([^\s])/g,"$1 {\n\t$2"); 
+        s=s.replace(/([^\s])\}([^\n]*)/g,"$1\n}\n$2"); 
+        s=s.replace(/([^\s]);([^\s\}])/g,"$1;\n\t$2"); 
+        return s; 
+    }, 
+    pack     :function(s){//压缩代码 
+        s=s.replace(/\/\*(.|\n)*?\*\//g,"");//删除注释 
+        s=s.replace(/\s*([\{\}\:\;\,])\s*/g,"$1"); 
+        s=s.replace(/\,[\s\.\#\d]*\{/g,"{");//容错处理 
+        s=s.replace(/;\s*;/g,";");//清除连续分号 
+        s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);//去掉首尾空白 
+        return (s == null)?"": s[1]; 
+    } 
+}; 
+</script> 
+
+
+<div id="content" class="a2">
+<div class="return"><div class="retLeft"><a href="./cheatsheet.html">首页</a>&nbsp;&gt;&nbsp;其它&nbsp;&gt;&nbsp;CSS压缩/格式化</div><div class="retRight"><a href="bugandUpdate.html">反馈/更新</a></div></div>
+  <div rel="cssFormat">
+  <h1 class="bt">CSS压缩/格式化</h1>
+    <div style="width: 817px; text-align:center;" class="box1">
+      <table width="750" cellspacing="0" cellpadding="0" align="center">
+        <tbody>
+          <tr>
+            <td width="389">请粘贴要格式化或者压缩的Css代码：<br />
+              <textarea cols="47" rows="25" id="Code_1">
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,table,th,td,img,textarea{margin:0;padding:0;}
+body{outline: 0;color:#333;text-align: left;vertical-align:baseline;font:12px/18px Verdana,Tahoma,Arial,sans-serif;-webkit-text-size-adjust: none;}
+h1,h2,h3,h4,h5{ font-size:12px; font-weight:normal;}
+strong{font-weight: bold;}
+ul,ol,li{list-style: none;}
+a{ text-decoration:none;}
+a,a:link,a:visited{color:rgb(79,129,189);}
+a:active{color:black;}
+a:hover{color:white;background: rgb(79,129,189);}
+.clear {clear:both;}</textarea></td>
+            <td>转换后的Css代码：<br />
+              <textarea cols="47" rows="25" id="Code_2"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="info1" id="detail">
+        <input type="button" onclick="CSS('format');" value="格式化代码">
+        &nbsp;
+        <input type="button" onclick="CSS('pack');" value="压缩代码">
+      </div>
+    </div>
+    <script type="text/javascript"> 
+<!-- 
+function CSS(s){ 
+    document.getElementById("Code_2").value=lCSSCoder[s](document.getElementById("Code_1").value); 
+} 
+//--> 
+</script> 
+  </div>
+  <div class="navigation"><div class="alignleft">上一篇：<a href="bugandUpdate.html">提交bug及获取更新</a></div><div class="alignright">下一篇：<a href="jsFormat.html">js压缩/格式化</a></div></div>
+</div>

@@ -1,0 +1,45 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">font-weight</span>版本：CSS1　 兼容性：IE4+ NS4+　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>font-weight : </b><span class="cssDefault"><b>normal</b></span> | <b>bold</b> | <b>bolder</b> | <b>lighter</b> | <b>100</b> | <b>200</b> | <b>300</b> | <b>400</b> | <b>500</b> | <b>600</b> | <b>700</b> | <b>800</b> | <b>900</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> normal </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。正常的字体。相当于<b> 400 </b>。声明此值将取消之前任何设置</td></tr>
+<tr><td nowrap=""><b> bold </b></td><td nowrap=""><b>:</b></td><td>粗体。相当于<b> 700 </b>。也相当于<b> b </b>对象的作用</td></tr>
+<tr><td nowrap=""><b> bolder </b></td><td nowrap=""><b>:</b></td><td>比<b> normal </b>&gt;粗</td></tr>
+<tr><td nowrap=""><b> lighter </b></td><td nowrap=""><b>:</b></td><td>比<b> normal </b>&gt;细</td></tr>
+<tr><td nowrap=""><b> 100 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 200 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 200 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 100 </b>那样粗，像<b> 300 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 300 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 200 </b>那样粗，像<b> 400 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 400 </b></td><td nowrap=""><b>:</b></td><td>相当于<b> normal </b></td></tr>
+<tr><td nowrap=""><b> 500 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 400 </b>那样粗，像<b> 600 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 600 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 500 </b>那样粗，像<b> 700 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 700 </b></td><td nowrap=""><b>:</b></td><td>相当于<b> bold </b></td></tr>
+<tr><td nowrap=""><b> 800 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 700 </b>那样粗，像<b> 900 </b>那样细</td></tr>
+<tr><td nowrap=""><b> 900 </b></td><td nowrap=""><b>:</b></td><td>字体至少像<b> 800 </b>那样粗</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象中的文本字体的粗细。<br/>
+作用由用户端系统安装的字体的特定字体变量映射决定。系统选择最近的匹配。也就是说，用户可能看不到不同值之间的差异。<br/>
+IE4.0仅仅支持<b> normal </b>和<b> bold </b>值。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> fontWeight </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+span { font-weight:800; }
+</div>
+
+</div>
+

@@ -1,0 +1,32 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">@charset</span>版本：CSS2　 兼容性：IE4+</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b> @charset </b> <i> sCharacterSet </i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> sCharacterSet </i></td><td nowrap=""><b>:</b></td><td>字符集名称</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+在外部样式表文件内使用。指定该样式表使用的字符集。不可以在内部样式表中使用。<br/>
+此规则无默认值。请参阅<a href="charset.html"> 附录：字符集 </a>。<br/>
+在外部样式表文件内，此规则只允许使用一次。且必须在样式表的最前面。<br/>
+对于内部样式表来说，其字符集由HTML文档的字符集指定。请参阅<b> meta </b>对象的<b> content </b>属性(特性)。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+@charset "Windows-1251";<br/>@charset "Shift-JIS";
+</div>
+
+</div>
+

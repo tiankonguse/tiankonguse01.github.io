@@ -1,0 +1,33 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">clip</span>版本：CSS2　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>clip : </b><span class="cssDefault"><b>auto</b></span> | <b>rect ( </b><i> number number number number</i><b> ) </b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。对象无剪切</td></tr>
+<tr><td nowrap=""><b> rect ( </b><i> number number number number</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>依据上-右-下-左的顺序提供自对象左上角为(0,0)坐标计算的四个偏移数值，其中任一数值都可用<b> auto </b>替换，即此边不剪切</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象的可视区域。可视区域外的部分是透明的。<br/>
+此属性定义了绝对(absolute)定位对象可视区域的尺寸。必须将<a href="position.html"> position </a>属性的值设为<b> absolute </b>，此属性方可使用。<br/>
+自IE5开始，此属性在MAC平台上可用。<br/>
+对应的脚本特性为<b> clip </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { position:absolute; width:60px; height:60px; clip:rect(0 20 50 10); } <br/>div { position:absolute; width:60px; height:60px; clip:rect(1cm auto 50px 10cm); } 
+</div>
+
+</div>
+

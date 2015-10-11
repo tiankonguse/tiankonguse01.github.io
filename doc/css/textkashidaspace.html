@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-kashida-space</span>版本：IE5.5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-kashida-space : </b><i>length</i> | <b>inherit</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>百分数。标示kashida膨胀与空格膨胀的比例。为100%，仅有kashida膨胀。为0%，仅有空格膨胀</td></tr>
+<tr><td nowrap=""><b> inherit </b></td><td nowrap=""><b>:</b></td><td>遵循父对象的设置</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索如何拉伸字符来调节文本行排列。默认值为<span class="cssDefault"><b> 0% </b></span>。<br/>
+Kashida是一种印刷效果，通过在恰当的位置拉长字符来调整文本行。它通常用于阿拉伯书写系统。<br/>
+此属性可以在任何应用Kashida样式的场合使用。例如<a href="textjustify.html"> text-justify </a>属性值为<b> auto </b>，<b> distribute </b>，<b> kashida </b>，<b> newspaper </b>时。<br/>
+此属性仅作用于块对象。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> textKashidaSpace </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { text-kashida-space : 50%;text-justify: kashida; } 
+</div>
+
+</div>
+

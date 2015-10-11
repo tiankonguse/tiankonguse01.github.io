@@ -1,0 +1,31 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">counter-reset</span>版版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>counter-reset : </b><span class="cssDefault"><b>none</b></span> | <i>identifier number</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。阻止计数器复位</td></tr>
+<tr><td nowrap=""><i> identifier number </i></td><td nowrap=""><b>:</b></td><td><i> identifier </i>定义一个将被复位的选择符(selector)，id，或者class。<i> number </i>定义复位的数值。可以为负值。默认值是<span class="cssDefault"> 0 </span></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+将指定选择符(selector)的计数器复位。<br/>
+对应的脚本特性为<b> counterReset </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+h1:before { counter-increment: main-heading; counter-reset: sub-heading; content: "Section " counter(main-heading) ":" }
+</div>
+
+</div>
+

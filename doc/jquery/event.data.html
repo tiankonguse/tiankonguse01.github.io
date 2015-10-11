@@ -1,0 +1,32 @@
+---
+layout: jquery
+title: jquery:event.data | jQuery API 中文手册
+description: jquery:当前执行的处理器被绑定的时候，包含可选的数据传递给jQuery.fn.bind。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.data">
+<h2><span>返回值:Anything</span>event.data</h2>
+<h3><em>V1.1</em>概述</h3>
+<div class="desc">
+<p>当前执行的处理器被绑定的时候，包含可选的数据传递给jQuery.fn.bind。</p>
+<div class="longdesc"></div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>The description of the example.</p>
+<h5>jQuery 代码:</h5>
+<pre>$("a").each(function(i) {
+    $(this).bind('click', {index:i}, function(e){
+       alert('my index is ' + e.data.index);
+    });
+  });   </pre>
+</div>
+</div>
+
+</div>
+

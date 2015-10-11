@@ -1,0 +1,39 @@
+---
+layout: jquery
+title: jquery:prevAll([expr]) | jQuery API 中文手册
+description: jquery:查找当前元素之前所有的同辈元素 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="prevAll">
+<h2><span>返回值:jQuery</span>prevAll(<em class="optional">[expr]</em>)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>查找当前元素之前所有的同辈元素</p>
+<div class="longdesc">
+<p>可以用表达式过滤。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>expr<em> </em></strong><span>String</span><em>V1.2</em></h4>
+<p>用于过滤的表达式</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>给最后一个之前的所有div加上一个类</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("div:last").prevAll().addClass("before");</code></pre>
+<h5>结果:</h5>
+<pre><code>[ &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt;, &lt;div class="before"&gt;&lt;/div&gt; ]</code></pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,37 @@
+---
+layout: jquery
+title: jquery:selector | jQuery API 中文手册
+description: jquery:返回传给jQuery()的原始选择器。换句话说，就是返回你用什么选择器来找到这个元素的。可以与<span title=
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="selector">
+<h2><span>返回值:Striing</span>selector</h2>
+<h3><em>V1.3</em>概述</h3>
+<div class="desc">
+<p>返回传给jQuery()的原始选择器。</p>
+<div class="longdesc">
+<p>换句话说，就是返回你用什么选择器来找到这个元素的。可以与<span title="Core/context">context</span>一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</p>
+</div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>确定查询的选择器</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("ul")
+  .append("&lt;li&gt;" + $("ul").selector + "&lt;/li&gt;")
+  .append("&lt;li&gt;" + $("ul li").selector + "&lt;/li&gt;")
+  .append("&lt;li&gt;" + $("div#foo ul:not([class])").selector + "&lt;/li&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>ul
+ul li
+div#foo ul:not([class])</code></pre>
+</div>
+</div>
+
+</div>
+

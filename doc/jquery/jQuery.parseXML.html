@@ -1,0 +1,40 @@
+---
+layout: jquery
+title: jquery:jQuery.parseXML(data) | jQuery API 中文手册
+description: jquery:解析一个字符串到一个XML文件。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="jQuery.parseXML">
+<h2><span>返回值: XMLDocumen</span>jQuery.parseXML(data)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>解析一个字符串到一个XML文件。</p>
+<div class="longdesc">
+<p>jQuery.parseXML使用原生解析函数浏览器创建一个有效的XML文档。这文档可以被传递给jQuery创建一个典型的jQuery对象，可以查询及操作。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>data</strong><span></span><em>V1.5</em></h4>
+<p>用来解析的格式良好的XML字符串。 </p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>创建一个jQuery对象使用一个XML字符串并得到标题节点的值。:</p>
+<pre>var xml = '&lt;rss version="2.0"&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;',
+      xmlDoc = $.parseXML( xml ),
+      $xml = $( xmlDoc ),
+      $title = $xml.find( 'title' );	        // append "RSS Title" to #someElement
+  $( '#someElement' ).append( $title.text() );	    // change the title to "XML Title"
+  $title.text( 'XML Title' );    // append "XML Title" to #anotherElement
+  $( '#anotherElement' ).append( $title.text() );</pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,30 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">include-source</span>版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>include-source : </b><b>url ( </b><i>url</i><b> ) </b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> url ( </b><i>url</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>使用绝对或相对<i> url </i>地址指定插入文档。假如该文档不存在，当前对象的内容将被显示</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+这个属性插入另一个文档到当前文档，取代当前对象的内容。插入文档的样式属性从当前对象继承。<br/>
+对应的脚本特性为<b> includeSource </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { position: absolute; top: 100px; left: 300px; width: 200px; height: 200px; border: thin solid black; include-source:  url("http://www.dhtmlet.com/dream.html"); }
+</div>
+
+</div>
+

@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">@import</span>版本：CSS1/CSS2　 兼容性：IE4+</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b> </b>
+<b> @import </b><b> url ( </b><i>url</i><b> ) </b><i> sMedia </i><b> ; </b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> url ( </b><i>url</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>使用绝对或相对<i> url </i>地址指定导入的外部样式表文件。请参阅<b> link </b>对象 </td></tr>
+<tr><td nowrap=""><i> sMedia </i></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。指定设备类型。请参阅<a href="media.html"> 附录：设备类型 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+指定导入的外部样式表及目标设备类型。此规则无默认值。<br/>
+此规则其后的分号是必需的，如果省略了此分号，外部样式表将无法正确导入，并会生成错误信息。<b> url () </b>是可选的。<br/>
+此规则像<b> link </b>对象一样，链接一个外部样式表到文档。用此规则导入的样式表，其<b> owningElement </b>特性是一个<b> link </b>对象或<b> style </b>对象。<br/>
+此规则必须出现在样式表内的任何声明之前。虽然IE4.0+允许此规则出现在样式表定义的任何位置，但是此规则导入的样式定义将在内部样式表之前作用。这个定义顺序会影响您预期的结果。<br/>
+导入的外部样式表中的定义会被文档中的定义覆盖。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+@import url("foo.css") screen, print;<br/>@import  "print.css";<br/>@import url(print.css);
+</div>
+
+</div>
+

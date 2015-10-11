@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">layout-grid-type</span>版本：IE5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>layout-grid-type  : </b><span class="cssDefault"><b>loose</b></span> | <b>strict</b> | <b>fixed</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> loose </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。指定在中文或韩文中使用网格的文本，只有象形文字，假名，宽字符域网格对齐。其余的和通常一样，尽管包含这些字符的文本范围的<a href="layoutgridmode.html"> layout-grid-mode </a>被设置为<b> none </b>或<b> line </b>。该模式还禁用通常用于对象文本的特殊文本对齐和字符宽度调整。最后，如果不能再换行边界的文本中找到一个换行机会，那么文本将被推至下一行，并且上一行的最后留出空白</td></tr>
+<tr><td nowrap=""><b> strict </b></td><td nowrap=""><b>:</b></td><td>指定在日文中使用网格。规则为：如果没有其他的宽度调整效果，则增加宽字符以获取精确的网格填充。窄字符(除了草书字体)按照应用于宽字符的一半增量增加</td></tr>
+<tr><td nowrap=""><b> fixed </b></td><td nowrap=""><b>:</b></td><td>指定使用于等宽版式网格。规则为：所有非草书符号视为等宽。默认情况下，每个字符在单一网格中居中。禁止对齐或任何其他改变字符宽度的行为</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索应用于对象文本的网格类型。<br/>
+其视觉效果类似于<a href="lineheight.html"> line-height </a>属性。<br/>
+以东亚语言(如中文，日文)写的文档通常根据一维或二维网格使用字符的页面版式。你可以用<a href="layoutgrid.html"> layout-grid </a>属性将这种布局加入到网页文档中去。<br/>
+此属性只应用于块对象(如<b> div </b>)。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> layoutGridType </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { layout-grid-type: strict; } 
+</div>
+
+</div>
+

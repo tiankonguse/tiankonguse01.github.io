@@ -1,0 +1,47 @@
+---
+layout: jquery
+title: jquery:jQuery.fx.interval | jQuery API 中文手册
+description: jquery:设置动画的显示帧速。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="jQuery.fx.interval">
+<h2><span>返回值:Number</span>jQuery.fx.interval</h2>
+<h3><em>V1.4.3</em>概述</h3>
+<div class="desc">
+<p>设置动画的显示帧速。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述: 帧速设置为100ms</h4>
+<h4>jQuery 代码:</h4>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    div { width:50px; height:30px; margin:5px; float:left;
+          background:green; }
+    &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;&lt;input type="button" value="Run"/&gt;&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;script&gt;
+jQuery.fx.interval = 100;
+
+$("input").click(function(){
+  $("div").toggle( 3000 );
+});
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+</div>
+
+</div>
+

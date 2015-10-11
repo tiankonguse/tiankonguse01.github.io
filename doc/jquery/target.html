@@ -1,0 +1,33 @@
+---
+layout: jquery
+title: jquery::target | jQuery API 中文手册
+description: jquery:选择由文档URI的格式化识别码表示的目标元素。如果文档的URI包含一个格式化的标识符，或hash（哈希）， 然后:target选择器将匹配ID和标识符相匹配的元素。  例如，给定的URI http://example.com/#foo， $( "p:target" )，将选择<p id="foo">元素。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="target">
+<h2><span>返回值:jQuery</span>:target</h2>
+<h3><em>V1.9</em>概述</h3>
+<div class="desc">
+<p>选择由文档URI的格式化识别码表示的目标元素。</p>
+<div class="longdesc">
+<p>如果文档的URI包含一个格式化的标识符，或hash（哈希）， 然后:target选择器将匹配ID和标识符相匹配的元素。  例如，给定的URI http://example.com/#foo， $( "p:target" )，将选择&lt;p id="foo"&gt;元素。</p>
+<p>这个不寻常的用法，可进一步讨论中找到 <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS specification</a>.</p>
+</div>
+</div>
+<!-- <h3>参数</h3>
+    <div class="parameter">
+      <h4><strong>language</strong><span></span><em>V1.9</em></h4>
+      <p>语言代码</p>
+    </div>-->
+<div class="example">
+<h3>示例      </h3>
+<p>Return which DOM element triggered the event      </p>
+<pre>$("p, button, h1, h2").click(function(event){<br/>  $("div").html("Triggered by a " + event.target.nodeName + " element.");<br/>});</pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,43 @@
+---
+layout: jquery
+title: jquery:jQuery.inArray(value,array,[fromIndex]) | jQuery API 中文手册
+description: jquery:确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="jQuery.inArray">
+<h2><span>返回值:Number</span>jQuery.inArray(value,array,[fromIndex])</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。</p>
+<div class="longdesc">
+<p></p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>value,array,[fromIndex]</strong><span>Any,Array,Number</span><em>V1.2</em></h4>
+<p><strong>value</strong>:用于在数组中查找是否存在</p>
+<p><strong>array</strong>:待处理数组。</p>
+<p><strong>fromIndex</strong>:用来搜索数组队列，默认值为0。</p>
+<h4><strong>array</strong><span>Array</span></h4>
+<p>待处理数组。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>查看对应元素的位置</p>
+<h5>jQuery 代码:</h5>
+<pre><code>var arr = [ 4, "Pete", 8, "John" ];
+jQuery.inArray("John", arr);  //3
+jQuery.inArray(4, arr);  //0
+jQuery.inArray("David", arr);  //-1
+jQuery.inArray("Pete", arr, 2);  //-1</code></pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,34 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">border-bottom</span>版本：CSS1　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>border-bottom : </b><a href="borderwidth.html"><b>border-width</b></a> || <a href="borderstyle.html"><b>border-style</b></a> || <a href="bordercolor.html"><b>border-color</b></a>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap="">该属性是复合属性。请参阅各参数对应的属性。<br/>默认值为：<span class="cssDefault"> medium none </span>。<a href="bordercolor.html"> border-color </a>的默认值将采用文本颜色。</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置对象下边框的样式。<br/>
+当你指定了边框颜色(<a href="borderbottomcolor.html"> border-bottom-color </a>)和边框宽度(<a href="borderbottomwidth.html"> border-bottom-width </a>)时，你必须同时指定边框样式(<a href="borderbottomstyle.html"> border-bottom-style </a>)，否则边框不会被呈现。<br/>
+如使用该复合属性定义其单个参数，则其他参数的默认值将无条件覆盖各自对应的单个属性设置。<br/>
+例如：设置<b> border-bottom : thin </b>等于设置<b> border-bottom : thin none </b>，而<a href="borderbottomcolor.html"> border-bottom-color </a>的默认值将采用文本颜色。因此此前的任何<a href="borderbottomcolor.html"> border-bottom-color </a>和<a href="borderbottomwidth.html"> border-bottom-width </a>设置都会被清除。<br/>
+在 IE5.5+ 中，边框属性可以直接应用于内联要素。而在此前的版本中，内联要素要使用该属性，必须先设定对象的<a href="height.html"> height </a>或<a href="width.html"> width </a>属性，或者设定<a href="position.html"> position </a>属性为<b> absolute </b>，或者设定<a href="display.html"> display </a>属性为<b> block </b>。<br/>
+对应的脚本特性为<b> borderBottom </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { border-bottom: 25px solid red; border-left: 25px solid yellow; border-right: 25px solid blue; border-top: 25px solid green; }
+</div>
+
+</div>
+

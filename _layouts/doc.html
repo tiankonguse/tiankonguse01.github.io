@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% if page.title %}{{ page.title  }}{% else %}{{ site.title }}{% endif %}</title>
+        <meta name="author" content="tiankonguse" />
+        <meta name="generator" content="Jekyll" />
+        <meta name="renderer" content="webkit">
+        <meta name="description" content="{{ page.description }}" />
+        <meta name="keywords" content="{{ page.keywords | join: ',' }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" />
+        <link rel="shortcut icon" href="http://tiankonguse.com/common/img/logo.ico" type="image/x-icon" />
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="{{ site.url }}{{ site.feed }}" />
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+    </head>
+    <body>
+        {{ content }}
+        <!-- footer -->
+        <div class="ad-page-footer" ></div>
+        <script>
+        document.write(unescape("%3Cscript src='http://hm.baidu.com/h.js%3Ffbbb9e62b837218bf39d4fe819e04e04' type='text/javascript' async %3E%3C/script%3E"));
+        </script>
+    </body>
+</html>

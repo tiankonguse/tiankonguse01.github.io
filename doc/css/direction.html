@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">direction</span>版本：CSS2　 兼容性：IE5+　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>direction  : </b><span class="cssDefault"><b>ltr</b></span> | <b>rtl</b> | <b>inherit</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> ltr </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。文本从左到右流入</td></tr>
+<tr><td nowrap=""><b> rtl </b></td><td nowrap=""><b>:</b></td><td>文本从右到左流入</td></tr>
+<tr><td nowrap=""><b> inherit </b></td><td nowrap=""><b>:</b></td><td>文本流入方向由继承获得</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+用于设置文本流入的方向。请参阅对象的<b> dir </b>属性。<br/>
+此属性不会影响拉丁文的字母数字字符，它们总是以<b> ltr </b>值被呈递。但是此属性会作用于拉丁文的标点符号。<br/>
+假如您想应用此属性于内联文本，您必须设定<a href="unicodebidi.html"> unicode-bidi </a>属性为<b> embed </b>或<b> bidi-override </b>。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> direction </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { direction: rtl; unicode-bidi: bidi-override; } 
+</div>
+
+</div>
+

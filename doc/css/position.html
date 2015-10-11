@@ -1,0 +1,39 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">position</span>版本：CSS2　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>position : </b><span class="cssDefault"><b>static</b></span> | <b>absolute</b> | <b>fixed</b> | <b>relative</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> static </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无特殊定位，对象遵循HTML定位规则</td></tr>
+<tr><td nowrap=""><b> absolute </b></td><td nowrap=""><b>:</b></td>
+<td>将对象从文档流中拖出，使用<a href="left.html"> left </a>，<a href="right.html"> right </a>，<a href="top.html"> top </a>，<a href="bottom.html"> bottom </a>等属性相对于其最接近的一个最有定位设置的父对象进行绝对定位。如果不存在这样的父对象，则依据<b> body </b>对象。而其层叠通过<a href="zindex.html"> z-index </a>属性定义</td></tr>
+<tr><td nowrap=""><b class="cssNone"> fixed </b></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。对象定位遵从绝对(<b>absolute</b>)方式。但是要遵守一些规范</td></tr>
+<tr><td nowrap=""><b> relative </b></td><td nowrap=""><b>:</b></td><td>对象不可层叠，但将依据<a href="left.html"> left </a>，<a href="right.html"> right </a>，<a href="top.html"> top </a>，<a href="bottom.html"> bottom </a>等属性在正常文档流中偏移位置</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索对象的定位方式。<br/>
+设置此属性值为<b> absolute </b>会将对象拖离出正常的文档流绝对定位而不考虑它周围内容的布局。假如其他具有不同<a href="zindex.html"> z-index </a>属性的对象已经占据了给定的位置，他们之间不会相互影响，而会在同一位置层叠。此时对象不具有外补丁(<a href="margin.html"> margin </a>)，但仍有内补丁(<a href="padding.html"> padding </a>)和边框(<a href="border.html"> border </a>)。<br/>
+要激活对象的绝对(<b>absolute</b>)定位，必须指定<a href="left.html"> left </a>，<a href="right.html"> right </a>，<a href="top.html"> top </a>，<a href="bottom.html"> bottom </a>属性中的至少一个，并且设置此属性值为<b> absolute </b>。否则上述属性会使用他们的默认值<b> auto </b>，这将导致对象遵从正常的HTML布局规则，在前一个对象之后立即被呈递。<br/>
+设置此属性值为<b> relative </b>会保持对象在正常的HTML流中，但是它的位置可以根据它的前一个对象进行偏移。在相对(<b>relative</b>)定位对象之后的文本或对象占有他们自己的空间而不会覆盖被定位对象的自然空间。与此不同的，在绝对(<b>absolute</b>)定位对象之后的文本或对象在被定位对象被拖离正常文档流之前会占有它的自然空间。放置绝对(<b>absolute</b>)定位对象在可视区域之外会导致滚动条出现。而放置相对(<b>relative</b>)定位对象在可视区域之外，滚动条不会出现。<br/>
+内容的尺寸会根据布局确定对象的尺寸。例如，设置一个<b> div </b>对象的<a href="height.html"> height </a>和<a href="position.html"> position </a>属性，则<b> div </b>对象的内容将决定它的宽度(<a href="width.html"> width </a>)。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> position </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { position:relative; top:-3px }
+</div>
+
+</div>
+

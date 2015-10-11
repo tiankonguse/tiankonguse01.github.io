@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">white-space</span>版本：CSS1　 兼容性：IE5.5+ NS4+　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>white-space : </b><span class="cssDefault"><b>normal</b></span> | <b>pre</b> | <b>nowrap</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> normal </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。默认处理方式。文本自动处理换行。假如抵达容器边界内容会转到下一行</td></tr>
+<tr><td nowrap=""><b> pre </b></td><td nowrap=""><b>:</b></td><td>换行和其他空白字符都将受到保护。这个值需要IE6+或者<b> !DOCTYPE </b>声明为<b> standards-compliant mode </b>支持。如果<b> !DOCTYPE </b>声明没有指定为<b> standards-compliant mode </b>，此属性可以使用，但是不会发生作用。结果等同于<b> normal </b>。参阅<b> pre </b>对象</td></tr>
+<tr><td nowrap=""><b> nowrap </b></td><td nowrap=""><b>:</b></td><td>强制在同一行内显示所有文本，直到文本结束或者遭遇<b> br </b>对象。参阅<b> noWrap </b>属性</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内空格字符的处理方式。<br/>
+空格字符，像换行，空格，TAB，在HTML文档中默认的是被忽略的。当此属性设置为<b> normal </b>或者<b> nowrap </b>时，你可以使用不换行空格的命名实体<b> &amp;nbsp; </b>来添加空格，用<b> br </b>元素来添加换行。
+此属性对你使用文档对象模型(DOM)操作的内容的影响与其对IE显示内容的影响一样。<br/>
+此属性作用于块对象。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> whiteSpace </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p { white-space: nowrap; } 
+</div>
+
+</div>
+

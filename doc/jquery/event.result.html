@@ -1,0 +1,43 @@
+---
+layout: jquery
+title: jquery:event.result | jQuery API 中文手册
+description: jquery:这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 undefined 。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.result">
+<h2><span>返回值:Object</span>event.result</h2>
+<h3><em>V1.3</em>概述</h3>
+<div class="desc">
+<p>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 undefined 。</p>
+</div>
+<div></div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>显示前一个事件处理函数的返回值。</p>
+<h5> 代码: </h5>
+<pre>&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;button&gt;display event.result&lt;/button&gt;
+      &lt;p&gt;&lt;/p&gt;
+      &lt;script&gt;
+       $("button").click(function(event) {    return "hey";  });
+       $("button").click(function(event) {
+           $("p").html( event.result );
+       });
+    &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</pre>
+</div>
+</div>
+
+</div>
+

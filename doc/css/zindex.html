@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">z-index</span>版本：CSS2　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>z-index : </b><span class="cssDefault"><b>auto</b></span> | <i>number</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。遵从其父对象的定位</td></tr>
+<tr><td nowrap=""><i> number </i></td><td nowrap=""><b>:</b></td><td>无单位的整数值。可为负数</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象的层叠顺序。<br/>
+较大<i> number </i>值的对象会覆盖在较小<i> number </i>值的对象之上。如两个绝对定位对象的此属性具有同样的<i> number </i>值，那么将依据它们在HTML文档中声明的顺序层叠。对于未指定此属性的绝对定位对象，此属性的<i> number </i>值为正数的对象会在其之上，而<i> number </i>值为负数的对象在其之下。设置参数为<b> null </b>可以移除此属性。<br/>
+此属性仅仅作用于<a href="position.html"> position </a>属性值为<b> relative </b>或<b> absolute </b>的对象。<br/>
+这个属性不会作用于窗口控件，如<b> select </b>对象。<br/>
+在IE5.5+中，<b> iframe </b>对象开始支持此属性。而在之前的浏览器版本中，<b> iframe </b>对象是窗口控件，会忽略此属性。
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> zIndex </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { position:absolute; z-index:3; width:6px; } 
+</div>
+
+</div>
+

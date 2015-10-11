@@ -1,0 +1,37 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">layout-grid-char</span>版本：IE5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b> layout-grid-char  : </b><span class="cssDefault"><b>none</b></span> | <b>auto</b> | <i>length</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无字符网格设定</td></tr>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td>在对象文本中按最大的字符确定网格</td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>百分数 | 由浮点数字和单位标识符组成的长度值，其百分比取值是基于父对象尺寸。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索应用于对象内容文本的字符网格尺寸。<br/>
+其视觉效果类似于<a href="lineheight.html"> line-height </a>属性。<br/>
+以东亚语言(如中文，日文)写的文档通常根据一维或二维网格使用字符的页面版式。你可以用<a href="layoutgrid.html"> layout-grid </a>属性将这种布局加入到网页文档中去。<br/>
+此属性只应用于块对象(如<b> div </b>)。<br/>
+要使此属性发生作用，<a href="layoutgridmode.html"> layout-grid-mode </a>属性值必须设置为<b> line </b>或<b> both </b>。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> layoutGridChar </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { layout-grid-char: auto; } 
+</div>
+
+</div>
+

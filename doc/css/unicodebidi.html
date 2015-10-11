@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">unicode-bidi</span>版本：CSS2　 兼容性：IE5+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>unicode-bidi  : </b><span class="cssDefault"><b>normal</b></span> | <b>bidi-override</b> | <b>embed</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> normal </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。对象不打开附加的嵌入层，对于内联要素，隐式重排序跨对象边界进行工作</td></tr>
+<tr><td nowrap=""><b> bidi-override </b></td><td nowrap=""><b>:</b></td><td>严格按照<a href="direction.html"> direction </a>属性的值重排序。忽略隐式双向运算规则</td></tr>
+<tr><td nowrap=""><b> embed </b></td><td nowrap=""><b>:</b></td><td>对象打开附加的嵌入层，<a href="direction.html"> direction </a>属性的值指定嵌入层，在对象内部进行隐式重排序</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+用于同一个页面里存在从不同方向读进的文本显示。与<a href="direction.html"> direction </a>属性一起使用。<br/>
+假如您想应用<a href="direction.html"> direction </a>属性于内联文本，您必须设定此属性值为<b> embed </b>或<b> bidi-override </b>。<br/>
+<b> Unicode </b>双向运算法则自动翻转嵌入字符顺序依照它们固有的流动方向。例如，英文文档的默认书写方向是左-右，假如其中包含的部分其他语种的字符其书写方向是右-左，双向运算法则就可以用来代理用户正确的反转其流动方向。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> unicodeBidi </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { direction: rtl; unicode-bidi: bidi-override; } 
+</div>
+
+</div>
+

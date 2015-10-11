@@ -1,0 +1,42 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">border-right-style</span>版本：CSS2　 兼容性：IE4+ NS6+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>border-right-style : </b><span class="cssDefault"><b>none</b></span> | <b>hidden</b> | <b>dotted</b> | <b>dashed</b> | <b>solid</b> | <b>double</b> | <b>groove</b> | <b>ridge</b> | <b>inset</b> | <b>outset</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无边框。不受任何指定的<a href="borderwidth.html"> border-width </a>值影响</td></tr>
+<tr><td nowrap=""><b> hidden </b></td><td nowrap=""><b>:</b></td><td>隐藏边框。IE不支持</td></tr>
+<tr><td nowrap=""><b> dotted </b></td><td nowrap=""><b>:</b></td><td>在MAC平台上IE4+与WINDOWS和UNIX平台上IE5.5+为点线。否则为实线</td></tr>
+<tr><td nowrap=""><b> dashed </b></td><td nowrap=""><b>:</b></td><td>在MAC平台上IE4+与WINDOWS和UNIX平台上IE5.5+为虚线。否则为实线</td></tr>
+<tr><td nowrap=""><b> solid </b></td><td nowrap=""><b>:</b></td><td>实线边框</td></tr>
+<tr><td nowrap=""><b> double </b></td><td nowrap=""><b>:</b></td><td>双线边框。两条单线与其间隔的和等于指定的<a href="borderwidth.html"> border-width </a>值</td></tr>
+<tr><td nowrap=""><b> groove </b></td><td nowrap=""><b>:</b></td><td>根据<a href="bordercolor.html"> border-color </a>的值画3D凹槽</td></tr>
+<tr><td nowrap=""><b> ridge </b></td><td nowrap=""><b>:</b></td><td>根据<a href="bordercolor.html"> border-color </a>的值画菱形边框</td></tr>
+<tr><td nowrap=""><b> inset </b></td><td nowrap=""><b>:</b></td><td>根据<a href="bordercolor.html"> border-color </a>的值画3D凹边</td></tr>
+<tr><td nowrap=""><b> outset </b></td><td nowrap=""><b>:</b></td><td>根据<a href="bordercolor.html"> border-color </a>的值画3D凸边</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置对象右边框的样式。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+在 IE5.5+ 中，边框属性可以直接应用于内联要素。而在此前的版本中，内联要素要使用该属性，必须先设定对象的<a href="height.html"> height </a>或<a href="width.html"> width </a>属性，或者设定<a href="position.html"> position </a>属性为<b> absolute </b>，或者设定<a href="display.html"> display </a>属性为<b> block </b>。<br/>
+如果<a href="borderrightwidth.html"> border-right-width </a>设置为<b> 0 </b>，本属性将失去作用。<br/>
+对应的脚本特性为<b> borderRightStyle </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+body { border-top-style: double; border-bottom-style: groove; border-left-style: dashed; border-right-style: dotted; }
+</div>
+
+</div>
+

@@ -1,0 +1,37 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">filter</span>版本：IE5.5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>filter : </b><a href="filters.html"><i> filter </i></a>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><i> filter </i></td><td nowrap=""><b>:</b></td><td>要使用的滤镜效果。多个滤镜之间用空格隔开。请参阅样式表滤镜(<a href="filters.html">Visual Filters and Transitions Reference</a>)。</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象所应用的滤镜或滤镜集合。<br/>
+此属性仅作用于有布局的对象，如块对象。内联要素要使用该属性，必须先设定对象的<a href="height.html"> height </a>或<a href="width.html"> width </a>属性，或者设定<a href="position.html"> position </a>属性为<b> absolute </b>，或者设定<a href="display.html"> display </a>属性为<b> block </b>。请参阅对象的<b> hasLayout </b>属性。<br/>
+若要在<b> img </b>对象上应用<a href="shadow.html"> shadow </a>滤镜，可以在该对象<b> img </b>对象的父容器上应用。<br/>
+滤镜的机制是可扩展的。通过利用Microsoft® DirectX® Media SDK，你可以使用C++开发和使用第三方滤镜。<br/>
+该属性在MAC平台上不可用。<br/>
+对应的脚本特性为<b> filter </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { width:200px; filter:blur(strength=50) flipv() ; }<br/>img { filter: invert(); } <br/>input.aFilter {filter: alpha(opacity=50);}<br/>
+div { width:200px; filter:redirect ; }<br/>.aFilter {background-color: #FFFFFF; filter: light(); color: #000000; width: 150;}<br/>
+div.aFilter {filter: glow(Color=blue,Strength=5); width: 150;}<br/>
+div.aFilter {filter: shadow(color=#0000FF,direction=45); width: 150; color: FF0000;}
+</div>
+
+</div>
+

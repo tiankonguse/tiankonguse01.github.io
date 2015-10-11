@@ -1,0 +1,38 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">overflow-y</span>版本：IE4+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>overflow-y : </b><span class="cssDefault"><b>visible</b></span> | <b>auto</b> | <b>hidden</b> | <b>scroll</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> visible </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。不剪切内容也不添加滚动条。假如显式声明此默认值，对象将以包含对象的<b> window </b>或<b> frame </b>的尺寸裁切。并且<a href="clip.html&gt;"> clip </a>属性设置将失效</td></tr>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td>在必需时对象内容才会被裁切或显示纵向滚动条</td>
+</tr><tr><td nowrap=""><b> hidden </b></td><td nowrap=""><b>:</b></td><td>不显示超过对象尺寸的内容</td></tr>
+<tr><td nowrap=""><b> scroll </b></td><td nowrap=""><b>:</b></td><td>总是显示纵向滚动条</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置当对象的内容超过其指定宽度时如何管理内容。<br/>
+所有对象的默认值是<b> visible </b>，除了<b> textarea </b>对象和<b> body </b>对象的默认值是<b> auto </b>。设置<b> textarea </b>对象此属性值为<b> hidden </b>将隐藏其滚动条。<br/>
+对于<b> table </b>来说，假如<a href="tablelayout.html"> table-layout </a>属性设置为<b> fixed </b>，则<b> td </b>对象支持带有默认值为<b> hidden </b>的<b> overflow </b>属性。如果设为<b> scroll </b>或者<b> auto </b>，那么超出<b> td </b>尺寸的内容将被剪切。如果设为<b> visible </b>，将导致额外的文本溢出到右边或左边（视<a href="direction.html"> direction </a>属性设置而定）的单元格。<br/>
+自IE5开始，此属性在MAC平台上可用。<br/>
+自IE6开始，当你使用<b> !DOCTYPE </b>声明指定了<b> standards-compliant </b>模式，此属性可以应用于<b> html </b>对象。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> overflowY </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+body { : hidden; }<br/>div { overflow-y: scroll; height: 100px; width: 100px; }
+</div>
+
+</div>
+

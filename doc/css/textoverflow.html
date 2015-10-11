@@ -1,0 +1,38 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-overflow</span>版本：IE6+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-overflow : </b><span class="cssDefault"><b>clip</b></span> | <b>ellipsis</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> clip </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。不显示省略标记(...)，而是简单的裁切</td></tr>
+<tr><td nowrap=""><b> ellipsis </b></td><td nowrap=""><b>:</b></td><td>当对象内文本溢出时显示省略标记(...)</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索是否使用一个省略标记(...)标示对象内文本的溢出。<br/>
+这个属性仅仅作用于水平内联方向的，普通的西方文本的溢出。内联溢出发生在行内的文本超出可用宽度却没有换行机会的时候。<br/>
+要强制溢出发生并且应用<b> ellipsis </b>值，作者必须设置对象的<a href="whitespace.html"> white-space </a>属性值为<b> nowrap </b>。<br/>
+假如没有换行机会(例如，对象容器的宽度是狭窄的，而内有很长的没有合理断行的文本)，没有应用<b> nowrap </b>也有可能溢出。<br/>
+为了使<b> ellipsis </b>值被应用，此属性必须被设置到具有不可视区域的对象。最好的选择是设置<a href="overflow.html"> overflow </a>属性为<b> hidden </b>。设置<a href="overflow.html"> overflow </a>属性为<b> scroll </b>或者<b> auto </b>时，此属性也会应用。但是会有滚动条出现。<br/>
+通过选择省略标记，隐藏的文本可以被选择。当选择发生时，省略标记会隐藏而被文本替换。<br/>
+此属性为在DHTML中制作省略标记提供了高效的方法。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> textOverflow </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { overflow: hidden; text-overflow:ellipsis; } 
+</div>
+
+</div>
+

@@ -1,0 +1,40 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">page-break-after</span>版本：CSS2　 兼容性：IE4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>page-break-after  : </b><span class="cssDefault"><b>auto</b></span> | <b>always</b> | <b>avoid</b> | <b>left</b> | <b>right</b> | <i>null</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td>假如需要在对象之后插入页分割符</td></tr>
+<tr><td nowrap=""><b> always </b></td><td nowrap=""><b>:</b></td><td>始终在对象之后插入页分割符</td></tr>
+<tr><td nowrap=""><b class="cssNone"> avoid </b></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。避免在对象后面插入页分割符</td></tr>
+<tr><td nowrap=""><b class="cssNone"> left </b></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。在对象后面插入页分割符直到它到达一个空白的左页边</td></tr>
+<tr><td nowrap=""><b class="cssNone"> right </b></td><td nowrap=""><b>:</b></td><td><b>未支持</b>。在对象后面插入页分割符直到它到达一个空白的右页边</td></tr>
+<tr><td nowrap=""><i> null </i></td><td nowrap=""><b>:</b></td><td>空白字符串。取消页分割符设置</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象后出现的页分割符。<br/>
+此属性在打印文档时发生作用。此属性不作用于<b> BR </b>或<b> HR </b>对象。<br/>
+假如在浏览器已显示的对象上此属性和<a href="pagebreakbefore.html">  page-break-before </a>属性的值之间发生冲突，则导致最大数目分页的值被使用。<br/>
+页分隔符不允许出现在定位对象内部。<br/>
+在IE6及之前版本浏览器中，<b> left </b>和<b> right </b>值的作用结果等同于<b> always </b>。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> pageBreakAfter </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p { page-break-after: always;}
+</div>
+
+</div>
+

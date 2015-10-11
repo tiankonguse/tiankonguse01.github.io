@@ -1,0 +1,44 @@
+---
+layout: jquery
+title: jquery:event.namespace | jQuery API 中文手册
+description: jquery:当事件被触发时此属性包含指定的命名空间。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.namespace">
+<h2><span>返回值: String</span>event.namespace</h2>
+<h3><em>V1.4.3</em>概述</h3>
+<div class="desc">
+<p>当事件被触发时此属性包含指定的命名空间。</p>
+<div class="longdesc"></div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>确定事件在命名空间中使用。</p>
+<h5> 代码:<code></code></h5>
+<pre>&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;button&gt;display event.namespace&lt;/button&gt;
+  &lt;p&gt;&lt;/p&gt;
+    &lt;script&gt;
+  $("p").bind("test.something", function(event) {
+    alert( event.namespace );  });
+  $("button").click(function(event) {
+    $("p").trigger("test.something");
+  });
+    &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</pre>
+</div>
+</div>
+
+</div>
+

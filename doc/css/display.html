@@ -1,0 +1,92 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">display</span>版本：CSS1/CSS2　 兼容性：IE4+ NS4+　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>display : </b><b>block</b> | <b>none</b> | <span class="cssDefault"><b>inline</b></span> | <b>compact</b> | <b>marker</b> | <b>inline-table</b> | <b>list-item</b> | <b>run-in</b> | <b>table</b> | <b>table-caption</b> | <b>table-cell</b> | <b>table-column</b> | <b>table-column-group</b> | <b>table-footer-group</b> | <b>table-header-group</b> | <b>table-row</b> | <b>table-row-group</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> block </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS1 </td><td>块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行</td></tr>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS1 </td><td>隐藏对象。与<a href="visibility.html"> visibility </a>属性的hidden值不同，其不为被隐藏的对象保留其物理空间</td></tr>
+<tr><td nowrap=""><b> inline </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS1 </td><td>内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行</td></tr>
+<tr><td nowrap=""><b> inline-block </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> IE5.5 </td><td>将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内</td></tr>
+<tr><td nowrap=""><b class="cssNone"> compact </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。分配对象为块对象或基于内容之上的内联对象</td></tr>
+<tr><td nowrap=""><b class="cssNone"> marker </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。指定内容在容器对象之前或之后。要使用此参数，对象必须和<a href="after.html"> :after </a>及<a href="before.html"> :before  </a>伪元素一起使用</td></tr>
+<tr><td nowrap=""><b class="cssNone"> inline-table </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将表格显示为无前后换行的内联对象或内联容器</td></tr>
+<tr><td nowrap=""><b> list-item </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td>将块对象指定为列表项目。并可以添加可选项目标志</td></tr>
+<tr><td nowrap=""><b class="cssNone"> run-in </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。分配对象为块对象或基于内容之上的内联对象</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为块元素级的表格显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-caption </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格标题显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-cell </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格单元格显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-column </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格列显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-column-group </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格列组显示</td></tr>
+<tr><td nowrap=""><b> table-header-group </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td>将对象作为表格标题组显示</td></tr>
+<tr><td nowrap=""><b> table-footer-group </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td>将对象作为表格脚注组显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-row </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格行显示</td></tr>
+<tr><td nowrap=""><b class="cssNone"> table-row-group </b></td><td nowrap=""><b>:</b></td>
+<td class="cssVersion" nowrap=""> CSS2 </td><td><b>未支持</b>。将对象作为表格行组显示</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象是否及如何显示。<br/>
+对于下列元素来说，此属性的默认值为<span class="cssDefault"><b> block </b></span>：<br/>
+<table cellpadding="1" cellspacing="1" class="cssCommonTable"><tr><td>
+<span class="cssIEA"> ADDRESS </span><span class="cssIEA"> QUOTE </span><span class="cssIEA"> BODY </span><span class="cssIEA">  XMP </span><span class="cssIEA"> CENTER </span><span class="cssIEA"> COL </span><span class="cssIEA"> COLGROUP </span><span class="cssIEA"> DD </span><span class="cssIEA"> DIR </span><span class="cssIEA"> DIV </span><span class="cssIEA"> DL </span><span class="cssIEA"> DT </span><span class="cssIEA"> FIELDSET </span><span class="cssIEA"> FORM </span><span class="cssIEA"> Hn </span><span class="cssIEA"> HR </span><span class="cssIEA"> IFRAME </span><span class="cssIEA"> LEGEND </span><span class="cssIEA"> LISTING </span><span class="cssIEA"> MARQUEE </span><span class="cssIEA"> MENU </span><span class="cssIEA"> OL </span><span class="cssIEA"> P </span><span class="cssIEA"> PLAINTEXT </span><span class="cssIEA"> PRE </span><span class="cssIEA"> TABLE </span><span class="cssIEA"> TD </span><span class="cssIEA"> TH </span><span class="cssIEA"> TR </span><span class="cssIEA"> UL </span>
+</td></tr></table><br/>
+对于下列元素来说，此属性的默认值为<span class="cssDefault"><b> none </b></span>：<br/>
+<table cellpadding="1" cellspacing="1" class="cssCommonTable"><tr><td>
+<span class="cssIEA"> BR </span><span class="cssIEA"> FRAME </span><span class="cssIEA"> nextID </span><span class="cssIEA"> TBODY </span><span class="cssIEA"> TFOOT </span><span class="cssIEA"> THEAD </span>
+</td></tr></table><br/>
+对于下列元素来说，此属性的默认值为<span class="cssDefault"><b> list-item </b></span>：<br/>
+<table cellpadding="1" cellspacing="1" class="cssCommonTable"><tr><td>
+<span class="cssIEA"> LI </span>
+</td></tr></table><br/>
+其他元素默认值都是<span class="cssDefault"><b> inline </b></span>。<br/>
+在IE6.0以前的版本中，<b> LI </b>对象的默认值为<span class="cssDefault"><b> block </b></span>。<br/>
+在IE4.0中，<b> block </b>，<b> inline </b>，<b> list-item </b>值不被支持。但是对象仍然会被呈递。<br/>
+在IE5.0中开始支持<b> block </b>和<b> inline </b>。<br/>
+在IE5.5中开始支持<b> inline-block </b>。你可以使用<b> inline-block </b>使对象获得布局而无需指定确切的高(<a href="height.html"> height </a>)和宽(<a href="width.html"> width </a>)。<br/>
+在IE6.0中开始支持<b> list-item </b>。<br/>
+所有可视的文档对象都是块对象(block element)或者内联对象(inline element)。例如，<b> div </b>是一个块对象。<b> span </b> 是一个内联对象。块对象的特征是从新的一行开始且能包含其他块对象和内联对象。内联对象被呈递时不会从新行开始，能够包含其他内联对象和数据。<br/>
+改变此属性值对其周围内容布局的影响可能是：<br/>
+<ul>
+<li>在属性值设为<b> block </b>的对象后面添加新行。
+</li><li>从属性值设为<b> inline </b>的对象中删除一行。
+</li><li>隐藏属性值设为<b> none </b>的对象并释放其在文档中的物理空间。
+</li></ul>
+<b> table-header-group </b>和<b> table-footer-group </b>属性值可用来指定当表格(<b> table </b>)跨越了多页时，<b> tHead </b>和<b> tFoot </b>对象的内容在每一页都显示。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b>display</b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+img { disply: block; float: right; }
+</div>
+
+</div>
+

@@ -1,0 +1,49 @@
+---
+layout: jquery
+title: jquery:jQuery.isNumeric(value) | jQuery API 中文手册
+description: jquery:确定它的参数是否是一个数字。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="jQuery.isNumeric">
+<h2><span>返回值:Boolean</span>jQuery.isNumeric(value)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>确定它的参数是否是一个数字。</p>
+<div class="longdesc">
+<p>$.isNumeric() 方法检查它的参数是否代表一个数值。如果是这样，它返回 true。否则，它返回false。该参数可以是任何类型的</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>value</strong><em>V1.7</em></h4>
+<p> 用于测试的值。 </p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>Sample return values of $.isNumeric with various inputs.</p>
+<p>jQuery 代码:</p>
+<pre><code class="example demo-code">$.isNumeric("-10");  // true
+$.isNumeric(16);     // true
+$.isNumeric(0xFF);   // true
+$.isNumeric("0xFF"); // true
+$.isNumeric("8e5");  // true (exponential notation string)
+$.isNumeric(3.1415); // true
+$.isNumeric(+10);    // true
+$.isNumeric(0144);   // true (octal integer literal)
+$.isNumeric("");     // false
+$.isNumeric({});     // false (empty object)
+$.isNumeric(NaN);    // false
+$.isNumeric(null);   // false
+$.isNumeric(true);   // false
+$.isNumeric(Infinity); // false
+$.isNumeric(undefined); // false</code></pre>
+</div>
+</div>
+
+</div>
+

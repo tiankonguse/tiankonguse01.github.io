@@ -1,0 +1,51 @@
+---
+layout: jquery
+title: jquery:callbacks.fireWith([context][,args]) | jQuery API 中文手册
+description: jquery:访问给定的上下文和参数列表中的所有回调。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="callbacks.fireWith">
+<h2><span>返回值:undefined</span>callbacks.fireWith([context][,args])</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>访问给定的上下文和参数列表中的所有回调</p>
+<div class="longdesc">
+<p></p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>[context][,args]</strong><em>V1.7</em></h4>
+<p><strong>context</strong>:  该列表中的回调被触发的上下文引用 </p>
+<p><strong>args</strong>:  一个参数或参数列表传回给回调列表。 </p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p> 使用 callbacks.fireWith() 访问给定的上下文和参数列表中的所有回调。 </p>
+<h5>jQuery 代码:</h5>
+<pre><code>// a sample logging function to be added to a callbacks list
+var log = function( value1, value2 ){
+    console.log( 'Received:' + value1 + ',' + value2 );
+}
+
+var callbacks = $.Callbacks();
+
+// add the log method to the callbacks list
+callbacks.add( log );
+
+// fire the callbacks on the list using the context 'window'
+// and an arguments array
+
+callbacks.fireWith( window, ['foo','bar']);
+
+// outputs: Received: foo, bar</code></pre>
+</div>
+</div>
+
+</div>
+

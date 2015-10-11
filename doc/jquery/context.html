@@ -1,0 +1,35 @@
+---
+layout: jquery
+title: jquery:context | jQuery API 中文手册
+description: jquery:返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有指定，那么context指向当前的文档(document)。可以与<span title=
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="context">
+<h2><span>返回值:Element</span>context</h2>
+<h3><em>V1.3</em>概述</h3>
+<div class="desc">
+<p>返回传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有指定，那么context指向当前的文档(document)。</p>
+<div class="longdesc">
+<p>可以与<span title="Core/selector">selector</span>一起使用，用于精确检测选择器查询情况。这两个属性对插件开发人员很有用。</p>
+</div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>检测使用的文档内容</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("ul")
+  .append("&lt;li&gt;" + $("ul").context + "&lt;/li&gt;")
+  .append("&lt;li&gt;" + $("ul", document.body).context.nodeName + "&lt;/li&gt;");</code></pre>
+<h5>结果:</h5>
+<pre><code>[object HTMLDocument]  //如果是IE浏览器，则返回[object]
+BODY</code></pre>
+</div>
+</div>
+
+</div>
+

@@ -1,0 +1,40 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">content</span>版本：CSS2　 兼容性：无　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>content : </b><b>attr(alt)</b> | <b>counter(</b><i>name</i><b>)</b> | <b>counter(</b><i>name</i> , <i>list-style-type</i><b>)</b> | <b>counters(</b><i>name</i> , <i>string</i><b>)</b> | <b>counters(</b><i>name</i> , <i>string</i> , <i>list-style-type</i><b>)</b> | <b>no-close-quote</b> | <b>no-open-quote</b> | <b>close-quote</b> | <b>open-quote</b> | <i>string</i> | <b>url(</b><i>url</i><b>)</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> attr(alt) </b></td><td nowrap=""><b>:</b></td><td>使用对象的<b> alt </b>属性的文字</td></tr>
+<tr><td nowrap=""><b> counter(</b><i>name</i><b>) </b></td><td nowrap=""><b>:</b></td><td>使用已命名的计数器</td></tr>
+<tr><td nowrap=""><b> counter(</b><i>name</i>, <i>list-style-type</i><b>) </b></td><td nowrap=""><b>:</b></td><td>使用已命名的计数器并遵从指定的<a href="liststyletype.html"> list-style-type </a>属性</td></tr>
+<tr><td nowrap=""><b> counters(</b><i>name</i>, <i>string</i><b>) </b></td><td nowrap=""><b>:</b></td><td>使用所有已命名的计数器</td></tr>
+<tr><td nowrap=""><b> counters(</b><i>name</i>, <i>string</i>, <i>list-style-type</i><b>) </b></td><td nowrap=""><b>:</b></td><td>使用所有已命名的计数器并遵从指定的<a href="liststyletype.html"> list-style-type </a>属性</td></tr>
+<tr><td nowrap=""><b> no-close-quote </b></td><td nowrap=""><b>:</b></td><td>并不插入<a href="quotes.html"> quotes </a>属性的后标记。但增加其嵌套级别</td></tr>
+<tr><td nowrap=""><b> no-open-quote </b></td><td nowrap=""><b>:</b></td><td>并不插入<a href="quotes.html"> quotes </a>属性的前标记。但减少其嵌套级别</td></tr>
+<tr><td nowrap=""><b> close-quote </b></td><td nowrap=""><b>:</b></td><td>插入<a href="quotes.html"> quotes </a>属性的后标记</td></tr>
+<tr><td nowrap=""><b> open-quote </b></td><td nowrap=""><b>:</b></td><td>插入<a href="quotes.html"> quotes </a>属性的前标记</td></tr>
+<tr><td nowrap=""><i> string </i></td><td nowrap=""><b>:</b></td><td>使用用引号括起的字符串</td></tr>
+<tr><td nowrap=""><b> url(</b><i>url</i><b>) </b></td><td nowrap=""><b>:</b></td><td>使用指定的绝对或相对<i> url </i>地址</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+用来和<a href="after.html"> :after </a>及<a href="before.html"> :before  </a>伪元素一起使用，在对象前或后显示内容。<br/>
+对应的脚本特性为<b> content </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p:after { content: url("http:www.devguru.com");  text-decoration: none; } <br/>p:before { content: url("beep.wav") }
+</div>
+
+</div>
+

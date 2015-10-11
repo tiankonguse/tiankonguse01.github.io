@@ -1,0 +1,37 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">margin-bottom</span>版本：CSS1　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>margin-bottom : </b><b>auto</b> | <i>length</i>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td>取计算机值</td></tr>
+<tr><td nowrap=""><i> length </i></td><td nowrap=""><b>:</b></td><td>由浮点数字和单位标识符组成的长度值 | 百分数。百分数是基于父对象的高度。除了内联对象外支持使用负数值。请参阅<a href="length.html"> 长度单位 </a></td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象底边的外补丁。<br/>
+在IE4.0+中你可以使用<a href='u_length_em.html"'> em </a>和<a href='u_length_ex.html"'> ex </a>单位。<br/>
+在IE4.0+中此属性不支持用于<b> td </b>和<b> th </b>对象。要设置单元格内的外补丁，请使用单元格内的如<b> div </b>、<b> p </b>等类型对象的此属性。<br/>
+在IE5.5+中此属性支持内联对象使用。而在此前的版本中，内联要素要使用该属性，必须先设定对象的<a href="height.html"> height </a>或<a href="width.html"> width </a>属性，或者设定<a href="position.html"> position </a>属性为<b> absolute </b>，或者设定<a href="display.html"> display </a>属性为<b> block </b>。<br/>
+对于内联对象来说，此属性被提供的值是用于计算环绕内联对象的边框区域的。不会影响内联对象所在行的高度(<b> height </b>)。<br/>
+外补丁总是透明(<b> transparent </b>)的。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> marginBottom </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+body { margin: 36pt 24pt 36pt; } <br/>body { margin: 11.5%; } <br/>body { margin: 10% 10% 10% 10%; }
+</div>
+
+</div>
+

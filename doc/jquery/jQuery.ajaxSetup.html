@@ -1,0 +1,40 @@
+---
+layout: jquery
+title: jquery:jQuery.ajaxSetup([options]) | jQuery API 中文手册
+description: jquery:设置全局 AJAX 默认选项。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="jQuery.ajaxSetup">
+<h2><span>返回值:jQuery</span>jQuery.ajaxSetup(<em class="optional">[options]</em>)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>设置全局 AJAX 默认选项。</p>
+<div class="longdesc">
+<p>参数见 '$.ajax' 说明。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>options<em> </em></strong><span>Object</span><em>V1.1</em></h4>
+<p>选项设置。所有设置项均为可选设置。.</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>设置 AJAX 请求默认地址为 "/xmlhttp/"，禁止触发全局 AJAX 事件，用 POST 代替默认 GET 方法。其后的 AJAX 请求不再设置任何选项参数。</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$.ajaxSetup({
+  url: "/xmlhttp/",
+  global: false,
+  type: "POST"
+});
+$.ajax({ data: myData });</code></pre>
+</div>
+</div>
+
+</div>
+

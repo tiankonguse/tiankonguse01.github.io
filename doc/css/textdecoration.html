@@ -1,0 +1,42 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">text-decoration</span>版本：CSS1　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>text-decoration : </b><span class="cssDefault"><b>none</b></span> || <b>underline</b> || <b>blink</b> || <b>overline</b> || <b>line-through</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。无装饰</td></tr>
+<tr><td nowrap=""><b> blink </b></td><td nowrap=""><b>:</b></td><td>闪烁</td></tr>
+<tr><td nowrap=""><b> underline </b></td><td nowrap=""><b>:</b></td><td>下划线</td></tr>
+<tr><td nowrap=""><b> line-through </b></td><td nowrap=""><b>:</b></td><td>贯穿线</td></tr>
+<tr><td nowrap=""><b> overline </b></td><td nowrap=""><b>:</b></td><td>上划线</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+检索或设置对象中的文本的装饰。<br/>
+有<b> href </b>特性的<b> a </b>，以及<b> u </b>，<b> ins </b>对象默认值为<span class="cssDefault"><b> underline </b></span>。<br/>
+对象<b> strike </b>，<b> s </b>，<b> del </b>，默认值是<span class="cssDefault"><b> line-through </b></span>。<br/>
+假如<b> none </b>值在属性声明的最后，所有的先前的其他取值都会被清除。例如，声明<b> text-decoration: underline overline blink none </b>等于声明<b> text-decoration: none </b>。<br/>
+假如对象没有文本(如<b> img </b>元素)或者是空元素(如：&lt;EM&gt;&lt;/EM&gt;)， 此属性不会发生作用。<br/>
+假如你设置<b> body </b>对象的此属性值为<b> none </b>，<b> a </b>对象将依然保持其原有的下划线样式。除非你针对<b> a </b>对象声明此属性值。<br/>
+指定块对象的此属性将影响其所有内联子对象。而此影响一旦发生，块对象容器最终会受到影响。<br/>
+在IE4+中可用的值为<b> overline </b>和<b> blink </b>。虽然<b> blink </b>值被提供，但它不会被作用。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> textDecoration </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { text-decoration : underline; } <br/>div { text-decoration : underline overline; } 
+</div>
+
+</div>
+

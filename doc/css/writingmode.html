@@ -1,0 +1,44 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">writing-mode</span>版本：IE5.5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div> <b>writing-mode  : </b><span class="cssDefault"><b>lr-tb</b></span> | <b>tb-rl</b> </div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr>
+<td nowrap=""><b> lr-tb </b></td>
+<td nowrap=""><b>:</b></td>
+<td><b>默认值</b>。对象中的内容在水平方向上从左向右流入，后一行在前一行的下面。 所有的字形都是竖直向上的。这种布局是罗马语系使用的</td>
+</tr>
+<tr>
+<td nowrap=""><b> tb-rl </b></td>
+<td nowrap=""><b>:</b></td>
+<td>上-下，右-左。对象中的内容在垂直方向上从上向下流入，自右向左。后一竖行在前一竖行的左面。全角字符是竖直向上的，半角字符如拉丁字母或片假名顺时针旋转90度。这种布局是东亚语系通常使用的</td>
+</tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div> 设置或检索对象的内容块固有的书写方向。西方语言确省的是左-右，上-下的书写方式。但是亚洲语言常有上-下，右-左的书写方式。<br/>
+    当此属性值发生变化时，<a href="textalign.html"> text-align </a>属性与<a href="verticalalign.html"> vertical-align </a>属性的作用也将发生变化。<br/>
+    对于下列元素来说，样式表属性不可继承：
+    <table cellpadding="1" cellspacing="1" class="cssCommonTable">
+<tr>
+<td><span class="cssIEA"> BUTTON </span><span class="cssIEA"> CAPTION </span><span class="cssIEA"> INPUT </span><span class="cssIEA"> INPUT type=button </span><span class="cssIEA"> INPUT type=file </span><span class="cssIEA"> INPUT type=password </span><span class="cssIEA"> INPUT type=reset </span><span class="cssIEA"> INPUT type=submit </span><span class="cssIEA"> INPUT type=text </span><span class="cssIEA"> ISINDEX </span><span class="cssIEA"> OPTION </span><span class="cssIEA"> TEXTAREA </span></td>
+</tr>
+</table>
+<br/>
+    此属性效果不会被累积作用。例如，假如父对象的此属性值设为<b> tb-rl </b>，子对象的此属性值设为<b> tb-rl </b>不会导致子对象的旋转。<br/>
+    假如对象的<b> writing-mode </b>属性设置和它的父对象不一样则其将获得自己的布局。那样一个对象的宽度是通过使用它第一个有布局的父对象的高度而确定的。<br/>
+    当你使用具有不同<b> writing-mode </b>属性值的对象时，给每一个对象指定确定的尺寸能够让你更好的整体控制它们的布局。<br/>
+    此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+    对应的脚本特性为<b> writingMode </b>。 </div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode"> div { writing-mode: tb-rl; } </div> 
+</div>
+

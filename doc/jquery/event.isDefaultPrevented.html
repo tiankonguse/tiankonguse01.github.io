@@ -1,0 +1,32 @@
+---
+layout: jquery
+title: jquery:event.isDefaultPrevented() | jQuery API 中文手册
+description: jquery:根据事件对象中是否调用过 event.preventDefault() 方法来返回一个布尔值。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.isDefaultPrevented">
+<h2><span>返回值: Boolean</span>event.isDefaultPrevented()</h2>
+<h3><em>V1.3</em>概述</h3>
+<div class="desc">
+<p>根据事件对象中是否调用过 event.preventDefault() 方法来返回一个布尔值。</p>
+<div class="longdesc"> </div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>检测 event.preventDefault() 是否被调用过。</p>
+<h5>jQuery 代码: </h5>
+<pre>$("a").click(function(event){
+    alert( event.isDefaultPrevented() ); // false
+    event.preventDefault();
+    alert( event.isDefaultPrevented() ); // true
+  });  </pre>
+</div>
+</div>
+
+</div>
+

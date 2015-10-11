@@ -1,0 +1,37 @@
+---
+layout: jquery
+title: jquery:clearQueue([queueName]) | jQuery API 中文手册
+description: jquery:清空对象上尚未执行的所有队列。如果不带参数，则默认清空的是动画队列。这跟stop(true)类似，但stop()只能清空动画队列，而这个可以清空所有通过 .queue() 创建的队列。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="clearQueue">
+<h2><span>返回值:jQuery</span>clearQueue(<em class="optional">[queueName]</em>)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>清空对象上尚未执行的所有队列</p>
+<div class="longdesc">
+<p>如果不带参数，则默认清空的是动画队列。这跟stop(true)类似，但stop()只能清空动画队列，而这个可以清空所有通过 .queue() 创建的队列。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>queueName<em> </em></strong><span>Boolean</span><em>V1.4</em></h4>
+<p>含有队列名的字符串。默认是"Fx"，动画队列。</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>停止当前正在运行的动画：</p>
+<h5>jQuery 代码:</h5>
+<pre><code>$("#stop").click(function(){
+  $("#box").clearQueue();
+});</code></pre>
+</div>
+</div>
+
+</div>
+

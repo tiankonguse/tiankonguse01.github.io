@@ -1,0 +1,43 @@
+---
+layout: jquery
+title: jquery:event.which | jQuery API 中文手册
+description: jquery:针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="event.which">
+<h2><span>返回值:String</span>event.which</h2>
+<h3><em>V1.1.3</em>概述</h3>
+<div class="desc">
+<p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。</p>
+<div class="longdesc">
+<p> event.which 将 event.keyCode 和 event.charCode 标准化了。推荐用 event.which 来监视键盘输入。更多细节请参阅： <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. </p>
+</div>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>记录按键。</p>
+<h5> 代码: </h5>
+<pre>&lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;input id="whichkey" value="type something"&gt;
+      &lt;div id="log"&gt;&lt;/div&gt;
+      &lt;script&gt;
+        $('#whichkey').bind('keydown',function(e){
+        $('#log').html(e.type + ': ' +  e.which );  });
+      &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</pre>
+</div>
+</div>
+
+</div>
+

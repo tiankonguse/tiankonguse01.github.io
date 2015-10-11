@@ -1,0 +1,34 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">layout-flow</span>版本：IE5.5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>layout-flow  : </b><span class="cssDefault"><b>horizontal</b></span> | <b>vertical-ideographic</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> horizontal </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。对象中的内容自左边流入。下一行在前一行下面。这个值适用于拉丁语系</td></tr>
+<tr><td nowrap=""><b> vertical-ideographic </b></td><td nowrap=""><b>:</b></td><td>对象中的内容自上而下流入，下一行在前一行左面。这个值适用于亚洲语系</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象内文本的流动和方向。<br/>
+当此属性值发生变化时，<a href="textalign.html"> text-align </a>属性与<a href="verticalalign.html"> vertical-align </a>属性的作用也将发生变化。<br/>
+这是一个不建议使用的属性。建议使用<a href="writingmode.html"> writing-mode </a>属性替代它。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> layoutFlow </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { layout-flow : horizontal; }
+</div>
+
+</div>
+

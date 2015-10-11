@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">layout-grid-mode</span>版本：IE5+专有属性　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b> layout-grid-mode  : </b><span class="cssDefault"><b>both</b></span> | <b>line</b> | <b>char</b> | <b>none</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> both </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。指定<b> char </b>和<b> line </b>都被启用。要在一个对象上完全启用网格版式，此值是必须的</td></tr>
+<tr><td nowrap=""><b> line </b></td><td nowrap=""><b>:</b></td><td>指定只使用行网格。建议与内联对象(如<b> span </b>)一起使用</td></tr>
+<tr><td nowrap=""><b> char </b></td><td nowrap=""><b>:</b></td><td>指定只使用字符网格。建议和块对象(如<b> div </b>)一起使用</td></tr>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td>不使用网格</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索文本网格版式是否使用二维。<br/>
+以东亚语言（如中文，日文）编写的文档通常根据一维或二维网格使用字符的页面版式。你可以用<a href="layoutgrid.html"> layout-grid </a>属性将这种布局加入到网页文档中去。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> layoutGridMode </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { layout-grid-mode: char; } 
+</div>
+
+</div>
+

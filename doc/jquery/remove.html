@@ -1,0 +1,47 @@
+---
+layout: jquery
+title: jquery:remove([expr]) | jQuery API 中文手册
+description: jquery:从DOM中删除所有匹配的元素。 - jQuery API 中文手册
+keywords: jquery:jquery,chm,手册,在线,api
+---
+
+
+<div class="a2" id="content">
+<div rel="remove">
+<h2><span>返回值:jQuery</span>remove(<em class="optional">[expr]</em>)</h2>
+<h3>概述</h3>
+<div class="desc">
+<p>从DOM中删除所有匹配的元素。</p>
+<div class="longdesc">
+<p>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。但除了这个元素本身得以保留之外，其他的比如绑定的事件，附加的数据等都会被移除。</p>
+</div>
+</div>
+<h3>参数</h3>
+<div class="parameter">
+<h4><strong>expr</strong><span>String</span><em>V1.0</em></h4>
+<p>用于筛选元素的jQuery表达式</p>
+</div>
+<div class="example">
+<h3>示例</h3>
+<span id="f_ad2"></span>
+<h4>描述:</h4>
+<p>从DOM中把所有段落删除</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").remove();</code></pre>
+<h5>结果:</h5>
+<pre><code>how are</code></pre>
+<h4>描述:</h4>
+<p>从DOM中把带有hello类的段落删除</p>
+<h5>HTML 代码:</h5>
+<pre><code>&lt;p class="hello"&gt;Hello&lt;/p&gt; how are &lt;p&gt;you?&lt;/p&gt;</code></pre>
+<h5>jQuery 代码:</h5>
+<pre><code>$("p").remove(".hello");</code></pre>
+<h5>结果:</h5>
+<pre><code>how are &lt;p&gt;you?&lt;/p&gt;</code></pre>
+</div>
+</div>
+
+</div>
+

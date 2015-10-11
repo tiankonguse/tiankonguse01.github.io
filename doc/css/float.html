@@ -1,0 +1,36 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">float</span>版本：CSS1　 兼容性：IE4+ NS4+　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>float : </b><span class="cssDefault"><b>none</b></span> | <b>left</b> | <b>right</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。对象不飘浮</td></tr>
+<tr><td nowrap=""><b> left </b></td><td nowrap=""><b>:</b></td><td>文本流向对象的右边</td></tr>
+<tr><td nowrap=""><b> right </b></td><td nowrap=""><b>:</b></td><td>文本流向对象的左边</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+该属性的值指出了对象是否及如何浮动。请参阅<a href="clear.html"> clear </a>属性。<br/>
+当该属性不等于<b> none </b>引起对象浮动时，对象将被视作块对象(<b> block-level </b>)，即<a href="display.html"> display </a>属性等于<b> block </b>。也就是说，浮动对象的<a href="display.html"> display </a>属性将被忽略。<br/>
+跟随浮动对象的对象将移动到浮动对象的位置。浮动对象会向左或向右移动直到遇到边框(<a href="border.html"> border </a>、内补丁(<a href="padding.html"> padding </a>、外补丁(<a href="margin.html"> margin </a>或者另一个块对象(<b> block-level </b>)为止。<br/>
+在IE5+中，<b> div </b>和<b> span </b>对象假如没有指定宽度会被分配默认的宽度，而在此前的浏览器版本中则必须指定宽度值才可以呈递此属性。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+对应的脚本特性为<b> styleFloat </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+div { clear : left }<br/>img { float: right }
+</div>
+
+</div>
+

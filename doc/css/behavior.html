@@ -1,0 +1,37 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">behavior</span>版本：IE5+专有属性　继承性：无</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>behavior : </b><b>url ( </b><i>url</i><b> ) </b> | <b>url ( </b><i>#objID</i> <b> ) </b> | <b> url ( </b><i>#default#behaviorName</i><b> ) </b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b> url ( </b><i>url</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>使用绝对或相对<i> url </i>地址指定DHTML行为组件（.htc）</td></tr>
+<tr><td nowrap=""><b> url ( </b><i>#objID</i> <b> ) </b></td><td nowrap=""><b>:</b></td><td>使用二进制实现(作为<b> ActiveX® </b>控件)的行为。此处的<i> #objID </i>为<b> object </b>对象的<b> id </b>属性值</td></tr>
+<tr><td nowrap=""><b> url ( </b><i>#default#behaviorName</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>IE的默认行为。由行为的名称标识(<i> #behaviorName </i>)指定</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索对象的DHTML行为。多个行为之间用空格隔开。<br/>
+当多个附加到同一要素的行为发生冲突时，其结果确决于行为应用于要素的顺序。后一个行为的优先权高于前一个行为。例如，假如多个行为用于设置对象颜色，其结果将会由最后一个应用到要素的行为决定。同样的规则适用于不同行为提供的属性、事件、方法所发生的名称冲突。<br/>
+可以使用<b> addBehavior </b>方法动态的将行为附着到对象。<br/>
+此属性对于<b> currentStyle </b>对象而言是只读的。对于其他对象而言是可读写的。<br/>
+务必注意使用样式表(CSS)的<b> behavior </b>属性内联定义或使用<b> addBehavior </b>方法附着的行为不会在对象从文档树中移除时被自动分离。而在文档中的样式表规则定义的行为会在对象从文档树中移除时被自动分离。<br/>
+
+对应的脚本特性为<b> behavior </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p { behavior: url(#default#download); }<br/>div { behavior: url(fly.htc) url(shy.htc); }<br/>div { behavior: url(#myObject); }
+</div>
+
+</div>
+

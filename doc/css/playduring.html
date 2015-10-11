@@ -1,0 +1,35 @@
+---
+layout: css
+title: css CSS 在线手册 | CSS 中文手册
+description:  css CSS中文手册(在线版)
+keywords: css css,chm,手册,在线,api
+---
+
+
+<div id="content">
+<div id="idContentTitle"><span id="idTitleName">play-during</span>版本：CSS2　 兼容性：无　继承性：有</div>
+<div class="cssColumnTitle">语法：</div>
+<div>
+<b>play-during : </b><b>url ( </b><i>url</i><b> ) </b> | <b>mix</b> | <b>repeat</b> | <span class="cssDefault"><b>auto</b></span> |
+ <b>none</b>
+</div>
+<div class="cssColumnTitle">取值：</div>
+<table>
+<tr><td nowrap=""><b>url ( </b><i>url</i><b> ) </b></td><td nowrap=""><b>:</b></td><td>使用绝对或相对<i> url </i>地址指定背景音乐</td></tr>
+<tr><td nowrap=""><b> mix </b></td><td nowrap=""><b>:</b></td><td>在播放对象的背景音乐的同时并不停止父对象的背景音乐</td></tr>
+<tr><td nowrap=""><b> repeat </b></td><td nowrap=""><b>:</b></td><td>循环播放对象的背景音乐</td></tr>
+<tr><td nowrap=""><b> auto </b></td><td nowrap=""><b>:</b></td><td><b>默认值</b>。仅仅再一次执行父对象的<b> play-during </b>属性值</td></tr>
+<tr><td nowrap=""><b> none </b></td><td nowrap=""><b>:</b></td><td>背景音乐。甚至取消父对象的<b> play-during </b>属性值的作用</td></tr>
+</table>
+<div class="cssColumnTitle">说明：</div>
+<div>
+设置或检索背景音乐的播放。<br/>
+对应的脚本特性为<b> playDuring </b>。
+</div>
+<div class="cssColumnTitle">示例：</div>
+<div id="idSimpleCode">
+p { play-during: url(accordian.wav) mix }
+</div>
+
+</div>
+
