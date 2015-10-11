@@ -6,7 +6,7 @@ keywords : jquery 在线手册|jQuery API 中文手册|jQuery 速查表|jQuery �
 ---
 
 <div id="content" class="a1">
-  <h1><<a href="{{ site.url }}/doc/jquery/" title="CSS手册">CSS手册</a> | &nbsp;&nbsp;&nbsp;&nbsp;jQuery 1.11.3 速查表&nbsp;&nbsp;--</em>作者：<a href="{{ site.url }}" target="_blank">tiankonguse</a></span><a id="fk" href='bugandUpdate.html'>反馈/更新</a></h1>
+  <h1><<a href="{{ site.url }}/doc/css/" title="CSS手册">CSS手册</a> | &nbsp;&nbsp;&nbsp;&nbsp;jQuery 1.11.3 速查表&nbsp;&nbsp;--</em>作者：<a href="{{ site.url }}" target="_blank">tiankonguse</a></span><a id="fk" href='bugandUpdate.html'>反馈/更新</a></h1>
   <div class="col-1">
     <div id="core">
       <h2>核心</h2>
