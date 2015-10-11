@@ -235,9 +235,11 @@ jQuery(document).ready(function(){
     });
 
    if(tk.isMobile.any()){
-        tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
+        //tk.ad.showPageFoot("ad-content-footer","300-250" ,true);
+        tk.ad.showPageFoot("ad-content-footer","auto" ,true);
     }else{
-         tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
+         //tk.ad.showPageFoot("ad-content-footer","728-90" ,true);
+         tk.ad.showPageFoot("ad-content-footer","auto" ,true);
     }
     
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
