@@ -40,11 +40,34 @@
 			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
 		{% endfor %}
 	</ul>
-	<h2>最近记录</h2>
+	<h2>类似文章</h2>
 	<ul class="artical-list">
-	{% for post in site.related_posts %}
-		<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
+	{% assign matchNum = 0 %}
+	
+    {% for post in site.posts %}
+        {% if matchNum < 10 %}
+            {% assign match = false %}
+            {% for tag in post.tags %}
+                {% if page.tags contains tag %}
+                    {% assign match = true %}
+                {% endif %}
+            {% endfor %}
+            {% if match %}
+                {% assign matchNum = matchNum | plus:1 %}
+                <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if matchNum < 10 %}
+        {% assign matchNum = 10 | minus:matchNum %}
+        {% for post in site.posts limit:matchNum  %}
+            <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    {% endif %}
+    
+
+    
 	</ul>
 </div> 
 

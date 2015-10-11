@@ -37,7 +37,7 @@ gems:
 markdown:    rdiscount
 highlighter: pygments
 #pygments: true
-lsi: true
+#lsi: true
 excerpt_separator: "\n\n"
 
 
