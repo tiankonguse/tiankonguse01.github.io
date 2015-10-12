@@ -1,0 +1,6 @@
+---
+title : sitemap page
+---
+
+{% for page in site.pages %} {{site.url}}{{ page.url }} 
+{% endfor %}

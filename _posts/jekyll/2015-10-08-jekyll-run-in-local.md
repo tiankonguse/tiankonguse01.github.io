@@ -29,7 +29,7 @@ sudo apt-get install jekyll
 ```
 
 当然, 你也可以去下载源码编译安装,这里就不做介绍了.  
-```
+
 
 
 ## 网站准备
@@ -52,24 +52,71 @@ sudo apt-get install jekyll
 生成网页命令:  
 
 ```
-tiankonguse:tiankonguse.github.io $ sudo jekyll serve --watch
-Configuration file: /home/tiankonguse/github/tiankonguse.github.io/_config.yml
+tiankonguse:tiankonguse.github.io $ sudo jekyll serve --watch --config _config.yml,_config_dev.yml
+Configuration file: _config.yml
+Configuration file: _config_dev.yml
             Source: .
        Destination: ./_site
       Generating... 
-
-  Populating LSI... 
-Rebuilding index... 
-                                        done.
+                    done.
  Auto-regeneration: enabled for '.'
-Configuration file: /home/tiankonguse/github/tiankonguse.github.io/_config.yml
+Configuration file: _config.yml
+Configuration file: _config_dev.yml
     Server address: http://127.0.0.1:80//
   Server running... press ctrl-c to stop.
 ```
 
 
 
+
+
 ## 常见问题
+
+
+### 本地与正式环境的配置不一样
+
+比如我的配置中, 有个 url 字段, 在正式环境中配置的是 [http://github.tiankonguse.com/](http://github.tiankonguse.com/) , 但是在本地, 应该配置成 [http://127.0.0.1](http://github.tiankonguse.com/) .  
+有时候本地测试完了, 就直接提交github了, 结果正式环境悲剧了, 很多文件404了.  
+
+现在找到一个解决方案: 测试版本的配置文件
+
+```
+sudo jekyll serve --watch --config _config.yml,_config_dev.yml
+```
+
+文档如下  
+
+```
+tiankonguse:tiankonguse.github.io $ jekyll serve --help
+jekyll serve -- Serve your site locally
+
+Usage:
+
+  jekyll serve [options]
+
+Options:
+            --config CONFIG_FILE[,CONFIG_FILE2,...]  Custom configuration file
+            --future       Publishes posts with a future date
+            --limit_posts MAX_POSTS  Limits the number of posts to parse and publish
+        -w, --[no-]watch   Watch for changes and rebuild
+            --force_polling  Force watch to use polling
+            --lsi          Use LSI for improved related posts
+        -D, --drafts       Render posts in the _drafts folder
+            --unpublished  Render posts that were marked as unpublished
+        -q, --quiet        Silence output.
+        -V, --verbose      Print verbose output.
+        -B, --detach       Run the server in the background (detach)
+        -P, --port [PORT]  Port to listen on
+        -H, --host [HOST]  Host to bind to
+        -b, --baseurl [URL]  Base URL
+            --skip-initial-build  Skips the initial site build which occurs before the server is started.
+        -h, --help         Show this message
+        -v, --version      Print the name and version
+        -t, --trace        Show the full backtrace when an error occurs
+```
+
+测试版本的配置文件放在后面, 后面的值覆盖前面的值.  
+
 
 ### Layout nil 不存在
 

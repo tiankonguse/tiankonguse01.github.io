@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
         return '<a href="'+href+'" target="_blank" ><img src="'+img+'" alt="'+name+'"/></a>';
     }
     var contactTpl = "";
-    contactTpl += '<div class="weixin" style="display: none;"><img src="http://github.tiankonguse.com/images/weixin_code.png" alt="微信"></div>';
+    contactTpl += '<div class="weixin" style="display: none;"><img src="http://7d9r3t.com1.z0.glb.clouddn.com/weixin_code.png" alt="微信"></div>';
     
     $homeContact.append(contactTpl);
     var weixin = $('[href="http://weixin.qq.com/"]');
