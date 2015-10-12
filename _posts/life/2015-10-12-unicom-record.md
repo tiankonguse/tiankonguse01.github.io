@@ -26,11 +26,11 @@ updateData:  13:45 2015/10/12
 既然知道了联通记录了我们的上网记录, 那自然想要去查询这个记录了.  
 
 
-第一件事自然是登陆联通的官网: http://www.10010.com/  
+第一件事自然是登陆联通的[官网](http://www.10010.com/ )
 
 
 第二件事是登陆了, 用户名就是手机号, 密码不记得了, 可以重置密码得到.  
 
-第三件事就是查询了, 在这里查询 http://iservice.10010.com/e3/query/call_phont_record.html
+第三件事就是查询了, 在[这里查询](http://iservice.10010.com/e3/query/call_phont_record.html)
 
 
