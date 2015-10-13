@@ -83,7 +83,7 @@ Vary: Accept-Encoding
 tiankonguse:tiankonguse.github.io $ git remote add gitcafe https://gitcafe.com/tiankonguse/tiankonguse.git
 tiankonguse:tiankonguse.github.io $ git checkout -b gitcafe-pages
 切换到一个新分支 'gitcafe-pages'
-git push gitcafe gitcafe-pages 
+tiankonguse:tiankonguse.github.io $ git push gitcafe master:gitcafe-pages
 Username for 'https://gitcafe.com': tiankonguse
 Password for 'https://tiankonguse@gitcafe.com': 
 ```
