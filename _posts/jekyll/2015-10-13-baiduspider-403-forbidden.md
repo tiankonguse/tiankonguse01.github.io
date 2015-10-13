@@ -108,6 +108,11 @@ Password for 'https://tiankonguse@gitcafe.com':
 finish  
 
 
+## 参考资料
+
+
+* [gitcafe Pages 相关帮助](https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9#wiki)
+* [Githubpage居然把百度蜘蛛给屏蔽了](http://www.zhaoxiaodan.com/%E5%85%B6%E4%BB%96/GithubPage%E5%B1%85%E7%84%B6%E6%8A%8A%E7%99%BE%E5%BA%A6%E8%9C%98%E8%9B%9B%E7%BB%99%E5%B1%8F%E8%94%BD%E4%BA%86.html)
 
 
 
