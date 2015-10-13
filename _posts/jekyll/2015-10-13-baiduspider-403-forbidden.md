@@ -9,7 +9,7 @@ updateData:   23:54 2015/10/13
 ---
 
 
-# 背景
+## 背景
 
 很早之前曾在百度的站长平台提交了 [sitemap](http://github.tiankonguse.com/sitemap.txt), 之后就不管它了.  
 今天无意见发现百度几乎搜不到自己的记录集, 于是进入百度的站长平台, 发现百度没收录我的几篇记录, 后来找到原因了.  
@@ -56,10 +56,10 @@ Vary: Accept-Encoding
 
 当初我的经历也蛮复杂的.  
 
-* 第一阶段 使用免费域名和免费空间 (网站底部会被嵌入广告)
+* 第一阶段 使用免费域名和免费空间 (网站底部会被空间提供商嵌入广告)
 * 第二阶段 自己买域名和空间自己实现博客(学习各种WEB技术)
-* 第三阶段 使用 wordpress搭建博客 (实现一个博客需要很多功能, 累觉不爱, 想把重点放在写博客上)
-* 第四阶段 自己实现简洁的博客 (重点放在写博客后, 追求简洁的博客, WEB技术也可以实现任意博客了)
+* 第三阶段 使用 wordpress搭建博客 (累觉不爱, 想把重点放在写博客上)
+* 第四阶段 自己实现简洁的博客 (重点放在写博客后, 追求简洁)
 * 第五阶段 使用github 搭建博客 (只需要写篇文章, 提交一下就行了)
 
 
@@ -75,9 +75,9 @@ Vary: Accept-Encoding
 操作步骤大概如下:  
 
 
-1. 注册 gitcafe 帐号
-2. 创建一个跟用户名一样的项目
-3. 把 github 的项目推到 gitcafe 上面去
+* 注册 gitcafe 帐号
+* 创建一个跟用户名一样的项目
+* 把 github 的项目推到 gitcafe 上面去
 
 ```
 tiankonguse:tiankonguse.github.io $ git remote add gitcafe https://gitcafe.com/tiankonguse/tiankonguse.git
@@ -86,15 +86,22 @@ tiankonguse:tiankonguse.github.io $ git checkout -b gitcafe-pages
 tiankonguse:tiankonguse.github.io $ git push gitcafe master:gitcafe-pages
 Username for 'https://gitcafe.com': tiankonguse
 Password for 'https://tiankonguse@gitcafe.com': 
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.06 KiB | 0 bytes/s, done.
+Total 10 (delta 8), reused 0 (delta 0)
+To https://gitcafe.com/tiankonguse/tiankonguse.git
+   f0d0296..51611d7  master -> gitcafe-pages
 ```
 
-4. 绑定自定义域名
-   * 点击项目的右上角的项目配置
-   * 在项目基础设置中配置项目主页
-   * 在page服务中添加自己的域名.
+* 绑定自定义域名
+   1. 点击项目的右上角的 项目配置
+   2. 在项目的 基础设置 中配置项目主页
+   3. 在 page服务 中添加自己的域名.
 
 
-5. DNS的配置中增加一项 CNAME.  
+* DNS的配置中增加一项 CNAME.  
    我使用 dnspod 这个提供商来管理我的 DNS.  
    CNAME 一般可以按 解析路线 或者 网络类型来单独配置  
    我经过测试, dnspod 网络类型中的百度蜘蛛不起作用  
