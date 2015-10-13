@@ -64,6 +64,7 @@ em.optional{color: #999;}
 #content.a2 h4 span{width:294px;}
 #content.a2 h4 em{width:51px;}
 #content.a2 h4 strong,#content.a2 h4 span,#content.a2 h4 em{display:inline-block;}
+
 @media only screen and (min-width: 320px) and (max-width:650px){
 .navigation .alignleft,.navigation .alignright{ width:100%;width:auto\9;}
 .retRight{ display:none;}
@@ -127,6 +128,7 @@ padding: 4px;vertical-align: 8px; }
 @media only screen and (min-width: 150px) and (max-width:378px){
 	#left{ display:none;}
 	#right{ margin-left:0!important;}
+    
 }
 
 
