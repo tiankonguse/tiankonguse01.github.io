@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis LPUSHX — Redis 命令参考
+description: redis LPUSHX — Redis 命令参考
+keywords: redis LPUSHX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lrange.html" title="LRANGE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lpush.html" title="LPUSH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lpushx">
+<span id="id1"></span><h1>LPUSHX<a class="headerlink" href="#lpushx" title="Permalink to this headline">¶</a></h1>
+<p><strong>LPUSHX key value</strong></p>
+<p>将值 <code class="docutils literal"><span class="pre">value</span></code> 插入到列表 <code class="docutils literal"><span class="pre">key</span></code> 的表头，当且仅当 <code class="docutils literal"><span class="pre">key</span></code> 存在并且是一个列表。</p>
+<p>和 <a class="reference internal" href="lpush.html#lpush"><span>LPUSH</span></a> 命令相反，当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时， <a class="reference internal" href="#lpushx">LPUSHX</a> 命令什么也不做。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><a class="reference internal" href="#lpushx">LPUSHX</a> 命令执行之后，表的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对空列表执行 LPUSHX
+
+redis&gt; LLEN greet                       # greet 是一个空列表
+(integer) 0
+
+redis&gt; LPUSHX greet "hello"             # 尝试 LPUSHX，失败，因为列表为空
+(integer) 0
+
+
+# 对非空列表执行 LPUSHX
+
+redis&gt; LPUSH greet "hello"              # 先用 LPUSH 创建一个有一个元素的列表
+(integer) 1
+
+redis&gt; LPUSHX greet "good morning"      # 这次 LPUSHX 执行成功
+(integer) 2
+
+redis&gt; LRANGE greet 0 -1
+1) "good morning"
+2) "hello"
+</pre></div>
+</div>
+</div>
+

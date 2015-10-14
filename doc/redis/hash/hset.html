@@ -1,0 +1,47 @@
+---
+layout: redis
+title: redis HSET — Redis 命令参考
+description: redis HSET — Redis 命令参考
+keywords: redis HSET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="hsetnx.html" title="HSETNX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="hmset.html" title="HMSET">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Hash（哈希表）</a> »</li>
+</ul>
+</div><div class="section" id="hset">
+<span id="id1"></span><h1>HSET<a class="headerlink" href="#hset" title="Permalink to this headline">¶</a></h1>
+<p><strong>HSET key field value</strong></p>
+<p>将哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中的域 <code class="docutils literal"><span class="pre">field</span></code> 的值设为 <code class="docutils literal"><span class="pre">value</span></code> 。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，一个新的哈希表被创建并进行 <a class="reference internal" href="#hset">HSET</a> 操作。</p>
+<p>如果域 <code class="docutils literal"><span class="pre">field</span></code> 已经存在于哈希表中，旧值将被覆盖。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">如果 <code class="docutils literal"><span class="pre">field</span></code> 是哈希表中的一个新建域，并且值设置成功，返回 <code class="docutils literal"><span class="pre">1</span></code> 。</div>
+<div class="line">如果哈希表中域 <code class="docutils literal"><span class="pre">field</span></code> 已经存在且旧值已被新值覆盖，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; HSET website google "www.g.cn"       # 设置一个新域
+(integer) 1
+
+redis&gt; HSET website google "www.google.com" # 覆盖一个旧域
+(integer) 0
+</pre></div>
+</div>
+</div>
+

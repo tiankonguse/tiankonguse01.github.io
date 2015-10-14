@@ -1,0 +1,195 @@
+---
+layout: redis
+title: redis SET — Redis 命令参考
+description: redis SET — Redis 命令参考
+keywords: redis SET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="setbit.html" title="SETBIT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="psetex.html" title="PSETEX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="set">
+<span id="id1"></span><h1>SET<a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h1>
+<p><strong>SET key value [EX seconds] [PX milliseconds] [NX|XX]</strong></p>
+<p>将字符串值 <code class="docutils literal"><span class="pre">value</span></code> 关联到 <code class="docutils literal"><span class="pre">key</span></code> 。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 已经持有其他值， <a class="reference internal" href="#set">SET</a> 就覆写旧值，无视类型。</p>
+<p>对于某个原本带有生存时间（TTL）的键来说，
+当 <a class="reference internal" href="#set"><span>SET</span></a> 命令成功在这个键上执行时，
+这个键原有的 TTL 将被清除。</p>
+<p><strong>可选参数</strong></p>
+<p>从 Redis 2.6.12 版本开始， <a class="reference internal" href="#set"><span>SET</span></a> 命令的行为可以通过一系列参数来修改：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">EX</span> <span class="pre">second</span></code> ：设置键的过期时间为 <code class="docutils literal"><span class="pre">second</span></code> 秒。 <code class="docutils literal"><span class="pre">SET</span> <span class="pre">key</span> <span class="pre">value</span> <span class="pre">EX</span> <span class="pre">second</span></code> 效果等同于 <code class="docutils literal"><span class="pre">SETEX</span> <span class="pre">key</span> <span class="pre">second</span> <span class="pre">value</span></code> 。</li>
+<li><code class="docutils literal"><span class="pre">PX</span> <span class="pre">millisecond</span></code> ：设置键的过期时间为 <code class="docutils literal"><span class="pre">millisecond</span></code> 毫秒。 <code class="docutils literal"><span class="pre">SET</span> <span class="pre">key</span> <span class="pre">value</span> <span class="pre">PX</span> <span class="pre">millisecond</span></code> 效果等同于 <code class="docutils literal"><span class="pre">PSETEX</span> <span class="pre">key</span> <span class="pre">millisecond</span> <span class="pre">value</span></code> 。</li>
+<li><code class="docutils literal"><span class="pre">NX</span></code> ：只在键不存在时，才对键进行设置操作。 <code class="docutils literal"><span class="pre">SET</span> <span class="pre">key</span> <span class="pre">value</span> <span class="pre">NX</span></code> 效果等同于 <code class="docutils literal"><span class="pre">SETNX</span> <span class="pre">key</span> <span class="pre">value</span></code> 。</li>
+<li><code class="docutils literal"><span class="pre">XX</span></code> ：只在键已经存在时，才对键进行设置操作。</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">因为 <a class="reference internal" href="#set"><span>SET</span></a> 命令可以通过参数来实现和 <a class="reference internal" href="setnx.html#setnx"><span>SETNX</span></a> 、 <a class="reference internal" href="setex.html#setex"><span>SETEX</span></a> 和 <a class="reference internal" href="psetex.html#psetex"><span>PSETEX</span></a> 三个命令的效果，所以将来的 Redis 版本可能会废弃并最终移除 <a class="reference internal" href="setnx.html#setnx"><span>SETNX</span></a> 、 <a class="reference internal" href="setex.html#setex"><span>SETEX</span></a> 和 <a class="reference internal" href="psetex.html#psetex"><span>PSETEX</span></a> 这三个命令。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><p class="first">在 Redis 2.6.12 版本以前， <a class="reference internal" href="#set"><span>SET</span></a> 命令总是返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</p>
+<div class="last line-block">
+<div class="line">从 Redis 2.6.12 版本开始， <a class="reference internal" href="#set"><span>SET</span></a> 在设置操作成功完成时，才返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</div>
+<div class="line">如果设置了 <code class="docutils literal"><span class="pre">NX</span></code> 或者 <code class="docutils literal"><span class="pre">XX</span></code> ，但因为条件没达到而造成设置操作未执行，那么命令返回空批量回复（NULL Bulk Reply）。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对不存在的键进行设置
+
+redis 127.0.0.1:6379&gt; SET key "value"
+OK
+
+redis 127.0.0.1:6379&gt; GET key
+"value"
+
+
+# 对已存在的键进行设置
+
+redis 127.0.0.1:6379&gt; SET key "new-value"
+OK
+
+redis 127.0.0.1:6379&gt; GET key
+"new-value"
+
+
+# 使用 EX 选项
+
+redis 127.0.0.1:6379&gt; SET key-with-expire-time "hello" EX 10086
+OK
+
+redis 127.0.0.1:6379&gt; GET key-with-expire-time
+"hello"
+
+redis 127.0.0.1:6379&gt; TTL key-with-expire-time
+(integer) 10069
+
+
+# 使用 PX 选项
+
+redis 127.0.0.1:6379&gt; SET key-with-pexpire-time "moto" PX 123321
+OK
+
+redis 127.0.0.1:6379&gt; GET key-with-pexpire-time
+"moto"
+
+redis 127.0.0.1:6379&gt; PTTL key-with-pexpire-time
+(integer) 111939
+
+
+# 使用 NX 选项
+
+redis 127.0.0.1:6379&gt; SET not-exists-key "value" NX
+OK      # 键不存在，设置成功
+
+redis 127.0.0.1:6379&gt; GET not-exists-key
+"value"
+
+redis 127.0.0.1:6379&gt; SET not-exists-key "new-value" NX
+(nil)   # 键已经存在，设置失败
+
+redis 127.0.0.1:6379&gt; GEt not-exists-key
+"value" # 维持原值不变
+
+
+# 使用 XX 选项
+
+redis 127.0.0.1:6379&gt; EXISTS exists-key
+(integer) 0
+
+redis 127.0.0.1:6379&gt; SET exists-key "value" XX
+(nil)   # 因为键不存在，设置失败
+
+redis 127.0.0.1:6379&gt; SET exists-key "value"
+OK      # 先给键设置一个值
+
+redis 127.0.0.1:6379&gt; SET exists-key "new-value" XX
+OK      # 设置新值成功
+
+redis 127.0.0.1:6379&gt; GET exists-key
+"new-value"
+
+
+# NX 或 XX 可以和 EX 或者 PX 组合使用
+
+redis 127.0.0.1:6379&gt; SET key-with-expire-and-NX "hello" EX 10086 NX
+OK
+
+redis 127.0.0.1:6379&gt; GET key-with-expire-and-NX
+"hello"
+
+redis 127.0.0.1:6379&gt; TTL key-with-expire-and-NX
+(integer) 10063
+
+redis 127.0.0.1:6379&gt; SET key-with-pexpire-and-XX "old value"
+OK
+
+redis 127.0.0.1:6379&gt; SET key-with-pexpire-and-XX "new value" PX 123321
+OK
+
+redis 127.0.0.1:6379&gt; GET key-with-pexpire-and-XX
+"new value"
+
+redis 127.0.0.1:6379&gt; PTTL key-with-pexpire-and-XX
+(integer) 112999
+
+
+# EX 和 PX 可以同时出现，但后面给出的选项会覆盖前面给出的选项
+
+redis 127.0.0.1:6379&gt; SET key "value" EX 1000 PX 5000000
+OK
+
+redis 127.0.0.1:6379&gt; TTL key
+(integer) 4993  # 这是 PX 参数设置的值
+
+redis 127.0.0.1:6379&gt; SET another-key "value" PX 5000000 EX 1000
+OK
+
+redis 127.0.0.1:6379&gt; TTL another-key
+(integer) 997   # 这是 EX 参数设置的值
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>使用模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>命令 <code class="docutils literal"><span class="pre">SET</span> <span class="pre">resource-name</span> <span class="pre">anystring</span> <span class="pre">NX</span> <span class="pre">EX</span> <span class="pre">max-lock-time</span></code> 是一种在 Redis 中实现锁的简单方法。</p>
+<p>客户端执行以上的命令：</p>
+<ul class="simple">
+<li>如果服务器返回 <code class="docutils literal"><span class="pre">OK</span></code> ，那么这个客户端获得锁。</li>
+<li>如果服务器返回 <code class="docutils literal"><span class="pre">NIL</span></code> ，那么客户端获取锁失败，可以在稍后再重试。</li>
+</ul>
+<p>设置的过期时间到达之后，锁将自动释放。</p>
+<p>可以通过以下修改，让这个锁实现更健壮：</p>
+<ul class="simple">
+<li>不使用固定的字符串作为键的值，而是设置一个不可猜测（non-guessable）的长随机字符串，作为口令串（token）。</li>
+<li>不使用 <a class="reference internal" href="../key/del.html#del"><span>DEL</span></a> 命令来释放锁，而是发送一个 Lua 脚本，这个脚本只在客户端传入的值和键的口令串相匹配时，才对键进行删除。</li>
+</ul>
+<p>这两个改动可以防止持有过期锁的客户端误删现有锁的情况出现。</p>
+<p>以下是一个简单的解锁脚本示例：</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="k">if</span> <span class="n">redis</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"</span><span class="s">get"</span><span class="p">,</span><span class="n">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">then</span>
+    <span class="k">return</span> <span class="n">redis</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"</span><span class="s">del"</span><span class="p">,</span><span class="n">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="k">return</span> <span class="mi">0</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>这个脚本可以通过 <code class="docutils literal"><span class="pre">EVAL</span> <span class="pre">...script...</span> <span class="pre">1</span> <span class="pre">resource-name</span> <span class="pre">token-value</span></code> 命令来调用。</p>
+</div>
+</div>
+

@@ -1,0 +1,65 @@
+---
+layout: redis
+title: redis DECR — Redis 命令参考
+description: redis DECR — Redis 命令参考
+keywords: redis DECR — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="decrby.html" title="DECRBY">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="bitop.html" title="BITOP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="decr">
+<span id="id1"></span><h1>DECR<a class="headerlink" href="#decr" title="Permalink to this headline">¶</a></h1>
+<p><strong>DECR key</strong></p>
+<p>将 <code class="docutils literal"><span class="pre">key</span></code> 中储存的数字值减一。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，那么 <code class="docutils literal"><span class="pre">key</span></code> 的值会先被初始化为 <code class="docutils literal"><span class="pre">0</span></code> ，然后再执行 <a class="reference internal" href="#decr">DECR</a> 操作。</p>
+<p>如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</p>
+<p>本操作的值限制在 64 位(bit)有符号数字表示之内。</p>
+<p>关于递增(increment) / 递减(decrement)操作的更多信息，请参见 <a class="reference internal" href="incr.html#incr"><span>INCR</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>执行 <a class="reference internal" href="#decr">DECR</a> 命令之后 <code class="docutils literal"><span class="pre">key</span></code> 的值。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对存在的数字值 key 进行 DECR
+
+redis&gt; SET failure_times 10
+OK
+
+redis&gt; DECR failure_times
+(integer) 9
+
+
+# 对不存在的 key 值进行 DECR
+
+redis&gt; EXISTS count
+(integer) 0
+
+redis&gt; DECR count
+(integer) -1
+
+
+# 对存在但不是数值的 key 进行 DECR
+
+redis&gt; SET company YOUR_CODE_SUCKS.LLC
+OK
+
+redis&gt; DECR company
+(error) ERR value is not an integer or out of range
+</pre></div>
+</div>
+</div>
+

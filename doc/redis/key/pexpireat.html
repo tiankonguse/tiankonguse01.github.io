@@ -1,0 +1,51 @@
+---
+layout: redis
+title: redis PEXPIREAT — Redis 命令参考
+description: redis PEXPIREAT — Redis 命令参考
+keywords: redis PEXPIREAT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="pttl.html" title="PTTL">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="pexpire.html" title="PEXPIRE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="pexpireat">
+<span id="id1"></span><h1>PEXPIREAT<a class="headerlink" href="#pexpireat" title="Permalink to this headline">¶</a></h1>
+<p><strong>PEXPIREAT key milliseconds-timestamp</strong></p>
+<p>这个命令和 <a class="reference internal" href="expireat.html"><em>EXPIREAT</em></a> 命令类似，但它以毫秒为单位设置 <code class="docutils literal"><span class="pre">key</span></code> 的过期 unix 时间戳，而不是像 <a class="reference internal" href="expireat.html"><em>EXPIREAT</em></a> 那样，以秒为单位。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">如果生存时间设置成功，返回 <code class="docutils literal"><span class="pre">1</span></code> 。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 不存在或没办法设置生存时间时，返回 <code class="docutils literal"><span class="pre">0</span></code> 。(查看 <a class="reference internal" href="expire.html"><em>EXPIRE</em></a> 命令获取更多信息)</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET mykey "Hello"
+OK
+
+redis&gt; PEXPIREAT mykey 1555555555005
+(integer) 1
+
+redis&gt; TTL mykey           # TTL 返回秒
+(integer) 223157079
+
+redis&gt; PTTL mykey          # PTTL 返回毫秒
+(integer) 223157079318
+</pre></div>
+</div>
+</div>
+

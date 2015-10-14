@@ -1,0 +1,46 @@
+---
+layout: redis
+title: redis SCRIPT LOAD — Redis 命令参考
+description: redis SCRIPT LOAD — Redis 命令参考
+keywords: redis SCRIPT LOAD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="../connection/index.html" title="Connection（连接）">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="script_kill.html" title="SCRIPT KILL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Script（脚本）</a> »</li>
+</ul>
+</div><div class="section" id="script-load">
+<span id="id1"></span><h1>SCRIPT LOAD<a class="headerlink" href="#script-load" title="Permalink to this headline">¶</a></h1>
+<p><strong>SCRIPT LOAD script</strong></p>
+<p>将脚本 <code class="docutils literal"><span class="pre">script</span></code> 添加到脚本缓存中，但并不立即执行这个脚本。</p>
+<p><a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令也会将脚本添加到脚本缓存中，但是它会立即对输入的脚本进行求值。</p>
+<p>如果给定的脚本已经在缓存里面了，那么不做动作。</p>
+<p>在脚本被加入到缓存之后，通过 EVALSHA 命令，可以使用脚本的 SHA1 校验和来调用这个脚本。</p>
+<p>脚本可以在缓存中保留无限长的时间，直到执行 <a class="reference internal" href="script_flush.html#script-flush"><span>SCRIPT FLUSH</span></a> 为止。</p>
+<p>关于使用 Redis 对 Lua 脚本进行求值的更多信息，请参见 <a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N) , <code class="docutils literal"><span class="pre">N</span></code> 为脚本的长度(以字节为单位)。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>给定 <code class="docutils literal"><span class="pre">script</span></code> 的 SHA1 校验和</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SCRIPT LOAD "return 'hello moto'"
+"232fd51614574cf0867b83d384a5e898cfd24e5a"
+
+redis&gt; EVALSHA 232fd51614574cf0867b83d384a5e898cfd24e5a 0
+"hello moto"
+</pre></div>
+</div>
+</div>
+

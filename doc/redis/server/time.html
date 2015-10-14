@@ -1,0 +1,42 @@
+---
+layout: redis
+title: redis TIME — Redis 命令参考
+description: redis TIME — Redis 命令参考
+keywords: redis TIME — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="../topic/notification.html" title="键空间通知（keyspace notification）">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="sync.html" title="SYNC">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="time">
+<span id="id1"></span><h1>TIME<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h1>
+<p><strong>TIME</strong></p>
+<p>返回当前服务器时间。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>一个包含两个字符串的列表： 第一个字符串是当前时间(以 UNIX 时间戳格式表示)，而第二个字符串是当前这一秒钟已经逝去的微秒数。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; TIME
+1) "1332395997"
+2) "952581"
+redis&gt; TIME
+1) "1332395997"
+2) "953148"
+</pre></div>
+</div>
+</div>
+

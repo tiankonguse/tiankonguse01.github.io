@@ -1,0 +1,69 @@
+---
+layout: redis
+title: redis RENAMENX — Redis 命令参考
+description: redis RENAMENX — Redis 命令参考
+keywords: redis RENAMENX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="restore.html" title="RESTORE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="rename.html" title="RENAME">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="renamenx">
+<span id="id1"></span><h1>RENAMENX<a class="headerlink" href="#renamenx" title="Permalink to this headline">¶</a></h1>
+<p><strong>RENAMENX key newkey</strong></p>
+<p>当且仅当 <code class="docutils literal"><span class="pre">newkey</span></code> 不存在时，将 <code class="docutils literal"><span class="pre">key</span></code> 改名为 <code class="docutils literal"><span class="pre">newkey</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回一个错误。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">修改成功时，返回 <code class="docutils literal"><span class="pre">1</span></code> 。</div>
+<div class="line">如果 <code class="docutils literal"><span class="pre">newkey</span></code> 已经存在，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># newkey 不存在，改名成功
+
+redis&gt; SET player "MPlyaer"
+OK
+
+redis&gt; EXISTS best_player
+(integer) 0
+
+redis&gt; RENAMENX player best_player
+(integer) 1
+
+
+# newkey存在时，失败
+
+redis&gt; SET animal "bear"
+OK
+
+redis&gt; SET favorite_animal "butterfly"
+OK
+
+redis&gt; RENAMENX animal favorite_animal
+(integer) 0
+
+redis&gt; get animal
+"bear"
+
+redis&gt; get favorite_animal
+"butterfly"
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,73 @@
+---
+layout: redis
+title: redis LSET — Redis 命令参考
+description: redis LSET — Redis 命令参考
+keywords: redis LSET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="ltrim.html" title="LTRIM">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lrem.html" title="LREM">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lset">
+<span id="id1"></span><h1>LSET<a class="headerlink" href="#lset" title="Permalink to this headline">¶</a></h1>
+<p><strong>LSET key index value</strong></p>
+<p>将列表 <code class="docutils literal"><span class="pre">key</span></code> 下标为 <code class="docutils literal"><span class="pre">index</span></code> 的元素的值设置为 <code class="docutils literal"><span class="pre">value</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">index</span></code> 参数超出范围，或对一个空列表( <code class="docutils literal"><span class="pre">key</span></code> 不存在)进行 <a class="reference internal" href="#lset">LSET</a> 时，返回一个错误。</p>
+<p>关于列表下标的更多信息，请参考 <a class="reference internal" href="lindex.html#lindex"><span>LINDEX</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">对头元素或尾元素进行 <a class="reference internal" href="#lset">LSET</a> 操作，复杂度为 O(1)。</div>
+<div class="line">其他情况下，为 O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为列表的长度。</div>
+</div>
+</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>操作成功返回 <code class="docutils literal"><span class="pre">ok</span></code> ，否则返回错误信息。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对空列表(key 不存在)进行 LSET
+
+redis&gt; EXISTS list
+(integer) 0
+
+redis&gt; LSET list 0 item
+(error) ERR no such key
+
+
+# 对非空列表进行 LSET
+
+redis&gt; LPUSH job "cook food"
+(integer) 1
+
+redis&gt; LRANGE job 0 0
+1) "cook food"
+
+redis&gt; LSET job 0 "play game"
+OK
+
+redis&gt; LRANGE job  0 0
+1) "play game"
+
+
+# index 超出范围
+
+redis&gt; LLEN list                    # 列表长度为 1
+(integer) 1
+
+redis&gt; LSET list 3 'out of range'
+(error) ERR index out of range
+</pre></div>
+</div>
+</div>
+

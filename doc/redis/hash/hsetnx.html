@@ -1,0 +1,47 @@
+---
+layout: redis
+title: redis HSETNX — Redis 命令参考
+description: redis HSETNX — Redis 命令参考
+keywords: redis HSETNX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="hvals.html" title="HVALS">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="hset.html" title="HSET">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Hash（哈希表）</a> »</li>
+</ul>
+</div><div class="section" id="hsetnx">
+<span id="id1"></span><h1>HSETNX<a class="headerlink" href="#hsetnx" title="Permalink to this headline">¶</a></h1>
+<p><strong>HSETNX key field value</strong></p>
+<p>将哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中的域 <code class="docutils literal"><span class="pre">field</span></code> 的值设置为 <code class="docutils literal"><span class="pre">value</span></code> ，当且仅当域 <code class="docutils literal"><span class="pre">field</span></code> 不存在。</p>
+<p>若域 <code class="docutils literal"><span class="pre">field</span></code> 已经存在，该操作无效。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，一个新哈希表被创建并执行 <a class="reference internal" href="#hsetnx">HSETNX</a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">设置成功，返回 <code class="docutils literal"><span class="pre">1</span></code> 。</div>
+<div class="line">如果给定域已经存在且没有操作被执行，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; HSETNX nosql key-value-store redis
+(integer) 1
+
+redis&gt; HSETNX nosql key-value-store redis       # 操作无效，域 key-value-store 已存在
+(integer) 0
+</pre></div>
+</div>
+</div>
+

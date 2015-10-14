@@ -1,0 +1,59 @@
+---
+layout: redis
+title: redis DUMP — Redis 命令参考
+description: redis DUMP — Redis 命令参考
+keywords: redis DUMP — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="exists.html" title="EXISTS">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="del.html" title="DEL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="dump">
+<span id="id1"></span><h1>DUMP<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h1>
+<p><strong>DUMP key</strong></p>
+<p>序列化给定 <code class="docutils literal"><span class="pre">key</span></code> ，并返回被序列化的值，使用 <a class="reference internal" href="restore.html"><em>RESTORE</em></a> 命令可以将这个值反序列化为 Redis 键。</p>
+<p>序列化生成的值有以下几个特点：</p>
+<ul class="simple">
+<li>它带有 64 位的校验和，用于检测错误， <a class="reference internal" href="restore.html"><em>RESTORE</em></a> 在进行反序列化之前会先检查校验和。</li>
+<li>值的编码格式和 RDB 文件保持一致。</li>
+<li>RDB 版本会被编码在序列化值当中，如果因为 Redis 的版本不同造成 RDB 格式不兼容，那么 Redis 会拒绝对这个值进行反序列化操作。</li>
+</ul>
+<p>序列化的值不包括任何生存时间信息。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">查找给定键的复杂度为 O(1) ，对键进行序列化的复杂度为 O(N*M) ，其中 N 是构成 <code class="docutils literal"><span class="pre">key</span></code> 的 Redis 对象的数量，而 M 则是这些对象的平均大小。</div>
+<div class="line">如果序列化的对象是比较小的字符串，那么复杂度为 O(1) 。</div>
+</div>
+</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，那么返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+<div class="line">否则，返回序列化之后的值。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET greeting "hello, dumping world!"
+OK
+
+redis&gt; DUMP greeting
+"\x00\x15hello, dumping world!\x06\x00E\xa0Z\x82\xd8r\xc1\xde"
+
+redis&gt; DUMP not-exists-key
+(nil)
+</pre></div>
+</div>
+</div>
+

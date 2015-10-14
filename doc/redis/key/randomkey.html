@@ -1,0 +1,64 @@
+---
+layout: redis
+title: redis RANDOMKEY — Redis 命令参考
+description: redis RANDOMKEY — Redis 命令参考
+keywords: redis RANDOMKEY — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="rename.html" title="RENAME">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="pttl.html" title="PTTL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="randomkey">
+<span id="id1"></span><h1>RANDOMKEY<a class="headerlink" href="#randomkey" title="Permalink to this headline">¶</a></h1>
+<p><strong>RANDOMKEY</strong></p>
+<p>从当前数据库中随机返回(不删除)一个 <code class="docutils literal"><span class="pre">key</span></code> 。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">当数据库不为空时，返回一个 <code class="docutils literal"><span class="pre">key</span></code> 。</div>
+<div class="line">当数据库为空时，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 数据库不为空
+
+redis&gt; MSET fruit "apple" drink "beer" food "cookies"   # 设置多个 key
+OK
+
+redis&gt; RANDOMKEY
+"fruit"
+
+redis&gt; RANDOMKEY
+"food"
+
+redis&gt; KEYS *    # 查看数据库内所有key，证明 RANDOMKEY 并不删除 key
+1) "food"
+2) "drink"
+3) "fruit"
+
+
+# 数据库为空
+
+redis&gt; FLUSHDB  # 删除当前数据库所有 key
+OK
+
+redis&gt; RANDOMKEY
+(nil)
+</pre></div>
+</div>
+</div>
+

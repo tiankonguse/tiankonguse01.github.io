@@ -1,0 +1,69 @@
+---
+layout: redis
+title: redis BRPOPLPUSH — Redis 命令参考
+description: redis BRPOPLPUSH — Redis 命令参考
+keywords: redis BRPOPLPUSH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lindex.html" title="LINDEX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="brpop.html" title="BRPOP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="brpoplpush">
+<span id="id1"></span><h1>BRPOPLPUSH<a class="headerlink" href="#brpoplpush" title="Permalink to this headline">¶</a></h1>
+<p><strong>BRPOPLPUSH source destination timeout</strong></p>
+<p><a class="reference internal" href="#brpoplpush">BRPOPLPUSH</a> 是 <a class="reference internal" href="rpoplpush.html#rpoplpush"><span>RPOPLPUSH</span></a> 的阻塞版本，当给定列表 <code class="docutils literal"><span class="pre">source</span></code> 不为空时， <a class="reference internal" href="#brpoplpush">BRPOPLPUSH</a> 的表现和 <a class="reference internal" href="rpoplpush.html#rpoplpush"><span>RPOPLPUSH</span></a> 一样。</p>
+<p>当列表 <code class="docutils literal"><span class="pre">source</span></code> 为空时， <a class="reference internal" href="#brpoplpush">BRPOPLPUSH</a> 命令将阻塞连接，直到等待超时，或有另一个客户端对 <code class="docutils literal"><span class="pre">source</span></code> 执行 <a class="reference internal" href="lpush.html#lpush"><span>LPUSH</span></a> 或 <a class="reference internal" href="rpush.html#rpush"><span>RPUSH</span></a> 命令为止。</p>
+<p>超时参数 <code class="docutils literal"><span class="pre">timeout</span></code> 接受一个以秒为单位的数字作为值。超时参数设为 <code class="docutils literal"><span class="pre">0</span></code> 表示阻塞时间可以无限期延长(block indefinitely) 。</p>
+<p>更多相关信息，请参考 <a class="reference internal" href="rpoplpush.html#rpoplpush"><span>RPOPLPUSH</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">假如在指定时间内没有任何元素被弹出，则返回一个 <code class="docutils literal"><span class="pre">nil</span></code> 和等待时长。</div>
+<div class="line">反之，返回一个含有两个元素的列表，第一个元素是被弹出元素的值，第二个元素是等待时长。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 非空列表
+
+redis&gt; BRPOPLPUSH msg reciver 500
+"hello moto"                        # 弹出元素的值
+(3.38s)                             # 等待时长
+
+redis&gt; LLEN reciver
+(integer) 1
+
+redis&gt; LRANGE reciver 0 0
+1) "hello moto"
+
+
+# 空列表
+
+redis&gt; BRPOPLPUSH msg reciver 1
+(nil)
+(1.34s)
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>模式：安全队列<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>参考 <a class="reference internal" href="rpoplpush.html#rpoplpush"><span>RPOPLPUSH</span></a> 命令的『安全队列』模式。</p>
+</div>
+<div class="section" id="id3">
+<h2>模式：循环列表<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>参考 <a class="reference internal" href="rpoplpush.html#rpoplpush"><span>RPOPLPUSH</span></a> 命令的『循环列表』模式。</p>
+</div>
+</div>
+

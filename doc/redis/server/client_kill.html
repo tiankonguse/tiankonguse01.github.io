@@ -1,0 +1,54 @@
+---
+layout: redis
+title: redis CLIENT KILL — Redis 命令参考
+description: redis CLIENT KILL — Redis 命令参考
+keywords: redis CLIENT KILL — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="client_list.html" title="CLIENT LIST">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="client_getname.html" title="CLIENT GETNAME">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="client-kill">
+<span id="id1"></span><h1>CLIENT KILL<a class="headerlink" href="#client-kill" title="Permalink to this headline">¶</a></h1>
+<p><strong>CLIENT KILL ip:port</strong></p>
+<p>关闭地址为 <code class="docutils literal"><span class="pre">ip:port</span></code> 的客户端。</p>
+<p><code class="docutils literal"><span class="pre">ip:port</span></code> 应该和 <a class="reference internal" href="client_list.html#client-list"><span>CLIENT LIST</span></a> 命令输出的其中一行匹配。</p>
+<p>因为 Redis 使用单线程设计，所以当 Redis 正在执行命令的时候，不会有客户端被断开连接。</p>
+<p>如果要被断开连接的客户端正在执行命令，那么当这个命令执行之后，在发送下一个命令的时候，它就会收到一个网络错误，告知它自身的连接已被关闭。</p>
+<dl class="docutils">
+<dt><strong>可用版本</strong></dt>
+<dd>&gt;= 2.4.0</dd>
+<dt><strong>时间复杂度</strong></dt>
+<dd>O(N) ， N 为已连接的客户端数量。</dd>
+<dt><strong>返回值</strong></dt>
+<dd>当指定的客户端存在，且被成功关闭时，返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 列出所有已连接客户端
+
+redis 127.0.0.1:6379&gt; CLIENT LIST
+addr=127.0.0.1:43501 fd=5 age=10 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 events=r cmd=client
+
+# 杀死当前客户端的连接
+
+redis 127.0.0.1:6379&gt; CLIENT KILL 127.0.0.1:43501
+OK
+
+# 之前的连接已经被关闭，CLI 客户端又重新建立了连接
+# 之前的端口是 43501 ，现在是 43504
+
+redis 127.0.0.1:6379&gt; CLIENT LIST
+addr=127.0.0.1:43504 fd=5 age=0 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 events=r cmd=client
+</pre></div>
+</div>
+</div>
+

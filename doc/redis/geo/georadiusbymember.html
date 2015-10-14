@@ -1,0 +1,54 @@
+---
+layout: redis
+title: redis GEORADIUSBYMEMBER — Redis 命令参考
+description: redis GEORADIUSBYMEMBER — Redis 命令参考
+keywords: redis GEORADIUSBYMEMBER — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="geohash.html" title="GEOHASH">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="georadius.html" title="GEORADIUS">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">GEO（地理位置）</a> »</li>
+</ul>
+</div><div class="section" id="georadiusbymember">
+<h1>GEORADIUSBYMEMBER<a class="headerlink" href="#georadiusbymember" title="Permalink to this headline">¶</a></h1>
+<p><strong>GEORADIUSBYMEMBER key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [ASC|DESC] [COUNT count]</strong></p>
+<p>这个命令和 <code class="docutils literal"><span class="pre">GEORADIUS</span></code> 命令一样，
+都可以找出位于指定范围内的元素，
+但是 <code class="docutils literal"><span class="pre">GEORADIUSBYMEMBER</span></code> 的中心点是由给定的位置元素决定的，
+而不是像 <code class="docutils literal"><span class="pre">GEORADIUS</span></code> 那样，
+使用输入的经度和纬度来决定中心点。</p>
+<p>关于 <code class="docutils literal"><span class="pre">GEORADIUSBYMEMBER</span></code> 命令的更多信息，
+请参考 <code class="docutils literal"><span class="pre">GEORADIUS</span></code> 命令的文档。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 3.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(log(N)+M)，
+其中 N 为指定范围之内的元素数量，
+而 M 则是被返回的元素数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>一个数组，
+数组中的每个项表示一个范围之内的位置元素。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; GEOADD Sicily 13.583333 37.316667 "Agrigento"
+(integer) 1
+
+redis&gt; GEOADD Sicily 13.361389 38.115556 "Palermo" 15.087269 37.502669 "Catania"
+(integer) 2
+
+redis&gt; GEORADIUSBYMEMBER Sicily Agrigento 100 km
+1) "Agrigento"
+2) "Palermo"
+</pre></div>
+</div>
+</div>
+

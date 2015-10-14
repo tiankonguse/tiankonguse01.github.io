@@ -1,0 +1,69 @@
+---
+layout: redis
+title: redis TYPE — Redis 命令参考
+description: redis TYPE — Redis 命令参考
+keywords: redis TYPE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="scan.html" title="SCAN">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="ttl.html" title="TTL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="type">
+<span id="id1"></span><h1>TYPE<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h1>
+<p><strong>TYPE key</strong></p>
+<p>返回 <code class="docutils literal"><span class="pre">key</span></code> 所储存的值的类型。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal"><span class="pre">none</span></code> (key不存在)</div>
+<div class="line"><code class="docutils literal"><span class="pre">string</span></code> (字符串)</div>
+<div class="line"><code class="docutils literal"><span class="pre">list</span></code> (列表)</div>
+<div class="line"><code class="docutils literal"><span class="pre">set</span></code> (集合)</div>
+<div class="line"><code class="docutils literal"><span class="pre">zset</span></code> (有序集)</div>
+<div class="line"><code class="docutils literal"><span class="pre">hash</span></code> (哈希表)</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 字符串
+
+redis&gt; SET weather "sunny"
+OK
+
+redis&gt; TYPE weather
+string
+
+
+# 列表
+
+redis&gt; LPUSH book_list "programming in scala"
+(integer) 1
+
+redis&gt; TYPE book_list
+list
+
+
+# 集合
+
+redis&gt; SADD pat "dog"
+(integer) 1
+
+redis&gt; TYPE pat
+set
+</pre></div>
+</div>
+</div>
+

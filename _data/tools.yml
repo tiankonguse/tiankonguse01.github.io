@@ -19,9 +19,12 @@
   url: /project/
   content: 一些好玩的小作品
   
-- title: Bash 手册 
-  url: http://tiankonguse.com/manual/bash/
-  content: 
+
+- title: 文档 - doc
+  url: /doc/
+  content: 一些常用的在线文档
+  
+
   
 - title: 一些算法
   url: /algorithm.html

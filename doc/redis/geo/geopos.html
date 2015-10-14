@@ -1,0 +1,53 @@
+---
+layout: redis
+title: redis GEOPOS — Redis 命令参考
+description: redis GEOPOS — Redis 命令参考
+keywords: redis GEOPOS — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="geodist.html" title="GEODIST">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="geoadd.html" title="GEOADD">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">GEO（地理位置）</a> »</li>
+</ul>
+</div><div class="section" id="geopos">
+<h1>GEOPOS<a class="headerlink" href="#geopos" title="Permalink to this headline">¶</a></h1>
+<p><strong>GEOPOS key member [member ...]</strong></p>
+<p>从键里面返回所有给定位置元素的位置（经度和纬度）。</p>
+<p>因为 <code class="docutils literal"><span class="pre">GEOPOS</span></code> 命令接受可变数量的位置元素作为输入，
+所以即使用户只给定了一个位置元素，
+命令也会返回数组回复。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 3.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>获取每个位置元素的复杂度为 O(log(N)) ，
+其中 N 为键里面包含的位置元素数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal"><span class="pre">GEOPOS</span></code> 命令返回一个数组， 数组中的每个项都由两个元素组成： 第一个元素为给定位置元素的经度， 而第二个元素则为给定位置元素的纬度。</div>
+<div class="line">当给定的位置元素不存在时， 对应的数组项为空值。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; GEOADD Sicily 13.361389 38.115556 "Palermo" 15.087269 37.502669 "Catania"
+(integer) 2
+
+redis&gt; GEOPOS Sicily Palermo Catania NonExisting
+1) 1) "13.361389338970184"
+   2) "38.115556395496299"
+2) 1) "15.087267458438873"
+   2) "37.50266842333162"
+3) (nil)
+</pre></div>
+</div>
+</div>
+

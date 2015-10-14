@@ -1,0 +1,46 @@
+---
+layout: redis
+title: redis DEBUG OBJECT — Redis 命令参考
+description: redis DEBUG OBJECT — Redis 命令参考
+keywords: redis DEBUG OBJECT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="debug_segfault.html" title="DEBUG SEGFAULT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="dbsize.html" title="DBSIZE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="debug-object">
+<span id="id1"></span><h1>DEBUG OBJECT<a class="headerlink" href="#debug-object" title="Permalink to this headline">¶</a></h1>
+<p><strong>DEBUG OBJECT key</strong></p>
+<p><a class="reference internal" href="#id1">DEBUG OBJECT</a> 是一个调试命令，它不应被客户端所使用。</p>
+<p>查看 <a class="reference internal" href="../key/object.html#object"><span>OBJECT</span></a> 命令获取更多信息。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 存在时，返回有关信息。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回一个错误。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; DEBUG OBJECT my_pc
+Value at:0xb6838d20 refcount:1 encoding:raw serializedlength:9 lru:283790 lru_seconds_idle:150
+
+redis&gt; DEBUG OBJECT your_mac
+(error) ERR no such key
+</pre></div>
+</div>
+</div>
+

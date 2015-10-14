@@ -1,0 +1,68 @@
+---
+layout: redis
+title: redis RPUSH — Redis 命令参考
+description: redis RPUSH — Redis 命令参考
+keywords: redis RPUSH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="rpushx.html" title="RPUSHX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="rpoplpush.html" title="RPOPLPUSH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="rpush">
+<span id="id1"></span><h1>RPUSH<a class="headerlink" href="#rpush" title="Permalink to this headline">¶</a></h1>
+<p><strong>RPUSH key value [value ...]</strong></p>
+<p>将一个或多个值 <code class="docutils literal"><span class="pre">value</span></code> 插入到列表 <code class="docutils literal"><span class="pre">key</span></code> 的表尾(最右边)。</p>
+<p>如果有多个 <code class="docutils literal"><span class="pre">value</span></code> 值，那么各个 <code class="docutils literal"><span class="pre">value</span></code> 值按从左到右的顺序依次插入到表尾：比如对一个空列表 <code class="docutils literal"><span class="pre">mylist</span></code> 执行 <code class="docutils literal"><span class="pre">RPUSH</span> <span class="pre">mylist</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span></code> ，得出的结果列表为 <code class="docutils literal"><span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span></code> ，等同于执行命令 <code class="docutils literal"><span class="pre">RPUSH</span> <span class="pre">mylist</span> <span class="pre">a</span></code> 、 <code class="docutils literal"><span class="pre">RPUSH</span> <span class="pre">mylist</span> <span class="pre">b</span></code> 、 <code class="docutils literal"><span class="pre">RPUSH</span> <span class="pre">mylist</span> <span class="pre">c</span></code> 。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，一个空列表会被创建并执行 <a class="reference internal" href="#rpush">RPUSH</a> 操作。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 存在但不是列表类型时，返回一个错误。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在 Redis 2.4 版本以前的 <a class="reference internal" href="#rpush">RPUSH</a> 命令，都只接受单个 <code class="docutils literal"><span class="pre">value</span></code> 值。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>执行 <a class="reference internal" href="#rpush">RPUSH</a> 操作后，表的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 添加单个元素
+
+redis&gt; RPUSH languages c
+(integer) 1
+
+
+# 添加重复元素
+
+redis&gt; RPUSH languages c
+(integer) 2
+
+redis&gt; LRANGE languages 0 -1 # 列表允许重复元素
+1) "c"
+2) "c"
+
+
+# 添加多个元素
+
+redis&gt; RPUSH mylist a b c
+(integer) 3
+
+redis&gt; LRANGE mylist 0 -1
+1) "a"
+2) "b"
+3) "c"
+</pre></div>
+</div>
+</div>
+

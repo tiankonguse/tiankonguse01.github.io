@@ -1,0 +1,78 @@
+---
+layout: redis
+title: redis HINCRBY — Redis 命令参考
+description: redis HINCRBY — Redis 命令参考
+keywords: redis HINCRBY — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="hincrbyfloat.html" title="HINCRBYFLOAT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="hgetall.html" title="HGETALL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Hash（哈希表）</a> »</li>
+</ul>
+</div><div class="section" id="hincrby">
+<span id="id1"></span><h1>HINCRBY<a class="headerlink" href="#hincrby" title="Permalink to this headline">¶</a></h1>
+<p><strong>HINCRBY key field increment</strong></p>
+<p>为哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中的域 <code class="docutils literal"><span class="pre">field</span></code> 的值加上增量 <code class="docutils literal"><span class="pre">increment</span></code> 。</p>
+<p>增量也可以为负数，相当于对给定域进行减法操作。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，一个新的哈希表被创建并执行 <a class="reference internal" href="#hincrby">HINCRBY</a> 命令。</p>
+<p>如果域 <code class="docutils literal"><span class="pre">field</span></code> 不存在，那么在执行命令前，域的值被初始化为 <code class="docutils literal"><span class="pre">0</span></code> 。</p>
+<p>对一个储存字符串值的域 <code class="docutils literal"><span class="pre">field</span></code> 执行 <a class="reference internal" href="#hincrby">HINCRBY</a> 命令将造成一个错误。</p>
+<p>本操作的值被限制在 64 位(bit)有符号数字表示之内。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>执行 <a class="reference internal" href="#hincrby">HINCRBY</a> 命令之后，哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中域 <code class="docutils literal"><span class="pre">field</span></code> 的值。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># increment 为正数
+
+redis&gt; HEXISTS counter page_view    # 对空域进行设置
+(integer) 0
+
+redis&gt; HINCRBY counter page_view 200
+(integer) 200
+
+redis&gt; HGET counter page_view
+"200"
+
+
+# increment 为负数
+
+redis&gt; HGET counter page_view
+"200"
+
+redis&gt; HINCRBY counter page_view -50
+(integer) 150
+
+redis&gt; HGET counter page_view
+"150"
+
+
+# 尝试对字符串值的域执行HINCRBY命令
+
+redis&gt; HSET myhash string hello,world       # 设定一个字符串值
+(integer) 1
+
+redis&gt; HGET myhash string
+"hello,world"
+
+redis&gt; HINCRBY myhash string 1              # 命令执行失败，错误。
+(error) ERR hash value is not an integer
+
+redis&gt; HGET myhash string                   # 原值不变
+"hello,world"
+</pre></div>
+</div>
+</div>
+

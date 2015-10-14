@@ -1,0 +1,51 @@
+---
+layout: redis
+title: redis MGET — Redis 命令参考
+description: redis MGET — Redis 命令参考
+keywords: redis MGET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="mset.html" title="MSET">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="incrbyfloat.html" title="INCRBYFLOAT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="mget">
+<span id="id1"></span><h1>MGET<a class="headerlink" href="#mget" title="Permalink to this headline">¶</a></h1>
+<p><strong>MGET key [key ...]</strong></p>
+<p>返回所有(一个或多个)给定 <code class="docutils literal"><span class="pre">key</span></code> 的值。</p>
+<p>如果给定的 <code class="docutils literal"><span class="pre">key</span></code> 里面，有某个 <code class="docutils literal"><span class="pre">key</span></code> 不存在，那么这个 <code class="docutils literal"><span class="pre">key</span></code> 返回特殊值 <code class="docutils literal"><span class="pre">nil</span></code> 。因此，该命令永不失败。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N) , <code class="docutils literal"><span class="pre">N</span></code> 为给定 <code class="docutils literal"><span class="pre">key</span></code> 的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>一个包含所有给定 <code class="docutils literal"><span class="pre">key</span></code> 的值的列表。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET redis redis.com
+OK
+
+redis&gt; SET mongodb mongodb.org
+OK
+
+redis&gt; MGET redis mongodb
+1) "redis.com"
+2) "mongodb.org"
+
+redis&gt; MGET redis mongodb mysql     # 不存在的 mysql 返回 nil
+1) "redis.com"
+2) "mongodb.org"
+3) (nil)
+</pre></div>
+</div>
+</div>
+

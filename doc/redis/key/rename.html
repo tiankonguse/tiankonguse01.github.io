@@ -1,0 +1,75 @@
+---
+layout: redis
+title: redis RENAME — Redis 命令参考
+description: redis RENAME — Redis 命令参考
+keywords: redis RENAME — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="renamenx.html" title="RENAMENX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="randomkey.html" title="RANDOMKEY">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="rename">
+<span id="id1"></span><h1>RENAME<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h1>
+<p><strong>RENAME key newkey</strong></p>
+<p>将 <code class="docutils literal"><span class="pre">key</span></code> 改名为 <code class="docutils literal"><span class="pre">newkey</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 和 <code class="docutils literal"><span class="pre">newkey</span></code> 相同，或者 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回一个错误。</p>
+<p>当 <code class="docutils literal"><span class="pre">newkey</span></code> 已经存在时， <a class="reference internal" href="#rename">RENAME</a> 命令将覆盖旧值。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>改名成功时提示 <code class="docutils literal"><span class="pre">OK</span></code> ，失败时候返回一个错误。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># key 存在且 newkey 不存在
+
+redis&gt; SET message "hello world"
+OK
+
+redis&gt; RENAME message greeting
+OK
+
+redis&gt; EXISTS message               # message 不复存在
+(integer) 0
+
+redis&gt; EXISTS greeting              # greeting 取而代之
+(integer) 1
+
+
+# 当 key 不存在时，返回错误
+
+redis&gt; RENAME fake_key never_exists
+(error) ERR no such key
+
+
+# newkey 已存在时， RENAME 会覆盖旧 newkey
+
+redis&gt; SET pc "lenovo"
+OK
+
+redis&gt; SET personal_computer "dell"
+OK
+
+redis&gt; RENAME pc personal_computer
+OK
+
+redis&gt; GET pc
+(nil)
+
+redis:1&gt; GET personal_computer      # 原来的值 dell 被覆盖了
+"lenovo"
+</pre></div>
+</div>
+</div>
+

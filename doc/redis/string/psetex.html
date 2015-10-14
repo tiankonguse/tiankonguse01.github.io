@@ -1,0 +1,44 @@
+---
+layout: redis
+title: redis PSETEX — Redis 命令参考
+description: redis PSETEX — Redis 命令参考
+keywords: redis PSETEX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="set.html" title="SET">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="msetnx.html" title="MSETNX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="psetex">
+<span id="id1"></span><h1>PSETEX<a class="headerlink" href="#psetex" title="Permalink to this headline">¶</a></h1>
+<p><strong>PSETEX key milliseconds value</strong></p>
+<p>这个命令和 <a class="reference internal" href="setex.html#setex"><span>SETEX</span></a> 命令相似，但它以毫秒为单位设置 <code class="docutils literal"><span class="pre">key</span></code> 的生存时间，而不是像 <a class="reference internal" href="setex.html#setex"><span>SETEX</span></a> 命令那样，以秒为单位。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>设置成功时返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; PSETEX mykey 1000 "Hello"
+OK
+
+redis&gt; PTTL mykey
+(integer) 999
+
+redis&gt; GET mykey
+"Hello"
+</pre></div>
+</div>
+</div>
+

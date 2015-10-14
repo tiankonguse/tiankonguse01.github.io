@@ -1,0 +1,56 @@
+---
+layout: redis
+title: redis LRANGE — Redis 命令参考
+description: redis LRANGE — Redis 命令参考
+keywords: redis LRANGE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lrem.html" title="LREM">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lpushx.html" title="LPUSHX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lrange">
+<span id="id1"></span><h1>LRANGE<a class="headerlink" href="#lrange" title="Permalink to this headline">¶</a></h1>
+<p><strong>LRANGE key start stop</strong></p>
+<p>返回列表 <code class="docutils literal"><span class="pre">key</span></code> 中指定区间内的元素，区间以偏移量 <code class="docutils literal"><span class="pre">start</span></code> 和 <code class="docutils literal"><span class="pre">stop</span></code> 指定。</p>
+<p>下标(index)参数 <code class="docutils literal"><span class="pre">start</span></code> 和 <code class="docutils literal"><span class="pre">stop</span></code> 都以 <code class="docutils literal"><span class="pre">0</span></code> 为底，也就是说，以 <code class="docutils literal"><span class="pre">0</span></code> 表示列表的第一个元素，以 <code class="docutils literal"><span class="pre">1</span></code> 表示列表的第二个元素，以此类推。</p>
+<p>你也可以使用负数下标，以 <code class="docutils literal"><span class="pre">-1</span></code> 表示列表的最后一个元素， <code class="docutils literal"><span class="pre">-2</span></code> 表示列表的倒数第二个元素，以此类推。</p>
+<p><strong>注意LRANGE命令和编程语言区间函数的区别</strong></p>
+<p>假如你有一个包含一百个元素的列表，对该列表执行 <code class="docutils literal"><span class="pre">LRANGE</span> <span class="pre">list</span> <span class="pre">0</span> <span class="pre">10</span></code> ，结果是一个包含11个元素的列表，这表明 <code class="docutils literal"><span class="pre">stop</span></code> 下标也在 <a class="reference internal" href="#lrange">LRANGE</a> 命令的取值范围之内(闭区间)，这和某些语言的区间函数可能不一致，比如Ruby的 <code class="docutils literal"><span class="pre">Range.new</span></code> 、 <code class="docutils literal"><span class="pre">Array#slice</span></code> 和Python的 <code class="docutils literal"><span class="pre">range()</span></code> 函数。</p>
+<p><strong>超出范围的下标</strong></p>
+<p>超出范围的下标值不会引起错误。</p>
+<p>如果 <code class="docutils literal"><span class="pre">start</span></code> 下标比列表的最大下标 <code class="docutils literal"><span class="pre">end</span></code> ( <code class="docutils literal"><span class="pre">LLEN</span> <span class="pre">list</span></code> 减去 <code class="docutils literal"><span class="pre">1</span></code> )还要大，那么 <a class="reference internal" href="#lrange">LRANGE</a> 返回一个空列表。</p>
+<p>如果 <code class="docutils literal"><span class="pre">stop</span></code> 下标比 <code class="docutils literal"><span class="pre">end</span></code> 下标还要大，Redis将 <code class="docutils literal"><span class="pre">stop</span></code> 的值设置为 <code class="docutils literal"><span class="pre">end</span></code> 。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(S+N)， <code class="docutils literal"><span class="pre">S</span></code> 为偏移量 <code class="docutils literal"><span class="pre">start</span></code> ， <code class="docutils literal"><span class="pre">N</span></code> 为指定区间内元素的数量。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>一个列表，包含指定区间内的元素。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; RPUSH fp-language lisp
+(integer) 1
+
+redis&gt; LRANGE fp-language 0 0
+1) "lisp"
+
+redis&gt; RPUSH fp-language scheme
+(integer) 2
+
+redis&gt; LRANGE fp-language 0 1
+1) "lisp"
+2) "scheme"
+</pre></div>
+</div>
+</div>
+

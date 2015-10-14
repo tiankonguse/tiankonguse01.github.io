@@ -1,0 +1,61 @@
+---
+layout: redis
+title: redis LINDEX — Redis 命令参考
+description: redis LINDEX — Redis 命令参考
+keywords: redis LINDEX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="linsert.html" title="LINSERT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="brpoplpush.html" title="BRPOPLPUSH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lindex">
+<span id="id1"></span><h1>LINDEX<a class="headerlink" href="#lindex" title="Permalink to this headline">¶</a></h1>
+<p><strong>LINDEX key index</strong></p>
+<p>返回列表 <code class="docutils literal"><span class="pre">key</span></code> 中，下标为 <code class="docutils literal"><span class="pre">index</span></code> 的元素。</p>
+<p>下标(index)参数 <code class="docutils literal"><span class="pre">start</span></code> 和 <code class="docutils literal"><span class="pre">stop</span></code> 都以 <code class="docutils literal"><span class="pre">0</span></code> 为底，也就是说，以 <code class="docutils literal"><span class="pre">0</span></code> 表示列表的第一个元素，以 <code class="docutils literal"><span class="pre">1</span></code> 表示列表的第二个元素，以此类推。</p>
+<p>你也可以使用负数下标，以 <code class="docutils literal"><span class="pre">-1</span></code> 表示列表的最后一个元素， <code class="docutils literal"><span class="pre">-2</span></code> 表示列表的倒数第二个元素，以此类推。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不是列表类型，返回一个错误。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为到达下标 <code class="docutils literal"><span class="pre">index</span></code> 过程中经过的元素数量。</div>
+<div class="line">因此，对列表的头元素和尾元素执行 <a class="reference internal" href="#lindex">LINDEX</a> 命令，复杂度为O(1)。</div>
+</div>
+</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">列表中下标为 <code class="docutils literal"><span class="pre">index</span></code> 的元素。</div>
+<div class="line">如果 <code class="docutils literal"><span class="pre">index</span></code> 参数的值不在列表的区间范围内(out of range)，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; LPUSH mylist "World"
+(integer) 1
+
+redis&gt; LPUSH mylist "Hello"
+(integer) 2
+
+redis&gt; LINDEX mylist 0
+"Hello"
+
+redis&gt; LINDEX mylist -1
+"World"
+
+redis&gt; LINDEX mylist 3        # index不在 mylist 的区间范围内
+(nil)
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,54 @@
+---
+layout: redis
+title: redis LLEN — Redis 命令参考
+description: redis LLEN — Redis 命令参考
+keywords: redis LLEN — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lpop.html" title="LPOP">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="linsert.html" title="LINSERT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="llen">
+<span id="id1"></span><h1>LLEN<a class="headerlink" href="#llen" title="Permalink to this headline">¶</a></h1>
+<p><strong>LLEN key</strong></p>
+<p>返回列表 <code class="docutils literal"><span class="pre">key</span></code> 的长度。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，则 <code class="docutils literal"><span class="pre">key</span></code> 被解释为一个空列表，返回 <code class="docutils literal"><span class="pre">0</span></code> .</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不是列表类型，返回一个错误。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>列表 <code class="docutils literal"><span class="pre">key</span></code> 的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 空列表
+
+redis&gt; LLEN job
+(integer) 0
+
+
+# 非空列表
+
+redis&gt; LPUSH job "cook food"
+(integer) 1
+
+redis&gt; LPUSH job "have lunch"
+(integer) 2
+
+redis&gt; LLEN job
+(integer) 2
+</pre></div>
+</div>
+</div>
+

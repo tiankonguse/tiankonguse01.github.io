@@ -1,0 +1,91 @@
+---
+layout: redis
+title: redis ZADD — Redis 命令参考
+description: redis ZADD — Redis 命令参考
+keywords: redis ZADD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zcard.html" title="ZCARD">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="SortedSet（有序集合）">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zadd">
+<span id="id1"></span><h1>ZADD<a class="headerlink" href="#zadd" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZADD key score member [[score member] [score member] ...]</strong></p>
+<p>将一个或多个 <code class="docutils literal"><span class="pre">member</span></code> 元素及其 <code class="docutils literal"><span class="pre">score</span></code> 值加入到有序集 <code class="docutils literal"><span class="pre">key</span></code> 当中。</p>
+<p>如果某个 <code class="docutils literal"><span class="pre">member</span></code> 已经是有序集的成员，那么更新这个 <code class="docutils literal"><span class="pre">member</span></code> 的 <code class="docutils literal"><span class="pre">score</span></code> 值，并通过重新插入这个 <code class="docutils literal"><span class="pre">member</span></code> 元素，来保证该 <code class="docutils literal"><span class="pre">member</span></code> 在正确的位置上。</p>
+<p><code class="docutils literal"><span class="pre">score</span></code> 值可以是整数值或双精度浮点数。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，则创建一个空的有序集并执行 <a class="reference internal" href="#zadd">ZADD</a> 操作。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 存在但不是有序集类型时，返回一个错误。</p>
+<p>对有序集的更多介绍请参见 <a class="reference external" href="http://redis.io/topics/data-types#sorted-sets">sorted set</a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在 Redis 2.4 版本以前， <a class="reference internal" href="#zadd">ZADD</a> 每次只能添加一个元素。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.2.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(M*log(N))， <code class="docutils literal"><span class="pre">N</span></code> 是有序集的基数， <code class="docutils literal"><span class="pre">M</span></code> 为成功添加的新成员的数量。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>被成功添加的新成员的数量，不包括那些被更新的、已经存在的成员。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 添加单个元素
+
+redis&gt; ZADD page_rank 10 google.com
+(integer) 1
+
+
+# 添加多个元素
+
+redis&gt; ZADD page_rank 9 baidu.com 8 bing.com
+(integer) 2
+
+redis&gt; ZRANGE page_rank 0 -1 WITHSCORES
+1) "bing.com"
+2) "8"
+3) "baidu.com"
+4) "9"
+5) "google.com"
+6) "10"
+
+
+# 添加已存在元素，且 score 值不变
+
+redis&gt; ZADD page_rank 10 google.com
+(integer) 0
+
+redis&gt; ZRANGE page_rank 0 -1 WITHSCORES  # 没有改变
+1) "bing.com"
+2) "8"
+3) "baidu.com"
+4) "9"
+5) "google.com"
+6) "10"
+
+
+# 添加已存在元素，但是改变 score 值
+
+redis&gt; ZADD page_rank 6 bing.com
+(integer) 0
+
+redis&gt; ZRANGE page_rank 0 -1 WITHSCORES  # bing.com 元素的 score 值被改变
+1) "bing.com"
+2) "6"
+3) "baidu.com"
+4) "9"
+5) "google.com"
+6) "10"
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,75 @@
+---
+layout: redis
+title: redis SETRANGE — Redis 命令参考
+description: redis SETRANGE — Redis 命令参考
+keywords: redis SETRANGE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="strlen.html" title="STRLEN">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="setnx.html" title="SETNX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="setrange">
+<span id="id1"></span><h1>SETRANGE<a class="headerlink" href="#setrange" title="Permalink to this headline">¶</a></h1>
+<p><strong>SETRANGE key offset value</strong></p>
+<p>用 <code class="docutils literal"><span class="pre">value</span></code> 参数覆写(overwrite)给定 <code class="docutils literal"><span class="pre">key</span></code> 所储存的字符串值，从偏移量 <code class="docutils literal"><span class="pre">offset</span></code> 开始。</p>
+<p>不存在的 <code class="docutils literal"><span class="pre">key</span></code> 当作空白字符串处理。</p>
+<p><a class="reference internal" href="#setrange">SETRANGE</a> 命令会确保字符串足够长以便将 <code class="docutils literal"><span class="pre">value</span></code> 设置在指定的偏移量上，如果给定 <code class="docutils literal"><span class="pre">key</span></code> 原来储存的字符串长度比偏移量小(比如字符串只有 <code class="docutils literal"><span class="pre">5</span></code> 个字符长，但你设置的 <code class="docutils literal"><span class="pre">offset</span></code> 是 <code class="docutils literal"><span class="pre">10</span></code> )，那么原字符和偏移量之间的空白将用零字节(zerobytes, <code class="docutils literal"><span class="pre">"\x00"</span></code> )来填充。</p>
+<p>注意你能使用的最大偏移量是 2^29-1(536870911) ，因为 Redis 字符串的大小被限制在 512 兆(megabytes)以内。如果你需要使用比这更大的空间，你可以使用多个 <code class="docutils literal"><span class="pre">key</span></code> 。</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">当生成一个很长的字符串时，Redis 需要分配内存空间，该操作有时候可能会造成服务器阻塞(block)。在2010年的Macbook Pro上，设置偏移量为 536870911(512MB 内存分配)，耗费约 300 毫秒，
+设置偏移量为 134217728(128MB 内存分配)，耗费约 80 毫秒，设置偏移量 33554432(32MB 内存分配)，耗费约 30 毫秒，设置偏移量为 8388608(8MB 内存分配)，耗费约 8 毫秒。
+注意若首次内存分配成功之后，再对同一个 <code class="docutils literal"><span class="pre">key</span></code> 调用 <a class="reference internal" href="#setrange">SETRANGE</a> 操作，无须再重新内存。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">对小(small)的字符串，平摊复杂度O(1)。(关于什么字符串是”小”的，请参考 <a class="reference internal" href="append.html#append"><span>APPEND</span></a> 命令)</div>
+<div class="line">否则为O(M)， <code class="docutils literal"><span class="pre">M</span></code> 为 <code class="docutils literal"><span class="pre">value</span></code> 参数的长度。</div>
+</div>
+</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>被 <a class="reference internal" href="#setrange">SETRANGE</a> 修改之后，字符串的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对非空字符串进行 SETRANGE
+
+redis&gt; SET greeting "hello world"
+OK
+
+redis&gt; SETRANGE greeting 6 "Redis"
+(integer) 11
+
+redis&gt; GET greeting
+"hello Redis"
+
+
+# 对空字符串/不存在的 key 进行 SETRANGE
+
+redis&gt; EXISTS empty_string
+(integer) 0
+
+redis&gt; SETRANGE empty_string 5 "Redis!"   # 对不存在的 key 使用 SETRANGE
+(integer) 11
+
+redis&gt; GET empty_string                   # 空白处被"\x00"填充
+"\x00\x00\x00\x00\x00Redis!"
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>因为有了 <a class="reference internal" href="#setrange">SETRANGE</a> 和 <a class="reference internal" href="getrange.html#getrange"><span>GETRANGE</span></a> 命令，你可以将 Redis 字符串用作具有O(1)随机访问时间的线性数组，这在很多真实用例中都是非常快速且高效的储存方式，具体请参考 <a class="reference internal" href="append.html#append"><span>APPEND</span></a> 命令的『模式：时间序列』部分。</p>
+</div>
+</div>
+

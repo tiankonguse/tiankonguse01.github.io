@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis RPUSHX — Redis 命令参考
+description: redis RPUSHX — Redis 命令参考
+keywords: redis RPUSHX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="../set/index.html" title="Set（集合）">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="rpush.html" title="RPUSH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="rpushx">
+<span id="id1"></span><h1>RPUSHX<a class="headerlink" href="#rpushx" title="Permalink to this headline">¶</a></h1>
+<p><strong>RPUSHX key value</strong></p>
+<p>将值 <code class="docutils literal"><span class="pre">value</span></code> 插入到列表 <code class="docutils literal"><span class="pre">key</span></code> 的表尾，当且仅当 <code class="docutils literal"><span class="pre">key</span></code> 存在并且是一个列表。</p>
+<p>和 <a class="reference internal" href="rpush.html#rpush"><span>RPUSH</span></a> 命令相反，当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时， <a class="reference internal" href="#rpushx">RPUSHX</a> 命令什么也不做。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><a class="reference internal" href="#rpushx">RPUSHX</a> 命令执行之后，表的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># key不存在
+
+redis&gt; LLEN greet
+(integer) 0
+
+redis&gt; RPUSHX greet "hello"     # 对不存在的 key 进行 RPUSHX，PUSH 失败。
+(integer) 0
+
+
+# key 存在且是一个非空列表
+
+redis&gt; RPUSH greet "hi"         # 先用 RPUSH 插入一个元素
+(integer) 1
+
+redis&gt; RPUSHX greet "hello"     # greet 现在是一个列表类型，RPUSHX 操作成功。
+(integer) 2
+
+redis&gt; LRANGE greet 0 -1
+1) "hi"
+2) "hello"
+</pre></div>
+</div>
+</div>
+

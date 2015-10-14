@@ -1,0 +1,82 @@
+---
+layout: redis
+title: redis ZRANGEBYSCORE — Redis 命令参考
+description: redis ZRANGEBYSCORE — Redis 命令参考
+keywords: redis ZRANGEBYSCORE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zrank.html" title="ZRANK">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zrange.html" title="ZRANGE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zrangebyscore">
+<span id="id1"></span><h1>ZRANGEBYSCORE<a class="headerlink" href="#zrangebyscore" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]</strong></p>
+<p>返回有序集 <code class="docutils literal"><span class="pre">key</span></code> 中，所有 <code class="docutils literal"><span class="pre">score</span></code> 值介于 <code class="docutils literal"><span class="pre">min</span></code> 和 <code class="docutils literal"><span class="pre">max</span></code> 之间(包括等于 <code class="docutils literal"><span class="pre">min</span></code> 或 <code class="docutils literal"><span class="pre">max</span></code> )的成员。有序集成员按 <code class="docutils literal"><span class="pre">score</span></code> 值递增(从小到大)次序排列。</p>
+<p>具有相同 <code class="docutils literal"><span class="pre">score</span></code> 值的成员按字典序(<a class="reference external" href="http://en.wikipedia.org/wiki/Lexicographical_order">lexicographical order</a>)来排列(该属性是有序集提供的，不需要额外的计算)。</p>
+<p>可选的 <code class="docutils literal"><span class="pre">LIMIT</span></code> 参数指定返回结果的数量及区间(就像SQL中的 <code class="docutils literal"><span class="pre">SELECT</span> <span class="pre">LIMIT</span> <span class="pre">offset,</span> <span class="pre">count</span></code> )，注意当 <code class="docutils literal"><span class="pre">offset</span></code> 很大时，定位 <code class="docutils literal"><span class="pre">offset</span></code> 的操作可能需要遍历整个有序集，此过程最坏复杂度为 O(N) 时间。</p>
+<div class="line-block">
+<div class="line">可选的 <code class="docutils literal"><span class="pre">WITHSCORES</span></code> 参数决定结果集是单单返回有序集的成员，还是将有序集成员及其 <code class="docutils literal"><span class="pre">score</span></code> 值一起返回。</div>
+<div class="line">该选项自 Redis 2.0 版本起可用。</div>
+</div>
+<p><strong>区间及无限</strong></p>
+<p><code class="docutils literal"><span class="pre">min</span></code> 和 <code class="docutils literal"><span class="pre">max</span></code> 可以是 <code class="docutils literal"><span class="pre">-inf</span></code> 和 <code class="docutils literal"><span class="pre">+inf</span></code> ，这样一来，你就可以在不知道有序集的最低和最高 <code class="docutils literal"><span class="pre">score</span></code> 值的情况下，使用 <a class="reference internal" href="#zrangebyscore">ZRANGEBYSCORE</a> 这类命令。</p>
+<p>默认情况下，区间的取值使用<a class="reference external" href="http://zh.wikipedia.org/wiki/%E5%8D%80%E9%96%93">闭区间</a> (小于等于或大于等于)，你也可以通过给参数前增加 <code class="docutils literal"><span class="pre">(</span></code> 符号来使用可选的<a class="reference external" href="http://zh.wikipedia.org/wiki/%E5%8D%80%E9%96%93">开区间</a> (小于或大于)。</p>
+<p>举个例子：</p>
+<div class="highlight-python"><div class="highlight"><pre>ZRANGEBYSCORE zset (1 5
+</pre></div>
+</div>
+<p>返回所有符合条件 <code class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">score</span> <span class="pre">&lt;=</span> <span class="pre">5</span></code> 的成员，而</p>
+<div class="highlight-python"><div class="highlight"><pre>ZRANGEBYSCORE zset (5 (10
+</pre></div>
+</div>
+<p>则返回所有符合条件 <code class="docutils literal"><span class="pre">5</span> <span class="pre">&lt;</span> <span class="pre">score</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> 的成员。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.5</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(log(N)+M)， <code class="docutils literal"><span class="pre">N</span></code> 为有序集的基数， <code class="docutils literal"><span class="pre">M</span></code> 为被结果集的基数。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>指定区间内，带有 <code class="docutils literal"><span class="pre">score</span></code> 值(可选)的有序集成员的列表。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; ZADD salary 2500 jack                        # 测试数据
+(integer) 0
+redis&gt; ZADD salary 5000 tom
+(integer) 0
+redis&gt; ZADD salary 12000 peter
+(integer) 0
+
+redis&gt; ZRANGEBYSCORE salary -inf +inf               # 显示整个有序集
+1) "jack"
+2) "tom"
+3) "peter"
+
+redis&gt; ZRANGEBYSCORE salary -inf +inf WITHSCORES    # 显示整个有序集及成员的 score 值
+1) "jack"
+2) "2500"
+3) "tom"
+4) "5000"
+5) "peter"
+6) "12000"
+
+redis&gt; ZRANGEBYSCORE salary -inf 5000 WITHSCORES    # 显示工资 &lt;=5000 的所有成员
+1) "jack"
+2) "2500"
+3) "tom"
+4) "5000"
+
+redis&gt; ZRANGEBYSCORE salary (5000 400000            # 显示工资大于 5000 小于等于 400000 的成员
+1) "peter"
+</pre></div>
+</div>
+</div>
+

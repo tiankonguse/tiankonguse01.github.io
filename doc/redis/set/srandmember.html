@@ -1,0 +1,120 @@
+---
+layout: redis
+title: redis SRANDMEMBER — Redis 命令参考
+description: redis SRANDMEMBER — Redis 命令参考
+keywords: redis SRANDMEMBER — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="srem.html" title="SREM">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="spop.html" title="SPOP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="srandmember">
+<span id="id1"></span><h1>SRANDMEMBER<a class="headerlink" href="#srandmember" title="Permalink to this headline">¶</a></h1>
+<p><strong>SRANDMEMBER key [count]</strong></p>
+<p>如果命令执行时，只提供了 <code class="docutils literal"><span class="pre">key</span></code> 参数，那么返回集合中的一个随机元素。</p>
+<p>从 Redis 2.6 版本开始， <a class="reference internal" href="#srandmember">SRANDMEMBER</a> 命令接受可选的 <code class="docutils literal"><span class="pre">count</span></code> 参数：</p>
+<ul class="simple">
+<li>如果 <code class="docutils literal"><span class="pre">count</span></code> 为正数，且小于集合基数，那么命令返回一个包含 <code class="docutils literal"><span class="pre">count</span></code> 个元素的数组，数组中的元素<strong>各不相同</strong>。如果 <code class="docutils literal"><span class="pre">count</span></code> 大于等于集合基数，那么返回整个集合。</li>
+<li>如果 <code class="docutils literal"><span class="pre">count</span></code> 为负数，那么命令返回一个数组，数组中的元素<strong>可能会重复出现多次</strong>，而数组的长度为 <code class="docutils literal"><span class="pre">count</span></code> 的绝对值。</li>
+</ul>
+<p>该操作和 <a class="reference internal" href="spop.html#spop"><span>SPOP</span></a> 相似，但 <a class="reference internal" href="spop.html#spop"><span>SPOP</span></a> 将随机元素从集合中移除并返回，而 <a class="reference internal" href="#srandmember">SRANDMEMBER</a> 则仅仅返回随机元素，而不对集合进行任何改动。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">只提供 <code class="docutils literal"><span class="pre">key</span></code> 参数时为 O(1) 。</div>
+<div class="line">如果提供了 <code class="docutils literal"><span class="pre">count</span></code> 参数，那么为 O(N) ，N 为返回数组的元素个数。</div>
+</div>
+</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">只提供 <code class="docutils literal"><span class="pre">key</span></code> 参数时，返回一个元素；如果集合为空，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+<div class="line">如果提供了 <code class="docutils literal"><span class="pre">count</span></code> 参数，那么返回一个数组；如果集合为空，返回空数组。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 添加元素
+
+redis&gt; SADD fruit apple banana cherry
+(integer) 3
+
+# 只给定 key 参数，返回一个随机元素
+
+redis&gt; SRANDMEMBER fruit
+"cherry"
+
+redis&gt; SRANDMEMBER fruit
+"apple"
+
+# 给定 3 为 count 参数，返回 3 个随机元素
+# 每个随机元素都不相同
+
+redis&gt; SRANDMEMBER fruit 3
+1) "apple"
+2) "banana"
+3) "cherry"
+
+# 给定 -3 为 count 参数，返回 3 个随机元素
+# 元素可能会重复出现多次
+
+redis&gt; SRANDMEMBER fruit -3
+1) "banana"
+2) "cherry"
+3) "apple"
+
+redis&gt; SRANDMEMBER fruit -3
+1) "apple"
+2) "apple"
+3) "cherry"
+
+# 如果 count 是整数，且大于等于集合基数，那么返回整个集合
+
+redis&gt; SRANDMEMBER fruit 10
+1) "apple"
+2) "banana"
+3) "cherry"
+
+# 如果 count 是负数，且 count 的绝对值大于集合的基数
+# 那么返回的数组的长度为 count 的绝对值
+
+redis&gt; SRANDMEMBER fruit -10
+1) "banana"
+2) "apple"
+3) "banana"
+4) "cherry"
+5) "apple"
+6) "apple"
+7) "cherry"
+8) "apple"
+9) "apple"
+10) "banana"
+
+# SRANDMEMBER 并不会修改集合内容
+
+redis&gt; SMEMBERS fruit
+1) "apple"
+2) "cherry"
+3) "banana"
+
+# 集合为空时返回 nil 或者空数组
+
+redis&gt; SRANDMEMBER not-exists
+(nil)
+
+redis&gt; SRANDMEMBER not-eixsts 10
+(empty list or set)
+</pre></div>
+</div>
+</div>
+

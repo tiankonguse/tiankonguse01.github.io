@@ -1,0 +1,46 @@
+---
+layout: redis
+title: redis PING — Redis 命令参考
+description: redis PING — Redis 命令参考
+keywords: redis PING — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="quit.html" title="QUIT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="echo.html" title="ECHO">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Connection（连接）</a> »</li>
+</ul>
+</div><div class="section" id="ping">
+<span id="id1"></span><h1>PING<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h1>
+<p><strong>PING</strong></p>
+<p>使用客户端向 Redis 服务器发送一个 <code class="docutils literal"><span class="pre">PING</span></code> ，如果服务器运作正常的话，会返回一个 <code class="docutils literal"><span class="pre">PONG</span></code> 。</p>
+<p>通常用于测试与服务器的连接是否仍然生效，或者用于测量延迟值。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>如果连接正常就返回一个 <code class="docutils literal"><span class="pre">PONG</span></code> ，否则返回一个连接错误。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 客户端和服务器连接正常
+
+redis&gt; PING
+PONG
+
+# 客户端和服务器连接不正常(网络不正常或服务器未能正常运行)
+
+redis 127.0.0.1:6379&gt; PING
+Could not connect to Redis at 127.0.0.1:6379: Connection refused
+</pre></div>
+</div>
+</div>
+

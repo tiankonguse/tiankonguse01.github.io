@@ -1,0 +1,41 @@
+---
+layout: redis
+title: redis EVALSHA — Redis 命令参考
+description: redis EVALSHA — Redis 命令参考
+keywords: redis EVALSHA — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="script_exists.html" title="SCRIPT EXISTS">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="eval.html" title="EVAL">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Script（脚本）</a> »</li>
+</ul>
+</div><div class="section" id="evalsha">
+<span id="id1"></span><h1>EVALSHA<a class="headerlink" href="#evalsha" title="Permalink to this headline">¶</a></h1>
+<p><strong>EVALSHA sha1 numkeys key [key ...] arg [arg ...]</strong></p>
+<p>根据给定的 sha1 校验码，对缓存在服务器中的脚本进行求值。</p>
+<p>将脚本缓存到服务器的操作可以通过 <a class="reference internal" href="script_load.html#script-load"><span>SCRIPT LOAD</span></a> 命令进行。</p>
+<p>这个命令的其他地方，比如参数的传入方式，都和 <a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令一样。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>根据脚本的复杂度而定。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SCRIPT LOAD "return 'hello moto'"
+"232fd51614574cf0867b83d384a5e898cfd24e5a"
+
+redis&gt; EVALSHA "232fd51614574cf0867b83d384a5e898cfd24e5a" 0
+"hello moto"
+</pre></div>
+</div>
+</div>
+

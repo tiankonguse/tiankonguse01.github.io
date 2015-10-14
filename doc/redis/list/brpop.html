@@ -1,0 +1,55 @@
+---
+layout: redis
+title: redis BRPOP — Redis 命令参考
+description: redis BRPOP — Redis 命令参考
+keywords: redis BRPOP — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="brpoplpush.html" title="BRPOPLPUSH">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="blpop.html" title="BLPOP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="brpop">
+<span id="id1"></span><h1>BRPOP<a class="headerlink" href="#brpop" title="Permalink to this headline">¶</a></h1>
+<p><strong>BRPOP key [key ...] timeout</strong></p>
+<p><a class="reference internal" href="#brpop">BRPOP</a> 是列表的阻塞式(blocking)弹出原语。</p>
+<p>它是 <a class="reference internal" href="rpop.html#rpop"><span>RPOP</span></a> 命令的阻塞版本，当给定列表内没有任何元素可供弹出的时候，连接将被 <a class="reference internal" href="#brpop">BRPOP</a> 命令阻塞，直到等待超时或发现可弹出元素为止。</p>
+<p>当给定多个 <code class="docutils literal"><span class="pre">key</span></code> 参数时，按参数 <code class="docutils literal"><span class="pre">key</span></code> 的先后顺序依次检查各个列表，弹出第一个非空列表的尾部元素。</p>
+<p>关于阻塞操作的更多信息，请查看 <a class="reference internal" href="blpop.html#blpop"><span>BLPOP</span></a> 命令， <a class="reference internal" href="#brpop">BRPOP</a> 除了弹出元素的位置和 <a class="reference internal" href="blpop.html#blpop"><span>BLPOP</span></a> 不同之外，其他表现一致。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">假如在指定时间内没有任何元素被弹出，则返回一个 <code class="docutils literal"><span class="pre">nil</span></code> 和等待时长。</div>
+<div class="line">反之，返回一个含有两个元素的列表，第一个元素是被弹出元素所属的 <code class="docutils literal"><span class="pre">key</span></code> ，第二个元素是被弹出元素的值。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; LLEN course
+(integer) 0
+
+redis&gt; RPUSH course algorithm001
+(integer) 1
+
+redis&gt; RPUSH course c++101
+(integer) 2
+
+redis&gt; BRPOP course 30
+1) "course"             # 被弹出元素所属的列表键
+2) "c++101"             # 被弹出的元素
+</pre></div>
+</div>
+</div>
+

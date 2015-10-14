@@ -1,0 +1,63 @@
+---
+layout: redis
+title: redis SADD — Redis 命令参考
+description: redis SADD — Redis 命令参考
+keywords: redis SADD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="scard.html" title="SCARD">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="Set（集合）">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="sadd">
+<span id="id1"></span><h1>SADD<a class="headerlink" href="#sadd" title="Permalink to this headline">¶</a></h1>
+<p><strong>SADD key member [member ...]</strong></p>
+<p>将一个或多个 <code class="docutils literal"><span class="pre">member</span></code> 元素加入到集合 <code class="docutils literal"><span class="pre">key</span></code> 当中，已经存在于集合的 <code class="docutils literal"><span class="pre">member</span></code> 元素将被忽略。</p>
+<p>假如 <code class="docutils literal"><span class="pre">key</span></code> 不存在，则创建一个只包含 <code class="docutils literal"><span class="pre">member</span></code> 元素作成员的集合。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不是集合类型时，返回一个错误。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在Redis2.4版本以前， <a class="reference internal" href="#sadd">SADD</a> 只接受单个 <code class="docutils literal"><span class="pre">member</span></code> 值。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 是被添加的元素的数量。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>被添加到集合中的新元素的数量，不包括被忽略的元素。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 添加单个元素
+
+redis&gt; SADD bbs "discuz.net"
+(integer) 1
+
+
+# 添加重复元素
+
+redis&gt; SADD bbs "discuz.net"
+(integer) 0
+
+
+# 添加多个元素
+
+redis&gt; SADD bbs "tianya.cn" "groups.google.com"
+(integer) 2
+
+redis&gt; SMEMBERS bbs
+1) "discuz.net"
+2) "groups.google.com"
+3) "tianya.cn"
+</pre></div>
+</div>
+</div>
+

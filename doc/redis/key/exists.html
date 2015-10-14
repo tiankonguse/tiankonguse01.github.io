@@ -1,0 +1,47 @@
+---
+layout: redis
+title: redis EXISTS — Redis 命令参考
+description: redis EXISTS — Redis 命令参考
+keywords: redis EXISTS — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="expire.html" title="EXPIRE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="dump.html" title="DUMP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="exists">
+<span id="id1"></span><h1>EXISTS<a class="headerlink" href="#exists" title="Permalink to this headline">¶</a></h1>
+<p><strong>EXISTS key</strong></p>
+<p>检查给定 <code class="docutils literal"><span class="pre">key</span></code> 是否存在。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>若 <code class="docutils literal"><span class="pre">key</span></code> 存在，返回 <code class="docutils literal"><span class="pre">1</span></code> ，否则返回 <code class="docutils literal"><span class="pre">0</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET db "redis"
+OK
+
+redis&gt; EXISTS db
+(integer) 1
+
+redis&gt; DEL db
+(integer) 1
+
+redis&gt; EXISTS db
+(integer) 0
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,53 @@
+---
+layout: redis
+title: redis HGET — Redis 命令参考
+description: redis HGET — Redis 命令参考
+keywords: redis HGET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="hgetall.html" title="HGETALL">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="hexists.html" title="HEXISTS">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Hash（哈希表）</a> »</li>
+</ul>
+</div><div class="section" id="hget">
+<span id="id1"></span><h1>HGET<a class="headerlink" href="#hget" title="Permalink to this headline">¶</a></h1>
+<p><strong>HGET key field</strong></p>
+<p>返回哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中给定域 <code class="docutils literal"><span class="pre">field</span></code> 的值。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">给定域的值。</div>
+<div class="line">当给定域不存在或是给定 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 域存在
+
+redis&gt; HSET site redis redis.com
+(integer) 1
+
+redis&gt; HGET site redis
+"redis.com"
+
+
+# 域不存在
+
+redis&gt; HGET site mysql
+(nil)
+</pre></div>
+</div>
+</div>
+

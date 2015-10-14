@@ -1,0 +1,75 @@
+---
+layout: redis
+title: redis ZUNIONSTORE — Redis 命令参考
+description: redis ZUNIONSTORE — Redis 命令参考
+keywords: redis ZUNIONSTORE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zinterstore.html" title="ZINTERSTORE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zscore.html" title="ZSCORE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zunionstore">
+<span id="id1"></span><h1>ZUNIONSTORE<a class="headerlink" href="#zunionstore" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]</strong></p>
+<p>计算给定的一个或多个有序集的并集，其中给定 <code class="docutils literal"><span class="pre">key</span></code> 的数量必须以 <code class="docutils literal"><span class="pre">numkeys</span></code> 参数指定，并将该并集(结果集)储存到 <code class="docutils literal"><span class="pre">destination</span></code> 。</p>
+<p>默认情况下，结果集中某个成员的 <code class="docutils literal"><span class="pre">score</span></code> 值是所有给定集下该成员 <code class="docutils literal"><span class="pre">score</span></code> 值之 <em>和</em> 。</p>
+<p><strong>WEIGHTS</strong></p>
+<p>使用 <code class="docutils literal"><span class="pre">WEIGHTS</span></code> 选项，你可以为 <em>每个</em> 给定有序集 <em>分别</em> 指定一个乘法因子(multiplication factor)，每个给定有序集的所有成员的 <code class="docutils literal"><span class="pre">score</span></code> 值在传递给聚合函数(aggregation function)之前都要先乘以该有序集的因子。</p>
+<p>如果没有指定 <code class="docutils literal"><span class="pre">WEIGHTS</span></code> 选项，乘法因子默认设置为 <code class="docutils literal"><span class="pre">1</span></code> 。</p>
+<p><strong>AGGREGATE</strong></p>
+<p>使用 <code class="docutils literal"><span class="pre">AGGREGATE</span></code> 选项，你可以指定并集的结果集的聚合方式。</p>
+<p>默认使用的参数 <code class="docutils literal"><span class="pre">SUM</span></code> ，可以将所有集合中某个成员的 <code class="docutils literal"><span class="pre">score</span></code> 值之 <em>和</em> 作为结果集中该成员的 <code class="docutils literal"><span class="pre">score</span></code> 值；使用参数 <code class="docutils literal"><span class="pre">MIN</span></code> ，可以将所有集合中某个成员的 <em>最小</em> <code class="docutils literal"><span class="pre">score</span></code> 值作为结果集中该成员的 <code class="docutils literal"><span class="pre">score</span></code> 值；而参数 <code class="docutils literal"><span class="pre">MAX</span></code> 则是将所有集合中某个成员的 <em>最大</em> <code class="docutils literal"><span class="pre">score</span></code> 值作为结果集中该成员的 <code class="docutils literal"><span class="pre">score</span></code> 值。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)+O(M log(M))， <code class="docutils literal"><span class="pre">N</span></code> 为给定有序集基数的总和， <code class="docutils literal"><span class="pre">M</span></code> 为结果集的基数。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>保存到 <code class="docutils literal"><span class="pre">destination</span></code> 的结果集的基数。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; ZRANGE programmer 0 -1 WITHSCORES
+1) "peter"
+2) "2000"
+3) "jack"
+4) "3500"
+5) "tom"
+6) "5000"
+
+redis&gt; ZRANGE manager 0 -1 WITHSCORES
+1) "herry"
+2) "2000"
+3) "mary"
+4) "3500"
+5) "bob"
+6) "4000"
+
+redis&gt; ZUNIONSTORE salary 2 programmer manager WEIGHTS 1 3   # 公司决定加薪。。。除了程序员。。。
+(integer) 6
+
+redis&gt; ZRANGE salary 0 -1 WITHSCORES
+1) "peter"
+2) "2000"
+3) "jack"
+4) "3500"
+5) "tom"
+6) "5000"
+7) "herry"
+8) "6000"
+9) "mary"
+10) "10500"
+11) "bob"
+12) "12000"
+</pre></div>
+</div>
+</div>
+

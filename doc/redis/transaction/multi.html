@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis MULTI — Redis 命令参考
+description: redis MULTI — Redis 命令参考
+keywords: redis MULTI — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="unwatch.html" title="UNWATCH">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="exec.html" title="EXEC">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Transaction（事务）</a> »</li>
+</ul>
+</div><div class="section" id="multi">
+<span id="id1"></span><h1>MULTI<a class="headerlink" href="#multi" title="Permalink to this headline">¶</a></h1>
+<p><strong>MULTI</strong></p>
+<p>标记一个事务块的开始。</p>
+<p>事务块内的多条命令会按照先后顺序被放进一个队列当中，最后由 <a class="reference internal" href="exec.html#exec"><span>EXEC</span></a> 命令原子性(atomic)地执行。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; MULTI            # 标记事务开始
+OK
+
+redis&gt; INCR user_id     # 多条命令按顺序入队
+QUEUED
+
+redis&gt; INCR user_id
+QUEUED
+
+redis&gt; INCR user_id
+QUEUED
+
+redis&gt; PING
+QUEUED
+
+redis&gt; EXEC             # 执行
+1) (integer) 1
+2) (integer) 2
+3) (integer) 3
+4) PONG
+</pre></div>
+</div>
+</div>
+

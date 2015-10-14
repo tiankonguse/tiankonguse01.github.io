@@ -1,0 +1,55 @@
+---
+layout: redis
+title: redis RPOP — Redis 命令参考
+description: redis RPOP — Redis 命令参考
+keywords: redis RPOP — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="rpoplpush.html" title="RPOPLPUSH">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="ltrim.html" title="LTRIM">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="rpop">
+<span id="id1"></span><h1>RPOP<a class="headerlink" href="#rpop" title="Permalink to this headline">¶</a></h1>
+<p><strong>RPOP key</strong></p>
+<p>移除并返回列表 <code class="docutils literal"><span class="pre">key</span></code> 的尾元素。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">列表的尾元素。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; RPUSH mylist "one"
+(integer) 1
+
+redis&gt; RPUSH mylist "two"
+(integer) 2
+
+redis&gt; RPUSH mylist "three"
+(integer) 3
+
+redis&gt; RPOP mylist           # 返回被弹出的元素
+"three"
+
+redis&gt; LRANGE mylist 0 -1    # 列表剩下的元素
+1) "one"
+2) "two"
+</pre></div>
+</div>
+</div>
+

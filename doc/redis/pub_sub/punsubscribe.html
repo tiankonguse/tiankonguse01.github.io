@@ -1,0 +1,35 @@
+---
+layout: redis
+title: redis PUNSUBSCRIBE — Redis 命令参考
+description: redis PUNSUBSCRIBE — Redis 命令参考
+keywords: redis PUNSUBSCRIBE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="subscribe.html" title="SUBSCRIBE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="pubsub.html" title="PUBSUB">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Pub/Sub（发布/订阅）</a> »</li>
+</ul>
+</div><div class="section" id="punsubscribe">
+<span id="id1"></span><h1>PUNSUBSCRIBE<a class="headerlink" href="#punsubscribe" title="Permalink to this headline">¶</a></h1>
+<p><strong>PUNSUBSCRIBE [pattern [pattern ...]]</strong></p>
+<p>指示客户端退订所有给定模式。</p>
+<p>如果没有模式被指定，也即是，一个无参数的 <code class="docutils literal"><span class="pre">PUNSUBSCRIBE</span></code> 调用被执行，那么客户端使用 <a class="reference internal" href="psubscribe.html#psubscribe"><span>PSUBSCRIBE</span></a> 命令订阅的所有模式都会被退订。在这种情况下，命令会返回一个信息，告知客户端所有被退订的模式。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N+M) ，其中 <code class="docutils literal"><span class="pre">N</span></code> 是客户端已订阅的模式的数量， <code class="docutils literal"><span class="pre">M</span></code> 则是系统中所有客户端订阅的模式的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>这个命令在不同的客户端中有不同的表现。</dd>
+</dl>
+</div>
+

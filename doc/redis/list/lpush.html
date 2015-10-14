@@ -1,0 +1,69 @@
+---
+layout: redis
+title: redis LPUSH — Redis 命令参考
+description: redis LPUSH — Redis 命令参考
+keywords: redis LPUSH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lpushx.html" title="LPUSHX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lpop.html" title="LPOP">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lpush">
+<span id="id1"></span><h1>LPUSH<a class="headerlink" href="#lpush" title="Permalink to this headline">¶</a></h1>
+<p><strong>LPUSH key value [value ...]</strong></p>
+<p>将一个或多个值 <code class="docutils literal"><span class="pre">value</span></code> 插入到列表 <code class="docutils literal"><span class="pre">key</span></code> 的表头</p>
+<p>如果有多个 <code class="docutils literal"><span class="pre">value</span></code> 值，那么各个 <code class="docutils literal"><span class="pre">value</span></code> 值按从左到右的顺序依次插入到表头：
+比如说，对空列表 <code class="docutils literal"><span class="pre">mylist</span></code> 执行命令 <code class="docutils literal"><span class="pre">LPUSH</span> <span class="pre">mylist</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span></code> ，列表的值将是 <code class="docutils literal"><span class="pre">c</span> <span class="pre">b</span> <span class="pre">a</span></code> ，这等同于原子性地执行 <code class="docutils literal"><span class="pre">LPUSH</span> <span class="pre">mylist</span> <span class="pre">a</span></code> 、 <code class="docutils literal"><span class="pre">LPUSH</span> <span class="pre">mylist</span> <span class="pre">b</span></code> 和 <code class="docutils literal"><span class="pre">LPUSH</span> <span class="pre">mylist</span> <span class="pre">c</span></code> 三个命令。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，一个空列表会被创建并执行 <a class="reference internal" href="#lpush">LPUSH</a> 操作。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 存在但不是列表类型时，返回一个错误。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在Redis 2.4版本以前的 <a class="reference internal" href="#lpush">LPUSH</a> 命令，都只接受单个 <code class="docutils literal"><span class="pre">value</span></code> 值。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>执行 <a class="reference internal" href="#lpush">LPUSH</a> 命令后，列表的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 加入单个元素
+
+redis&gt; LPUSH languages python
+(integer) 1
+
+
+# 加入重复元素
+
+redis&gt; LPUSH languages python
+(integer) 2
+
+redis&gt; LRANGE languages 0 -1     # 列表允许重复元素
+1) "python"
+2) "python"
+
+
+# 加入多个元素
+
+redis&gt; LPUSH mylist a b c
+(integer) 3
+
+redis&gt; LRANGE mylist 0 -1
+1) "c"
+2) "b"
+3) "a"
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis FLUSHALL — Redis 命令参考
+description: redis FLUSHALL — Redis 命令参考
+keywords: redis FLUSHALL — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="flushdb.html" title="FLUSHDB">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="debug_segfault.html" title="DEBUG SEGFAULT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="flushall">
+<span id="id1"></span><h1>FLUSHALL<a class="headerlink" href="#flushall" title="Permalink to this headline">¶</a></h1>
+<p><strong>FLUSHALL</strong></p>
+<p>清空整个 Redis 服务器的数据(删除所有数据库的所有 key )。</p>
+<p>此命令从不失败。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>尚未明确</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; DBSIZE            # 0 号数据库的 key 数量
+(integer) 9
+
+redis&gt; SELECT 1          # 切换到 1 号数据库
+OK
+
+redis[1]&gt; DBSIZE         # 1 号数据库的 key 数量
+(integer) 6
+
+redis[1]&gt; flushall       # 清空所有数据库的所有 key
+OK
+
+redis[1]&gt; DBSIZE         # 不但 1 号数据库被清空了
+(integer) 0
+
+redis[1]&gt; SELECT 0       # 0 号数据库(以及其他所有数据库)也一样
+OK
+
+redis&gt; DBSIZE
+(integer) 0
+</pre></div>
+</div>
+</div>
+

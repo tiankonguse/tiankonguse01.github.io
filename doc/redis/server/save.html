@@ -1,0 +1,40 @@
+---
+layout: redis
+title: redis SAVE — Redis 命令参考
+description: redis SAVE — Redis 命令参考
+keywords: redis SAVE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="shutdown.html" title="SHUTDOWN">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="psync.html" title="PSYNC">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="save">
+<span id="id1"></span><h1>SAVE<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h1>
+<p><strong>SAVE</strong></p>
+<p><a class="reference internal" href="#save">SAVE</a> 命令执行一个同步保存操作，将当前 Redis 实例的所有数据快照(snapshot)以 RDB 文件的形式保存到硬盘。</p>
+<p>一般来说，在生产环境很少执行 <a class="reference internal" href="#save">SAVE</a> 操作，因为它会阻塞所有客户端，保存数据库的任务通常由 <a class="reference internal" href="bgsave.html#bgsave"><span>BGSAVE</span></a> 命令异步地执行。然而，如果负责保存数据的后台子进程不幸出现问题时， <a class="reference internal" href="#save">SAVE</a> 可以作为保存数据的最后手段来使用。</p>
+<p>请参考文档： <a class="reference external" href="http://redis.io/topics/persistence">Redis 的持久化运作方式(英文)</a> 以获取更多消息。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为要保存到数据库中的 key 的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>保存成功时返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">redis</span><span class="o">&gt;</span> <span class="n">SAVE</span>
+<span class="n">OK</span>
+</pre></div>
+</div>
+</div>
+

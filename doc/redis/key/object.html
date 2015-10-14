@@ -1,0 +1,92 @@
+---
+layout: redis
+title: redis OBJECT — Redis 命令参考
+description: redis OBJECT — Redis 命令参考
+keywords: redis OBJECT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="persist.html" title="PERSIST">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="move.html" title="MOVE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="object">
+<span id="id1"></span><h1>OBJECT<a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h1>
+<p><strong>OBJECT subcommand [arguments [arguments]]</strong></p>
+<p><a class="reference internal" href="#object">OBJECT</a> 命令允许从内部察看给定 <code class="docutils literal"><span class="pre">key</span></code> 的 Redis 对象。</p>
+<div class="line-block">
+<div class="line">它通常用在除错(debugging)或者了解为了节省空间而对 <code class="docutils literal"><span class="pre">key</span></code> 使用特殊编码的情况。</div>
+<div class="line">当将Redis用作缓存程序时，你也可以通过 <a class="reference internal" href="#object">OBJECT</a> 命令中的信息，决定 <code class="docutils literal"><span class="pre">key</span></code> 的驱逐策略(eviction policies)。</div>
+</div>
+<p>OBJECT 命令有多个子命令：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">OBJECT</span> <span class="pre">REFCOUNT</span> <span class="pre">&lt;key&gt;</span></code> 返回给定 <code class="docutils literal"><span class="pre">key</span></code> 引用所储存的值的次数。此命令主要用于除错。</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span> <span class="pre">ENCODING</span> <span class="pre">&lt;key&gt;</span></code> 返回给定 <code class="docutils literal"><span class="pre">key</span></code> 锁储存的值所使用的内部表示(representation)。</li>
+<li><code class="docutils literal"><span class="pre">OBJECT</span> <span class="pre">IDLETIME</span> <span class="pre">&lt;key&gt;</span></code> 返回给定 <code class="docutils literal"><span class="pre">key</span></code> 自储存以来的空闲时间(idle， 没有被读取也没有被写入)，以秒为单位。</li>
+</ul>
+<div class="line-block">
+<div class="line">对象可以以多种方式编码：</div>
+</div>
+<ul class="simple">
+<li>字符串可以被编码为 <code class="docutils literal"><span class="pre">raw</span></code> (一般字符串)或 <code class="docutils literal"><span class="pre">int</span></code> (为了节约内存，Redis 会将字符串表示的 64 位有符号整数编码为整数来进行储存）。</li>
+<li>列表可以被编码为 <code class="docutils literal"><span class="pre">ziplist</span></code> 或 <code class="docutils literal"><span class="pre">linkedlist</span></code> 。 <code class="docutils literal"><span class="pre">ziplist</span></code> 是为节约大小较小的列表空间而作的特殊表示。</li>
+<li>集合可以被编码为 <code class="docutils literal"><span class="pre">intset</span></code> 或者 <code class="docutils literal"><span class="pre">hashtable</span></code> 。 <code class="docutils literal"><span class="pre">intset</span></code> 是只储存数字的小集合的特殊表示。</li>
+<li>哈希表可以编码为 <code class="docutils literal"><span class="pre">zipmap</span></code> 或者 <code class="docutils literal"><span class="pre">hashtable</span></code> 。 <code class="docutils literal"><span class="pre">zipmap</span></code> 是小哈希表的特殊表示。</li>
+<li>有序集合可以被编码为 <code class="docutils literal"><span class="pre">ziplist</span></code> 或者 <code class="docutils literal"><span class="pre">skiplist</span></code> 格式。 <code class="docutils literal"><span class="pre">ziplist</span></code> 用于表示小的有序集合，而 <code class="docutils literal"><span class="pre">skiplist</span></code> 则用于表示任何大小的有序集合。</li>
+</ul>
+<div class="line-block">
+<div class="line">假如你做了什么让 Redis 没办法再使用节省空间的编码时(比如将一个只有 1 个元素的集合扩展为一个有 100 万个元素的集合)，特殊编码类型(specially encoded types)会自动转换成通用类型(general type)。</div>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.3</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal"><span class="pre">REFCOUNT</span></code> 和 <code class="docutils literal"><span class="pre">IDLETIME</span></code> 返回数字。</div>
+<div class="line"><code class="docutils literal"><span class="pre">ENCODING</span></code> 返回相应的编码类型。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET game "COD"           # 设置一个字符串
+OK
+
+redis&gt; OBJECT REFCOUNT game     # 只有一个引用
+(integer) 1
+
+redis&gt; OBJECT IDLETIME game     # 等待一阵。。。然后查看空闲时间
+(integer) 90
+
+redis&gt; GET game                 # 提取game， 让它处于活跃(active)状态
+"COD"
+
+redis&gt; OBJECT IDLETIME game     # 不再处于空闲状态
+(integer) 0
+
+redis&gt; OBJECT ENCODING game     # 字符串的编码方式
+"raw"
+
+redis&gt; SET big-number 23102930128301091820391092019203810281029831092  # 非常长的数字会被编码为字符串
+OK
+
+redis&gt; OBJECT ENCODING big-number
+"raw"
+
+redis&gt; SET small-number 12345  # 而短的数字则会被编码为整数
+OK
+
+redis&gt; OBJECT ENCODING small-number
+"int"
+</pre></div>
+</div>
+</div>
+

@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis MSET — Redis 命令参考
+description: redis MSET — Redis 命令参考
+keywords: redis MSET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="msetnx.html" title="MSETNX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="mget.html" title="MGET">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="mset">
+<span id="id1"></span><h1>MSET<a class="headerlink" href="#mset" title="Permalink to this headline">¶</a></h1>
+<p><strong>MSET key value [key value ...]</strong></p>
+<p>同时设置一个或多个 <code class="docutils literal"><span class="pre">key-value</span></code> 对。</p>
+<p>如果某个给定 <code class="docutils literal"><span class="pre">key</span></code> 已经存在，那么 <a class="reference internal" href="#mset">MSET</a> 会用新值覆盖原来的旧值，如果这不是你所希望的效果，请考虑使用 <a class="reference internal" href="msetnx.html#msetnx"><span>MSETNX</span></a> 命令：它只会在所有给定 <code class="docutils literal"><span class="pre">key</span></code> 都不存在的情况下进行设置操作。</p>
+<p><a class="reference internal" href="#mset">MSET</a> 是一个原子性(atomic)操作，所有给定 <code class="docutils literal"><span class="pre">key</span></code> 都会在同一时间内被设置，某些给定 <code class="docutils literal"><span class="pre">key</span></code> 被更新而另一些给定 <code class="docutils literal"><span class="pre">key</span></code> 没有改变的情况，不可能发生。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.1</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为要设置的 <code class="docutils literal"><span class="pre">key</span></code> 数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是返回 <code class="docutils literal"><span class="pre">OK</span></code> (因为 <code class="docutils literal"><span class="pre">MSET</span></code> 不可能失败)</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; MSET date "2012.3.30" time "11:00 a.m." weather "sunny"
+OK
+
+redis&gt; MGET date time weather
+1) "2012.3.30"
+2) "11:00 a.m."
+3) "sunny"
+
+
+# MSET 覆盖旧值例子
+
+redis&gt; SET google "google.hk"
+OK
+
+redis&gt; MSET google "google.com"
+OK
+
+redis&gt; GET google
+"google.com"
+</pre></div>
+</div>
+</div>
+

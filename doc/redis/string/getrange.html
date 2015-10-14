@@ -1,0 +1,63 @@
+---
+layout: redis
+title: redis GETRANGE — Redis 命令参考
+description: redis GETRANGE — Redis 命令参考
+keywords: redis GETRANGE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="getset.html" title="GETSET">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="getbit.html" title="GETBIT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="getrange">
+<span id="id1"></span><h1>GETRANGE<a class="headerlink" href="#getrange" title="Permalink to this headline">¶</a></h1>
+<p><strong>GETRANGE key start end</strong></p>
+<p>返回 <code class="docutils literal"><span class="pre">key</span></code> 中字符串值的子字符串，字符串的截取范围由 <code class="docutils literal"><span class="pre">start</span></code> 和 <code class="docutils literal"><span class="pre">end</span></code> 两个偏移量决定(包括 <code class="docutils literal"><span class="pre">start</span></code> 和 <code class="docutils literal"><span class="pre">end</span></code> 在内)。</p>
+<p>负数偏移量表示从字符串最后开始计数， <code class="docutils literal"><span class="pre">-1</span></code> 表示最后一个字符， <code class="docutils literal"><span class="pre">-2</span></code> 表示倒数第二个，以此类推。</p>
+<p><a class="reference internal" href="#getrange">GETRANGE</a> 通过保证子字符串的值域(range)不超过实际字符串的值域来处理超出范围的值域请求。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在 &lt;= 2.0 的版本里，GETRANGE 被叫作 SUBSTR。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.4.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为要返回的字符串的长度。</div>
+<div class="line">复杂度最终由字符串的返回值长度决定，但因为从已有字符串中取出子字符串的操作非常廉价(cheap)，所以对于长度不大的字符串，该操作的复杂度也可看作O(1)。</div>
+</div>
+</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>截取得出的子字符串。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET greeting "hello, my friend"
+OK
+
+redis&gt; GETRANGE greeting 0 4          # 返回索引0-4的字符，包括4。
+"hello"
+
+redis&gt; GETRANGE greeting -1 -5        # 不支持回绕操作
+""
+
+redis&gt; GETRANGE greeting -3 -1        # 负数索引
+"end"
+
+redis&gt; GETRANGE greeting 0 -1         # 从第一个到最后一个
+"hello, my friend"
+
+redis&gt; GETRANGE greeting 0 1008611    # 值域范围不超过实际字符串，超过部分自动被符略
+"hello, my friend"
+</pre></div>
+</div>
+</div>
+

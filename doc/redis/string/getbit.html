@@ -1,0 +1,53 @@
+---
+layout: redis
+title: redis GETBIT — Redis 命令参考
+description: redis GETBIT — Redis 命令参考
+keywords: redis GETBIT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="getrange.html" title="GETRANGE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="get.html" title="GET">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="getbit">
+<span id="id1"></span><h1>GETBIT<a class="headerlink" href="#getbit" title="Permalink to this headline">¶</a></h1>
+<p><strong>GETBIT key offset</strong></p>
+<p>对 <code class="docutils literal"><span class="pre">key</span></code> 所储存的字符串值，获取指定偏移量上的位(bit)。</p>
+<p>当 <code class="docutils literal"><span class="pre">offset</span></code> 比字符串值的长度大，或者 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>字符串值指定偏移量上的位(bit)。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对不存在的 key 或者不存在的 offset 进行 GETBIT， 返回 0
+
+redis&gt; EXISTS bit
+(integer) 0
+
+redis&gt; GETBIT bit 10086
+(integer) 0
+
+
+# 对已存在的 offset 进行 GETBIT
+
+redis&gt; SETBIT bit 10086 1
+(integer) 0
+
+redis&gt; GETBIT bit 10086
+(integer) 1
+</pre></div>
+</div>
+</div>
+

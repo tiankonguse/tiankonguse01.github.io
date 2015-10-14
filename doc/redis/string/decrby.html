@@ -1,0 +1,56 @@
+---
+layout: redis
+title: redis DECRBY — Redis 命令参考
+description: redis DECRBY — Redis 命令参考
+keywords: redis DECRBY — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="get.html" title="GET">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="decr.html" title="DECR">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="decrby">
+<span id="id1"></span><h1>DECRBY<a class="headerlink" href="#decrby" title="Permalink to this headline">¶</a></h1>
+<p><strong>DECRBY key decrement</strong></p>
+<p>将 <code class="docutils literal"><span class="pre">key</span></code> 所储存的值减去减量 <code class="docutils literal"><span class="pre">decrement</span></code> 。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，那么 <code class="docutils literal"><span class="pre">key</span></code> 的值会先被初始化为 <code class="docutils literal"><span class="pre">0</span></code> ，然后再执行 <a class="reference internal" href="#decrby">DECRBY</a> 操作。</p>
+<p>如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</p>
+<p>本操作的值限制在 64 位(bit)有符号数字表示之内。</p>
+<p>关于更多递增(increment) / 递减(decrement)操作的更多信息，请参见 <a class="reference internal" href="incr.html#incr"><span>INCR</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>减去 <code class="docutils literal"><span class="pre">decrement</span></code> 之后， <code class="docutils literal"><span class="pre">key</span></code> 的值。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对已存在的 key 进行 DECRBY
+
+redis&gt; SET count 100
+OK
+
+redis&gt; DECRBY count 20
+(integer) 80
+
+
+# 对不存在的 key 进行DECRBY
+
+redis&gt; EXISTS pages
+(integer) 0
+
+redis&gt; DECRBY pages 10
+(integer) -10
+</pre></div>
+</div>
+</div>
+

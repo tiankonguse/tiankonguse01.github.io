@@ -1,0 +1,86 @@
+---
+layout: redis
+title: redis APPEND — Redis 命令参考
+description: redis APPEND — Redis 命令参考
+keywords: redis APPEND — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="bitcount.html" title="BITCOUNT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="String（字符串）">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="append">
+<span id="id1"></span><h1>APPEND<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h1>
+<p><strong>APPEND key value</strong></p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 已经存在并且是一个字符串， <a class="reference internal" href="#append">APPEND</a> 命令将 <code class="docutils literal"><span class="pre">value</span></code> 追加到 <code class="docutils literal"><span class="pre">key</span></code> 原来的值的末尾。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在， <a class="reference internal" href="#append">APPEND</a> 就简单地将给定 <code class="docutils literal"><span class="pre">key</span></code> 设为 <code class="docutils literal"><span class="pre">value</span></code> ，就像执行 <code class="docutils literal"><span class="pre">SET</span> <span class="pre">key</span> <span class="pre">value</span></code> 一样。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>平摊O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>追加 <code class="docutils literal"><span class="pre">value</span></code> 之后， <code class="docutils literal"><span class="pre">key</span></code> 中字符串的长度。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对不存在的 key 执行 APPEND
+
+redis&gt; EXISTS myphone               # 确保 myphone 不存在
+(integer) 0
+
+redis&gt; APPEND myphone "nokia"       # 对不存在的 key 进行 APPEND ，等同于 SET myphone "nokia"
+(integer) 5                         # 字符长度
+
+
+# 对已存在的字符串进行 APPEND
+
+redis&gt; APPEND myphone " - 1110"     # 长度从 5 个字符增加到 12 个字符
+(integer) 12
+
+redis&gt; GET myphone
+"nokia - 1110"
+</pre></div>
+</div>
+<div class="section" id="time-series">
+<h2>模式：时间序列(Time series)<a class="headerlink" href="#time-series" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#append">APPEND</a> 可以为一系列定长(fixed-size)数据(sample)提供一种紧凑的表示方式，通常称之为时间序列。</p>
+<p>每当一个新数据到达的时候，执行以下命令：</p>
+<div class="highlight-python"><div class="highlight"><pre>APPEND timeseries "fixed-size sample"
+</pre></div>
+</div>
+<p>然后可以通过以下的方式访问时间序列的各项属性：</p>
+<ul class="simple">
+<li><a class="reference internal" href="strlen.html#strlen"><span>STRLEN</span></a> 给出时间序列中数据的数量</li>
+<li><a class="reference internal" href="getrange.html#getrange"><span>GETRANGE</span></a> 可以用于随机访问。只要有相关的时间信息的话，我们就可以在 Redis 2.6 中使用 Lua 脚本和 <a class="reference internal" href="getrange.html#getrange"><span>GETRANGE</span></a> 命令实现二分查找。</li>
+<li><a class="reference internal" href="setrange.html#setrange"><span>SETRANGE</span></a> 可以用于覆盖或修改已存在的的时间序列。</li>
+</ul>
+<p>这个模式的唯一缺陷是我们只能增长时间序列，而不能对时间序列进行缩短，因为 Redis 目前还没有对字符串进行修剪(tirm)的命令，但是，不管怎么说，这个模式的储存方式还是可以节省下大量的空间。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">可以考虑使用 UNIX 时间戳作为时间序列的键名，这样一来，可以避免单个 <code class="docutils literal"><span class="pre">key</span></code> 因为保存过大的时间序列而占用大量内存，另一方面，也可以节省下大量命名空间。</p>
+</div>
+<p>下面是一个时间序列的例子：</p>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; APPEND ts "0043"
+(integer) 4
+
+redis&gt; APPEND ts "0035"
+(integer) 8
+
+redis&gt; GETRANGE ts 0 3
+"0043"
+
+redis&gt; GETRANGE ts 4 7
+"0035"
+</pre></div>
+</div>
+</div>
+</div>
+

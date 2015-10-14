@@ -1,0 +1,66 @@
+---
+layout: redis
+title: redis KEYS — Redis 命令参考
+description: redis KEYS — Redis 命令参考
+keywords: redis KEYS — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="migrate.html" title="MIGRATE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="expireat.html" title="EXPIREAT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Key（键）</a> »</li>
+</ul>
+</div><div class="section" id="keys">
+<span id="id1"></span><h1>KEYS<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h1>
+<p><strong>KEYS pattern</strong></p>
+<p>查找所有符合给定模式 <code class="docutils literal"><span class="pre">pattern</span></code> 的 <code class="docutils literal"><span class="pre">key</span></code> 。</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal"><span class="pre">KEYS</span> <span class="pre">*</span></code> 匹配数据库中所有 <code class="docutils literal"><span class="pre">key</span></code> 。</div>
+<div class="line"><code class="docutils literal"><span class="pre">KEYS</span> <span class="pre">h?llo</span></code> 匹配 <code class="docutils literal"><span class="pre">hello</span></code> ，  <code class="docutils literal"><span class="pre">hallo</span></code> 和 <code class="docutils literal"><span class="pre">hxllo</span></code> 等。</div>
+<div class="line"><code class="docutils literal"><span class="pre">KEYS</span> <span class="pre">h*llo</span></code> 匹配 <code class="docutils literal"><span class="pre">hllo</span></code> 和 <code class="docutils literal"><span class="pre">heeeeello</span></code> 等。</div>
+<div class="line"><code class="docutils literal"><span class="pre">KEYS</span> <span class="pre">h[ae]llo</span></code> 匹配 <code class="docutils literal"><span class="pre">hello</span></code> 和 <code class="docutils literal"><span class="pre">hallo</span></code> ，但不匹配 <code class="docutils literal"><span class="pre">hillo</span></code> 。</div>
+</div>
+<p>特殊符号用 <code class="docutils literal"><span class="pre">\</span></code> 隔开</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><a class="reference internal" href="#keys">KEYS</a> 的速度非常快，但在一个大的数据库中使用它仍然可能造成性能问题，如果你需要从一个数据集中查找特定的 <code class="docutils literal"><span class="pre">key</span></code> ，你最好还是用 Redis 的集合结构(set)来代替。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为数据库中 <code class="docutils literal"><span class="pre">key</span></code> 的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>符合给定模式的 <code class="docutils literal"><span class="pre">key</span></code> 列表。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; MSET one 1 two 2 three 3 four 4  # 一次设置 4 个 key
+OK
+
+redis&gt; KEYS *o*
+1) "four"
+2) "two"
+3) "one"
+
+redis&gt; KEYS t??
+1) "two"
+
+redis&gt; KEYS t[w]*
+1) "two"
+
+redis&gt; KEYS *  # 匹配数据库内所有 key
+1) "four"
+2) "three"
+3) "two"
+4) "one"
+</pre></div>
+</div>
+</div>
+

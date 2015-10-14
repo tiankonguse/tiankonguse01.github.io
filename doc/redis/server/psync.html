@@ -1,0 +1,39 @@
+---
+layout: redis
+title: redis PSYNC — Redis 命令参考
+description: redis PSYNC — Redis 命令参考
+keywords: redis PSYNC — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="save.html" title="SAVE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="monitor.html" title="MONITOR">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="psync">
+<span id="id1"></span><h1>PSYNC<a class="headerlink" href="#psync" title="Permalink to this headline">¶</a></h1>
+<p><strong>PSYNC &lt;MASTER_RUN_ID&gt; &lt;OFFSET&gt;</strong></p>
+<p>用于复制功能(replication)的内部命令。</p>
+<p>更多信息请参考 <a class="reference internal" href="../topic/replication.html#replication-topic"><span>复制（Replication）</span></a> 文档。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.8.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>不明确</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>不明确</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>127.0.0.1:6379&gt; PSYNC ? -1
+"REDIS0006\xfe\x00\x00\x02kk\x02vv\x00\x03msg\x05hello\xff\xc3\x96P\x12h\bK\xef"
+</pre></div>
+</div>
+</div>
+

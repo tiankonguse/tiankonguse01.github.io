@@ -1,0 +1,49 @@
+---
+layout: redis
+title: redis SINTER — Redis 命令参考
+description: redis SINTER — Redis 命令参考
+keywords: redis SINTER — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="sinterstore.html" title="SINTERSTORE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="sdiffstore.html" title="SDIFFSTORE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="sinter">
+<span id="id1"></span><h1>SINTER<a class="headerlink" href="#sinter" title="Permalink to this headline">¶</a></h1>
+<p><strong>SINTER key [key ...]</strong></p>
+<p>返回一个集合的全部成员，该集合是所有给定集合的交集。</p>
+<p>不存在的 <code class="docutils literal"><span class="pre">key</span></code> 被视为空集。</p>
+<p>当给定集合当中有一个空集时，结果也为空集(根据集合运算定律)。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N * M)， <code class="docutils literal"><span class="pre">N</span></code> 为给定集合当中基数最小的集合， <code class="docutils literal"><span class="pre">M</span></code> 为给定集合的个数。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>交集成员的列表。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SMEMBERS group_1
+1) "LI LEI"
+2) "TOM"
+3) "JACK"
+
+redis&gt; SMEMBERS group_2
+1) "HAN MEIMEI"
+2) "JACK"
+
+redis&gt; SINTER group_1 group_2
+1) "JACK"
+</pre></div>
+</div>
+</div>
+

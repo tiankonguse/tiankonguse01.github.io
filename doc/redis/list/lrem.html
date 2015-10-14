@@ -1,0 +1,93 @@
+---
+layout: redis
+title: redis LREM — Redis 命令参考
+description: redis LREM — Redis 命令参考
+keywords: redis LREM — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="lset.html" title="LSET">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lrange.html" title="LRANGE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="lrem">
+<span id="id1"></span><h1>LREM<a class="headerlink" href="#lrem" title="Permalink to this headline">¶</a></h1>
+<p><strong>LREM key count value</strong></p>
+<p>根据参数 <code class="docutils literal"><span class="pre">count</span></code> 的值，移除列表中与参数 <code class="docutils literal"><span class="pre">value</span></code> 相等的元素。</p>
+<p><code class="docutils literal"><span class="pre">count</span></code> 的值可以是以下几种：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">count</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> : 从表头开始向表尾搜索，移除与 <code class="docutils literal"><span class="pre">value</span></code> 相等的元素，数量为 <code class="docutils literal"><span class="pre">count</span></code> 。</li>
+<li><code class="docutils literal"><span class="pre">count</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> : 从表尾开始向表头搜索，移除与 <code class="docutils literal"><span class="pre">value</span></code> 相等的元素，数量为 <code class="docutils literal"><span class="pre">count</span></code> 的绝对值。</li>
+<li><code class="docutils literal"><span class="pre">count</span> <span class="pre">=</span> <span class="pre">0</span></code> : 移除表中所有与 <code class="docutils literal"><span class="pre">value</span></code> 相等的值。</li>
+</ul>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为列表的长度。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">被移除元素的数量。</div>
+<div class="line">因为不存在的 <code class="docutils literal"><span class="pre">key</span></code> 被视作空表(empty list)，所以当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时， <a class="reference internal" href="#lrem">LREM</a> 命令总是返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 先创建一个表，内容排列是
+# morning hello morning helllo morning
+
+redis&gt; LPUSH greet "morning"
+(integer) 1
+redis&gt; LPUSH greet "hello"
+(integer) 2
+redis&gt; LPUSH greet "morning"
+(integer) 3
+redis&gt; LPUSH greet "hello"
+(integer) 4
+redis&gt; LPUSH greet "morning"
+(integer) 5
+
+redis&gt; LRANGE greet 0 4         # 查看所有元素
+1) "morning"
+2) "hello"
+3) "morning"
+4) "hello"
+5) "morning"
+
+redis&gt; LREM greet 2 morning     # 移除从表头到表尾，最先发现的两个 morning
+(integer) 2                     # 两个元素被移除
+
+redis&gt; LLEN greet               # 还剩 3 个元素
+(integer) 3
+
+redis&gt; LRANGE greet 0 2
+1) "hello"
+2) "hello"
+3) "morning"
+
+redis&gt; LREM greet -1 morning    # 移除从表尾到表头，第一个 morning
+(integer) 1
+
+redis&gt; LLEN greet               # 剩下两个元素
+(integer) 2
+
+redis&gt; LRANGE greet 0 1
+1) "hello"
+2) "hello"
+
+redis&gt; LREM greet 0 hello      # 移除表中所有 hello
+(integer) 2                    # 两个 hello 被移除
+
+redis&gt; LLEN greet
+(integer) 0
+</pre></div>
+</div>
+</div>
+

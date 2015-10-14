@@ -1,0 +1,68 @@
+---
+layout: redis
+title: redis GETSET — Redis 命令参考
+description: redis GETSET — Redis 命令参考
+keywords: redis GETSET — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="incr.html" title="INCR">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="getrange.html" title="GETRANGE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="getset">
+<span id="id1"></span><h1>GETSET<a class="headerlink" href="#getset" title="Permalink to this headline">¶</a></h1>
+<p><strong>GETSET key value</strong></p>
+<p>将给定 <code class="docutils literal"><span class="pre">key</span></code> 的值设为 <code class="docutils literal"><span class="pre">value</span></code> ，并返回 <code class="docutils literal"><span class="pre">key</span></code> 的旧值(old value)。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 存在但不是字符串类型时，返回一个错误。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">返回给定 <code class="docutils literal"><span class="pre">key</span></code> 的旧值。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 没有旧值时，也即是， <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; GETSET db mongodb    # 没有旧值，返回 nil
+(nil)
+
+redis&gt; GET db
+"mongodb"
+
+redis&gt; GETSET db redis      # 返回旧值 mongodb
+"mongodb"
+
+redis&gt; GET db
+"redis"
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h2>模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#getset">GETSET</a> 可以和 <a class="reference internal" href="incr.html#incr"><span>INCR</span></a> 组合使用，实现一个有原子性(atomic)复位操作的计数器(counter)。</p>
+<p>举例来说，每次当某个事件发生时，进程可能对一个名为 <code class="docutils literal"><span class="pre">mycount</span></code> 的 <code class="docutils literal"><span class="pre">key</span></code> 调用 <a class="reference internal" href="incr.html#incr"><span>INCR</span></a> 操作，通常我们还要在一个原子时间内同时完成获得计数器的值和将计数器值复位为 <code class="docutils literal"><span class="pre">0</span></code> 两个操作。</p>
+<p>可以用命令 <code class="docutils literal"><span class="pre">GETSET</span> <span class="pre">mycounter</span> <span class="pre">0</span></code> 来实现这一目标。</p>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; INCR mycount
+(integer) 11
+
+redis&gt; GETSET mycount 0  # 一个原子内完成 GET mycount 和 SET mycount 0 操作
+"11"
+
+redis&gt; GET mycount       # 计数器被重置
+"0"
+</pre></div>
+</div>
+</div>
+</div>
+

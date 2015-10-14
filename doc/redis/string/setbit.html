@@ -1,0 +1,52 @@
+---
+layout: redis
+title: redis SETBIT — Redis 命令参考
+description: redis SETBIT — Redis 命令参考
+keywords: redis SETBIT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="setex.html" title="SETEX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="set.html" title="SET">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="setbit">
+<span id="id1"></span><h1>SETBIT<a class="headerlink" href="#setbit" title="Permalink to this headline">¶</a></h1>
+<p><strong>SETBIT key offset value</strong></p>
+<p>对 <code class="docutils literal"><span class="pre">key</span></code> 所储存的字符串值，设置或清除指定偏移量上的位(bit)。</p>
+<p>位的设置或清除取决于 <code class="docutils literal"><span class="pre">value</span></code> 参数，可以是 <code class="docutils literal"><span class="pre">0</span></code> 也可以是 <code class="docutils literal"><span class="pre">1</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，自动生成一个新的字符串值。</p>
+<p>字符串会进行伸展(grown)以确保它可以将 <code class="docutils literal"><span class="pre">value</span></code> 保存在指定的偏移量上。当字符串值进行伸展时，空白位置以 <code class="docutils literal"><span class="pre">0</span></code> 填充。</p>
+<p><code class="docutils literal"><span class="pre">offset</span></code> 参数必须大于或等于 <code class="docutils literal"><span class="pre">0</span></code> ，小于 2^32 (bit 映射被限制在 512 MB 之内)。</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">对使用大的 <code class="docutils literal"><span class="pre">offset</span></code> 的 <a class="reference internal" href="#setbit">SETBIT</a> 操作来说，内存分配可能造成 Redis 服务器被阻塞。具体参考 <a class="reference internal" href="setrange.html#setrange"><span>SETRANGE</span></a> 命令，warning(警告)部分。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>指定偏移量原来储存的位。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SETBIT bit 10086 1
+(integer) 0
+
+redis&gt; GETBIT bit 10086
+(integer) 1
+
+redis&gt; GETBIT bit 100   # bit 默认被初始化为 0
+(integer) 0
+</pre></div>
+</div>
+</div>
+

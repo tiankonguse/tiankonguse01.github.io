@@ -1,0 +1,56 @@
+---
+layout: redis
+title: redis SELECT — Redis 命令参考
+description: redis SELECT — Redis 命令参考
+keywords: redis SELECT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="../server/index.html" title="Server（服务器）">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="quit.html" title="QUIT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Connection（连接）</a> »</li>
+</ul>
+</div><div class="section" id="select">
+<span id="id1"></span><h1>SELECT<a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h1>
+<p><strong>SELECT index</strong></p>
+<p>切换到指定的数据库，数据库索引号 <code class="docutils literal"><span class="pre">index</span></code> 用数字值指定，以 <code class="docutils literal"><span class="pre">0</span></code> 作为起始索引值。</p>
+<p>默认使用 <code class="docutils literal"><span class="pre">0</span></code> 号数据库。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><code class="docutils literal"><span class="pre">OK</span></code></dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SET db_number 0         # 默认使用 0 号数据库
+OK
+
+redis&gt; SELECT 1                # 使用 1 号数据库
+OK
+
+redis[1]&gt; GET db_number        # 已经切换到 1 号数据库，注意 Redis 现在的命令提示符多了个 [1]
+(nil)
+
+redis[1]&gt; SET db_number 1
+OK
+
+redis[1]&gt; GET db_number
+"1"
+
+redis[1]&gt; SELECT 3             # 再切换到 3 号数据库
+OK
+
+redis[3]&gt;                      # 提示符从 [1] 改变成了 [3]
+</pre></div>
+</div>
+</div>
+

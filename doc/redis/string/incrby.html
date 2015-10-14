@@ -1,0 +1,71 @@
+---
+layout: redis
+title: redis INCRBY — Redis 命令参考
+description: redis INCRBY — Redis 命令参考
+keywords: redis INCRBY — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="incrbyfloat.html" title="INCRBYFLOAT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="incr.html" title="INCR">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="incrby">
+<span id="id1"></span><h1>INCRBY<a class="headerlink" href="#incrby" title="Permalink to this headline">¶</a></h1>
+<p><strong>INCRBY key increment</strong></p>
+<p>将 <code class="docutils literal"><span class="pre">key</span></code> 所储存的值加上增量 <code class="docutils literal"><span class="pre">increment</span></code> 。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在，那么 <code class="docutils literal"><span class="pre">key</span></code> 的值会先被初始化为 <code class="docutils literal"><span class="pre">0</span></code> ，然后再执行 <a class="reference internal" href="#incrby">INCRBY</a> 命令。</p>
+<p>如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</p>
+<p>本操作的值限制在 64 位(bit)有符号数字表示之内。</p>
+<p>关于递增(increment) / 递减(decrement)操作的更多信息，参见 <a class="reference internal" href="incr.html#incr"><span>INCR</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>加上 <code class="docutils literal"><span class="pre">increment</span></code> 之后， <code class="docutils literal"><span class="pre">key</span></code> 的值。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># key 存在且是数字值
+
+redis&gt; SET rank 50
+OK
+
+redis&gt; INCRBY rank 20
+(integer) 70
+
+redis&gt; GET rank
+"70"
+
+
+# key 不存在时
+
+redis&gt; EXISTS counter
+(integer) 0
+
+redis&gt; INCRBY counter 30
+(integer) 30
+
+redis&gt; GET counter
+"30"
+
+
+# key 不是数字值时
+
+redis&gt; SET book "long long ago..."
+OK
+
+redis&gt; INCRBY book 200
+(error) ERR value is not an integer or out of range
+</pre></div>
+</div>
+</div>
+

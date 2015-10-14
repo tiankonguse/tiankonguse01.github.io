@@ -1,0 +1,48 @@
+---
+layout: redis
+title: redis DISCARD — Redis 命令参考
+description: redis DISCARD — Redis 命令参考
+keywords: redis DISCARD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="exec.html" title="EXEC">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="Transaction（事务）">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Transaction（事务）</a> »</li>
+</ul>
+</div><div class="section" id="discard">
+<span id="id1"></span><h1>DISCARD<a class="headerlink" href="#discard" title="Permalink to this headline">¶</a></h1>
+<p><strong>DISCARD</strong></p>
+<p>取消事务，放弃执行事务块内的所有命令。</p>
+<p>如果正在使用 <a class="reference internal" href="watch.html#watch"><span>WATCH</span></a> 命令监视某个(或某些) key，那么取消所有监视，等同于执行命令 <a class="reference internal" href="unwatch.html#unwatch"><span>UNWATCH</span></a> 。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; MULTI
+OK
+
+redis&gt; PING
+QUEUED
+
+redis&gt; SET greeting "hello"
+QUEUED
+
+redis&gt; DISCARD
+OK
+</pre></div>
+</div>
+</div>
+

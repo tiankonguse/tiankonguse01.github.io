@@ -1,0 +1,62 @@
+---
+layout: redis
+title: redis ZINTERSTORE — Redis 命令参考
+description: redis ZINTERSTORE — Redis 命令参考
+keywords: redis ZINTERSTORE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zscan.html" title="ZSCAN">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zunionstore.html" title="ZUNIONSTORE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zinterstore">
+<span id="id1"></span><h1>ZINTERSTORE<a class="headerlink" href="#zinterstore" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE SUM|MIN|MAX]</strong></p>
+<p>计算给定的一个或多个有序集的交集，其中给定 <code class="docutils literal"><span class="pre">key</span></code> 的数量必须以 <code class="docutils literal"><span class="pre">numkeys</span></code> 参数指定，并将该交集(结果集)储存到 <code class="docutils literal"><span class="pre">destination</span></code> 。</p>
+<p>默认情况下，结果集中某个成员的 <code class="docutils literal"><span class="pre">score</span></code> 值是所有给定集下该成员 <code class="docutils literal"><span class="pre">score</span></code> 值之和.</p>
+<p>关于 <code class="docutils literal"><span class="pre">WEIGHTS</span></code> 和 <code class="docutils literal"><span class="pre">AGGREGATE</span></code> 选项的描述，参见 <a class="reference internal" href="zunionstore.html#zunionstore"><span>ZUNIONSTORE</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N*K)+O(M*log(M))， <code class="docutils literal"><span class="pre">N</span></code> 为给定 <code class="docutils literal"><span class="pre">key</span></code> 中基数最小的有序集， <code class="docutils literal"><span class="pre">K</span></code> 为给定有序集的数量， <code class="docutils literal"><span class="pre">M</span></code> 为结果集的基数。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>保存到 <code class="docutils literal"><span class="pre">destination</span></code> 的结果集的基数。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis &gt; ZADD mid_test 70 "Li Lei"
+(integer) 1
+redis &gt; ZADD mid_test 70 "Han Meimei"
+(integer) 1
+redis &gt; ZADD mid_test 99.5 "Tom"
+(integer) 1
+
+redis &gt; ZADD fin_test 88 "Li Lei"
+(integer) 1
+redis &gt; ZADD fin_test 75 "Han Meimei"
+(integer) 1
+redis &gt; ZADD fin_test 99.5 "Tom"
+(integer) 1
+
+redis &gt; ZINTERSTORE sum_point 2 mid_test fin_test
+(integer) 3
+
+redis &gt; ZRANGE sum_point 0 -1 WITHSCORES     # 显示有序集内所有成员及其 score 值
+1) "Han Meimei"
+2) "145"
+3) "Li Lei"
+4) "158"
+5) "Tom"
+6) "199"
+</pre></div>
+</div>
+</div>
+

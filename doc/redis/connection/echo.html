@@ -1,0 +1,41 @@
+---
+layout: redis
+title: redis ECHO — Redis 命令参考
+description: redis ECHO — Redis 命令参考
+keywords: redis ECHO — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="ping.html" title="PING">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="auth.html" title="AUTH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Connection（连接）</a> »</li>
+</ul>
+</div><div class="section" id="echo">
+<span id="id1"></span><h1>ECHO<a class="headerlink" href="#echo" title="Permalink to this headline">¶</a></h1>
+<p><strong>ECHO message</strong></p>
+<p>打印一个特定的信息 <code class="docutils literal"><span class="pre">message</span></code> ，测试时使用。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><code class="docutils literal"><span class="pre">message</span></code> 自身。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; ECHO "Hello Moto"
+"Hello Moto"
+
+redis&gt; ECHO "Goodbye Moto"
+"Goodbye Moto"
+</pre></div>
+</div>
+</div>
+

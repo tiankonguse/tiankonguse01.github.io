@@ -1,0 +1,72 @@
+---
+layout: redis
+title: redis SETEX — Redis 命令参考
+description: redis SETEX — Redis 命令参考
+keywords: redis SETEX — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="setnx.html" title="SETNX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="setbit.html" title="SETBIT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">String（字符串）</a> »</li>
+</ul>
+</div><div class="section" id="setex">
+<span id="id1"></span><h1>SETEX<a class="headerlink" href="#setex" title="Permalink to this headline">¶</a></h1>
+<p><strong>SETEX key seconds value</strong></p>
+<p>将值 <code class="docutils literal"><span class="pre">value</span></code> 关联到 <code class="docutils literal"><span class="pre">key</span></code> ，并将 <code class="docutils literal"><span class="pre">key</span></code> 的生存时间设为 <code class="docutils literal"><span class="pre">seconds</span></code> (以秒为单位)。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 已经存在， <a class="reference internal" href="#setex">SETEX</a> 命令将覆写旧值。</p>
+<p>这个命令类似于以下两个命令：</p>
+<div class="highlight-python"><div class="highlight"><pre>SET key value
+EXPIRE key seconds  # 设置生存时间
+</pre></div>
+</div>
+<p>不同之处是， <a class="reference internal" href="#setex">SETEX</a> 是一个原子性(atomic)操作，关联值和设置生存时间两个动作会在同一时间内完成，该命令在 Redis 用作缓存时，非常实用。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">设置成功时返回 <code class="docutils literal"><span class="pre">OK</span></code> 。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">seconds</span></code> 参数不合法时，返回一个错误。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 在 key 不存在时进行 SETEX
+
+redis&gt; SETEX cache_user_id 60 10086
+OK
+
+redis&gt; GET cache_user_id  # 值
+"10086"
+
+redis&gt; TTL cache_user_id  # 剩余生存时间
+(integer) 49
+
+
+# key 已经存在时，SETEX 覆盖旧值
+
+redis&gt; SET cd "timeless"
+OK
+
+redis&gt; SETEX cd 3000 "goodbye my love"
+OK
+
+redis&gt; GET cd
+"goodbye my love"
+
+redis&gt; TTL cd
+(integer) 2997
+</pre></div>
+</div>
+</div>
+

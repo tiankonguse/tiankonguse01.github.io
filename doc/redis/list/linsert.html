@@ -1,0 +1,72 @@
+---
+layout: redis
+title: redis LINSERT — Redis 命令参考
+description: redis LINSERT — Redis 命令参考
+keywords: redis LINSERT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="llen.html" title="LLEN">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="lindex.html" title="LINDEX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">List（列表）</a> »</li>
+</ul>
+</div><div class="section" id="linsert">
+<span id="id1"></span><h1>LINSERT<a class="headerlink" href="#linsert" title="Permalink to this headline">¶</a></h1>
+<p><strong>LINSERT key BEFORE|AFTER pivot value</strong></p>
+<p>将值 <code class="docutils literal"><span class="pre">value</span></code> 插入到列表 <code class="docutils literal"><span class="pre">key</span></code> 当中，位于值 <code class="docutils literal"><span class="pre">pivot</span></code> 之前或之后。</p>
+<p>当 <code class="docutils literal"><span class="pre">pivot</span></code> 不存在于列表 <code class="docutils literal"><span class="pre">key</span></code> 时，不执行任何操作。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时， <code class="docutils literal"><span class="pre">key</span></code> 被视为空列表，不执行任何操作。</p>
+<p>如果 <code class="docutils literal"><span class="pre">key</span></code> 不是列表类型，返回一个错误。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为寻找 <code class="docutils literal"><span class="pre">pivot</span></code> 过程中经过的元素数量。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">如果命令执行成功，返回插入操作完成之后，列表的长度。</div>
+<div class="line">如果没有找到 <code class="docutils literal"><span class="pre">pivot</span></code> ，返回 <code class="docutils literal"><span class="pre">-1</span></code> 。</div>
+<div class="line">如果 <code class="docutils literal"><span class="pre">key</span></code> 不存在或为空列表，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; RPUSH mylist "Hello"
+(integer) 1
+
+redis&gt; RPUSH mylist "World"
+(integer) 2
+
+redis&gt; LINSERT mylist BEFORE "World" "There"
+(integer) 3
+
+redis&gt; LRANGE mylist 0 -1
+1) "Hello"
+2) "There"
+3) "World"
+
+
+# 对一个非空列表插入，查找一个不存在的 pivot
+
+redis&gt; LINSERT mylist BEFORE "go" "let's"
+(integer) -1                                    # 失败
+
+
+# 对一个空列表执行 LINSERT 命令
+
+redis&gt; EXISTS fake_list
+(integer) 0
+
+redis&gt; LINSERT fake_list BEFORE "nono" "gogogog"
+(integer) 0                                      # 失败
+</pre></div>
+</div>
+</div>
+

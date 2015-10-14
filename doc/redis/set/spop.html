@@ -1,0 +1,58 @@
+---
+layout: redis
+title: redis SPOP — Redis 命令参考
+description: redis SPOP — Redis 命令参考
+keywords: redis SPOP — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="srandmember.html" title="SRANDMEMBER">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="smove.html" title="SMOVE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="spop">
+<span id="id1"></span><h1>SPOP<a class="headerlink" href="#spop" title="Permalink to this headline">¶</a></h1>
+<p><strong>SPOP key</strong></p>
+<p>移除并返回集合中的一个随机元素。</p>
+<p>如果只想获取一个随机元素，但不想该元素从集合中被移除的话，可以使用 <a class="reference internal" href="srandmember.html#srandmember"><span>SRANDMEMBER</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">被移除的随机元素。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 不存在或 <code class="docutils literal"><span class="pre">key</span></code> 是空集时，返回 <code class="docutils literal"><span class="pre">nil</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SMEMBERS db
+1) "MySQL"
+2) "MongoDB"
+3) "Redis"
+
+redis&gt; SPOP db
+"Redis"
+
+redis&gt; SMEMBERS db
+1) "MySQL"
+2) "MongoDB"
+
+redis&gt; SPOP db
+"MySQL"
+
+redis&gt; SMEMBERS db
+1) "MongoDB"
+</pre></div>
+</div>
+</div>
+

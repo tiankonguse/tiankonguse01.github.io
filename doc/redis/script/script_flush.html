@@ -1,0 +1,39 @@
+---
+layout: redis
+title: redis SCRIPT FLUSH — Redis 命令参考
+description: redis SCRIPT FLUSH — Redis 命令参考
+keywords: redis SCRIPT FLUSH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="script_kill.html" title="SCRIPT KILL">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="script_exists.html" title="SCRIPT EXISTS">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Script（脚本）</a> »</li>
+</ul>
+</div><div class="section" id="script-flush">
+<span id="id1"></span><h1>SCRIPT FLUSH<a class="headerlink" href="#script-flush" title="Permalink to this headline">¶</a></h1>
+<p><strong>SCRIPT FLUSH</strong></p>
+<p>清除所有 Lua 脚本缓存。</p>
+<p>关于使用 Redis 对 Lua 脚本进行求值的更多信息，请参见 <a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>复杂度：</strong></dt>
+<dd>O(N) ， <code class="docutils literal"><span class="pre">N</span></code> 为缓存中脚本的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是返回 <code class="docutils literal"><span class="pre">OK</span></code></dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SCRIPT FLUSH
+OK
+</pre></div>
+</div>
+</div>
+

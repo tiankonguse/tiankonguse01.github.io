@@ -1,0 +1,54 @@
+---
+layout: redis
+title: redis SDIFFSTORE — Redis 命令参考
+description: redis SDIFFSTORE — Redis 命令参考
+keywords: redis SDIFFSTORE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="sinter.html" title="SINTER">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="sdiff.html" title="SDIFF">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="sdiffstore">
+<span id="id1"></span><h1>SDIFFSTORE<a class="headerlink" href="#sdiffstore" title="Permalink to this headline">¶</a></h1>
+<p><strong>SDIFFSTORE destination key [key ...]</strong></p>
+<p>这个命令的作用和 <a class="reference internal" href="sdiff.html#sdiff"><span>SDIFF</span></a> 类似，但它将结果保存到 <code class="docutils literal"><span class="pre">destination</span></code> 集合，而不是简单地返回结果集。</p>
+<p>如果 <code class="docutils literal"><span class="pre">destination</span></code> 集合已经存在，则将其覆盖。</p>
+<p><code class="docutils literal"><span class="pre">destination</span></code> 可以是 <code class="docutils literal"><span class="pre">key</span></code> 本身。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 是所有给定集合的成员数量之和。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>结果集中的元素数量。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; SMEMBERS joe's_movies
+1) "hi, lady"
+2) "Fast Five"
+3) "2012"
+
+redis&gt; SMEMBERS peter's_movies
+1) "bet man"
+2) "start war"
+3) "2012"
+
+redis&gt; SDIFFSTORE joe_diff_peter joe's_movies peter's_movies
+(integer) 2
+
+redis&gt; SMEMBERS joe_diff_peter
+1) "hi, lady"
+2) "Fast Five"
+</pre></div>
+</div>
+</div>
+

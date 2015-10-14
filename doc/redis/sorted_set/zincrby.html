@@ -1,0 +1,45 @@
+---
+layout: redis
+title: redis ZINCRBY — Redis 命令参考
+description: redis ZINCRBY — Redis 命令参考
+keywords: redis ZINCRBY — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zrange.html" title="ZRANGE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zcount.html" title="ZCOUNT">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zincrby">
+<span id="id1"></span><h1>ZINCRBY<a class="headerlink" href="#zincrby" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZINCRBY key increment member</strong></p>
+<p>为有序集 <code class="docutils literal"><span class="pre">key</span></code> 的成员 <code class="docutils literal"><span class="pre">member</span></code> 的 <code class="docutils literal"><span class="pre">score</span></code> 值加上增量 <code class="docutils literal"><span class="pre">increment</span></code> 。</p>
+<p>可以通过传递一个负数值 <code class="docutils literal"><span class="pre">increment</span></code> ，让 <code class="docutils literal"><span class="pre">score</span></code> 减去相应的值，比如 <code class="docutils literal"><span class="pre">ZINCRBY</span> <span class="pre">key</span> <span class="pre">-5</span> <span class="pre">member</span></code> ，就是让 <code class="docutils literal"><span class="pre">member</span></code> 的 <code class="docutils literal"><span class="pre">score</span></code> 值减去 <code class="docutils literal"><span class="pre">5</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不存在，或 <code class="docutils literal"><span class="pre">member</span></code> 不是 <code class="docutils literal"><span class="pre">key</span></code> 的成员时， <code class="docutils literal"><span class="pre">ZINCRBY</span> <span class="pre">key</span> <span class="pre">increment</span> <span class="pre">member</span></code> 等同于 <code class="docutils literal"><span class="pre">ZADD</span> <span class="pre">key</span> <span class="pre">increment</span> <span class="pre">member</span></code> 。</p>
+<p>当 <code class="docutils literal"><span class="pre">key</span></code> 不是有序集类型时，返回一个错误。</p>
+<p><code class="docutils literal"><span class="pre">score</span></code> 值可以是整数值或双精度浮点数。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.2.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(log(N))</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><code class="docutils literal"><span class="pre">member</span></code> 成员的新 <code class="docutils literal"><span class="pre">score</span></code> 值，以字符串形式表示。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; ZSCORE salary tom
+"2000"
+
+redis&gt; ZINCRBY salary 2000 tom   # tom 加薪啦！
+"4000"
+</pre></div>
+</div>
+</div>
+

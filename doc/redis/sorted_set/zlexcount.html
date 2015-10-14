@@ -1,0 +1,52 @@
+---
+layout: redis
+title: redis ZLEXCOUNT — Redis 命令参考
+description: redis ZLEXCOUNT — Redis 命令参考
+keywords: redis ZLEXCOUNT — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zremrangebylex.html" title="ZREMRANGEBYLEX">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zrangebylex.html" title="ZRANGEBYLEX">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zlexcount">
+<span id="id1"></span><h1>ZLEXCOUNT<a class="headerlink" href="#zlexcount" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZLEXCOUNT key min max</strong></p>
+<p>对于一个所有成员的分值都相同的有序集合键 <code class="docutils literal"><span class="pre">key</span></code> 来说，
+这个命令会返回该集合中，
+成员介于 <code class="docutils literal"><span class="pre">min</span></code> 和 <code class="docutils literal"><span class="pre">max</span></code> 范围内的元素数量。</p>
+<p>这个命令的 <code class="docutils literal"><span class="pre">min</span></code> 参数和 <code class="docutils literal"><span class="pre">max</span></code> 参数的意义和 <a class="reference internal" href="zrangebylex.html#zrangebylex"><span>ZRANGEBYLEX</span></a> 命令的 <code class="docutils literal"><span class="pre">min</span></code> 参数和 <code class="docutils literal"><span class="pre">max</span></code> 参数的意义一样。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.8.9</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(log(N))，其中 N 为有序集合包含的元素数量。</dd>
+</dl>
+<dl class="docutils">
+<dt><strong>返回值：</strong></dt>
+<dd>整数回复：指定范围内的元素数量。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; ZADD myzset 0 a 0 b 0 c 0 d 0 e
+(integer) 5
+
+redis&gt; ZADD myzset 0 f 0 g
+(integer) 2
+
+redis&gt; ZLEXCOUNT myzset - +
+(integer) 7
+
+redis&gt; ZLEXCOUNT myzset [b [f
+(integer) 5
+</pre></div>
+</div>
+</div>
+

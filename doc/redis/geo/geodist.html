@@ -1,0 +1,66 @@
+---
+layout: redis
+title: redis GEODIST — Redis 命令参考
+description: redis GEODIST — Redis 命令参考
+keywords: redis GEODIST — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="georadius.html" title="GEORADIUS">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="geopos.html" title="GEOPOS">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">GEO（地理位置）</a> »</li>
+</ul>
+</div><div class="section" id="geodist">
+<h1>GEODIST<a class="headerlink" href="#geodist" title="Permalink to this headline">¶</a></h1>
+<p><strong>GEODIST key member1 member2 [unit]</strong></p>
+<p>返回两个给定位置之间的距离。</p>
+<p>如果两个位置之间的其中一个不存在，
+那么命令返回空值。</p>
+<p>指定单位的参数 <code class="docutils literal"><span class="pre">unit</span></code> 必须是以下单位的其中一个：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">m</span></code> 表示单位为米。</li>
+<li><code class="docutils literal"><span class="pre">km</span></code> 表示单位为千米。</li>
+<li><code class="docutils literal"><span class="pre">mi</span></code> 表示单位为英里。</li>
+<li><code class="docutils literal"><span class="pre">ft</span></code> 表示单位为英尺。</li>
+</ul>
+<p>如果用户没有显式地指定单位参数，
+那么 <code class="docutils literal"><span class="pre">GEODIST</span></code> 默认使用米作为单位。</p>
+<p><code class="docutils literal"><span class="pre">GEODIST</span></code> 命令在计算距离时会假设地球为完美的球形，
+在极限情况下，
+这一假设最大会造成 0.5% 的误差。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 3.2.0</dd>
+<dt><strong>复杂度：</strong></dt>
+<dd>O(log(N))</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>计算出的距离会以双精度浮点数的形式被返回。
+如果给定的位置元素不存在，
+那么命令返回空值。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; GEOADD Sicily 13.361389 38.115556 "Palermo" 15.087269 37.502669 "Catania"
+(integer) 2
+
+redis&gt; GEODIST Sicily Palermo Catania
+"166274.15156960039"
+
+redis&gt; GEODIST Sicily Palermo Catania km
+"166.27415156960038"
+
+redis&gt; GEODIST Sicily Palermo Catania mi
+"103.31822459492736"
+
+redis&gt; GEODIST Sicily Foo Bar
+(nil)
+</pre></div>
+</div>
+</div>
+

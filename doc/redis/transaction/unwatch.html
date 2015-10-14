@@ -1,0 +1,43 @@
+---
+layout: redis
+title: redis UNWATCH — Redis 命令参考
+description: redis UNWATCH — Redis 命令参考
+keywords: redis UNWATCH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="watch.html" title="WATCH">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="multi.html" title="MULTI">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Transaction（事务）</a> »</li>
+</ul>
+</div><div class="section" id="unwatch">
+<span id="id1"></span><h1>UNWATCH<a class="headerlink" href="#unwatch" title="Permalink to this headline">¶</a></h1>
+<p><strong>UNWATCH</strong></p>
+<p>取消 <a class="reference internal" href="watch.html#watch"><span>WATCH</span></a> 命令对所有 key 的监视。</p>
+<p>如果在执行 <a class="reference internal" href="watch.html#watch"><span>WATCH</span></a> 命令之后， <a class="reference internal" href="exec.html#exec"><span>EXEC</span></a> 命令或 <a class="reference internal" href="discard.html#discard"><span>DISCARD</span></a> 命令先被执行了的话，那么就不需要再执行 <a class="reference internal" href="#unwatch">UNWATCH</a> 了。</p>
+<p>因为 <a class="reference internal" href="exec.html#exec"><span>EXEC</span></a> 命令会执行事务，因此 <a class="reference internal" href="watch.html#watch"><span>WATCH</span></a> 命令的效果已经产生了；而 <a class="reference internal" href="discard.html#discard"><span>DISCARD</span></a> 命令在取消事务的同时也会取消所有对 key 的监视，因此这两个命令执行之后，就没有必要执行 <a class="reference internal" href="#unwatch">UNWATCH</a> 了。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.2.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>总是 <code class="docutils literal"><span class="pre">OK</span></code> 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; WATCH lock lock_times
+OK
+
+redis&gt; UNWATCH
+OK
+</pre></div>
+</div>
+</div>
+

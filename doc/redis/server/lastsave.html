@@ -1,0 +1,38 @@
+---
+layout: redis
+title: redis LASTSAVE — Redis 命令参考
+description: redis LASTSAVE — Redis 命令参考
+keywords: redis LASTSAVE — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="monitor.html" title="MONITOR">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="info.html" title="INFO">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Server（服务器）</a> »</li>
+</ul>
+</div><div class="section" id="lastsave">
+<span id="id1"></span><h1>LASTSAVE<a class="headerlink" href="#lastsave" title="Permalink to this headline">¶</a></h1>
+<p><strong>LASTSAVE</strong></p>
+<p>返回最近一次 Redis 成功将数据保存到磁盘上的时间，以 UNIX 时间戳格式表示。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>一个 UNIX 时间戳。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; LASTSAVE
+(integer) 1324043588
+</pre></div>
+</div>
+</div>
+

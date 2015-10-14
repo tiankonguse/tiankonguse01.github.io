@@ -1,0 +1,62 @@
+---
+layout: redis
+title: redis SCRIPT KILL — Redis 命令参考
+description: redis SCRIPT KILL — Redis 命令参考
+keywords: redis SCRIPT KILL — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="script_load.html" title="SCRIPT LOAD">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="script_flush.html" title="SCRIPT FLUSH">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Script（脚本）</a> »</li>
+</ul>
+</div><div class="section" id="script-kill">
+<span id="id1"></span><h1>SCRIPT KILL<a class="headerlink" href="#script-kill" title="Permalink to this headline">¶</a></h1>
+<p><strong>SCRIPT KILL</strong></p>
+<p>杀死当前正在运行的 Lua 脚本，当且仅当这个脚本没有执行过任何写操作时，这个命令才生效。</p>
+<p>这个命令主要用于终止运行时间过长的脚本，比如一个因为 BUG 而发生无限 loop 的脚本，诸如此类。</p>
+<p><a class="reference internal" href="#id1">SCRIPT KILL</a> 执行之后，当前正在运行的脚本会被杀死，执行这个脚本的客户端会从 <a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令的阻塞当中退出，并收到一个错误作为返回值。</p>
+<p>另一方面，假如当前正在运行的脚本已经执行过写操作，那么即使执行 <a class="reference internal" href="#id1">SCRIPT KILL</a> ，也无法将它杀死，因为这是违反 Lua 脚本的原子性执行原则的。在这种情况下，唯一可行的办法是使用 <code class="docutils literal"><span class="pre">SHUTDOWN</span> <span class="pre">NOSAVE</span></code> 命令，通过停止整个 Redis 进程来停止脚本的运行，并防止不完整(half-written)的信息被写入数据库中。</p>
+<p>关于使用 Redis 对 Lua 脚本进行求值的更多信息，请参见 <a class="reference internal" href="eval.html#eval"><span>EVAL</span></a> 命令。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.6.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>执行成功返回 <code class="docutils literal"><span class="pre">OK</span></code> ，否则返回一个错误。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 没有脚本在执行时
+
+redis&gt; SCRIPT KILL
+(error) ERR No scripts in execution right now.
+
+# 成功杀死脚本时
+
+redis&gt; SCRIPT KILL
+OK
+(1.30s)
+
+# 尝试杀死一个已经执行过写操作的脚本，失败
+
+redis&gt; SCRIPT KILL
+(error) ERR Sorry the script already executed write commands against the dataset. You can either wait the script termination or kill the server in an hard way using the SHUTDOWN NOSAVE command.
+(1.69s)
+</pre></div>
+</div>
+<p>以下是脚本被杀死之后，返回给执行脚本的客户端的错误：</p>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; EVAL "while true do end" 0
+(error) ERR Error running script (call to f_694a5fe1ddb97a4c6a1bf299d9537c7d3d0f84e7): Script killed by user with SCRIPT KILL...
+(5.00s)
+</pre></div>
+</div>
+</div>
+

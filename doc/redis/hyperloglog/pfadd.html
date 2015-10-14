@@ -1,0 +1,75 @@
+---
+layout: redis
+title: redis PFADD — Redis 命令参考
+description: redis PFADD — Redis 命令参考
+keywords: redis PFADD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="pfcount.html" title="PFCOUNT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="HyperLogLog">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">HyperLogLog</a> »</li>
+</ul>
+</div><div class="section" id="pfadd">
+<span id="id1"></span><h1>PFADD<a class="headerlink" href="#pfadd" title="Permalink to this headline">¶</a></h1>
+<p><strong>PFADD key element [element ...]</strong></p>
+<p>将任意数量的元素添加到指定的 HyperLogLog 里面。</p>
+<p>作为这个命令的副作用，
+HyperLogLog 内部可能会被更新，
+以便反映一个不同的唯一元素估计数量（也即是集合的基数）。</p>
+<p>如果 HyperLogLog 估计的近似基数（approximated cardinality）在命令执行之后出现了变化，
+那么命令返回 <code class="docutils literal"><span class="pre">1</span></code> ，
+否则返回 <code class="docutils literal"><span class="pre">0</span></code> 。
+如果命令执行时给定的键不存在，
+那么程序将先创建一个空的 HyperLogLog 结构，
+然后再执行命令。</p>
+<p>调用 <a class="reference internal" href="#pfadd"><span>PFADD</span></a> 命令时可以只给定键名而不给定元素：</p>
+<ul class="simple">
+<li>如果给定键已经是一个 HyperLogLog ，
+那么这种调用不会产生任何效果；</li>
+<li>但如果给定的键不存在，
+那么命令会创建一个空的 HyperLogLog ，
+并向客户端返回 <code class="docutils literal"><span class="pre">1</span></code> 。</li>
+</ul>
+<p>要了解更多关于 HyperLogLog 数据结构的介绍知识，
+请查阅 <a class="reference internal" href="pfcount.html#pfcount"><span>PFCOUNT</span></a> 命令的文档。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.8.9</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>每添加一个元素的复杂度为 O(1) 。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>整数回复：
+如果 HyperLogLog 的内部储存被修改了，
+那么返回 1 ，
+否则返回 0 。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis&gt; PFADD  databases  "Redis"  "MongoDB"  "MySQL"
+(integer) 1
+
+redis&gt; PFCOUNT  databases
+(integer) 3
+
+redis&gt; PFADD  databases  "Redis"    # Redis 已经存在，不必对估计数量进行更新
+(integer) 0
+
+redis&gt; PFCOUNT  databases    # 元素估计数量没有变化
+(integer) 3
+
+redis&gt; PFADD  databases  "PostgreSQL"    # 添加一个不存在的元素
+(integer) 1
+
+redis&gt; PFCOUNT  databases    # 估计数量增一
+4
+</pre></div>
+</div>
+</div>
+

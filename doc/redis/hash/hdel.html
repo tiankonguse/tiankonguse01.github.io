@@ -1,0 +1,73 @@
+---
+layout: redis
+title: redis HDEL — Redis 命令参考
+description: redis HDEL — Redis 命令参考
+keywords: redis HDEL — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="hexists.html" title="HEXISTS">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="Hash（哈希表）">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Hash（哈希表）</a> »</li>
+</ul>
+</div><div class="section" id="hdel">
+<span id="id1"></span><h1>HDEL<a class="headerlink" href="#hdel" title="Permalink to this headline">¶</a></h1>
+<p><strong>HDEL key field [field ...]</strong></p>
+<p>删除哈希表 <code class="docutils literal"><span class="pre">key</span></code> 中的一个或多个指定域，不存在的域将被忽略。</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">在Redis2.4以下的版本里， <a class="reference internal" href="#hdel">HDEL</a> 每次只能删除单个域，如果你需要在一个原子时间内删除多个域，请将命令包含在 <a class="reference internal" href="../transaction/multi.html#multi"><span>MULTI</span></a> /  <a class="reference internal" href="../transaction/exec.html#exec"><span>EXEC</span></a> 块内。</p>
+</div>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为要删除的域的数量。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>被成功移除的域的数量，不包括被忽略的域。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 测试数据
+
+redis&gt; HGETALL abbr
+1) "a"
+2) "apple"
+3) "b"
+4) "banana"
+5) "c"
+6) "cat"
+7) "d"
+8) "dog"
+
+
+# 删除单个域
+
+redis&gt; HDEL abbr a
+(integer) 1
+
+
+# 删除不存在的域
+
+redis&gt; HDEL abbr not-exists-field
+(integer) 0
+
+
+# 删除多个域
+
+redis&gt; HDEL abbr b c
+(integer) 2
+
+redis&gt; HGETALL abbr
+1) "d"
+2) "dog"
+</pre></div>
+</div>
+</div>
+

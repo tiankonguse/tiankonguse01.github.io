@@ -1,0 +1,52 @@
+---
+layout: redis
+title: redis PUBLISH — Redis 命令参考
+description: redis PUBLISH — Redis 命令参考
+keywords: redis PUBLISH — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="pubsub.html" title="PUBSUB">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="psubscribe.html" title="PSUBSCRIBE">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Pub/Sub（发布/订阅）</a> »</li>
+</ul>
+</div><div class="section" id="publish">
+<span id="id1"></span><h1>PUBLISH<a class="headerlink" href="#publish" title="Permalink to this headline">¶</a></h1>
+<p><strong>PUBLISH channel message</strong></p>
+<p>将信息 <code class="docutils literal"><span class="pre">message</span></code> 发送到指定的频道 <code class="docutils literal"><span class="pre">channel</span></code> 。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 2.0.0</dd>
+<dt><strong>时间复杂度：</strong></dt>
+<dd>O(N+M)，其中 <code class="docutils literal"><span class="pre">N</span></code> 是频道 <code class="docutils literal"><span class="pre">channel</span></code> 的订阅者数量，而 <code class="docutils literal"><span class="pre">M</span></code> 则是使用模式订阅(subscribed patterns)的客户端的数量。</dd>
+<dt><strong>返回值：</strong></dt>
+<dd>接收到信息 <code class="docutils literal"><span class="pre">message</span></code> 的订阅者数量。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># 对没有订阅者的频道发送信息
+
+redis&gt; publish bad_channel "can any body hear me?"
+(integer) 0
+
+
+# 向有一个订阅者的频道发送信息
+
+redis&gt; publish msg "good morning"
+(integer) 1
+
+
+# 向有多个订阅者的频道发送信息
+
+redis&gt; publish chat_room "hello~ everyone"
+(integer) 3
+</pre></div>
+</div>
+</div>
+

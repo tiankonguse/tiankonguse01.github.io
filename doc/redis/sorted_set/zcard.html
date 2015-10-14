@@ -1,0 +1,57 @@
+---
+layout: redis
+title: redis ZCARD — Redis 命令参考
+description: redis ZCARD — Redis 命令参考
+keywords: redis ZCARD — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="zcount.html" title="ZCOUNT">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="zadd.html" title="ZADD">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">SortedSet（有序集合）</a> »</li>
+</ul>
+</div><div class="section" id="zcard">
+<span id="id1"></span><h1>ZCARD<a class="headerlink" href="#zcard" title="Permalink to this headline">¶</a></h1>
+<p><strong>ZCARD key</strong></p>
+<p>返回有序集 <code class="docutils literal"><span class="pre">key</span></code> 的基数。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.2.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(1)</dd>
+<dt><strong>返回值:</strong></dt>
+<dd><div class="first last line-block">
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 存在且是有序集类型时，返回有序集的基数。</div>
+<div class="line">当 <code class="docutils literal"><span class="pre">key</span></code> 不存在时，返回 <code class="docutils literal"><span class="pre">0</span></code> 。</div>
+</div>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre>redis &gt; ZADD salary 2000 tom    # 添加一个成员
+(integer) 1
+
+redis &gt; ZCARD salary
+(integer) 1
+
+redis &gt; ZADD salary 5000 jack   # 再添加一个成员
+(integer) 1
+
+redis &gt; ZCARD salary
+(integer) 2
+
+redis &gt; EXISTS non_exists_key   # 对不存在的 key 进行 ZCARD 操作
+(integer) 0
+
+redis &gt; ZCARD non_exists_key
+(integer) 0
+</pre></div>
+</div>
+</div>
+

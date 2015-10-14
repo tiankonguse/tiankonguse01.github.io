@@ -1,0 +1,55 @@
+---
+layout: redis
+title: redis SMEMBERS — Redis 命令参考
+description: redis SMEMBERS — Redis 命令参考
+keywords: redis SMEMBERS — Redis 命令参考
+---
+
+
+<div class="related">
+<h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="smove.html" title="SMOVE">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="sismember.html" title="SISMEMBER">previous</a> |</li>
+<li><a href="../index.html">Redis 命令参考</a> »</li>
+<li><a accesskey="U" href="index.html">Set（集合）</a> »</li>
+</ul>
+</div><div class="section" id="smembers">
+<span id="id1"></span><h1>SMEMBERS<a class="headerlink" href="#smembers" title="Permalink to this headline">¶</a></h1>
+<p><strong>SMEMBERS key</strong></p>
+<p>返回集合 <code class="docutils literal"><span class="pre">key</span></code> 中的所有成员。</p>
+<p>不存在的 <code class="docutils literal"><span class="pre">key</span></code> 被视为空集合。</p>
+<dl class="docutils">
+<dt><strong>可用版本：</strong></dt>
+<dd>&gt;= 1.0.0</dd>
+<dt><strong>时间复杂度:</strong></dt>
+<dd>O(N)， <code class="docutils literal"><span class="pre">N</span></code> 为集合的基数。</dd>
+<dt><strong>返回值:</strong></dt>
+<dd>集合中的所有成员。</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre># key 不存在或集合为空
+
+redis&gt; EXISTS not_exists_key
+(integer) 0
+
+redis&gt; SMEMBERS not_exists_key
+(empty list or set)
+
+
+# 非空集合
+
+redis&gt; SADD language Ruby Python Clojure
+(integer) 3
+
+redis&gt; SMEMBERS language
+1) "Python"
+2) "Ruby"
+3) "Clojure"
+</pre></div>
+</div>
+</div>
+

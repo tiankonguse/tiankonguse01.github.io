@@ -12,3 +12,12 @@
 - title: sphinx 在线文档
   url: /doc/sphinx/
   description : 保留各个版本的文档
+  
+  
+- title: Redis 命令参考 
+  url: /doc/redis/
+  description : 中文版Redis 命令参考
+  
+- title: Bash 手册 
+  url: http://tiankonguse.com/manual/bash/
+  description: 
