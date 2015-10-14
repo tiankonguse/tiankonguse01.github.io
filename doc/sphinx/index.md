@@ -9,10 +9,10 @@ keywords :  Sphinx /Coreseek 手册文档
 <link rel="stylesheet" href="../doc.css" type="text/css" /> 
 <div class="container">
     {% for sphinx in site.data.sphinx %}
-        <a target="_blank" href="{{ doc.url }}">
+        <a target="_blank" href="{{ sphinx.url }}">
             <p>
-                <strong> {{ doc.title }} </strong>
-                <span>{{ doc.description }}</span>
+                <strong> {{ sphinx.title }} </strong>
+                <span>{{ sphinx.description }}</span>
             </p>
         </a>
     {% endfor %}
