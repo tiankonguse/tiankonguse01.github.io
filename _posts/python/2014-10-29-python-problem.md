@@ -23,24 +23,77 @@ categories: [python]
 
 ## 日期时间相关
 
-### 时间的年月日
+### 得到时间戳
 
-```python
-localtime = time.localtime(time.time())
-year = localtime.tm_year
-mon = localtime.tm_mon
-day = localtime.tm_mday
-hour = localtime.tm_hour
-min = localtime.tm_min
-sec = localtime.tm_sec #0 到 61 (60或61 是闰秒)
-wday = localtime.tm_wday #0到6 (0是周一)
-yday = localtime.tm_yday #1 到 366
+
+
+#### 得到当前时间戳.  
+
+`time.time()` 可以得到一个浮点数, 单位毫秒.  
+
 ```
+>>> import time
+>>> time.time()
+1444919694.33675
+```
+
+#### 时间元组转时间戳  
+
+```
+>>> time.mktime(time.localtime(time.time()))
+1444920189.0
+```
+
+#### 字符串转时间戳  
+
+我们可以先把字符串转化为时间元组, 然后再从时间元组转化为时间戳  
+
+```
+>>> t=time.strptime("2015-10-15 22:47:45", "%Y-%m-%d %H:%M:%S")
+>>> t
+time.struct_time(tm_year=2015, tm_mon=10, tm_mday=15, tm_hour=22, tm_min=47, tm_sec=45, tm_wday=3, tm_yday=288, tm_isdst=-1)
+>>> time.mktime(t)
+1444920465.0
+```
+
+
+
+### 得到时间元组
+
+
+#### 时间戳转换为时间元组  
+
+```
+>>> time.localtime(time.time())
+time.struct_time(tm_year=2015, tm_mon=10, tm_mday=15, tm_hour=22, tm_min=40, tm_sec=33, tm_wday=3, tm_yday=288, tm_isdst=0)
+```
+
+#### 字符串转时间元组  
+
+```
+>>> time.strptime("2015-10-15 22:47:45", "%Y-%m-%d %H:%M:%S")
+time.struct_time(tm_year=2015, tm_mon=10, tm_mday=15, tm_hour=22, tm_min=47, tm_sec=45, tm_wday=3, tm_yday=288, tm_isdst=-1)
+```
+
 
 ### 时间格式化为字符串  
 
+
+#### 元组转化为字符串
+
+```
+>>> time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+'2015-10-15 22:55:23'
+```
+
+#### 时间戳转化为字符串  
+
+我们可以先把时间戳转化为时间元组, 然后再转化为字符串
+
+
 ```python
-time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+>>> time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())) 
+'2015-10-15 22:56:05'
 ```
 
 其中格式化规则如下
@@ -71,19 +124,65 @@ time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 %% %号本身
 ```
 
+###  日期
 
-###  指定 日期 是 周几
+日期就是传入年月日时分秒, 可以得到一个日期对象.  
 
-```python
-print datetime.datetime(2012,04,23).strftime("%w")
+```
+>>> datetime.datetime(2015,10,15)
+datetime.datetime(2015, 10, 15, 0, 0
 ```
 
+
+#### 日期转时间元组
+
+```
+>>> t=datetime.datetime(2015,10,15)
+>>> t
+datetime.datetime(2015, 10, 15, 0, 0)
+>>> t.timetuple()
+time.struct_time(tm_year=2015, tm_mon=10, tm_mday=15, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=288, tm_isdst=-1)
+```
+
+
+####  日期格式化输出
+
+
+```python
+>>> datetime.datetime(2015,10,15).strftime("%Y-%m-%d %H:%M:%S %w")
+'2015-10-15 00:00:00 4'
+```
+
+
 ### 获取几分钟、小时、天之前的时间
+
+第一种方式是使用日期操作.  
 
 ```
 (datetime.datetime.now()-datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 # days, seconds, minutes, hours, weeks 控制时间
 ```
+
+第二个方式是时间戳操作.  
+
+可以参考上面的时间戳操作.  
+
+
+### 得到年月日
+
+```python
+localtime = time.localtime(time.time())
+year = localtime.tm_year
+mon = localtime.tm_mon
+day = localtime.tm_mday
+hour = localtime.tm_hour
+min = localtime.tm_min
+sec = localtime.tm_sec #0 到 61 (60或61 是闰秒)
+wday = localtime.tm_wday #0到6 (0是周一)
+yday = localtime.tm_yday #1 到 366
+```
+
+
 ### 常用的有转换日期
 
 ```
