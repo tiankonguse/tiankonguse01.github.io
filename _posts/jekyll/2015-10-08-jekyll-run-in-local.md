@@ -1,7 +1,7 @@
 ---  
 layout: post
 title:  在本地运行jekyll网站
-category: [程序人生]
+category: [前端技术]
 description: 使用github来当作自己的记录集后,每次有改动时都要提交了才能看到结果,于是尝试在本地搭建一个jekyll环境.    
 tags: [github, jekyll]
 keywords: [github, jekyll]

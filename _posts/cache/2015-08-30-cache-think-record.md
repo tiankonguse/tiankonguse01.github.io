@@ -5,7 +5,7 @@ description:  之前对NOSQL的总结是:基本功能是key-value, 然后各自�
 tags:  cache NOSQL
 keywords: cache,NOSQL
 updateData:  00:34 2015/8/30
-categories: [cache,NOSQL]
+categories: [程序人生]
 ---  
 
 ## 背景

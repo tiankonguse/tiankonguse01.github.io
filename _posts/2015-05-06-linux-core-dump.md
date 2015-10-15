@@ -5,7 +5,7 @@ description:  c++程序问题遇到的多了，就会发现有时候core文件�
 keywords: [linux, core dump]
 updateData:  13:38 2015/4/2
 tags: [linux, core dump] 
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

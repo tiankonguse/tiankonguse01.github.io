@@ -5,7 +5,7 @@ description:  我的小组主要用来管理视频资料, 也就是管理Db的�
 tags:  mysql
 keywords: mysql
 updateData:  14:58 2015/9/4
-categories: [mysql]
+categories: [程序人生]
 ---
 
 ## 背景

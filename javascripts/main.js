@@ -48,12 +48,13 @@ jQuery(document).ready(function(){
 });
 
 function loadSidebar(){
-    $(".home-menu-ex").click(function(){
-        $("body").toggleClass("sidebar-visible");
-    });
+    var hand;
+    var filter = 'all';
+    //
     $("#sidebar-close,.close-icon").click(function(){
         $("body").removeClass("sidebar-visible");
-
+        clearTimeout(hand);
+        hand = 0;
     });
     var googleUrl = "https://www.google.com/search?q=site%3Atiankonguse.com+";
     $(".search-submit").click(function(){
@@ -64,9 +65,17 @@ function loadSidebar(){
     });
     $(".js-menu-trigger").hide();
     $(".home-menu-ex").bind("click", function(e){ 
+    
+        $("body").toggleClass("sidebar-visible");
         $(".js-menu").addClass("is-visible");
         $(".menu-screen").addClass("is-visible");
         $(".js-menu-trigger").show();
+        if(hand){
+            clearTimeout(hand);
+        }
+        hand = setTimeout(function(){
+            $('#search-input').focus();
+        },3);
         e.preventDefault();
     });
     
@@ -74,7 +83,50 @@ function loadSidebar(){
         $(".js-menu").removeClass("is-visible");
         $(".menu-screen").removeClass("is-visible");
         $(".js-menu-trigger").hide();
+        clearTimeout(hand);
+        hand = 0;
         e.preventDefault();
+    });
+    
+    $('#search-input').on('input', function(e){
+        $(".toc-link").hide();
+        if (filter === 'all') {
+            $('.toc-link:contains(' + this.value + ')').fadeIn(350);
+        }else{
+            $('.toc-link[data-tags=' + filter + ']:contains(' + this.value + ')').fadeIn(350);
+        }
+    });
+    
+    // Tags Filter
+    $('#sidebar-tags').on('click', '.sidebar-tag', function() {
+        filter = $(this).data('filter');
+        if (filter === 'all') {
+            $(".toc-link").fadeIn(350);
+        } else {
+            $(".toc-link").hide();
+            $('.toc-link[data-tags~=' + filter + ']').fadeIn(350);
+        }
+        $(this).addClass('active').siblings().removeClass('active');
+        if($('#search-input').val()){
+            $('#search-input').trigger('input');
+        }
+    });
+
+    $.get("/postlist.json", function(data){
+        var categories = data.categories;
+        var posts = data.posts;
+        
+        var $sidebarTags = $("#sidebar-tags");
+        for (var i in categories){
+            $sidebarTags.append('<li class="sidebar-tag" data-filter="'+categories[i]+'">'+categories[i]+'</li>');
+        }
+        
+        var $toc = $("#toc");
+        var post;
+        for (var i in posts){
+            post = posts[i];
+            $toc.append('<a class="toc-link sidebar-social-icon" data-tags="'+post.categories[0]+'" href="'+post.url+'">'+post.title+'</a>');
+        }
     });
     
 }

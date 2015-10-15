@@ -1,7 +1,7 @@
 ---  
 layout: post
 title:  epoll初级笔记1
-category: [网络编程]
+category: [后台技术]
 description: 几个月前我使用epoll封装了一个定时器，使用了这么久一切正常。今天回顾一下epoll的基础知识。
 tags: [epoll, linux, 网络编程]
 keywords: [epoll, linux, 网络编程]

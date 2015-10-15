@@ -1,7 +1,7 @@
 ---  
 layout: post
 title:  bash中的冒号
-category: [shell]  
+category: [程序人生]  
 description: 前段时间有人在群上发了一个shell命令,问谁敢运行,还说最好在虚拟里运行.于是我研究了一下.  
 tags: [shell, linux, bash]
 keywords: [shell, linux, bash]

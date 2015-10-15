@@ -2,9 +2,9 @@
 layout: post
 title: Jekyll 模板 简单语法 笔记
 description: 使用 github 做静态网站后，发现想实现内容丰富的网站，需要先了解 Jekyll 的基本语法，于是找了一些资料看了看，并记录下来。
-keywords: Jekyll, 模板, 笔记, github
-tags: Jekyll 模板 笔记 github
-categories: [网站]
+keywords: [Jekyll, 模板, 笔记, github]
+tags: [Jekyll,模板,笔记,github,网站]
+categories: [前端技术]
 ---
 
 ## 目录结构
