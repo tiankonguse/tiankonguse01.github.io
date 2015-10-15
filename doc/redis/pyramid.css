@@ -378,3 +378,6 @@ body a:hover, body a:hover .pre, a .pre:hover {
     background-color: #C52F24;
 }
 
+ins{
+    text-align: center;
+}
