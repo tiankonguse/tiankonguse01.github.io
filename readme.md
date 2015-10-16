@@ -7,11 +7,21 @@
 
 启动服务器并生成网站
 
-sudo jekyll server 
+```
+sudo jekyll serve --watch --config _config.yml,_config_dev.yml
+```
 
 访问地址
 
-http://localhost:4000
+```
+http://127.0.0.1
+http://192.168.31.137
+```
 
+## 备份提交
+
+```
+git push gitcafe master:gitcafe-pages
+```
 
 

@@ -1504,3 +1504,14 @@ ins{
     outline: none;
 }
 
+@media screen and (max-width: 750px) {
+    #sidebar-left{
+        display: none;
+        width : 0;
+    }
+    
+    #sidebar-right{
+        width : 100%;
+    }
+}
+
