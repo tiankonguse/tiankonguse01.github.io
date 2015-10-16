@@ -193,6 +193,7 @@ keywords : jquery 在线手册|jQuery API 中文手册|jQuery 速查表|jQuery �
             <li><a href="{{ site.url }}/doc/jquery/attributeStartsWith.html">[attribute^=value]</a></li>
             <li><a href="{{ site.url }}/doc/jquery/attributeEndsWith.html">[attribute$=value]</a></li>
             <li><a href="{{ site.url }}/doc/jquery/attributeContains.html">[attribute*=value]</a></li>
+            <li><a href="{{ site.url }}/doc/jquery/attribute-contains-prefix-selector.html">[attribute|=value]</a></li>
             <li><a href="{{ site.url }}/doc/jquery/attributeMultiple.html">[attrSel1][attrSel2][attrSelN]</a></li>
           </ul>
         </li>

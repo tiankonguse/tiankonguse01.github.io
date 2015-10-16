@@ -50,6 +50,9 @@ jQuery(document).ready(function(){
 function loadSidebar(){
     var hand;
     var filter = 'all';
+    var $allLink;
+    var $filterLink = {};
+    var $searchInput = $('#search-input');
     //
     $("#sidebar-close,.close-icon").click(function(){
         $("body").removeClass("sidebar-visible");
@@ -74,7 +77,7 @@ function loadSidebar(){
             clearTimeout(hand);
         }
         hand = setTimeout(function(){
-            $('#search-input').focus();
+            $searchInput.focus();
         },3);
         e.preventDefault();
     });
@@ -88,12 +91,17 @@ function loadSidebar(){
         e.preventDefault();
     });
     
-    $('#search-input').on('input', function(e){
-        $(".toc-link").hide();
+    $searchInput.on('input', function(e){
+        var value = this.value;
+        $allLink.hide();
         if (filter === 'all') {
-            $('.toc-link:contains(' + this.value + ')').fadeIn(350);
+            $.each($allLink, function(k, v){
+                $(v).filter(":contains('"+value+"')").fadeIn(350);
+            });
         }else{
-            $('.toc-link[data-tags=' + filter + ']:contains(' + this.value + ')').fadeIn(350);
+           $.each($filterLink[filter], function(k, v){
+                $(v).filter(":contains('"+value+"')").fadeIn(350);
+            });
         }
     });
     
@@ -101,14 +109,14 @@ function loadSidebar(){
     $('#sidebar-tags').on('click', '.sidebar-tag', function() {
         filter = $(this).data('filter');
         if (filter === 'all') {
-            $(".toc-link").fadeIn(350);
+            $allLink.fadeIn(350);
         } else {
-            $(".toc-link").hide();
-            $('.toc-link[data-tags~=' + filter + ']').fadeIn(350);
+            $allLink.hide();
+            $filterLink[filter].fadeIn(350);
         }
         $(this).addClass('active').siblings().removeClass('active');
-        if($('#search-input').val()){
-            $('#search-input').trigger('input');
+        if($searchInput.val()){
+            $searchInput.trigger('input');
         }
     });
 
@@ -125,7 +133,13 @@ function loadSidebar(){
         var post;
         for (var i in posts){
             post = posts[i];
-            $toc.append('<a class="toc-link sidebar-social-icon" data-tags="'+post.categories[0]+'" href="'+post.url+'">'+post.title+'</a>');
+            $toc.append('<a class="toc-link sidebar-social-icon" data-tags="'+post.categories.join(" ")+'" href="'+post.url+'">'+post.title+'</a>');
+        }
+        
+        $allLink = $(".toc-link");
+        
+        for (var i in categories){
+            $filterLink[categories[i]] = $('.toc-link[data-tags~=' + categories[i] + ']');
         }
     });
     
