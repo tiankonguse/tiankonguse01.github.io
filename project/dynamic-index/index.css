@@ -1,0 +1,667 @@
+html {
+    font-size: 62.5%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
+    margin: 0
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+    display: block
+}
+
+audio,canvas,progress,video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],template {
+    display: none
+}
+
+a {
+    background-color: transparent
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,strong {
+    font-weight: bold
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub,sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -0.5em
+}
+
+sub {
+    bottom: -0.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,kbd,pre,samp {
+    font-family: monospace,monospace;
+    font-size: 1em
+}
+
+button,input,optgroup,select,textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,select {
+    text-transform: none
+}
+
+button,html input[type="button"],input[type="reset"],input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type="checkbox"],input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-out .5ser-spin-button {
+    height: auto
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: bold
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,th {
+    padding: 0
+}
+
+body {
+    background-color: #326696;
+    margin: 0;
+    overflow: hidden;
+    font-family: Monospace,"Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
+    font-size: 13px
+}
+
+a {
+    color: #0078ff
+}
+
+#container {
+    background-image: url("bg.png");
+    background-size: 32px 100%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.detail-con {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #326696;
+    box-sizing: border-box;
+    padding: 50px;
+    overflow: auto;
+    -webkit-transition: top .5s linear;
+    transition: top .5s linear;
+    color: #fff
+}
+
+.detail-con .desc {
+    font-size: 18px;
+    text-indent: 2em
+}
+
+.detail-con .desc a {
+    color: #30ef1a;
+    text-decoration: none
+}
+
+.detail-con .title {
+    font-size: 24px;
+    margin: 20px 0
+}
+
+.detail-con .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer
+}
+
+.detail-con ul li {
+    line-height: 26px;
+    font-size: 15px
+}
+
+.detail-con span {
+    color: #30ef1a
+}
+
+.overlay-support {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d5f8e;
+    z-index: 999
+}
+
+.overlay-support .desc {
+    padding: 50px;
+    font-size: 28px;
+    color: #fff
+}
+
+.overlay-support .refer {
+    padding: 50px;
+    font-size: 24px;
+    color: #fff
+}
+
+.overlay-support .refer .refer-title {
+    margin: 20px
+}
+
+.overlay-support .refer a {
+    margin: 10px;
+    font-size: 16px
+}
+
+.overlay-support a {
+    color: #fff;
+    text-decoration: none
+}
+
+.overlay-support a:hover {
+    text-decoration: underline
+}
+
+.main-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%
+}
+
+.main-item .item-con {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.main-item .overlay-path {
+    background: rgba(0,0,0,0.2)
+}
+
+.main-con {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    top: 10%;
+    max-height: 80%;
+    max-width: 80%;
+    overflow: hidden
+}
+
+.main-con .main-title {
+    font-size: 40px;
+    padding: 30px 0;
+    text-align: left;
+    font-weight: bold;
+    color: #fff
+}
+
+.main-con .main-title span {
+    margin-left: 5px;
+    font-size: 34px
+}
+
+.main-con .main-list {
+    list-style: none;
+    color: #fff;
+    text-align: left;
+    margin: 0
+}
+
+.main-con .main-list li {
+    line-height: 50px;
+    font-size: 28px;
+    margin: 0;
+    padding: 0
+}
+
+.main-con .main-list li span {
+    display: none;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    min-width: 10px
+}
+
+.main-con .main-list-fix li {
+    display: none
+}
+
+.main-con .main-list-fix li span {
+    display: inline-block
+}
+
+.main-con .main-body {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex
+}
+
+.main-con .main-body .contact-left,.main-con .main-body .contact-right {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    flex: 1;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 30px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 50px;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    transition: all .5s linear
+}
+
+.main-con .main-body .contact-left .title,.main-con .main-body .contact-right .title {
+    font-size: 36px;
+    padding: 20px 0
+}
+
+.main-con .main-body .contact-left a,.main-con .main-body .contact-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px
+}
+
+.main-con .main-body .contact-left a:hover,.main-con .main-body .contact-right a:hover {
+    text-decoration: underline
+}
+
+.main-con-fix {
+    width: 80%
+}
+
+.overlay-door {
+    top: 0;
+    background: rgba(0,0,0,0.2);
+    visibility: hidden;
+    width: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transition: width .8s .3s,visibility 0s .8s;
+    transition: width .8s .3s,visibility 0s .8s
+}
+
+.overlay-door.open {
+    visibility: visible;
+    width: 100%;
+    -webkit-transition: width .8s;
+    transition: width .8s
+}
+
+.overlay-genie {
+    background: transparent;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s .2s,visibility 0s .6s;
+    transition: opacity .3s .2s,visibility 0s .6s
+}
+
+.overlay-genie.open {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+.overlay-genie svg {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.overlay-genie .overlay-path {
+    fill: rgba(0,0,0,0.2)
+}
+
+.overlay-boxes {
+    background: transparent;
+    visibility: hidden;
+    -webkit-transition: visibility 0s .8s;
+    transition: visibility 0s .8s
+}
+
+.overlay-boxes.open {
+    visibility: visible;
+    -webkit-transition: none;
+    transition: none
+}
+
+.overlay-boxes svg {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.overlay-boxes svg path {
+    fill: rgba(0,0,0,0.2);
+    display: none
+}
+
+.overlay-close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.overlay-close a {
+    display: block;
+    font-size: 50px;
+    padding: 30px;
+    color: #fff;
+    text-decoration: none;
+    opacity: .5
+}
+
+.overlay-close a:hover {
+    opacity: 1
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown
+}
+
+@-webkit-keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-1000px, 0, 0);
+        transform: translate3d(-1000px, 0, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-1000px, 0, 0);
+        transform: translate3d(-1000px, 0, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInLeftBig {
+    -webkit-animation-name: fadeInLeftBig;
+    animation-name: fadeInLeftBig
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp
+}
+
+@-webkit-keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInRightBig {
+    -webkit-animation-name: fadeInRightBig;
+    animation-name: fadeInRightBig
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s
+}
+

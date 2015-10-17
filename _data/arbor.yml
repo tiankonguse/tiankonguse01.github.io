@@ -1,0 +1,67 @@
+
+-   name: ACM比赛
+    use:
+        -   name: 数据结构
+        -   name: 算法
+        -   name: c++
+        
+
+-   name: 第四阶记录集
+    use:
+        -   name: lamp
+        -   name: 前端(html+css+javascript)
+        
+
+-   name: 第五阶段记录集
+    use:
+        -   name: git
+        -   name: 前端(html+css+javascript)
+        -   name: jekyll
+        -   name: ruby
+
+-   name: android音乐播放器
+    use:
+        -   name: android
+        -   name: sqllite
+        -   name: git
+        
+-   name: android应用中心
+    use:
+        -   name: android
+        -   name: sqllite
+        -   name: lamp
+        -   name: git
+
+-   name: 13年下半年实习
+    use:
+        -   name: 腾讯微博
+        -   name: 前端(html+css+javascript)
+        -   name: php
+        -   name: mvc
+        -   name: lamp
+        -   name: svn
+
+-   name: 14年上半年实习
+    use:
+        -   name: 腾讯视频
+        -   name: 前端(html+css+javascript)
+        -   name: c++
+        -   name: shell
+        -   name: svn
+
+-   name: 工作
+    use:
+        -   name: 腾讯视频
+        -   name: c++
+        -   name: shell
+        -   name: zmq
+        -   name: sphinx
+        -   name: python
+        -   name: 前端(html+css+javascript)
+        -   name: svn
+
+
+
+
+
+

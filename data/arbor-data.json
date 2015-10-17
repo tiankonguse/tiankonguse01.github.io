@@ -1,0 +1,11 @@
+---
+title : arbor data
+---
+[{% assign firstArbor = 0 %}
+    {% for arbor in site.data.arbor %} {% if firstArbor == 1 %},{% endif %}{% assign firstArbor = 1 %}{
+        "name":"{{ arbor.name }}",
+        "use":[ {% assign firstUse = 0 %}{% for use in arbor.use %}
+            {% if firstUse == 1 %},{% endif %}{% assign firstUse = 1 %} "{{ use.name }}"{% endfor %}
+        ]
+    }{% endfor %}
+]

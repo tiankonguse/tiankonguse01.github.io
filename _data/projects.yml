@@ -1,4 +1,15 @@
 
+
+- title: 动态主页
+  url: /project/bashrcgenerator/
+  description : 一个简单的动态主页
+
+
+
+- title: 技能关系图
+  url: /project/skill/
+  description : tiankonguse的技能关系图
+
 - title: 经典游戏之俄罗斯方块
   url: /project/tetris/
   description : 求维护者
