@@ -37,32 +37,14 @@
 <div class="sidenav">
 	<h2><a href="{{ site.url }}/archives.html"><span>猜你喜欢</span></a></h2>
 	<ul class="artical-list">
-{% assign matchNum = 0 %}
+	{% assign nowPost = page %}
+	{% include relate_post.md %}
+	
 
-{% for post in site.posts %}
-    {% if matchNum < 10 %}
-        {% assign match = false %}
-        {% for tag in post.tags %}
-            {% if page.tags contains tag %}
-                {% assign match = true %}
-            {% endif %}
-        {% endfor %}
-        {% if match %}
-            {% assign matchList[matchNum] = post %}
-            {% assign matchNum = matchNum | plus:1 %}
-            <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
-{% if matchNum < 10 %}
-    {% assign matchNum = 10 | minus:matchNum %}
-    {% for post in site.posts limit:matchNum  %}
-        <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-{% endif %}
 	</ul>
 </div>
+
+
 
 <div id="menuIndex" class="sidenav"></div>
 <div id="menuIndex-next" class="sidenav">
