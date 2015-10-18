@@ -43,7 +43,7 @@
         {% endfor %}
     {% endif %}
     
-    {% if post10Weight >= post9Weight %}
+    {% if post10Weight > post9Weight %}
         {% assign postTmp = post9 %}
         {% assign postTmpWeight = post9Weight %}
         
@@ -53,7 +53,7 @@
         {% assign post10 = postTmp %}
         {% assign post10Weight = postTmpWeight %}
     {% endif %}
-    {% if post9Weight >= post8Weight %}
+    {% if post9Weight > post8Weight %}
         {% assign postTmp = post8 %}
         {% assign postTmpWeight = post8Weight %}
         
@@ -63,7 +63,7 @@
         {% assign post9 = postTmp %}
         {% assign post9Weight = postTmpWeight %}
     {% endif %}
-    {% if post8Weight >= post7Weight %}
+    {% if post8Weight > post7Weight %}
         {% assign postTmp = post7 %}
         {% assign postTmpWeight = post7Weight %}
         
@@ -73,7 +73,7 @@
         {% assign post8 = postTmp %}
         {% assign post8Weight = postTmpWeight %}
     {% endif %}
-    {% if post7Weight >= post6Weight %}
+    {% if post7Weight > post6Weight %}
         {% assign postTmp = post6 %}
         {% assign postTmpWeight = post6Weight %}
         
@@ -83,7 +83,7 @@
         {% assign post7 = postTmp %}
         {% assign post7Weight = postTmpWeight %}
     {% endif %}
-    {% if post6Weight >= post5Weight %}
+    {% if post6Weight > post5Weight %}
         {% assign postTmp = post5 %}
         {% assign postTmpWeight = post5Weight %}
         
@@ -93,7 +93,7 @@
         {% assign post6 = postTmp %}
         {% assign post6Weight = postTmpWeight %}
     {% endif %}
-    {% if post5Weight >= post4Weight %}
+    {% if post5Weight > post4Weight %}
         {% assign postTmp = post4 %}
         {% assign postTmpWeight = post4Weight %}
         
@@ -103,7 +103,7 @@
         {% assign post5 = postTmp %}
         {% assign post5Weight = postTmpWeight %}
     {% endif %}
-    {% if post4Weight >= post3Weight %}
+    {% if post4Weight > post3Weight %}
         {% assign postTmp = post3 %}
         {% assign postTmpWeight = post3Weight %}
         
@@ -113,7 +113,7 @@
         {% assign post4 = postTmp %}
         {% assign post4Weight = postTmpWeight %}
     {% endif %}
-    {% if post3Weight >= post2Weight %}
+    {% if post3Weight > post2Weight %}
         {% assign postTmp = post2 %}
         {% assign postTmpWeight = post2Weight %}
         
@@ -123,7 +123,7 @@
         {% assign post3 = postTmp %}
         {% assign post3Weight = postTmpWeight %}
     {% endif %}
-    {% if post2Weight >= post1Weight %}
+    {% if post2Weight > post1Weight %}
         {% assign postTmp = post1 %}
         {% assign postTmpWeight = post1Weight %}
         
@@ -133,7 +133,7 @@
         {% assign post2 = postTmp %}
         {% assign post2Weight = postTmpWeight %}
     {% endif %}
-    {% if post1Weight >= post0Weight %}
+    {% if post1Weight > post0Weight %}
         {% assign postTmp = post0 %}
         {% assign postTmpWeight = post0Weight %}
         
