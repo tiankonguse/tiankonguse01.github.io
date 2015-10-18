@@ -16,10 +16,6 @@
     showImg: 0
     class: fa-weibo
 
--   url: http://www.douban.com/people/tiankonguse/
-    img: http://www.douban.com/favicon.ico
-    name: douban
-    showImg: 1 
 
 -   url: http://weixin.qq.com/
     img: http://github.tiankonguse.com/images/weixin_24x24.png

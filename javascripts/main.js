@@ -143,6 +143,16 @@ function loadSidebar(){
         }
     });
     
+    /* scroll top down */
+    $(".js-scroll-top").click(function(){
+        tk.animateGoto($("#_top").position().top);
+    });
+    $(".js-scroll-comment").click(function(){
+        tk.animateGoto($("#disqus_container").position().top);
+    });
+    $(".js-scroll-down").click(function(){
+        tk.animateGoto($("#_down").position().top);
+    });
 }
 
 

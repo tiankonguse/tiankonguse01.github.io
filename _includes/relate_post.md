@@ -23,6 +23,7 @@
 {% assign postTmp = 0 %}
 {% assign postTmpWeight = -1 %}
 
+
 {% for post in site.posts %}
     {% assign post10Weight = -2 %}
     {% assign post10 = post %}

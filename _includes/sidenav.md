@@ -25,6 +25,7 @@
 	</div>
 </div>
 
+{% if site.load_resources == 1 %}
 <div class="sidenav">
 	<h2><a href="{{ site.url }}/resources"><span>Resources</span></a></h2>
 	<ul class="artical-list">
@@ -33,20 +34,23 @@
 		{% endfor %}
 	</ul>
 </div> 
+{% endif %}
 
+{% if site.no_load_relate_post != 1 %}
 <div class="sidenav">
 	<h2><a href="{{ site.url }}/archives.html"><span>猜你喜欢</span></a></h2>
 	<ul class="artical-list">
 	{% assign nowPost = page %}
 	{% include relate_post.md %}
-	
-
 	</ul>
 </div>
+{% endif %}
 
 
 
-<div id="menuIndex" class="sidenav"></div>
+<div id="menuIndex" class="sidenav">
+	<h2><span>目录</span></h2>
+</div>
 <div id="menuIndex-next" class="sidenav">
     <ins class="adsbygoogle"
 		 style="display:inline-block;width:250px;height:250px"

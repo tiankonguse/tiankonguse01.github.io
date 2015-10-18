@@ -1515,3 +1515,37 @@ ins{
     }
 }
 
+.home-menu .home-link {
+    background: rgba(0, 0, 0, 0.43);
+}
+
+.home-menu:hover {
+    background: rgb(0, 0, 0);
+}
+
+/***** sidebar for scroll top-bottom ******/
+.scroll-top-down {
+width: 75px;
+position: fixed;
+top: 40%;
+right: -5px;
+text-align: center;
+z-index: 2222;
+}
+.scroll-top-down div {
+margin-bottom: 5px;
+color: black;
+}
+.scroll-top-down i {
+cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+    .scroll-top-down {
+        right: -35px;
+    }
+    .scroll-top-down div {
+        color: rgba(0, 0, 0, 0.4);
+    }
+}
+

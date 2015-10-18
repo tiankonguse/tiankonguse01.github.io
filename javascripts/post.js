@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
         var scrollLiTop = [];
         var menuIndexTop = $menuIndex.offset().top;
         var menuIndexLeft = $menuIndex.offset().left;
-        var winHeight =  tk.min($(window).height(), screen.height);
+        var winHeight =  tk.min($(window).height(), screen.height,screen.availHeight);
         var bottomHeight;
             
         var indexHeight = 0;
@@ -57,11 +57,11 @@ jQuery(document).ready(function(){
             var h3 = heading.h3;
 
             for(var i=0;i<h2.length;i++){
-                tmpl += '<li><a href="#content-h2-' + h2[i].name + '" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
+                tmpl += '<li><a href="#' +h2[i].id + '" data-id="'+h2[i].id+'">'+h2[i].name+'</a></li>';
 
                 if(h3[i]){
                     for(var j=0;j<h3[i].length;j++){
-                        tmpl += '<li class="h3"><a href="#content-h3-' + h3[i][j].name + '" data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
+                        tmpl += '<li class="h3"><a href="#' + h3[i][j].id + '" data-id="'+h3[i][j].id+'">'+h3[i][j].name+'</a></li>';
                     }
                 }
             }
@@ -85,6 +85,9 @@ jQuery(document).ready(function(){
             var $next = $("#menuIndex-next");
             $menuIndex = $('#menuIndex');
             $menuIndex.append($(tmpl));
+            
+            
+            var h = winHeight - 80 - $next.height();
                 
             $menuIndex.delegate('a','click',function(e){
                     e.preventDefault();
@@ -94,6 +97,9 @@ jQuery(document).ready(function(){
                 $menuIndex.append($next.children());
             }
             $next.remove();
+            
+            $('#menuIndex ul').css({"max-height": h + "px", "overflow-y": "scroll"});
+            
         }
 
         var waitForFinalEvent = (function () {

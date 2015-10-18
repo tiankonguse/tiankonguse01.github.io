@@ -669,7 +669,14 @@ tk.Composition(TK, {
     }
 });
 
-
+tk.Composition(TK, {
+    animateGoto : function(e, f){
+        $("body,html").animate({
+            scrollTop: e
+        }, 800, f || function() {}
+        );
+    }
+});
 
 tk.Composition(TK, {
     __INIT__ : function(){
