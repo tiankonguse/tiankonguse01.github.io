@@ -98,7 +98,7 @@ jQuery(document).ready(function(){
             }
             $next.remove();
             
-            $('#menuIndex ul').css({"max-height": h + "px", "overflow-y": "scroll"});
+            $('#menuIndex ul').css({"max-height": h + "px", "overflow-y": "auto"});
             
         }
 
