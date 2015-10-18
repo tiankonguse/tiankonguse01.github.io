@@ -1,3 +1,12 @@
+.photowall-tips{
+    position: absolute;
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #F70000;
+    top: 1px;
+}
 .photowall-container {
     padding: 0;
     margin: auto;

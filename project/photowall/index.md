@@ -5,7 +5,7 @@ title : 简单优雅的照片墙
 ---
 <link href="main.css" rel="stylesheet" type="text/css">
 
-
+<div class="photowall-tips">如果你想推荐图片, 请在评论中告诉我</div>
 <div class="photowall-container">
 </div>
 <div class="clearfix"></div>
