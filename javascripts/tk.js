@@ -618,7 +618,7 @@ tk.Composition(TK.Comment, {
         }, t);
     },
     shouldLoad  : function shouldLoad(){
-        return /\#comment/.test(this.hash );
+        return /\#comment/.test(this.hash ) || /\#disqus/.test(this.hash );
     },
     bindClick : function bindClick(){
         var that = this;
