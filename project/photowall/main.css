@@ -32,6 +32,7 @@
     }
     .photowall-img:hover {
         box-shadow: 2px 2px 3px #ccc !important;
+        width: 55% !important;
     }
 }
 

@@ -57,7 +57,7 @@ title : 简单优雅的照片墙
             $(".photowall-container img").each(function(i,v){
                 var img = $(v);
                 if(tk.isMobile.any()){
-                    img.css("width","35%");
+                    img.css("width","45%");
                 }else{
                     img.css("width","15%");
                 }
