@@ -1,0 +1,13 @@
+---
+title : photowall data
+---
+[
+{% assign first = 0 %}
+{% for data in site.data.photowall_data %}
+    {% if first == 1 %},{% endif %}{% assign first = 1 %}
+    {
+        "name" : "{{ data.name }}",
+        "url" : "{{ data.url }}"
+    }
+{% endfor %}
+]
