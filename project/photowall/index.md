@@ -13,9 +13,7 @@ title : 简单优雅的照片墙
 <script type="text/javascript">
     /* 定义随机left，top和旋转值 */
     $(document).ready(function(){
-        $(".js-scroll-comment").click(function(){
-            window.open("/about.html#disqus_container");
-        });
+
         
     
         setTimeout(function(){

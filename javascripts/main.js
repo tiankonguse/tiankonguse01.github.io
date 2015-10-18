@@ -150,6 +150,8 @@ function loadSidebar(){
     $(".js-scroll-comment").click(function(){
         if($("#disqus_container").length){
             tk.animateGoto($("#disqus_container").position().top);
+        }else{
+            window.open("/about.html#disqus_container");
         }
     });
     $(".js-scroll-down").click(function(){
