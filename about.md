@@ -27,15 +27,19 @@ updateData:  21:25 2015/4/2
 
 简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
 
+## Geek Code
 
+[what is Geek Code](http://www.geekcode.com)  
 
-## [关于看书](/book.html)
+```
+-----BEGIN GEEK CODE BLOCK-----
+Version: v3.12
+GCS/M/TW d---@ s: a- C++(+++) LBU++(+++)$ P+(++) L++(+++) E(+) W+++$ N+ o+ K++ w++ 
+O- M V PS+ PE Y+ PGP++ t 5 X+@ R@ !tv b+++ DI++ D+ 
+G e++ h+ r !y+
+------END GEEK CODE BLOCK------
+```
 
-
-## [关于电影和电视剧](/video.html)
-
-
-## [关于我听的音乐](/music.html)
 
 
 ## 关于这个网站
@@ -59,9 +63,6 @@ updateData:  21:25 2015/4/2
 
 
 如果喜欢我的文章，可以赠一本书。
-
-![zhifubao_code][]
-
 
 
 ## 读书使人快乐
