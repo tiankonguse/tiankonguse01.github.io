@@ -36,7 +36,7 @@ categories: [python]
 
 #### 得到当前时间戳.  
 
-`time.time()` 可以得到一个浮点数, 单位毫秒.  
+`time.time()` 可以得到一个浮点数, 单位秒.  
 
 ```
 >>> import time
