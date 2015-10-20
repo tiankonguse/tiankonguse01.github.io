@@ -1,11 +1,11 @@
 ---
 layout: default
 categories: [project]
-title : 简单优雅的照片墙
+title : 简单的个人照片墙
 ---
 <link href="main.css" rel="stylesheet" type="text/css">
 
-<div class="photowall-tips">如果你想推荐图片, 请在评论中告诉我</div>
+<div class="photowall-tips">这个页面需要个人口令才能访问.如果你想增加图片, 请在评论中告诉我</div>
 <div class="photowall-container">
 </div>
 <div class="clearfix"></div>
@@ -118,7 +118,6 @@ title : 简单优雅的照片墙
             for(var i in c){
                 var key = c[i];
                 if(key < d.length){
-                    console.log(d, key);
                      addTag(d[key]);
                 }
                
@@ -154,9 +153,9 @@ title : 简单优雅的照片墙
         }
 
         function prelogin(){
-            var pw = prompt("请输入你的专属密码,亲", "");
+            var pw = prompt("请输入你的口令,亲", "");
             if(pw.length == 0){
-                showMessage("密码不能为空,亲");
+                showMessage("口令不能为空,亲");
                 return
             }
             login(pw);
@@ -179,16 +178,23 @@ title : 简单优雅的照片墙
         }
 
         function precreate(){
-            var pw1 = prompt("请输入你的专属密码,亲", "");
-            var pw2 = prompt("请再次输入你的专属密码,亲", "");
+            var pw1 = prompt("请输入你的口令,亲", "");
+            
             
             if(pw1.length == 0){
-                showMessage("密码不能为空,亲");
+                showMessage("口令不能为空,亲");
+                return
+            }
+            
+            var pw2 = prompt("请再次输入你的口令,亲", "");
+            
+            if(pw1.length == 0){
+                showMessage("口令不能为空,亲");
                 return
             }
             
             if(pw1 != pw2){
-                showMessage("两个密码不一样,亲");
+                showMessage("两个口令不一样,亲");
                 return
             }
             
