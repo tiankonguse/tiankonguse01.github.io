@@ -16,15 +16,13 @@ title : 简单的个人照片墙
 <script type="text/javascript">
     /* 定义随机left，top和旋转值 */
     $(document).ready(function(){
-
-        
     
         setTimeout(function(){
             $(".ad-page-footer").hide();
         },10);
         var zindex = 2;
-        var w =  tk.min($(window).width(), screen.width, screen.availWidth) - 200;
-        var h =  tk.min($(window).height(), screen.height, screen.availHeight) - 200;
+        var w =  $(window).width() - 200;
+        var h =  $(window).height() - 200;
         
         if(tk.isMobile.any()){
             w =  w + 150;
@@ -44,7 +42,7 @@ title : 简单的个人照片墙
         
         
         function draggableNote(){
-            $(".photowall-container img").draggable({
+            $(".photowall-container .photowall-img").draggable({
                 containment: $(".photowall-container"),
                 zIndex: 2700,
                 start: function(){
@@ -84,8 +82,13 @@ title : 简单的个人照片墙
         
         function addTag(img){
             var className = "img-" + (getImageClassIndex(6) + 1);
-            $(".photowall-container").append("<img class=\"photowall-img "+className+"\" src=\""+img+"\">");
-            defineSevenDiv($(".photowall-container").find("img:last"));
+            var _img = "<img class=\"img-url photowall-img " +className+ "\" src=\""+ img.url +"\" alt=\" " + img.desc + " \">";
+            var _text = "<div class=\"img-desc\">" + img.desc + "</div>";
+            var _inner = "<div class=\"img-inner\">"+ _img + _text  +"</div>";
+            var _outer = "<div class=\"photowall-img " +className+ "\">"+ _inner  +"</div>";
+            
+            $(".photowall-container").append(_img);
+            defineSevenDiv($(".photowall-container").find(".photowall-img:last"));
         }
         
         function GetRequest() {
@@ -108,7 +111,13 @@ title : 简单的个人照片墙
         var id = GetRequest()["id"];
         
         function show(d){
+            // d = [];
+            // d.push({"url":"1.png", "desc":"你好"});
+            // d.push({"url":"2.png", "desc":"你好"});
+            // d.push({"url":"3.png", "desc":"你好"});
+            // d.push({"url":"4.png", "desc":"你好"});
             var c = {}, key;
+            var img;
             console.log(d);
             for(var i in d){
                 key = getImageClassIndex(d.length);
