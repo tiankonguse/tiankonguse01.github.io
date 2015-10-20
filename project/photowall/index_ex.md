@@ -5,7 +5,7 @@ title : 简单的个人照片墙
 ---
 <link href="main.css" rel="stylesheet" type="text/css">
 
-<div class="photowall-tips">这个页面需要个人口令才能访问.如果你想增加图片, 请在评论中告诉我</div>
+<div class="photowall-tips">这里只有你可以看到, 可以展示你的任何图片.增加图片, 请在评论中告诉我</div>
 <div class="photowall-container">
 </div>
 <div class="clearfix"></div>
