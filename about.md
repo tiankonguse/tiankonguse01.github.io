@@ -20,14 +20,14 @@ updateData:  21:25 2015/4/2
 
 工作目前涉及到的语言有:c/c++(CGI,服务,独立程序), python(独立程序), perl(独立程序), php(网站后台), 前台html+css+js开发。  
 
-涉及到技术有：　独立系统设计，　系统数据库独立设计，　sphinx搜索搭建与维护，　各种接口设计与维护。  
+涉及到技术有: 独立系统设计,系统数据库独立设计,sphinx搜索搭建与维护,各种接口设计与维护。  
 
 
 简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
 
 ## 个人信息
 
-```javascript
+```
 (function(){
     function TK(){
     
@@ -65,7 +65,7 @@ G e++ h+ r !y+
 
 ## 关于这个网站
 
-这个网站托管在[github][github-tiankonguse]上。   
+这个网站托管在 [github](github-tiankonguse) 上。   
 
 
 ## 关于 tiankonguse 的记录集
