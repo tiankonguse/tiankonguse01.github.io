@@ -233,6 +233,7 @@ jQuery(document).ready(function(){
                 $menuIndex.append($next.children());
             }
             $next.remove();
+            $('#menuIndex').remove();
         }
     })();
 
