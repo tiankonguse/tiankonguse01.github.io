@@ -23,9 +23,30 @@ updateData:  21:25 2015/4/2
 涉及到技术有：　独立系统设计，　系统数据库独立设计，　sphinx搜索搭建与维护，　各种接口设计与维护。  
 
 
-
-
 简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
+
+## 个人信息
+
+```javascript
+(function(){
+    function TK(){
+    
+    }
+    TK.prototype["姓名"] = "袁小康";
+    TK.prototype["网络昵称"] = "tiankonguse";
+    TK.prototype["电话"] = "13043495626";
+    TK.prototype["目前城市"] = "深圳";
+    TK.prototype["公司"] = "腾讯";
+    TK.prototype["博客"] = "http://github.tiankonguse.com/";
+    TK.prototype["姓名"] = "袁小康";
+    TK.prototype["WEB简历"] = "http://tiankonguse.com/lab/kirichik/";
+    TK.prototype["好玩的东西"] = "http://github.tiankonguse.com/project/";
+    return new TK();
+})();
+```
+
+
+
 
 ## Geek Code
 
@@ -49,6 +70,13 @@ G e++ h+ r !y+
 
 ## 关于 tiankonguse 的记录集
 
+* 第一阶段 使用免费域名和免费空间 (网站底部会被空间提供商嵌入广告)
+* 第二阶段 自己买域名和空间自己实现博客(学习各种WEB技术)
+* 第三阶段 使用 wordpress搭建博客 (累觉不爱, 想把重点放在写博客上)
+* 第四阶段 自己实现简洁的博客 (重点放在写博客后, 追求简洁)
+* 第五阶段 使用github 搭建博客 (只需要写篇文章, 提交一下就行了)
+
+<div style="display: none;">
 大概 2010 年起，我不再写个人感情的故事了，因为那年我高考结束进入大学了。    
 2010 年之前我都是在[QQ空间写东西][qzone]的，不过现在已经找不到写的那些东西了。    
 2010年到2012年，自己在QQ空间主要写自己大学的[个人情感][qzone]。    
@@ -60,7 +88,7 @@ G e++ h+ r !y+
 同样是2013 年，我重写了自己做的第一个博客，然后就一直在那上面写东西，现在我称她为[记录集][record]。    
 2014 年，我使用了一段 [iteye][] 来记录文章，当然都会和我的[记录集][record]保持同步。    
 工作后的2014 年，我开始使用 [github][] 来记录我想记录下来的东西。    
-
+<div>
 
 如果喜欢我的文章，可以赠一本书。
 
