@@ -30,11 +30,10 @@ updateData:  21:25 2015/4/2
     TK.prototype["姓名"] = "袁小康";
     TK.prototype["网络昵称"] = "tiankonguse";
     TK.prototype["电话"] = "13043495626";
-    TK.prototype["邮箱"] = "i@tiankonguse.com";
+    TK.prototype["邮箱"] = "i@tiankonguse.com/804345178@qq.com";
     TK.prototype["目前城市"] = "深圳";
     TK.prototype["公司"] = "腾讯";
     TK.prototype["博客"] = "http://github.tiankonguse.com/";
-    TK.prototype["姓名"] = "袁小康";
     TK.prototype["WEB简历"] = "http://tiankonguse.com/lab/kirichik/";
     TK.prototype["好玩的东西"] = "http://github.tiankonguse.com/project/";
     return new TK();
