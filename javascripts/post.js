@@ -87,7 +87,7 @@ jQuery(document).ready(function(){
             $menuIndex.append($(tmpl));
             
             
-            var h = winHeight - 80 - $next.height();
+            var h = winHeight - 100 - $next.height();
                 
             $menuIndex.delegate('a','click',function(e){
                     e.preventDefault();
@@ -279,5 +279,13 @@ jQuery(document).ready(function(){
     
     $("table").addClass("table table-bordered table-hover table-striped table-condensed");
 
-    
+    $(".tag-box .categories").click(function(e){
+        e.preventDefault()
+        var that = $(this);
+        tt=that;
+        var text = that.data("name");
+        $(".home-menu-ex").trigger("click");
+        $("#sidebar-tags li[data-filter='" + text + "']").trigger("click");
+        console.log("#sidebar-tags li[data-filter='" + text + "']");
+    });
 });

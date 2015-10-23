@@ -18,13 +18,13 @@ Usage:
 
 {% if categories_list.first[0] == null %}
     {% for category in categories_list %} 
-        <li><a href="{{ site.url }}{{ site.categories_path }}#{{ category }}-category-ref">
+        <li><a class="categories" data-name="{{ category }}" href="{{ site.url }}{{ site.categories_path }}#{{ category }}-category-ref">
             {{ category | join: "/" }} <span>{{ site.categories[category].size }}</span>
         </a></li>
     {% endfor %}
 {% else %}
     {% for category in categories_list %} 
-        <li><a href="{{ site.url }}{{ site.categories_path }}#{{ category[0] }}-category-ref">
+        <li><a class="categories" data-name="{{ category[0] }}" href="{{ site.url }}{{ site.categories_path }}#{{ category[0] }}-category-ref">
         {{ category[0] | join: "/" }} <span>{{ category[1].size }}</span>
         </a></li>
     {% endfor %}

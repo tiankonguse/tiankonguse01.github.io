@@ -30,6 +30,7 @@ updateData:  21:25 2015/4/2
     TK.prototype["姓名"] = "袁小康";
     TK.prototype["网络昵称"] = "tiankonguse";
     TK.prototype["电话"] = "13043495626";
+    TK.prototype["邮箱"] = "i@tiankonguse.com";
     TK.prototype["目前城市"] = "深圳";
     TK.prototype["公司"] = "腾讯";
     TK.prototype["博客"] = "http://github.tiankonguse.com/";
@@ -60,7 +61,7 @@ G e++ h+ r !y+
 
 ## 关于这个网站
 
-这个网站托管在 [github](github-tiankonguse) 上。   
+这个网站托管在 [github][github-tiankonguse] 上。   
 
 
 ## 关于 tiankonguse 的记录集
