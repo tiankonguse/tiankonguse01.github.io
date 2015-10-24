@@ -28,7 +28,7 @@
     text-align: center;
 }
 .container > a > p span {
-    white-space: nowrap;
+    white-space: normal;
     text-decoration: none;
     margin-top: 15px;
     display: inline-block;
