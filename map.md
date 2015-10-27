@@ -6,7 +6,7 @@ isArchive: true
 updateData:  21:25 2015/4/2
 ---
 
-
+<script data-main="javascripts/map_page" src="/javascripts/lib/require.js"></script>
 
 <div class="map-own">
     {% for tool in site.data.tools %}

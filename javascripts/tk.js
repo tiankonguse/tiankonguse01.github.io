@@ -669,6 +669,8 @@ tk.Composition(TK, {
     }
 });
 
+
+
 tk.Composition(TK, {
     animateGoto : function(e, f){
         $("body,html").animate({
@@ -679,12 +681,127 @@ tk.Composition(TK, {
 });
 
 tk.Composition(TK, {
-    __INIT__ : function(){
-        tk.frame();
-        tk.fixConsole();
+    fixString : function(){
+        if (String.prototype.trim === undefined){
+            String.prototype.trim = function(){ 
+                return this.replace(/^\s+|\s+$/g, '') 
+            };
+        }
     }
 });
 
+
+tk.Composition(TK, {
+    fixArray : function(){
+        if (Array.prototype.reduce === undefined){
+            Array.prototype.reduce = function(fun){
+                if(this === void 0 || this === null){
+                    throw new TypeError();
+                }
+                var t = Object(this), len = t.length >>> 0, k = 0, accumulator;
+                if(typeof fun != 'function'){
+                    throw new TypeError()
+                }
+                if(len == 0 && arguments.length == 1){
+                    throw new TypeError()
+                }
+
+                if(arguments.length >= 2){
+                    accumulator = arguments[1]
+                }else{
+                    do{
+                        if(k in t){
+                            accumulator = t[k++]
+                            break
+                        }
+                        if(++k >= len){
+                            throw new TypeError()
+                        }
+                    } while (true);
+                }
+                
+
+                while (k < len){
+                    if(k in t){
+                        accumulator = fun.call(undefined, accumulator, t[k], k, t)
+                    }
+                    k++;
+                }
+                return accumulator;
+            };
+        }
+    }
+});
+
+tk.Composition(TK, {
+    __INIT__ : function(){
+        tk.frame();
+        tk.fixConsole();
+        tk.fixString();
+        tk.fixArray();
+        
+    }
+});
+
+
+
+
+/*
+功能: 渲染模板
+参数:tk.parseTpl(str, data);
+语法: <%= code %> 输出code. <% code %> code为js语法 data为key-value对象, 模板中可以直接使用key.  
+例如: tk.parseTpl('<%= title %>',{title:"hello"}).
+*/
+tk.Composition(TK, {
+    parseTpl : function(str, data ){
+        var buf = [];
+        buf.push('var __p=[];');
+        buf.push('with(obj||{}){');
+        buf.push('__p.push(\'');
+        
+        str = str.replace( /\\/g, '\\\\' );
+        str = str.replace( /'/g, '\\\'' );
+        str = str.replace( /<%=([\s\S]+?)%>/g, function( match, code ) {
+            return '\'+' + code.replace( /\\'/, '\'' ) + '+\'';
+        } );
+        str = str.replace( /<%([\s\S]+?)%>/g, function( match, code ) {
+            return '\');' + code.replace( /\\'/, '\'' )
+                    .replace( /[\r\n\t]/g, ' ' ) + '__p.push(\'';
+        } );
+        str = str.replace( /\r/g, '\\r' );
+        str = str.replace( /\n/g, '\\n' );
+        str = str.replace( /\t/g, '\\t' );
+        buf.push(str);
+        buf.push('\');');
+        buf.push('}');
+        buf.push('return __p.join("");');
+        
+        var func = new Function( 'obj', buf.join("") );
+        return func(data);
+    }
+});
+
+tk.AddMethod(TK,{
+    Event : function Event(){
+        this.__dom_id = 1;
+        this.specialEvents = {
+            click : 'MouseEvents',
+            mousedown : 'MouseEvents',
+            mouseup : 'MouseEvents',
+            clmousemoveick : 'MouseEvents'
+        };
+        this.hover = {
+            mouseenter: 'mouseover', 
+            mouseleave: 'mouseout'
+        };
+    }
+});
+
+tk.Composition(TK.Event, {
+    _id : function(element){
+        return element.__dom_id || (element.__dom_id = this.__dom_id++);
+    }
+});
 
 
 /*

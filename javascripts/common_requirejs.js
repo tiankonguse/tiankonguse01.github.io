@@ -7,8 +7,9 @@ requirejs.config({
     baseUrl: '../lib',
     paths: {
         view: '../view',
+        app: '../app',
         model: '../model',
-        control: '../control'
+        controller: '../controller'
     }
 });
 
