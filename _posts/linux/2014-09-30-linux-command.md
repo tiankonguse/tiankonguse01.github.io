@@ -808,6 +808,22 @@ TOP是一个动态显示过程,即可以通过用户按键来不断刷新当前�
 
 而且该命令的很多特性都可以通过交互式命令或者在个人定制文件中进行设定.
 
+#### 详细说明
+
+```
+top - 11:10:38 up 143 days, 18:38,  1 user,  load average: 0.46, 0.39, 0.36
+Tasks: 514 total,   1 running, 513 sleeping,   0 stopped,   0 zombie
+Cpu(s):  1.6%us,  0.1%sy,  0.0%ni, 98.3%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  65807288k total, 14324108k used, 51483180k free,  1405276k buffers
+Swap:  2088952k total,        0k used,  2088952k free, 11722016k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                                                                                                                            
+15463 user_00   20   0 1408m 329m 303m S 37.4  0.5   9:04.74 searchd
+```
+
+
+
+
 
 ### free
 
