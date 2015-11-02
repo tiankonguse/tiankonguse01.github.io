@@ -99,7 +99,7 @@ PID USER PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+ COMMAND
     * X: COMMAND    = Command name/line
 * o 调整字段显示的顺序
 * F/O 调整默认排序字段
-* >/< 下个字段作为排序字段
+* `>/<` 下个字段作为排序字段
 * R 正常排序或者反序
 * H 显示线程
 * c 显示命令
