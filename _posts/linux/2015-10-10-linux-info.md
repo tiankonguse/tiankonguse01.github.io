@@ -240,6 +240,7 @@ I/O 系统也和超市排队有很多类似之处:
 *  如果响应时间超过了用户可以容许的范围，这时可以考虑更换更快的磁盘，调整内核elevator算法，优化应用，或者升级 CPU。
 *  如果%util很大，而rkB/s和wkB/s很小，一般是因为磁盘存在较多的磁盘随机读写，最好把磁盘随机读写优化成顺序读写。
 
+### diskstats
 
 另外,iostat命令的信息实际上是从 /proc/diskstats 文件读取计算得到的.  
 
@@ -278,20 +279,20 @@ tiankonguse:~ $ cat /proc/diskstats
 这个文件统计了每个驱动的io信息.  
 每行有14列, 含义如下:  
 
-1 - major number
-2 - minor mumber
-3 - device name
-4 - reads completed
-5 - reads merged                                        （
-6 - sectors read
-7 - time spent reading (ms)
-8 - writes completed
-9 - writes merged
-10 - sectors written
-11 - time spent writing (ms)
-12 - I/Os currently in progress
-13 - time spent doing I/Os (ms)
-14 - weighted time spent doing I/Os (ms)
+1. major number
+2. minor mumber
+3. device name
+4. reads completed
+5. reads merged                                        （
+6. sectors read
+7. time spent reading (ms)
+8. writes completed
+9. writes merged
+10. sectors written
+11. time spent writing (ms)
+12. I/Os currently in progress
+13. time spent doing I/Os (ms)
+14. weighted time spent doing I/Os (ms)
 
 跟记录CPU信息的`/proc/stat`文件一样，`/proc/diskstats`中每个字段的数值也是从系统启动后一直累加的。我们用delta来表示在时间t内某个字段的增量。例如定义delta(reads merged)为当前reads merged的值减去t秒前reads merged的值
 
@@ -320,7 +321,7 @@ tiankonguse:~ $ cat /proc/diskstats
 ```
 tiankonguse@:[~]: vmstat 
 procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
- r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ r  b    swpd   free   buff   cache   si   so    bi    bo   in   cs us sy id wa st
  1  0 2104504 632680 508064 5411892    0    0     3    86    0    0  2  2 96  0  0
 ```
 
