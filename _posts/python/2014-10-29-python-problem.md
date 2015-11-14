@@ -720,6 +720,18 @@ print len(str)
 ## 编码相关
 
 
+### 程序编码
+
+
+```
+import sys
+import re
+reload(sys)
+sys.setdefaultencoding('utf8')
+```
+
+
+
 ### 编码检测 与转换编码
 
 
@@ -792,6 +804,74 @@ char = chr(48) # '1'
 对于文件操作，常用的有两种：读，写。  
 其中读可能一次性读完，也可能按某个规则一个一个的读。  
 而写则有覆盖写和文件末尾追加两种方式。  
+
+### 打印日志
+
+
+#### 日志级别
+
+* CRITICAL 危险级别
+* ERROR    错误级别
+* WARNING  警告级别
+* INFO     信息级别
+* DEBUG    调试级别
+* NOTSET   说明信息
+
+
+#### 文件模式
+
+* a 在文件指定位置追加写
+* w 写之前会先清空文件
+* b 以二进制的方式写
+
+#### 打印格式
+
+* `%(asctime)s` 时间
+* `%(filename)s` 文件名
+* `%(funcName)s` 函数名
+* `%(levelname)s` 日志级别
+* `%(lineno)d` 行号
+* `%(message)s` 错误信息
+* `%(pathname)s` 路径名
+* `%(process)d` 进程ID
+* `%(processName)s` 进程名
+* `%(thread)d` 线程ID
+* `%(threadName)s` 线程名
+
+
+#### 样例
+
+设置系统日志
+
+```
+today = datetime.date.today()
+logfilepath = "./log/" + os.path.splitext(os.path.basename(__file__))[0] + "_" + today.strftime('%Y%m%d') + ".log"
+logging.basicConfig(filename=logfilepath, level=logging.ERROR, filemode='w', format='%(asctime)s - %(levelname)s: %(message)s')
+
+logging.debug("sql:%s" % ("select * from test;"))
+```
+
+设置私有日志
+
+```
+import logging
+import logging.handlers
+
+LOG_FILENAME = 'logging_rotatingfile_example.out'
+
+# Set up a specific logger with our desired output level
+my_logger = logging.getLogger('MyLogger')
+my_logger.setLevel(logging.DEBUG)
+
+# Add the log message handler to the logger
+handler = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20, backupCount=5)
+
+my_logger.addHandler(handler)
+
+my_logger.debug('i = %d' % i)
+```
+
+
 
 ### 只运行一个实例
 
@@ -1072,9 +1152,53 @@ a = 0.12345
 print "%.2f%%" % (a * 100)
 ```
 
+### 程序实例
+
+```
+def main():
+    pass
+    
+if __name__ == "__main__": 
+    main()
+```
+
+
+
+### 异常
+
+```
+try:
+   pass
+except urllib2.HTTPError, e:
+    print ('(%s)http request error code - %s. \n' % (url, e.code))
+except urllib2.URLError, e:
+    print ('(%s)http request error reason - %s.\n' % (url, e.reason))
+except Exception:
+    print ('(%s)http request generic exception: %s.\n' % (url, traceback.format_exc()))   
+```
+
+### 图片
+
+```
+import urllib
+import urllib2
+import traceback
+
+import cStringIO
+import Image
+
+req = urllib2.Request(url, headers=useragent)
+page = opener.open(req, timeout=10)
+tmpIm = cStringIO.StringIO(page.read())
+im = Image.open(tmpIm)
+width = im.size[0]
+height = im.size[1]
+```
+
+
 ## 模块
 
-##  模块导入
+###  模块导入
 
 模块有两种导入方法：　import 和　from.  
 
@@ -1083,7 +1207,7 @@ import mod1
 from mod1 import *
 ```
 
-## 同目录导入
+### 同目录导入
 
 如果程序和要导入的模块在同一个目录，直接导入即可．  
 注意，文件的后缀名忽略不写．  
@@ -1101,7 +1225,7 @@ from mod1 import *
 import mod1
 ```
 
-## 子目录导入
+### 子目录导入
 
 
 如果要导入的模块是当前程序所在目录下其中的一个子目录下，可以使用路径导入．  
