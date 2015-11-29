@@ -501,6 +501,28 @@ EOF
 ```
 
 
+### dig
+
+DNS 查询工具
+
+```
+tiankonguse:~ $ dig github.tiankonguse.com
+
+;; ANSWER SECTION:
+github.tiankonguse.com.	300	IN	CNAME	tiankonguse.github.io.
+tiankonguse.github.io.	300	IN	CNAME	github.map.fastly.net.
+github.map.fastly.net.	300	IN	A	103.245.222.133
+
+;; Query time: 10 msec
+;; SERVER: 127.0.1.1#53(127.0.1.1)
+;; WHEN: Sun Nov 29 21:43:22 CST 2015
+;; MSG SIZE  rcvd: 137
+```
+
+### ftp
+
+
+
 
 ## 监控命令
 
@@ -1224,6 +1246,43 @@ quit
 ```
 
 > gdb中，大多数的命令单词都可以简写为一个字母。    
+
+
+## 软件命令
+
+### 录制视频
+
+kazam, recordmydesktop, xvidcap
+
+
+### 视频转换
+
+```
+mencoder record.ogv -nosound -ovc lavc -lavcopts vcodec=mpeg4 -o record.mp4
+```
+
+### mplayer
+
+可以播放视频, 也可以将视频转为图片
+
+```
+mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs  
+```
+
+
+### convert
+
+这个命令功能很多.  
+
+### 静态图片转gif图片
+
+
+```
+# -delay n     迟延n*10毫秒
+# -loop  n     播放n轮, 0表示不断地重复播放
+# -pause n  停止
+# -resize  xx% 或 xxx * yyy 缩放 
+```
 
 
 参考资料：
