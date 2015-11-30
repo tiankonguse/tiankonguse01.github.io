@@ -1356,6 +1356,13 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * lprm Remove print job.
 * lpstat Get printer status.
 * pr Format and paginate for printing.
+* accept Tell printer daemon to accept jobs.
+* lpadmin Configure printer and class queues.
+* lpinfo Show available printers and drivers.
+* lpmove Move a print job to a different queue.
+* reject Tell printer daemon to reject jobs.
+* tunelp Tune the printer parameters.
+
 
 
 ### 编程命令
@@ -1393,6 +1400,8 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * strace Trace system calls and signals.
 * strip Strip symbols from an object file.
 * svn Subversion revision control system
+* badblocks Search for bad blocks.
+* chroot Change root directory.
 
 ### 搜索
 
@@ -1503,6 +1512,190 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * wall Send a message to all terminals.
 * whoami Print the current user id.
 * xargs Process many arguments in manageable portions.
+* hwclock Manage hardware clock.
+* rdate Get time from network time server.
+* anacron Schedule commands for periodic execution.
+* atrun Schedule commands for later execution.
+* cron Schedule commands for specific times.
+* dmesg Print bootup messages after the system is up.
+* ldconfig Update library links and do caching.
+* logger Send messages to the system logger.
+* logrotate Compress and rotate system logs.
+* run-parts Run all scripts in a directory.
+
+
+### 守护进程
+
+* apmd Advanced Power Management daemon.
+* atd Queue commands for later execution.
+* bootpd Internet Boot Protocol daemon.
+* cupsd Printer daemon.
+* ftpd File Transfer Protocol daemon.
+* imapd IMAP mailbox server daemon.
+* klogd Manage syslogd.
+* mountd NFS mount request server.
+* named Internet domain nameserver.
+* nfsd NFS daemon.
+* pppd Maintain Point-to-Point Protocol (PPP) network connections.
+* rdistd Remote file distribution server.
+* rexecd Remote execution server.
+* rlogind rlogin server.
+* routed Routing daemon.
+* rpc.rusersd Remote users server.
+* rpc.statd NFS status daemon.
+* rshd Remote shell server.
+* rsyslogd Alternate system logging daemon.
+* rwhod Remote who server.
+* sshd Secure shell daemon.
+* syslogd System logging daemon.
+* xinetd Extended Internet services daemon. Starts other services as needed.
+* ypbind NIS binder process.
+* yppasswdd NIS password modification server.
+* ypserv NIS server process.
+
+
+### 硬件
+
+* agetty Start user session at terminal.
+* arp Manage the ARP cache.
+* fdisk Maintain disk partitions.
+* hdparm Get and set hard drive parameters.
+* kbdrate Manage the keyboard’s repeat rate.
+* ramsize Print information about RAM disk.
+* setkeycodes Change keyboard scancode-to-keycode mappings.
+* slattach Attach serial lines as network interfaces.
+
+
+### host
+
+* arch Print machine architecture.
+* dig Query Internet domain nameservers.
+* domainname Print NIS domain name.
+* free Print memory usage.
+* host Print host and zone information.
+* hostname Print or set hostname.
+* uname Print host information.
+
+
+### install
+
+* cpio Copy files to and from archives.
+* install Copy files into locations providing user access and set permissions.
+* rdist Distribute files to remote systems.
+* tar Copy files to or restore files from an archive medium.
+
+### Mail
+
+* formail Convert input to mail format.
+* mailq Print a summary of the mail queue.
+* makemap Update sendmail’s database maps.
+* newaliases Rebuild sendmail’s alias database.
+* rmail Handle uucp mail.
+* sendmail Send and receive mail.
+
+### 文件系统 
+
+* debugfs Debug ext2 filesystem.
+* dosfsck Check and repair a DOS or VFAT filesystem.
+* dump Back up data from a filesystem.
+* dumpe2fs Print information about superblock and blocks group.
+* e2fsck Check and repair an ext2 filesystem.
+* e2image Store disaster-recovery data for an ext2 filesystem.
+* e2label Label an ext2 filesystem.
+* edquota Edit filesystem quotas with vim.
+* fdformat Format floppy disk.
+* fsck Another name for e2fsck.
+* fsck.ext2 Check and repair an ext2 filesystem.
+* mke2fs Make a new ext2 filesystem.
+* mkfs Make a new filesystem.
+* mkfs.ext2 Another name for mke2fs.
+* mkfs.ext3 Yet another name for mke2fs.
+* mklost+found Make lost+found directory.
+* mkraid Set up a RAID device.
+* mkswap Designate swapspace.
+* mount Mount a filesystem
+* quotacheck Audit stored quota information.
+* quotaon Enforce quotas.
+* quotaoff Do not enforce quotas.
+* quotastats Display kernel quota statistics.
+* rdev Describe or change values for root filesystem.
+* repquota Display quota summary.
+* resize2fs Enlarge or shrink an ext2 filesystem.
+* restore Restore data from a dump to a filesystem.
+* rootflags List or set flags to use in mounting root filesystem.
+* setquota Edit filesystem quotas.
+* showmount List exported directories on a remote host.
+* swapoff Cease using device for swapping.
+* swapon Begin using device for swapping.
+* sync Write filesystem buffers to disk.
+* tune2fs Manage an ext2 filesystem.
+* umount Unmount a filesystem.
+* warnquota Mail disk usage warnings to users.
+
+### 内核
+
+* depmod Create module dependency listing.
+* lsmod List kernel modules.
+* modinfo Print kernel module information.
+* modprobe Load and remove a module and its dependent modules.
+* sysctl Examine or modify kernel parameters at runtime.
+* chkconfig Manage which services run in a runlevel.
+* ctrlaltdel Shut down and then soft reboot system.
+* halt Stop or shut down system.
+* initctl Manage the Upstart init daemon.
+* reboot Shut down and then hard reboot system.
+* runlevel Print system runlevel.
+* shutdown Shut down system.
+* telinit Change the current runlevel.
+* uptime Display uptimes of local machines.
+
+### 网络 
+
+* ifconfig Manage network interfaces.
+* iptables Administer firewall facilities (2.4 kernel).
+* named Translate between domain names and IP addresses.
+* nameif Assign names to network devices.
+* netstat Print network status.
+* nfsstat Print statistics for NFS and RPC.
+* nsupdate Submit dynamic DNS update requests.
+* portmap Map daemons to ports (renamed rpcbind).
+* rarp Manage RARP table.
+* rndc Send commands to a BIND nameserver.
+* route Manage routing tables.
+* routed Dynamically keep routing tables up to date.
+* rpcbind Map daemons to ports (replaces portmap).
+* rpcinfo Report RPC information.
+* traceroute Trace network route to remote host.
+
+### 进程管理
+
+* fuser Identify processes using file or filesystem.
+* renice Change the priority of running processes.
+* top Show most CPU-intensive processes.
+* vmstat Print virtual-memory statistics and process statistics.
+
+
+### 用户 
+
+* chpasswd Change multiple passwords.
+* groupadd Add a new group.
+* groupdel Delete a group.
+* groupmod Modify groups.
+* grpck Check the integrity of group system files.
+* grpconv Convert group file to shadow group file.
+* lastlog Generate report of last user login times.
+* newusers Add new users in a batch.
+* pwck Check the integrity of password system files.
+* pwconv Convert password file to shadow passwords.
+* rusers Print who-style information on remote machines.
+* rwall Print a message to remote users.
+* useradd Add a new user.
+* userdel Delete a user and that user’s home directory.
+* usermod Modify a user’s information.
+* w List logged-in users.
+* wall Write to all users.
+* whoami Show how you are currently logged in.
+
 
 
 ## 参考资料
