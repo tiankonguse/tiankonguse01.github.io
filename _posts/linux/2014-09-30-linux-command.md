@@ -519,8 +519,7 @@ github.map.fastly.net.	300	IN	A	103.245.222.133
 ;; MSG SIZE  rcvd: 137
 ```
 
-### ftp
-
+ 
 
 
 
@@ -1284,8 +1283,229 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 # -resize  xx% 或 xxx * yyy 缩放 
 ```
 
+### 通信
 
-参考资料：
+* ftp 文件传输协议
+* login 登陆命令 
+* rsync 同步文件 
+* scp 传输文件
+* sftp 安全传输文件 
+* ssh 执行远程机器的命令
+
+### 比较
+
+* cmp 按字节比较两个文件  
+* comm 比较两个排序的文件
+* diff 按行比较两个文件
+* diff3 比较三个文件
+* sdiff 比较合并两个文件
+
+
+### 文件管理
+
+* cat Concatenate files or display them.
+* chattr Change attributes on an ext2 file
+* chgrp Change group of files.
+* chmod Change access modes on files.
+* chown Change ownership of files.
+* chsh Change login shell.
+* cp Copy files.
+* csplit Split a file into pieces with a specific size or at specific locations.
+* dd Copy files in raw disk form.
+* file Determine a file’s type.
+* head Show the first few lines of a file.
+* hexdump Display files in hexadecimal format.
+* less Display files by screenful, forward and backward.
+* ln Create filename aliases.
+* ls List files and directories.
+* md5sum Compute MD5 checksum.
+* merge Merge changes from different files.
+* mkdir Create a directory.
+* more Display files by screenful, forward only.
+* mv Move or rename files or directories.
+* newgrp Change current group.
+* od Display files in octal format.
+* pwd Print working directory.
+* rm Remove files.
+* rmdir Remove directories.
+* sha1sum Compute SHA1 checksum
+* shred Securely delete files.
+* split Split files evenly.
+* tac Print lines of a file in reverse order
+* tail Show the last few lines of a file.
+* tailf Follow the growth of a logfile.
+* touch Update file timestamps and create the file if it doesn’t exist.
+* wc Count lines, words, and characters.
+
+
+### 媒体
+
+* cdparanoia Rip a CD while providing extra features.
+* cdrdao Copy a CD.
+* eject Eject a removable disk or tape.
+* genisoimage Generate a binary image from a directory tree.
+* icedax Rip a CD or DVD to create a computer-friendly WAV format.
+* readom Read or write a data CD or DVD.
+* volname Provide the volume name of a CD-ROM.
+* wodim Record to a CD or DVD
+
+### 打印
+
+* lpq Show status of print jobs.
+* lpr Send to the printer.
+* lprm Remove print job.
+* lpstat Get printer status.
+* pr Format and paginate for printing.
+
+
+### 编程命令
+
+* ar Create and update library files.
+* as Generate object file.
+* bison Generate parsing tables.
+* cpp Preprocess C code.
+* flex Lexical analyzer.
+* g++ GNU C++ compiler.
+* gcc GNU C compiler.
+* ld Link editor.
+* ldd Print shared library dependencies.
+* m4 Macro processor.
+* make Create programs.
+* ranlib Regenerate archive symbol table.
+* rpcgen Translate RPC to C code.
+* yacc Generate parsing tables
+
+
+### 维护与定位
+
+* ctags Generate symbol list for use with thevi editor.
+* etags Generate symbol list for use with the Emacs editor.
+* gdb GNU debugger.
+* git Scalable, distributed revision control system.
+* gprof Display object file’s profile data.
+* make Maintain, update, and regenerate related programs and files.
+* nm Display object file’s symbol table.
+* objcopy Copy and translate object files.
+* objdump Display information about object files.
+* patch Apply patches to source code.
+* pmap Print the memory map of a process.
+* size Print the size of an object file in bytes.
+* strace Trace system calls and signals.
+* strip Strip symbols from an object file.
+* svn Subversion revision control system
+
+### 搜索
+
+* apropos Search manpages for topic.
+* egrep Extended version of grep.
+* fgrep Search files for literal words.
+* find Search the system for files by name and take a range of possible actions.
+* grep Search files for text patterns.
+* locate Search a preexisting database to show where files are on the system.
+* look Search file for string at the beginning of lines.
+* strings Search binary files for text patterns.
+* updatedb Update thelocate database.
+* whereis Find command.
+* which Print pathname of a command
+
+
+### shell
+
+* basename Remove leading directory components from a path.
+* echo Repeat command-line arguments on the output.
+* envsubst Substitute the value of environment variables into strings.
+* expr Perform arithmetic and comparisons.
+* mktemp Generate temporary filename and create the file.
+* printf Format and print command-line arguments.
+* sleep Pause during processing.
+* test Test a condition.
+
+
+### 储存
+
+* bunzip2 Expand compressed.bz2 files.
+* bzip2 Compress files to free up space.
+* cpio Create and unpack file archives.
+* gunzip Expand compressed (.gz and.Z) files.
+* gzip Compress files to free up space.
+* tar Copy files to or restore files from an archive medium.
+* zcat Display contents of compressed files.
+* zforce Force gzip files to have.gz extension
+
+### 系统状态
+
+* at Execute commands later.
+* atq Show jobs queued byat.
+* atrm Remove job queued byat.
+* crontab Automate commands.
+* date Display or set date.
+* df Show free disk space.
+* du Show disk usage.
+* env Show environment variables.
+* finger Display information about users.
+* free Show free and used memory.
+* hostname Display the system’s hostname.
+* kill Terminate a running command.
+* printenv Show environment variables.
+* ps Show processes.
+* quota Display disk usage and limits.
+* stat Display file or filesystem status.
+* stty Set or display terminal settings.
+* top Display tasks currently running.
+* tty Display filename of the terminal connected to standard input.
+* uname Display system information.
+* uptime Show how long the system has been running.
+* vmstat Show virtual memory statistics.
+* who Show who is logged in.
+
+### 文本处理
+
+
+* col Process control characters.
+* cut Select columns for display.
+* emacs Work environment with powerful text-editing capabilities.
+* ex Line editor underlyingvi.
+* expand Convert tabs to spaces.
+* fmt Produce roughly uniform line lengths.
+* fold Break lines.
+* gawk Process lines or records one by one.
+* groff Format troff input.
+* gs Display PostScript or PDF file.
+* ispell Interactively check spelling.
+* join Merge different columns into a database.
+* paste Merge columns or switch order.
+* rev Print lines in reverse.
+* sed Noninteractive text editor.
+* sort Sort or merge files.
+* tr Translate (redefine) characters.
+* unexpand Convert spaces to tabs.
+* uniq Find repeated or unique lines in a file.
+* vi Visual text editor.
+* vim Enhanced version of vi.
+
+
+### 其他
+
+* bc Arbitrary precision calculator.
+* cal Display calendar.
+* clear Clear the screen.
+* info Get command information from the GNU hypertext reader.
+* man Get information on a command.
+* nice Reduce a job’s priority.
+* nohup Launch a command that will continue to run after logging out.
+* openvt Run a program on the next available virtual terminal.
+* passwd Set your login password.
+* script Produce a transcript of your login session.
+* su Become a different user, often the superuser.
+* sudo Execute an authorized command as root or another user.
+* tee Simultaneously store output in file and send to screen.
+* time Time the execution of a command.
+* wall Send a message to all terminals.
+* whoami Print the current user id.
+* xargs Process many arguments in manageable portions.
+
+
+## 参考资料
 
 [How to debug a C/C++ program with GDB command-line debugger][gdb-command-line-debugger]
 
