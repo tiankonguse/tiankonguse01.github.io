@@ -49,7 +49,7 @@ netstat 一看, 好多 TIME_WAIT 状态.
 
 我们知道. 一个 socket 连接会占用一个端口的.  
 那这么多的 TIME-WAIT, 会不会把可以端口使用完了呢? 看一下最大连接数吧.  
-看了之后, 好可怕, 总共2W端口, 但是我们的 TIME-WAIT 有35W, 所以应该端口复用了, 不是端口的问题了.  
+看了之后, 好可怕, 总共4W端口, 但是我们的 TIME-WAIT 有35W, 所以应该端口复用了, 不是端口的问题了.  
 
 
 
@@ -59,17 +59,17 @@ netstat 一看, 好多 TIME_WAIT 状态.
 ### 减少TIME-WAIT状态
 
 不管怎么说, TIME-WAIT 数量很大, 我们要想办法减少 TIME-WAIT 的数量.  
-这里假设客户端不能修改程序, 使用长连接吧.  
+这里假设客户端不能修改程序, 使用短连接吧.  
 
 这里需要问一个问题: 为什么有这么多TIME-WAIT?
 
 这个是 TCP四次挥手的知识点了, 这里不啰嗦了.  
 我不会告诉你4次挥手断开连接时,发起socket主动关闭的一方 socket将进入TIME_WAIT状态,TIME_WAIT状态将持续2个MSL(Max Segment Lifetime).TIME_WAIT状态下的socket一般不能被回收使用.  
-既然TCO加了这个功能, 那我们就可以参详TIME_WAIT是TCP协议用以保证被重新分配的socket不会受到之前残留的延迟重发报文影响的机制, 是不能缺少的.  
+既然TCP加了这个功能, 那我们就可以假设TIME_WAIT是TCP协议用以保证被重新分配的socket不会受到之前残留的延迟重发报文影响的机制, 是不能缺少的.  
 这样的后果是 TIME-WAIT 这个状态会保存很长一段时间.  
 
 
-接下来我们就像能不能快速结束TIME-WAIT状态, 或者让TIME-WAIT状态不影响接下来的socket操作.  
+接下来我们就想能不能快速结束TIME-WAIT状态, 或者让TIME-WAIT状态不影响接下来的socket操作.  
 网上可以看到两个词 `net.ipv4.tcp_tw_reuse` 和 `net.ipv4.tcp_tw_recycle`.  
 根据名字我们就可以知道, 一个是复用TIME-WAIT状态, 一个是回收TIME-WAIT状态.  
 
@@ -77,13 +77,13 @@ netstat 一看, 好多 TIME_WAIT 状态.
 
 > 注:  
 > 我未运行下面的两条命令, 所以不对执行后的结果负责.  
-> 还有人说通过sysctl命令修改内核参数，重启后会还原  
+> 还有人说通过sysctl命令修改内核参数时，重启后会还原  
 
 
 ![tcp_tw_reuse](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3588943279.png)
 
 后来网上又有很多人说, 修改这两个参数后并不是万能的.  
-在NAT环境下会引发问题的.会引发问题的, 会引发问题的.  
+在NAT环境下会引发问题的.会引发问题的, 会引发问题的.我的网络就是NAT环境,宝宝好害怕  
 
 搜一下TIME-WAIT, 发现还有一个 tcp_max_tw_buckets 参数, 那我们是不是可以调小点这个值来变量缩小这个值呢?  
 这里我不做回答.  
