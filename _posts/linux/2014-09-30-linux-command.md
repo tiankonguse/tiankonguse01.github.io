@@ -1666,6 +1666,23 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * rpcbind Map daemons to ports (replaces portmap).
 * rpcinfo Report RPC information.
 * traceroute Trace network route to remote host.
+* arp Manipulate address resolution protocol tables.
+* dig Query domain nameservers.
+* ftpd Server for file transfers.
+* host Print host and zone information.
+* ip Network configuration tool with Cisco IOS-like syntax. Replaces ifconfig, route, and arp on some systems.
+* ifconfig Configure network interface parameters.
+* ping Check that a remote host is online and responding.
+* pppd Create PPP serial connection.
+* quagga Routing daemon.
+* rdate Notify time server that date has changed.
+* slattach Attach serial lines as network interfaces.
+* sshd Server for secure shell connections.
+* tcpdump Write network packet information to screen or file.
+* telnetd Server for Telnet sessions from remote hosts.
+* tftpd Server for restricted set of file transfers.
+* zebra Routing daemon.
+
 
 ### 进程管理
 
@@ -1695,6 +1712,28 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * w List logged-in users.
 * wall Write to all users.
 * whoami Show how you are currently logged in.
+
+
+### NFS and NIS
+
+* domainname Set or display name of current NIS domain.
+* makedbm Rebuild NIS databases.
+* rpcbind DARPA port to RPC program number mapper.
+* portmap The old name for rpcbind.
+* rpcinfo Report RPC information.
+* ypbind Connect to NIS server.
+* ypcat Print values in NIS database.
+* ypinit Build new NIS databases.
+* ypmatch Print value of one or more NIS keys.
+* yppasswd Change user password in NIS database.
+* yppasswdd Update NIS database in response to yppasswd.
+* yppoll Determine version of NIS map at NIS server.
+* yppush Propagate NIS map.
+* ypserv NIS server daemon.
+* ypset Point ypbind at a specific server.
+* yptest Check NIS configuration.
+* ypwhich Display name of NIS server or map master.
+* ypxfr Transfer NIS database from server to local host.
 
 
 
