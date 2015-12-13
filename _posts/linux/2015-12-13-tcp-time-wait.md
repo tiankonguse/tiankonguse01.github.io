@@ -9,6 +9,8 @@ updateData:   19:44 2015/12/13
 ---
 
 
+![tcp-state-diagram](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3667791299.png)
+
 ## 背景
 
 写了一个server, 发布上去, 客户端正常. 换一台客户端后, CPU跑满了, 一看监控, socket连接数也比较多.  
