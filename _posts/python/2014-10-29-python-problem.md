@@ -716,6 +716,48 @@ str = "hello word"
 print len(str)
 ```
 
+## 正则表达式
+
+正则表达式是什么, 以及语法这里不做介绍, 这里只记录怎么使用以及注意事项.  
+
+
+### 导入正则模块
+
+```
+import re
+```
+
+### search
+
+匹配并找到文本中的位置
+
+
+### match
+
+匹配文本
+
+```
+# a-b(岁)?
+result = re.search(r'^(\d+)-(\d+).*', data)
+if result:
+    first = int(result.group(1))
+    second = int(result.group(2))
+    while first <= second:
+        print first
+        first = first + 1
+    
+result = re.search(r'^(\d+)岁以上$', data)
+if result:
+    first = int(result.group(1))
+    print first
+```
+
+### split
+
+分割字符串
+
+
+
 
 ## 编码相关
 
@@ -1132,6 +1174,30 @@ random.choice(list) # 从list中随机选择一个元素
 random.shuffle(list) # 将list中的元素顺序打乱
 random.sample(list, n) # 从list中随机挑n个元素
 ```
+
+### 数组去重
+
+
+使用set去重
+
+```
+l1 = ['b','c','d','b','c','a','a']
+l2 = list(set(l1))
+print l2
+```
+
+
+
+使用map去重
+
+```
+l1 = ['b','c','d','b','c','a','a']
+l2 = {}.fromkeys(l1).keys()
+print l2
+```
+
+
+
 
 
 ### 判断key是否在字典中
