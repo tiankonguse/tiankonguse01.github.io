@@ -40,7 +40,8 @@ github: [metadata]
 kramdown:
     input: GFM
     hard_wrap: false
-markdown:    rdiscount
+#markdown:    rdiscount
+markdown:    kramdown
 
 #pygments: true
 
