@@ -34,8 +34,8 @@ gems:
 
 
 # Conversion
-markdown:    rdiscount
-highlighter: rouge
+#markdown:    rdiscount
+#highlighter: rouge
 #highlighter: pygments
 #pygments: true
 #lsi: true
