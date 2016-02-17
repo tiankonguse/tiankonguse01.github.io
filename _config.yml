@@ -36,12 +36,12 @@ gems:
 
 
 # Conversion
-github: [metadata]
-kramdown:
-    input: GFM
-    hard_wrap: false
-#markdown:    rdiscount
-markdown:    kramdown
+#github: [metadata]
+#kramdown:
+#    input: GFM
+#    hard_wrap: false
+markdown:    rdiscount
+#markdown:    kramdown
 
 #pygments: true
 
