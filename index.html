@@ -7,11 +7,11 @@ isIndex: true
 ---
 
 {% if paginator.previous_page %}
-    <link rel="prev" title="上一页" href="{{ paginator.previous_page_path | prepend: site.url }}">
+    <link rel="prev" title="上一页" href="{{ paginator.previous_page_path }}">
 {% endif %}
 
 {% if paginator.next_page %}
-    <link rel="next" title="下一个" href="{{ paginator.next_page_path | prepend: site.url }}">
+    <link rel="next" title="下一个" href="{{ paginator.next_page_path }}">
 {% endif %}
 
 <div class="index-content">
@@ -19,7 +19,7 @@ isIndex: true
         <ul class="artical-list">
             {% for post in paginator.posts %}
             <li>
-            <h2><a href="{{ post.url | prepend: site.url }}">{{post.title }}</a></h2>
+            <h2><a href="{{ post.url  }}">{{post.title }}</a></h2>
             <div class="title-desc">{{ post.description }}</div>
             </li>
             {% endfor %}
@@ -28,7 +28,7 @@ isIndex: true
             <ul id="pager_bottom">
             {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
-                    <li class="current"><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}" >{{ page }}</a></li>
+                    <li class="current"><a href="/{%if page > 1 %}page{{ page }}/{% endif %}" >{{ page }}</a></li>
                 {% else %}
                     <li><a href="/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
                 {% endif %}
@@ -39,6 +39,6 @@ isIndex: true
 </div>
 <script>
     $(document).ready(function(){
-        tk.loadPage({{ paginator.page }}, {{ paginator.total_pages }}, $("#pager_bottom"), "http://tiankonguse.github.io/");
+        tk.loadPage({{ paginator.page }}, {{ paginator.total_pages }}, $("#pager_bottom"), "/");
     });
 </script>
