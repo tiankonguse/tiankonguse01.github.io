@@ -40,7 +40,7 @@ gems:
 #kramdown:
 #    input: GFM
 #    hard_wrap: false
-markdown:    rdiscount
+#markdown:    rdiscount
 #markdown:    kramdown
 
 #pygments: true
@@ -50,15 +50,15 @@ markdown:    rdiscount
 #lsi: false
 #safe: true
 #incremental: false
-#highlighter: rouge
-highlighter: pygments
-gist:
-    noscript: false
+highlighter: rouge
+#highlighter: pygments
+#gist:
+#    noscript: false
 excerpt_separator: "\n\n"
 
 
 # Serving
-detach:  false
+#detach:  false
 port:    80
 host: http://github.tiankonguse.com
 #host:    192.168.31.137
@@ -88,7 +88,7 @@ paginate: 10
 prelinkpath : ""
 production_url : http://github.tiankonguse.com
 timezone:      null
-quiet:    false
+#quiet:    false
 defaults: []
 
 # site info
