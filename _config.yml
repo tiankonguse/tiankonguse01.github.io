@@ -38,7 +38,7 @@ gems:
 #kramdown:
 #    input: GFM
 #    hard_wrap: false
-#markdown:    rdiscount
+markdown:    rdiscount
 #markdown:    kramdown
 
 #pygments: true
@@ -48,8 +48,8 @@ gems:
 #lsi: false
 #safe: true
 #incremental: false
-highlighter: rouge
-#highlighter: pygments
+#highlighter: rouge
+highlighter: pygments
 #gist:
 #    noscript: false
 excerpt_separator: "\n\n"
