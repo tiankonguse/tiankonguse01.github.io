@@ -51,7 +51,7 @@ markdown:    rdiscount
 #safe: true
 #incremental: false
 #highlighter: rouge
-#highlighter: pygments
+highlighter: pygments
 gist:
     noscript: false
 excerpt_separator: "\n\n"
