@@ -35,7 +35,8 @@ gems:
 
 # Conversion
 markdown:    rdiscount
-highlighter: pygments
+highlighter: rouge
+#highlighter: pygments
 #pygments: true
 #lsi: true
 excerpt_separator: "\n\n"
@@ -44,9 +45,9 @@ excerpt_separator: "\n\n"
 # Serving
 detach:  false
 port:    80
-#host: http://github.tiankonguse.com
+host: http://github.tiankonguse.com
 #host:    192.168.31.137
-host:    127.0.0.1
+#host:    127.0.0.1
 baseurl: "/" # does not include hostname
 url: http://github.tiankonguse.com
 #url: http://192.168.31.137
