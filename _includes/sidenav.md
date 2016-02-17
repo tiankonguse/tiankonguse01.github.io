@@ -37,6 +37,7 @@
 {% endif %}
 
 {% if site.no_load_relate_post != 1 %}
+{% if 0 %}
 <div class="sidenav">
 	<h2><a href="{{ site.url }}/archives.html"><span>猜你喜欢</span></a></h2>
 	<ul class="artical-list">
@@ -44,6 +45,7 @@
 	{% include relate_post.md %}
 	</ul>
 </div>
+{% endif %}
 {% endif %}
 
 
