@@ -8,11 +8,7 @@ updateData: 9:32 2014/11/25
 <div id="content" class="clearfix">
     <div class="entry-header">
         <div class="index-content">
-            <ul class="artical-cate">
-                {% for nav in site.nav %}
-                    <li style="{{ nav.style }}"><a href="{{ nav.url }}"><span>{{ nav.text }}</span></a></li>
-                {% endfor %}
-            </ul>
+            {% include nav.md %}
         </div>
     </div>
     <div class="entry">
@@ -27,44 +23,10 @@ updateData: 9:32 2014/11/25
             <div id="disqus_thread"></div>
         </div>
     </div>
-    <div class="sidenav">
-        <h2>网站公告</h2>
-        <div>
-            1.另一个博客地址:<a href="http://tiankonguse.com">tiankonguse</a><br>
-            2.接受你的任何技术问题<br>
-            3.接受讲解任何算法<br>
-        </div>
-    </div>
     
-    <div class="sidenav">
-        <h2>孩子的奶粉钱</h2>
-        <div>
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:250px;height:250px"
-                 data-ad-client="ca-pub-2326969899478823"
-                 data-ad-slot="8884906795"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+    <div class="sidenav-frame">
+        {% include sidenav.md %}
     </div>
-    
-    <div class="sidenav">
-        <h2>猜你喜欢</h2>
-        <ul class="artical-list">
-        {% for post in site.related_posts %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
-        <h2><a href="{{ site.url }}/about"><span>About</span></a></h2>
-
-        <h2><a href="{{ site.url }}/resources"><span>Resources</span></a></h2>
-        <ul class="artical-list">
-            <li><a href="{{ site.url }}/project/tetris/">俄罗斯方块游戏</a></li>
-            <li><a href="{{ site.url }}/project/format/">格式化/压缩代码</a></li>
-            <li><a href="{{ site.url }}/project/moondog/">纯CSS实现月食</a></li>
-        </ul>
-    </div> 
 </div>
 <script>
     tk.ad.isLoadGoogleJs = true;
