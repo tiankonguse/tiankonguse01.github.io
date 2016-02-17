@@ -9,7 +9,7 @@ collections: null
 
 
 # Handling Reading
-safe: false
+
 include: [".htaccess"]
 exclude: ["README.md", ".git", ".svn"]
 keep_files: ["/javascripts/*", "/stylesheets/*", "/images/*"]
@@ -31,14 +31,28 @@ gems:
     - jemoji
     - jekyll-redirect-from
     - jekyll-sitemap
+    - jekyll-coffeescript
+    - jekyll-paginate
 
 
 # Conversion
-#markdown:    rdiscount
+github: [metadata]
+kramdown:
+    input: GFM
+    hard_wrap: false
+markdown:    rdiscount
+
+#pygments: true
+
+
+#GitHub Pages & Jekyll override the following settings in your _config.yml file, which you cannot change
+#lsi: false
+#safe: true
+#incremental: false
 #highlighter: rouge
 #highlighter: pygments
-#pygments: true
-#lsi: true
+gist:
+    noscript: false
 excerpt_separator: "\n\n"
 
 
