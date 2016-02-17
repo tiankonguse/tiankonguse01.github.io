@@ -80,7 +80,7 @@ relative_permalinks: false
 #i-month 文件名中的除去前缀0的月份
 #i-day 文件名中的除去前缀0的日期
 
-permalink: /blog/:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title/
 paginate_path: page:num
 paginate: 10
 prelinkpath : ""
