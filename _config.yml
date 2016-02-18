@@ -5,7 +5,8 @@ destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
 data_source: ./_data
-collections: null
+future: true
+#collections: null
 
 
 # Handling Reading
@@ -38,8 +39,8 @@ gems:
 #kramdown:
 #    input: GFM
 #    hard_wrap: false
-markdown:    rdiscount
-#markdown:    kramdown
+#markdown:    rdiscount
+markdown:    kramdown
 
 #pygments: true
 
@@ -48,8 +49,8 @@ markdown:    rdiscount
 #lsi: false
 #safe: true
 #incremental: false
-#highlighter: rouge
-highlighter: pygments
+highlighter: rouge
+#highlighter: pygments
 #gist:
 #    noscript: false
 excerpt_separator: "\n\n"
@@ -67,7 +68,7 @@ url: http://github.tiankonguse.com
 #url: http://127.0.0.1
 
 # Backwards-compatibility
-relative_permalinks: false
+#relative_permalinks: false
 
 # Outputting
 
