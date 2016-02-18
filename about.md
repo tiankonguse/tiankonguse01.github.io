@@ -5,6 +5,7 @@ description: tiankonguse 的博客历史、书籍，视频，音乐，个人经�
 keywords:  About, Author, Site, tiankonguse, Jekyll, GitHub, Chrome, Firefox, Safari, IE, MS, Contact, Change, Log, SEO
 isContact: true
 updateData:  21:25 2015/4/2
+permalink: about.html
 ---
 
 ## 关于 tiankonguse
@@ -71,7 +72,7 @@ G e++ h+ r !y+
 * 第四阶段 自己实现简洁的博客 (重点放在写博客后, 追求简洁)
 * 第五阶段 使用github 搭建博客 (只需要写篇文章, 提交一下就行了)
 
-如果喜欢我的文章，可以赠一本书。
+如果喜欢我的文章，也可以赠一本书。
 
 
 ## 读书使人快乐
