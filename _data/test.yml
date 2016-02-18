@@ -1,8 +1,8 @@
   
 - title: 关于我 - aboutme
-  url: /about.html
+  url: /about/
   content: 关于tiankonguse的简单介绍
   
 - title: 标签 - tags
-  url: /tags.html
+  url: /tags/
   content: 按关键词来管理记录

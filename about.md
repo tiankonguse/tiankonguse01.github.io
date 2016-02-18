@@ -5,7 +5,6 @@ description: tiankonguse 的博客历史、书籍，视频，音乐，个人经�
 keywords:  About, Author, Site, tiankonguse, Jekyll, GitHub, Chrome, Firefox, Safari, IE, MS, Contact, Change, Log, SEO
 isContact: true
 updateData:  21:25 2015/4/2
-permalink: about.html
 ---
 
 ## 关于 tiankonguse

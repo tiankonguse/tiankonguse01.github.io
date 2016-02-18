@@ -2,8 +2,8 @@
     url: /index.html
     style: text-align:left
 -   text: About
-    url: /about.html
+    url: /about/
     style: text-align:center
 -   text: map
-    url: /map.html
+    url: /map/
     style: text-align:right
