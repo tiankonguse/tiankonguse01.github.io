@@ -29,3 +29,56 @@ categories: [程序人生]
 
 
 
+## 优化内存
+
+架构已经成型, CPU依旧偏高, 性能分析工具发现大部分时间消耗在内存上.  
+
+```
+perf record -e cycles -g -a
+perf record -e cpu-clock -g -a
+
+perf report
+```
+
+从以上结果可以看出，耗费cpu较多的调用主要是堆内存分配、释放。因此想用tcmalloc优化内存分配。
+
+tcmalloc 是 gperftools下的一个库.  
+因此需下载 [gperftools][gperftools-github] .    
+
+安装前最好看下里面的INSTALL文件，明确说明了64bit机子需要先安装[libunwind][libunwind-0-99], 并给出了下载链接.  
+因此按其要求先安装了[libunwind][libunwind-0-99], 再安装gperftools。
+
+安装之后直接把动态库放到对应位置, 修改配置, 重启服务, 结果效果不大.  
+
+```
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+export LD_PRELOAD=/usr/local/lib/libtcmalloc.so
+```
+
+后来找到一个测试报告, 原来我的服务使用tcmalloc确实提高不了性能.  
+
+
+> 在单线程的情况下glibc自带的内存分配在小内存的情况相比TcMalloc还要相对有优势，分配到了1MB时TcMalloc才开始比glibc快。
+> 而在多线程的情况，TcMalloc性能完全是碾压glibc，glibc增长几乎随着分配字节大小近指数增长
+
+
+我的服务时多线程,单线程的, 分配的也都是小内存, 所以
+
+
+
+[gperftools-github]: https://github.com/tiankonguse/gperftools
+[libunwind-0-99]: http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99-beta.tar.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@ future: true
 
 include: [".htaccess"]
 exclude: ["README.md", ".git", ".svn"]
-keep_files: ["/javascripts/*", "/stylesheets/*", "/images/*"]
+keep_files: ["/javascripts/*", "/stylesheets/*", "/images/*", "*.html", "*.js", "*.css"]
 encoding : utf-8
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 textile_ext:  "textile"
