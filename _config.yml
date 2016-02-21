@@ -15,7 +15,7 @@ include: [".htaccess"]
 exclude: ["README.md", ".git", ".svn"]
 keep_files: ["/javascripts/", "/stylesheets/", "/images/", "/doc/BeautifulSoup/", "/doc/css/*", "/doc/jquery/*", "/doc/redis/", "/doc/sphinx/*"]
 encoding : utf-8
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown_ext: "md"
 textile_ext:  "textile"
 
 
@@ -39,8 +39,8 @@ gems:
 #kramdown:
 #    input: GFM
 #    hard_wrap: false
-#markdown:    rdiscount
-markdown:    kramdown
+markdown:    rdiscount
+#markdown:    kramdown
 
 #pygments: true
 
