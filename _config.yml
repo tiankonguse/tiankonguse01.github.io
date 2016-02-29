@@ -39,8 +39,8 @@ gems:
 #kramdown:
 #    input: GFM
 #    hard_wrap: false
-markdown:    rdiscount
-#markdown:    kramdown
+#markdown:    rdiscount
+markdown:    kramdown
 
 #pygments: true
 
