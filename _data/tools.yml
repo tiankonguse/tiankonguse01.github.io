@@ -1,18 +1,18 @@
   
 - title: 关于我 - aboutme
-  url: /about/
+  url: /about.html
   content: 关于tiankonguse的简单介绍
   
 - title: 标签 - tags
-  url: /tags/
+  url: /tags.html
   content: 按关键词来管理记录
   
 - title: 归档 - archives
-  url: /archives/
+  url: /archives.html
   content: 按时间来管理记录
   
 - title: 分类 - categories
-  url: /categories/
+  url: /categories.html
   content: 按分类来管理记录
   
 - title: 项目 - project
@@ -29,7 +29,7 @@
   content: 
  
 - title: 资源收集
-  url: /resources/
+  url: /resources.html
   content: 
   
 - title: cracking-the-coding-interview
