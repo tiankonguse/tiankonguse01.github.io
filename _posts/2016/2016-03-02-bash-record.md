@@ -22,7 +22,7 @@ categories: [程序人生]
 
 * `${variable}` 获取变量值，简写`$variable`。当涉及变量拼接时，必须使用`{}`。如：$`{variable}_name`。  
 * `variable=value` 变量赋值，`=`左右两边不能有空格。  
-* 命令结果赋值。 `variable=$(ls -a)` 或者 `varivale=``ls -a``` 。  
+* 命令结果赋值。 `variable=$(ls -a)` 或者 {%highlight%}varivale=`ls -a`{%endhighlight%}。  
 * 环境变量。打开shell的时候，创建环境变量。该shell创建的子进程将继承该shell的环境变量。`export`命令可以设置环境变量，供子进程继承使用。但子进程不能`export`给父进程使用。  
 * 位置变量。`$0` 代表脚本名字，`$1`代表第1个参数，`$n`代表第n个参数。  
 特殊符号变量。`$@` 与 `$*` 表示所有参数； `$#` 表示参数个数。  
