@@ -13,9 +13,7 @@ categories: [程序人生]
 
 以前学习bash, 一般是需要用到什么功能了, 去查相关语法, 这样慢慢积累学习了大部分bash相关的知识.  
 
-当时还创建了两个 github 项目 [bash-study][ {{ site.data.link.github_tiankonguse_BashStudy }} ] 
-和 [BashStudy][{{ site.data.link.github_tiankonguse_bash_study }}]
-和 [BashStudy][ site.data.link.github_tiankonguse_bash_study ]
+当时还创建了两个 github 项目 [bash-study]({{ site.data.link.github_tiankonguse_BashStudy }}) 
 和 [BashStudy]({{ site.data.link.github_tiankonguse_bash_study }}), 后来就没怎么维护更新了, 惭愧.  
 
 
