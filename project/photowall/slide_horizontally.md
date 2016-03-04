@@ -48,7 +48,7 @@ $.each(imgList,function(index,value){
 var showNum = 3;
 
 if(tk.isMobile.any()){
-    showNum = 2;
+    showNum = 1.5;
 }
 
 Zepto.ui.slider('#slider', {
