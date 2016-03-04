@@ -48,12 +48,12 @@ $.each(imgList,function(index,value){
 var showNum = 3;
 
 if(tk.isMobile.any()){
-    showNum = 1;
+    showNum = 2;
 }
 
 Zepto.ui.slider('#slider', {
     autoPlay:true,
-    showArr:true,
+    showArr:false,
     imgZoom:false,
     loop:true,
     viewNum:showNum,
