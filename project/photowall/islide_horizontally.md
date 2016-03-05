@@ -23,8 +23,6 @@ imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/
 imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/308843132.jpg");
 imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/310617989.jpg");
 imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/312398589.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/314567897.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/316447966.jpg");
 
 var content = [];
 $.each(imgList,function(index,value){
