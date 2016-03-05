@@ -1,24 +1,3 @@
 User-agent: *
 Disallow:*.show-hide-weixin$
-Disallow:/undefined-reference$
-Disallow:/make-yourself-wordpress-themes$
-Disallow:/make-github-website$
-Disallow:/manual/bash/*
-
 Disallow:/project/template.html
-Disallow:/latex-graphics
-Disallow:/redis-com
-Disallow:/redis-cn
-Disallow:/programming-language-rank
-Disallow:/%5C%22+target=%5C%22_blank%5C%22+.=%5C%22font-family:+Simsun;+font-size:+medium;+line-height:+normal;
-Disallow:/blog/make-github-website
-Disallow:/blog/make-yourself-wordpress-themes
-Disallow:/blog/undefined-reference/
-Disallow:/blog/make-github-website/
-Disallow:/blog/latest-what-I-am-doing/
-Disallow:/undefined-reference/
-Disallow:/blog/2014/10/20/2014-acm
-Disallow:/blog/speed-PC-myself/
-Disallow:/blog/2015/07/28/redis-base/redis-cn
-Disallow:/blog/database-algorithm
-Disallow:/blog/latest-what-I-am-doing
