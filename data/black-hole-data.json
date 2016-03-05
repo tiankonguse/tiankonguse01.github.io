@@ -1,0 +1,9 @@
+---
+title : black hole data
+---
+[{% assign firstArbor = 0 %}
+    {% for arbor in site.data.black_hole %} {% if firstArbor == 1 %},{% endif %}{% assign firstArbor = 1 %}{
+        "name":"{{ arbor.name }}",
+        "link":"{{ arbor.link }}"
+    }{% endfor %}
+]

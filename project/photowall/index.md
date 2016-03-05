@@ -20,8 +20,8 @@ title : 简单优雅的照片墙
             $(".ad-page-footer").hide();
         },10);
         var zindex = 2;
-        var w =  tk.min($(window).width(), screen.width, screen.availWidth) - 200;
-        var h =  tk.min($(window).height(), screen.height, screen.availHeight) - 200;
+        var w =  tk.min($(window).width(), screen.width, screen.availWidth) - 300;
+        var h =  tk.min($(window).height(), screen.height, screen.availHeight) - 300;
         
         if(tk.isMobile.any()){
             w =  w + 150;
@@ -45,12 +45,12 @@ title : 简单优雅的照片墙
                 containment: $(".photowall-container"),
                 zIndex: 2700,
                 start: function(){
-                    $(this).css({"transform":"rotate(0deg)","cursor": "crosshair", "transition":"0ms"}); /* 开始拖动图片旋转为0，鼠标样式改变 */
+                    $(this).css({"position": "absolute","transform":"rotate(0deg)","cursor": "crosshair", "transition":"0ms"}); /* 开始拖动图片旋转为0，鼠标样式改变 */
                 },
                 stop: function(){
                     var _obj = defineRandom();
                     zindex = zindex + 1;
-                    $(this).css({"transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer", "z-index":zindex, "transition":"500ms"}); /* 停止拖动，旋转为随机的 */
+                    $(this).css({"position": "absolute","transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer", "z-index":zindex, "transition":"500ms"}); /* 停止拖动，旋转为随机的 */
                 }
             });
             
@@ -75,6 +75,7 @@ title : 简单优雅的照片墙
         function defineSevenDiv($own){
             var _obj = defineRandom();
             $own.css({"transform":"rotate("+_obj.rotate+"deg)"}); /* 设置随机旋转值 */
+            $own.css({"position": "absolute"}); /* 设置随机旋转值 */
             $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
         }
         
@@ -85,10 +86,15 @@ title : 简单优雅的照片墙
             defineSevenDiv($(".photowall-container").find("img:last"));
         }
         
-        $.get("photowall_data.json",function(d){
-            var c = {}, key;
+        $.get("/data/photowall_data.json",function(d){
+            var c = {}, key, name;
             for(var i in d){
                 key = getImageClassIndex(d.length*3);
+                name = "_" + key;
+                while(name in c){
+                    key = getImageClassIndex(d.length*3);
+                    name = "_" + key;
+                }
                 c["_" + key] = key;
             }
             

@@ -105,8 +105,8 @@ tk.Composition(TK.Tetris, {
             tpl +=('<p class="help">左滑:<span>左</span></p>');
             tpl +=('<p class="help">右滑:<span>右</span></p>');
             tpl +=('<p class="help">双击:<span>旋转</span></p>');
-            tpl +=('<p class="help pause">上双击:<span>暂停</span></p>');
-            tpl +=('<p class="help">下双击:<span>下</span></p>');
+            tpl +=('<p class="help pause">上滑:<span>暂停</span></p>');
+            tpl +=('<p class="help">下滑:<span>快速下</span></p>');
         }else{
             tpl +=('<p class="help">方向键控制游戏</p>');
             tpl +=('<p class="help"><div style="font-size: 15px;color: red;">1.这个游戏是tiankonguse开发的。<br>2.这个版本的效率比较低<br>3.优化策略已经有了<br>4.tiankonguse没有时间优化<br>5.你想优化时请联系我</div></p>');
@@ -280,6 +280,12 @@ tk.Composition(TK.Tetris, {
                         that.handleKey("LEFT");
                     }
                     that.handleKey("LEFT");
+                }else if(y >= that.pSize && absy >= absx){//下
+                    that.preClickTime = 0;
+                    that.handleKey("DOWN");
+                }else if(y <= -that.pSize && absy >= absx){//上
+                    that.preClickTime = 0;
+                    that.handleKey("PAUSE");
                 }else if(absy <= that.pSize && absx <= that.pSize){
                     var time = tk.time();
                     if(time - that.preClickTime < that.doubleClickTime){

@@ -276,7 +276,7 @@ categories: [project]
  
 tk.comment.isHaveComment = false;
 jQuery(document).ready(function(){
-   $(".ad-page-footer").css("position","fixed").css("bottom","0px").css("width","100%");
+   $(".ad-page-footer").css("position","fixed").css("bottom","0px").css("width","100%").css("max-height","20%");
    $(".ad-page-footer").css("z-index","11");
    $(".ad-page-footer").css("background-color","rgb(80, 80, 80)");
 });

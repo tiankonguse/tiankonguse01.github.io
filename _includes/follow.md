@@ -20,3 +20,8 @@
         {% endfor %}
     </div>
 </div>
+<div class="home-next">
+    <div class="home-icon-con">
+        <a class="home-menu-next home-link" href="/project/">穿越</a>
+    </div>
+</div>

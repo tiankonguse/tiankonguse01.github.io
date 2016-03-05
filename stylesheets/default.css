@@ -463,6 +463,14 @@ h3.about {
     font-size: 0;
 }
 
+.home-next {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 5000;
+    font-size: 0;
+}
+
 .home-link {
     margin-left: 2px;
     line-height: 48px;
@@ -615,7 +623,7 @@ a.home-link:hover {
 }
 
 @media (max-width: 1020px) {
-    .home-menu {
+    .home-menu, .home-next {
         position:absolute;
     }
     .index-content .cate-bar ,
@@ -1504,24 +1512,15 @@ ins{
     outline: none;
 }
 
-@media screen and (max-width: 750px) {
-    #sidebar-left{
-        display: none;
-        width : 0;
-    }
-    
-    #sidebar-right{
-        width : 100%;
-    }
-}
-
 .home-menu .home-link {
     background: rgba(0, 0, 0, 0.43);
 }
 
-.home-menu:hover {
-    background: rgba(0, 0, 0, 0.29);
+.home-next .home-link{
+    background: rgba(179, 113, 113, 0.36);
 }
+
+
 
 /***** sidebar for scroll top-bottom ******/
 .scroll-top-down {
@@ -1541,11 +1540,43 @@ ins{
 }
 
 @media screen and (max-width: 750px) {
+    #sidebar-left{
+        display: none;
+        width : 0;
+    }
+    
+    #sidebar-right{
+        width : 100%;
+    }
+
     .scroll-top-down {
         right: -35px;
     }
     .scroll-top-down div {
         color: rgba(0, 0, 0, 0.4);
+    }
+    .home-menu {
+        top: 5px;
+        left: 5px;
+    }
+    .home-next{
+        top: 5px;
+        right: 5px;
+    }
+    
+    .home-link {
+        margin-left: 1px;
+        line-height: 30px;
+        padding: 0 5px;
+        font-size: 22px;
+    }
+    .home-contact {
+        margin-top: 1px;
+        padding: 5px 0 4px;
+    }
+    .home-contact a {
+        width: 28px;
+        font-size: 8px;
     }
 }
 

@@ -1,5 +1,8 @@
 jQuery(document).ready(function(){
     //***********************
+    //穿越逻辑
+    goBlackHole();
+    
     // home follow
     var $homeContact = $('.home-contact');
     function addContactData(name, href, img){
@@ -46,6 +49,16 @@ jQuery(document).ready(function(){
     loadSidebar();
 
 });
+
+function goBlackHole(){
+    $.get("/data/black-hole-data.json",function(d){
+        var index = Math.ceil(Math.random() * d.length);
+        var $next = $(".home-menu-next");
+        if(index < d.length){
+            $next.attr("href", d[index].link);
+        }
+    },"json");
+}
 
 function loadSidebar(){
     var hand;

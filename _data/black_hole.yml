@@ -1,0 +1,17 @@
+- name: 照片墙
+  link: /project/photowall/
+  
+- name: 动态主页
+  link: /project/dynamic-index/
+  
+- name: 技能关系图
+  link: /project/skill/
+  
+- name: 堆方块游戏
+  link: /project/tetris/
+  
+- name: 绚丽的图片动画
+  link: /project/animate/
+  
+- name: 移动端水平相册
+  link: /project/photowall/slide_horizontally.html
