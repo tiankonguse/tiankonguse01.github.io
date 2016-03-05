@@ -55,7 +55,7 @@ jQuery(document).ready(function(){
     var islider1 = new TK.iSlider({
         data: content,
         dom: document.getElementById("animation-effect"),
-        duration: 2000,
+        duration: 5000,
         animateType: 'default',
         isAutoplay: true,
         isLooping: true,
