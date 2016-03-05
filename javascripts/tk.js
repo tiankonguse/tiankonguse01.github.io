@@ -14,16 +14,23 @@
     
 }(window);
 
+
+
+//like extend
 TK.prototype.Composition = function Composition(target, source){
     for(var key in source){
         target.prototype[key] = source[key];
     }
 };
+
+
+
 TK.prototype.AddMethod = function AddMethod(target, source){
     for(var key in source){
         target[key] = source[key];
     }
 };
+
 
 
 
@@ -802,6 +809,8 @@ tk.Composition(TK.Event, {
         return element.__dom_id || (element.__dom_id = this.__dom_id++);
     }
 });
+
+
 
 
 /*
