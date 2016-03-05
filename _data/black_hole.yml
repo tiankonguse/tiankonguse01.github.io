@@ -1,8 +1,8 @@
-- name: 照片墙
-  link: /project/photowall/
-  
 - name: 动态主页
   link: /project/dynamic-index/
+
+- name: 照片墙
+  link: /project/photowall/
   
 - name: 技能关系图
   link: /project/skill/
