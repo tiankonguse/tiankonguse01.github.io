@@ -86,12 +86,12 @@ if(tk.isMobile.any()){
     tk.ad.isShowPageFoot = false;
     jQuery(window).load(function(){
 	    var win_height = jQuery(window).height();
-	    var img_height = win_height * 0.83;
-	    var footer_height = win_height * 0.20;
+	    var img_height = win_height * 0.80;
+	    var footer_height = win_height * 0.19;
 	    jQuery('#animation-effect').css('height',img_height  + 'px');
 	    
         var $footer = jQuery(".ad-page-footer");
-        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%", "max-height": footer_height  + 'px', "padding":"0px", "margin":"0px"});
+        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%", "height": footer_height  + 'px', "padding":"0px", "margin":"0px"});
         tk.ad.loadGoogleJs(true);
         $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
