@@ -45,21 +45,38 @@ document.body.addEventListener('touchmove', function (ev) {
 
 var link = "/project/photowall/";
 var imgList = [];
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/295002876.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/301178483.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/303276483.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/305125988.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/307156613.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/308843132.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/310617989.jpg");
-imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/312398589.jpg");
-
 var content = [];
-$.each(imgList,function(index,value){
-    content.push({
-        "content" : value
-    });  
-});
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/295002876.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/301178483.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/303276483.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/305125988.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/307156613.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/308843132.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/310617989.jpg");
+//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/312398589.jpg");
+
+$.get("/data/islide_horizontally.json",function(d){
+    for(var i in d){
+        imgList.push(d[i].url);
+    }
+    $.each(imgList,function(index,value){
+        content.push({
+            "content" : value
+        });  
+    });
+    var islider1 = new TK.iSlider({
+        data: content,
+        dom: document.getElementById("animation-effect"),
+        duration: 5000,
+        animateType: 'default',
+        isAutoplay: true,
+        isLooping: true,
+        isVertical: false
+    });
+    islider1.bindMouse();
+},"json");
+
+
 
 
 
@@ -78,19 +95,7 @@ if(tk.isMobile.any()){
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
 }
-jQuery(document).ready(function(){
-    //all animation effect
-    var islider1 = new TK.iSlider({
-        data: content,
-        dom: document.getElementById("animation-effect"),
-        duration: 5000,
-        animateType: 'default',
-        isAutoplay: true,
-        isLooping: true,
-        isVertical: false
-    });
-    islider1.bindMouse();
-});
+
 
 </script>
 
