@@ -67,11 +67,11 @@ $.get("/data/islide_horizontally.json",function(d){
     var islider1 = new TK.iSlider({
         data: content,
         dom: document.getElementById("animation-effect"),
-        duration: 5000,
+        duration: 3000,
         animateType: 'default',
         isAutoplay: true,
         isLooping: true,
-        isVertical: false
+        isVertical: true
     });
     islider1.bindMouse();
 },"json");
