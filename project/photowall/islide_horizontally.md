@@ -64,7 +64,6 @@ $.get("/data/islide_horizontally.json",function(d){
             "content" : value
         });  
     });
-    $("#iSlider-effect-wrapper").css("height","100%");
     var islider1 = new TK.iSlider({
         data: content,
         dom: document.getElementById("animation-effect"),
@@ -85,7 +84,7 @@ tk.comment.isHaveComment = false;
 if(tk.isMobile.any()){
     jQuery(window).load(function(){
 	    var win_height = jQuery(window).height();
-	    var img_height = win_height;
+	    var img_height = win_height * 0.80;
 	    jQuery('#animation-effect').css('height',img_height  + 'px');
     });
     tk.ad.isLoadGoogleJs = false;
@@ -93,7 +92,7 @@ if(tk.isMobile.any()){
     jQuery(document).ready(function(){
         var $footer = jQuery(".ad-page-footer");
         tk.ad.loadGoogleJs(true);
-        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%"});
+        //$footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%"});
         $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
