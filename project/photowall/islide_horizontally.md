@@ -6,13 +6,43 @@ title : 手机移动端水平滑动相册2
 
 <link rel="stylesheet" href="lrtk.css" />
 <script src="/javascripts/tk.islider.js"></script>
-<div id="iSlider-effect-wrapper">
-    <div id="animation-effect" class="iSlider-effect"></div>
+
+
+<div class="wrapper">
+  <div class="sub-wrapper">
+    <div class="scroller">
+        <div id="iSlider-effect-wrapper">
+            <div id="animation-effect" class="iSlider-effect"></div>
+        </div>
+    </div>
+  </div>
 </div>
 
 
 <!-- 图片高度自适应 -->
 <script type="text/javascript">
+function preventDefault(ev) {
+  ev.preventDefault()
+}
+
+document.addEventListener('touchmove', preventDefault, false)
+
+function isScroller(el) {
+
+  // 判断元素是否为 scroller
+  return el.classList.contains('scroller')
+}
+
+document.body.addEventListener('touchmove', function (ev) {
+  var target = ev.target
+
+  // 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
+  if (isScroller(target)) {
+    ev.stopPropagation()
+  }
+}, false)
+
+
 var link = "/project/photowall/";
 var imgList = [];
 imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/295002876.jpg");
