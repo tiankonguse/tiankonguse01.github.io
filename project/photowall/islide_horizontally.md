@@ -89,7 +89,7 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     
-    jQuery(".ad-page-footer").on('touchmove'，preventDefault);
+    jQuery(".ad-page-footer").on('touchmove', preventDefault);
     jQuery(document).ready(function(){
         tk.ad.loadGoogleJs(true);
         jQuery(".ad-page-footer").show();
