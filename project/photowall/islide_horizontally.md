@@ -64,6 +64,7 @@ $.get("/data/islide_horizontally.json",function(d){
             "content" : value
         });  
     });
+    $("#iSlider-effect-wrapper").css("height","100%");
     var islider1 = new TK.iSlider({
         data: content,
         dom: document.getElementById("animation-effect"),
@@ -84,7 +85,7 @@ tk.comment.isHaveComment = false;
 if(tk.isMobile.any()){
     jQuery(window).load(function(){
 	    var win_height = jQuery(window).height();
-	    var img_height = win_height * 0.80;
+	    var img_height = win_height;
 	    jQuery('#animation-effect').css('height',img_height  + 'px');
     });
     tk.ad.isLoadGoogleJs = false;
