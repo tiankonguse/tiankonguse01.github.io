@@ -78,25 +78,23 @@ $.get("/data/islide_horizontally.json",function(d){
 
 
 
-
-
 tk.comment.isHaveComment = false;
 if(tk.isMobile.any()){
-    tk.ad.isLoadGoogleJs = false;
-    tk.ad.isShowPageFoot = false;
     jQuery(window).load(function(){
 	    var win_height = jQuery(window).height();
 	    var img_height = win_height * 0.80;
-	    var footer_height = win_height * 0.19;
 	    jQuery('#animation-effect').css('height',img_height  + 'px');
-	    
+    });
+    tk.ad.isLoadGoogleJs = false;
+    tk.ad.isShowPageFoot = false;
+    jQuery(document).ready(function(){
         var $footer = jQuery(".ad-page-footer");
-        //$footer.css({"width":"100%", "height": footer_height  + 'px', "padding":"0px", "margin":"0px"});
         tk.ad.loadGoogleJs(true);
         $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
 }
+
 
 
 </script>
