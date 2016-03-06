@@ -25,7 +25,8 @@ function preventDefault(ev) {
   ev.preventDefault()
 }
 
-document.addEventListener('touchmove', preventDefault, false)
+document.addEventListener('touchmove', preventDefault, false);
+
 
 function isScroller(el) {
 
@@ -87,6 +88,8 @@ if(tk.isMobile.any()){
     });
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
+    
+    jQuery(".ad-page-footer").on('touchmove'，preventDefault);
     jQuery(document).ready(function(){
         tk.ad.loadGoogleJs(true);
         jQuery(".ad-page-footer").show();
