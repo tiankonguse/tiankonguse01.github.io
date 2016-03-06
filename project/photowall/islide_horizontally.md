@@ -82,17 +82,17 @@ $.get("/data/islide_horizontally.json",function(d){
 
 tk.comment.isHaveComment = false;
 if(tk.isMobile.any()){
+    tk.ad.isLoadGoogleJs = false;
+    tk.ad.isShowPageFoot = false;
     jQuery(window).load(function(){
 	    var win_height = jQuery(window).height();
 	    var img_height = win_height * 0.80;
-	    jQuery('#animation-effect').css('height',img_height  + 'px');
-    });
-    tk.ad.isLoadGoogleJs = false;
-    tk.ad.isShowPageFoot = false;
-    jQuery(document).ready(function(){
+	    var footer_height = win_height * 0.20;
+	    jQuery('#animation-effect').css('height',win_height  + 'px');
+	    
         var $footer = jQuery(".ad-page-footer");
         tk.ad.loadGoogleJs(true);
-        //$footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%"});
+        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%", "height": footer_height  + 'px'});
         $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
