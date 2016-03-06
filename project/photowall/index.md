@@ -5,12 +5,43 @@ title : 简单优雅的照片墙
 ---
 <link href="main.css" rel="stylesheet" type="text/css">
 
-<div class="photowall-tips">如果你想推荐图片, 请在评论中告诉我</div>
-<div class="photowall-container">
+
+<div class="wrapper">
+  <div class="sub-wrapper">
+    <div class="scroller">
+        <div class="photowall-tips">如果你想推荐图片, 请在评论中告诉我</div>
+        <div class="photowall-container">
+        </div>
+    </div>
+  </div>
 </div>
+
+
 <div class="clearfix"></div>
 <script type="text/javascript" src="jquery-ui-1.10.2.custom.js"></script>
 <script type="text/javascript">
+function preventDefault(ev) {
+  ev.preventDefault()
+}
+
+document.addEventListener('touchmove', preventDefault, false)
+
+function isScroller(el) {
+
+  // 判断元素是否为 scroller
+  return el.classList.contains('scroller')
+}
+
+document.body.addEventListener('touchmove', function (ev) {
+  var target = ev.target
+
+  // 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
+  if (isScroller(target)) {
+    ev.stopPropagation()
+  }
+}, false)
+
+
     /* 定义随机left，top和旋转值 */
     $(document).ready(function(){
 
