@@ -9,7 +9,7 @@ title : 简单优雅的照片墙
 <div class="wrapper">
   <div class="sub-wrapper">
     <div class="scroller">
-        <div class="photowall-tips">如果你想推荐图片, 请在评论中告诉我</div>
+        <div class="photowall-tips">图片可拖拽哦</div>
         <div class="photowall-container">
         </div>
     </div>
