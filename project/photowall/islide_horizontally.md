@@ -88,7 +88,7 @@ if(tk.isMobile.any()){
 	    var win_height = jQuery(window).height();
 	    var img_height = win_height * 0.80;
 	    var footer_height = win_height * 0.20;
-	    jQuery('#animation-effect').css('height',win_height  + 'px');
+	    jQuery('#animation-effect').css('height',img_height  + 'px');
 	    
         var $footer = jQuery(".ad-page-footer");
         tk.ad.loadGoogleJs(true);
