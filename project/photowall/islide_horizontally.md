@@ -71,7 +71,7 @@ $.get("/data/islide_horizontally.json",function(d){
         animateType: 'default',
         isAutoplay: true,
         isLooping: true,
-        isVertical: true
+        isVertical: false
     });
     islider1.bindMouse();
 },"json");
@@ -90,8 +90,10 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     jQuery(document).ready(function(){
+        var $footer = jQuery(".ad-page-footer");
         tk.ad.loadGoogleJs(true);
-        jQuery(".ad-page-footer").show();
+        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%"});
+        $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
 }
