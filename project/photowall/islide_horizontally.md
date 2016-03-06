@@ -88,9 +88,8 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     jQuery(document).ready(function(){
-        var $footer = jQuery(".ad-page-footer");
         tk.ad.loadGoogleJs(true);
-        $footer.show();
+        jQuery(".ad-page-footer").show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
 }
