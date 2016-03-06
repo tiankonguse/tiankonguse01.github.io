@@ -583,7 +583,7 @@ tk.Composition(TK, {
             ad.addAd("320-50",'<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="2712008393"></ins>');
             ad.addAd("300-250","<!-- phone-content --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:300px;height:250px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"5463985192\"></ins>");
             ad.addAd("728-90","<!-- content-footer --><ins class=\"adsbygoogle\" style=\"display:inline-block;width:728px;height:90px\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"7219919998\"></ins>");
-            ad.addAd("auto","<ins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8239263590\" data-ad-format=\"auto\"><");
+            ad.addAd("auto","<ins class=\"adsbygoogle\" style=\"display:block\" data-ad-client=\"ca-pub-2326969899478823\" data-ad-slot=\"8239263590\" data-ad-format=\"auto\"></ins>");
             
             return ad;
         })()
