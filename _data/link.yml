@@ -5,7 +5,13 @@ github_tiankonguse_do_while: http://github.tiankonguse.com/blog/2014/09/30/do-wh
 github_tiankonguse_projrct_IEEE_754: http://github.tiankonguse.com/project/IEEE/754
 tiankonguse_cloudLink_cover: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3642778518.jpg
 
-
-
+v8_intro: /doc/v8/intro.html
+v8_build: /doc/v8/build.html
+v8_under_the_hood: /doc/v8/under_the_hood.html
+v8_get_started: /doc/v8/get_started.html
+octane_benchmark: http://octane-benchmark.googlecode.com/svn/latest/index.html
+v8_videos: https://developers.google.com/v8/videos#video0a
+v8_io12: http://v8-io12.appspot.com/  
+dev_chromium: http://dev.chromium.org/
 
 
