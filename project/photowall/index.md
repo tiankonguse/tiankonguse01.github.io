@@ -31,7 +31,7 @@ title : 简单优雅的照片墙
         function defineRandom(){
             var randomLeft = Math.floor(w*(Math.random())), /* 图片left值 */
             randomTop =  Math.floor(h*Math.random()) , /* 图片top值 */
-            randomRotate = 20 - Math.floor(40*Math.random()); /* 图片旋转角度 */
+            randomRotate = 90 - Math.floor(180*Math.random()); /* 图片旋转角度 */
             return {
                 left: randomLeft,
                 top: randomTop,
@@ -41,17 +41,65 @@ title : 简单优雅的照片墙
         
         
         function draggableNote(){
-            $(".photowall-container img").draggable({
+            var touch = {};
+            var abs = Math.abs;
+            var MIN_STEP = 5;
+            function _start($obj){
+                 /* 开始拖动图片旋转为0，鼠标样式改变 */
+                zindex = zindex + 1;
+                $obj.css({"position": "absolute","transform":"rotate(0deg)","cursor": "crosshair","z-index":zindex, "transition":"10ms"});
+                
+            }
+            function _stop($obj){
+                /* 停止拖动，旋转为随机的 */
+                var _pos = defineRandom();
+                zindex = zindex + 1;
+                $obj.css({"position": "absolute","transform":"rotate("+_pos.rotate+"deg)","cursor": "pointer", "z-index":zindex, "transition":"500ms"}); 
+            }
+            
+            var $img = $(".photowall-container img");
+            $img.draggable({
                 containment: $(".photowall-container"),
                 zIndex: 2700,
                 start: function(){
-                    $(this).css({"position": "absolute","transform":"rotate(0deg)","cursor": "crosshair", "transition":"0ms"}); /* 开始拖动图片旋转为0，鼠标样式改变 */
+                    _start($(this));
                 },
                 stop: function(){
-                    var _obj = defineRandom();
-                    zindex = zindex + 1;
-                    $(this).css({"position": "absolute","transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer", "z-index":zindex, "transition":"500ms"}); /* 停止拖动，旋转为随机的 */
+                    _stop($(this));
                 }
+            });
+            function _copy(to, _from){
+                to.clientX = _from.clientX;
+                to.clientY = _from.clientY;
+                to.pageX = _from.pageX;
+                to.pageY = _from.pageY;
+                to.screenX = _from.screenX;
+                to.screenY = _from.screenY;
+            }
+            $img.on("touchstart", function(event){
+                _start($(this));
+                var _touch = event.originalEvent.changedTouches[0];
+                _copy(touch, _touch);
+            });
+            
+            $img.on("touchmove", function(event){
+                 var that = $(this);
+                var _touch = event.originalEvent.changedTouches[0];
+                var oldtop = parseInt(that.css("top"));
+                var oldleft = parseInt(that.css("left"));
+                var x = _touch.clientX - touch.clientX;
+                var y = _touch.clientY - touch.clientY;
+                
+                if(abs(x) >= MIN_STEP || abs(y) >= MIN_STEP){
+                    that.css("top", (oldtop + y)+ "px");
+                    that.css("left", (oldleft + x)+ "px");
+                    _copy(touch, _touch);
+                }
+            });
+            
+            
+            $img.on("touchend", function(){
+                _stop($(this));
             });
             
         }
@@ -75,8 +123,9 @@ title : 简单优雅的照片墙
         function defineSevenDiv($own){
             var _obj = defineRandom();
             $own.css({"transform":"rotate("+_obj.rotate+"deg)"}); /* 设置随机旋转值 */
-            $own.css({"position": "absolute"}); /* 设置随机旋转值 */
+            $own.css({"position": "absolute"}); /* 设置相对位置 */
             $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
+            $own._obj = _obj;
         }
         
         
