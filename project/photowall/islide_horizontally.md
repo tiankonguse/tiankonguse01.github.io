@@ -91,7 +91,7 @@ if(tk.isMobile.any()){
 	    jQuery('#animation-effect').css('height',img_height  + 'px');
 	    
         var $footer = jQuery(".ad-page-footer");
-        $footer.css({"position":"absolute", "left":"0px", "bottom":"0px", "width":"100%", "height": footer_height  + 'px', "padding":"0px", "margin":"0px"});
+        //$footer.css({"width":"100%", "height": footer_height  + 'px', "padding":"0px", "margin":"0px"});
         tk.ad.loadGoogleJs(true);
         $footer.show();
 	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
