@@ -14,4 +14,9 @@ v8_videos: https://developers.google.com/v8/videos#video0a
 v8_io12: http://v8-io12.appspot.com/  
 dev_chromium: http://dev.chromium.org/
 v8_design: /doc/v8/design.html
-
+v8_wiki: /doc/v8/wiki.html
+v8_using_git: /doc/v8/using_git.html
+v8_chromium_googlesource: https://chromium.googlesource.com/v8/v8/
+v8_building_with_gyp: /doc/v8/building_with_gyp.html
+v8_d8_on_android: /doc/v8/d8_on_android.html
+v8_install_depot_tools: /doc/v8/install_depot_tools.html
