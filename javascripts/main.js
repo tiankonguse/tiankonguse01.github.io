@@ -157,18 +157,9 @@ function loadSidebar(){
     });
     
     /* scroll top down */
-    $(".js-scroll-top").click(function(){
-        tk.animateGoto($("#_top").position().top);
-    });
-    $(".js-scroll-comment").click(function(){
-        if($("#disqus_container").length){
-            tk.animateGoto($("#disqus_container").position().top);
-        }else{
-            window.open("/about.html#disqus_container");
-        }
-    });
-    $(".js-scroll-down").click(function(){
-        tk.animateGoto($("#_down").position().top);
+    //tk.scroll.bind();
+    tk.require("/javascripts/tk.js", ["/javascripts/tk.scroll.js"], function(){
+        tk.scroll.bind();
     });
 }
 

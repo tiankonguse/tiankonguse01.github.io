@@ -32,6 +32,195 @@ TK.prototype.AddMethod = function AddMethod(target, source){
 };
 
 
+/* base function */
+tk.Composition(TK, {
+    "hasProp" : function (obj, prop){
+        return Object.prototype.hasOwnProperty.call(obj, prop);;
+    },
+    "isFunction" : function (it){
+        return Object.prototype.toString.call(it) === '[object Function]';
+    },
+    "isArray" : function (it){
+        return Object.prototype.toString.call(it) === '[object Array]';
+    },
+    "isString" : function (it){
+        return typeof it !== 'string';
+    },
+    "each": function (ary, func) {
+        if (ary) {
+            var i;
+            for (i = 0; i < ary.length; i += 1) {
+                if (ary[i] && func(ary[i], i, ary)) {
+                    break;
+                }
+            }
+        }
+    },
+    "eachProp": function (obj, func) {
+        var prop;
+        for (prop in obj) {
+            if (tk.hasProp(obj, prop)) {
+                if (func(obj[prop], prop)) {
+                    break;
+                }
+            }
+        }
+    }
+});
+
+
+/* RequireJS */
+tk.AddMethod(TK,{
+    "RequireJS" : function () {
+        this.nextTickTime = 4;
+        this.enabledRegistry = {};
+    }
+});
+
+tk.Composition(TK.RequireJS,{
+    "nextTick" : function(fn){
+        setTimeout(fn, this.nextTickTime);
+    },
+    "require" :function (names, deps, callback){
+        var that = this;
+        that.nextTick(function(){
+            var handler;
+            var id = names;
+            if(tk.hasProp(that.enabledRegistry, id)){
+                return;
+            } 
+            handler = tk.requireJS.makeModule(id);
+            handler.init(deps, callback);
+        });
+        return that.require;
+    },
+    "load": function(moduleName, url){
+        var that = this;
+        var attr = {};
+        attr["data-requiremodule"] = moduleName;
+        tk.loadJSFile(url, function(evt){
+            that.onScriptLoad(evt);
+        }, true, false, attr)
+    },
+    "onScriptLoad" : function(evt){
+        var that = this;
+        var node = evt.currentTarget || evt.srcElement;   
+        var name = node.getAttribute('data-requiremodule');
+        var handle;
+        if(tk.hasProp(that.enabledRegistry, name)){
+            handle = that.enabledRegistry[name];
+            handle.loaded = true;
+            handle.callback();
+        }
+    },
+    "makeModule" : function(name){
+        var that = this;
+        var handle;
+        if(tk.hasProp(that.enabledRegistry, name)){
+            handle = that.enabledRegistry[name];
+        }else{
+            handle = that.enabledRegistry[name] = new TK.RequireJS.Module(name);
+        }
+        return handle;
+    }
+});
+
+tk.AddMethod(TK.RequireJS,{
+    "Module" : function (id) {
+        this.require = tk.require;
+        this.id = id;
+        this.afterCallback = []; 
+        this.depMaps = [];
+        this.enabledRegistry = tk.requireJS.enabledRegistry;
+        this.enabledRegistry[this.id] = this;
+    }
+});
+
+
+tk.Composition(TK.RequireJS.Module,{
+    "init" : function(depMaps, factory){
+         if (this.inited) {
+            return;
+        }
+        this.inited = true;
+        this.factory = factory;
+        this.depMaps = depMaps && depMaps.slice(0);
+        this.enable();
+    },
+    "callback": function(){
+        if(this.callbacked){
+            return;
+        }
+        this.callbacked = true;
+        this.factory && this.factory();
+        tk.each(this.afterCallback, function(fn){
+            fn && fn();
+        });
+    },
+    "check": function(){
+        var that = this;
+        if(that.checking){
+            return ;
+        } 
+        
+        that.checked = true;
+        that.checking = true;
+        tk.each(that.depMaps, function (id, i) {
+            var handler;
+            if(tk.hasProp(that.enabledRegistry, id)){
+                handler = that.enabledRegistry[id];
+                if(!handler.loaded){
+                    that.checked = false;
+                }
+            } 
+        });
+        
+        that.checking = false;
+        if(that.checked){
+            that.callback();
+        }
+        
+    },
+    "enable" : function(){
+        var that = this;
+        if (that.enabled){
+            return ;
+        }
+        that.enabled = true;
+        
+        tk.each(that.depMaps, function (id, i) {
+            var handler;
+            if(tk.hasProp(that.enabledRegistry, id)){
+                handler = that.enabledRegistry[id];
+                handler.afterCallback.push(function(){
+                    that.check();
+                });
+            }else{
+                handler = tk.requireJS.makeModule(id);
+                handler.afterCallback.push(function(){
+                    that.check();
+                });
+                tk.requireJS.load(id, id);
+            }
+        });
+        that.check();
+    }
+});
+
+tk.Composition(TK,{
+    "requireJS" : new TK.RequireJS()
+});
+
+
+/* require function */
+tk.Composition(TK, {
+    "require" : function (names, deps, callback){
+        if (!tk.isString(deps) ||!tk.isArray(deps) || !tk.isFunction(callback)) {
+            return;
+        }
+        return tk.requireJS.require(names, deps, callback);
+    }
+});
 
 
 /* min max */
@@ -425,16 +614,23 @@ tk.Composition(TK, {
 
 /* loadJSFile */
 tk.Composition(TK, {
-    loadJSFile  : function loadJSFile(url, cb, async, innerText){
+    loadJSFile  : function loadJSFile(url, cb, async, innerText, attr){
         try {
             var head = document.body || document.getElementsByTagName("body")[0] || document.documentElement;
             var script = document.createElement('script');
             var done = false;
-            script.src = url;
+            script.type = 'text/javascript';
+            script.charset = 'utf-8';
             script.async = !!async;
             
+            if(attr){
+                tk.eachProp(attr, function(value, key){
+                    script.setAttribute(key, value);
+                });
+            }
+            
             if (!!innerText) {
-            /* IE8 and below throws an exception when calling appendChild on a script tag */
+                /* IE8 and below throws an exception when calling appendChild on a script tag */
                 try {
                     script.appendChild(document.createTextNode(innerText));
                 } catch(e) {
@@ -442,13 +638,14 @@ tk.Composition(TK, {
                 }
             }
             
-            script.onload = script.onreadystatechange = function() {
+            script.onload = script.onreadystatechange = function(event) {
                 if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
                     done = true;
                     script.onload = script.onreadystatechange = null;
-                    cb && cb();
+                    cb && cb(event);
                 }
             };
+            script.src = url;
             /* head.insertBefore(script, head.firstChild); */
            head.appendChild(script); 
         } catch (e) { 
