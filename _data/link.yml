@@ -20,3 +20,8 @@ v8_chromium_googlesource: https://chromium.googlesource.com/v8/v8/
 v8_building_with_gyp: /doc/v8/building_with_gyp.html
 v8_d8_on_android: /doc/v8/d8_on_android.html
 v8_install_depot_tools: /doc/v8/install_depot_tools.html
+android_apktool: https://github.com/iBotPeaches/Apktool
+android_dex2jar: https://github.com/pxb1988/dex2jar
+java_jd_gui: https://github.com/java-decompiler/jd-gui
+java_jd_eclipse: https://github.com/java-decompiler/jd-eclipse
+
