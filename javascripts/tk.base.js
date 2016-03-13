@@ -48,5 +48,13 @@ tk.Composition(TK,{
     }
 });
 
-
-
+/*
+ * 只能以页面为相对位置, 或者绝对位置
+*/
+tk.Composition(TK,{
+    getAbsolutePath : function(url) {
+        var aTag = document.createElement('a');
+        aTag.href = url;
+        return aTag.href;
+    }
+});
