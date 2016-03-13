@@ -47,14 +47,7 @@ document.body.addEventListener('touchmove', function (ev) {
 var link = "/project/photowall/";
 var imgList = [];
 var content = [];
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/295002876.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/301178483.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/303276483.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/305125988.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/307156613.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/308843132.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/310617989.jpg");
-//imgList.push("http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/312398589.jpg");
+
 
 $.get("/data/islide_horizontally.json",function(d){
     for(var i in d){

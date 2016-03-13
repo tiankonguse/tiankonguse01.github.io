@@ -3,21 +3,22 @@ button {
 	height:25px;
 	width:80px;
 	color:blue;
+	display: none;
 }
 
-.weiqi-frame{
+#weiqi-frame{
 	top:50px;
 }
 
-#weiqi {
+#weiqi-board {
 	border: 0px solid blue;
 	position: absolute;
-	top:250px;
+	top:100px;
     left:250px;
 }
-#path {
+#weiqi-piece {
 	position: absolute;
-	top:250px;
+	top:100px;
     left:250px;
 	z-index: 200;
 }

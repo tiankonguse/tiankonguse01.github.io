@@ -1,3 +1,210 @@
+
+
+tk.AddMethod(TK,{
+    Canvas : function (base){
+        this.base = 1;
+        if(base){
+            this.base = base;
+        }
+    }
+});
+
+tk.Composition(TK.Canvas, {
+    "getCanvas": function(dom){
+        return dom[0].getContext('2d');
+    },
+    "fillRect" : function (dom, style, start, end){
+        dom.fillStyle = style;
+	    dom.fillRect(start.x * this.base, start.y * this.base, end.x * this.base, end.y * this.base);
+    },
+    "line": function(dom, start, end){
+	    dom.beginPath();
+	    dom.moveTo(start.x * this.base,   start.y * this.base);
+	    dom.lineTo(  end.x * this.base,     end.y * this.base);
+	    dom.stroke();
+    },
+    "arc": function(dom, style, point, R){
+        dom.beginPath();
+		dom.arc(point.x * this.base, point.y * this.base ,R, 0, 2*Math.PI, false);
+		dom.fillStyle=style;
+		dom.fill();
+    },
+    "piece": function(dom, point, backgroud, color){
+        var rg = dom.createRadialGradient(point.x*this.base-3, point.y*this.base-3, 1, point.x*this.base-4, point.y*this.base-4, 11);
+	    rg.addColorStop(1, backgroud);
+	    rg.addColorStop(0, color);
+	    return rg;
+    }
+});
+
+
+tk.Composition(TK, {
+    "makePoint" : function(x, y){
+        return {
+            x: x,
+            y: y
+        };
+    }
+});
+
+tk.AddMethod(TK,{
+    SampleGo : function SampleGo(){
+        this.board = [];
+        this.boardOneSize = 20;
+        this.boardhalfSize = this.boardOneSize/2;
+        this.boardLev = 19;
+        this.boardDot = [4, 10, 16];
+        this.boardMap = [];
+        this.black = 1;
+        this.white = 2;
+        this.moveStep = 0;
+    }
+});
+
+/*
+
+    init: {
+        boardWidth : 500,
+        boardHeight : 500,
+        boardDom : $("#weiqi-board")
+    }
+*/
+tk.Composition(TK.SampleGo, {
+    "init" : function init(option){
+        tk.AddMethod(this, option);
+        this.canvas = new TK.Canvas(this.boardOneSize);
+        this.initAttr();
+        this.initBoard();
+        this.initPiece();
+    },
+    "initAttr": function(){
+        this.boardMap = [];
+        for(var i = 0; i < this.boardLev; i++){
+            this.boardMap.push([]);
+            for(var j = 0; j < this.boardLev; j++){
+                this.boardMap.push(0);
+            }
+        }
+    
+        this.boardWidth = this.boardHeight = this.boardOneSize * (this.boardLev + 1);
+        
+        this.minLev = 1;
+        this.maxLev = this.boardLev;
+        
+        this.boardDom.attr({
+            "width" : this.boardWidth,
+            "height": this.boardHeight
+        });
+        this.pieceDom.attr({
+            "width" : this.boardWidth,
+            "height": this.boardHeight
+        });
+    },
+    "drawEmptyBoard": function(){
+	    this.canvas.fillRect(this.boardCxt, "sandybrown", tk.makePoint(0, 0), tk.makePoint(this.boardOneSize + 1, this.boardOneSize + 1));
+	    
+        //横线
+	    for (var i = 1; i <= this.boardLev; i++) { 
+            this.canvas.line(this.boardCxt, tk.makePoint(this.minLev, i), tk.makePoint(this.maxLev, i));
+	    }
+	    
+	    //竖线
+	    for (var i = 1; i <= this.boardLev; i++) {
+            this.canvas.line(this.boardCxt, tk.makePoint(i, this.minLev), tk.makePoint(i, this.maxLev));
+	    }
+	    
+	    //九个点
+	    
+	    for(var i = 0; i < this.boardDot.length; i++){
+	        for(var j = 0; j < this.boardDot.length; j++){
+	            this.canvas.arc(
+	                this.boardCxt, 
+	                "black", 
+	                tk.makePoint(this.boardDot[i], this.boardDot[j]),
+	                3
+	            );
+	        }
+	    }
+        
+    },
+    "drawPiece": function(){
+        for(var i = 0; i < this.boardLev; i++){
+            for(var j = 0; j < this.boardLev; j++){
+                if(this.boardMap[i][j] == this.black){
+				    var style = this.canvas.piece(this.boardCxt, tk.makePoint(i+1, j+1), "#202020", "gray");
+				    this.canvas.arc(this.boardCxt, style, tk.makePoint(i+1, j+1), this.boardhalfSize);
+                }else if(this.boardMap[i][j] == this.white){
+				    var style = this.canvas.piece(this.boardCxt, tk.makePoint(i+1, j+1), "#e0e0e0", "white");
+				    this.canvas.arc(this.boardCxt, style, tk.makePoint(i+1, j+1), this.boardhalfSize);
+                }else{
+                }
+            }
+        }
+    },
+    "initBoard" : function(){
+        this.boardCxt = this.canvas.getCanvas(this.boardDom);
+	    this.drawEmptyBoard();
+	    this.drawPiece();
+    },
+    "getPos": function(x, y){
+        var that = this;
+        if (x < that.boardOneSize - that.boardhalfSize || x > that.boardWidth - that.boardOneSize + that.boardhalfSize){
+            return;
+        }
+	        
+        if (y < that.boardOneSize - that.boardhalfSize || y > that.boardWidth - that.boardOneSize + that.boardhalfSize){
+            return;
+        }
+	        
+
+        var xok = false;
+        var yok = false;
+        for (var i = 1; i <= that.boardLev; i++) {
+	        if (x > i * that.boardOneSize - that.boardhalfSize && x < i * that.boardOneSize + that.boardhalfSize) {
+		        x = i;
+		        xok = true;
+	        }
+	        if (y > i * that.boardOneSize - that.boardhalfSize && y < i * that.boardOneSize + that.boardhalfSize) {
+		        y = i;
+		        yok = true;
+	        }
+        }
+        if (!xok || !yok){
+            return;
+        }
+        return tk.makePoint(x, y);
+    },
+    "initPiece" : function(){
+        var that = this;
+        this.pieceCxt = this.canvas.getCanvas(this.pieceDom);
+        this.pieceDom.bind("mousedown", function(e){
+	        var point = that.getPos(e.offsetX, e.offsetY);
+	        if (!point){
+	            return;
+	        }
+        });
+        this.pieceDom.bind("mousemove", function(e){
+	        var point = that.getPos(e.offsetX, e.offsetY);
+	        if (!point){
+	            return;
+	        }
+
+	        that.pieceCxt.clearRect(0,0,that.boardWidth,that.boardWidth);
+
+            var style = "";
+            if (that.moveStep % 2 == 0){
+                style = "black";
+            }else{
+                style = "white";
+            }
+            that.canvas.arc(that.pieceCxt, style, point, that.boardhalfSize);
+        });
+        this.pieceDom.bind("mouseout", function(e){
+            that.pieceCxt.clearRect(0,0,that.boardWidth,that.boardWidth);
+        });
+    }
+});
+
 /* some global values */
 var pan = new Array(
 	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -45,7 +252,7 @@ var jie = new Array();
 var move_record = new Array();
 
 function showPan() {
-	var c = document.getElementById("weiqi");
+	var c = document.getElementById("weiqi-board");
 	var cxt = c.getContext("2d");
 	cxt.strokeStyle="black";
 	
@@ -60,22 +267,21 @@ function showPan() {
 		for (var j = 0; j < 19; j++) {
 			if (pan[i][j] === 1) { //black
 				var rg = cxt.createRadialGradient((i+1)*30-3, (j+1)*30-3, 1, (i+1)*30-4, (j+1)*30-4, 11);
-				rg.addColorStop(1, /*"black"*/"#202020");
+				rg.addColorStop(1, "#202020");
 				rg.addColorStop(0, "gray");
+				
+				
 				cxt.beginPath();
 				cxt.arc((i+1)*30, (j+1)*30,15,0,2*Math.PI,false);
-				//cxt.fillStyle="black";
 				cxt.fillStyle=rg;
 				cxt.fill();
-				
 			}
 			else if (pan[i][j] === 2) { //white
 				var rg = cxt.createRadialGradient((i+1)*30-3, (j+1)*30-3, 1, (i+1)*30-4, (j+1)*30-4, 11);
-				rg.addColorStop(1, /*"lightgray"*/"#e0e0e0");
+				rg.addColorStop(1, "#e0e0e0");
 				rg.addColorStop(0, "white");
 				cxt.beginPath();
 				cxt.arc((i+1)*30, (j+1)*30,15,0,2*Math.PI,false);
-				//cxt.fillStyle="white";
 				cxt.fillStyle=rg;
 				cxt.fill();
 			}
@@ -659,8 +865,8 @@ function mousedownHandler(e) {
 function mousemoveHandler(e) {
 	var x, y;
 	if (e.offsetX || e.offsetX == 0) {
-		x = e.offsetX ;//- imageView.offsetLeft;
-		y = e.offsetY ;//- imageView.offsetTop;
+		x = e.offsetX ;
+		y = e.offsetY ;
 	}
 	if (x < 30-10 || x > 600-30+10)
 		return;
@@ -715,7 +921,7 @@ function initBoard() {
 	c_path.addEventListener('mousemove', mousemoveHandler, false);
 	c_path.addEventListener('mouseout', mouseoutHandler, false);
 
-	var c_weiqi = document.getElementById("weiqi");
+	var c_weiqi = document.getElementById("weiqi-board");
 	var cxt = c_weiqi.getContext("2d");
 	cxt.fillStyle = "silver";
 	cxt.fillRect(0,0,600,600);
@@ -738,7 +944,7 @@ function addLoadEvent(func) {
 	}
 }
 //window.addEventListener("load", initBoard, true);
-addLoadEvent(initBoard);
+//addLoadEvent(initBoard);
 
 var move_show_flag = false;
 function deal_button() {
@@ -757,6 +963,6 @@ function deal_button() {
 		}
 	}
 }
-addLoadEvent(deal_button);
-console.log("lll");
+//addLoadEvent(deal_button);
+
 

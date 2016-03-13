@@ -12,10 +12,10 @@ title : samplego
 <div class="wrapper">
   <div class="sub-wrapper">
     <div class="scroller">
-        <div class="weiqi-frame">
+        <div id="weiqi-frame">
             <button id="move_show" type="button">显示手数</button><br />
-            <canvas id="weiqi" width="600" height="600"></canvas>
-            <canvas id="path" width="600" height="600"></canvas>
+            <canvas id="weiqi-board"></canvas>
+            <canvas id="weiqi-piece"></canvas>
         </div>
     </div>
   </div>
@@ -36,8 +36,24 @@ if(tk.isMobile.any()){
     });
 }
 
+function loadSampleGo() {
+    var samplego = new TK.SampleGo();
+    var screenWidth =  tk.min($(window).width(), screen.width, screen.availWidth);
+    var screenHeight =  tk.min($(window).height(), screen.height, screen.availHeight);
+    var boardPad = 2;
+    var boardOneSize = 40;
+    var $boardDom = $("#weiqi-board");
+    var $pieceDom = $("#weiqi-piece");
+    samplego.init({
+        boardDom : $boardDom,
+        pieceDom : $pieceDom
+    });
+    
+}
+
 tk.require("/project/samplego/index.md", ["/project/samplego/samplego.js", "/javascripts/tk.scroll.js"], function(){
     tk.scroll.fixScroll();
+    loadSampleGo();
 });
 
 
