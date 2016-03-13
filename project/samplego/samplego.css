@@ -7,18 +7,20 @@ button {
 }
 
 #weiqi-frame{
-	top:50px;
+    top: 50px;
+    height: 500px;
+    position: relative;
 }
 
 #weiqi-board {
-	border: 0px solid blue;
-	position: absolute;
-	top:100px;
-    left:250px;
+    border: 0px solid blue;
+    position: absolute;
+    top: 0px;
+    left: 250px;
 }
 #weiqi-piece {
-	position: absolute;
-	top:100px;
-    left:250px;
-	z-index: 200;
+    position: absolute;
+    top: 0px;
+    left: 250px;
+    z-index: 200;
 }
