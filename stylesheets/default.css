@@ -1667,3 +1667,11 @@ ins{
     border-color: #99FF00;
 }
 
+.wrapper {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sub-wrapper {
+  overflow: auto;
+}

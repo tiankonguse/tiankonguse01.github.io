@@ -57,6 +57,27 @@ tk.Composition(TK.Scroll,{
         });
     }
 });
+tk.Composition(TK.Scroll,{
+    "fixScroll": function(){
+        function preventDefault(ev) {
+          ev.preventDefault();
+        }
+
+        document.addEventListener('touchmove', preventDefault, false)
+
+        function isScroller(el) {
+          // 判断元素是否为 scroller
+          return el.classList.contains('scroller')
+        }
+
+        document.body.addEventListener('touchmove', function (ev) {
+          var target = ev.target
+          if (isScroller(target)) {
+            ev.stopPropagation()
+          }
+        }, false)
+    }
+});
 tk.Composition(TK,{
     scroll : new TK.Scroll()
 });

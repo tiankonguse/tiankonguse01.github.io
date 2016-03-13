@@ -5,13 +5,20 @@ button {
 	color:blue;
 }
 
+#weiqi-frame{
+	position: relative;
+	top:50px;
+}
+
 #weiqi {
 	border: 0px solid blue;
 	position: absolute;
-	top:50px;
+	top:250px;
+    left:250px;
 }
 #path {
 	position: absolute;
-	top:50px;
+	top:250px;
+    left:250px;
 	z-index: 200;
 }

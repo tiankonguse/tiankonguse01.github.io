@@ -8,9 +8,13 @@ title : samplego
 <link rel="stylesheet" href="./samplego.css" type="text/css" />
 </p>
 
-<button id="move_show" type="button">显示手数</button><br />
-<canvas id="weiqi" width="600" height="600"></canvas>
-<canvas id="path" width="600" height="600"></canvas>
+
+
+<div class="weiqi-frame">
+    <button id="move_show" type="button">显示手数</button><br />
+    <canvas id="weiqi" width="600" height="600"></canvas>
+    <canvas id="path" width="600" height="600"></canvas>
+</div>
 
 
 
@@ -26,8 +30,8 @@ if(tk.isMobile.any()){
     });
 }
 
-tk.require("/project/samplego/index.md", ["/project/samplego/samplego.js"], function(){
-    
+tk.require("/project/samplego/index.md", ["/project/samplego/samplego.js", "/javascripts/tk.scroll.js"], function(){
+    tk.scroll.fixScroll();
 });
 
 

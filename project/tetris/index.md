@@ -198,7 +198,6 @@ function isScroller(el) {
 
 document.body.addEventListener('touchmove', function (ev) {
   var target = ev.target
-  // 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
   if (isScroller(target)) {
     ev.stopPropagation()
   }
