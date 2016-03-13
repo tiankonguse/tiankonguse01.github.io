@@ -158,7 +158,7 @@ function loadSidebar(){
     
     /* scroll top down */
     //tk.scroll.bind();
-    tk.require("/javascripts/tk.js", ["/javascripts/tk.scroll.js"], function(){
+    tk.require("/javascripts/main.js", ["/javascripts/tk.scroll.js"], function(){
         tk.scroll.bind();
     });
 }

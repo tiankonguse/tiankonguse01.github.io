@@ -124,6 +124,18 @@ tk.Composition(TK.RequireJS,{
         return handle;
     }
 });
+tk.Composition(TK,{
+    "requireJS" : new TK.RequireJS()
+});
+/* require function */
+tk.Composition(TK, {
+    "require" : function (names, deps, callback){
+        if (!tk.isString(deps) ||!tk.isArray(deps) || !tk.isFunction(callback)) {
+            return;
+        }
+        return tk.requireJS.require(names, deps, callback);
+    }
+});
 
 tk.AddMethod(TK.RequireJS,{
     "Module" : function (id) {
@@ -135,8 +147,6 @@ tk.AddMethod(TK.RequireJS,{
         this.enabledRegistry[this.id] = this;
     }
 });
-
-
 tk.Composition(TK.RequireJS.Module,{
     "init" : function(depMaps, factory){
          if (this.inited) {
@@ -207,20 +217,11 @@ tk.Composition(TK.RequireJS.Module,{
     }
 });
 
-tk.Composition(TK,{
-    "requireJS" : new TK.RequireJS()
-});
 
 
-/* require function */
-tk.Composition(TK, {
-    "require" : function (names, deps, callback){
-        if (!tk.isString(deps) ||!tk.isArray(deps) || !tk.isFunction(callback)) {
-            return;
-        }
-        return tk.requireJS.require(names, deps, callback);
-    }
-});
+
+
+
 
 
 /* min max */
@@ -245,74 +246,9 @@ tk.Composition(TK, {
     }
 });
 
-/* replace */
-tk.Composition(TK,{
-    replace : function replace(str, key, val) {
-        return str.split(key).join(val);
-    }
-});
 
 
-/* Format timr */
-tk.Composition(TK,{
-    Format : function Format(data, fmt) {
-        var o = {
-            "M+": data.getMonth() + 1,
-            "d+": data.getDate(),
-            "h+": data.getHours(),
-            "m+": data.getMinutes(),
-            "s+": data.getSeconds()
-        };
-        if (/(y+)/.test(fmt)){
-            var match = RegExp.$1;
-            var length = 4 - tk.min(match.length, 4);
-            var replace = (data.getFullYear() + "");
-            replace = replace.substr(length);
-            fmt = tk.replace(fmt, match, replace);
-        }
-        if (/(S+)/.test(fmt)){
-            var match = RegExp.$1;
-            var replace = data.getMilliseconds() + "";
-            var length = tk.max(tk.min(match.length, 3), replace.length)
-            replace = "00" + replace;
-            length = replace.length - length;
-            replace = replace.substr(length);
-            fmt = tk.replace(fmt, match, replace);
-        }
-        for (var k in o){
-            if (new RegExp("(" + k + ")").test(fmt)){
-                var match = RegExp.$1;
-                var replace = o[k] + "";
-                var length = tk.max(tk.min(match.length, 2), replace.length);
-                replace = "0" + replace;
-                length = replace.length - length;
-                replace = replace.substr(length);
-                fmt = tk.replace(fmt, match, replace);
-            }
-        }
-        return fmt;
-    }
-});
 
-
-/* UTF8Length */
-tk.Composition(TK,{
-    UTF8Length : function UTF8Length(s) {
-        var l = 0;
-        var c;
-        for (var i = 0; i < s.length; i++) {
-            c = s.charCodeAt(i);
-            if (c <= 0x007f) {
-                l = l + 1;
-            } else if ((0x0080 <= c) && (c <= 0x07ff)) {
-                l += 2;
-            } else if ((0x0800 <= c) && (c <= 0xffff)) {
-                l += 3;
-            }
-        }
-        return l;
-    }
-});
 
 /* Cookie */
 tk.AddMethod(TK,{
@@ -385,146 +321,8 @@ tk.Composition(TK.customDropDown,{
 });
 
 
-/* JSON */
-tk.AddMethod(TK,{
-    JSON : function JSON(ele){
-        ele = ele || "{}";
-        this.parse = window.JSON.parse;
-        this.stringify = window.JSON.stringify;
-        if(typeof ele == "string"){
-            this.str = ele;
-            this.object = this.parse(ele);
-        }else{
-            this.object = ele;
-            this.str = this.stringify(ele, null, 0);
-        }
-    }
-});
-tk.Composition(TK.JSON,{
-    toObject : function toObject(src){
-        return this.parse(src);
-    },
-    toString : function toString(format){
-        var str;
-        if(format){
-            str = this.stringify(this.object);
-        }else{
-            str = this.str;
-        }
-        return str;
-    }
-});
-tk.Composition(TK, {
-    json : new TK.JSON()
-});
 
 
-/* XML */
-tk.AddMethod(TK,{
-    XML : function XML(ele){
-        ele = ele || "";
-        this.ok = false;
-        this.json = {};
-        if(typeof ele == "string"){
-            if (ele.trim().length == 0) {
-                this.ok = true;
-            }else{
-                var xmlDom = jQuery.parseXML(ele);
-                if (xmlDom.nodeType == 9) {
-                    this.xmlDom = xmlDom.childNodes[0];
-                }else{
-                    this.ok = true;
-                }
-            }
-        }else{
-            this.xmlDom = ele;
-        }
-    }
-});
-tk.Composition(TK.XML,{
-    toXMLDom : function toXMLDom(ele){
-        ele = ele || "";
-        this.ok = false;
-        this.json = {};
-        if(typeof ele == "string"){
-            if (ele.trim().length == 0) {
-                this.ok = true;
-            }else{
-                var xmlDom = jQuery.parseXML(ele);
-                if (xmlDom.nodeType == 9) {
-                    this.xmlDom = xmlDom.childNodes[0];
-                }else{
-                    this.ok = true;
-                }
-            }
-        }else{
-            this.xmlDom = ele;
-        }
-        return this.xmlDom;
-    },
-    toJSON : function toJSON(ele){
-        if(ele){
-            this.toXMLDom(ele);
-        }
-        if(this.ok){
-            return this.json;
-        }
-        var xml = this.xmlDom;
-        var obj = {};
-        if (xml.nodeType == 1) {
-            // element
-            // do attributes
-            if (xml.attributes.length > 0) {
-                obj["@attributes"] = {};
-                for (var j = 0; j < xml.attributes.length; j++) {
-                    var attribute = xml.attributes.item(j);
-                    obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
-                }
-            }
-        } else if (xml.nodeType == 3) { // text
-            obj = xml.nodeValue;
-        }
-        // do children
-        if (xml.hasChildNodes()) {
-            for (var i = 0; i < xml.childNodes.length; i++) {
-                var item = xml.childNodes.item(i);
-                var nodeName = item.nodeName;
-                if (typeof (obj[nodeName]) == "undefined") {
-                    obj[nodeName] = this.xmlToJson(item);
-                } else {
-                    if (typeof (obj[nodeName].push) == "undefined") {
-                        var old = obj[nodeName];
-                        obj[nodeName] = [];
-                        obj[nodeName].push(old);
-                    }
-                    obj[nodeName].push(xmlToJson(item));
-                }
-            }
-        }
-        return obj;
-    }
-});
-tk.Composition(TK, {
-    xml : new TK.XML()
-});
-
-
-/* hashString */
-tk.Composition(TK,{
-    hashString : function hashString(str, caseSensitive){
-        str = str.toString();
-        if (!caseSensitive) {
-            str = str.toLowerCase();
-        }
-        // 1315423911=b'1001110011001111100011010100111'
-        var hash = 1315423911, i, ch;
-        for (i = str.length - 1; i >= 0; i--) {
-            ch = str.charCodeAt(i);
-            hash ^= ((hash << 5) + ch + (hash >> 2));
-        }
-        return (hash & 0x7FFFFFFF);
-    }
-});
 
 /* loadImg */
 tk.Composition(TK,{
@@ -708,12 +506,7 @@ tk.Composition(TK, {
     }
 });
 
-/* time */
-tk.Composition(TK, {
-    time : function time(){
-        return new Date().getTime();
-    }
-});
+
 
 
 /* 
@@ -943,7 +736,9 @@ tk.Composition(TK, {
         tk.fixConsole();
         tk.fixString();
         tk.fixArray();
-        
+        tk.require("/javascripts/tk.js", ["/javascripts/tk.base.js", "/javascripts/tk.date.js", "/javascripts/tk.json.js"], function(){
+            
+        });
     }
 });
 

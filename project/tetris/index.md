@@ -147,8 +147,9 @@ function loadTetris() {
 
 }
 
-tk.loadJSFile("./tetris.js?t=" + tk.time(), loadTetris, true);
-
+tk.require("/project/tetris/index.md", ["/project/tetris/tetris.js"], function(){
+    loadTetris();
+});
 
 
 
@@ -191,14 +192,12 @@ function preventDefault(ev) {
 document.addEventListener('touchmove', preventDefault, false)
 
 function isScroller(el) {
-
   // 判断元素是否为 scroller
   return el.classList.contains('scroller')
 }
 
 document.body.addEventListener('touchmove', function (ev) {
   var target = ev.target
-
   // 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
   if (isScroller(target)) {
     ev.stopPropagation()

@@ -8,7 +8,7 @@
 启动服务器并生成网站
 
 ```
-sudo jekyll serve --watch --config _config.yml,_config_dev.yml
+sudo jekyll serve --watch --config _config.yml,_config_dev.yml,_config_dev2.yml
 ```
 
 访问地址
