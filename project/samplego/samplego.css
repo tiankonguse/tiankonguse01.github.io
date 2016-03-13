@@ -1,0 +1,17 @@
+button {
+	margin-top:20px;
+	height:25px;
+	width:80px;
+	color:blue;
+}
+
+#weiqi {
+	border: 0px solid blue;
+	position: absolute;
+	top:50px;
+}
+#path {
+	position: absolute;
+	top:50px;
+	z-index: 200;
+}
