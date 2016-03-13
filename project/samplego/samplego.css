@@ -5,7 +5,7 @@ button {
 	color:blue;
 }
 
-#weiqi-frame{
+.weiqi-frame{
 	position: relative;
 	top:50px;
 }
