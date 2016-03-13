@@ -759,5 +759,3 @@ function deal_button() {
 }
 addLoadEvent(deal_button);
 
-tk.ad.loadGoogleJs(false);
-$(".ad-page-footer").hide();

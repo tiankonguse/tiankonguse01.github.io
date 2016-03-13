@@ -24,9 +24,9 @@ if(tk.isMobile.any()){
     tk.ad.isLoadGoogleJs = false;
     tk.ad.isShowPageFoot = false;
     jQuery(document).ready(function(){
-        //tk.ad.loadGoogleJs(true);
-        //$(".ad-page-footer").show();
-	    //tk.ad.showPageFoot("ad-page-footer","auto" ,true);
+        tk.ad.loadGoogleJs(true);
+        $(".ad-page-footer").show();
+	    tk.ad.showPageFoot("ad-page-footer","auto" ,true);
     });
 }
 
