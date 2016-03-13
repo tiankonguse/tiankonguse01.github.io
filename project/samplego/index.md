@@ -9,12 +9,18 @@ title : samplego
 </p>
 
 
-
-<div class="weiqi-frame">
-    <button id="move_show" type="button">显示手数</button><br />
-    <canvas id="weiqi" width="600" height="600"></canvas>
-    <canvas id="path" width="600" height="600"></canvas>
+<div class="wrapper">
+  <div class="sub-wrapper">
+    <div class="scroller">
+        <div class="weiqi-frame">
+            <button id="move_show" type="button">显示手数</button><br />
+            <canvas id="weiqi" width="600" height="600"></canvas>
+            <canvas id="path" width="600" height="600"></canvas>
+        </div>
+    </div>
+  </div>
 </div>
+
 
 
 

@@ -758,4 +758,5 @@ function deal_button() {
 	}
 }
 addLoadEvent(deal_button);
+console.log("lll");
 
