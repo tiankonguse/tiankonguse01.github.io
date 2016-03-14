@@ -24,3 +24,11 @@ button {
     left: 250px;
     z-index: 200;
 }
+
+#black{
+	display: none;
+}
+
+#white{
+	display: none;
+}

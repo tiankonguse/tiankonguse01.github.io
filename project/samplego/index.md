@@ -38,15 +38,9 @@ if(tk.isMobile.any()){
 
 function loadSampleGo() {
     var samplego = new TK.SampleGo();
-    var screenWidth =  tk.min($(window).width(), screen.width, screen.availWidth);
-    var screenHeight =  tk.min($(window).height(), screen.height, screen.availHeight);
-    var boardPad = 2;
-    var boardOneSize = 40;
-    var $boardDom = $("#weiqi-board");
-    var $pieceDom = $("#weiqi-piece");
     samplego.init({
-        boardDom : $boardDom,
-        pieceDom : $pieceDom
+        boardDom : $("#weiqi-board"),
+        pieceDom : $("#weiqi-piece"),
     });
     
 }

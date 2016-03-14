@@ -58,3 +58,31 @@ tk.Composition(TK,{
         return aTag.href;
     }
 });
+
+tk.Composition(TK,{
+    clone : function(obj, deep) {
+        var newObj = obj;
+        if(tk.isArray(obj)){
+            newObj = [];
+            tk.each(obj, function(value){
+                if(deep){
+                    newObj.push(tk.clone(value, deep));
+                }else{
+                    newObj.push(value);
+                }
+            });
+        }else if(tk.isObject(obj)){
+            newObj = {};
+            tk.eachProp(newObj, function(value, key){
+                if(deep){
+                    newObj[key] = tk.clone(value, deep);
+                }else{
+                    newObj[key] = value;
+                }
+            });
+        }
+        return newObj;
+    }
+});
+
+

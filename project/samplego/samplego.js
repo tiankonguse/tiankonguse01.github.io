@@ -34,6 +34,9 @@ tk.Composition(TK.Canvas, {
 	    rg.addColorStop(1, backgroud);
 	    rg.addColorStop(0, color);
 	    return rg;
+    },
+    "drawImage":  function(){
+        
     }
 });
 
@@ -53,10 +56,15 @@ tk.AddMethod(TK,{
         this.boardOneSize = 20;
         this.boardhalfSize = this.boardOneSize/2;
         this.boardLev = 19;
+        this.boardFrame = this.boardLev + 2;
         this.boardDot = [4, 10, 16];
         this.boardMap = [];
+        this.boardColor = ["", "gray", "white"];
+        this.boardColor2 = ["", "#202020", "#e0e0e0"];
+        this.boardNext = [0, 2, 1];
         this.black = 1;
         this.white = 2;
+        this.playColor = this.black;
         this.moveStep = 0;
     }
 });
@@ -79,11 +87,23 @@ tk.Composition(TK.SampleGo, {
     },
     "initAttr": function(){
         this.boardMap = [];
-        for(var i = 0; i < this.boardLev; i++){
+        this.boardFrame = this.boardLev + 2;
+        
+        this.boardMap.push([]);
+        for(var j = 0; j < this.boardFrame; j++){
+            this.boardMap[0].push(3);
+        }
+        for(var i = 1; i <= this.boardLev; i++){
             this.boardMap.push([]);
-            for(var j = 0; j < this.boardLev; j++){
-                this.boardMap.push(0);
+            this.boardMap[i].push(3);
+            for(var j = 1; j <= this.boardLev; j++){
+                this.boardMap[i].push(0);
             }
+            this.boardMap[i].push(3);
+        }        
+        this.boardMap.push([]);
+        for(var j = 0; j < this.boardFrame; j++){
+            this.boardMap[this.boardLev+1].push(3);
         }
     
         this.boardWidth = this.boardHeight = this.boardOneSize * (this.boardLev + 1);
@@ -101,7 +121,7 @@ tk.Composition(TK.SampleGo, {
         });
     },
     "drawEmptyBoard": function(){
-	    this.canvas.fillRect(this.boardCxt, "sandybrown", tk.makePoint(0, 0), tk.makePoint(this.boardOneSize + 1, this.boardOneSize + 1));
+	    this.canvas.fillRect(this.boardCxt, "sandybrown", tk.makePoint(0, 0), tk.makePoint(this.boardLev + 1, this.boardLev + 1));
 	    
         //横线
 	    for (var i = 1; i <= this.boardLev; i++) { 
@@ -114,7 +134,6 @@ tk.Composition(TK.SampleGo, {
 	    }
 	    
 	    //九个点
-	    
 	    for(var i = 0; i < this.boardDot.length; i++){
 	        for(var j = 0; j < this.boardDot.length; j++){
 	            this.canvas.arc(
@@ -128,14 +147,12 @@ tk.Composition(TK.SampleGo, {
         
     },
     "drawPiece": function(){
-        for(var i = 0; i < this.boardLev; i++){
-            for(var j = 0; j < this.boardLev; j++){
+        for(var i = 1; i <= this.boardLev; i++){
+            for(var j = 1; j <= this.boardLev; j++){
                 if(this.boardMap[i][j] == this.black){
-				    var style = this.canvas.piece(this.boardCxt, tk.makePoint(i+1, j+1), "#202020", "gray");
-				    this.canvas.arc(this.boardCxt, style, tk.makePoint(i+1, j+1), this.boardhalfSize);
+                    this.drawOnePiece(this.boardCxt, tk.makePoint(i, j), this.black);
                 }else if(this.boardMap[i][j] == this.white){
-				    var style = this.canvas.piece(this.boardCxt, tk.makePoint(i+1, j+1), "#e0e0e0", "white");
-				    this.canvas.arc(this.boardCxt, style, tk.makePoint(i+1, j+1), this.boardhalfSize);
+                    this.drawOnePiece(this.boardCxt, tk.makePoint(i, j), this.black);
                 }else{
                 }
             }
@@ -174,22 +191,26 @@ tk.Composition(TK.SampleGo, {
         }
         return tk.makePoint(x, y);
     },
+    "drawOnePiece": function(cxt, point, playColor){
+	    var style = this.canvas.piece(cxt, point, this.boardColor2[playColor], this.boardColor[playColor]);
+	    this.canvas.arc(cxt, style, point, this.boardhalfSize);
+    },
     "play": function(point){
+        var that = this;
         if(point.x < 1 || point.x > that.boardLev){
             return;
         }
         if(point.y < 1 || point.y > that.boardLev){
             return;
         }
-        point.x--;
-        point.y--;
         
         if(this.boardMap[point.x][point.y]){
             return;
         }
         
-        
-        
+        this.boardMap[point.x][point.y] = this.playColor;
+        this.drawOnePiece(this.boardCxt, point, this.playColor);
+        this.playColor = this.boardNext[this.playColor];
     },
     "initPiece" : function(){
         var that = this;
@@ -211,14 +232,7 @@ tk.Composition(TK.SampleGo, {
 	        }
 
 	        that.pieceCxt.clearRect(0,0,that.boardWidth,that.boardWidth);
-
-            var style = "";
-            if (that.moveStep % 2 == 0){
-                style = "black";
-            }else{
-                style = "white";
-            }
-            that.canvas.arc(that.pieceCxt, style, point, that.boardhalfSize);
+	        that.drawOnePiece(that.pieceCxt, point, that.playColor);
         });
         this.pieceDom.bind("mouseout", function(e){
             that.pieceCxt.clearRect(0,0,that.boardWidth,that.boardWidth);
@@ -819,78 +833,5 @@ function stone_down(row, col) {
 
 
 
-var move_count = 0;
-function mousedownHandler(e) {
-	var x, y;
-	if (e.offsetX || e.offsetX == 0) {
-		x = e.offsetX; //- imageView.offsetLeft;
-		y = e.offsetY; //- imageView.offsetTop;
-	}
-	if (x < 30-10 || x > 600-30+10)
-		return;
-	if (y < 30-10 || y > 600-30+10)
-		return;
-	
-	var xok = false;
-	var yok = false;
-	var x_;
-	var y_;
-	for (var i = 1; i <= 19; i++) {
-		if (x > i*30-15 && x < i*30+15) {
-			x = i*30;
-			xok = true;
-			x_ = i - 1;
-		}
-		if (y > i*30-15 && y < i*30+15) {
-			y = i*30;
-			yok = true;
-			y_ = i - 1;
-		}
-	}
-	if (!xok || !yok)
-		return;
-
-	play(x_, y_, move_count);
-	showPan();
-}
-
-function initBoard() {
-	var c_path = document.getElementById("path");
-	c_path.addEventListener('mousedown', mousedownHandler, false);
-
-}
-
-function addLoadEvent(func) {
-	var oldonload = window.onload;
-	if (typeof window.onload != 'function') {
-		window.onload = func;
-	} else {
-		window.onload = function() {
-			oldonload();
-			func();
-		}
-	}
-}
-//window.addEventListener("load", initBoard, true);
-//addLoadEvent(initBoard);
-
-var move_show_flag = false;
-function deal_button() {
-	var move_show_button = document.getElementById("move_show");	
-	if (move_show_button) {
-		move_show_button.onclick = function() {
-			//alert(move_show_button);
-			if (move_show_flag) {
-				move_show_button.innerHTML="显示手数";
-				move_show_flag = false;
-			} else {
-				move_show_button.innerHTML="取消显示手数";
-				move_show_flag = true;
-			}
-			showPan();
-		}
-	}
-}
-//addLoadEvent(deal_button);
 
 
