@@ -97,8 +97,8 @@ description : 这是 tiankonguse 基于 Jekyll 和 github 创建的博客，是 
 feed: /atom.xml
 author_info: <a href="http://github.tiankonguse.com">tiankonguse</a>
 tagline: Site Tagline 
-categories_path: /categories/
-tags_path : /tags/
+categories_path: /categories.html
+tags_path : /tags.html
 
 sitemap:
     file: "/sitemap.xml"

@@ -30,8 +30,16 @@ updateData: 9:32 2014/11/25
 </div>
 <script>
     tk.ad.isLoadGoogleJs = true;
-    var testUrl = /^(.*\/blog\/\d{4}\/\d{2}\/\d{2}\/[a-zA-Z0-9_-]*)\/(.*)$/;
-    if(testUrl.test(location.href)){
-        location.href = location.href.replace(testUrl, "$1.html$2");
-    }
+    var urlList = [];
+    urlList.push(/^(.*\/blog\/\d{4}\/\d{2}\/\d{2}\/[a-zA-Z0-9_-]*)\/(.*)$/);
+    urlList.push(/^(.*\/categories)\/(.*)$/);
+    urlList.push(/^(.*\/tags)\/(.*)$/);
+    
+    
+    tk.each(urlList, function(testUrl){
+        if(testUrl.test(location.href)){
+            location.href = location.href.replace(testUrl, "$1.html$2");
+            return true;
+        }
+    });
 </script>
