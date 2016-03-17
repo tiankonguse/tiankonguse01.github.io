@@ -20,9 +20,10 @@ updateData:  21:25 2015/4/2
 简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
 
 
-## 个人信息
+## 个人信息  
 
-```
+
+```javascript
 (function(){
     function TK(){
     
@@ -47,7 +48,7 @@ updateData:  21:25 2015/4/2
 
 [what is Geek Code](http://www.geekcode.com)  
 
-```
+```text
 -----BEGIN GEEK CODE BLOCK-----
 Version: v3.12
 GCS/M/TW d---@ s: a- C++(+++) LBU++(+++)$ P+(++) L++(+++) E(+) W+++$ N+ o+ K++ w++ 

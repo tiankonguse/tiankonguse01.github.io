@@ -3,6 +3,65 @@ layout: page
 title: 程序错误集
 ---
 
+
+## bash
+
+
+### awk
+
+#### 分隔符
+
+默认情况下， awk 使用空格当作分隔符。分割后的字符串可以使用$1, $2等访问。  
+我们可以使用 -F 来指定分隔符.  
+fs 如果是一个字符，可以直接跟在`-F` 后面，比如使用冒号当作分隔符就是 `-F:` .  
+如果分隔符比较复杂，就需要使用正则表达式来表示这个分隔符了。正则表达式需要使用引号引起来。  
+
+#### 变量
+
+* `$0`	当前记录（这个变量中存放着整个行的内容）  
+* `$1~$n`	当前记录的第n个字段，字段间由FS分隔  
+* `FS`	输入字段分隔符 默认是空格或Tab  
+* `NF`	当前记录中的字段个数，就是有多少列  
+* `NR`	已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。  
+* `FNR`	当前记录数，与NR不同的是，这个值会是各个文件自己的行号  
+* `RS`	输入的记录分隔符， 默认为换行符  
+* `OFS`	输出字段分隔符， 默认也是空格  
+* `ORS`	输出的记录分隔符，默认为换行符  
+* `FILENAME`	当前输入文件的名字  
+
+#### 脚本
+
+```
+BEGIN{ 这里面放的是执行前的语句 }  
+END {这里面放的是处理完所有的行后要执行的语句 }  
+{这里面放的是处理每一行时要执行的语句}  
+```
+
+#### 运算与编程
+
+awk 是弱类型语言，变量可以是串，也可以是数字，这依赖于实际情况。  
+所有的数字都是浮点型。  
+
+```
+#9
+echo 5 4 | awk '{ print $1 + $2 }'
+
+#54
+echo 5 4 | awk '{ print $1 $2 }'
+
+#"5 4"
+echo 5 4 | awk '{ print $1, $2 }'
+
+#0-1-2-3-4-5-6
+echo 6 | awk '{ for (i=0; i<=$0; i++){ printf (i==0?i:"-"i); }printf "\n";}'
+
+# 2014/03/29 => 2014-03-29
+echo "2014/03/29" | awk -F/ '{printf "%s-%s-%s\n",$1,$2,$3}'
+
+# 2014/03/27 => 2014-03-27
+echo "2014/03/27" | awk -F/  '{print $1"-"$2"-"$3}'
+```
+
 ## android
 
 ### HAX kernel module is not installed
@@ -48,6 +107,85 @@ Gradle需要下载依赖包, 但是设置中禁止联网了.
 
 需要先编译通过, 然后才能运行app.   
 
+
+### Invalid Project JDK
+
+```
+Invalid Project JDK
+Please choose a valid JDK directory
+Open JDK Settings
+```
+
+需要配置jdk的路径， 点击`Open JDK Settings`， 配置即可。  
+
+### 删除项目
+
+删除项目—–AS对工程删除做了保护机制，默认你在项目右键发现没有删除选项。你会发现你的module上面会有一个小手机，这是保护机制。删除的第一步就是去掉保护机制，也就是 让手机不见，具体做法就是鼠标放在工程上右键->open module setting，或者F4进入如图界面，选中你要删除的module，然后点击减号，这样就取消了保护机制，然后回到项目工程右键就 可发现删除选项。注意：删除会将源文件删除。  
+
+
+### 导入jar包
+
+选择File->Projcet Structure，在弹出的窗口中左侧找到Libraries并选中，然后点击“+”，并选择Java就能导入Jar包了。 或者直接拷贝jar文件到项目的libs文件夹下，然后运行：Sync Project with Gradle Files。然后clean project重新编译。  
+
+### 如何将Eclipse工程导入AS使用
+
+选择File->Import Project，在弹出的菜单中选择要导入的工程即可，选择好以后就直接next，在第二个窗口中也选择默认的第一个选项就可以。 需要注意的是，在AS中，有两种工程，一个是Project，一个是Module，上面已经细说过了。  
+
+
+### AS的Product目录结构
+
+```
+.idea：//AS生成的工程配置文件，类似Eclipse的project.properties。
+app：//AS创建工程中的一个Module。
+gradle：//构建工具系统的jar和wrapper等，jar告诉了AS如何与系统安装的gradle构建联系。
+External Libraries：//不是一个文件夹，只是依赖lib文件，如SDK等。
+
+
+build：//构建目录，相当于Eclipse中默认Java工程的bin目录，鼠标放在上面右键Show in Exploer即可打开文件夹，
+		编译生成的apk也在这个目录的outs子目录，不过在AS的工程里是默认不显示out目录的，就算有编译结果也
+		不显示，右键打开通过文件夹直接可以看。
+libs：//依赖包，包含jar包和jni等包。
+src：//源码，相当于eclipse的工程。
+    main：//主文件夹 
+        java：//Java代码，包含工程和新建是默认产生的Test工程源码。 
+        res：//资源文件，类似Eclipse。
+            layout：//App布局及界面元素配置，雷同Eclipse。
+            menu：//App菜单配置，雷同Eclipse。 
+            values：//雷同Eclipse。
+                dimens.xml：//定义css的配置文件。 
+                strings.xml：//定义字符串的配置文件。 
+                styles.xml：//定义style的配置文件。
+				......：//arrays等其他文件。
+			......：//assets等目录
+        AndroidManifest.xml：//App基本信息（Android管理文件） 
+        ic_launcher-web.png：//App图标 
+build.gradle：//Module的Gradle构建脚本
+```
+
+### uses-sdk:minSdkVersion 7 cannot be smaller than version 9 declared in library
+
+```
+APT: /home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-hdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+
+AAPT err(Facade for 597082051) : No Delegate set : lost message:/home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-mdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+
+AAPT: /home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-xhdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+:app:processDebugManifest
+/home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/AndroidManifest.xml:7:5-73 Error:
+	uses-sdk:minSdkVersion 7 cannot be smaller than version 9 declared in library [com.google.android.gms:play-services:6.5.87] /home/tiankonguse/AndroidStudioProjects/MP3Player/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/AndroidManifest.xml
+	Suggestion: use tools:overrideLibrary="com.google.android.gms" to force usage
+```
+
+声明的minSdkVersion设置为9.  
+
+
+### libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+
+```
+AAPT: /home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-hdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+AAPT: /home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-mdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+AAPT: /home/tiankonguse/AndroidStudioProjects/MP3Player/app/src/main/res/drawable-xhdpi/ic_action_search.png: libpng warning: iCCP: Not recognizing known sRGB profile that has been edited
+```
 
 
 ## 数据库
@@ -137,6 +275,36 @@ Try again to insert the new row into the table
 
 It is possible that in the case of a duplicate-key error, a storage engine may perform the REPLACE as an update rather than a delete plus insert, but the semantics are the same.   
 There are no user-visible effects other than a possible difference in how the storage engine increments Handler_xxx status variables.  
+
+
+### 整除和取余函数
+
+```
+整除:div
+5 div 2 = 2;
+取余:mod
+5 mod 2 = 1;
+四舍五入:round
+round(1.5) = 2;
+```
+
+### 日期格式化
+
+
+MySQL 日期、时间转换函数： `date_format(date,format)`, `time_format(time,format)`能够把一个日期/时间转换成各种各样的字符串格式。  
+它是 `str_to_date(str,format)` 函数的 一个逆转换。  
+
+```
+time_format('22:23:01', '%H.%i.%s')  #22.23.01 
+date_format('2008-08-08 22:23:01', '%Y%m%d%H%i%s') #20080808222301 
+date_format('2008-08-08 22:23:00', '%W %M %Y') #Friday August 2008
+
+SELECT UNIX_TIMESTAMP() ; 1249524739 
+SELECT UNIX_TIMESTAMP('2009-08-06') ;  1249488000 
+
+FROM_UNIXTIME( 1249488000, '%Y%m%d' )  20071120 
+SELECT FROM_UNIXTIME( 1249488000, '%Y年%m月%d' )  2007年11月20 
+```
 
 
 ## 优化
