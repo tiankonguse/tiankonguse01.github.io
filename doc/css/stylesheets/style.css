@@ -69,7 +69,6 @@ td.cssVersion{font-size:10px;font-family:tahoma;font-weight:bold;padding:0px 10p
 #contentA2 h3 {color: #666;padding-top: 2px;}
 #contentA2 ul {margin:0 0 5px 10px;}
 #contentA2 ul ul {margin:0 0 0 10px;}
-#contentA2 > div{float:left;width: 206px;overflow:hidden;margin-right: 2px; height:885px; }
 #contentA2 > div > div:hover{background:rgb(232,238,247);}
 
 #content {max-width: 800px;padding: 0 5px;position: relative;margin-left: 218px;margin-bottom: 10px;}
@@ -88,7 +87,7 @@ td.cssVersion{font-size:10px;font-family:tahoma;font-weight:bold;padding:0px 10p
 
 
 @media (max-width:1440px){
-	#contentA2 h1,#contentA2 #footer{width:1038px;}
+	#contentA2 h1{width:1038px;}
 	#contentA2 .col-6{ width:auto; height:auto;}
 	#contentA2 .col-6 > div{ float:left; width: 206px; margin-right: 2px;}
 }
@@ -118,5 +117,9 @@ td.cssVersion{font-size:10px;font-family:tahoma;font-weight:bold;padding:0px 10p
 .llq a{ color:#FF555D; font-weight:bold;}
 .llq a:hover{ background-color:FF555D; color:#FEFFC5;}
 
-
+.css-content .css-block{
+    float: left;
+    min-width: 300px;
+    min-height: 100px;
+}
 

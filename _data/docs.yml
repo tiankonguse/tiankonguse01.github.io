@@ -24,7 +24,35 @@
    
 - title: Chrome V8
   url: https://developers.google.com/v8/
-  description: Google's high performance, open source, JavaScript engine.
+  description: "Google's high performance, open source, JavaScript engine."
+
+- title: LINFO
+  url: http://www.linfo.org/index.html
+  description: The Linux Information Project
+
+- title: HAProxy Configuration Manual
+  url: http://cbonte.github.io/haproxy-dconv/configuration-1.7.html
+  description: version 1.7-dev2
+
+- title: SPARC Assembly Language Reference Manual
+  url: https://docs.oracle.com/cd/E19120-01/open.solaris/816-1681/index.html
+  description: 
+
+- title: Debian Linux Documentation
+  url: http://l4u-00.jinr.ru/usoft/WWW/www_debian.org/Documentation/
+  description:
+  
+
+- title: SVMs
+  url: http://www.svms.org/
+  description: Support Vector Machines
+
+- title: Kernel-Machines
+  url: http://www.kernel-machines.org/
+  description: 
+
+
+
 
 
 

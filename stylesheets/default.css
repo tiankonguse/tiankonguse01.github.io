@@ -1609,7 +1609,7 @@ ins{
 .map-own .accordion-desc {
     font-size: 14px;
     line-height: 1.6em;
-    white-space: nowrap;
+    white-space: normal;
     text-decoration: none;
     display: inline-block;
     text-align: center;
@@ -1618,51 +1618,51 @@ ins{
 .map-own .accordion-group {
     color: black;
 }
-.map-own > .accordion-group {
+.map-own > .accordion-group:nth-child(12n+0) {
     background: #FFFF99;
     border-color: #FFFF00;
 }
-.map-own > .accordion-group +  .accordion-group{
+.map-own > .accordion-group:nth-child(12n+1){
     background: #99FFFF;
     border-color: #00FFFF;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+2) {
     background: #FF99CC;
     border-color: #FF0099;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+3) {
     background: #99FF99;
     border-color: #00FF00;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+4) {
     background: #FF9999;
     border-color: #FF0000;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+5) {
     background: #99CCFF;
     border-color: #0099FF;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+6) {
     background: #CC99FF;
     border-color: #9900FF;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+7) {
     background: #FFCC99;
     border-color: #FF9900;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+8) {
     background: #FF99FF;
     border-color: #FF00FF;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+9) {
     background: #99FFCC;
     border-color: #00FF99;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+10) {
     background: #999999;
     border-color: #000000;
 }
-.map-own > .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group +  .accordion-group {
+.map-own > .accordion-group:nth-child(12n+11) {
     background: #CCFF99;
     border-color: #99FF00;
 }
