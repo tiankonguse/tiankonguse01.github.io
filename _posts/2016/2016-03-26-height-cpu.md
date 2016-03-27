@@ -72,6 +72,9 @@ Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached
 ### 查看各线程的函数调用栈
 
 我们可以使用`gstack`把某个进程的所有线程栈打印出来.  
+
+> 如果你的系统没有`gstack`这个命令， 可以尝试`pstack`这个命令。  
+
 我们可以发现, 线程`31527`对应的编号是`Thread 12`, 目前在调用函数`epoll_wait()`.  
 
 
@@ -298,7 +301,24 @@ Events: 54K cpu-clock
  6.14%  spp_union_worke  spp_union.so         [.] redisAsyncHandleRead   
 ```
 
-难道网络操作封装的有问题?   
-有时间了, 去看看那个同事的代码吧.  
+### 问题猜测
+
+上面使用了那么多方法， 只得到几个信息：   
+
+1. 系统调用使CPU跑满  
+2. 整个进程`futex`和`epoll_wait`最占用时间。  
+3. 有问题的线程`epoll_wait`最占用时间。  
+
+
+然后 [google futex]({{ site.data.link.google_forum_unix_programmer_futex_cpu }})， 发现存在`leap second`问题.  
+但是`leap second`几年才会遇到一次， 而我们这个问题几个月就出现一次， 所以和这个关系不大。  
+
+
+难道网络操作封装的有问题? 
+有时间了, 去看看那个同事的代码吧.
+
+
+
+
 
 
