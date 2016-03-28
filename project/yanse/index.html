@@ -93,11 +93,9 @@
 </div>
 <script>
 function showAdDivs(isShow) {
-    var displayValue = "none";
     if (isShow) {
-       displayValue = "block";
+        $("#adDiv").html('<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2326969899478823" data-ad-slot="8239263590" data-ad-format="auto"></ins>');
     }
-    Array.prototype.slice.call(document.getElementsByName('adDiv')).forEach(function(item) { item.style.display=displayValue; })
 }
 showAdDivs(false);
 </script>
