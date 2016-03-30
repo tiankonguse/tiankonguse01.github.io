@@ -23,8 +23,8 @@
             <form action="" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" id="date_time" name="date_time" placeholder="出生日期，如1991-03-29" class="form-control input-lg">
-                            <span style="color:#b92c3b;font-weight:bold;display:none;text-align:center;margin:0 auto" id="date_time_error">请按正确的格式填写，如1991-03-29代表1991年3月29是你的生日.</span>
+                        <input type="text" id="date_time" name="date_time" placeholder="生日示例:1991-03-29" class="form-control input-lg">
+                            <span style="color:#b92c3b;font-weight:bold;display:none;text-align:center;margin:0 auto" id="date_time_error">填写错误</span>
                     </div>
                     <div class="col-sm-12 text-center">
                         <a href="javascript:void(0)" id="calculation" class="btn btn-default btn-lg"><strong>开始计算</strong></a>
@@ -88,7 +88,7 @@
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" charset="UTF-8" async="true"></script>
 
-<div style="z-index:888888;position:fixed; bottom:0px; left:0px;width:100%; overflow:hidden;text-align:left;max-height: 88px;" >
+<div style="z-index:888888;position:fixed; bottom:0px; left:0px;width:100%; overflow:hidden;text-align:left;max-height: 88px;" id="ad">
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2326969899478823" data-ad-slot="8239263590" data-ad-format="auto"></ins>
 </div>
 <script>
@@ -162,7 +162,7 @@ function showFuture(){
     
     
     
-    $("#age").html(parseFloat((year + (nowSt.time - tmpSt.time)/yearTime).toFixed(10)));
+    $("#age").html(parseFloat((year + (nowSt.time - tmpSt.time)/yearTime).toFixed(8)));
     
     
     var $ul = $("#time-now .list_area ul");
@@ -209,7 +209,7 @@ $("#future").on('click', function() {
     $ul.append('<li> 做 <strong>' + parseInt(_day) + '</strong> 个梦 </li>');
     $ul.append('<li> 拥 <strong>' + parseInt(_day*0.32) + '</strong> 次抱 </li>');
     $ul.append('<li> 亲 <strong>' + parseInt(_day*0.41) + '</strong> 次吻 </li>');
-    $ul.append('<li> 做 <strong>' + parseInt(_day*0.18) + '</strong> 次爱 </li>');
+    //$ul.append('<li> 做 <strong>' + parseInt(_day*0.18) + '</strong> 次爱 </li>');
     
 });
 
@@ -224,6 +224,7 @@ $("#calculation").on('click', function() {
     if(date_time) {
         if(CheckDateTime(date_time)){
             $(".l_index").hide()
+            $("#ad").hide();
             showNow(date_time);
         }
         else{

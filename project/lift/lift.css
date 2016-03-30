@@ -6,7 +6,18 @@ body{font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",
 a:hover{text-decoration: none;}
 .mb40{margin-bottom: 40px !important;}
 
-.l_index .l_title h1 {font-size: 40px;width: 56px;height: 280px;margin: 0 auto;margin-bottom: 40px;margin-top: 50px;text-indent: -9999px;overflow: hidden;background: url(title.png) 0 0 no-repeat;background-size:56px 280px}
+.l_index .l_title h1 {
+    font-size: 40px;
+    width: 56px;
+    height: 180px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(title.png) 0 0 no-repeat;
+    background-size: contain;
+}
 
 .l_index_wechat .l_title h1 {font-size: 40px;width: 80px;height: 324px;margin: 0 auto;margin-bottom: 40px;margin-top: 40px;text-indent: -9999px;overflow: hidden;background: url(wechat_title.png) 0 0 no-repeat;background-size:80px 324px}
 
@@ -14,7 +25,11 @@ a:hover{text-decoration: none;}
 .spring .l_title h1 {font-size: 40px;width: 44px;height: 218px;margin: 0 auto;margin-bottom: 50px;text-indent: -9999px;overflow: hidden;background: url(spring_title.png) 0 0 no-repeat;background-size:44px 218px;margin-top: 180px;}
 
 .l_index form{margin: 0 40px;}
-.l_index form input#date_time{border-radius:50px;margin-bottom: 20px;  box-shadow: inset 0px 8px 4px 0px rgba(0,0,0,0.12);}
+.l_index form input#date_time{
+    border-radius: 50px;
+    margin-bottom: 10px;
+    box-shadow: inset 0px 8px 4px 0px rgba(0,0,0,0.12);
+}
 .l_index form .btn{width: 80%;}
 .btn-default{border-radius:0; border: 1px dashed #979797;color:#5E5E5E;}
 
@@ -38,7 +53,7 @@ a:hover{text-decoration: none;}
     margin-bottom: 10px;
 }
 .l_list .media h5,.l_list .media h3{margin: 0;}
-.l_list .media h3{font-size: 28px;}
+.l_list .media h3{font-size: 25px;}
 .l_list2 .media h3{color:#ccc;}
 
 .l_list .media h5 {margin-bottom: 6px;margin-top: 14px;}
@@ -51,7 +66,10 @@ a:hover{text-decoration: none;}
 .list_area h6{background: #fff;display: inline;margin-bottom: 0;}
 .l_list2 .list_area h6{background: #000;display: inline;margin-bottom: 0;}
 
-.buttons{padding-top: 15px;margin-bottom: 20px;}
+.buttons{
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
 .buttons a.btn{width: 60%;border-radius:60px;color:#5E5E5E;}
 .buttons p {margin-bottom: 14px;margin-top: 30px;}
 .buttons p a {color:#ccc;font-size: 16px;padding-bottom: 4px;border-bottom: 1px dashed rgba(255,255,255,0.2);}
