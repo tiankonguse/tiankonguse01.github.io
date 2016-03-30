@@ -13,10 +13,13 @@
   url: /doc/sphinx/
   description : 保留各个版本的文档
   
+- title: Highcharts API文档
+  url: /doc/sphinx/
+  description : 保留各个版本的文档
   
 - title: Redis 命令参考 
-  url: /doc/redis/
-  description : 中文版Redis 命令参考
+  url: http://www.hcharts.cn/api/index.php
+  description : 
   
 - title: Bash 手册 
   url: http://tiankonguse.com/manual/bash/
