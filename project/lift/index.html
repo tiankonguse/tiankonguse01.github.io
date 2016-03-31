@@ -238,7 +238,11 @@ $("#calculation").on('click', function() {
     }
 });
 
-
+$("input, textarea, select").on("focus",, function(e) {
+    $("#ad").hide();
+}).on("blur",, function(e) {
+    $("#ad").show()();
+});
 </script>
 
 
