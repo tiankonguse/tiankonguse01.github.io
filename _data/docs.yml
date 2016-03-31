@@ -20,6 +20,18 @@
 - title: Redis 命令参考 
   url: http://www.hcharts.cn/api/index.php
   description : 
+
+- title: jsonlint
+  url: http://github.tiankonguse.com/project/jsonlint/
+  description : 检查json是否符合规范, 以及格式化json
+  
+- title: 眼睛的挑战极限
+  url: http://github.tiankonguse.com/project/yanse/
+  description : 一个挑战快速区分颜色的游戏
+  
+- title: 生命计算器
+  url: http://github.tiankonguse.com/project/lift/
+  description : 一个计算各种事件的页面
   
 - title: Bash 手册 
   url: http://tiankonguse.com/manual/bash/
