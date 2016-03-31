@@ -243,10 +243,7 @@ $("input, textarea, select").on("focus", function(e) {
 }).on("blur", function(e) {
     $("#ad").show()();
 });
-</script>
 
-
-<script>
 document.addEventListener("WeixinJSBridgeReady",
 function() {
     function c() {}
@@ -255,7 +252,7 @@ function() {
         WeixinJSBridge.invoke("sendAppMessage", {
             img_url: "http://github.tiankonguse.com/project/lift/share.jpg",
             link: "http://github.tiankonguse.com/project/lift/",
-            desc: '',
+            desc: '我已经活了' + (sec || 0) + '秒, 查查你活了多少秒吧',
             title: '生命计算器'
         },
         c)
@@ -264,7 +261,7 @@ function() {
         WeixinJSBridge.invoke("shareTimeline", {
             img_url: "http://github.tiankonguse.com/project/lift/share.jpg",
             link: "http://github.tiankonguse.com/project/lift/",
-            desc: '',
+            desc: '我已经活了' + (sec || 0) + '秒, 查查你活了多少秒吧',
             title: '生命计算器'
         },
         c)
