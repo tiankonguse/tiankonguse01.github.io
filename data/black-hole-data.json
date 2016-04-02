@@ -6,4 +6,12 @@ title : black hole data
         "name":"{{ arbor.name }}",
         "link":"{{ arbor.link }}"
     }{% endfor %}
+    {% for arbor in site.data.projects %} {% if firstArbor == 1 %},{% endif %}{% assign firstArbor = 1 %}{
+        "name":"{{ arbor.title }}",
+        "link":"{{ arbor.url }}"
+    }{% endfor %}
+    {% for arbor in site.data.docs %} {% if firstArbor == 1 %},{% endif %}{% assign firstArbor = 1 %}{
+        "name":"{{ arbor.title }}",
+        "link":"{{ arbor.url }}"
+    }{% endfor %}
 ]
