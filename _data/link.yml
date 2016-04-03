@@ -28,5 +28,8 @@ google_forum_unix_programmer_futex_cpu: "https://groups.google.com/forum/#!topic
 
 github_tiankonguse_redis_doc: "/doc/redis/"
 github_tiankonguse_git_redis_zmalloc: "https://github.com/tiankonguse/redis/blob/unstable/src/zmalloc.h"
-
+github_tiankonguse_git_redis_endinconv: "https://github.com/tiankonguse/redis/tree/unstable/src/comlib/endinconv"
+github_tiankonguse_record_redis_allocated_memory: "/blog/2016/04/03/redis-allocated-memory.html"
+github_tiankonguse_record_redis_endinconv: "/blog/2016/04/03/redis-endinconv.html"
+github_tiankonguse_record_redis_doubly_linked_list: "/blog/2016/04/04/redis-doubly-linked-list.html"
 
