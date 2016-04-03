@@ -256,4 +256,14 @@ padding: 4px;vertical-align: 8px; }
 .llq a{ color:#FF555D; font-weight:bold;}
 .llq a:hover{ background-color:FF555D; color:#FEFFC5;}
 
+#content{
+    margin-left: 218px;
+}
+
+.jquery-content .jquery-block {
+    float: left;
+    min-width: 300px;
+    min-height: 100px;
+}
+
 

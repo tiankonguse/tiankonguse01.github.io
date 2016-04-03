@@ -9,7 +9,6 @@ keywords : css,chm,手册,在线,api
 <div id="contentA2">
     <h1><<a href="{{ site.url }}/doc/jquery/" title="jquery 在线手册">jquery 在线手册</a> |CSS 2.0 速查表&nbsp;&nbsp;--作者：<a target="_blank" href="http://github.tiankonguse.com/">tiankonguse</a></h1>
     <div  class="css-content clearfix"></div>
-    <div id="footer">Copyright &copy; <a target="_blank" href="http://github.tiankonguse.com/">tiankonguse</a> 2015. All right reserved.</div>
 </div>
 
 <script>

@@ -11,6 +11,7 @@ comment: true
     margin-left: 218px;
 }
 </style>
+
 <div id='left' class='dtree'>
   <p style="text-align:center">
     <input type="text" name="query" id="query" placeholder="请输入关键字"/>
@@ -25,9 +26,9 @@ comment: true
 <script type="text/javascript" src="javascripts/dtree.js"></script>
 
 <script>
-$(function () {
-	$("#menu").load("ex_left.html");
-});
+    $(function () {
+	    $("#menu").load("ex_left.html");
+    });
     jQuery(document).ready(function(){
         tk.ad.loadGoogleJs(true);
         $(".ad-page-footer").show();
