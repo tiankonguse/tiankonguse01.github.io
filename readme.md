@@ -25,3 +25,10 @@ git push gitcafe master:gitcafe-pages
 ```
 
 
+## 其他
+
+使用通用的链接引用： `[文字]({{ site.data.link.xxxx }})`  
+使用通用的链接引用： `![文字][{{ site.data.link.xxxx }}]`  
+
+
+

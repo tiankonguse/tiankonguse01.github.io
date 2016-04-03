@@ -1,0 +1,10 @@
+CACHE MANIFEST
+style.css
+app.js
+index.html
+
+NETWORK:
+*
+
+FALLBACK:
+index.html
