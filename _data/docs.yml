@@ -14,11 +14,11 @@
   description : 保留各个版本的文档
   
 - title: Highcharts API文档
-  url: /doc/sphinx/
+  url: http://www.hcharts.cn/api/index.php
   description : 保留各个版本的文档
   
 - title: Redis 命令参考 
-  url: http://www.hcharts.cn/api/index.php
+  url: http://github.tiankonguse.com/doc/redis/
   description : 
 
 - title: jsonlint
