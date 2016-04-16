@@ -212,20 +212,44 @@ set names utf8;
 ### 表大小
 
 ```
-SELECT TABLE_NAME,DATA_LENGTH+INDEX_LENGTH,TABLE_ROWS FROM information_schema.TABLES WHERE TABLE_SCHEMA='数据库名' AND TABLE_NAME='表名'
+SELECT 
+    TABLE_NAME, DATA_LENGTH + INDEX_LENGTH, TABLE_ROWS
+FROM
+    information_schema.TABLES
+WHERE
+    TABLE_SCHEMA = '数据库名'
+        AND TABLE_NAME = '表名'
 ```
  
 ### 库大小
 
 ```
-SELECT sum(DATA_LENGTH)+sum(INDEX_LENGTH) FROM information_schema.TABLES where TABLE_SCHEMA='数据库名';
+SELECT 
+    sum(DATA_LENGTH) + sum(INDEX_LENGTH)
+FROM
+    information_schema.TABLES
+where
+    TABLE_SCHEMA = '数据库名'
 ```
 
 ### 字符个数
 
 ```
-select c_tid, length(c_fields)-length(replace(c_fields,',','')) as c_count from t_data_cgi_config order by c_count desc;
-select c_groupid, length(c_fieldid)-length(replace(c_fieldid,',','')) as c_count from t_field_group where c_tableid='2001' order by c_count desc;
+select 
+    c_tid,
+    length(c_fields) - length(replace(c_fields, ',', '')) as c_count
+from
+    t_data_cgi_config
+order by c_count desc;
+
+select 
+    c_groupid,
+    length(c_fieldid) - length(replace(c_fieldid, ',', '')) as c_count
+from
+    t_field_group
+where
+    c_tableid = '2001'
+order by c_count desc;
 ```
 
 ### REPLACE 
@@ -304,6 +328,14 @@ SELECT UNIX_TIMESTAMP('2009-08-06') ;  1249488000
 
 FROM_UNIXTIME( 1249488000, '%Y%m%d' )  20071120 
 SELECT FROM_UNIXTIME( 1249488000, '%Y年%m月%d' )  2007年11月20 
+```
+
+### blob转ascii
+
+有些文本使用blob方式储存,这时候需要转化为文本形式才方便使用.  
+
+```
+select  CAST('a' AS CHAR) ;
 ```
 
 
