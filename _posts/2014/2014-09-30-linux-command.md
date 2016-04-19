@@ -67,32 +67,32 @@ md5 加密一般是不可逆的，虽然现在出现了破解工具，但是应�
 执行md5sum后，一般输出的是 md5值和文件名。
 
 ```
-skyyuan:skyyuan $ md5sum skyyuan.sh 
-424c541134501ba66d28510614e95049  skyyuan.sh
+tiankonguse:tiankonguse $ md5sum tiankonguse.sh 
+424c541134501ba66d28510614e95049  tiankonguse.sh
 ```
 
 但是一般不这样做。  
 一般是将很多文件的md5值输出到一个文件内，然后需要查看哪些文件修改的时候使用md5sum的 -c 参数即可。
 
 ```
-skyyuan:skyyuan $ md5sum skyyuan.sh skyyuan.bashrc > hash.md5
+tiankonguse:tiankonguse $ md5sum tiankonguse.sh tiankonguse.bashrc > hash.md5
 
-skyyuan:skyyuan $ cat hash.md5 
-424c541134501ba66d28510614e95049  skyyuan.sh
-03db1457860db6cfff643f2b514d60d8  skyyuan.bashrc
+tiankonguse:tiankonguse $ cat hash.md5 
+424c541134501ba66d28510614e95049  tiankonguse.sh
+03db1457860db6cfff643f2b514d60d8  tiankonguse.bashrc
 
-skyyuan:skyyuan $ echo " " >>  skyyuan.sh 
+tiankonguse:tiankonguse $ echo " " >>  tiankonguse.sh 
 
-skyyuan:skyyuan $ md5sum -c hash.md5 
-skyyuan.sh: FAILED
-skyyuan.bashrc: OK
+tiankonguse:tiankonguse $ md5sum -c hash.md5 
+tiankonguse.sh: FAILED
+tiankonguse.bashrc: OK
 md5sum: WARNING: 1 of 2 computed checksums did NOT match
 ```
 
 想得到字符串的 md5 值怎么办呢？  
 
 ```
-skyyuan:demo $ echo 'tiankonguse' | md5sum
+tiankonguse:demo $ echo 'tiankonguse' | md5sum
 70a19872bf17b6939447f8a299f69455  -
 ```
 
@@ -102,7 +102,7 @@ skyyuan:demo $ echo 'tiankonguse' | md5sum
 
 
 ```
-skyyuan:demo $ echo -n 'tiankonguse' | md5sum
+tiankonguse:demo $ echo -n 'tiankonguse' | md5sum
 77192a8e3dc5fb2b7428566f9741ebfc  -
 ```
 
@@ -193,66 +193,66 @@ dd if=/dev/zero of=mytestfile.out bs=1 count=0 seek=1G
 * -s 默认参数，打印出内核名字  
 
 ```
-skyyuan:~ $ uname
+tiankonguse:~ $ uname
 Linux
 
-skyyuan:~ $ uname -s
+tiankonguse:~ $ uname -s
 Linux
 ```
 
 * -n 主机的网络名称或主机名称  
 
 ```
-skyyuan:~ $ uname -n
+tiankonguse:~ $ uname -n
 DEVNET-191-112
 ```
 
 * -r 内核版本号  
 
 ```
-skyyuan:~ $ uname -r
+tiankonguse:~ $ uname -r
 2.6.32.57-tlinux_xenU-1.1.rc8-default
 ```
 
 * -v 内核发布日期  
 
 ```
-skyyuan:~ $ uname -v
+tiankonguse:~ $ uname -v
 #1 SMP Wed Feb 20 17:35:10 CST 2013
 ```
 
 * -m 主机的硬件名称  
 
 ```
-skyyuan:~ $ uname -m
+tiankonguse:~ $ uname -m
 x86_64
 ```
 
 * -p 处理器类型或 unknow  
 
 ```
-skyyuan:~ $ uname -p
+tiankonguse:~ $ uname -p
 x86_64
 ```
 
 * -i 硬件平台类型或 unknow  
 
 ```
-skyyuan:~ $ uname -i
+tiankonguse:~ $ uname -i
 x86_64
 ```
 
 * -o 操作系统  
 
 ```
-skyyuan:~ $ uname -o
+tiankonguse:~ $ uname -o
 GNU/Linux
 ```
 
 * -a 输出所有信息  
  
 ```
-skyyuan:~ $ uname -a
+tiankonguse:~ $ uname -a
 Linux DEVNET-191-112 2.6.32.57-tlinux_xenU-1.1.rc8-default #1 SMP Wed Feb 20 17:35:10 CST 2013 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
@@ -304,27 +304,27 @@ history -w historyFileName
 * -L 显示当前位置，不管是不是软连接
 
 ```
-skyyuan:~ $ ll test-pwd
-lrwxrwxrwx 1 skyyuan users 5 Oct 21 17:40 test-pwd -> test/
+tiankonguse:~ $ ll test-pwd
+lrwxrwxrwx 1 tiankonguse users 5 Oct 21 17:40 test-pwd -> test/
 
-skyyuan:~ $ cd test-pwd
-skyyuan:test-pwd $ 
+tiankonguse:~ $ cd test-pwd
+tiankonguse:test-pwd $ 
 
-skyyuan:test-pwd $ pwd
-/home/skyyuan/test-pwd
+tiankonguse:test-pwd $ pwd
+/home/tiankonguse/test-pwd
 
-skyyuan:test-pwd $ pwd -L
-/home/skyyuan/test-pwd
+tiankonguse:test-pwd $ pwd -L
+/home/tiankonguse/test-pwd
 ```
 
 * -P 显示真实位置
 
 ```
-skyyuan:~ $ cd test-pwd
-skyyuan:test-pwd $ 
+tiankonguse:~ $ cd test-pwd
+tiankonguse:test-pwd $ 
 
-skyyuan:test-pwd $ pwd -P
-/data/skyyuan/test
+tiankonguse:test-pwd $ pwd -P
+/data/tiankonguse/test
 ```
 
 ### mv
@@ -1471,7 +1471,10 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 
 
 * col Process control characters.
-* cut Select columns for display.
+* cut Select columns for display.  
+  切割文本, 常用的是`-d`参数和`-f`参数.  
+  `-d`参数用于指定分割符, 特殊字符可以使用引号引起来.  
+  `-f`参数用于指定输出第几个字段.多个字段使用逗号分隔.可以使用区间语法.    
 * emacs Work environment with powerful text-editing capabilities.
 * ex Line editor underlyingvi.
 * expand Convert tabs to spaces.
@@ -1496,7 +1499,47 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 ### 其他
 
 * bc Arbitrary precision calculator.
+  计算字符串公式.  
+  例如`echo "1+1"|bc`将输出`2`.  
 * cal Display calendar.
+  输出一个日历.例如  
+```
+tiankonguse::~> cal 3
+                                 3                                 
+
+       January               February                 March        
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                1  2  3
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    4  5  6  7  8  9 10
+14 15 16 17 18 19 20   11 12 13 14 15 16 17   11 12 13 14 15 16 17
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   18 19 20 21 22 23 24
+28 29 30 31            25 26 27 28            25 26 27 28 29 30 31
+
+        April                   May                   June         
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7          1  2  3  4  5                   1  2
+ 8  9 10 11 12 13 14    6  7  8  9 10 11 12    3  4  5  6  7  8  9
+15 16 17 18 19 20 21   13 14 15 16 17 18 19   10 11 12 13 14 15 16
+22 23 24 25 26 27 28   20 21 22 23 24 25 26   17 18 19 20 21 22 23
+29 30                  27 28 29 30 31         24 25 26 27 28 29 30
+
+        July                  August                September      
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7             1  2  3  4                      1
+ 8  9 10 11 12 13 14    5  6  7  8  9 10 11    2  3  4  5  6  7  8
+15 16 17 18 19 20 21   12 13 14 15 16 17 18    9 10 11 12 13 14 15
+22 23 24 25 26 27 28   19 20 21 22 23 24 25   16 17 18 19 20 21 22
+29 30 31               26 27 28 29 30 31      23 24 25 26 27 28 29
+                                              30
+       October               November               December       
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                      1
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    2  3  4  5  6  7  8
+14 15 16 17 18 19 20   11 12 13 14 15 16 17    9 10 11 12 13 14 15
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   16 17 18 19 20 21 22
+28 29 30 31            25 26 27 28 29 30      23 24 25 26 27 28 29
+                                              30 31
+```
 * clear Clear the screen.
 * info Get command information from the GNU hypertext reader.
 * man Get information on a command.
@@ -1518,6 +1561,15 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * atrun Schedule commands for later execution.
 * cron Schedule commands for specific times.
 * dmesg Print bootup messages after the system is up.
+  dmesg 会记录一些系统异常的关键信息.  
+  有时候程序core了或者异常了, 都可以从这里面找到信息.  
+  比如下面的错误信息, 我们往往需要知道发生的真实时间, 由于dmesg记录的是开机到现在是时间,所以我们需要简单的计算一下.  
+```
+tiankonguse:~> dmesg  | tail  -1
+[24419533.393616] Out of memory: kill process 669 (searchd) score 13488918 or a child
+tiankonguse:~> date -d "1970-01-01 UTC `echo "$(date +%s)-$(cat /proc/uptime|cut -f 1 -d' ')+24419533.393616"|bc ` seconds"
+Sat Mar 12 08:30:40 CST 2016
+```
 * ldconfig Update library links and do caching.
 * logger Send messages to the system logger.
 * logrotate Compress and rotate system logs.
