@@ -1503,6 +1503,7 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
   例如`echo "1+1"|bc`将输出`2`.  
 * cal Display calendar.
   输出一个日历.例如  
+  
 ```
 tiankonguse::~> cal 3
                                  3                                 
@@ -1540,6 +1541,7 @@ Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
 28 29 30 31            25 26 27 28 29 30      23 24 25 26 27 28 29
                                               30 31
 ```
+
 * clear Clear the screen.
 * info Get command information from the GNU hypertext reader.
 * man Get information on a command.
@@ -1564,12 +1566,14 @@ Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
   dmesg 会记录一些系统异常的关键信息.  
   有时候程序core了或者异常了, 都可以从这里面找到信息.  
   比如下面的错误信息, 我们往往需要知道发生的真实时间, 由于dmesg记录的是开机到现在是时间,所以我们需要简单的计算一下.  
+  
 ```
 tiankonguse:~> dmesg  | tail  -1
 [24419533.393616] Out of memory: kill process 669 (searchd) score 13488918 or a child
 tiankonguse:~> date -d "1970-01-01 UTC `echo "$(date +%s)-$(cat /proc/uptime|cut -f 1 -d' ')+24419533.393616"|bc ` seconds"
 Sat Mar 12 08:30:40 CST 2016
 ```
+
 * ldconfig Update library links and do caching.
 * logger Send messages to the system logger.
 * logrotate Compress and rotate system logs.
