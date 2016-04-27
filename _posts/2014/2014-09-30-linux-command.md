@@ -624,79 +624,6 @@ lp        4664  0.0  0.0  63156  2220 ?        S    10:11   0:00 /usr/lib/cups/n
 * -m 显示设备的拥有者，组和模式。
 
 
-### netstat 
-
-如果我们的计算机有时候接收到的数据报会导致出错数据删除或故障，我们不必感到奇怪， TCP/IP可以容许这些类型的错误，并能够自动重发数据报。  
-
-但如果累计的出错情况数目占到所接收的IP数据报相当大的百分比，或者它的数目正迅速增加，那么我们就应该使用Netstat查一查为什么会出现这些情况了。
-
-> 当然后人说 netstat 已经被ss命令和ip命令所取代.  
-
-替换命令如下
-
-![pan-1915453531][]
-
-
-** 用途 **  
-
-netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。  
-
-
-** 参数说明 **  
-
-* -a (all)显示所有选项，默认不显示LISTEN相关  
-* -t (tcp)仅显示tcp相关选项  
-* -u (udp)仅显示udp相关选项  
-* -n 拒绝显示别名，能显示数字的全部转化成数字。  
-* -l 仅列出有在 Listen (监听) 的服務状态  
-* -p 显示建立相关链接的程序名  
-* -r 显示路由信息，路由表  
-* -e 显示扩展信息，例如uid等  
-* -s 按各个协议进行统计  
-* -c 每隔一个固定时间，执行该netstat命令  
-
-
-** 实用命令实例 **
-
-* 列出所有端口 `netstat -a`
-* 列出所有 tcp 端口 `netstat -at`
-* 列出所有 udp 端口 `netstat -au`
-* 只显示监听端口 `netstat -l`
-* 只列出所有监听 tcp 端口 `netstat -lt`
-* 只列出所有监听 udp 端口 `netstat -lu`
-* 只列出所有监听 UNIX 端口 `netstat -lx`
-* 显示所有端口的统计信息 `netstat -s`
-* 显示 TCP 或 UDP 端口的统计信息 `netstat -st 或 -su`
-* 显示核心路由信息 `netstat -r`
-* 找出程序运行的端口 `netstat -ap | grep 程序名`
-* TCP各种状态列表 `netstat -nat |awk '{print $6}'|sort|uniq -c'`
-
-
-** demo **  
-
-netstat 功能复杂，我用一个记录一个吧。  
-
-前端时间写了一个 server, 使用 TCP 通信。  
-
-有时候需要查看一下这个 server 对应端口的情况，于是使用下面的命令查看。  
-
-服务端检查一个端口  
-
-```
-netstat -alpn | grep 5555
-
--l, --listening
-    Show only listening sockets.  (These are omitted by default.)
-
--a, --all
-    Show both listening and non-listening (for TCP this means established connections) sockets.  With the --interfaces option, show interfaces that are not marked
-    
--p, --program
-    Show the PID and name of the program to which each socket belongs.
-    
---numeric , -n
-    Show numerical addresses instead of trying to determine symbolic host, port or user names.
-```
 
 ### telnet
 
@@ -1480,7 +1407,10 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * expand Convert tabs to spaces.
 * fmt Produce roughly uniform line lengths.
 * fold Break lines.
-* gawk Process lines or records one by one.
+* gawk Process lines or records one by one.  
+  处理文本神器.  
+  分割文本后, 得到指定位置的文本: `sudo tcpdump  -iany -nlp | awk '{print $3}'`  
+  指定分隔符: `echo "10.123.127.129.50791" | awk -F'.' '{print $5}'`  
 * groff Format troff input.
 * gs Display PostScript or PDF file.
 * ispell Interactively check spelling.
@@ -1712,6 +1642,88 @@ Sat Mar 12 08:30:40 CST 2016
 * named Translate between domain names and IP addresses.
 * nameif Assign names to network devices.
 * netstat Print network status.
+
+
+如果我们的计算机有时候接收到的数据报会导致出错数据删除或故障，我们不必感到奇怪， TCP/IP可以容许这些类型的错误，并能够自动重发数据报。  
+
+但如果累计的出错情况数目占到所接收的IP数据报相当大的百分比，或者它的数目正迅速增加，那么我们就应该使用Netstat查一查为什么会出现这些情况了。
+
+> 当然后人说 netstat 已经被ss命令和ip命令所取代.  
+
+**用途**  
+
+netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。  
+
+
+**参数说明**  
+
+* -a (all)显示所有选项，默认不显示LISTEN相关  
+* -t (tcp)仅显示tcp相关选项  
+* -u (udp)仅显示udp相关选项  
+* -n 拒绝显示别名，能显示数字的全部转化成数字。  
+* -l 仅列出有在 Listen (监听) 的服務状态  
+* -p 显示建立相关链接的程序名  
+* -r 显示路由信息，路由表  
+* -e 显示扩展信息，例如uid等  
+* -s 按各个协议进行统计  
+* -c 每隔一个固定时间，执行该netstat命令  
+
+
+**实用命令实例**
+
+* 列出所有端口 `netstat -a`
+* 列出所有 tcp 端口 `netstat -at`
+* 列出所有 udp 端口 `netstat -au`
+* 只显示监听端口 `netstat -l`
+* 只列出所有监听 tcp 端口 `netstat -lt`
+* 只列出所有监听 udp 端口 `netstat -lu`
+* 只列出所有监听 UNIX 端口 `netstat -lx`
+* 显示所有端口的统计信息 `netstat -s`
+* 显示 TCP 或 UDP 端口的统计信息 `netstat -st 或 -su`
+* 显示核心路由信息 `netstat -r`
+* 找出程序运行的端口 `netstat -ap | grep 程序名`
+* TCP各种状态列表 `netstat -nat |awk '{print $6}'|sort|uniq -c'`
+
+
+**demo**  
+
+netstat 功能复杂，我用一个记录一个吧。  
+前端时间写了一个 server, 使用 TCP 通信。  
+有时候需要查看一下这个 server 对应端口的情况，于是使用下面的命令查看。  
+服务端检查一个端口  
+
+```
+netstat -alpn | grep 5555
+
+-l, --listening
+    Show only listening sockets.  (These are omitted by default.)
+
+-a, --all
+    Show both listening and non-listening (for TCP this means established connections) sockets.  With the --interfaces option, show interfaces that are not marked
+    
+-p, --program
+    Show the PID and name of the program to which each socket belongs.
+    
+--numeric , -n
+    Show numerical addresses instead of trying to determine symbolic host, port or user names.
+```
+
+* lsof
+
+有时候我们只有服务端的ip和端口, 这时候需要找到哪个客户端在使用我们的服务.  
+tcpdump可以很快找到客户端ip和端口, 但是这个端口是变化的, 该怎么找呢?  
+lsof就这个命令就可以帮助我们快速找到.  
+
+客户端一般会主动端口链接, 这个链接信息在客户端依旧保存一段时间, 这个时候我们通过grep端口或者服务端ip就可以找到进程名.  
+
+```
+user_00@V_172_27_32_89_tlinux:~> lsof | grep 33392
+dataloade 30652    user_00   38u     IPv4         2337110260                   TCP 172.27.32.89:33392->10.185.16.50:8561 (ESTABLISHED)
+
+user_00@V_172_27_32_89_tlinux:~> lsof | grep 10.185.16.50
+dataloade 30652    user_00   38u     IPv4         2337110260                   TCP 
+```
+
 * nfsstat Print statistics for NFS and RPC.
 * nsupdate Submit dynamic DNS update requests.
 * portmap Map daemons to ports (renamed rpcbind).
