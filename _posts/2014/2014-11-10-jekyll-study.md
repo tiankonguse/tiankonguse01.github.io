@@ -11,14 +11,14 @@ categories: [前端技术]
 
 
 
-如果你只想快速搭建一个 github 的静态网站, 而暂时没有时间来研究 jekyll 语法的话,建议直接 fork 我的[这个][github-tiankonguse]
+如果你只想快速搭建一个 github 的静态网站, 而暂时没有时间来研究 jekyll 语法的话,建议直接 fork 我的[这个][github-tiankonguse]  
 
-当然,阅读一下之前我记录的一些笔记也可以增长一些知识.  
+当然,阅读一下之前我记录的一些笔记也可以增长一些知识.  注意,必须在子节点的顶部  
 
-* [Jekyll 模板 简单语法 笔记][jekyll-base-record] 只介绍了最最基本的语法
-* [在github上制作一个静态网站][make-github-website] 只介绍了最简单的 github 操作.
+* [Jekyll 模板 简单语法 笔记][jekyll-base-record] 只介绍了最最基本的语法  
+* [在github上制作一个静态网站][make-github-website] 只介绍了最简单的 github 操作.  
 
-不过,现在我要记录一个比较完整的语法来建立一个功能比较健全记录型博客.
+不过,现在我要记录一个比较完整的语法来建立一个功能比较健全记录型博客.  
 
 具体官方文档地址请参考 [官方文档][jekyllrb-docs].  
 这里只介绍关于 jekyll 的语法,不介绍其他内容.  
@@ -26,7 +26,7 @@ categories: [前端技术]
 
 ## 开始
 
-** Jekyll 是什么? **  
+**Jekyll 是什么?** 
 
 jekyll 是一个静态网站生成器.  
 jekyll 通过 标记语言 [markdown][] 或 [textile][] 和 模板引擎 [liquid][] 转换生成网页.  
@@ -38,16 +38,16 @@ jekyll 通过 标记语言 [markdown][] 或 [textile][] 和 模板引擎 [liquid
 
 ## 配置
 
-> 注意,配置不用使用 tab . 否则可能会忽略那条命令.
+> 注意,配置不用使用 tab . 否则可能会忽略那条命令.  
 
 ### 文件介绍
 
-** _config.yml **
+**_config.yml**
 
 jekyll 的全局配置在 _config.yml 文件中配置.  
 比如网站的名字, 网站的域名, 网站的链接格式等等.  
 
-** _includes **
+**_includes**
 
 对于网站的头部, 底部, 侧栏等公共部分, 为了维护方便, 我们可能想提取出来单独编写, 然后使用的时候包含进去即可.  
 这时我们可以把那些公共部分放在这个目录下.  
@@ -57,21 +57,22 @@ jekyll 的全局配置在 _config.yml 文件中配置.
 { % include filename % }
 ```
 
-** _layouts **
+**_layouts**
 
-对于网站的布局,我们一般会写成模板的形式,这样对于写实质性的内容时,比如文章,只需要专心写文章的内容, 然后加个标签指定用哪个模板即可.
+对于网站的布局,我们一般会写成模板的形式,这样对于写实质性的内容时,比如文章,只需要专心写文章的内容, 然后加个标签指定用哪个模板即可.  
 对于内容,指定模板了模板后,我们可以称内容是模板的儿子.  
 为什么这样说呢?  因为这个模板时可以多层嵌套的, 内容实际上模板,只不过是叶子节点而已.  
 
-在模板中, 引入儿子的内容.
+在模板中, 引入儿子的内容.  
 
 ```
 { { content } }
 ```
 
-在儿子中,指定父节点模板
+在儿子中,指定父节点模板  
 
-> 注意,必须在子节点的顶部.
+> 注意,必须在子节点的顶部.  
+
 
 ```
 ---
@@ -79,18 +80,18 @@ layout: post
 ---
 ```
 
-** _posts **
+**_posts**
 
 写的内容,比如博客,常放在这里面, 而且一般作为叶子节点.  
 
 
-** _data **
+**_data**
 
 也用于配置一些全局变量,不过数据比较多,所以放在这里。  
 
-比如这个网站如果是多人开发, 我们通常会在这里面定义一个 members.yml 文件.
+比如这个网站如果是多人开发, 我们通常会在这里面定义一个 members.yml 文件.  
 
-文件内容为 
+文件内容为   
 
 ```yml
 - name: 袁小康
@@ -105,17 +106,17 @@ layout: post
 site.data.members
 ```
 
-** _site **
+**_site**
 
 jekyll 生成网站输出的地方, 一般需要在 .gitignore  中屏蔽掉这个目录.  
 
-** index.html **
+**index.html**
 
 主页文件, 后缀有时也用 index.md 等.  
 这个需要根据自己的需要来写, 因为不同的格式之间在某些情况下还是有一些细微的差别的.  
 
 
-** 静态资源 **
+**静态资源**
 
 对于其他静态资源, 可以直接放在根目录或任何其他目录, 然后路径和平常的网站一样, 按路径来找链接中的文件.  
 
@@ -156,7 +157,7 @@ destination: DIR #配置语法
 Disable custom plugins, and ignore symbolic links.
 ```
 
-大概意思是禁用常用的插件,忽略符号链接.
+大概意思是禁用常用的插件,忽略符号链接.  
 
 ```
 # 编译参数  --safe
@@ -165,7 +166,7 @@ safe: BOOL
 
 ### 忽略文件
 
-这个很有用, 有时候你写了一个文件, 里面的一个东西可能会被 jekyll 处理, 但是你不想让 jekyll 处理的话, 就使用这个语法忽略那些文件吧.
+这个很有用, 有时候你写了一个文件, 里面的一个东西可能会被 jekyll 处理, 但是你不想让 jekyll 处理的话, 就使用这个语法忽略那些文件吧.  
 
 ```
 exclude: [DIR, FILE, ...]
@@ -182,7 +183,7 @@ include: [DIR, FILE, ...]
 
 ### 时区
 
-我们模板中经常会对时间进行转换,这个时候如果至指定时区的话,可能得到的时间会和我们想要的时间错几个小时.
+我们模板中经常会对时间进行转换,这个时候如果至指定时区的话,可能得到的时间会和我们想要的时间错几个小时.  
 
 ```
 # timezone: Asia/Shanghai
@@ -191,7 +192,7 @@ timezone: TIMEZONE
 
 ### 编码
 
-大家都是程序员,就不用多说了.
+大家都是程序员,就不用多说了.  
 
 ```
 # encoding : utf-8
@@ -200,7 +201,7 @@ encoding: ENCODING
 
 ## 模板语法
 
-模板语法实际上分两部分, 一部分是头部定义,另一部分是语法.
+模板语法实际上分两部分, 一部分是头部定义,另一部分是语法.  
 
 
 ### 头部定义
@@ -221,68 +222,68 @@ published: true # default true
 ### 模板语法
 
 
-** 使用变量 **
+**使用变量**
 
-所有的变量是都一个树节点, 比如模板中定义的头部变量,需要使用下面的语法获得
+所有的变量是都一个树节点, 比如模板中定义的头部变量,需要使用下面的语法获得  
 
 ```
 page.title
 ```
 
-page 是当前页面的根节点.
+page 是当前页面的根节点.  
 
-其中全局根结点有
+其中全局根结点有  
 
-* site _config.yml 中配置的信息
-* page 页面的配置信息
-* content 模板中,用于引入子节点的内容
-* paginator 分页信息
+* site _config.yml 中配置的信息  
+* page 页面的配置信息  
+* content 模板中,用于引入子节点的内容  
+* paginator 分页信息  
 
 ### site 下的变量
 
-* site.time 运行 jekyll 的时间
-* site.pages 所有页面
-* site.posts 所有文章
-* site.related_posts 类似的10篇文章,默认最新的10篇文章,指定lsi为相似的文章
-* site.static_files 没有被 jekyll 处理的文章,有属性 path, modified_time 和 extname.
-* site.html_pages 所有的 html 页面
-* site.collections 新功能,没使用过
-* site.data _data 目录下的数据
-* site.documents 所有 collections 里面的文档
-* site.categories 所有的 categorie
-* site.tags 所有的 tag
-* site.[CONFIGURATION_DATA] 自定义变量
+* site.time 运行 jekyll 的时间  
+* site.pages 所有页面  
+* site.posts 所有文章  
+* site.related_posts 类似的10篇文章,默认最新的10篇文章,指定lsi为相似的文章  
+* site.static_files 没有被 jekyll 处理的文章,有属性 path, modified_time 和 extname.  
+* site.html_pages 所有的 html 页面  
+* site.collections 新功能,没使用过  
+* site.data _data 目录下的数据  
+* site.documents 所有 collections 里面的文档  
+* site.categories 所有的 categorie  
+* site.tags 所有的 tag  
+* site.[CONFIGURATION_DATA] 自定义变量  
 
 
 ### page 下的变量 
 
-* page.content 页面的内容
-* page.title 标题
-* page.excerpt 摘要
-* page.url 链接
-* page.date 时间
-* page.id 唯一标示
-* page.categories 分类
-* page.tags 标签
-* page.path 源代码位置
-* page.next 下一篇文章
-* page.previous 上一篇文章
+* page.content 页面的内容  
+* page.title 标题  
+* page.excerpt 摘要  
+* page.url 链接  
+* page.date 时间  
+* page.id 唯一标示  
+* page.categories 分类  
+* page.tags 标签  
+* page.path 源代码位置  
+* page.next 下一篇文章  
+* page.previous 上一篇文章  
 
 ### paginator 下的变量 
 
-* paginator.per_page 每一页的数量
-* paginator.posts 这一页的数量
-* paginator.total_posts 所有文章的数量
-* paginator.total_pages 总的页数
-* paginator.page 当前页数
-* paginator.previous_page 上一页的页数
-* paginator.previous_page_path 上一页的路径
-* paginator.next_page 下一页的页数
-* paginator.next_page_path 下一页的路径
+* paginator.per_page 每一页的数量  
+* paginator.posts 这一页的数量  
+* paginator.total_posts 所有文章的数量  
+* paginator.total_pages 总的页数  
+* paginator.page 当前页数  
+* paginator.previous_page 上一页的页数  
+* paginator.previous_page_path 上一页的路径  
+* paginator.next_page 下一页的页数  
+* paginator.next_page_path 下一页的路径  
 
 ### 字符转义
 
-有时候想输出 \{ 了,怎么办,使用 \\ 转义即可.
+有时候想输出 \{ 了,怎么办,使用 \\ 转义即可.  
 
 ```
 \{ => {
@@ -290,7 +291,7 @@ page 是当前页面的根节点.
 
 ### 输出变量
 
-输出变量直接使用两个大括号括起来即可.
+输出变量直接使用两个大括号括起来即可.  
 
 ```
 { { page.title } }
@@ -298,7 +299,7 @@ page 是当前页面的根节点.
 
 ### 循环
 
-和平常的解释性语言很想.
+和平常的解释性语言很想.  
 
 ```
 { % for post in site.posts % }
@@ -317,7 +318,7 @@ page 是当前页面的根节点.
 
 ### 删除指定文本
 
-remove 可以删除变量中的指定内容
+remove 可以删除变量中的指定内容  
 
 ```
 { { post.url | remove: 'http' } }
@@ -325,7 +326,7 @@ remove 可以删除变量中的指定内容
 
 ### 删除 html 标签
 
-这个在摘要中很有用.
+这个在摘要中很有用.  
 
 ```
 { { post.excerpt | strip_html } }

@@ -1,6 +1,7 @@
-host:    192.168.31.137
-url: http://192.168.31.137
+host:   192.168.31.137 
+url: http://tk.com
 keep_files: ["/javascripts/*", "/stylesheets/*", "/images/*", "/doc/", "/news/*"]
 no_load_relate_post : 1
 markdown:    rdiscount
 highlighter: pygments
+unpublished: true
