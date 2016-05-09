@@ -153,7 +153,7 @@ where
             t_meterial_template.c_title like '%商品%');
 ```
 
-会被优化为下面的形式.  
+可能会被转化为下面的形式(只是可能).  
 
 
 ```
