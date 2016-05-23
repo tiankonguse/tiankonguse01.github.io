@@ -12,7 +12,7 @@
 	{% endfor %}
 	</ul>
 </div>
-<div class="sidenav">
+<!--div class="sidenav">
 	<h2>孩子的奶粉钱</h2>
 	<div>
     <ins class="adsbygoogle"
@@ -23,7 +23,7 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 	</div>
-</div>
+</div-->
 
 {% if site.load_resources == 1 %}
 <div class="sidenav">
