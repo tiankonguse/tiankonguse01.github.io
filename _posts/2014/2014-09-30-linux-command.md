@@ -1060,7 +1060,17 @@ start address 0x0000000000400830
 
 ### strings
 
-获取二进制文件里面的字符串常量.  
+print the strings of printable characters in files.  
+打印出文件中可以打印的字符串.  
+
+默认打印条件:  
+
+* at least 4 characters long(最少四个字符)  `-min-len`,`-n min-len`,`--bytes=min-len`指定长度  
+* the initialized and loaded sections of object files(object文件只输出initialized段和loaded段) `-a`,`--all`,`-`扫描所有段  
+* 
+
+
+一般获取二进制文件里面的字符串常量.  
 搜索二进制文件中的字符串，比如检查KEY泄露.  
 
 ```
@@ -1339,7 +1349,6 @@ mplayer -ao null tabs.mp4 -vo jpeg:outdir=./tabs
 * grep Search files for text patterns.
 * locate Search a preexisting database to show where files are on the system.
 * look Search file for string at the beginning of lines.
-* strings Search binary files for text patterns.
 * updatedb Update thelocate database.
 * whereis Find command.
 * which Print pathname of a command
