@@ -1015,6 +1015,8 @@ ELF，全称 Executable and Linkable Format(可执行和可链接格式). 具体
 * readelf -a 查看ELF所有信息
 * readelf -s 查看ELF文件中的符号表
 * readelf -x .data .rodata.bss.text 查看指定节区
+* readelf  -d libunionapi.a | grep TEXTREL 判断库是否是可以重定向的, 搜到了就是没有PIC的
+
 
 
 ### objdump
