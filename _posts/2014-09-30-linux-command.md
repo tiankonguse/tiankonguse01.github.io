@@ -689,6 +689,8 @@ sudo tcpdump -ieth1 -Xlpns0 port 5555
 sudo tcpdump -ilo -Xlpns0 port 5555
 ```
 
+关于tcpdump的详细讲解请阅读[tcpdump命令详解](http://github.tiankonguse.com/blog/2016/08/13/tcpdump.html).  
+
 
 ### pmap
 
@@ -1757,7 +1759,6 @@ dataloade 30652    user_00   38u     IPv4         2337110260                   T
 * rdate Notify time server that date has changed.
 * slattach Attach serial lines as network interfaces.
 * sshd Server for secure shell connections.
-* tcpdump Write network packet information to screen or file.
 * telnetd Server for Telnet sessions from remote hosts.
 * tftpd Server for restricted set of file transfers.
 * zebra Routing daemon.
