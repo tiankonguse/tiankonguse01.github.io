@@ -58,6 +58,7 @@ int CheckHttpPacket(const char *buf,int len){
 HTTP/1.1 200 OK
 Content-Type: text/plain
 Transfer-Encoding: chunked
+
 25
 This is the data in the first chunk
 1C
