@@ -268,7 +268,7 @@ pre ol {
 }
 .entry-page img, .entry img, .entry-header img {
     max-width: 670px;
-    width: 100%;
+    /*width: 100%;*/
     display: block;
     margin: 10px auto;
 }
