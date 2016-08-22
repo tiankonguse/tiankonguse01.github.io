@@ -21,25 +21,35 @@ http协议是一种文本协议, 文本协议有一个先天优势: 容易理解
 但是为了自己后续快速回顾知识点, 这里还是记录一下.    
 
 
+## 安全性前提
+
+一般http的包头很小, 所以很多人都会假设包头肯定在第一个tcp包头.  
+这样其实是不合理的,我们应该按照http的协议来找包头.  
+
+```
+bool checkCompleteHttpHead(const char *buf,int len){
+    if(strnstr(buf, "\r\n\r\n", len) == NULL){   
+        return 0; 
+    }else{
+        return 1;
+    }
+}
+```
+
+
+
+
 ## Content-Length
 
 
-在有`Content-Length`的时候, 我们只需要找到`Content-Length`, 然后就可以知道包长, 然后就可以得到包的具体内容.   
-
-```
-int CheckHttpPacket(const char *buf,int len){
-	char *pBody = NULL;
-	if((pBody = strstr(buf, "\r\n\r\n")) == NULL){
-        return 0;
-	}
-	int length = pBody - buf +4;
-	return length;
-}
-```
+在有`Content-Length`的时候, 我们只需要找到`Content-Length`, 然后就可以计算出包长了.   
 
 由于`Content-Length`类型的包是一个包体连续的包, 所以直接取自己的数据即可.  
 比如我们返回的数据都是json, 所以一般都是直接去json数据.当然标准的做法应该是分析包头,得到包头和包体.  
 
+>  
+> 当然上面的方法是错误的, 我们应该选分析包头, 是否正确的返回数据.    
+>  
 
 ## Transfer-Encoding
 
@@ -70,11 +80,24 @@ sequence
 0
 ```
 
+###检查包完整性
+
+根据上面的协议, 最后一个分片是`0\r\n\r\n`, 所以我们可以检查是否有这个字符串来判断是都得到完整的包.  
+
+```
+if(!strncmp(pEnd,"0\r\n\r\n",5)){
+    return len;
+}else{
+    return 0;
+}
+```
+
+
 ### 应用
 
-这种方式的包对于我们应用来说, 就有点麻烦了.  
+这种方式的包对于我们应用来说, 其实有点麻烦的.  
 收到一个http包后, 我们需要解析包, 而不能像`Content-Length`那样直接find包体的前缀和后缀来得到自己想要的数据啦.   
-这时候我们需要处理chunked包, 去掉多余的字符.  
+这时候我们需要处理chunked包, 去掉多余的分片标示的相关字符.  
 
 ```
 string strHttpRsp = "", strRspBody = "";
