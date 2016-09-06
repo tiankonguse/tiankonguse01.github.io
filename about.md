@@ -9,38 +9,15 @@ updateData:  21:25 2015/4/2
 
 ## 关于 tiankonguse
 
-我是 tiankonguse, 一个安静的程序员。  
-关于我的详细介绍，可以看看[这里][lab-kirichik]  
-大学四年 acmer,期间用php写过一些小系统。  
-
-目前，就职与[腾讯][tencent]公司，从事后台开发。  
-工作目前涉及到的语言有:c/c++(CGI,服务,独立程序), python(独立程序), perl(独立程序), php(网站后台), 前台html+css+js开发。  
-涉及到技术有: 独立系统设计,系统数据库独立设计,sphinx搜索搭建与维护,各种接口设计与维护。  
-
-简单的说就是一直坐着自己喜欢做的事：看书，学习新的知识，研究算法，看漫画，一周偶尔看一场电影。
-
+* 我是 tiankonguse, 一个安静的程序员。  
+* 来自河南, 现居深圳.
+* 大学四年 acmer，详见[这里][lab-kirichik]  
+* 14年7月本科毕业工作.
+* 目前就职于[腾讯视频][tencent]公司，从事后台开发。  
 
 ## 个人信息  
 
-
-```javascript
-(function(){
-    function TK(){
-    
-    }
-    TK.prototype["姓名"] = "袁小康";
-    TK.prototype["网络昵称"] = "tiankonguse";
-    TK.prototype["电话"] = "13043495626";
-    TK.prototype["邮箱"] = "i@tiankonguse.com/804345178@qq.com";
-    TK.prototype["目前城市"] = "深圳";
-    TK.prototype["公司"] = "腾讯";
-    TK.prototype["博客"] = "http://github.tiankonguse.com/";
-    TK.prototype["WEB简历"] = "http://tiankonguse.com/lab/kirichik/";
-    TK.prototype["好玩的东西"] = "http://github.tiankonguse.com/project/";
-    return new TK();
-})();
-```
-
+请观察左上角, 可以找到我的微信和github.  
 
 
 
@@ -64,15 +41,13 @@ G e++ h+ r !y+
 这个网站托管在 [github][github-tiankonguse] 上。   
 
 
-## 关于 tiankonguse 的记录集
+## 关于网站
 
 * 第一阶段 使用免费域名和免费空间 (网站底部会被空间提供商嵌入广告)
 * 第二阶段 自己买域名和空间自己实现博客(学习各种WEB技术)
 * 第三阶段 使用 wordpress搭建博客 (累觉不爱, 想把重点放在写博客上)
 * 第四阶段 自己实现简洁的博客 (重点放在写博客后, 追求简洁)
 * 第五阶段 使用github 搭建博客 (只需要写篇文章, 提交一下就行了)
-
-如果喜欢我的文章，也可以赠一本书。
 
 
 ## 读书使人快乐
