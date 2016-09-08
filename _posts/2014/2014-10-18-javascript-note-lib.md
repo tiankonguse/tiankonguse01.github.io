@@ -469,11 +469,26 @@ tk.Composition(TK,{
 <script>
 jQuery(document).ready(function(){
     var $dom = $(".javascript-note-lib-img1");
-    var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?"+tk.time();
-    tk.loadImg([imgUrl], function(){
-        //图片加载完之后做的事
-        $dom.html("<img src=\""+imgUrl+"\">");
-    });
+    
+    function nextLoadImg(){
+        setTimeout(loadImg,1000);
+    }
+    
+    function loadImg(){
+        if(typeof tk == "undefined"){
+            return nextLoadImg();
+        }
+        if(tk.time === undefined){
+            return nextLoadImg();
+        }
+        var imgUrl = "http://qlogo3.store.qq.com/qzone/804345178/804345178/100?"+tk.time();
+        tk.loadImg([imgUrl], function(){
+            //图片加载完之后做的事
+            $dom.html("<img src=\""+imgUrl+"\">");
+        });
+    }
+    
+    nextLoadImg();
 });
 </script>
 
