@@ -338,7 +338,7 @@ tk.Composition(TK,{
         window.TK.callback = function(){
             window.TK.img = img;
             if(callback){
-                callback();
+                setTimeout(callback,100);
             }
         };
         for(var i in imgList){
