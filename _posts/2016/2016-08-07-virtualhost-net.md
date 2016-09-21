@@ -1,6 +1,6 @@
 ---  
 layout: post  
-title: virtualbox网络的一些记录 
+title: virtualbox网络的一些记录   
 description: virtualbox 内部的系统是怎么联网的，　怎么分配ip的，里面的系统向外提供服务该怎么做等等研究．  
 updateData:  10:52 2016/8/7
 categories: [linux, virtualbox]

@@ -1,16 +1,16 @@
 ---  
 layout: post  
-title: ununtu使用记录 
-description:　五年前就开始使用ununtu，期间遇到各种问题，都是零碎的记录，现在需要汇总一下，方便以后快速使用．   
+title: ununtu使用记录   
+description:　五年前就开始使用ununtu，期间遇到各种问题，都是零碎的记录，现在需要汇总一下，方便以后快速使用． 
 updateData:  9:52 2016/8/5
 categories: [linux]
 ---  
 
 
+
 ## 背景
 
 这篇文章主要记录两个东西：　
-
 
 
 
