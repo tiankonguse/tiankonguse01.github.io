@@ -551,9 +551,9 @@ tk.Composition(TK.AD,{
         }
         this.alreadyLoad = true;
         try{
-            tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
+            //tk.loadJSFile("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
         }catch(err){
-            tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
+            //tk.loadJSFile("http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",null,true);
         }
     },
     addAd : function addAd(key, val){
@@ -628,7 +628,7 @@ tk.Composition(TK.Comment, {
         var that = this.dom;
         that.html('加载中...');
         $.getScript('http//static.duoshuo.com/embed.js',function(){that.remove()});
-        $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
+        //$.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });
 tk.Composition(TK, {
