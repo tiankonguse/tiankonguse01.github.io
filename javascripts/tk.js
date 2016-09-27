@@ -590,6 +590,7 @@ tk.AddMethod(TK,{
     Comment : function Comment(){
         this.isHaveComment = true;
         this.disqus_shortname = 'tiankonguse-record';
+        this.duoshuo_shortname = 'tiankonguse';
         this.hash = location.hash;
         this.time = 5000;
     }
@@ -626,6 +627,7 @@ tk.Composition(TK.Comment, {
     loadComment : function loadComment(){
         var that = this.dom;
         that.html('加载中...');
+        $.getScript('http//static.duoshuo.com/embed.js',function(){that.remove()});
         $.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });
