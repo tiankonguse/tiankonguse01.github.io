@@ -148,7 +148,7 @@ public:
 
 `operator new`是一个函数，我们可以重载，作用是申请指定大小的内存。  
 `new operator`是一个我们熟悉的`new`，不可以重载，作用是调用`operator new`申请内存，并初始化， 一般用户调用。    
-`placement new`是一个全局函数，不可重载，作用是运行我们在一个已分配的内存中主动初始化内存中的对象。  
+`placement new`是一个全局函数，不可重载，作用是允许我们在一个已分配的内存中主动初始化内存中的对象。  
 
 `placement new`声明和使用如下: 
 
@@ -164,4 +164,10 @@ void construct(pointer __p, const _Tp& __val) {
 
 正是由于`placement new`的存在， 我们才可以自己管理内存分配内存，并进行初始化。
 
+## 欠下的帐
+
+* 内存管理相关算法  
+* rebind作用  
+* allocator与基类重复定义的原因  
+* stl实现
 
