@@ -163,7 +163,7 @@ voidvector<_Tp, _Alloc>::_M_insert_aux(iterator __position, const _Tp& __x) {
         _Alloc_traits::construct(this->_M_impl,　__new_start + __elems_before,__x);
         __new_finish = 0;
 
-        __new_finish = std::m__uninitialized_moveove(this->_M_impl._M_start, __position.base(),　__new_start, _M_get_Tp_allocator());
+        __new_finish = std::__uninitialized_moveove(this->_M_impl._M_start, __position.base(),　__new_start, _M_get_Tp_allocator());
 
         ++__new_finish;
 
@@ -223,8 +223,8 @@ vector<_Tp, _Alloc>:: insert(iterator __position, const value_type& __x){
 }
 ```
 
-`insert()`函数检查是不是最后一个，算是一个小优化，但是确实没有检查是不是第一个，这样确实会指针越界，不过只读，应该没问题,数据后面会覆盖的。  
-这个需要测试一下，输出一些东西，看输出的是什么东西。  
+`insert()`函数检查是不是最后一个，算是一个小优化，这个优化也解决了上面提到的为空问题。　假设是第一个，且为空，则命中还有空间，且位置和end相等。  
+加上是第一个，不为空，则不存在上面的问题了。   
 
 
 ### insert测试
@@ -279,7 +279,8 @@ int main(int argc, char**argv){
 }
 ```
 
-经测试发现, 不会指针越界的问题。当为空且有buf时，　刚好命中那个小优化。而为空无buf,则进不了那个分支。    
+经测试发现, 构造函数是完全匹配的，　即使重新分配内存，也是匹配的。  
+这个说明__uninitialized_moveove会对内存进行初始化啦。      
 
 ```
 tiankonguse:~ $ ./a.out 4
