@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开发文档</title>
+<link rel="Bookmark" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link href="./css/bootstrap.css" rel="stylesheet">
+<link href="./css/bootstrap-theme.css" rel="stylesheet">
+<link href="./css/bs-docs.css" rel="stylesheet">
+<link href="./css/github.css" rel="stylesheet">
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="./js/underscore-min.js" type="text/javascript"></script>
+<script src="./js/promise-1.0.0.min.js" type="text/javascript"></script>
+<style type="text/css">
+.bs-docs-nav {
+	font-family: "Microsoft Yahei";
+}
+.btn-list .btn + .btn {
+	margin-left: 5px;
+}
+.bs-sidenav {
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+/*@media screen and (min-width: 992px) {
+	.bs-sidebar.affix {
+		top: 10px;
+	}
+}*/
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Microsoft Yahei";
+}
+p, code, .highlight pre code {
+	font-size: 13px;
+}
+pre code{
+	padding: 0;
+	background-color: transparent;
+}
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+	font-style: normal;
+}
+.thumbnail {
+	min-height: 167px;
+	margin-bottom: 10px;
+}
+.section-templates h4 {
+	margin-bottom: 5px;
+}
+.section-templates p {
+	margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-image:none;">
+	<div class="container">
+		<div class="navbar-header">
+			<a href="./" class="navbar-brand">开发文档</a>
+		</div>
+		<div class="collapse navbar-collapse bs-navbar-collapse">
+			<ul class="nav navbar-nav" id="nav-ul">
+				<li><a href="./">开始</a></li>
+				<li><a href="./styles.html">样式</a></li>
+				<li><a href="./components.html">UI组件</a></li>
+				<li><a href="./javascript.html">JavaScript</a></li>
+				<li><a href="./conventions.html" target="_blank">代码规范-PHP</a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+<script type="text/javascript">
+(function(){
+	var href = location.toString(),
+		items = $("#nav-ul").find("a");
+	for (var i = items.length - 1; i >= 0; i -= 1) {
+		var item = items[i];
+		if (! (/#$/).test(item.href) && href.indexOf(item.href.replace(/\/$/, "")) !== -1) {
+			item.parentNode.className = "active";
+			break;
+		}
+	}
+	/*items.each(function(){
+		if (! (/#$/).test(this.href) && href.indexOf(this.href.replace(/\/$/, "")) !== -1) {
+			this.parentNode.className = "active";
+		}
+	});*/
+})();
+</script>
+
+
+<!-- <link rel="stylesheet" type="text/css" href="./css/datepicker.css"> -->
+<link rel="stylesheet" type="text/css" href="./css/bootstrap-datetimepicker.css">
+
+<div class="container bs-docs-container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="bs-sidebar hidden-print affix-top">
+				<ul class="nav bs-sidenav">
+					<li>
+						<a href="#alerts">弹出框</a>
+						<ul class="nav">
+							<li><a href="#alerts-alert">提示框</a></li>
+							<li><a href="#alerts-confirm">确认框</a></li>
+							<li><a href="#alerts-tips">提示条</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#modals">弹出窗口</a>
+					</li>
+					<li>
+						<a href="#forms">表单</a>
+						<ul class="nav">
+							<li><a href="#forms-basic">常用表单</a></li>
+							<li><a href="#forms-validate">验证</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#paginations">分页</a>
+						<ul class="nav">
+							<li><a href="#paginations-basic">基本</a></li>
+							<li><a href="#paginations-js">JS输出</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#panels">面板</a>
+						<ul class="nav">
+							<li><a href="#panels-basic">基本样例</a></li>
+							<li><a href="#panels-state">状态样式</a></li>
+							<li><a href="#panels-grid">面板网格</a></li>
+							<li><a href="#panels-table">面板内表格</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#datepicker">日期选择器</a>
+					</li>
+					<li>
+						<a href="#tables">表格操作</a>
+						<ul class="nav">
+							<li><a href="#tables-sort">表格排序</a></li>
+							<li><a href="#tables-fix">表头固定</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#loadings">Loading 层</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="alerts">弹出框</h1>
+				</div>
+				<p>
+					我们扩展了一些基于 bootstrap 的 <code>modal</code> 组件，来模拟 <code>alert</code> , <code>confirm</code> 等动作。
+				</p>
+				<p>
+					包括 <code>utils.alert()</code> , <code>utils.confirm()</code> , <code>utils.dialog()</code> 。
+				</p>
+				<h3 id="alerts-alert">提示框</h3>
+				<p>
+					需要弹出提示框 <code>alert()</code> ，请调用 <code>utils.alert( message [, type ] [, complete ] )</code> 。
+				</p>
+				<p>
+					也可以传入一个以各个参数作为键名的对象 <code>utils.alert( options )</code> 。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>message</td>
+								<td>string</td>
+								<td>""</td>
+								<td>显示的内容</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td>"default"</td>
+								<td>类型： "default", "info", "success", "warning", "error"</td>
+							</tr>
+							<tr>
+								<td>complete</td>
+								<td>function</td>
+								<td>null</td>
+								<td>弹出框关闭时执行的函数</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>string</td>
+								<td>"提示"</td>
+								<td>弹出框标题</td>
+							</tr>
+							<tr>
+								<td>html</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>message 是否为 html 内容</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="alert">默认框</button>
+					<button type="button" class="btn btn-default" data-action="alert" data-type="warning">警告框</button>
+					<button type="button" class="btn btn-default" data-action="alert" data-type="info">信息框</button>
+					<button type="button" class="btn btn-default" data-action="alert" data-type="success">操作成功</button>
+					<button type="button" class="btn btn-default" data-action="alert" data-type="error">操作失败</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+utils.alert("消息字符串");
+utils.alert("警告！找不到对象！", "warning", function(){ /* 弹出框关闭后执行 */ });
+					</code></pre>
+				</div>
+				<div class="bs-callout bs-callout-danger">
+					<h4>注意： <code>utils.alert()</code> 不能阻塞js线程！</h4>
+					<p>包括 <code>utils.confirm()</code> 不能像浏览器原生 <code>alert()</code> 一样阻塞js线程，所以对于要在弹框确定后再执行的操作，请通过回调函数传入。</p>
+					<p>例如 <code>utils.alert("Are you sure ?", function(){ ... })</code> 。</p>
+				</div>
+				<p>
+					需要改变弹出框的标题，或使用带有html内容的弹出框时，请调用 <code>utils.alert( options )</code> 。
+				</p>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="alert" data-type="more">自定义提示框</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+utils.alert({
+	title: "新标题",
+	message: '请访问 &lt;a href="//yun.isd.com/"&gt;yun.isd.com&lt;/a&gt;',
+	html: true, // 消息主体是否为html内容
+	type: "warning",
+	complete: function(){}
+});
+					</code></pre>
+				</div>
+				<h3 id="alerts-confirm">确认框</h3>
+				<p>
+					弹出确认框 <code>confirm()</code> ，调用 <code>utils.confirm( message [, type ] [, confirm ] [, unconfirm ] )</code> 。
+				</p>
+				<p>
+					或者传入一个键值对参数 <code>utils.confirm( options )</code> 。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>message</td>
+								<td>string</td>
+								<td>""</td>
+								<td>显示的内容</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td>"default"</td>
+								<td>类型： "default", "info", "warning", "delete"</td>
+							</tr>
+							<tr>
+								<td>confirm</td>
+								<td>function</td>
+								<td>null</td>
+								<td>在确认框中，点击"确定"按钮后，将触发该函数</td>
+							</tr>
+							<tr>
+								<td>unconfirm</td>
+								<td>function</td>
+								<td>null</td>
+								<td>没有点击"确定"按钮，而关闭确认框后，将触发该函数</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>string</td>
+								<td>"提示"</td>
+								<td>弹出框标题</td>
+							</tr>
+							<tr>
+								<td>html</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>message 是否为 html 内容</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="confirm">点击确认</button>
+					<button type="button" class="btn btn-danger" data-action="confirm" data-type="delete">点击删除</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+/* 确认框ui组件 无法阻塞js线程
+   所以需要使用回调函数来模拟实现
+   if (confirm("msg")) { ... } else { ... } 的效果
+ */
+utils.confirm("你确认做此修改？", function(){
+	console.log("Yes, I do.");
+}, function(){
+	console.log("No.");
+});
+
+utils.confirm("你确定删除这些项吗？", "delete", function(){
+	console.log("deleted");
+});
+					</code></pre>
+				</div>
+				<h3 id="alerts-confirm">确认框</h3>
+				<p>
+					弹出确认框 <code>confirm()</code> ，调用 <code>utils.confirm( message [, type ] [, confirm ] [, unconfirm ] )</code> 。
+				</p>
+				<p>
+					或者传入一个键值对参数 <code>utils.confirm( options )</code> 。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>message</td>
+								<td>string</td>
+								<td>""</td>
+								<td>显示的内容</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td>"default"</td>
+								<td>类型： "default", "info", "warning", "delete"</td>
+							</tr>
+							<tr>
+								<td>confirm</td>
+								<td>function</td>
+								<td>null</td>
+								<td>在确认框中，点击"确定"按钮后，将触发该函数</td>
+							</tr>
+							<tr>
+								<td>unconfirm</td>
+								<td>function</td>
+								<td>null</td>
+								<td>没有点击"确定"按钮，而关闭确认框后，将触发该函数</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>string</td>
+								<td>"提示"</td>
+								<td>弹出框标题</td>
+							</tr>
+							<tr>
+								<td>html</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>message 是否为 html 内容</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="confirm">点击确认</button>
+					<button type="button" class="btn btn-danger" data-action="confirm" data-type="delete">点击删除</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+/* 确认框ui组件 无法阻塞js线程
+   所以需要使用回调函数来模拟实现
+   if (confirm("msg")) { ... } else { ... } 的效果
+ */
+utils.confirm("你确认做此修改？", function(){
+	console.log("Yes, I do.");
+}, function(){
+	console.log("No.");
+});
+
+utils.confirm("你确定删除这些项吗？", "delete", function(){
+	console.log("deleted");
+});
+					</code></pre>
+				</div>
+				<h3 id="alerts-tips">提示条</h3>
+				<p>
+					弹出一个在指定时间后自动消失的提示条，调用 <code>utils.tips( message [, type ] [, duration ] )</code> 。
+				</p>
+				<p>
+					或者传入一个键值对参数 <code>utils.tips( options )</code> 。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>message</td>
+								<td>string</td>
+								<td>""</td>
+								<td>显示的内容</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td>"info"</td>
+								<td>类型： "info", "success", "warning", "danger", "error"</td>
+							</tr>
+							<tr>
+								<td>duration</td>
+								<td>number</td>
+								<td>3000</td>
+								<td>提示条将在 duration (毫秒)后消失</td>
+							</tr>
+							<tr>
+								<td>html</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>message 是否为 html 内容</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="tips">来个提示条</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+utils.tips("操作成功", "success", 1500);
+					</code></pre>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="modals">弹出窗口</h1>
+				</div>
+				<p>
+					通过弹出窗口，打开一个动态页面，请调用 <code>utils.dialog( url [, data ] [, title ] [, width ] [, height ] )</code> 。
+				</p>
+				<p>
+					或者传入一个键值对参数 <code>utils.dialog( options )</code> 。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>url</td>
+								<td>string | element | $element</td>
+								<td></td>
+								<td>页面地址（或者html元素、jQuery元素）</td>
+							</tr>
+							<tr>
+								<td>data</td>
+								<td>object | string</td>
+								<td>null</td>
+								<td>请求参数，当 data 为 object 时，将使用 POST 请求，否则使用 GET</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>string</td>
+								<td>""</td>
+								<td>弹出窗口初始显示的标题</td>
+							</tr>
+							<tr>
+								<td>width</td>
+								<td>number | string</td>
+								<td>500</td>
+								<td>窗口宽度</td>
+							</tr>
+							<tr>
+								<td>height</td>
+								<td>number | string</td>
+								<td>"auto"</td>
+								<td>窗口高度</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example btn-list">
+					<button type="button" class="btn btn-default" data-action="dialog">弹出一个页面</button>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+utils.dialog("/develop/modal", {
+	someKey: "some value"
+}, "一个测试窗口");
+
+// 或（如果弹出页面的html包含在了父页面中）
+utils.dialog($("#dialog-demo"));
+					</code></pre>
+				</div>
+				<p>弹出窗口页面（或元素）的 html 结构如下：</p>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;div class="modal-dialog" id="dialog-demo" style="width:800px;"&gt;&lt;!-- 这里定义窗口宽度 --&gt;
+	&lt;div class="modal-content"&gt;
+		&lt;div class="modal-header"&gt;
+			&lt;h4 class="modal-title"&gt;
+				&lt;!-- 这里是窗口标题 --&gt;
+				一个测试窗口
+			&lt;/h4&gt;
+			&lt;button type="button" class="modal-close" data-dismiss="modal"&gt;&lt;span&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
+		&lt;/div&gt;
+		&lt;div class="modal-body"&gt;
+			&lt;!-- 这里是窗口页面的主体 --&gt;
+			页面主体
+		&lt;/div&gt;
+		&lt;div class="modal-footer"&gt;
+			&lt;!-- 这里通常放一些按钮 这个层不是必须的 --&gt;
+			&lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;关闭&lt;/button&gt;
+			&lt;button type="button" class="btn btn-primary"&gt;确定&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+					</code></pre>
+				</div>
+				<div class="bs-callout bs-callout-info">
+					<p>也可以把弹出框页面直接写在父页面中（注意设置 <code>style="display:none"</code>），</p>
+					<p>需要弹出时，调用 <code>utils.dialog($("#dialog-demo"))</code>（即向 <code>utils.dialog</code> 传入该元素的jQuery对象）。</p>
+				</div>
+				<p>
+					带有 <code>data-dismiss="modal"</code> 属性的元素，点击时将自动触发窗口关闭。
+				</p>
+				<p>
+					需要手动触发关闭当前弹出窗口，请调用 <code>utils.dialog.close()</code> 。
+				</p>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="forms">表单</h1>
+				</div>
+				<h3 id="forms-basic">常用表单</h3>
+				<div class="bs-example" id="example-form">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputUsername">用户名</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-sm" id="inputUsername" placeholder="username">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="inputEmail">邮箱</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control input-sm" id="inputEmail" placeholder="email">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-10 col-sm-offset-2">
+								<button type="submit" class="btn btn-sm btn-primary">提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-form"></code></pre>
+				</div>
+				<h3 id="forms-validate">验证</h3>
+				<div class="bs-example" id="example-form-validate">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-1 control-label" for="input-name">名称</label>
+							<div class="col-sm-11">
+								<input type="text" class="form-control input-sm" id="input-name" data-title="请输入名称" data-manual="true">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-11 col-sm-offset-1">
+								<button type="submit" class="btn btn-sm btn-primary" id="btn-search">搜索</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="paginations">分页</h1>
+				</div>
+				<h3 id="paginations-basic">基本样式</h3>
+				<div class="bs-example" id="example-paginations">
+					<ul class="pagination">
+						<li><a class="prev" href="#" title="上一页">&laquo;</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li class="active"><a>3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a class="next" href="#" title="下一页">&raquo;</a></li>
+					</ul>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-paginations"></code></pre>
+				</div>
+				<h3 id="paginations-js">JS输出</h3>
+				<p>
+					调用 <code>utils.pagination()</code> 动态输出分页内容。
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>默认</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>selector</td>
+								<td>string | element</td>
+								<td></td>
+								<td>容器（jQuery选择器）</td>
+							</tr>
+							<tr>
+								<td>current</td>
+								<td>number</td>
+								<td>1</td>
+								<td>当前页码</td>
+							</tr>
+							<tr>
+								<td>pages</td>
+								<td>number</td>
+								<td>1</td>
+								<td>总页数</td>
+							</tr>
+							<tr>
+								<td>url</td>
+								<td>string</td>
+								<td>"#{page}"</td>
+								<td>分页url地址（其中 <code>{page}</code> 将被替换为页码）</td>
+							</tr>
+							<tr>
+								<td>displays</td>
+								<td>number</td>
+								<td>9</td>
+								<td>显示的页码按钮数</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example">
+					<div id="pager-sample"></div>
+				</div>
+				<div class="highlight">
+					<pre><code class="javascript">
+utils.pagination({
+	selector: "#pager-sample",
+	current: 10,
+	pages: 24,
+	displays: 11,
+	url: "#page={page}"
+});
+					</code></pre>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="panels">面板</h1>
+				</div>
+				<h3 id="panels-basic">基本样例</h3>
+				<div class="bs-example" id="example-panels">
+					<div class="panel panel-default">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">
+							面板主体
+						</div>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-panels"></code></pre>
+				</div>
+				<h3 id="panels-state">状态样式</h3>
+				<div class="bs-example">
+					<div class="panel panel-primary">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">面板主体</div>
+					</div>
+					<div class="panel panel-success">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">面板主体</div>
+					</div>
+					<div class="panel panel-info">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">面板主体</div>
+					</div>
+					<div class="panel panel-warning">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">面板主体</div>
+					</div>
+					<div class="panel panel-danger">
+						<div class="panel-heading">面板标题</div>
+						<div class="panel-body">面板主体</div>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;div class="panel panel-primary"&gt;...&lt;/div&gt;
+&lt;div class="panel panel-success"&gt;...&lt;/div&gt;
+&lt;div class="panel panel-info"&gt;...&lt;/div&gt;
+&lt;div class="panel panel-warning"&gt;...&lt;/div&gt;
+&lt;div class="panel panel-danger"&gt;...&lt;/div&gt;
+					</code></pre>
+				</div>
+				<h3 id="panels-grid">面板网格</h3>
+				<p>
+					配合网格布局，多个面板可以分列展示。
+				</p>
+				<div class="bs-example" id="example-panels-grid">
+					<div class="row">
+						<div class="col-sm-5">
+							<div class="panel panel-default">
+								<div class="panel-heading">面板标题 A</div>
+								<div class="panel-body">面板主体<br>~<br>~<br></div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">面板标题 B</div>
+								<div class="panel-body">面板主体</div>
+							</div>
+						</div>
+						<div class="col-sm-7">
+							<div class="panel panel-default">
+								<div class="panel-heading">面板标题 C</div>
+								<div class="panel-body">面板主体</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">面板标题 D</div>
+								<div class="panel-body">面板主体<br>~<br>~<br></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-panels-grid"></code></pre>
+				</div>
+				<h3 id="panels-table">面板内表格</h3>
+				<div class="bs-example" id="example-panels-table">
+					<div class="panel panel-default">
+						<div class="panel-heading">面板标题</div>
+						<table class="table table-striped table-dark">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>用户名</th>
+									<th>电话</th>
+									<th>邮箱</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Steve</td>
+									<td>13400000001</td>
+									<td>steve@qq.com</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Wang</td>
+									<td>13400000002</td>
+									<td>wang@qq.com</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Robin</td>
+									<td>13400000003</td>
+									<td>robin@qq.com</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Huang</td>
+									<td>13400000004</td>
+									<td>huang@qq.com</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;div class="panel panel-default"&gt;
+	&lt;div class="panel-heading"&gt;面板标题&lt;/div&gt;
+	&lt;table class="table table-striped table-dark"&gt;
+		...
+	&lt;/table&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+					</code></pre>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="datepicker">日期选择器</h1>
+				</div>
+				
+				<p>日期选择器推荐使用 <a href="http://www.malot.fr/bootstrap-datetimepicker/" target="_blank">bootstrap-datetimepicker</a> 。</p>
+				<h3 id="datepicker-datetime">日期+时间</h3>
+				<div class="bs-example">
+					<div class="input-group input-group-sm date" style="width:160px;" id="picker-1">
+						<input type="text" class="form-control input-sm">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;link rel="stylesheet" type="text/css" href="./css/bootstrap-datetimepicker.css"&gt;
+&lt;script type="text/javascript" src="./js/bootstrap-datetimepicker.js"&gt;&lt;/script&gt;
+
+&lt;div class="input-group input-group-sm date" style="width:160px;" id="picker-1"&gt;
+	&lt;input type="text" class="form-control input-sm"&gt;
+	&lt;span class="input-group-addon"&gt;&lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+$("#picker-1").datetimepicker({
+	format: "yyyy-mm-dd hh:ii",
+	autoclose: true,
+	language: "zh-CN",
+	todayHighlight: true
+});
+&lt;/script&gt;
+					</code></pre>
+				</div>
+				<div class="bs-callout bs-callout-danger">
+					<p>默认布局中并没有包含日期选择器组件的样式文件和js库，需要自己在使用的页面中引用。</p>
+					<p>css: <code>./css/bootstrap-datetimepicker.css</code> , js: <code>./js/bootstrap-datetimepicker.js</code> 。</p>
+				</div>
+				<p>更多参数选项请参考 <a href="http://www.malot.fr/bootstrap-datetimepicker/demo.php" target="_blank">官方Demo</a>。</p>
+				<h3 id="datepicker-range">日期段</h3>
+				<div class="bs-example">
+					<div class="input-group input-group-sm" style="width:230px;">
+						<input type="text" class="form-control input-sm date" id="picker-2">
+						<span class="input-group-addon">至</span>
+						<input type="text" class="form-control input-sm date" id="picker-3">
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;div class="input-group input-group-sm" style="width:230px;"&gt;
+	&lt;input type="text" class="form-control input-sm date" id="picker-2"&gt;
+	&lt;span class="input-group-addon"&gt;至&lt;/span&gt;
+	&lt;input type="text" class="form-control input-sm date" id="picker-3"&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+$("#picker-2,#picker-3").datetimepicker({
+	format: "yyyy-mm-dd",
+	autoclose: true,
+	language: "zh-CN",
+	todayHighlight: true,
+	todayBtn: true,
+	minView: "month"
+});
+&lt;/script&gt;
+					</code></pre>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="tables">表格操作</h1>
+				</div>
+				<p>我们提供了一些常用的表格的前台JS组件。</p>
+				<h3 id="tables-sort">表格排序</h3>
+				<p>只需给表头 <code>&lt;th&gt;</code> 元素添加几个 <code>data-*</code> 属性，然后调用一行JS代码，即可实现表格的静态前台排序。</p>
+				<div class="bs-example">
+					<table class="table table-striped table-dark" id="table-example-a">
+						<thead>
+							<tr>
+								<th data-sort="asc" data-by="number" class="sort-container-on">序号</th>
+								<th data-sort="asc" data-by="string">用户名</th>
+								<th data-sort="desc" data-by="string">说明</th>
+								<th>其它</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>steveswwang</td>
+								<td>sss</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>linuschen</td>
+								<td>rrr</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>robinhuang</td>
+								<td>ttt</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;table class="table table-striped table-dark" id="table-example-a"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th data-sort="asc" data-by="number" class="sort-container-on"&gt;序号&lt;/th&gt;
+			&lt;th data-sort="asc" data-by="string"&gt;用户名&lt;/th&gt;
+			&lt;th data-sort="desc" data-by="string"&gt;说明&lt;/th&gt;
+			&lt;th&gt;其它&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;1&lt;/td&gt;
+			&lt;td&gt;steveswwang&lt;/td&gt;
+			&lt;td&gt;sss&lt;/td&gt;
+			&lt;td&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+		...
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;script type="text/javascript"&gt;
+$(function(){
+	utils.tableSorter("#table-example-a");
+});
+&lt;/script&gt;
+					</code></pre>
+				</div>
+				<h3 id="tables-fix">表头固定</h3>
+				<p>要实现一个将表头固定的效果（表头将要滚出显示窗口外时，自动固定在窗口上方），只需按以下三步操作：</p>
+				<ol>
+					<li>将表格头部和主体分开放置到两个指定样式类的元素中。</li>
+					<li>注意使用 <code>&lt;col&gt;</code> 元素定义宽度，以使分离的表格宽度一致。</li>
+					<li>调用一行JS代码。</li>
+				</ol>
+				<div class="bs-example">
+					<div class="box-fixed-table" id="table-example-b">
+						<div class="box-fixed-thead">
+							<table class="table table-striped table-dark">
+								<colgroup>
+									<col style="width:25%" span="4" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>用户名</th>
+										<th>说明</th>
+										<th>其它</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="box-fixed-tbody">
+							<table class="table table-striped table-dark">
+								<colgroup>
+									<col style="width:25%" span="4" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>steveswwang</td>
+										<td>sss</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>linuschen</td>
+										<td>rrr</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>robinhuang</td>
+										<td>ttt</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>steveswwang</td>
+										<td>sss</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>linuschen</td>
+										<td>rrr</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>robinhuang</td>
+										<td>ttt</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="highlight">
+					<pre><code class="html">
+&lt;div class="box-fixed-table" id="table-example-b"&gt;
+	&lt;div class="box-fixed-thead"&gt;
+		&lt;table class="table table-striped table-dark"&gt;
+			&lt;colgroup&gt;
+				&lt;col style="width:25%" span="4" /&gt;
+			&lt;/colgroup&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th&gt;序号&lt;/th&gt;
+					&lt;th&gt;用户名&lt;/th&gt;
+					&lt;th&gt;说明&lt;/th&gt;
+					&lt;th&gt;其它&lt;/th&gt;
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+	&lt;div class="box-fixed-tbody"&gt;
+		&lt;table class="table table-striped table-dark"&gt;
+			&lt;colgroup&gt;
+				&lt;col style="width:25%" span="4" /&gt;
+			&lt;/colgroup&gt;
+			&lt;tbody&gt;
+				&lt;tr&gt;
+					&lt;td&gt;1&lt;/td&gt;
+					&lt;td&gt;steveswwang&lt;/td&gt;
+					&lt;td&gt;sss&lt;/td&gt;
+					&lt;td&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+				...
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+$(function(){
+	// 第二个参数 offsetTop 可以不传，这里是因为有一个50px高的固定导航栏
+	utils.tableFixer("#table-example-b", 50);
+});
+&lt;/script&gt;
+					</code></pre>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="loadings">Loading 层</h1>
+				</div>
+				<p>在前台异步调用接口并更新内容时，我们常需要一朵菊花覆盖到要更新的元素上，一方面给用户以等待体验，另一方面将要更新的内容遮罩住，防止前台更新前的操作。要实现这个效果，只需两步：</p>
+				<ol>
+					<li>插入 loading 层： <code>var loader = utils.loader(selector)</code> 。</li>
+					<li>在合适的时候移除它： <code>loader.close()</code> 。</li>
+				</ol>
+				<div class="bs-example" id="example-loadings">
+					<div class="panel panel-default" id="loadings-panel">
+						<div class="panel-heading">测试 Loading 层</div>
+						<div class="panel-body">
+							<button type="button" class="btn btn-sm btn-default" id="loadings-btn">点击一下试试</button>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+					$(function(){
+						$("#loadings-btn").click(function(){
+							// 插入 loading 层
+							var loader = utils.loader("#loadings-panel");
+							// 异步 Ajax
+							$.ajax("/develop/modal")
+							.done(function(){ /* 成功 */ })
+							.fail(function(){ /* 失败 */ })
+							.always(function(){
+								// 移除 loading 层
+								loader.close();
+							});
+						});
+					});
+					</script>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-loadings"></code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <script type="text/javascript" src="./js/bootstrap-datepicker.js"></script> -->
+<script type="text/javascript" src="./js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("[data-action=alert]").click(function(){
+		var self = $(this),
+			type = self.attr("data-type");
+		if (type === "more") {
+			utils.alert({
+				title: "新标题",
+				message: '请访问 <a href="//github.tiankonguse.com/">github.tiankonguse.com</a>',
+				html: true,
+				type: "warning"
+			});
+		} else {
+			utils.alert(self.text(), type);
+		}
+	});
+	$("[data-action=confirm]").click(function(){
+		var self = $(this),
+			type = self.attr("data-type");
+		if (type === "delete") {
+			utils.confirm("你确定删除这些项吗？", "delete", function(){
+				console.log("deleted");
+			});
+		} else {
+			utils.confirm("你确认做此修改？", function(){
+				console.log("Yes, I do.");
+			}, function(){
+				console.log("No.");
+			});
+		}
+	});
+	$("[data-action=tips]").click(function(){
+		utils.tips("操作成功", "success", 1500);
+	});
+	$("[data-action=dialog]").click(function(){
+		utils.dialog("./modal", {
+			someKey: "some value"
+		}, "一个测试窗口");
+	});
+
+	utils.pagination({
+		selector: "#pager-sample",
+		current: 10,
+		pages: 24,
+		displays: 11,
+		url: "#page={page}"
+	});
+
+	utils.validate("#input-name");
+	$("#btn-search").click(function(){
+		if (true) {
+			$("#input-name").focus().tooltip("show");
+		}
+	});
+
+	/*$("#picker-1").datepicker({
+		format: "yyyy-mm-dd",
+		autoclose: true,
+		language: "zh-CN",
+		todayHighlight: true
+	});*/
+	$("#picker-1").datetimepicker({
+		format: "yyyy-mm-dd hh:ii",
+		autoclose: true,
+		language: "zh-CN",
+		todayHighlight: true,
+		todayBtn: true
+	});
+	$("#picker-2,#picker-3").datetimepicker({
+		format: "yyyy-mm-dd",
+		autoclose: true,
+		language: "zh-CN",
+		todayHighlight: true,
+		todayBtn: true,
+		minView: "month"
+	});
+
+	utils.tableSorter("#table-example-a");
+
+	utils.tableFixer("#table-example-b", 50);
+});
+</script>
+<footer class="bs-footer">
+  <div class="container">
+    <p>文档维护: tiankonguse</p>
+    <ul class="footer-links">
+      <li><a href="./">本站首页</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Modal Dialog -->
+<div class="modal" id="modal-dialog" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">&nbsp;</h4>
+        <button type="button" class="modal-close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">加载中 <span class="glyphicon glyphicon-refresh infinite-rotate"></span></div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Alert -->
+<div class="modal" id="modal-alert" tabindex="-1" role="alert">
+  <div class="modal-dialog" style="width:500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">提示</h4>
+        <button type="button" class="modal-close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" data-confirm="modal">确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="./js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./js/utils.js" type="text/javascript"></script>
+<script src="./js/highlight.min.js"></script>
+<script type="text/javascript">
+$(function(){
+   var $window = $(window);
+   var $body   = $(document.body);
+   var navHeight = $('.navbar').outerHeight(true) + 10;
+   $body.scrollspy({
+     target: '.bs-sidebar',
+     offset: navHeight
+   });
+   $window.on('load', function () {
+     $body.scrollspy('refresh');
+   });
+   $('.bs-docs-container [href=#]').click(function (e) {
+     e.preventDefault();
+   });
+   var $sideBar = $('.bs-sidebar');
+   $sideBar.affix({
+     offset: {
+       top: 0
+     , bottom: function () {
+         return (this.bottom = $('.bs-footer').outerHeight(true));
+       }
+     }
+   });
+});
+
+hljs.tabReplace = "    ";
+// hljs.initHighlightingOnLoad();
+$(function(){
+	$("pre code").each(function(i, e){
+		var that = $(e),
+			ref = that.attr("data-ref"),
+			reject = that.attr("data-reject"),
+			code;
+		if (ref) {
+			code = $(ref).html();
+			var match = code.match(/^(?:\r?\n?)*([ \t]+)/);
+			// console.log(match);
+			if (match) {
+				code = code.replace(new RegExp("^" + match[1], "mg"), "");
+			}
+      if (that.hasClass("html")) {
+        code = code.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+        code = code.replace(/(disabled|checked|selected)=""/g, "$1");
+      }
+			code = code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+		} else {
+			code = that.html();
+		}
+		if (reject) {
+			code = code.replace(new RegExp(reject, "g"), "");
+		}
+		that.html($.trim(code));
+		hljs.highlightBlock(e, hljs.tabReplace);
+	});
+});
+</script>
+</body>
+</html>

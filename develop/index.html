@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开发文档 - 本站</title>
+<link rel="Bookmark" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link href="./css/bootstrap.css" rel="stylesheet">
+<link href="./css/bootstrap-theme.css" rel="stylesheet">
+<link href="./css/bs-docs.css" rel="stylesheet">
+<link href="./css/github.css" rel="stylesheet">
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="./js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="./js/underscore-min.js" type="text/javascript"></script>
+<script src="./js/promise-1.0.0.min.js" type="text/javascript"></script>
+<style type="text/css">
+.bs-docs-nav {
+	font-family: "Microsoft Yahei";
+}
+.btn-list .btn + .btn {
+	margin-left: 5px;
+}
+.bs-sidenav {
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+/*@media screen and (min-width: 992px) {
+	.bs-sidebar.affix {
+		top: 10px;
+	}
+}*/
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Microsoft Yahei";
+}
+p, code, .highlight pre code {
+	font-size: 13px;
+}
+pre code{
+	padding: 0;
+	background-color: transparent;
+}
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+	font-style: normal;
+}
+.thumbnail {
+	min-height: 167px;
+	margin-bottom: 10px;
+}
+.section-templates h4 {
+	margin-bottom: 5px;
+}
+.section-templates p {
+	margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" style="background-image:none;">
+	<div class="container">
+		<div class="navbar-header">
+			<a href="./" class="navbar-brand">开发文档</a>
+		</div>
+		<div class="collapse navbar-collapse bs-navbar-collapse">
+			<ul class="nav navbar-nav" id="nav-ul">
+				<li><a href="./">开始</a></li>
+				<li><a href="./styles.html">样式</a></li>
+				<li><a href="./components.html">UI组件</a></li>
+				<li><a href="./javascript.html">JavaScript</a></li>
+				<li><a href="./conventions.html" target="_blank">代码规范-PHP</a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+<script type="text/javascript">
+(function(){
+	var href = location.toString(),
+		items = $("#nav-ul").find("a");
+	for (var i = items.length - 1; i >= 0; i -= 1) {
+		var item = items[i];
+		if (! (/#$/).test(item.href) && href.indexOf(item.href.replace(/\/$/, "")) !== -1) {
+			item.parentNode.className = "active";
+			break;
+		}
+	}
+	/*items.each(function(){
+		if (! (/#$/).test(this.href) && href.indexOf(this.href.replace(/\/$/, "")) !== -1) {
+			this.parentNode.className = "active";
+		}
+	});*/
+})();
+</script>
+
+<div class="container bs-docs-container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="bs-sidebar hidden-print affix-top">
+				<ul class="nav bs-sidenav">
+					<li>
+						<a href="#overview">综述</a>
+						<ul class="nav">
+							<li><a href="#overview-php">PHP框架</a></li>
+							<li><a href="#overview-ui">UI框架</a></li>
+							<li><a href="#overview-js">JS库</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#flight">Flight</a>
+						<ul class="nav">
+							<li><a href="#flight-basic">简介</a></li>
+							<li><a href="#flight-structure">目录结构</a></li>
+							<li><a href="#flight-controllers">控制器</a></li>
+							<li><a href="#flight-views">视图</a></li>
+							<li><a href="#flight-nav">左侧导航</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#flight-libs">公共类库</a>
+						<ul class="nav">
+							<li><a href="#flight-libs-curl">远程WebAPI</a></li>
+							<li><a href="#flight-libs-log">日志</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#doitphp"><del>DoitPHP</del></a>
+					</li>
+					<li>
+						<a href="#bootstrap">Bootstrap</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="overview">综述</h1>
+				</div>
+				<h3 id="overview-php">PHP框架</h3>
+				<p><del>本站使用了一个轻量级PHP框架 - <a href="http://www.doitphp.com/" target="_blank">DoitPHP</a>。</del></p>
+				<div class="bs-callout bs-callout-info">
+					<p>
+						现在本站引入了一个微型的用于构建 <b>RESTful</b> 应用的PHP框架 - <a href="http://flightphp.com/" target="_blank">Flight</a>。
+					</p>
+					<p>
+						相对于 DoitPHP，Flight使用起来更方便，新应用接入建议使用 Flight。
+					</p>
+				</div>
+				<h3 id="overview-ui">UI框架</h3>
+				<p>本站前台主要使用的UI框架 - <a href="http://getbootstrap.com/getting-started/" target="_blank">Bootstrap 3</a>。</p>
+				<h3 id="overview-js">JS库</h3>
+				<p>本站前台默认包含的 js 库主要有 <a href="http://api.jquery.com/" target="_blank">jQuery</a> , <a href="http://underscorejs.org/" target="_blank">Underscore</a>。</p>
+				<div class="bs-callout bs-callout-info">
+					<p>
+						本站新进: <a href="https://angularjs.org/" target="_blank">AngularJS</a> ！
+					</p>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="flight">Flight</h1>
+				</div>
+				<h3 id="flight-basic">简介</h3>
+				<p>Flight 是一个快速、简单、可扩展的PHP微型框架，用于快速构建RESTful风格的web应用。<a href="http://flightphp.com/learn" target="_blank">官方文档</a></p>
+				<p>本站对 Flight 进行了简单的包装，以支持 MVC 结构。</p>
+				<h3 id="flight-structure">目录结构</h3>
+				<p>基于Flight的应用目录结构如下</p>
+				<div class="highlight">
+					<pre><code class="bash">
+├── AppNameA/
+│   ├── assets            # 应用A的静态文件
+│   ├── index.php         # 应用A的入口
+│   └── src/
+│       ├── controller/   # 控制器
+│       │   └── *.php     # 使用命名空间 `controller`
+│       │
+│       ├── **/*.php      # `anyNamespace/ClassName.php`
+│       │
+│       └── views/        # 视图
+│           └── **/*.php  # 任意层级目录的php文件
+│
+├── AppNameB/             # 应用B
+│
+├── assets/               # 公共静态文件
+├── flight/               # Flight源文件
+└── src/                  # 公共类库
+    └── tk            # 命名空间 `tk`
+        └── **/*.php
+    					</code></pre>
+				</div>
+				<h3 id="flight-start">开始</h3>
+				<p>可参考 <code>/demo</code> 应用</p>
+				<ol>
+					<li><p>创建应用目录 <code>/YourAppName</code></p></li>
+					<li><p>进入应用目录, 创建 <code>index.php</code>, 可直接拷贝 <code>/demo/index.php</code> </p></li>
+					<li><p>创建目录 <code>src</code>, <code>src/controller</code>, <code>src/views</code></p></li>
+					<li><p>创建控制器, 参考 <code>/demo/src/controller/Demo.php</code></p></li>
+					<li><p>创建视图, 参考 <code>/demo/src/views/*.php</code></p></li>
+				</ol>
+				<h3 id="flight-controllers">控制器</h3>
+				<div class="bs-example">
+					控制器代码示例 <code>/demo/src/controller/Demo.php</code> :
+				</div>
+				<div class="highlight">
+					<pre><code class="php">
+&lt;?php
+namespace controller;                           // 控制器使用命名空间 `controller`
+
+use Flight;                                     // 使用其它命名空间的类
+use tk\BaseController;                      // 控制器基类
+use demo\Nav;                                   // 左侧导航
+
+class Demo extends BaseController {
+	protected $routes = array(                  // 定义路由: path => method (省略了应用目录)
+		'/' => 'data',                          // 对应url: /demo/
+		'/data' => 'data',                      // 对应url: /demo/data
+		'GET /chart.json' => 'chartJson',       // 可以定义允许的 http method
+		'GET|POST /chart/@id' => 'chart',       // 更多路由规则请参考 <a href="http://flightphp.com/learn#routing" target="_blank">http://flightphp.com/learn#routing</a>
+	);
+
+	public function __construct() {
+		parent::__construct();                  // 如果覆盖构造函数，记得调用父类构造函数
+		Flight::pushTitle('模板示例');          // 设置标题 ("模板示例")
+	}
+
+	public function data() {
+		$page = Flight::request()->query->page; // 获取参数
+
+		$view = Flight::view();                 // 为视图赋值
+		$view->set('nav', Nav::demo('data'));   // 左侧导航
+
+		$list = $this->fetchData();
+		$view->set('list', $list);
+
+		Flight::layout('data');                 // 使用默认布局输出 `data.php`
+	}
+}
+					</code></pre>
+				</div>
+				<h3 id="flight-views">视图</h3>
+				<div class="bs-example">
+					视图代码示例 <code>/demo/src/views/data.php</code> :
+<script type="text/template" id="example-flight-views">
+<div class="MainContainer">
+	<div class="LeftContainer">
+		&lt;?= $nav ?&gt;
+	</div>
+	<div class="MiddleContainer">
+		<div class="mod_list">
+			<div class="hd">
+				<ol class="breadcrumb">
+					<li><a href="/develop/">开发文档</a></li>
+					<li class="active">场景模板 - 数据表格</li>
+				</ol>
+			</div>
+			<div class="bd">
+				&lt;?php
+					foreach ($list as $row) {
+						// code...
+					}
+				?&gt;
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+				</div>
+				<div class="highlight">
+					<pre><code class="html" data-ref="#example-flight-views"></code></pre>
+				</div>
+				<h3 id="flight-nav">左侧导航</h3>
+				<p>通过在应用中定义一个基于 <code>tk\Navigation</code> 的类 <code>Nav</code> 来输出左侧导航</p>
+				<div class="bs-example">
+					导航示例 <code>/demo/src/demo/Nav.php</code> :
+				</div>
+				<div class="highlight">
+					<pre><code class="php">
+namespace demo;
+use tk\Navigation;                      // 导航基类
+
+class Nav extends Navigation {
+	public static function demo($current, array $args = null) {
+		if ($args) {
+			extract($args);                 // 提取出导航树可能用到的变量
+		}
+		$menu = array(                      // 设置导航菜单
+			'data' => array(
+				'text' => '数据表格',
+				'href' => '/demo/data',
+				'icon' => 'fa fa-th',
+			),
+			'nav' => array(
+				'text' => '导航',
+				'href' => '/demo/nav',
+				'children' => array(
+					'inner' => array(        // nav.innder
+						'text' => '二级导航',
+						'href' => '/demo/nav',
+						'icon' => 'fa fa-navicon',
+					),
+				),
+			),
+		);
+		return self::render($current, $menu);
+	}
+}
+					</code></pre>
+				</div>
+				<h1 id="flight-libs">公共类库</h1>
+				<p>本站封装了一些常用公共类库在 <code>/src/tk/*.php</code>。</p>
+				<h3 id="flight-libs-curl">远程WebAPI - <code>tk\Curl</code></h3>
+				<p>轻易的进行curl请求，支持并发，可再封装。</p>
+				<p><code>tk\Curl::curl($options)</code> @param array $options</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>参数</th>
+								<th>类型</th>
+								<th>必选</th>
+								<th>说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>url</td>
+								<td>string</td>
+								<td>√</td>
+								<td>请求接口地址</td>
+							</tr>
+							<tr>
+								<td>host</td>
+								<td>string</td>
+								<td></td>
+								<td>设置主机域名</td>
+							</tr>
+							<tr>
+								<td>method</td>
+								<td>string</td>
+								<td></td>
+								<td>请求方法（若设置了 post 选项，则使用 POST）</td>
+							</tr>
+							<tr>
+								<td>header</td>
+								<td>array</td>
+								<td></td>
+								<td>请求头，如 <code>array('User-Agent: None')</code></td>
+							</tr>
+							<tr>
+								<td>post</td>
+								<td>array|string</td>
+								<td></td>
+								<td>POST主体内容</td>
+							</tr>
+							<tr>
+								<td>timeout</td>
+								<td>integer</td>
+								<td></td>
+								<td>设置请求超时时间</td>
+							</tr>
+							<tr>
+								<td>CURLOPT_*</td>
+								<td>mixed</td>
+								<td></td>
+								<td>使用任意 CURLOPT_* 选项</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="bs-example">
+					单个请求
+				</div>
+				<div class="highlight">
+					<pre><code class="php">
+use tk\Curl;                // 不要忘了命名空间
+
+$remote = new Curl();
+
+$options = array(               // 设置参数
+	'url' => 'http://**',
+	'timeout' => 60,
+);
+
+$ret = $remote->curl($options); // 执行请求，默认返回 json_decode 后的结果
+					</code></pre>
+				</div>
+				<div class="bs-example">
+					并发请求
+				</div>
+				<div class="highlight">
+					<pre><code class="php">
+$remote = new Curl();
+
+$remote->multi();               // 使用并发
+
+$remote->curl($option1);        // 排队
+$remote->curl($option2);
+
+$rets = $remote->exec();        // 开始并发执行
+list($ret1, $ret2) = $rets;     // $rets 是返回结果的顺序数组
+					</code></pre>
+				</div>
+				<div class="bs-example">
+					你也可以继承 <code>tk\Curl</code> 类，进行再封装
+				</div>
+				<div class="highlight">
+					<pre><code class="php">
+use tk\Curl;
+
+class YourApi extends Curl {
+	// 针对特定api进行封装
+	private function request($interfaceName, $param) {
+		$options = array(
+			'url' => 'http://your_remote_api',
+			'post' => array('param' => $param),
+		);
+		return $this->curl($options);
+	}
+
+	public function getName() {
+		return $this->request('name', 'param');
+	}
+
+	public function getId() {
+		return $this->request('id', 'param');
+	}
+}
+
+$api = new YourApi();
+$api->multi();               // 使用并发
+
+$api->getName();             // 排队
+$api->getId();
+
+$rets = $api->exec();        // 开始并发执行
+list($name, $id) = $rets;    // $rets 是返回结果的顺序数组
+					</code></pre>
+				</div>
+				<h3 id="flight-libs-log">日志 - <code>tk\Log</code></h3>
+				<div class="highlight">
+					<pre><code class="php">
+use tk\Log;
+// notice级别 `/logs/YEAR-MONTH/YourLogFileName.notice.log`
+Log::notice('YourLogFileName', 'Your Log Notice');
+// error级别 `/logs/YEAR-MONTH/YourLogFileName.error.log`
+Log::error('YourLogFileName', 'Your Log Error');
+					</code></pre>
+				</div>
+				<div class="bs-callout bs-callout-info">
+					<p><code>tk\Curl</code> 请求有默认记录日志在 <code>curl.*.log</code>，方便追溯远程接口错误。</p>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="doitphp"><del>DoitPHP</del></h1>
+				</div>
+				<div class="bs-callout bs-callout-danger">
+					<p>建议现在开始使用 Flight 框架！</p>
+					<p><a href="/develop/deprecated">点击这里查看DoitPHP相关文档</a></p>
+				</div>
+			</div>
+
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="bootstrap">Bootstrap</h1>
+				</div>
+				<a href="http://getbootstrap.com/css/" target="_blank">http://getbootstrap.com/css/</a>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+<footer class="bs-footer">
+  <div class="container">
+    <p>文档维护: tiankonguse</p>
+    <ul class="footer-links">
+      <li><a href="./">本站首页</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Modal Dialog -->
+<div class="modal" id="modal-dialog" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">&nbsp;</h4>
+        <button type="button" class="modal-close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">加载中 <span class="glyphicon glyphicon-refresh infinite-rotate"></span></div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Alert -->
+<div class="modal" id="modal-alert" tabindex="-1" role="alert">
+  <div class="modal-dialog" style="width:500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">提示</h4>
+        <button type="button" class="modal-close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" data-confirm="modal">确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="./js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./js/utils.js" type="text/javascript"></script>
+<script src="./js/highlight.min.js"></script>
+<script type="text/javascript">
+$(function(){
+   var $window = $(window);
+   var $body   = $(document.body);
+   var navHeight = $('.navbar').outerHeight(true) + 10;
+   $body.scrollspy({
+     target: '.bs-sidebar',
+     offset: navHeight
+   });
+   $window.on('load', function () {
+     $body.scrollspy('refresh');
+   });
+   $('.bs-docs-container [href=#]').click(function (e) {
+     e.preventDefault();
+   });
+   var $sideBar = $('.bs-sidebar');
+   $sideBar.affix({
+     offset: {
+       top: 0
+     , bottom: function () {
+         return (this.bottom = $('.bs-footer').outerHeight(true));
+       }
+     }
+   });
+});
+
+hljs.tabReplace = "    ";
+// hljs.initHighlightingOnLoad();
+$(function(){
+	$("pre code").each(function(i, e){
+		var that = $(e),
+			ref = that.attr("data-ref"),
+			reject = that.attr("data-reject"),
+			code;
+		if (ref) {
+			code = $(ref).html();
+			var match = code.match(/^(?:\r?\n?)*([ \t]+)/);
+			// console.log(match);
+			if (match) {
+				code = code.replace(new RegExp("^" + match[1], "mg"), "");
+			}
+      if (that.hasClass("html")) {
+        code = code.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+        code = code.replace(/(disabled|checked|selected)=""/g, "$1");
+      }
+			code = code.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+		} else {
+			code = that.html();
+		}
+		if (reject) {
+			code = code.replace(new RegExp(reject, "g"), "");
+		}
+		that.html($.trim(code));
+		hljs.highlightBlock(e, hljs.tabReplace);
+	});
+});
+</script>
+</body>
+</html>

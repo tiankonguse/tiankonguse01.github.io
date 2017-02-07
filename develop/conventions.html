@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>PHP代码规范-PSR</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* mscore */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei', sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-javadoc {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.nginx .hljs-title,
+.hljs-subst,
+.hljs-request,
+.hljs-status {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-hexcolor,
+.ruby .hljs-constant {
+  color: #099;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.tex .hljs-formula {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-id,
+.coffeescript .hljs-params,
+.scss .hljs-preprocessor {
+  color: #900;
+  font-weight: bold;
+}
+
+.javascript .hljs-title,
+.lisp .hljs-title,
+.clojure .hljs-title,
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-class .hljs-title,
+.haskell .hljs-type,
+.vhdl .hljs-literal,
+.tex .hljs-command {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body {
+  color: #008080;
+}
+
+.hljs-regexp {
+  color: #009926;
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.hljs-prompt {
+  color: #990073;
+}
+
+.hljs-built_in,
+.lisp .hljs-title,
+.clojure .hljs-built_in {
+  color: #0086b3;
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.diff .hljs-change {
+  background: #0086b3;
+}
+
+.hljs-chunk {
+  color: #aaa;
+}
+
+#container {
+  padding: 15px;
+}
+pre {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+}
+pre code {
+  white-space: pre-wrap;
+}
+.hljs,
+code {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+:not(pre) > code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+}</style></head>
+<body marginwidth="0" marginheight="0">
+<div id="container"><h1 id="php-psr">PHP代码规范-PSR</h1>
+<p>参考: <a href="https://github.com/PizzaLiu/PHP-FIG">PSR</a></p>
+<h2 id="-">一.基本代码规范</h2>
+<h3 id="1-">1.概览</h3>
+<ul>
+<li>PHP代码文件必须以 <code>&lt;?php</code> 或 <code>&lt;?=</code> 标签开始；</li>
+<li>PHP代码文件必须以 不带BOM的 UTF-8 编码；</li>
+<li>PHP代码中应该只定义类、函数、常量等声明，或其他会产生 从属效应 的操作（如：生成文件输出以及修改.ini配置文件等），二者只能选其一；</li>
+<li>命名空间以及类必须符合 PSR 的自动加载规范：PSR-0 或 PSR-4 中的一个；</li>
+<li>类的命名必须遵循 StudlyCaps 大写开头的驼峰命名规范；</li>
+<li>类中的常量所有字母都必须<code>大写</code>，单词间用下划线分隔；</li>
+<li>方法名称必须符合 <code>camelCase</code> 式的小写开头驼峰命名规范。</li>
+</ul>
+<h3 id="2-">2.文件</h3>
+<h4 id="2-1-php-">2.1.PHP标签</h4>
+<p>PHP代码必须使用 <code>&lt;?php ?&gt;</code> 长标签 或 <code>&lt;?= ?&gt;</code> 短输出标签； 一定不可使用其它自定义标签。</p>
+<h4 id="2-2-">2.2.字符编码</h4>
+<p>PHP代码必须且只可使用不带BOM的UTF-8编码。</p>
+<h4 id="2-3-">2.3. 从属效应</h4>
+<p>一份PHP文件中应该要不就只定义新的声明，如类、函数或常量等不产生从属效应的操作，要不就只有会产生从属效应的逻辑操作，但不该同时具有两者。<br>“从属效应”包含却不仅限于：生成输出、直接的 <code>require</code> 或 <code>include</code>、连接外部服务、修改 ini 配置、抛出错误或异常、修改全局或静态变量、读或写文件等。<br>以下为从属效应例子代码的<code>反例</code>:</p>
+<pre><code class="hljs php"><span class="php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// 从属效应：修改 ini 配置</span>
+ini_set(<span class="hljs-string">'error_reporting'</span>, E_ALL);
+
+<span class="hljs-comment">// 从属效应：引入文件</span>
+<span class="hljs-keyword">include</span> <span class="hljs-string">"file.php"</span>;
+
+<span class="hljs-comment">// 从属效应：生成输出</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;html&gt;\n"</span>;
+
+<span class="hljs-comment">// 声明函数</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-comment">// 函数主体部分</span>
+}</span>
+</code></pre>
+<h3 id="3-">3. 命名空间和类</h3>
+<p>每个类都独立为一个文件，且命名空间至少有一个层次：顶级的组织名称（vendor name）。</p>
+<p>类的命名必须 遵循 <code>StudlyCaps</code> 大写开头的驼峰命名规范。</p>
+<p>PHP 5.3及以后版本的代码必须使用正式的命名空间。<br>例如:  </p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-comment">// PHP 5.3及以后版本的写法</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Model</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span>
+</span>{
+}
+</code></pre>
+<h3 id="4-">4. 类的常量、属性和方法</h3>
+<p>此处的“类”指代所有的类、接口以及可复用代码块（traits）</p>
+<h4 id="4-1-">4.1. 常量</h4>
+<p>类的常量中所有字母都必须大写，词间以下划线分隔。 参照以下代码：</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Model</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span>
+</span>{
+    <span class="hljs-keyword">const</span> VERSION = <span class="hljs-string">'1.0'</span>;
+    <span class="hljs-keyword">const</span> DATE_APPROVED = <span class="hljs-string">'2012-06-01'</span>;
+}
+</code></pre>
+<h4 id="4-2-">4.2. 属性</h4>
+<p>类的属性命名可以遵循 大写开头的驼峰式 (<code>$StudlyCaps</code>)、小写开头的驼峰式 (<code>$camelCase</code>) 又或者是 下划线分隔式 (<code>$under_score</code>)，本规范不做强制要求，但无论遵循哪种命名方式，都应该在一定的范围内保持一致。这个范围可以是整个团队、整个包、整个类或整个方法。</p>
+<h4 id="4-3-">4.3. 方法</h4>
+<p>方法名称<strong>必须符合</strong> <code>camelCase()</code> 式的小写开头驼峰命名规范。  </p>
+<h2 id="-">二.代码风格指南</h2>
+<h3 id="1-">1.概述</h3>
+<ul>
+<li><p>代码必须使用4个空格来进行缩进，而不是用制表符。</p>
+</li>
+<li><p>一行代码的长度不建议有硬限制；软限制必须为120个字符，建议每行代码80个字符或者更少。</p>
+</li>
+<li><p>在命名空间(namespace)的声明下面必须有一行空行，并且在导入(use)的声明下面也必须有一行空行。</p>
+</li>
+<li><p>类(class)的左花括号必须放到其声明下面自成一行，右花括号则必须放到类主体下面自成一行。</p>
+</li>
+<li><p>方法(method)的左花括号必须放到其声明下面自成一行，右花括号则必须放到方法主体的下一行。</p>
+</li>
+<li><p>所有的属性(property)和方法(method) 必须有可见性声明；抽象(abstract)和终结(final)声明必须在可见性声明之前；而静态(static)声明必须在可见性声明之后。</p>
+</li>
+<li><p>在控制结构关键字的后面必须有一个空格；而方法(method)和函数(function)的关键字的后面不可有空格。</p>
+</li>
+<li><p>控制结构的左花括号必须跟其放在同一行，右花括号必须放在该控制结构代码主体的下一行。</p>
+</li>
+<li><p>控制结构的左括号之后不可有空格，右括号之前也不可有空格。</p>
+</li>
+</ul>
+<h4 id="1-1-">1.1.示例</h4>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">FooInterface</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">BarClass</span> <span class="hljs-title">as</span> <span class="hljs-title">Bar</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">OtherVendor</span>\<span class="hljs-title">OtherPackage</span>\<span class="hljs-title">BazClass</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Bar</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">FooInterface</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sampleFunction</span><span class="hljs-params">(<span class="hljs-variable">$a</span>, <span class="hljs-variable">$b</span> = null)</span>
+    </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-variable">$a</span> === <span class="hljs-variable">$b</span>) {
+            bar();
+        } <span class="hljs-keyword">elseif</span> (<span class="hljs-variable">$a</span> &gt; <span class="hljs-variable">$b</span>) {
+            <span class="hljs-variable">$foo</span><span class="hljs-variable">-&gt;bar</span>(<span class="hljs-variable">$arg1</span>);
+        } <span class="hljs-keyword">else</span> {
+            BazClass::bar(<span class="hljs-variable">$arg2</span>, <span class="hljs-variable">$arg3</span>);
+        }
+    }
+
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-comment">// 方法主体</span>
+    }
+}
+</code></pre>
+<h3 id="2-">2. 通则</h3>
+<h4 id="2-1-">2.1 源文件</h4>
+<p>所有的PHP源文件必须使用Unix LF(换行)作为行结束符。</p>
+<p>所有PHP源文件必须以一个空行结束。</p>
+<p>纯PHP代码源文件的关闭标签?&gt; 必须省略。</p>
+<h4 id="2-2-">2.2 行</h4>
+<p>一行代码的长度不建议超过80个字符；较长的行建议拆分成多个不超过80个字符的子行。
+在非空行后面不可有空格。
+一行不可多于一个语句。</p>
+<h4 id="2-4-">2.4. 缩进</h4>
+<p>代码<code>必须</code>使用4个空格，且不可使用制表符来作为缩进。</p>
+<h4 id="2-5-true-false-null">2.5. 关键字和 True/False/Null</h4>
+<p>PHP关键字(keywords)必须使用小写字母。</p>
+<p>PHP常量true, false和null 必须使用小写字母。</p>
+<h3 id="3-namespace-use-">3. 命名空间(Namespace)和导入(Use)声明</h3>
+<p>命名空间(namespace)的声明后面必须有一行空行。</p>
+<p>所有的导入(use)声明必须放在命名空间(namespace)声明的下面。</p>
+<p>一句声明中，必须只有一个导入(use)关键字。</p>
+<p>在导入(use)声明代码块后面必须有一行空行。</p>
+<p>示例:</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">FooClass</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">BarClass</span> <span class="hljs-title">as</span> <span class="hljs-title">Bar</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">OtherVendor</span>\<span class="hljs-title">OtherPackage</span>\<span class="hljs-title">BazClass</span>;
+
+<span class="hljs-comment">// ... 其它PHP代码 ...</span>
+</code></pre>
+<h3 id="4-class-property-method-">4. 类(class)，属性(property)和方法(method)</h3>
+<h4 id="4-1-extend-implement-">4.1. 扩展(extend)和实现(implement)</h4>
+<p>一个类的扩展(extend)和实现(implement)关键词必须和类名(class name)在同一行。</p>
+<p>类(class)的左花括号必须放在下面自成一行；右花括号必须放在类(class)主体的后面自成一行。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-keyword">use</span> <span class="hljs-title">FooClass</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">BarClass</span> <span class="hljs-title">as</span> <span class="hljs-title">Bar</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">OtherVendor</span>\<span class="hljs-title">OtherPackage</span>\<span class="hljs-title">BazClass</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ParentClass</span> <span class="hljs-keyword">implements</span> \<span class="hljs-title">ArrayAccess</span>, \<span class="hljs-title">Countable</span>
+</span>{
+    <span class="hljs-comment">// 常量、属性、方法</span>
+}
+</code></pre>
+<h4 id="4-2-property-">4.2. 属性(property)</h4>
+<p>所有的属性(property)都必须声明其可见性。</p>
+<p>变量(var)关键字不可用来声明一个属性(property)。</p>
+<p>一条语句不可声明多个属性(property)。</p>
+<p>属性名(property name) 不推荐用单个下划线作为前缀来表明其保护(protected)或私有(private)的可见性。</p>
+<p>一个属性(property)声明看起来应该像下面这样。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$foo</span> = <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<h4 id="4-3-method-">4.3. 方法(method)</h4>
+<p>所有的方法(method)都必须声明其可见性。</p>
+<p>方法名(method name) 不推荐用单个下划线作为前缀来表明其保护(protected)或私有(private)的可见性。</p>
+<p>方法名(method name)在其声明后面不可有空格跟随。其左花括号必须放在下面自成一行，且右花括号必须放在方法主体的下面自成一行。左括号后面不可有空格，且右括号前面也不可有空格。</p>
+<p>一个方法(method)声明看来应该像下面这样。 注意括号，逗号，空格和花括号的位置：</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fooBarBaz</span><span class="hljs-params">(<span class="hljs-variable">$arg1</span>, &amp;<span class="hljs-variable">$arg2</span>, <span class="hljs-variable">$arg3</span> = [])</span>
+    </span>{
+        <span class="hljs-comment">// 方法主体部分</span>
+    }
+}
+</code></pre>
+<h4 id="4-4-method-">4.4. 方法(method)的参数</h4>
+<p>在参数列表中，逗号之前不可有空格，而逗号之后则必须要有一个空格。</p>
+<p>方法(method)中有默认值的参数必须放在参数列表的最后面。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-variable">$arg1</span>, &amp;<span class="hljs-variable">$arg2</span>, <span class="hljs-variable">$arg3</span> = [])</span>
+    </span>{
+        <span class="hljs-comment">// 方法主体部分</span>
+    }
+}
+</code></pre>
+<p>参数列表可以被拆分为多个缩进了一次的子行。如果要拆分成多个子行，参数列表的第一项必须放在下一行，并且每行必须只有一个参数。</p>
+<p>当参数列表被拆分成多个子行，右括号和左花括号之间必须又一个空格并且自成一行。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aVeryLongMethodName</span><span class="hljs-params">(
+        ClassTypeHint <span class="hljs-variable">$arg1</span>,
+        &amp;<span class="hljs-variable">$arg2</span>,
+        array <span class="hljs-variable">$arg3</span> = []
+    )</span> </span>{
+        <span class="hljs-comment">// 方法主体部分</span>
+    }
+}
+</code></pre>
+<h4 id="4-5-abstract-final-static-">4.5. 抽象(abstract)，终结(final)和 静态(static)</h4>
+<p>当用到抽象(abstract)和终结(final)来做类声明时，它们必须放在可见性声明的前面。</p>
+<p>而当用到静态(static)来做类声明时，则必须放在可见性声明的后面。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Vendor</span>\<span class="hljs-title">Package</span>;
+
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span>
+</span>{
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-variable">$foo</span>;
+
+    <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">zim</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span><span class="hljs-params">()</span>
+    </span>{
+        <span class="hljs-comment">// 方法主体部分</span>
+    }
+}
+</code></pre>
+<h4 id="4-6-">4.6. 调用方法和函数</h4>
+<p>调用一个方法或函数时，在方法名或者函数名和左括号之间不可有空格，左括号之后不可有空格，右括号之前也不可有空格。参数列表中，逗号之前不可有空格，逗号之后则必须有一个空格。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+bar();
+<span class="hljs-variable">$foo</span><span class="hljs-variable">-&gt;bar</span>(<span class="hljs-variable">$arg1</span>);
+Foo::bar(<span class="hljs-variable">$arg2</span>, <span class="hljs-variable">$arg3</span>);
+</code></pre>
+<p>参数列表可以被拆分成多个缩进了一次的子行。如果拆分成子行，列表中的第一项必须放在下一行，并且每一行必须只能有一个参数。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$foo</span><span class="hljs-variable">-&gt;bar</span>(
+    <span class="hljs-variable">$longArgument</span>,
+    <span class="hljs-variable">$longerArgument</span>,
+    <span class="hljs-variable">$muchLongerArgument</span>
+);
+</code></pre>
+<h3 id="5-">5. 控制结构</h3>
+<ul>
+<li>控制结构的关键词之后必须有一个空格。</li>
+<li>控制结构的左括号之后不可有空格。</li>
+<li>控制结构的右括号之前不可有空格。</li>
+<li>控制结构的右括号和左花括号之间必须有一个空格。</li>
+<li>控制结构的代码主体必须进行一次缩进。</li>
+<li>控制结构的右花括号必须主体的下一行。</li>
+</ul>
+<p>每个控制结构的代码主体必须被括在花括号里。这样可是使代码看上去更加标准化，并且加入新代码的时候还可以因此而减少引入错误的可能性。</p>
+<h4 id="5-1-if-elseif-else">5.1. if，elseif，else</h4>
+<p>下面是一个if条件控制结构的示例，注意其中括号，空格和花括号的位置。同时注意else和elseif要和前一个条件控制结构的右花括号在同一行。</p>
+<pre><code class="hljs php">&lt;?php
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$expr1</span>) {
+    <span class="hljs-regexp">//</span> <span class="hljs-keyword">if</span> body
+} elseif (<span class="hljs-variable">$expr2</span>) {
+    <span class="hljs-regexp">//</span> elseif body
+} <span class="hljs-keyword">else</span> {
+    <span class="hljs-regexp">//</span> <span class="hljs-keyword">else</span> body;
+}
+</code></pre>
+<p>推荐用elseif来替代else if，以保持所有的条件控制关键字看起来像是一个单词。</p>
+<h4 id="5-2-switch-case">5.2. switch，case</h4>
+<p>下面是一个switch条件控制结构的示例，注意其中括号，空格和花括号的位置。case语句必须要缩进一级，而break关键字（或其他中止关键字）必须和case结构的代码主体在同一个缩进层级。如果一个有主体代码的case结构故意的继续向下执行则必须要有一个类似于// no break的注释。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">switch</span> (<span class="hljs-variable">$expr</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">'First case, with a break'</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">'Second case, which falls through'</span>;
+        <span class="hljs-comment">// no break</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">'Third case, return instead of break'</span>;
+        <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">'Default case'</span>;
+        <span class="hljs-keyword">break</span>;
+}
+</code></pre>
+<h4 id="5-3-while-do-while">5.3. while，do while</h4>
+<p>下面是一个while循环控制结构的示例，注意其中括号，空格和花括号的位置。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">while</span> (<span class="hljs-variable">$expr</span>) {
+    <span class="hljs-comment">// structure body</span>
+}
+</code></pre>
+<p>下面是一个do while循环控制结构的示例，注意其中括号，空格和花括号的位置。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">// structure body;</span>
+} <span class="hljs-keyword">while</span> (<span class="hljs-variable">$expr</span>);
+</code></pre>
+<h4 id="5-4-for">5.4. for</h4>
+<p>下面是一个for循环控制结构的示例，注意其中括号，空格和花括号的位置。</p>
+<pre><code class="hljs php">&lt;?php
+<span class="hljs-keyword">for</span> (<span class="hljs-variable">$i</span> = <span class="hljs-number">0</span>; <span class="hljs-variable">$i</span> &lt; <span class="hljs-number">10</span>; <span class="hljs-variable">$i</span>++) {
+    <span class="hljs-regexp">//</span> <span class="hljs-keyword">for</span> body
+}
+</code></pre>
+<h4 id="5-5-foreach">5.5. foreach</h4>
+<p>下面是一个foreach循环控制结构的示例，注意其中括号，空格和花括号的位置。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$iterable</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$key</span> =&gt; <span class="hljs-variable">$value</span>) {
+    <span class="hljs-comment">// foreach body</span>
+}
+</code></pre>
+<h4 id="5-6-try-catch">5.6. try, catch</h4>
+<p>下面是一个try catch异常处理控制结构的示例，注意其中括号，空格和花括号的位置。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// try body</span>
+} <span class="hljs-keyword">catch</span> (FirstExceptionType <span class="hljs-variable">$e</span>) {
+    <span class="hljs-comment">// catch body</span>
+} <span class="hljs-keyword">catch</span> (OtherExceptionType <span class="hljs-variable">$e</span>) {
+    <span class="hljs-comment">// catch body</span>
+}
+</code></pre>
+<h3 id="6-">6. 闭包</h3>
+<p>声明闭包时所用的function关键字之后必须要有一个空格，而use关键字的前后都要有一个空格。</p>
+<p>闭包的左花括号必须跟其在同一行，而右花括号必须在闭包主体的下一行。</p>
+<p>闭包的参数列表和变量列表的左括号后面不可有空格，右括号的前面也不可有空格。</p>
+<p>闭包的参数列表和变量列表中逗号前面不可有空格，而逗号后面则必须有空格。</p>
+<p>闭包的参数列表中带默认值的参数必须放在参数列表的结尾部分。</p>
+<p>下面是一个闭包的示例。注意括号，空格和花括号的位置。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$closureWithArgs</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(<span class="hljs-variable">$arg1</span>, <span class="hljs-variable">$arg2</span>)</span> </span>{
+    <span class="hljs-comment">// body</span>
+};
+
+<span class="hljs-variable">$closureWithArgsAndVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(<span class="hljs-variable">$arg1</span>, <span class="hljs-variable">$arg2</span>)</span> <span class="hljs-title">use</span> <span class="hljs-params">(<span class="hljs-variable">$var1</span>, <span class="hljs-variable">$var2</span>)</span> </span>{
+    <span class="hljs-comment">// body</span>
+};
+</code></pre>
+<p>参数列表和变量列表可以被拆分成多个缩进了一级的子行。如果要拆分成多个子行，列表中的第一项必须放在下一行，并且每一行必须只放一个参数或变量。</p>
+<p>当列表（不管是参数还是变量）最终被拆分成多个子行，右括号和左花括号之间必须要有一个空格并且自成一行。</p>
+<p>下面是一个参数列表和变量列表被拆分成多个子行的示例。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$longArgs_noVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longArgument</span>,
+    <span class="hljs-variable">$longerArgument</span>,
+    <span class="hljs-variable">$muchLongerArgument</span>
+)</span> </span>{
+   <span class="hljs-comment">// body</span>
+};
+
+<span class="hljs-variable">$noArgs_longVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longVar1</span>,
+    <span class="hljs-variable">$longerVar2</span>,
+    <span class="hljs-variable">$muchLongerVar3</span>
+)</span> </span>{
+   <span class="hljs-comment">// body</span>
+};
+
+<span class="hljs-variable">$longArgs_longVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longArgument</span>,
+    <span class="hljs-variable">$longerArgument</span>,
+    <span class="hljs-variable">$muchLongerArgument</span>
+)</span> <span class="hljs-title">use</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longVar1</span>,
+    <span class="hljs-variable">$longerVar2</span>,
+    <span class="hljs-variable">$muchLongerVar3</span>
+)</span> </span>{
+   <span class="hljs-comment">// body</span>
+};
+
+<span class="hljs-variable">$longArgs_shortVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longArgument</span>,
+    <span class="hljs-variable">$longerArgument</span>,
+    <span class="hljs-variable">$muchLongerArgument</span>
+)</span> <span class="hljs-title">use</span> <span class="hljs-params">(<span class="hljs-variable">$var1</span>)</span> </span>{
+   <span class="hljs-comment">// body</span>
+};
+
+<span class="hljs-variable">$shortArgs_longVars</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(<span class="hljs-variable">$arg</span>)</span> <span class="hljs-title">use</span> <span class="hljs-params">(
+    <span class="hljs-variable">$longVar1</span>,
+    <span class="hljs-variable">$longerVar2</span>,
+    <span class="hljs-variable">$muchLongerVar3</span>
+)</span> </span>{
+   <span class="hljs-comment">// body</span>
+};
+</code></pre>
+<p>把闭包作为一个参数在函数或者方法中调用时，依然要遵守上述规则。</p>
+<pre><code class="hljs php"><span class="hljs-preprocessor">&lt;?php</span>
+<span class="hljs-variable">$foo</span><span class="hljs-variable">-&gt;bar</span>(
+    <span class="hljs-variable">$arg1</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(<span class="hljs-variable">$arg2</span>)</span> <span class="hljs-title">use</span> <span class="hljs-params">(<span class="hljs-variable">$var1</span>)</span> </span>{
+        <span class="hljs-comment">// body</span>
+    },
+    <span class="hljs-variable">$arg3</span>
+);
+</code></pre>
+</div>
+</body></html>
