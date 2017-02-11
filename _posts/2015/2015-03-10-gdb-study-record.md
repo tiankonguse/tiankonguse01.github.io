@@ -893,6 +893,23 @@ jump <address>
  
 上面的反向运行也可以理解为撤销后面运行的语句所产生的效果，回到以前的状态。  
 
+
+## coredump
+
+如果问题能够重现, 那再测试环境gdb固然很好. 但是有时候问题是线上问题, 我们没有打开core, 此时怎么得到堆栈呢?  
+
+1. 使用`-g -rdynamic` 使用backtrace_symbols获得栈信息    
+2. 使用`-fasynchronous-unwind-tables` 栈回溯.   
+   这样就会生成DWARF调试信息了，这个会保存在elf的.eh_frame section中，同时也会生成.eh_frame_hdr section。    
+   `-g`选项也会生成`.debug_frame section`  
+   .debug_frame 和 .eh_frame的格式差不多.  主要区别是.debug_frame不会装载到内存，.eh_frame会转载到内存  
+   gdb可以使用.debug_frame或者.eh_frame中的一种来回溯  
+   glibc的backtrace则使用.eh_frame来回溯。  
+   这些都是无法通过strip去除的。  
+
+
+
+
 ## 参考资料
 
 * [Reverse Debugging with GDB][ReverseDebug]
