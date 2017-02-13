@@ -18,9 +18,22 @@ updateData:   00:50 2017/2/9
 * [利用 apache 实现子域名](http://tiankonguse.com/record/record.php?id=89)  
 
 
-## 参考文档
+## 来源
 
-关于apache的配置文档，　还是参考[Apache HTTP Server Version 2.4 Documentation](https://httpd.apache.org/docs/2.4/en/)比较全面一些。  
+来源的含义有两个：１.我为什么写这篇文章。２.这篇文章的参考文献。  
+
+1. 我为什么写这篇文章  
+
+年前做数据报表的时候，我在周末利用闲余时间基于php语言使用 MVC 架构和 RestFul 简单的重构了vunion的管理台。  
+当然，管理台的核心写接口都没有动，其他读接口以及旁路数据的操作接口大多数都重写了。  
+
+MVC框架是使用开源的框架，　但是由于服务器的PHP版本太低，且很多模块都没有，于是我读了框架的核心代码并重写部分逻辑，兼容低版本。  
+MVC　和 RestFul 都需要配置apache来映射一些地址规则，配置的过程中，发现有一些小坑，所以这篇文章主要记录我用到的命令以及遇到的小坑。  
+
+
+2. 这篇文章的参考文献  
+
+关于apache的配置文档，　主要参考官方英文文档[Apache HTTP Server Version 2.4 Documentation](https://httpd.apache.org/docs/2.4/en/)。  
 
 
 ## allowoverride
@@ -58,22 +71,29 @@ updateData:   00:50 2017/2/9
 
 1. 域名及所有子域名  
    如下面的配置将运行`tiankonguse.com`以及其他子域名如`github.tiankonguse.com`  
-   `Allow from tiankonguse.com`  
+   
+```
+Allow from tiankonguse.com
+```
+   
 2. ip地址或ip地址段  
-   ```
-   Allow from 192.168.1.104 192.168.1.205
-   Allow from 10 172.20 192.168.2
-   Allow from 10.1.0.0/255.255.0.0
-   Allow from 10.1.0.0/16
-   Allow from 2001:db8::a00:20ff:fea7:ccea
-   Allow from 2001:db8::a00:20ff:fea7:ccea/10
-   ```
+
+```
+Allow from 192.168.1.104 192.168.1.205
+Allow from 10 172.20 192.168.2
+Allow from 10.1.0.0/255.255.0.0
+Allow from 10.1.0.0/16
+Allow from 2001:db8::a00:20ff:fea7:ccea
+Allow from 2001:db8::a00:20ff:fea7:ccea/10
+```
+   
 3. 环境变量  
-   当环境变量存在时，　才执行命令。  
-    ```
-    Allow from env=env-variable
-    Allow from env=!env-variable
-    ```  
+   当环境变量存在时，才执行命令。  
+   
+```
+Allow from env=env-variable
+Allow from env=!env-variable
+```
 
 ### Order
 
@@ -151,18 +171,24 @@ both   |  Denied      | Allowed
 * `last|L` 结束当前匹配，有可能进入子目录的匹配规则。  
 * `END` 结束当前匹配，后续不在匹配。  
 * `next|N` 重新开始匹配  
-  ```
-  RewriteRule "(.*)A(.*)" "$1B$2" [N=100]
-  ```
+
+```
+RewriteRule "(.*)A(.*)" "$1B$2" [N=100]
+```
+
 * `nocase|NC` 忽略大小写  
 * `proxy|P` 代理  
-  ```
-  RewriteRule "/(.*)\.(jpg|gif|png)$" "http://images.example.com/$1.$2" [P]
-  ```
+
+```
+RewriteRule "/(.*)\.(jpg|gif|png)$" "http://images.example.com/$1.$2" [P]
+```
+
 * `qsappend|QSA` 将请求参数追加上  
-  ```
-  RewriteRule "/pages/(.+)" "/page.php?page=$1" [QSA]
-  ```
+
+```
+RewriteRule "/pages/(.+)" "/page.php?page=$1" [QSA]
+```
+
 * `redirect|R[=code]` 重定向  
 * `skip|S=num` 如果这条规则匹配，则跳过num个规则  
 
