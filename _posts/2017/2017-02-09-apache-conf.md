@@ -116,5 +116,60 @@ both   |  Denied      | Allowed
 6. 优先匹配正常的路径,最后按出现的顺序匹配正则路径。  
 
 
-<未完成>
+## RewriteRule
+
+为重映射引擎定义映射规则。  
+
+### 匹配的定义
+
+在VirtualHost中，模式将首先与主机名和端口之后的URL的部分以及查询字符串之前进行匹配。路径使用百分号解码URL路径  
+在具体的目录里面（Directory和.htaccess），模式仅匹配部分路径。  
+如果想要匹配主机名，端口和查询字符串，需要在 RewriteCond里面使用`%{HTTP_HOST}`, `%{SERVER_PORT}`　和 `%{QUERY_STRING}`变量。  
+
+### 具体目录映射
+
+映射规则可以在Directory和.htaccess里面。  
+为了打开映射引擎，你必须设置`RewriteEngine On`和`Options FollowSymLinks`.
+如果想要重新匹配完整的路径，可以在RewriteCond里面使用`%{REQUEST_URI}`变量。  
+删除的前缀总是使用反斜杠结尾，这意味着匹配的路径永远都不会有前缀反斜杠。因此使用`^/`开始的模式永远不会在目录里匹配。  
+虽然在语法上 Location 和 Files 允许使用映射规则，　但是系统不支持他们。  
+可以使用非运算符`!`来判断匹配是否不成立，当使用这个运算符时，不应该使用分组匹配替换功能。  
+
+### FLAG
+
+* `B` 反向引用转义   
+  `RewriteRule "^search/(.*)$" "/search.php?term=$1"`  
+* `backrefnoplus|BNP` 反向引用转义特殊处理加号 `+ => %20`  
+* `chain|C` 绑定关系  
+  含义：和下一条规则绑定。这条规则成功才去匹配下一条规则,否则跳过下一条规则。  
+  可以递归绑定  
+* `cookie|CO=NAME:VAL` 设置cookie  
+* `env|E=[!]VAR[:VAL]` 设置环境变量  
+* `forbidden|F` 返回403  
+* `gone|G` 返回401  
+* `Handler|H=Content-handler` 设置Content-handler  
+* `last|L` 结束当前匹配，有可能进入子目录的匹配规则。  
+* `END` 结束当前匹配，后续不在匹配。  
+* `next|N` 重新开始匹配  
+  ```
+  RewriteRule "(.*)A(.*)" "$1B$2" [N=100]
+  ```
+* `nocase|NC` 忽略大小写  
+* `proxy|P` 代理  
+  ```
+  RewriteRule "/(.*)\.(jpg|gif|png)$" "http://images.example.com/$1.$2" [P]
+  ```
+* `qsappend|QSA` 将请求参数追加上  
+  ```
+  RewriteRule "/pages/(.+)" "/page.php?page=$1" [QSA]
+  ```
+* `redirect|R[=code]` 重定向  
+* `skip|S=num` 如果这条规则匹配，则跳过num个规则  
+
+
+
+
+
+
+
 
