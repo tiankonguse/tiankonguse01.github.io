@@ -69,14 +69,14 @@ updateData:   00:50 2017/2/9
 
 使用如下:  
 
-1. 域名及所有子域名  
+1.域名及所有子域名  
    如下面的配置将运行`tiankonguse.com`以及其他子域名如`github.tiankonguse.com`  
    
 ```
 Allow from tiankonguse.com
 ```
    
-2. ip地址或ip地址段  
+2.ip地址或ip地址段  
 
 ```
 Allow from 192.168.1.104 192.168.1.205
@@ -87,7 +87,7 @@ Allow from 2001:db8::a00:20ff:fea7:ccea
 Allow from 2001:db8::a00:20ff:fea7:ccea/10
 ```
    
-3. 环境变量  
+3.环境变量  
    当环境变量存在时，才执行命令。  
    
 ```
