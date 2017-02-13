@@ -1522,7 +1522,12 @@ ins{
     background: rgba(179, 113, 113, 0.36);
 }
 
-
+.home-menu-ex.home-link {
+    font-family: FontAwesome;
+}
+.home-menu-ex.home-link:before {
+    content: "\f002";
+}
 
 /***** sidebar for scroll top-bottom ******/
 .scroll-top-down {
