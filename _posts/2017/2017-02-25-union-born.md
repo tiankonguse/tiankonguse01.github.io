@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      荒蛮时代诞生的union服务
-description: union服务是什么?当初为什么要做这样一个服务呢?这个服务又面临着什么问题呢?  
+description: 每秒几十万的union服务是什么?当初为什么要做这样一个服务呢?这个服务又面临着什么问题呢?  
 keywords: 后台服务
 tags: [后台服务]
 categories: [程序人生]
