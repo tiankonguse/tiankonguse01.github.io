@@ -22,7 +22,7 @@ categories: [数据库]
 2. 有多个查询条件时怎么实现的？难道分开查询?
 3. NOSQL　数据库到底是什么意思？难道只是不同的节点的属性可能不同。
 
-好吧，我看了阮一峰的《[数据库的最简单实现][database_implementation]》,想要说一些东西了。
+好吧，我看了阮一峰的《[数据库的最简单实现](http://www.ruanyifeng.com/blog/2014/07/database_implementation.html)》,想要说一些东西了。
 
 
 ## 看阮一峰的那篇文章学到的
@@ -95,7 +95,7 @@ categories: [数据库]
 
 看看这个图片
 
-![B树样例][B-tree-svg]
+![B树样例](http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/400px-B-tree.svg.png)
 
 这样，每个节点储存100个值，３层可以储存100W个值了，但是我们只需要读取3次硬盘，换成二叉查找树的话是20层左右,这效率是刚刚的。
 
@@ -127,7 +127,7 @@ categories: [数据库]
 
 实际上是想展示一张图片，看了之后大概就可以明白索引工作的原理了。
 
-![二叉树索引][a3515762700]
+![二叉树索引](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3515762700.png)
 
 
 看完这张图应该有很多想法了吧。
@@ -149,7 +149,3 @@ categories: [数据库]
 
 <完>
 
-
-[a3515762700]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3515762700.png
-[B-tree-svg]: http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/400px-B-tree.svg.png
-[database_implementation]: http://www.ruanyifeng.com/blog/2014/07/database_implementation.html
