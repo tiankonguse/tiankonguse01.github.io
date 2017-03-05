@@ -127,7 +127,7 @@ categories: [数据库]
 
 实际上是想展示一张图片，看了之后大概就可以明白索引工作的原理了。
 
-![二叉树索引][3515762700]
+![二叉树索引][a3515762700]
 
 
 看完这张图应该有很多想法了吧。
@@ -149,6 +149,7 @@ categories: [数据库]
 
 <完>
 
-[3515762700]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3515762700.png
+
+[a3515762700]: http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3515762700.png
 [B-tree-svg]: http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/400px-B-tree.svg.png
 [database_implementation]: http://www.ruanyifeng.com/blog/2014/07/database_implementation.html
