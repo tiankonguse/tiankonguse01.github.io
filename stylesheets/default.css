@@ -1686,7 +1686,7 @@ ins{
 .title-date {
     font-size: 10px;
     display: inline-block;
-    padding-right: 8px;
+    padding-left: 10px;
     color: #999999;
     font-family: Georgia, "Microsoft YaHei", serif, Galdeano, "Hiragino Sans GB", sans-serif;
 }
