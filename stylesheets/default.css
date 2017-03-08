@@ -1690,3 +1690,10 @@ ins{
     color: #999999;
     font-family: Georgia, "Microsoft YaHei", serif, Galdeano, "Hiragino Sans GB", sans-serif;
 }
+
+.page-stat {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.6em;
+}

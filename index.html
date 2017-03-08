@@ -25,6 +25,7 @@ isIndex: true
             {% endfor %}
         </ul>
         <div class="pagination-centered" id="pagination_bottom">
+			<div class="page-stat">统计：共有{{ paginator.total_posts }}篇文章，共有{{ paginator.total_pages }}页</div>
             <ul id="pager_bottom">
             {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
@@ -35,6 +36,7 @@ isIndex: true
             {% endfor %}
             </ul>
         </div>
+		
     </div>
 </div>
 <script>
