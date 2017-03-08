@@ -1682,3 +1682,11 @@ ins{
 .sub-wrapper {
   overflow: auto;
 }
+
+.title-date {
+    font-size: 10px;
+    display: inline-block;
+    padding-right: 8px;
+    color: #999999;
+    font-family: Georgia, "Microsoft YaHei", serif, Galdeano, "Hiragino Sans GB", sans-serif;
+}
