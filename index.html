@@ -21,9 +21,8 @@ isIndex: true
             <li>
             <h2>
 				<a href="{{ post.url  }}">{{post.title }}</a>
-				<div class="title-date">{{ post.date | date: '%Y-%m-%d' }}</div>
 			</h2>
-            <div class="title-desc">{{ post.description }}</div>
+            <div class="title-desc">{{ post.description }} <div class="title-date">{{ post.date | date: '%Y-%m-%d' }}</div></div>
             </li>
             {% endfor %}
         </ul>
