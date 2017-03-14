@@ -1,12 +1,16 @@
 ---
 layout:     post
-title:      荒蛮时代诞生的union服务
-description: 每秒几十万的union服务是什么?当初为什么要做这样一个服务呢?这个服务又面临着什么问题呢?  
+title:      每秒千万每天万亿级别服务之诞生
+description: 每秒请求几十万扩散后几千万的union服务是什么?当初为什么要做这样一个服务呢?这个服务又面临着什么问题呢? 
 keywords: 后台服务
 tags: [后台服务]
 categories: [程序人生]
-updateData:  23:05 2017/2/26
+updateData:  09:10 2017/3/14
 ---
+
+
+这是篇旧文[荒蛮时代诞生的union服务](http://mp.weixin.qq.com/s/1ppILe5J6zvrQAHGX5xaeQ)，这里申请原创保护，故重发一下。
+这个系列共有四篇：[诞生篇](http://mp.weixin.qq.com/s/6taVob0DFx7K5QK-l4nmxQ)，[优化篇](http://mp.weixin.qq.com/s/6taVob0DFx7K5QK-l4nmxQ)，[架构篇](http://mp.weixin.qq.com/s/jNXR7ghcG8m1YOzr59EK1g)，[运营篇](http://mp.weixin.qq.com/s/tZ1jbEFskb9OQ_tDOEb7TQ)。  
 
 
 ## 零、无名者无名也
@@ -19,7 +23,7 @@ updateData:  23:05 2017/2/26
 笔者是一个无名者, 无名也。  
 13年下半年在腾讯微博实习，了解到部门解散前的一些战略。  
 之后14年上半年来到腾讯视频实习见到同样的战略。  
-14年下半年入职同时也见证了UNION服务的成长, 简单回忆一下.  
+还好14年下半年入职后发生变化，同时也见证了UNION服务的成长, 简单回忆一下.   
 
 
 
@@ -68,8 +72,8 @@ updateData:  23:05 2017/2/26
 
 
 
-于是有人站了出来, 我们需要做这样一套系统: 所有数据通过一个接口输出, 数据使用者不需要关心数据在谁那, 数据维护者不需要关心谁来拉数据.  
-这个系统就叫UNION, 含义为统一数据接口.  
+于是有人站了出来, 我们需要做这样一套系统: <red>所有数据通过一个接口输出, 数据使用者不需要关心数据在谁那, 数据维护者不需要关心谁来拉数据.  
+这个系统就叫UNION, 含义为统一数据接口</red>.   
 
 
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/346170203.png)
@@ -125,7 +129,7 @@ updateData:  23:05 2017/2/26
 
    
 真正的NOSQL需要支持批量查询, UNION想要作为NOSQL的一员, 必须支持这个功能了.   
-本来是一万次的QPS, 就这样给UNION按一次QPS计算了, UNION的计算量却还是实实在在的1万次.  
+<red>本来是一万次的QPS, 就这样给UNION按一次QPS计算了, UNION的计算量却还是实实在在的1万次.</red>   
 于是接口的最终形式就确定了, 服务还需要支持多维度批量查询了.  
 
 
@@ -215,9 +219,8 @@ updateData:  23:05 2017/2/26
 
 ## 四、UNION重生?
 
-访问量大了, 暴露了越来越多的问题, 于是我们不得不从整体上优化一下这个系统了.  
+访问量大了, 暴露了越来越多的问题, 于是我们不得不从整体上优化一下这个系统了.
 下篇文章再来记录UNION已经进行了哪些的优化与未来规划吧.  
-
 
 
 <hr>
