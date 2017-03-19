@@ -1,4 +1,4 @@
-﻿---
+---
 layout:     post
 title:      谈谈布隆过滤器(Bloom Filter)
 description: 上篇文章介绍了hash算法, 这个是兄弟篇 Bloom Filter.     
