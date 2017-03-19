@@ -11,6 +11,13 @@ updateData:  21:12 2017/3/19
 
 ## 零、背景
 
+>  
+>  声明  
+>  这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/NpVzMT_0etlrVNvZ-YWQEQ)自动同步过来.  
+>  如果转载请加上署名:公众号tiankonguse-code. 并附上公众号二维码.  
+>  
+
+
 笔者多年前看编程之美时就了解过Bloom Filter, 但是当时作为一个搞算法的ACMer, 感觉这个算法没啥的, 就是一个hash, 工作中用到了对应的思想,这里简单记录一下.  
 
 
