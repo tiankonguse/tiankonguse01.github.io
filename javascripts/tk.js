@@ -627,7 +627,8 @@ tk.Composition(TK.Comment, {
     loadComment : function loadComment(){
         var that = this.dom;
         that.html('加载中...');
-        $.getScript('http://static.duoshuo.com/embed.js',function(){that.remove()});
+        $.getScript('https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js',function(){that.remove()});
+        //$.getScript('http://static.duoshuo.com/embed.js',function(){that.remove()});
         //$.getScript('http://' + this.disqus_shortname + '.disqus.com/embed.js',function(){that.remove()});
     }
 });

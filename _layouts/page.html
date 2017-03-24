@@ -26,6 +26,15 @@ layout:           default
             <script type="text/javascript">var disqus_shortname = 'tiankonguse-record'; var duoshuoQuery = {short_name:"tiankonguse"};</script>
             <div id="disqus_thread"></div>
             <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script>
+              var cloudTieConfig = {
+                url: document.location.href, 
+                sourceId: "{{ page.id }}",
+                productKey: "1cb0b08870384b08a97d3e08c258391b",
+                target: "cloud-tie-wrapper"
+              };
+            </script>
         </div>
     </div>
     <div class="sidenav-frame">
