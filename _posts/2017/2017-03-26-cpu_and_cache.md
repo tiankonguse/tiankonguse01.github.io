@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      了解一下CPU与内存之间的秘密.  
+title:      了解一下CPU与内存之间的秘密  
 description: CPU与内存的差距越来越大, 中间需要一些其他技术来弥补这个差距.  
 keywords: 后台服务
 tags: [后台服务]
@@ -15,7 +15,7 @@ updateData:  23:22 2017/3/26
 > 这里主要记录工作中的技术架构与经验，计算机相关的技术，数学、算法、生活上好玩的东西  
 > 是的, 这里一般只讲技术, 不讲其他的.   
 >
->  这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/vZoZLnUvnliBTp59JKyC3A)自动同步过来.  
+>  这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/NK-94uMl6_DPkCC5kIkfGw)自动同步过来.  
 >  如果转载请加上署名:公众号tiankonguse-code，并附上公众号二维码，谢谢。   
 >  
 
