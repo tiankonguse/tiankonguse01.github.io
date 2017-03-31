@@ -16,7 +16,7 @@ updateData:  22:46 2017/3/24
 > 是的, 这里一般只讲技术, 不讲其他的。
 > 如果大家对什么技术感兴趣也可以留言，我会去了解一下,然后谈谈自己的见解。     
 >
->  这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/vZoZLnUvnliBTp59JKyC3A)自动同步过来。  
+>  这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/HqNP2hB93LGtZSe8dVcqiA)自动同步过来。  
 >  如果转载请加上署名：公众号tiankonguse-code，并附上公众号二维码，谢谢。   
 >  这个周末是清明节,我去趟重庆,所以就不写技术文章了, 记录一下我的文字史吧.  
 >  
