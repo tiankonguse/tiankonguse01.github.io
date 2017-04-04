@@ -94,7 +94,7 @@ Ctrl + z：挂起命令
 
 我正在小密圈「[算法的世界](https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=281548515451&secret=r0krqw9fw0at24vxjxo1uo4k0h4lfe47&extra=d67ce0c25ec91252b3af846a10154c9e9d4cb50c763fee178acd68cd2c2e09ee)」和朋友们讨论有趣的算法话题，你一起来吧？
 
-![][/images/suanfa_xiaomiquan.jpg]
+![](/images/suanfa_xiaomiquan.jpg)
 
 
 
