@@ -1,11 +1,11 @@
 ---
 layout:     post
-title:      文字总结篇(一)
-description: 日子过得飞快,我想我有必要停下来总结一下自己从小到大写过的文章。  
+title:      bash快捷键
+description: 关于bash的快捷键, 之前都是在我的工具页面记录的, 现在迁出来.   
 keywords: 后台服务
 tags: [后台服务]
 categories: [程序人生]
-updateData:  22:46 2017/3/24
+updateData:  01:20 2017/4/5
 ---
 
 
