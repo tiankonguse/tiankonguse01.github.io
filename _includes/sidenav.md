@@ -5,6 +5,12 @@
 	</ol>
 </div>
 <div class="sidenav">
+	<h2>关注小密圈,学习各种算法</h2>
+	<ol class="artical-list">
+	<li><img src="/images/suanfa_xiaomiquan.jpg" border="0" width="100%" alt="" class="img_xiaomiquan"></li>
+	</ol>
+</div>
+<div class="sidenav">
 	<h2>置顶文章</h2>
 	<ul class="artical-list">
 	{% for post in site.data.toppost %}
