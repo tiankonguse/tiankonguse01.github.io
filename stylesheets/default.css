@@ -1711,16 +1711,18 @@ ins{
 }
 
 .entry p {
-    margin: 20px;
+margin: 20px;
     min-height: 1em;
     white-space: pre-wrap;
     color: rgb(111, 111, 111);
     text-align: justify;
-    line-height: 1.5;
-    box-sizing: border-box !important;
-    word-wrap: break-word !important;
     clear: both;
     max-width: 100%!important;
+    line-height: 28px;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    letter-spacing: 1px;
+    font-size: 15px;
 }
 
 .entry blockquote {
