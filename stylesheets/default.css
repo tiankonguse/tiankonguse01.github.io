@@ -1708,18 +1708,14 @@ ins{
 }
 
 .entry p {
-margin: 20px;
+    margin: 20px;
     min-height: 1em;
     white-space: pre-wrap;
-    color: rgb(111, 111, 111);
-    text-align: justify;
-    clear: both;
-    max-width: 100%!important;
-    line-height: 28px;
+    line-height: 2;
     box-sizing: border-box !important;
     word-wrap: break-word !important;
-    letter-spacing: 1px;
-    font-size: 15px;
+    clear: both;
+    max-width: 100%!important;
 }
 
 .entry blockquote {
