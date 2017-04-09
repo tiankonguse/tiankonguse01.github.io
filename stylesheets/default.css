@@ -1725,7 +1725,9 @@ ins{
 }
 
 .entry p {
-margin: 20px;
+    margin: 20px;
+    margin-left: 5px;
+    margin-right: 0px;
     min-height: 1em;
     line-height: 2;
     box-sizing: border-box !important;
@@ -1744,6 +1746,6 @@ margin: 20px;
     white-space: normal;
     border-left-width: 5px;
     border-left-color: rgb(38, 198, 218);
-    margin-left: 32px;
-    margin-right: 30px;
+    margin-left: 5px;
+    margin-right: 0px;
 }
