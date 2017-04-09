@@ -171,7 +171,7 @@ pre {
     -moz-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px;
     color: #b9bdb6;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 h4+pre, h3+pre {
     margin-top: 20px;
@@ -243,23 +243,42 @@ pre ol {
 .entry-page ul, .entry ul, .entry-header ul {
     margin-bottom: 25px;
     margin-left: 25px;
+    margin-top: 20px;
 }
 .entry-page p+ul, .entry p+ul, .entry-header p+ul {
-    margin-top: -20px;
+    line-height: 25.6px;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
 }
 .entry-page ul li, .entry ul li, .entry-header ul li {
     margin-bottom: 5px;
     list-style: disc;
-    line-height: 1.8em;
+    line-height: 25px;
+    color: rgb(84, 84, 84);
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    font-size: 15px;
+    max-width: 100%!important;
+    min-height: 1em;
+    white-space: pre-wrap;
+    text-align: justify;
 }
 .entry-page ol, .entry ol, .entry-header ol {
     margin-bottom: 25px;
     margin-left: 25px;
+    margin-top: 20px;
 }
 .entry-page ol li, .entry ol li, .entry-header ol li {
     margin-bottom: 5px;
     list-style: decimal;
     line-height: 1.1em;
+    color: rgb(84, 84, 84);
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    font-size: 15px;
+    max-width: 100%!important;
+    white-space: pre-wrap;
+    text-align: justify;
 }
 .entry-page blockquote, .entry blockquote, .entry-header blockquote {
     margin: 0 0 20px;
