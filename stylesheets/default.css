@@ -237,6 +237,7 @@ pre ol {
     background: #fff;
     padding: 30px;
     box-shadow: 0 2px 6px #ccc;
+    font-size: 16px;
 }
 .entry-page ul, .entry ul, .entry-header ul {
     margin-bottom: 25px;
@@ -1707,4 +1708,26 @@ ins{
     color: #999;
     font-size: 14px;
     line-height: 1.6em;
+}
+
+.entry p {
+    margin: 20px;
+    min-height: 1em;
+    white-space: pre-wrap;
+    color: rgb(111, 111, 111);
+    text-align: justify;
+    line-height: 1.5;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    clear: both;
+    max-width: 100%!important;
+}
+
+.entry blockquote {
+    line-height: 25.6px;
+    white-space: normal;
+    border-left-width: 5px;
+    border-left-color: rgb(38, 198, 218);
+    margin-left: 32px;
+    margin-right: 30px;
 }
