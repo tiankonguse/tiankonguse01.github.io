@@ -260,7 +260,6 @@ pre ol {
     font-size: 15px;
     max-width: 100%!important;
     min-height: 1em;
-    white-space: pre-wrap;
     text-align: justify;
 }
 .entry-page ol, .entry ol, .entry-header ol {
@@ -277,7 +276,6 @@ pre ol {
     word-wrap: break-word !important;
     font-size: 15px;
     max-width: 100%!important;
-    white-space: pre-wrap;
     text-align: justify;
 }
 .entry-page blockquote, .entry blockquote, .entry-header blockquote {
