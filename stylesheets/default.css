@@ -172,6 +172,7 @@ pre {
     border-radius: 4px 4px 4px 4px;
     color: #b9bdb6;
     margin-top: 20px;
+    margin-left: 20px;
 }
 h4+pre, h3+pre {
     margin-top: 20px;
@@ -345,6 +346,7 @@ pre ol {
     font-size: 14px;
     line-height: 1.6em;
     padding-left: 15px;
+    margin-left: 30px;
 }
 
 .entry .index-content h2, .entry .index-content h3 {
@@ -950,7 +952,7 @@ hr {
 .entry h2, .entry h3 {
     font-family: sans-serif, Arial, Helvetica;
     font-weight: bold;
-    color: rgb(51, 51, 51);
+    color: rgb(62, 62, 62);
     margin-bottom: 25px;
     font-size: 22px;
     padding-top: 10px;
@@ -958,6 +960,7 @@ hr {
     padding-left: 10px;
     background-color: rgba(162, 173, 159, 0.490196);
     white-space: normal;
+    margin-left: 20px;
     
 }
 
@@ -1745,7 +1748,23 @@ ins{
     line-height: 25.6px;
     white-space: normal;
     border-left-width: 5px;
+<<<<<<< HEAD
     border-left-color: rgb(38, 198, 218);
     margin-left: 5px;
     margin-right: 0px;
+=======
+    border-left-color: rgba(79, 213, 230, 0.77);
+    margin-left: 22px;
+    padding-left: 10px;
+}
+
+.entry ul li {
+    margin-left: 20px;
+    margin: auto;
+}
+
+
+.entry img {
+    margin-left: 20px;
+>>>>>>> db722aec1f9d8567773d6ba7b998240edff4b9c7
 }
