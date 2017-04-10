@@ -346,6 +346,7 @@ pre ol {
     font-size: 14px;
     line-height: 1.6em;
     padding-left: 15px;
+    margin-left: 30px;
 }
 
 .entry .index-content h2, .entry .index-content h3 {
@@ -1753,6 +1754,7 @@ margin: 20px;
 
 .entry ul li {
     margin-left: 20px;
+    margin: auto;
 }
 
 
