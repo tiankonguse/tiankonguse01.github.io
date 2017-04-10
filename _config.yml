@@ -49,8 +49,8 @@ markdown:    kramdown
 #lsi: false
 #safe: true
 #incremental: false
-highlighter: rouge
-#highlighter: pygments
+#highlighter: rouge
+highlighter: pygments
 #gist:
 #    noscript: false
 excerpt_separator: "\n\n"
