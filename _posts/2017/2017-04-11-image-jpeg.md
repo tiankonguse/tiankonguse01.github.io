@@ -181,9 +181,9 @@ JPEG经过五大步操作，JPEG图片就完成了压缩。
   
 ## 八、参考资料
   
-* 主要是部门的分享，了解了这个算法的思想  
-* [wikipedia JPEG](https://zh.wikipedia.org/wiki/JPEG)
-  
+* 主要是部门的分享，了解了这个算法的思想   
+* wikipedia [JPEG](https://zh.wikipedia.org/wiki/JPEG)  
+* 论文 [Digital Signal Processing](http://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_frontmat.pdf)  
   
 
 ## 九、其他文章
