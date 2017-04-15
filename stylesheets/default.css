@@ -625,16 +625,21 @@ a.home-link:hover {
     .index-content .section ul {
         width: 96%;
     }
-    .index-content .cate-bar {
-        width: 85%;
-    }
     .index-content .artical-cate {
         margin-top: 50px;
+    }
+    .index-content .cate-bar ,
+    .index-content .artical-list,
+    .index-content .artical-cate {
+        width: 95%;
     }
     .index-content .artical-list li {
         padding-left: 5px;
     }
     
+    .index-content .artical-cate li {
+        width: 10%;
+    }
     .entry .index-content h2, .entry .index-content h3 {
         padding-left: 1px;
     }
