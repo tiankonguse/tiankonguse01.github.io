@@ -52,7 +52,7 @@ isIndex: true
         data.siteurl = siteurl;
         data.url = recordListURL + data.nowPage;
         data.preData = "";
-        data.netData = "";
+        data.nextData = "";
         
         if(data.nowPage > 1){
             data.preData = '<link rel="prev" title="上一页" href="/page' + (data.nowPage - 1) + '">';
