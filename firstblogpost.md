@@ -95,6 +95,7 @@ isIndex: true
         post.content = post.content.replace(/<p><\/p><p><\/p>/g, "<p></p>");
         
         post.content = post.content.replace(/<p><\/p>/g, "");
+        post.content = post.content.replace(/<font\s+color="[^"]*">([^<]*)<\/font>/g, "$1");
         
         var tpl = '\
         <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
