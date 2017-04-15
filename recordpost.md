@@ -41,6 +41,18 @@ isIndex: true
         post.url = recordPostURL + post.id;
         post.description = "";
         post.date = tk.Format(new Date(post.time * 1000), "yyyy-MM-dd");
+        post.fulldate = tk.Format(new Date(post.time * 1000), "yyyy-MM-dd hh:mm:ss");
+        
+        post.pre = post.pre || {};
+        if(post.pre.id){
+            post.pre.url = recordPostURL + post.pre.id;
+        }
+        
+        post.next = post.next || {};
+        if(post.next.id){
+            post.next.url = recordPostURL + post.next.id;
+        }
+        
         
         post.content = "<p>" + post.content + "</p>";;
         post.content = tk.replace(post.content, "<br>", "</p><p>");
@@ -55,10 +67,48 @@ isIndex: true
         post.content = post.content.replace( /<p><\/p><p><\/p>/g, '<p></p>');
         
         var tpl = '\
-        <h1 class="entry-title"><%= title %></h1>\
+        <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
+        <p class="entry-attr">作者: <span  class="entry-author">tiankonguse</span> | 更新日期: <time  class="entry-date"><%= fulldate %></time></p>\
         <p></p>\
         <p><%= content %></p>\
         <p></p>\
+        <div class="ad-content-footer"></div>\
+        <footer class="unit-foot">\
+            <% if(tags && tags.length){ %>\
+            <section>\
+                <ul class="tag-box inline">\
+                    <li>标签:</li>\
+                    <% for(tagIndex in tags) %> \
+                        <li><%= tags[tagIndex] %></li>\
+                    <% endfor %> \
+                </ul>\
+            </section>\
+            <% } %>\
+            <div class="footer-post-info clearfix">\
+                <ul>\
+                    <li>\
+                        作者「<a href="/about.html" rel="author">tiankonguse</a>」于 \
+                        <time><%= fulldate %></time> 发布本文</li>\
+                    <li>文章声明：自由转载-非商用-非衍生-保持署名  |  <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="nofollow">BY-NC-SA</a></li>\
+                    <li>如果你觉得这篇文章对你有帮助，欢迎支持作者：<a class="internal" href="<%=siteurl%>/support.html" title="支持作者">&laquo; 大力支持</a></li>\
+                </ul>\
+            </div>\
+            <div class="unit-inner unit-foot-inner">\
+                <nav class="pagination">\
+                    <ul>\
+                        <% if(pre.id){ %>\
+                        <li class="prev"><a class="internal" rel="prev"  href="<%=siteurl%>/<%=pre.url%>" title="View <%=pre.title%>">&laquo; <%=pre.title%></a></li>\
+                        <% } %>\
+                        <% if(next.id){ %>\
+                        <li class="prev"><a class="internal" rel="prev"  href="<%=siteurl%>/<%=next.url%>" title="View <%=next.title%>">&laquo; <%=next.title%></a></li>\
+                        <% } %>\
+                    </ul>\
+                </nav>\
+                <p class="gotop">\
+                    <a href="#">Back to Top</a>\
+                </p>\
+            </div>\
+        </footer>\
         <div id="disqus_container">\
             <a href="#" class="comment" onclick="return false;">点击查看评论</a>\
             <div id="disqus_thread"></div>\
