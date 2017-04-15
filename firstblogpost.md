@@ -62,6 +62,7 @@ isIndex: true
         post.content = post.content.replace(/(<\/p>)([^<]+)(<\p)/g, "$1<p>$2</p>$3");
         post.content = post.content.replace(/^([^<]+)(<\p)/g, "<p>$1</p>$2");
         post.content = post.content.replace(/(<\/p>)([^<]+)$/g, "$1<p>$2</p>");
+        post.content = post.content.replace(/(<\/p>)(.+)(<\p)/g, "$1<p>$2</p>$3");
         
         var tpl = '\
         <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
@@ -95,6 +96,9 @@ isIndex: true
                     <ul>\
                         <% if(pre.id){ %>\
                         <li class="prev"><a class="internal" rel="prev"  href="<%=siteurl%>/<%=pre.url%>" title="View <%=pre.title%>">&laquo; <%=pre.title%></a></li>\
+                        <% } %>\
+                        <% if(pre.id && next.id){ %>\
+                        <li class="pipe"> | </li>\
                         <% } %>\
                         <% if(next.id){ %>\
                         <li class="prev"><a class="internal" rel="prev"  href="<%=siteurl%>/<%=next.url%>" title="View <%=next.title%>">&laquo; <%=next.title%></a></li>\
