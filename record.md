@@ -104,7 +104,7 @@ isIndex: true
     
         jQuery("#content .entry").append(tk.parseTpl(tpl, data));
     
-        tk.loadPage(data.nowPage, data.allPageNum, jQuery("#pager_bottom"), "/");
+        tk.loadPage(data.nowPage, data.allPageNum, jQuery("#pager_bottom"), "/record.html", "?nowPage=");
     }
     
     jQuery(document).ready(function(){

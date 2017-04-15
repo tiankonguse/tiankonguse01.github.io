@@ -499,7 +499,7 @@ tk.Composition(TK, {
                     if(page == 1){
                         return url;
                     }else{
-                        return url+"page"+page;
+                        return url+pageParam+page;
                     }
                     
                 }
