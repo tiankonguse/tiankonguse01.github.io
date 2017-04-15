@@ -366,7 +366,7 @@ pre ol {
     *float: left;
     zoom:1; 
     font-size: 18px;
-    width: 18%;
+    width: 23%;
     cursor: pointer;
 }
 .index-content .artical-cate li a,
@@ -1739,8 +1739,8 @@ ins{
 
 .entry p {
     margin: 20px;
-    margin-left: 15px;
-    margin-right: 0px;
+    margin-left: 8px;
+    margin-right: 8px;
     min-height: 1em;
     line-height: 2;
     box-sizing: border-box !important;
@@ -1758,18 +1758,24 @@ ins{
     line-height: 25.6px;
     white-space: normal;
     border-left-width: 5px;
-    margin-right: 0px;
     border-left-color: rgba(79, 213, 230, 0.77);
-    margin-left: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
     padding-left: 10px;
 }
 
 .entry ul li {
-    margin-left: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
     margin: auto;
 }
 
 
 .entry img {
     margin-left: 15px;
+}
+
+.entry h2, .entry h3 {
+    margin-left: 8px;
+    margin-right: 8px;
 }
