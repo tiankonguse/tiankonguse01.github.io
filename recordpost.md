@@ -54,6 +54,7 @@ isIndex: true
         }
         
         
+    
         post.content = post.content.replace(/<br\s*\/?>/g, "<p></p>");
         
         post.content = post.content.replace(/\s*<p>\s*/g, "<p>");
@@ -67,7 +68,19 @@ isIndex: true
         post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
         post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");
         post.content = post.content.replace(/(?:\s*<p>\s*<\/p>\s*)+/g, "<p></p>");
-        post.content = post.content.replace(/(<\/p>)((?!<p>)[^<]*(?!<p>)<[^>]+>[^<]*(?!<p>)<[^>]+>[^<]*(?!<\/p>))(<p>)/g, "$1<p>$2</p>$3");
+        
+        
+        //<p><h2> =>   <p></p><h2>
+        post.content = post.content.replace(/<p>\s*(<h.>)/g, "<p></p>$1");
+        //</h2></p> =>   <p></p><h2>
+        post.content = post.content.replace(/(<\/h.>)\s*<\/p>/g, "$1<p></p>");
+        
+        //<p><pre> =>   <p></p><pre>
+        post.content = post.content.replace(/<p>\s*(<pre>)/g, "<p></p>$1");
+        //</pre></p> =>   <p></p><pre>
+        post.content = post.content.replace(/(<\/pre>)\s*<\/p>/g, "$1<p></p>");
+        
+        post.content = post.content.replace(/(<\/p>)([^<]*(?!<p>)[^>]+>[^<]*(?!<p>)[^>]+>[^<]*(?!<\/p>))(<p>)/g, "$1<p>$2</p>$3");
         post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
         post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");
         
@@ -80,6 +93,11 @@ isIndex: true
         post.content = post.content.replace(/<p>\s*(<pre>)/g, "<p></p>$1");
         //</pre></p> =>   <p></p><pre>
         post.content = post.content.replace(/(<\/pre>)\s*<\/p>/g, "$1<p></p>");
+        
+        
+        post.content = post.content.replace(/(<\/p>)([^<]*(?!<p>)[^>]+>[^<]*(?!<p>)[^>]+>[^<]*(?!<\/p>))(<p>)/g, "$1<p>$2</p>$3");
+        post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
+        post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");
         
         post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
         post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");

@@ -93,6 +93,11 @@ isIndex: true
         //</pre></p> =>   <p></p><pre>
         post.content = post.content.replace(/(<\/pre>)\s*<\/p>/g, "$1<p></p>");
         
+        
+        post.content = post.content.replace(/(<\/p>)([^<]*(?!<p>)[^>]+>[^<]*(?!<p>)[^>]+>[^<]*(?!<\/p>))(<p>)/g, "$1<p>$2</p>$3");
+        post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
+        post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");
+        
         post.content = post.content.replace(/\s*<p>\s*<p>\s*<\/p>\s*<\/p>\s*/g, "<p></p>");
         post.content = post.content.replace(/\s*<p>\s*<\/p>\s*<p>\s*<\/p>\s*/g, "<p></p>");
         
