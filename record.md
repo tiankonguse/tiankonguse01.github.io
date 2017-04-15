@@ -105,6 +105,16 @@ isIndex: true
         jQuery("#content .entry").append(tk.parseTpl(tpl, data));
     
         tk.loadPage(data.nowPage, data.allPageNum, jQuery("#pager_bottom"), "/record.html", "?nowPage=");
+        
+        window.disqus_shortname = 'tiankonguse-record'; 
+        window.duoshuoQuery = {short_name:"tiankonguse"};
+        window.cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: post.url,
+            productKey: "1cb0b08870384b08a97d3e08c258391b",
+            target: "cloud-tie-wrapper"
+        };
+        tk.comment.init($('#disqus_container .comment'));
     }
     
     jQuery(document).ready(function(){

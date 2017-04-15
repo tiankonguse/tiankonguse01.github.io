@@ -48,6 +48,12 @@ isIndex: true
         post.content = tk.replace(post.content, "<br />", "</p><p>");
         post.content = tk.replace(post.content, "<br >", "</p><p>");
         
+        //<p>\s+</p> => <p></p>
+        post.content = post.content.replace( /<p>\s+<\/p>/g, '<p></p>' );
+        
+        //<p></p><p></p> => <p></p>
+        post.content = post.content.replace( /<p><\/p><p><\/p>/g, '<p></p>');
+        
         var tpl = '\
         <h1 class="entry-title"><%= title %></h1>\
         <p></p>\
@@ -60,7 +66,8 @@ isIndex: true
             <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>\
         </div>';
         
-    
+        
+        
         jQuery("#content .entry").append(tk.parseTpl(tpl, post));
 
         window.disqus_shortname = 'tiankonguse-record'; 
@@ -71,6 +78,7 @@ isIndex: true
             productKey: "1cb0b08870384b08a97d3e08c258391b",
             target: "cloud-tie-wrapper"
         };
+        tk.comment.init($('#disqus_container .comment'));
     }
     
     jQuery(document).ready(function(){
