@@ -62,7 +62,11 @@ isIndex: true
         post.content = post.content.replace(/<p><p><\/p><\/p>/g, "<p></p>");
         post.content = post.content.replace(/(?:<p><\/p>)+/g, "<p></p>");
         post.content = post.content.replace(/(<\/p>)([^<]+)(<p>)/g, "$1<p>$2</p>$3");
+        post.content = post.content.replace(/<p><p><\/p><\/p>/g, "<p></p>");
+        post.content = post.content.replace(/(?:<p><\/p>)+/g, "<p></p>");
         post.content = post.content.replace(/(<\/p>)((?!<p>)[^<]*(?!<p>)<[^>]+>[^<]*(?!<p>)<[^>]+>[^<]*(?!<\/p>))(<p>)/g, "$1<p>$2</p>$3");
+        post.content = post.content.replace(/<p><p><\/p><\/p>/g, "<p></p>");
+        post.content = post.content.replace(/(?:<p><\/p>)+/g, "<p></p>");
         
         var tpl = '\
         <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
