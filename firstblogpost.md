@@ -54,6 +54,7 @@ isIndex: true
         }
         post.content = post.content.replace(/<div>/g, "<p>");
         post.content = post.content.replace(/<\/div>/g, "</p>");
+        post.content = post.content.replace(/<font\s+color="[^"]*">([^<]*)<\/font>/g, "$1");
         
         //<br>|<br/> => <p></p>
         post.content = post.content.replace(/<br\s*\/?>/g, "<p></p>");
