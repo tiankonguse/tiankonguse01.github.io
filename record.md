@@ -84,7 +84,7 @@ isIndex: true
                             <div class="title-date"><%= post.date %></div>\
                         </h2>\
                     </li>\
-                    <%= } %>\
+                    <% } %>\
                 </ul>\
                 <div class="pagination-centered" id="pagination_bottom">\
                     <div class="page-stat">统计：共有<%= allPostNum %>篇文章，共有<%= allPageNum %>页</div>\
