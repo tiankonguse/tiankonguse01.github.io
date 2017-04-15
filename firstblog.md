@@ -104,7 +104,7 @@ isIndex: true
     
         jQuery("#content .entry").append(tk.parseTpl(tpl, data));
     
-        tk.loadPage(data.nowPage, data.allPageNum, jQuery("#pager_bottom"), "/record.html", "?nowPage=");
+        tk.loadPage(data.nowPage, data.allPageNum, jQuery("#pager_bottom"), "/firstblog.html", "?nowPage=");
         
         window.disqus_shortname = 'tiankonguse-record'; 
         window.duoshuoQuery = {short_name:"tiankonguse"};
