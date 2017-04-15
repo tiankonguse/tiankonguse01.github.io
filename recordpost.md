@@ -75,6 +75,6 @@ isIndex: true
     
     jQuery(document).ready(function(){
         var urlObj = tk.parseURL(window.location);
-        loadPost(urlObj.id);
+        loadPost(urlObj.params.id);
     });
 </script>

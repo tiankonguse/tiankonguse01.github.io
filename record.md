@@ -109,7 +109,7 @@ isIndex: true
     
     jQuery(document).ready(function(){
         var urlObj = tk.parseURL(window.location);
-        loadList(urlObj.nowPage || 1);
+        loadList(urlObj.params.nowPage || 1);
     });
 </script>
 
