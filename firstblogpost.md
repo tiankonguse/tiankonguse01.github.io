@@ -128,6 +128,7 @@ isIndex: true
             target: "cloud-tie-wrapper"
         };
         tk.comment.init($('#disqus_container .comment'));
+        tk.loadJSFile(siteurl + "/javascripts/post.js");
     }
     
     jQuery(document).ready(function(){
