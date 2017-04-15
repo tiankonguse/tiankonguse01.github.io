@@ -75,9 +75,9 @@ isIndex: true
             <section>\
                 <ul class="tag-box inline">\
                     <li>标签:</li>\
-                    <% for(tagIndex in tags) %> \
+                    <% for(tagIndex in tags){ %> \
                         <li><%= tags[tagIndex] %></li>\
-                    <% endfor %> \
+                    <% } %> \
                 </ul>\
             </section>\
             <% } %>\
