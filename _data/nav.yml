@@ -1,15 +1,12 @@
 -   text: Home
     url: /index.html
     style: text-align:left
--   text: S
+-   text: Record
     url: /record.html
     style: text-align:center
--   text: F
+-   text: First
     url: /firstblog.html
     style: text-align:center
--   text: About
+-   text: Me
     url: /about.html
     style: text-align:center
--   text: map
-    url: /map.html
-    style: text-align:right
