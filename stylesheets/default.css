@@ -364,8 +364,9 @@ pre ol {
 .index-content .artical-cate li {
     display: inline-block;
     *float: left;
-    zoom:1; font-size: 18px;
-    width: 32%;
+    zoom:1; 
+    font-size: 18px;
+    width: 18%;
     cursor: pointer;
 }
 .index-content .artical-cate li a,
@@ -1728,6 +1729,24 @@ ins{
     line-height: 1.6em;
 }
 
+
+
+.entry span {
+    margin: 20px;
+    margin-left: 20px;
+    margin-right: 0px;
+    min-height: 1em;
+    line-height: 2;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    clear: both;
+    max-width: 100%!important;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-align: justify;
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+    color: rgb(111, 111, 111);
+}
 .entry p {
     margin: 20px;
     margin-left: 20px;

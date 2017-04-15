@@ -2,7 +2,10 @@
  * date function
  */
  
-/* format date */
+/* 
+ * format date 
+ * tk.Format(new Date(timestamp), "yyyy-MM-dd hh:mm:ss");
+ */
 tk.Composition(TK,{
     Format : function Format(data, fmt) {
         var o = {

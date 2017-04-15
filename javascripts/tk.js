@@ -455,7 +455,10 @@ tk.Composition(TK, {
 
 /* loadPage */
 tk.Composition(TK, {
-    loadPage : function loadPage(nowPage, allPage, $pageDom, url){
+    loadPage : function loadPage(nowPage, allPage, $pageDom, url, pageParam){
+        if(!pageParam){
+            pageParam = "page";
+        }
         var first = true;
         if(nowPage == 1){
             first = false;
@@ -472,7 +475,7 @@ tk.Composition(TK, {
                         return;
                     }
                     if(newPage > 1){
-                        window.location.href=url+"page"+newPage;
+                        window.location.href=url+pageParam+newPage;
                     }else{
                         window.location.href=url;
                     }
@@ -753,6 +756,11 @@ tk.Composition(TK, {
 参数:tk.parseTpl(str, data);
 语法: <%= code %> 输出code. <% code %> code为js语法 data为key-value对象, 模板中可以直接使用key.  
 例如: tk.parseTpl('<%= title %>',{title:"hello"}).
+
+
+参数:tk.parseTplSmp(str, data);
+语法: {{ code }} 输出code. {% code %} code为js语法 data为key-value对象, 模板中可以直接使用key.  
+例如: tk.parseTpl('{{ title }}',{title:"hello"}).
 */
 tk.Composition(TK, {
     parseTpl : function(str, data ){
@@ -767,6 +775,32 @@ tk.Composition(TK, {
             return '\'+' + code.replace( /\\'/, '\'' ) + '+\'';
         } );
         str = str.replace( /<%([\s\S]+?)%>/g, function( match, code ) {
+            return '\');' + code.replace( /\\'/, '\'' )
+                    .replace( /[\r\n\t]/g, ' ' ) + '__p.push(\'';
+        } );
+        str = str.replace( /\r/g, '\\r' );
+        str = str.replace( /\n/g, '\\n' );
+        str = str.replace( /\t/g, '\\t' );
+        buf.push(str);
+        buf.push('\');');
+        buf.push('}');
+        buf.push('return __p.join("");');
+        
+        var func = new Function( 'obj', buf.join("") );
+        return func(data);
+    },
+    parseTplSmp : function(str, data ){
+        var buf = [];
+        buf.push('var __p=[];');
+        buf.push('with(obj||{}){');
+        buf.push('__p.push(\'');
+        
+        str = str.replace( /\\/g, '\\\\' );
+        str = str.replace( /'/g, '\\\'' );
+        str = str.replace( /{{([\s\S]+?)}}/g, function( match, code ) {
+            return '\'+' + code.replace( /\\'/, '\'' ) + '+\'';
+        } );
+        str = str.replace( /{%([\s\S]+?)%}/g, function( match, code ) {
             return '\');' + code.replace( /\\'/, '\'' )
                     .replace( /[\r\n\t]/g, ' ' ) + '__p.push(\'';
         } );
@@ -813,6 +847,42 @@ tk.Composition(TK,{
         return str.split(key).join(val);
     }
 });
+
+/* url处理 */
+tk.Composition(TK,{
+    parseURL : function parseURL(url) {
+        var a = document.createElement('a');
+        a.href = url;
+        return {
+            source: url,
+            protocol: a.protocol.replace(':', ''),
+            host: a.hostname,
+            port: a.port,
+            query: a.search,
+            file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+            hash: a.hash.replace('#', ''),
+            path: a.pathname.replace(/^([^\/])/, '/$1'),
+            relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+            segments: a.pathname.replace(/^\//, '').split('/'),
+            params: (function() {
+                var ret = {};
+                var seg = a.search.replace(/^\?/, '').split('&').filter(function(v,i){
+                    if (v!==''&&v.indexOf('=')) {
+                        return true;
+                    }
+                });
+                seg.forEach( function(element, index) {
+                    var idx = element.indexOf('=');
+                    var key = element.substring(0, idx);
+                    var val = element.substring(idx+1);
+                    ret[key] = val;
+                });
+                return ret;
+            })()
+        };
+    }
+});
+
 
 
 
