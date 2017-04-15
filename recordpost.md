@@ -54,7 +54,6 @@ isIndex: true
         }
         
         
-        post.content = "<p>" + post.content + "</p>";;
         post.content = post.content.replace(/<br\s*\/?>/g, "<p></p>");
         post.content = post.content.replace(/\s*<p>\s*/g, "<p>");
         post.content = post.content.replace(/\s*<\/p>\s*/g, "</p>");
