@@ -55,16 +55,13 @@ isIndex: true
         
         
         post.content = "<p>" + post.content + "</p>";;
-        post.content = tk.replace(post.content, "<br>", "</p><p>");
-        post.content = tk.replace(post.content, "<br/>", "</p><p>");
-        post.content = tk.replace(post.content, "<br />", "</p><p>");
-        post.content = tk.replace(post.content, "<br >", "</p><p>");
-        
-        //<p>\s+</p> => <p></p>
-        post.content = post.content.replace( /<p>\s+<\/p>/g, '<p></p>' );
-        
-        //<p></p><p></p> => <p></p>
-        post.content = post.content.replace( /<p><\/p><p><\/p>/g, '<p></p>');
+        post.content = post.content.replace(/<br\s*\/?>/g, "<p></p>");
+        post.content = post.content.replace(/\s*<p>\s*/g, "<p>");
+        post.content = post.content.replace(/\s*<\/p>\s*/g, "</p>");
+        post.content = post.content.replace(/(?:<p><\/p>)+/g, "<p></p>");
+        post.content = post.content.replace(/(<\/\w+>)([^<]+)(<\w+)/g, "$1<p>$2</p>$3");
+        post.content = post.content.replace(/^([^<]+)(<\w+)/g, "<p>$1</p>$2");
+        post.content = post.content.replace(/(<\/\w+>)([^<]+)$/g, "$1<p>$2</p>");
         
         var tpl = '\
         <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
