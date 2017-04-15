@@ -71,7 +71,6 @@ isIndex: true
             productKey: "1cb0b08870384b08a97d3e08c258391b",
             target: "cloud-tie-wrapper"
         };
-        tk.loadJSFile(siteurl + "/javascripts/post.js");
     }
     
     jQuery(document).ready(function(){
