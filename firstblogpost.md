@@ -66,6 +66,10 @@ isIndex: true
         //</pre></p> =>   <p></p><pre>
         post.content = post.content.replace(/(<\/pre>)\s*<\/p>/g, "$1<p></p>");
         
+        
+        post.content = post.content.replace(/(<pre>|<h.>)/g, "<p></p>$1");
+        post.content = post.content.replace(/(<\/pre>|<\/h.>)/g, "$1<p></p>");
+        
         //remove blank
         post.content = post.content.replace(/\s*<p>\s*/g, "<p>");
         post.content = post.content.replace(/\s*<\/p>\s*/g, "</p>");
@@ -86,6 +90,8 @@ isIndex: true
         
         post.content = post.content.replace(/\<p><p><\/p><\/p>/g, "<p></p>");
         post.content = post.content.replace(/<p><\/p><p><\/p>/g, "<p></p>");
+        
+        post.content = post.content.replace(/<p><\/p>/g, "");
         
         var tpl = '\
         <h1 class="entry-title"><a href="<%=siteurl%><%=url%>" title="<%= title %>"><%= title %></a></h1>\
