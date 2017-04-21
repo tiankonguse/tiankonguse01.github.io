@@ -27,7 +27,6 @@ published: true
 最近也在梳理自己的知识图谱，看到了以前记录的base64算法，这篇文章就来聊聊base64的本质吧。  
 
 
-
 ## 一、二进制的缺点
 
 所谓二进制可以理解为数据进行了加密或压缩后的一种表示。  
@@ -199,6 +198,7 @@ std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_
 
 
 好了，看到这里实际上就可以看到平常所说的二进制，10进制，十六进制，base64进制的本质是什么了。  
+对了, 这个转换实际上也是协议转换, 可以看这篇文章看[什么是协议](http://mp.weixin.qq.com/s/kjuZuB6l80e49rP_cJEr_g)。   
 希望这些可以帮助到你们。  
 
 
