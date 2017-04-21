@@ -163,8 +163,7 @@ std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_
     unsigned char char_array_3[3];
     unsigned char char_array_4[4];
 
-    //64对应6位, 所以6位可以转化一个64进制
-    //3字节有24位, 可以使用4个64进制表示
+    //64对应6位, 所以6位可以转化一个64进制 3字节有24位, 可以使用4个64进制表示
     while (in_len--) {
         char_array_3[i++] = *(bytes_to_encode++);
         if (i == 3) {
@@ -177,19 +176,15 @@ std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_
     }
 
     //i 为1或2是说明有边界问题,需要特殊梳理
-    // i = 1, 剩余8位,需要2字节
-    // i = 2, 剩余16位,需要3字节
+    // i = 1, 剩余8位,需要2字节  i = 2, 剩余16位,需要3字节
     if (i){
         for(int j = i; j < 3; j++){
             char_array_3[j] = '\0';
         }
-        
         transThreeToFour(char_array_3, char_array_4);
-        
         for (int j = 0; j < i + 1; j++){
             ret += base64_chars[char_array_4[j]];
         }
-
         while(i++ < 3){
             ret += '=';
         }
