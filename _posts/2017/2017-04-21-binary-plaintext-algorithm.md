@@ -13,7 +13,7 @@ published: true
 >   
 > 大家好，这里是tiankonguse的公众号(tiankonguse-code)。    
 > tiankonguse曾是一名ACMer，现在是鹅厂视频部门的后台开发。    
-> 这里很少记录程序员的自我修养，也很少记录热点新闻，主要记录工作中的架构与经验以及其他好玩的知识。   
+> 这里很少记录程序员的自我修养，也很少记录热点新闻，主要记录工作中的架构与经验和其他好玩的知识技术，如算法，数学，物理，操作系统等等。   
 >      
 > 这篇文章从公众号[tiankonguse-code](http://mp.weixin.qq.com/s/kjuZuB6l80e49rP_cJEr_g)自动同步过来。    
 > 如果转载请加上署名：公众号tiankonguse-code，并附上公众号二维码，谢谢。    
