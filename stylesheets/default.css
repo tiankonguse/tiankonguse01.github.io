@@ -1784,3 +1784,11 @@ ins{
 	color: rgb(169, 169, 169);
 	font-size: 18px;
 }
+
+.entry .highlighter-rouge pre.prettyprint{
+	margin-left: 4px;
+}
+
+.entry .highlighter-rouge pre.prettyprint ol.linenums{
+	margin-left: 6px;
+}
