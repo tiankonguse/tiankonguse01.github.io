@@ -1742,7 +1742,7 @@ ins{
     margin-left: 4px;
     margin-right: 4px;
     min-height: 1em;
-    line-height: 2;
+    line-height: 28px;
     box-sizing: border-box !important;
     word-wrap: break-word !important;
     clear: both;
@@ -1755,13 +1755,14 @@ ins{
 }
 
 .entry blockquote {
-    line-height: 25.6px;
+    line-height: 28px;
     white-space: normal;
     border-left-width: 5px;
     border-left-color: rgba(79, 213, 230, 0.77);
     margin-left: 4px;
     margin-right: 4px;
     padding-left: 10px;
+    letter-spacing: 1px;
 }
 
 .entry ul li {
@@ -1778,4 +1779,8 @@ ins{
 .entry h2, .entry h3 {
     margin-left: 4px;
     margin-right: 4px;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 1px;
+	color: rgb(169, 169, 169);
+	font-size: 18px;
 }
