@@ -1,7 +1,7 @@
 ---  
 layout:     post  
-title:      Linux性能分析和工具
-description: 。  
+title:      回顾一下自己常用的linux命令
+description: 作为一个开发, linux上的常用命令是必备的。  
 keywords: 后台服务  
 tags: [后台服务]  
 categories: [程序人生]  
