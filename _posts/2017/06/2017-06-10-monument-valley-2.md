@@ -96,8 +96,13 @@ published: true
 
 第三章母亲和女孩首次分开与摔倒的时候，相信所有人又一次被深深的触动。  
 
+刚分开的时候，小女孩跌倒了。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2223994253.png)  
+
+母亲站在柱子上倒下，吓了一跳。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2107972840.png)  
+
+最后相遇，抱抱。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3763156094.png)  
 
 
@@ -108,14 +113,22 @@ published: true
 
 第五章母亲教女儿独立寻找出路。  
 
+母亲让小女孩自己去探索。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3715419682.png)  
+
+小女孩做到了。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/1093770066.png)  
 
 
 第六章节母亲送走女孩。  
 
+小女孩与母亲分别。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/2462794040.png)  
+
+挥手。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/679986457.png)  
+
+最后回望。  
 ![](http://tiankonguse.com/lab/cloudLink/baidupan.php?url=/1915453531/3754213464.png)  
 
 
