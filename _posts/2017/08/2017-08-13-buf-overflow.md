@@ -1,11 +1,11 @@
----  
+---   
 layout:     post  
-title:      记一次buf溢出的问题
+title:      记一次buf溢出的问题  
 description: 周五帮同事定位了一下,原来是buf溢出导致的。  
 keywords: 后台服务  
 tags: [后台服务]  
 categories: [程序人生]  
-updateData:  22:24 2017/8/13
+updateData:  22:24 2017/8/13  
 published: true  
 ---  
   
