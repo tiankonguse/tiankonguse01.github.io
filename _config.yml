@@ -2,7 +2,10 @@
 # auto: true
 source:      .
 destination: ./_site
-plugins:     ./_plugins
+#plugins:     ./_plugins
+#Configuration Error: You specified the `plugins` config in your configuration file as a string, please use an array instead. If you wanted to set the directory of your plugins, use the config key `plugins_dir` instead.
+plugins_dir:     ./_plugins
+
 layouts:     ./_layouts
 data_source: ./_data
 future: true
