@@ -1,7 +1,7 @@
 ---  
 layout:     post  
-title:      以前的招女朋友启示
-description: 由于一些原因《哪个女孩带走这么nice的人吧》需要删除，这里就使用一篇旧文代替吧。  
+title:      以前的招女朋友启示  
+description: 由于一些原因《哪个女孩带走这么nice的人吧》需要删除，这里就使用一篇旧文收尾吧。  
 keywords: 后台服务  
 tags: [后台服务]  
 categories: [程序人生]  
