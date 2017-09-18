@@ -1,11 +1,11 @@
 ---   
 layout:     post  
-title:       五层网络通信模型
-description: 之前参加了虚拟项目，核心是推荐算法，这里简单谈谈推荐算法。    
+title:       五层网络通信模型  
+description: 聊聊网络相关的话题。    
 keywords: 后台服务  
 tags: [后台服务]  
 categories: [程序人生]  
-updateData:  21:25 2017/9/4
+updateData:  0:02 2017/9/19
 published: true  
 ---  
   
