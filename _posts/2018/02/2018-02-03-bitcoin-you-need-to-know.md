@@ -156,4 +156,5 @@ published: true
 
 ![](/images/2018/02/20180203212914.jpg)  
 
+这篇文章的比特币地址： [bitcoin:15eofUb4QdyqKr5So9S4spQyBzNEw2Mczd](bitcoin:15eofUb4QdyqKr5So9S4spQyBzNEw2Mczd)     
 
