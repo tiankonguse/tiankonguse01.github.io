@@ -93,5 +93,5 @@ published: false
  
 数字货币是一个高风险的投资渠道，投资需谨慎。  
 
-这篇文章的比特币地址： [bitcoin:1KKmCDYDtFxvAwKyD6tG3mu1u3VSDP7BGs](bitcoin:1KKmCDYDtFxvAwKyD6tG3mu1u3VSDP7BGs)     
+这篇文章的比特币地址： [bitcoin:1BWKMrTgU2iXuaop3wHP8APJGMWSpYrdke](bitcoin:1BWKMrTgU2iXuaop3wHP8APJGMWSpYrdke)     
 
