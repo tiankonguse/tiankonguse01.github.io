@@ -6,7 +6,7 @@ keywords: 区块链
 tags: [比特币]  
 categories: [区块链]  
 updateData:  22:40 2018/02/06
-published: false  
+published: true  
 ---  
   
   
@@ -30,9 +30,10 @@ published: false
 这是第二篇：常用术语解释。  
 下面是计划列表：  
 
+0. 《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》
 1. 《[比特币-你必须知道事情](http://mp.weixin.qq.com/s/pu8e18eC2mBQxB9z01ETjg)》  
 2. 《[比特币-常用术语解释](https://mp.weixin.qq.com/s/3P9Tv6iO89p6xHpD1r_41Q)》  
-3. 《比特币-小白级工作原理》  
+3. 《[比特币-小白级工作原理](https://mp.weixin.qq.com/s/boeL6G5UVVEA3hVXiWDSWw)》  
 4. 《比特币-个人可以做什么》  
 5. 《比特币-商家可以做什么》  
 6. 《比特币-开发者可以做什么》  
@@ -47,7 +48,7 @@ published: false
 
 ## 一、移动支付更轻松
 
-比特币手机客户端仅需两步就能完成付款——扫描、支付。  
+比特币手机客户端仅需两步就能完成付款——扫描、支付(支付宝小额支付也是两步)。  
 无需注册, 无需刷卡, 无需输入密码，无需签字。  
 当接受比特币付款时，只需让你的朋友扫描你比特币钱包手机应用中的二维码， 或者轻触两个手机(利用NFC射频技术)即可。  
 
