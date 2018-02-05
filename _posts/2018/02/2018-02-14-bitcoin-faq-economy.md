@@ -30,6 +30,7 @@ published: false
 这是第十二篇：经济学问题。  
 下面是计划列表：  
 
+0. 《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》
 1. 《[比特币-你必须知道事情](http://mp.weixin.qq.com/s/pu8e18eC2mBQxB9z01ETjg)》  
 2. 《[比特币-常用术语解释](https://mp.weixin.qq.com/s/3P9Tv6iO89p6xHpD1r_41Q)》  
 3. 《比特币-小白级工作原理》  
