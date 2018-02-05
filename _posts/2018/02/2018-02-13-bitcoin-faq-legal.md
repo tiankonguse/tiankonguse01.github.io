@@ -27,7 +27,7 @@ published: false
 这里先从比特币开始，为自己记录下一些keyword。  
 
 
-这是第二篇：常用术语解释。  
+这是第十一篇：合法问题。  
 下面是计划列表：  
 
 1. 《[比特币-你必须知道事情](http://mp.weixin.qq.com/s/pu8e18eC2mBQxB9z01ETjg)》  

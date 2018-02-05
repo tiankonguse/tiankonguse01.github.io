@@ -27,7 +27,7 @@ published: true
 这里先从比特币开始，为自己记录下一些keyword。  
 
 
-这是第二篇：常用术语解释。  
+这是第四篇：个人可以做什么。  
 下面是计划列表：  
 
 0. 《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》
