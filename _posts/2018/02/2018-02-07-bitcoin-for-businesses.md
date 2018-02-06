@@ -6,7 +6,7 @@ keywords: 区块链
 tags: [比特币]  
 categories: [区块链]  
 updateData:  22:40 2018/02/07
-published: false  
+published: true  
 ---  
   
   
@@ -33,8 +33,8 @@ published: false
 0. 《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》
 1. 《[比特币-你必须知道事情](http://mp.weixin.qq.com/s/pu8e18eC2mBQxB9z01ETjg)》  
 2. 《[比特币-常用术语解释](https://mp.weixin.qq.com/s/3P9Tv6iO89p6xHpD1r_41Q)》  
-3. 《比特币-小白级工作原理》  
-4. 《比特币-个人可以做什么》  
+3. 《[比特币-小白级工作原理](http://mp.weixin.qq.com/s/boeL6G5UVVEA3hVXiWDSWw)》  
+4. 《[比特币-个人可以做什么](http://mp.weixin.qq.com/s/erz3_s5zksrM9E72mi0GNQ)》  
 5. 《比特币-商家可以做什么》  
 6. 《比特币-开发者可以做什么》  
 7. 《比特币-常见问题》   
@@ -46,10 +46,18 @@ published: false
 
 
 
+了解区块链一周了，目前我在自己心中逐渐建立了自己对区块链的认知，这里先分享大家。  
+
+
+![](/images/2018/02/20180207005152.png)  
+
+
+
+
 ## 一、费用最低
 
 比特币密码保护的高度安全性让它可以采用高效而廉价的方式处理交易。  
-通过比特币网络收款和付款几乎没有任何手续费。  
+通过比特币网络收款和付款几乎没有任何手续费（由于比特币价格太高，现在即使是200聪(bit)价格也不低了）。  
 在大多数情况下，费用无严格要求，但如果你想加快交易速度，建议支付一笔非常小额的费用。  
 
 
@@ -98,6 +106,7 @@ Bitcoin 还拥有一种多重签名功能，只有一个群体中的一部分人
 如果你想了解细节，可以等待公众号后面的翻译文章。  
 
 这篇文章来自 https://bitcoin.org/en/bitcoin-for-businesses ，感兴趣的可以看看英文原文。  
+
 
  
 数字货币是一个高风险的投资渠道，投资需谨慎。  
