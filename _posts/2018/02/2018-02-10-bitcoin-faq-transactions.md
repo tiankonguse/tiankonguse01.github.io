@@ -6,7 +6,7 @@ keywords: 区块链
 tags: [比特币]  
 categories: [区块链]  
 updateData:  22:40 2018/02/10
-published: false  
+published: true  
 ---  
   
   
@@ -33,11 +33,11 @@ published: false
 0. 《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》
 1. 《[比特币-你必须知道事情](http://mp.weixin.qq.com/s/pu8e18eC2mBQxB9z01ETjg)》  
 2. 《[比特币-常用术语解释](https://mp.weixin.qq.com/s/3P9Tv6iO89p6xHpD1r_41Q)》  
-3. 《比特币-小白级工作原理》  
-4. 《比特币-个人可以做什么》  
-5. 《比特币-商家可以做什么》  
-6. 《比特币-开发者可以做什么》  
-7. 《比特币-常见问题》   
+3. 《[比特币-小白级工作原理](http://mp.weixin.qq.com/s/boeL6G5UVVEA3hVXiWDSWw)》  
+4. 《[比特币-个人可以做什么](http://mp.weixin.qq.com/s/erz3_s5zksrM9E72mi0GNQ)》
+5. 《[比特币-商家可以做什么](http://mp.weixin.qq.com/s/_iO9r0vsI5sgD3zIwD4bQg)》   
+6. 《[比特币-开发者可以做什么](http://mp.weixin.qq.com/s/yFQKqwEiOd2UFO6MKDZDRQ)》    
+7. 《[比特币-常见问题](http://mp.weixin.qq.com/s/A0yyRNfyXtugnCf5in_5lg)》   
 8. 《比特币-交易问题》  
 9. 《比特币-挖矿问题》  
 10. 《比特币-安全问题》  
