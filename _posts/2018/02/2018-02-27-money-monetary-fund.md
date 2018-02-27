@@ -11,8 +11,8 @@ published: true
  
 大家好，我是tiankonguse。  
 **2018年开始，我开始了解理财相关的知识，并把学习到的理财知识点记录在这个公众号里。**  
-之前曾分享了《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》和《[一、开始理财](https://mp.weixin.qq.com/s/1ZHyd_FAOsqTbAJqWgntLg)》。  
-今天记录的主题是余额宝背后的理财知识，主要涉及货币基金的相关内容。  
+之前曾记录了《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》和《[一、开始理财](https://mp.weixin.qq.com/s/1ZHyd_FAOsqTbAJqWgntLg)》。  
+今天记录一下余额宝背后的理财知识，主要涉及货币基金的相关内容。  
  
  
 相信大家都听说过支付宝的余额宝了，当然部分人也听过微信的理财通。  
@@ -84,10 +84,10 @@ published: true
 最后上一张货币基金的细节图片吧。  
 对了，我还找到了货币基金的政策文件，发现这个政策文件竟然非常简单，公众号不支持传文件，我就分享到知识星球了，点击原文可以获得。  
 
-![](/images/2018/02/fdpohaocaechififmbbbbbknoalclacl.jpg)    
+![](/images/2018/02/fdpohaocaechififmbbbbbknoalclacl.png)    
 
   
-我建了一个群，里面偶尔会赠送微信读书的理财书籍或者书币，公众号回复“读书”可以获得入群信息。  
+我建了一个群，里面偶尔会赠送微信读书的理财书籍，公众号回复“读书”可以获得入群信息。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
 ![](/images/tiankonguse-support.png)  
