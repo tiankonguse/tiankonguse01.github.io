@@ -41,7 +41,7 @@ jQuery(document).ready(function(){
         //tk.ad.showPageFoot("ad-page-footer", "728-90");
     }
     
-    tk.ad.loadGoogleJs();
+    //tk.ad.loadGoogleJs();
     setTimeout(function(){
         $(".home-follow").click();
     }, 3000);
