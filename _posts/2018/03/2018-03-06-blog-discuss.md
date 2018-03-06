@@ -30,30 +30,30 @@ published: true
 对自己算是一种记录，以后忘记了可以回顾，对其他新人可以提供一个参考，算是双赢。  
 
 
-![](/images/2018/03/06/blog_cnblog_blog.png)  
+![](/images/2018/03/blog_cnblog_blog.png)  
 
 
 2013年1月份，那是大三上学期，我开始自学LAMP搭建网站。  
 当时是寒假，回家前我下载了w3school整个网站，然后在家里没网的情况下使用PHP实现了自己的LAMP博客网站。  
 
 
-![](/images/2018/03/06/blog_firstblog_blog.png)  
+![](/images/2018/03/blog_firstblog_blog.png)  
 
 
 2013年6月份，我重构了自己的博客，然后把自己几年的日记都导入到了这个博客，竟然有700多篇。  
 
-![](/images/2018/03/06/blog_second.png)  
+![](/images/2018/03/blog_second.png)  
 
 
 2014年7月份，正式开始工作。由于空闲时间少了很多，我搭建了github静态博客，开始了简洁的博客之旅。  
 
 
-![](/images/2018/03/06/blog_github_blog.png)  
+![](/images/2018/03/blog_github_blog.png)  
 
 
 2015年8月份我开通可公众号，但是直到2017年我才正式开始在公众号写文章，之后陆陆续续开通了原创、赞赏功能。  
 
-![](/images/2018/03/06/blog_gongzhonghao.png)     
+![](/images/2018/03/blog_gongzhonghao.png)     
 
 
 未来，我会继续写博客，内容涉及技术、理财、生活、读书、经济、人生、诗和远方。  
@@ -64,19 +64,19 @@ published: true
 最开始我自己做了一个留言板插件，后来嫌麻烦，2013年就使用著名的disqus留言插件了。  
 可是好景不长，后来disqus被墙了，但是我一直无所谓，读我文章的人面对墙应该不是问题，所以就用了好几年。  
 
-![](/images/2018/03/06/pinglun_disqus_start.png)   
+![](/images/2018/03/pinglun_disqus_start.png)   
 
 2016年9月份，看到有人推荐多说留言插件，于是我尝试了一下，结果才用几个月，2017年3月份就被通知要关闭了。  
 
 
-![](/images/2018/03/06/pinglun_duoshuo_start.png)   
-![](/images/2018/03/06/pinglun_duoshuo_end.png)   
+![](/images/2018/03/pinglun_duoshuo_start.png)   
+![](/images/2018/03/pinglun_duoshuo_end.png)   
 
 
 收到多说留言关闭的通知后，尝试了几家留言插件，最终选择了人气最高的网易云跟帖。  
 结果2017年7月份也收到通知，留言插件要关闭了。    
 
-![](/images/2018/03/06/pinglun_wangyi_end.png)   
+![](/images/2018/03/pinglun_wangyi_end.png)   
 
 
 从此我就把博客的留言插件关闭了。  
@@ -84,7 +84,7 @@ published: true
 
 留言大概涨这个样子   
 
-![](/images/2018/03/06/pinglun_blog_main.png)  
+![](/images/2018/03/pinglun_blog_main.png)  
 
 
 
