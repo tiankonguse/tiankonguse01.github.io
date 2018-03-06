@@ -1,6 +1,6 @@
 ---   
 layout:     post  
-title:      生活：我的文章开启留言功能
+title:      生活：开启留言功能
 description: 如果你能翻过来，就可以评论了。    
 keywords: 生活  
 tags: [生活]  
