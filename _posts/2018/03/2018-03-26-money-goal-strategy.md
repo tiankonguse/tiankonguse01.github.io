@@ -10,7 +10,7 @@ published: true
 ---  
  
 大家好，我是tiankonguse。  
-2018年开始，我开始了解理财相关的知识，并把学习到的理财知识点记录在这个公众号里。  
+2018年年初，我开始了解理财相关的知识，并把学习到的理财知识点记录在这个公众号里。  
 之前曾记录了《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》、《[开始理财](https://mp.weixin.qq.com/s/1ZHyd_FAOsqTbAJqWgntLg)》、《[货币基金](http://mp.weixin.qq.com/s/Nc-qiTOzYVg_tpG21j4AZQ)》、《[P2P](http://mp.weixin.qq.com/s/e0Pm_-9KoLjF6LjQ3P22FA)》、《[基金](http://mp.weixin.qq.com/s/mPUr6w55USFTcEWCyhd00A)》、《[股票](http://mp.weixin.qq.com/s/CLE5wOSFrM1n_sbHqp325A)》、《[告诉你买哪个理财产品](https://mp.weixin.qq.com/s/TswyqhtGyxFLa_SFEy_-cw)》。  
 今天分享一个话题：理财的目标与策略。  
 
