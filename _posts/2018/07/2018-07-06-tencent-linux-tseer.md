@@ -60,7 +60,7 @@ Tseer的项目代码地址是https://github.com/Tencent/TSeer
 5. 安装jdk `yum -y install java-1.8.0-openjdk*` 
 6. 安装openssh `yum -y install openssl*`  
 7. 安装resin 先去官网下载源码，然后编译。  
-   编译命令：`./configure --prefix=/data/service/resin4 --enable-64bit && make && make install`
+   编译命令：`./configure --enable-64bit && make && make install`  
    然后修改conf/resin.properties下的`web_admin_external`，打开外网权限。
 8. 拉取TSeer源码 `git clone https://github.com/Tencent/TSeer.git`   
    然后执行自动化安装程序`cd build; python tseer_deploy.py`  
