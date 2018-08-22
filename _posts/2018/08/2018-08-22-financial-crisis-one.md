@@ -178,7 +178,7 @@ published: true
 
 * [读书《淘宝技术这十年》](https://mp.weixin.qq.com/s/IeOQGh22U_1TPrf6sYYTkQ)KXKA)   
 * [读恐怖小说《1984》](https://mp.weixin.qq.com/s/q7HL5o_R5cqJc0b9Ll7EMw)    
-* [那些营销套路（初级版）](https://mp.weixin.qq.com/s/xdvqZo9ll6kaL66Cdx   
+* [那些营销套路（初级版）](https://mp.weixin.qq.com/s/xdvqZo9ll6kaL66Cdx)   
 * [数据脏了怎么办](https://mp.weixin.qq.com/s/Blw4yxmIsE51dzzbNcfFbg)    
 * [中年危机笔记与思考](https://mp.weixin.qq.com/s/dFzDtZS0JN6hhpc1DF-e_g)    
 * [韭菜的理财历程](https://mp.weixin.qq.com/s/hsPCy3rOADDC-CMbpnARuw)    
