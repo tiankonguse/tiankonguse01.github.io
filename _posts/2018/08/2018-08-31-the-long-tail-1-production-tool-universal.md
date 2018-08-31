@@ -1,6 +1,6 @@
 ---   
 layout:     post  
-title:       《长尾理论》5.0新生产者 
+title:       《长尾理论》5.1生产工具的普及 
 description: 万不可小视数以百万计的业务生产者。      
 keywords: 读书 
 tags: [读书]  
