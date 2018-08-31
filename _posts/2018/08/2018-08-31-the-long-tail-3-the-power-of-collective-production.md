@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       《长尾理论》5.3集体生产的力量 
-description: 万不可小视数以百万计的业务生产者。      
+description: 当每一个人都能得到生产工具时，每一个人都会变成生产者。      
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  

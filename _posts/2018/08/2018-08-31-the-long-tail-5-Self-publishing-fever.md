@@ -1,7 +1,7 @@
 ---   
 layout:     post  
-title:       《长尾理论》5.5声誉经济 
-description: 万不可小视数以百万计的业务生产者。      
+title:       《长尾理论》5.5自我出版热
+description: 事实上，绝大多数作者都选择了我行我素，并没有打算赚大钱。      
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  

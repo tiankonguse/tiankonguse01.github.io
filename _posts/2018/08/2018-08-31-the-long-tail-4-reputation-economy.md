@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       《长尾理论》5.4声誉经济 
-description: 万不可小视数以百万计的业务生产者。      
+description: 简言之，有些作者在意版权，有些作者不在意。      
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  

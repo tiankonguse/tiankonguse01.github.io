@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       《长尾理论》5.1生产工具的普及 
-description: 万不可小视数以百万计的业务生产者。      
+description: 事实上，卡尔·马克思或许是提出半专业—半业余经济的真正鼻祖。      
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  

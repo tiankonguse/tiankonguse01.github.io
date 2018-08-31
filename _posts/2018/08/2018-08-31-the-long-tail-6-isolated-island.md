@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       《长尾理论》5.6案例研究：孤岛 
-description: 万不可小视数以百万计的业务生产者。      
+description: 一种动机并不能解释所有人的动机。      
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  
