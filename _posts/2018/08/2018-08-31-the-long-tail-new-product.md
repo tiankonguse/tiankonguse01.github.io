@@ -73,7 +73,7 @@ tiankonguse解释：非头部的生产者，大部分都没有追求热点吸引
 
 
 * [经济危机（一）](https://mp.weixin.qq.com/s/hxO7oR8cLljSClYS-yE6pw)   
-* [读书《淘宝技术这十年》](https://mp.weixin.qq.com/s/IeOQGh22U_1TPrf6sYYTkQ)KXKA)   
+* [读书《淘宝技术这十年》](https://mp.weixin.qq.com/s/IeOQGh22U_1TPrf6sYYTkQ)   
 * [读恐怖小说《1984》](https://mp.weixin.qq.com/s/q7HL5o_R5cqJc0b9Ll7EMw)    
 * [那些营销套路（初级版）](https://mp.weixin.qq.com/s/xdvqZo9ll6kaL66Cdx)   
 * [数据脏了怎么办](https://mp.weixin.qq.com/s/Blw4yxmIsE51dzzbNcfFbg)    
