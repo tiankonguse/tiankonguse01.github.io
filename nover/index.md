@@ -5,14 +5,12 @@ title: 项目列表
 
 <link rel="stylesheet" href="./project.css" type="text/css" /> 
 <div class="container">
-    {% for project in site.data.nover %}
-        <a target="_blank" href="{{ project.url }}">
-            <p>
-                <strong> {{ project.title }} </strong>
-                <span>{{ project.description }}</span>
-            </p>
-        </a>
-    {% endfor %}
+	<a target="_blank" href="/nover/data/一个二奶的自白越做越爱/">
+		<p>
+			<strong>一个二奶的自白越做越爱</strong>
+			<span> 2018-09-12 </span>
+		</p>
+	</a>
 </div>
 
 <script>
