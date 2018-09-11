@@ -5,7 +5,7 @@ title: 项目列表
 
 <link rel="stylesheet" href="./project.css" type="text/css" /> 
 <div class="container">
-    {% for project in site.data.projects %}
+    {% for project in site.data.nover %}
         <a target="_blank" href="{{ project.url }}">
             <p>
                 <strong> {{ project.title }} </strong>
