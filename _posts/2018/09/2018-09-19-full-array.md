@@ -1,6 +1,6 @@
 ---   
 layout:     post  
-title:       从零开始学算法：4.万能数组  
+title:       从零开始学算法：5.万能数组  
 description:  数组是万能的，那是不能的；因为他万能的时候名字不叫数组了。   
 keywords: 算法 
 tags: [算法]  
