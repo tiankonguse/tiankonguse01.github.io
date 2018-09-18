@@ -2,9 +2,9 @@
 layout:     post  
 title:       从零开始学算法：4.二分查找  
 description:  看完是不是发现二分查找竟然如此简单？      
-keywords: 生活 
-tags: [生活]  
-categories: [生活]  
+keywords: 算法 
+tags: [算法]  
+categories: [算法]  
 updateData:  23:40 2018/09/18   
 published: true   
 ---  
