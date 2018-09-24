@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       《小狗钱钱》读书笔记   
-description:     
+description:    一个简单明了的理财入门书 
 keywords: 读书 
 tags: [读书]  
 categories: [读书]  
