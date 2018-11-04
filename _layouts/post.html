@@ -45,7 +45,11 @@ comment: true
         <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
         <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 更新日期: <time  class="entry-date">{{ lastData }}</time></p>
         <p><blockquote>{{ page.description }}</blockquote></p>
-        {{ content }}
+        
+		<div class="entry-content">
+		{{ content }}
+		</div>
+		
         <div class="ad-content-footer"></div>
 
         
