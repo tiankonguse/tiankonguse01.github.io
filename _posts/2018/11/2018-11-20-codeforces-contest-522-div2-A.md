@@ -14,13 +14,9 @@ published: true
 
 ## 一、题意
 
-```
-The king's birthday dinner was attended by kk guests. The dinner was quite a success: every person has eaten several dishes (though the number of dishes was the same for every person) and every dish was served alongside with a new set of kitchen utensils.  
+地址： http://codeforces.com/contest/1079/problem/A  
 
-All types of utensils in the kingdom are numbered from 11 to 100100. It is known that every set of utensils is the same and consist of different types of utensils, although every particular type may appear in the set at most once. For example, a valid set of utensils can be composed of one fork, one spoon and one knife.  
-
-After the dinner was over and the guests were dismissed, the king wondered what minimum possible number of utensils could be stolen. Unfortunately, the king has forgotten how many dishes have been served for every guest but he knows the list of all the utensils left after the dinner. Your task is to find the minimum possible number of stolen utensils.  
-```
+![](cf-422-div2-pro-a.png)    
 
 英语是硬伤，这道题我看了N遍，依旧没明白。  
 最后反复看样例与样例说明，终于看懂了。  
