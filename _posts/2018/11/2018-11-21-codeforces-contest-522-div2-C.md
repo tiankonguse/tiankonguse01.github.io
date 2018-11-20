@@ -16,7 +16,7 @@ published: true
 
 地址: http://codeforces.com/contest/1079/problem/C
 
-![](cf-422-div2-pro-c.png)   
+![](/images/2018/11/cf-422-div2-pro-c.png)   
 
 
 
@@ -60,7 +60,7 @@ published: true
 
 
 
-![](cf-422-div2-c.png) 
+![](/images/2018/11/cf-422-div2-c.png) 
 
 
 

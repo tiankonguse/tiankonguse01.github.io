@@ -16,7 +16,7 @@ published: true
 
 地址: http://codeforces.com/contest/1079/problem/B  
 
-![](cf-422-div2-pro-b.png)   
+![](/images/2018/11/cf-422-div2-pro-b.png)   
 
 
 
@@ -31,7 +31,7 @@ published: true
 由于各列之间空白相差不能超过1，可以总字符除以列数计算出每列至少有多少个字符。剩余的个数不超过列数，从上到下每列一个分完即可。  
  
 
-![](cf-422-div2-b.png) 
+![](/images/2018/11/cf-422-div2-b.png) 
 
 
 
