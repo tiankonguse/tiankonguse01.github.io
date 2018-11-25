@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       Codeforces Round 522 Div2 C. Playing Piano 
-description: 不论宣称如何完美的解决方案，都会引入另一个更复杂的问题。      
+description: 一个简单的动态规划题
 keywords: 技术 
 tags: [技术]  
 categories: [技术]  

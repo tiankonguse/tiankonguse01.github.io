@@ -1,7 +1,7 @@
 ---   
 layout:     post  
 title:       Codeforces Round 522 Div2 B. Personalized Cup 
-description: 不论宣称如何完美的解决方案，都会引入另一个更复杂的问题。      
+description: 输入一个字符串，按矩形输出。   
 keywords: 技术 
 tags: [技术]  
 categories: [技术]  
