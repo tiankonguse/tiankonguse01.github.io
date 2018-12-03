@@ -1,6 +1,6 @@
 ---   
 layout:     post  
-title:    红包，解决产品冷启动的一个利器 
+title:    红包，支付宝花呗冷启动的利器 
 description: 新产品与冷启动、红包与习惯，都是套路。 
 keywords: 生活
 tags: [生活]  
