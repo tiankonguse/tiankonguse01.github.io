@@ -61,22 +61,7 @@ void * ngx_palloc_s(ngx_pool_t* pool, size_t size){
 也就是内存池是一个链表，这样就不存在不够的问题了。  
 
 
-```
-void * ngx_palloc_s(ngx_pool_t* pool, size_t size){
-    char* m ;
-    ngx_pool_t* p = pool->current; //第一个内存池
-    do{
-        m = p->d.last;
-        if(p->d.end - m >= size){
-            p->d.last =  m + size;
-            return m;
-        }
-        p = p->d.next; //下一个内存池
-    }while(p);
-    //现有的内存池都不够，创建新的内存池
-    return ngx_palloc_n(pool, size);
-}
-```
+![](/images/2018/12/20181209212358.png)  
 
 
 创建新内存池的代码也很简单。  
@@ -88,18 +73,7 @@ nginx就在每个内存池上加了一个计数器，如果一个内存池被遍
 这样就可以保证内存池有效链表节点的个数不会超过7个。  
 
 
-```
-void* ngx_palloc_b(ngx_pool* pool, size_t size){
-    ngx_pool_t* new = new_pool();
-    for(p p pool->currentl p_d.next; p = p->d.next){
-        if(p->d.failed++ > 4){
-            pool->current = p->d.nexr;
-        }
-    }
-    p->d.next = new;//插入到最后
-}
-```
-
+![](/images/2018/12/20181209212707.png)  
 
 
 ## 四、内存需要对齐怎么办？  
