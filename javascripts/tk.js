@@ -256,7 +256,7 @@ tk.AddMethod(TK,{
 });
 tk.Composition(TK.Cookie,{
     set: function set(name, value, domain, path) {
-        document.cookie = name + "=" + value + "; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.cm.com;"));
+        document.cookie = name + "=" + value + "; " + (path ? ("path=" + path + "; ") : "path=/; ") + (domain ? ("domain=" + domain + ";") : ("domain=.tiankonguse.com;"));
         return true;
     },
     get: function get(name) {

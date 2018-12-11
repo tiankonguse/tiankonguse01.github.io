@@ -49,7 +49,7 @@ sudo tcpdump  -iany -nlp  "src 10.185.16.50 and (port 8560 or 8563)" -c 1
 #通过客户端端口号
 lsof -nP | grep 38972 | more -1
 
-modulefra 28114 user_00 28u IPv4 1117707040 TCP 10.130.25.95:38972->v.cm.com:8563 (ESTABLISHED)
+modulefra 28114 user_00 28u IPv4 1117707040 TCP 10.130.25.95:38972->tiankonguse.com:8563 (ESTABLISHED)
 
 #通过服务端端口号
 lsof -nP | grep 8563 | more -1
