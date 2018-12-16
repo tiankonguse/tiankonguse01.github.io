@@ -2,8 +2,8 @@
 layout:     post  
 title:     读《银河帝国3：第二基地》  
 description:  所有的分析都符合逻辑，但在作者的安排下，所有的逻辑又都不成为逻辑，直至结尾谜底的揭开。  
-keywords: 读书
-tags: [技读书  
+keywords: 读书  
+tags: [读书]    
 categories: [读书]  
 updateData: 2018-12-16 23:10   
 published: true   
