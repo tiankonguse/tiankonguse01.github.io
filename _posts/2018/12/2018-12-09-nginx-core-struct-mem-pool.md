@@ -182,5 +182,6 @@ Nginx 是如此， Redis 依旧如此。
 
 
 本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
+原文地址：[https://mp.weixin.qq.com/s/hcnMA0h5BPsRJH9cnmq7hw](https://mp.weixin.qq.com/s/hcnMA0h5BPsRJH9cnmq7hw)  
 
 

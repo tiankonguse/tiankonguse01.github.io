@@ -121,5 +121,6 @@ Nginx 的 List 保持了传统的魔幻风格，只有两个函数：`create`函
 
 
 本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
+原文地址： [https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA](https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA)  
 
 
