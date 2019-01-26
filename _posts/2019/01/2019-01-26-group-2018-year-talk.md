@@ -1,6 +1,6 @@
 ---   
 layout:     post  
-title:  团队内年度会议上说的一些话
+title:  我在团队里讲了几句话  
 description:  由于是内部团队，我随便说了一些话，想到哪说到哪了。  
 keywords: 生活  
 tags: [生活]    
