@@ -9,8 +9,7 @@ updateData: 2019-01-25 21:14
 published: true   
 ---  
 
-
-<iframe class="video_iframe" data-vidtype="1" data-cover="http%3A%2F%2Fshp.qpic.cn%2Fqqvideo_ori%2F0%2Fy0831058lep_496_280%2F0" allowfullscreen="" frameborder="0" data-ratio="1.7777777777777777" data-w="864" data-src="https://v.qq.com/iframe/preview.html?width=500&amp;height=375&amp;auto=1&amp;vid=y0831058lep"></iframe>  
+注：视频可以阅读文章底部的原文。  
 
 
 工作里怪事真多，奇葩围绕着我，  
@@ -58,5 +57,5 @@ published: true
 
 
 本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址： [https://mp.weixin.qq.com/s/VF70iQxioir5r1xHxYT-pw](https://mp.weixin.qq.com/s/VF70iQxioir5r1xHxYT-pw)  
+原文地址： [https://mp.weixin.qq.com/s/wDNFrJbNYCd4fIt5Hbj1ag](https://mp.weixin.qq.com/s/wDNFrJbNYCd4fIt5Hbj1ag)
   
