@@ -10,7 +10,7 @@ published: true
 ---  
 
 
-![](/umages/2019/02/6979179fbd3996243ee1ba2dfb3d088e.jpg)  
+![](/images/2019/02/6979179fbd3996243ee1ba2dfb3d088e.jpg)  
 
 
 ## 一、背景
