@@ -42,13 +42,26 @@ comment: true
         </div>
     </div>
     <div class="entry">
-        <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
+        <h1 class="entry-title">{{ page.title }}</h1>
         <p class="entry-attr">作者: <span  class="entry-author">{{ site.author }}</span> | 更新日期: <time  class="entry-date">{{ lastData }}</time></p>
         <p><blockquote>{{ page.description }}</blockquote></p>
+            
+        <p>
+            <strong>本文首发于公众号：天空的代码世界，微信号：tiankonguse</strong>
+{% if page.wxurl %}
+            <strong>原文地址：<a href="{{ page.wxurl }}" title="{{ page.title }}">{{ page.wxurl  }}</a></strong>
+{% endif %}
+        </p>
         
-		<div class="entry-content">
-		{{ content }}
-		</div>
+        <div class="entry-content">
+        {{ content }}
+        </div>
+        <p>
+            <strong>本文首发于公众号：天空的代码世界，微信号：tiankonguse</strong>
+{% if page.wxurl %}
+            <strong>原文地址：<a href="{{ page.wxurl }}" title="{{ page.title }}">{{ page.wxurl  }}</a></strong>
+{% endif %}
+        </p>
 		
         <div class="ad-content-footer"></div>
 

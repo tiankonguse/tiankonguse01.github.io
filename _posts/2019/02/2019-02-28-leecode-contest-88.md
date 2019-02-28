@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2019-02-28 23:24   
 published: true 
+wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw  
 ---  
 
 
@@ -143,6 +144,4 @@ leecode 上的题也翻了好几倍了。
 -EOF-  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址： [https://mp.weixin.qq.com/s/XaUKqhoT2-UPKVopsJ4FPg](https://mp.weixin.qq.com/s/XaUKqhoT2-UPKVopsJ4FPg)  
   
