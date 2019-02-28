@@ -7,6 +7,7 @@ tags: [理财]
 categories: [理财]  
 updateData: 2019-02-24 21:24   
 published: true 
+wxurl: https://mp.weixin.qq.com/s/-2Cvcj3cq7MO2QySjopf9g  
 ---  
 
 
@@ -107,6 +108,4 @@ K 线是日本发明的一种表示法，美国发明的类似的表示法叫做
 -EOF-  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址： [https://mp.weixin.qq.com/s/XaUKqhoT2-UPKVopsJ4FPg](https://mp.weixin.qq.com/s/XaUKqhoT2-UPKVopsJ4FPg)  
   
