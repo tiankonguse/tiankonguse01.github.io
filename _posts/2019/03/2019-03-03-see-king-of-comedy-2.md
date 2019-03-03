@@ -11,6 +11,9 @@ wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw
 ---  
 
 
+![](/images/2019/03/p2448089.jpg)  
+
+
 ## 一、背景
 
 
@@ -109,6 +112,9 @@ wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw
 合约男友一直在鼓励女主角，但是她一直在被骗，男友的那些鸡汤话仅仅是为了骗钱而已。  
 
 
+![](/images/2019/03/002.gif)  
+
+
 第五点是工作。  
 在工作上，作为一个小小的演员，一直做着各种跑龙套的苦差事，至于男女主角这样的角色，就像梦一样遥远。  
 所以女主角的名字是如梦。  
@@ -122,7 +128,6 @@ wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw
 原来人生就像一场梦，正所谓只要不投降，就是成功。  
 
 
-![](/images/2019/03/p2448089.jpg)  
 
 
 ## 五、最后  
