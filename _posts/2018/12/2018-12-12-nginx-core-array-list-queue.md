@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2018-12-12 16:27  
 published: true   
+wxurl: https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA  
 ---  
 
  
@@ -120,7 +121,5 @@ Nginx 的 List 保持了传统的魔幻风格，只有两个函数：`create`函
 今天分享一本内存相关的数，名字叫做《编程珠玑》，公众号后台回复"编程珠玑"领取。  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址： [https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA](https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA)  
 
 

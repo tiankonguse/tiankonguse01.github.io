@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2018-12-09 20:12 
 published: true   
+wxurl: https://mp.weixin.qq.com/s/hcnMA0h5BPsRJH9cnmq7hw  
 ---  
 
  
@@ -181,7 +182,5 @@ Nginx 是如此， Redis 依旧如此。
 今天分享一本内存相关的数，名字叫做《代码优化：有效使用内存》，公众号后台回复"代码优化"领取。  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址：[https://mp.weixin.qq.com/s/hcnMA0h5BPsRJH9cnmq7hw](https://mp.weixin.qq.com/s/hcnMA0h5BPsRJH9cnmq7hw)  
 
 

@@ -7,6 +7,7 @@ tags: [生活]
 categories: [生活]  
 updateData: 2018-12-01 23:56  
 published: true   
+wxurl: https://mp.weixin.qq.com/s/MoSGf9Ixh2DLjFGos1_dqA  
 ---  
 
  
@@ -204,7 +205,5 @@ published: true
 写的有外卖与红包，引申出产品冷启动，讨论了产品本质是盈利，接着是支付宝花呗如何盈利，最后建议如何使用信用卡。  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址：[https://mp.weixin.qq.com/s/MoSGf9Ixh2DLjFGos1_dqA(https://mp.weixin.qq.com/s/MoSGf9Ixh2DLjFGos1_dqA)  
 
 

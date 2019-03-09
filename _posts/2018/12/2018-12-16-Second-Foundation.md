@@ -7,6 +7,7 @@ tags: [读书]
 categories: [读书]  
 updateData: 2018-12-16 23:10   
 published: true   
+wxurl: https://mp.weixin.qq.com/s/cosidfQuhaRuif-X8hBsTQ  
 ---  
 
  
@@ -138,7 +139,5 @@ C进行反转：我们身边就有人士第二基地的人，我这刚好有高�
 恩，谢顿计划，自身就是一个矛盾的计划了。  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
-原文地址： [https://mp.weixin.qq.com/s/cosidfQuhaRuif-X8hBsTQ](https://mp.weixin.qq.com/s/cosidfQuhaRuif-X8hBsTQ)  
 
 

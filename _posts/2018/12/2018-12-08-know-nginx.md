@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2018-12-08 19:28 
 published: true   
+wxurl: https://mp.weixin.qq.com/s/wGscVGR7Ytf8uMWzEwOjLQ  
 ---  
 
  
@@ -274,6 +275,5 @@ Nginx 是如此， Redis 依旧如此。
 后面我也会分几次来分享 Nginx 设计到的东西。  
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
 
 
