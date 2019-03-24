@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2018-11-26 21:03 
 published: true   
+wxurl: https://mp.weixin.qq.com/s/zDvZ9jiNu6T6_nnVqEZjLQ  
 ---  
 
  
@@ -131,6 +132,6 @@ p0009
 后面会多写一些算法上的东西，有利于提高思维能力。
 
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
 
+-end-  
 

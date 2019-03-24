@@ -7,6 +7,7 @@ tags: [技术]
 categories: [技术]  
 updateData: 2018-11-27 23:36  
 published: true   
+wxurl: https://mp.weixin.qq.com/s/VyriV9RdVoR9oS-nmvvxNQ  
 ---  
 
  
@@ -190,7 +191,7 @@ stat(n, k) = stat(n-1, k) + F2(n, k)
 后面有时间了，也会多分享一些数论问题和组合问题。  
 
 
+-end-  
 
-本文首发于公众号：天空的代码世界，微信号：tiankonguse-code。  
 
 
