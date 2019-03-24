@@ -290,7 +290,15 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 ![](/images/2019/03/leetcode-129-011.png)  
 
 
-另外，我的`leetcode`模板根据使用的体验，准备做一个较大的优化，等优化完了同步给大家。  
+另外，我的`leetcode`模板根据使用的体验，准备做一个较大的优化。  
+模板地址：https://github.com/tiankonguse/leetcode-solutions/tree/master/include  
+
+
+具体优化即使不需要编写`test`函数了，已经使用宏封装好了。  
+另外，头文件等与题无关的代码都移动到了`base.h`里面去了。  
+
+
+![](/images/2019/03/leetcode-129-012.png)  
 
 
 -EOF-  
