@@ -2,9 +2,9 @@
 layout:     post  
 title:  读《鱼羊野史》（一） 
 description:  看了高晓松的鱼羊野史，记录一下我认为有意思的东西。  
-keywords: 生活  
-tags: [生活]    
-categories: [生活]  
+keywords: 读书  
+tags: [读书]    
+categories: [读书]  
 updateData: 2019-01-27 21:02 
 published: true   
 wxurl: https://mp.weixin.qq.com/s/UEOOKyPrrKbwMCjBfDTbCA  

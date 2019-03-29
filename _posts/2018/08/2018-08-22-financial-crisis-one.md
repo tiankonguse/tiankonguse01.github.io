@@ -2,9 +2,9 @@
 layout:     post  
 title:      经济危机（一）
 description: 爆发是迟早的事情，但是什么时候爆发没人知道，影响有多严重也没人知道，我们只知道它迟早会来临，以我们想不到的方式来临。      
-keywords: 生活 
-tags: [生活]  
-categories: [生活]  
+keywords: 读书 
+tags: [读书]  
+categories: [读书]  
 updateData:  23:40 2018/08/22   
 published: true   
 ---  

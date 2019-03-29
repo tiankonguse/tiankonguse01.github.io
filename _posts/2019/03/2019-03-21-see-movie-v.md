@@ -4,7 +4,7 @@ title:  【电影】《V字仇杀队》竟然没被封杀，赶紧看吧
 description: 这些台词成功吸引了我的注意力，于是我打算看一看这个电影  
 keywords: 电影  
 tags: [电影]    
-categories: [生活]  
+categories: [电影]  
 updateData: 2019-03-21 23:24   
 published: true 
 wxurl: https://mp.weixin.qq.com/s/4tY9WpyRypiX3g5N_pgMAw  

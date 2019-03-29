@@ -2,9 +2,9 @@
 layout:     post  
 title:  读《物理学的困惑》
 description:  实际上物理量有将近百年没有重大突破了。  
-keywords: 生活  
-tags: [生活]    
-categories: [生活]  
+keywords: 读书  
+tags: [读书]    
+categories: [读书]  
 updateData: 2019-01-21 21:14 
 published: true   
 wxurl: https://mp.weixin.qq.com/s/ZhpjbW21XCDYfFhAzuQsiQ  

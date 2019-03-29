@@ -2,9 +2,9 @@
 layout:     post  
 title:      读书《淘宝技术这十年》
 description: 书中有很多值得品味思考的内容，这里分享给大家。      
-keywords: 生活 
-tags: [生活]  
-categories: [生活]  
+keywords: 读书 
+tags: [读书]  
+categories: [读书]  
 updateData:  20:40 2018/08/19   
 published: true   
 ---  
