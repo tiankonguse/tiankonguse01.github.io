@@ -2,9 +2,9 @@
 layout:     post  
 title:      别玩纪念碑谷了
 description: 这是一个悲伤的故事。  
-keywords: 天空的生活  
-tags: [天空的生活]  
-categories: [天空的生活]  
+keywords: 生活  
+tags: [生活]  
+categories: [生活]  
 updateData:  23:54 2017/06/10
 published: true  
 ---  

@@ -4,7 +4,7 @@ title:       黎曼猜想对我们影响不大
 description:  听说黎曼猜想被证明了   
 keywords: 数学 
 tags: [数学]  
-categories: [数学]  
+categories: [生活]  
 updateData:  23:40 2018/09/22  
 published: true   
 ---  

@@ -2,9 +2,9 @@
 layout:     post
 title:      查询联通号码的上网记录
 description: 最近查询话费时, 发现联通竟然记录我我们的所有上网记录, 太可怕了.
-keywords: 天空的生活
-tags: 天空的生活
-categories: [天空的生活]
+keywords: 生活
+tags: 生活
+categories: [生活]
 updateData:  13:45 2015/10/12
 ---
 
