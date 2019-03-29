@@ -1,13 +1,13 @@
 ---   
 layout:     post  
-title:  【算法】Leetcode 第97场比赛回顾  
-description: 做了 Leetcode 的第97场比赛，简单分享一下思路。    
+title:  【算法】Leetcode 第87场比赛回顾  
+description: 做了 Leetcode 的第87场比赛，简单分享一下思路。    
 keywords: 算法  
 tags: [算法]    
 categories: [算法]  
 updateData: 2019-03-28 23:24   
 published: true 
-wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw  
+wxurl: https://mp.weixin.qq.com/s/pZNs_Yf2gLBeDGxbN1dkmg  
 ---  
 
 
@@ -15,7 +15,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 
 
 之前已经写了几场比赛记录了，如第88场、第101场、第126场、第127场、第128场、第129场比赛。  
-今天上午我做了第97场比赛，现在记录一下题解吧。  
+今天上午我做了第87场比赛，现在记录一下题解吧。  
 
 
 PS1：前三题用了半个小时就做完了，结果最后一题到时间结束也没做出来。  
@@ -42,7 +42,7 @@ PS2：做题时不能分心，做最后一题时线上有个问题要处理，�
 PS：字符串`string`也有数组的特征，所以直接使用`string`也可以。  
 
 
-![](/images/2019/03/leetcode-97-001.png)  
+![](/images/2019/03/leetcode-87-001.png)  
 
 
 ## 三、数组中的最长山脉  
@@ -68,7 +68,7 @@ PS：字符串`string`也有数组的特征，所以直接使用`string`也可�
 
 代码如下：  
 
-![](/images/2019/03/leetcode-97-002.png)  
+![](/images/2019/03/leetcode-87-002.png)  
 
 
 其实，这道题还有一种很简单的思路。  
@@ -77,7 +77,7 @@ PS：字符串`string`也有数组的特征，所以直接使用`string`也可�
 结果取`max`即可。  
 
 
-![](/images/2019/03/leetcode-97-006.png)  
+![](/images/2019/03/leetcode-87-006.png)  
 
 
 ## 四、一手顺子  
@@ -98,7 +98,7 @@ PS：字符串`string`也有数组的特征，所以直接使用`string`也可�
 最后`map`为空则代表有答案。  
 
 
-![](/images/2019/03/leetcode-97-003.png)  
+![](/images/2019/03/leetcode-87-003.png)  
 
 
 ## 五、访问所有节点的最短路径  
@@ -159,8 +159,8 @@ PS：字符串`string`也有数组的特征，所以直接使用`string`也可�
 由于两个数据都很小，我的方法是把两个数字使用位运算压缩到一个数字上，然后使用`map`记录其最小步数即可。  
 
 
-![](/images/2019/03/leetcode-97-004.png)  
-![](/images/2019/03/leetcode-97-005.png)  
+![](/images/2019/03/leetcode-87-004.png)  
+![](/images/2019/03/leetcode-87-005.png)  
 
 
 ## 六、最后  
