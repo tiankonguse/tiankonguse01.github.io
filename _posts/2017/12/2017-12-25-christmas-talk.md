@@ -2,9 +2,9 @@
 layout:     post  
 title:      圣诞？碎碎念！  
 description: 又到圣诞节了，有快两个月没有动笔了，今天写点什么东西吧。    
-keywords: 程序人生  
-tags: [程序人生]  
-categories: [程序人生]  
+keywords: 生活  
+tags: [生活]  
+categories: [生活]  
 updateData:  22:25 2017/12/25
 published: true  
 ---  

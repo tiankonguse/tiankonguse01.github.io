@@ -3,7 +3,7 @@ layout: post
 title: stl 源码阅读之allocator配置器
 description: 前段时间一个服务大量使用了hashmap,于是简单看了下hashmap的实现方式，发现需要先看allocator，这里记录一下。    
 updateData:  02:28 2016/11/07
-categories: [stl]
+categories: [技术]
 ---  
 
 

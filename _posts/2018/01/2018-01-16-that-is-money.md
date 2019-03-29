@@ -2,9 +2,9 @@
 layout:     post  
 title:      什么是理财  
 description: 工作这么多年了，竟然没存到钱。最近存了点钱，需要了解一下怎么理财。    
-keywords: 程序人生  
-tags: [程序人生]  
-categories: [程序人生]  
+keywords: 理财  
+tags: [理财]  
+categories: [理财]  
 updateData:  22:40 2018/01/16
 published: true  
 ---  

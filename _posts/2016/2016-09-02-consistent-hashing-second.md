@@ -3,7 +3,7 @@ layout: post
 title: 一致性hash基础知识(二)
 description: 上次记录了一致性hash的原理, 但那样还不能直接直接使用, 所以需要继续研究一下.    
 updateData:  20:45 2016/9/2
-categories: [cache]
+categories: [技术]
 ---  
 
 ## 背景

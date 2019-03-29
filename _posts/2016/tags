@@ -1,0 +1,342 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+$	2016-03-02-bash-record.md	/^* 双引号: 双引号大部分元字符功能被关闭，仅保留`$`, `` ` ``,`\\`三种。   $/;"	v
+$	tags	/^callback	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+$	tags	/^command	2016-03-02-bash-record.md	\/^* `casc "$variable" in "$condition") command;; esac`$\/;"	v$/;"	v
+$	tags	/^command	2016-03-02-bash-record.md	\/^* `for ((i=min; i <= max; i+=step)) do command; done`$\/;"	v$/;"	v
+$	tags	/^gperftools	2016-02-17-union-cache.md	\/^因此按其要求先安装了[libunwind][libunwind-0-99], 再安装gperftools。$\/;"	v$/;"	v	typeref:union:gperftools
+$	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+$	tags	/^offset	05\/2016-05-05-project-03-search-sphinx.md	\/^每次使用`limit offset,num` 固然可以实现功能，　但是这种方法当`offset`很大时性能就不好说了, 也就是这种方法性能是不稳定的。  $\/;"	v$/;"	v
+$	tags	/^sentences	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> A sentence should contain no unnecessary words, a paragraph no unnecessary sentences, for the same reason that a drawing should have no unnecessary lines and a machine no unnecessary parts   $\/;"	v$/;"	v
+$	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+$	tags	/^well	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> If people cannot write well, they cannot think well, and if they cannot think well, others will do their thinking for them   $\/;"	v$/;"	v
+$	tags	/^xml	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+$line	2016-03-02-bash-record.md	/^code> line="one two three"; for word in $line; do echo $word; done$/;"	v
+$line	tags	/^$word	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in $line; do echo $word; done$\/;"	v$/;"	v
+$line	tags	/^line	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in $line; do echo $word; done$\/;"	v$/;"	v
+$word	2016-03-02-bash-record.md	/^code> line="one two three"; for word in "$line"; do echo $word; done$/;"	v
+$word	2016-03-02-bash-record.md	/^code> line="one two three"; for word in $line; do echo $word; done$/;"	v
+$word	tags	/^$word	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in $line; do echo $word; done$\/;"	v$/;"	v
+$word	tags	/^in	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in "$line"; do echo $word; done$\/;"	v$/;"	v
+$word	tags	/^line	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in $line; do echo $word; done$\/;"	v$/;"	v
+A	2016-09-09-memory-barriers.md	/^STORE *A = 5, x = LOAD *D$/;"	v
+A	2016-09-09-memory-barriers.md	/^STORE *A = X; Y = LOAD *A;$/;"	v
+A	2016-09-09-memory-barriers.md	/^STORE *A = Y = X;$/;"	v
+A	2016-09-09-memory-barriers.md	/^STORE B=4,   STORE A=3,     x=LOAD A->3,   y=LOAD B->4$/;"	v
+A	2016-09-09-memory-barriers.md	/^x = LOAD *D, STORE *A = 5$/;"	v
+ACK	2016-01-17-tcp-more.md	/^    客户端大量的发送SYN包, 不回ACK, 这时将会把半连接队列填满, 从而会影响正常服务.  $/;"	v
+B	2016-09-09-memory-barriers.md	/^> 这样一来, 如果执行读操作的CPU的偶数号cache组非常繁忙, 而奇数号cache组空闲, 它就可能看到P已被更新成新值`&B`, 而B还是旧值2.  $/;"	v
+B	2016-09-09-memory-barriers.md	/^STORE A=3,   STORE B=4,     y=LOAD B->4,   x=LOAD A->3$/;"	v
+B	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   STORE B=4,     y=LOAD B->4$/;"	v
+B	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   y=LOAD B->2,   STORE B=4$/;"	v
+B	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   STORE B=4,     x=LOAD A->3$/;"	v
+B	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   x=LOAD A->3,   STORE B=4$/;"	v
+B	2016-09-09-memory-barriers.md	/^但是CPU 2可能在看到P被更新之后, 才看到B被更新, 这就导致下面的情况:`Q == &B` 且 `D == 2`.  $/;"	v
+B	2016-09-09-memory-barriers.md	/^这里有明显的数据依赖, 在序列执行完之后, Q的值一定是&A和&B之一, 也就是:  $/;"	v
+CPU	2016-02-17-union-cache.md	/^架构已经成型, CPU依旧偏高, 性能分析工具发现大部分时间消耗在内存上.  $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^        CPU 1                       CPU 2$/;"	v
+CPU	2016-09-09-memory-barriers.md	/^(*) 不能保证一个CPU能够按顺序看到另一个CPU的访存效果, 即使另一个CPU使用了内存屏障, 除非这个CPU也使用了与之配对的内存屏障(参阅"SMP内存屏障的配对使用"章节).  $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^* 对于一个CPU, 在它上面出现的有上下文依赖关系的内存访问将被按顺序执行.   $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^* 对于一个CPU, 重叠的LOAD和STORE操作将被按顺序执行.   $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^CPU 1           CPU 2$/;"	v
+CPU	2016-09-09-memory-barriers.md	/^下文中也会多次提到, CPU的乱序执行并不是任意的乱序, 而必须保证上下文依赖逻辑的正确性.   $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^原文中"短路"的意思就是, 由于p没有数据依赖关系, CPU可以早早获得它的值, 而不必考虑更新.   $/;"	v
+CPU	2016-09-09-memory-barriers.md	/^这样的强制措施是非常重要的, 因为系统中的CPU和其他设备可以使用各种各样的策略来提高性能, 包括对内存操作的乱序, 延迟和合并执行; 预取; 投机性的分支预测和各种缓存.   $/;"	v
+CPU	2016-09-26-io-style.md	/^这种模型需要用户不断的轮循查询某个操作是否就绪, 往往很消耗CPU, 很少使用.  $/;"	v
+D	2016-09-09-memory-barriers.md	/^  这意味着:`Q = P; D = *Q;` CPU会顺序执行以下访存:`Q = LOAD P, D = LOAD *Q`, 并且总是按这样的顺序  $/;"	v
+D	2016-09-09-memory-barriers.md	/^X = LOAD *A,  STORE *D = Z, Y = LOAD *B$/;"	v
+D	2016-09-09-memory-barriers.md	/^X = LOAD *A,  Y = LOAD *B,  STORE *D = Z$/;"	v
+D	2016-09-09-memory-barriers.md	/^Y = LOAD *B,  STORE *D = Z, X = LOAD *A$/;"	v
+D	2016-09-09-memory-barriers.md	/^Y = LOAD *B,  X = LOAD *A,  STORE *D = Z$/;"	v
+D	2016-09-09-memory-barriers.md	/^注意, CPU2决不会将C的值LOAD到D, 因为CPU保证在将P的值装载到Q之后才会执行对*Q的LOAD操作(译注: 因为存在数据依赖).  $/;"	v
+DB	05/2016-05-05-project-03-search-sphinx.md	/^扫描DB的方式是指定时间之后的数据认为是新增数据。  $/;"	v
+Hashing	2016-08-21-consistent-hashing.md	/^当时还有一篇论文，叫做`Web Caching with Consistent Hashing`, 大家可以看看（下面参考文献有链接）。  $/;"	v
+IO	2016-09-09-memory-barriers.md	/^正如上面所说, 无关的内存操作会被按随机顺序有效的得到执行, 但是在CPU与CPU交互时或CPU与IO设备交互时, 这可能会成为问题.  $/;"	v
+LOAD	2016-09-09-memory-barriers.md	/^注意, 在写屏障之前出现的STORE操作通常总是期望匹配读屏障或数据依赖屏障之后出现的LOAD操作, 反之亦然:  $/;"	v
+LOAD	2016-09-09-memory-barriers.md	/^而在该CPU上触发的数据依赖屏障将保证, 对于在屏障之前发生的LOAD操作, 如果一个LOAD操作的目标被其他CPU的STORE操作所修改, 那么在屏障完成之时, 这个对应的STORE操作之前的所有STORE操作所产生的影响, 将被数据依赖屏障之后执行的LOAD操作所感知.  $/;"	v
+P	2016-09-09-memory-barriers.md	/^但是CPU 2可能在看到P被更新之后, 才看到B被更新, 这就导致下面的情况:`Q == &B` 且 `D == 2`.  $/;"	v
+Q	2016-09-09-memory-barriers.md	/^  这意味着:`Q = P; D = *Q;` CPU会顺序执行以下访存:`Q = LOAD P, D = LOAD *Q`, 并且总是按这样的顺序  $/;"	v
+REG	2016-08-12-delete_file_no_freed_space.md	/^unified_c 24854 user_00    2w      REG                8,1        48      50670 \/var\/spool\/cronx\/std_logs\/stderr_21981_24084_1_153625_1449980771_60 (deleted)$/;"	v
+STORE	2016-09-09-memory-barriers.md	/^而在该CPU上触发的数据依赖屏障将保证, 对于在屏障之前发生的LOAD操作, 如果一个LOAD操作的目标被其他CPU的STORE操作所修改, 那么在屏障完成之时, 这个对应的STORE操作之前的所有STORE操作所产生的影响, 将被数据依赖屏障之后执行的LOAD操作所感知.  $/;"	v
+SWAP	2016-04-03-redis-endinconv.md	69;"	d	file:
+SWAP	2016-04-03-redis-endinconv.md	95;"	d	file:
+Thread	2016-03-26-height-cpu.md	/^我们可以发现, 线程`31527`对应的编号是`Thread 12`, 目前在调用函数`epoll_wait()`.  $/;"	v
+Thread	tags	/^Thread	2016-03-26-height-cpu.md	\/^我们可以发现, 线程`31527`对应的编号是`Thread 12`, 目前在调用函数`epoll_wait()`.  $\/;"	v$/;"	v
+WEB	05/2016-05-05-project-01-trailer-and-cgi.md	/^做系统的时候, 发现周围的人都使用C++当做WEB服务器的后台开发语言, 他们还称此为cgi.  $/;"	v
+X	2016-09-09-memory-barriers.md	/^  同样, 对于:`*X = c; d = *X;` CPU只会按以下顺序执行访存:`STORE *X = c, d = LOAD *X`  $/;"	v
+X	2016-09-09-memory-barriers.md	/^  这意味着:`a = *X; *X = b;`CPU只会按以下顺序执行访存:`a = LOAD *X, STORE *X = b`$/;"	v
+X	2016-09-09-memory-barriers.md	/^STORE *D = Z, X = LOAD *A,  Y = LOAD *B$/;"	v
+X	2016-09-09-memory-barriers.md	/^STORE *D = Z, Y = LOAD *B,  X = LOAD *A$/;"	v
+X	2016-09-09-memory-barriers.md	/^Y = LOAD *B,  STORE *D = Z, X = LOAD *A$/;"	v
+X	2016-09-09-memory-barriers.md	/^Y = LOAD *B,  X = LOAD *A,  STORE *D = Z$/;"	v
+Y	2016-09-09-memory-barriers.md	/^STORE *D = Z, X = LOAD *A,  Y = LOAD *B$/;"	v
+Y	2016-09-09-memory-barriers.md	/^STORE *D = Z, Y = LOAD *B,  X = LOAD *A$/;"	v
+Y	2016-09-09-memory-barriers.md	/^X = LOAD *A,  STORE *D = Z, Y = LOAD *B$/;"	v
+_Alloc	2016-11-07-stl-allocator.md	/^这里简单的记录下`_Alloc`的设计与源码实现, 为之后的容器记录做准备。  $/;"	v
+a	2016-03-02-bash-record.md	/^code> a="aabb"; if [[ $a == "a*" ]]; then echo "got"; else echo "not"; fi$/;"	v
+a	2016-09-09-memory-barriers.md	/^  这意味着:`a = *X; *X = b;`CPU只会按以下顺序执行访存:`a = LOAD *X, STORE *X = b`$/;"	v
+address	2016-11-07-stl-allocator.md	/^    const_pointer address(const_reference __x) const  { $/;"	f	signature:(const_reference __x) const
+address	2016-11-07-stl-allocator.md	/^    pointer address(reference __x) const  { $/;"	f	signature:(reference __x) const
+allocate	2016-11-07-stl-allocator.md	/^    pointer allocate(size_type __n, const void* = 0) { $/;"	f	signature:(size_type __n, const void* = 0)
+allocator	2016-11-07-stl-allocator.md	/^    allocator() throw () {}$/;"	f	class:vector	access:public	signature:()
+allocator	2016-11-07-stl-allocator.md	/^    allocator(const allocator& __a) throw () : __allocator_base<_Tp>(__a) {}$/;"	f	class:vector	access:public	signature:(const allocator& __a)
+allocator	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> allocator(const allocator<_Tp1>&) throw () {}$/;"	f	class:vector	access:public	signature:(const allocator<_Tp1>&)
+assign	2016-08-17-http-chunked.md	/^strHttpRsp.assign(data, len);$/;"	p	file:	signature:(data, len)
+b	2016-09-09-memory-barriers.md	/^CPU 1上的写屏障是为了保证这样的逻辑: 如果`a == 3 || b == 4`, 那么必定有`p == 1`.  $/;"	v
+b	2016-09-09-memory-barriers.md	/^但是到了CPU 2, 可能a或b的值已更新, 而p的值未更新.   $/;"	v
+b	2016-09-09-memory-barriers.md	/^但是到了CPU 2, 可能p的值已更新(==1), 而a和b的值未更新, 那么这时数据依赖屏障可以起作用, 确保`x = *q`时a和b的值更新.   $/;"	v
+b	2016-09-09-memory-barriers.md	/^因为从代码逻辑上说, q跟a或b是有所依赖的, 数据依赖屏障能保证这些有依赖关系的值都已更新.  $/;"	v
+buffers$	tags	/^free	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6048928k used,  2003568k free,   654596k buffers$\/;"	v$/;"	v
+buffers$	tags	/^used	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6046952k used,  2005544k free,   654588k buffers$\/;"	v$/;"	v
+cache	2016-09-09-memory-barriers.md	/^> 比如, 一个cache组处理偶数号的cache行, 另一个cache组处理奇数号的cache行.   $/;"	v
+cache	2016-09-09-memory-barriers.md	/^> 这样一来, 如果执行读操作的CPU的偶数号cache组非常繁忙, 而奇数号cache组空闲, 它就可能看到P已被更新成新值`&B`, 而B还是旧值2.  $/;"	v
+cached$	tags	/^free	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+cached$	tags	/^total	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+cached$	tags	/^used	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$\/;"	v$/;"	v
+callback	05/2016-05-05-project-03-search-sphinx.md	/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $/;"	v
+callback	tags	/^callback	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+callback	tags	/^xml	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+checkCompleteHttpHead	2016-08-17-http-chunked.md	/^bool checkCompleteHttpHead(const char *buf,int len){$/;"	f	signature:(const char *buf,int len)
+chunked	2016-08-17-http-chunked.md	/^description: http协议包比较简单, 最近遇到chunked包的一个问题, 记录一下$/;"	v
+chunked	2016-08-17-http-chunked.md	/^今天同事说自己http包解包后有问题, 于是帮忙看了一下, 发现是chunked包, [tcpdump](http:\/\/github.tiankonguse.com\/blog\/2016\/08\/13\/tcpdump.html)抓包之后发现包被分片了.  $/;"	v
+chunked	2016-08-17-http-chunked.md	/^这里了解一下chunked包, 顺便记录下业务该怎么处理chunked包.  $/;"	v
+command	2016-03-02-bash-record.md	/^* `casc "$variable" in "$condition") command;; esac`$/;"	v
+command	2016-03-02-bash-record.md	/^* `for ((i=min; i <= max; i+=step)) do command; done`$/;"	v
+command	2016-03-02-bash-record.md	/^* `while [condition] do command; done`$/;"	v
+const_pointer	2016-11-07-stl-allocator.md	/^    typedef const _Tp* const_pointer;$/;"	t	class:vector	file:	access:public
+const_pointer	2016-11-07-stl-allocator.md	/^    typedef const _Tp* const_pointer;$/;"	t	file:
+const_reference	2016-11-07-stl-allocator.md	/^    typedef const _Tp& const_reference;$/;"	t	class:vector	file:	access:public
+const_reference	2016-11-07-stl-allocator.md	/^    typedef const _Tp& const_reference;$/;"	t	file:
+construct	2016-11-07-stl-allocator.md	/^    void construct(pointer __p, const _Tp& __val) { $/;"	f	signature:(pointer __p, const _Tp& __val)
+criticism	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $/;"	v
+criticism	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+criticism	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+d	2016-09-09-memory-barriers.md	/^  同样, 对于:`*X = c; d = *X;` CPU只会按以下顺序执行访存:`STORE *X = c, d = LOAD *X`  $/;"	v
+deallocate	2016-11-07-stl-allocator.md	/^    void deallocate(pointer __p, size_type) { $/;"	f	signature:(pointer __p, size_type)
+destroy	2016-11-07-stl-allocator.md	/^    void destroy(pointer __p) { $/;"	f	signature:(pointer __p)
+difference_type	2016-11-07-stl-allocator.md	/^    typedef ptrdiff_t difference_type;$/;"	t	class:vector	file:	access:public
+difference_type	2016-11-07-stl-allocator.md	/^    typedef ptrdiff_t difference_type;$/;"	t	file:
+dlclose	2016-03-27-static-and-dynamic-library.md	/^int dlclose(void *handle);$/;"	p	file:	signature:(void *handle)
+dlerror	2016-03-27-static-and-dynamic-library.md	/^char *dlerror(void);$/;"	p	file:	signature:(void)
+dlopen	2016-03-27-static-and-dynamic-library.md	/^void *dlopen(const char *filename, int flag);$/;"	p	file:	signature:(const char *filename, int flag)
+dlopen	tags	/^dlopen	2016-03-27-static-and-dynamic-library.md	\/^void *dlopen(const char *filename, int flag);$\/;"	p	file:	signature:(const char *filename, int flag)$/;"	p	file:	signature:(const char *filename, int flag)
+dlsym	2016-03-27-static-and-dynamic-library.md	/^void *dlsym(void *handle, const char *symbol);$/;"	p	file:	signature:(void *handle, const char *symbol)
+dlsym	tags	/^dlsym	2016-03-27-static-and-dynamic-library.md	\/^void *dlsym(void *handle, const char *symbol);$\/;"	p	file:	signature:(void *handle, const char *symbol)$/;"	p	file:	signature:(void *handle, const char *symbol)
+echo	2016-03-02-bash-record.md	/^     spch*) echo "condition2";;$/;"	v
+echo	2016-03-02-bash-record.md	/^code> a="aabb"; if [[ $a == "a*" ]]; then echo "got"; else echo "not"; fi$/;"	v
+echo	2016-03-02-bash-record.md	/^code> a="aabb"; if [[ $a == a* ]]; then echo "got"; else echo "not"; fi$/;"	v
+echo	tags	/^a	2016-03-02-bash-record.md	\/^code> a="aabb"; if [[ $a == "a*" ]]; then echo "got"; else echo "not"; fi$\/;"	v$/;"	v
+epoll	2016-09-26-io-style.md	/^我们使用select, poll或者 epoll阻塞在这些系统调用上, 而不是阻塞在真正的IO系统调用上.  $/;"	v
+fflush	tags	/^stderr	2016-04-03-redis-allocated-memory.md	\/^fflush(stderr);$\/;"	v$/;"	p	file:	signature:(stderr)
+field	2016-08-21-consistent-hashing.md	/^> 假设请求有100个key和100个field,只要任意一个key的任意一个字段在cache中过期或未找到，请求命中率中就算未命中。$/;"	v
+format	tags	/^!_TAG_FILE_FORMAT	2	\/extended format; --format=1 will not append ;" to lines\/$/;"	v
+fprintf	2016-04-03-redis-allocated-memory.md	/^fprintf(stderr, "zmalloc: Out of memory trying to allocate %zu bytes\\n", size);$/;"	p	file:	signature:(stderr, �, size)
+free	2016-03-26-height-cpu.md	/^Mem:   8052496k total,  6046952k used,  2005544k free,   654588k buffers$/;"	v
+free	2016-03-26-height-cpu.md	/^Mem:   8052496k total,  6048928k used,  2003568k free,   654596k buffers$/;"	v
+free	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$/;"	v
+free	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$/;"	v
+free	tags	/^free	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6048928k used,  2003568k free,   654596k buffers$\/;"	v$/;"	v
+free	tags	/^free	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+free	tags	/^total	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+free	tags	/^used	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6046952k used,  2005544k free,   654588k buffers$\/;"	v$/;"	v
+free	tags	/^used	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$\/;"	v$/;"	v
+gdb	2016-03-26-height-cpu.md	/^这个时候, gdb到线上服务, 发现gdb的也是这个信息.  $/;"	v	typeref:union:
+gperftools	2016-02-17-union-cache.md	/^因此按其要求先安装了[libunwind][libunwind-0-99], 再安装gperftools。$/;"	v
+hash	2016-08-21-consistent-hashing.md	/^于是准备改造成一致性hash,提高单机命中率。$/;"	v
+hash	2016-09-02-consistent-hashing-second.md	/^description: 上次记录了一致性hash的原理, 但那样还不能直接直接使用, 所以需要继续研究一下.    $/;"	v
+hashtable	2016-04-18-redis-dict.md	/^description:  map又称为字典表, 实现方式可以是hashtable, 或者hashlink，　甚至是平衡树。  $/;"	v
+https	2016-08-17-http-chunked.md	/^首先看一个知识点, 首先去[RFC](https:\/\/tools.ietf.org\/html\/rfc2616#section-3.6.1)和[维基百科](https:\/\/en.wikipedia.org\/wiki\/Chunked_transfer_encoding)看看.  $/;"	v
+id	2016-02-17-union-cache.md	/^其中的主键id我们称为key，其他信息称为字段field，用户请求某个table下某些id的某些字段，统一数据服务就返回对应的数据。  $/;"	v
+ignorant	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $/;"	v
+ignorant	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+ignorant	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+in	2016-03-02-bash-record.md	/^code> line="one two three"; for word in "$line"; do echo $word; done$/;"	v
+in	tags	/^in	2016-03-02-bash-record.md	\/^code> line="one two three"; for word in "$line"; do echo $word; done$\/;"	v$/;"	v
+intrev16	2016-04-03-redis-endinconv.md	/^uint16_t intrev16(uint16_t v) {$/;"	f	signature:(uint16_t v)
+intrev32	2016-04-03-redis-endinconv.md	/^uint32_t intrev32(uint32_t v) {$/;"	f	signature:(uint32_t v)
+intrev64	2016-04-03-redis-endinconv.md	/^uint64_t intrev64(uint64_t v) {$/;"	f	signature:(uint64_t v)
+irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $/;"	v
+irritation	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+irritation	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+it	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $/;"	v
+it	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+it	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+json	05/2016-05-05-project-03-search-sphinx.md	/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $/;"	v
+json	tags	/^callback	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+json	tags	/^xml	05\/2016-05-05-project-03-search-sphinx.md	\/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $\/;"	v$/;"	v
+less	2016-03-02-bash-record.md	/^| `-le`	| less equal| $/;"	p	file:	signature:($a < $b)
+line	2016-03-02-bash-record.md	/^code> line="one two three"; for word in "$line"; do echo $word; done$/;"	v
+line	2016-03-02-bash-record.md	/^code> line="one two three"; for word in $line; do echo $word; done$/;"	v
+list	2016-01-17-tcp-more.md	/^这里面又涉及两个队列: Ring Buffer, Poll list, socket backlog.  $/;"	v
+map	2016-11-07-stl-allocator.md	/^在看vertor, map, set, string源码时， 总会看到有个`_Alloc`相关的模板参数。  $/;"	v
+max_size	2016-11-07-stl-allocator.md	/^    size_type max_size() const { return size_t(-1) \/ sizeof(_Tp); }$/;"	f	signature:() const
+memrev	2016-04-03-redis-endinconv.md	/^void memrev(void *p, int size) {$/;"	f	signature:(void *p, int size)
+memrev16	2016-04-03-redis-endinconv.md	/^void memrev16(void *p) {$/;"	f	signature:(void *p)
+memrev32	2016-04-03-redis-endinconv.md	/^void memrev32(void *p) {$/;"	f	signature:(void *p)
+memrev64	2016-04-03-redis-endinconv.md	/^void memrev64(void *p) {$/;"	f	signature:(void *p)
+more	2016-04-27-server-find-client.md	/^> 当然, 实际项目中, 请不要使用 more, 而应该多监听一会, 可能有多个程序存在.    $/;"	v
+mtime	05/2016-05-05-project-03-search-sphinx.md	/^例如: `where (mtime = lastmtime　and key > lastKey) or (mtime > lastmtime) order by mtime, key limit 1000`  $/;"	v
+n	2016-08-17-http-chunked.md	/^根据上面的协议, 最后一个分片是`0\\r\\n\\r\\n`, 所以我们可以检查是否有这个字符串来判断是都得到完整的包.  $/;"	v
+new_allocator	2016-11-07-stl-allocator.md	/^    new_allocator()  {}$/;"	f	signature:()
+new_allocator	2016-11-07-stl-allocator.md	/^    new_allocator(const new_allocator&)  {}$/;"	f	signature:(const new_allocator&)
+new_allocator	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> new_allocator(const new_allocator<_Tp1>&)  {}$/;"	f	signature:(const new_allocator<_Tp1>&)
+offset	05/2016-05-05-project-03-search-sphinx.md	/^每次使用`limit offset,num` 固然可以实现功能，　但是这种方法当`offset`很大时性能就不好说了, 也就是这种方法性能是不稳定的。  $/;"	v
+offset	tags	/^offset	05\/2016-05-05-project-03-search-sphinx.md	\/^每次使用`limit offset,num` 固然可以实现功能，　但是这种方法当`offset`很大时性能就不好说了, 也就是这种方法性能是不稳定的。  $\/;"	v$/;"	v
+other	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef allocator<_Tp1> other;};$/;"	t	struct:vector::rebind	file:	access:public
+other	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef new_allocator<_Tp1> other; };$/;"	t	struct:rebind	file:	access:public
+p	2016-09-09-memory-barriers.md	/^CPU 1上的写屏障是为了保证这样的逻辑: 如果p == 1, 那么必定有a == 3 && b == 4.  $/;"	v
+p	2016-09-09-memory-barriers.md	/^但是到了CPU 2, 可能p的值已更新(==1), 而a和b的值未更新, 那么这时数据依赖屏障可以起作用, 确保`x = *q`时a和b的值更新.   $/;"	v
+p	2016-09-09-memory-barriers.md	/^原文中"短路"的意思就是, 由于p没有数据依赖关系, CPU可以早早获得它的值, 而不必考虑更新.   $/;"	v
+pointer	2016-11-07-stl-allocator.md	/^    typedef _Tp* pointer;$/;"	t	class:vector	file:	access:public
+pointer	2016-11-07-stl-allocator.md	/^    typedef _Tp* pointer;$/;"	t	file:
+ptr	2016-04-03-redis-allocated-memory.md	/^*((size_t*)ptr) = size;$/;"	v
+ptr	2016-04-03-redis-allocated-memory.md	/^void *ptr = malloc(size+PREFIX_SIZE);$/;"	v
+read	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^The more you read, the more ideas gets generated in your mind and you should also focus on reading from the competition to know what they are writing so that you can find a way to stand out from the crowd.  $/;"	v
+rebind	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef allocator<_Tp1> other;};$/;"	s	class:vector	file:	access:public
+rebind	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef new_allocator<_Tp1> other; };$/;"	s	file:
+rebind::other	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef new_allocator<_Tp1> other; };$/;"	t	struct:rebind	file:	access:public
+reference	2016-11-07-stl-allocator.md	/^    typedef _Tp& reference;$/;"	t	class:vector	file:	access:public
+reference	2016-11-07-stl-allocator.md	/^    typedef _Tp& reference;$/;"	t	file:
+running	2016-03-26-height-cpu.md	/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$/;"	v
+running	2016-03-26-height-cpu.md	/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$/;"	v
+running	tags	/^running	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+running	tags	/^sleeping	2016-03-26-height-cpu.md	\/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+running	tags	/^stopped	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+sentences	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> A sentence should contain no unnecessary words, a paragraph no unnecessary sentences, for the same reason that a drawing should have no unnecessary lines and a machine no unnecessary parts   $/;"	v
+sentences	tags	/^sentences	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> A sentence should contain no unnecessary words, a paragraph no unnecessary sentences, for the same reason that a drawing should have no unnecessary lines and a machine no unnecessary parts   $\/;"	v$/;"	v
+set	2016-11-07-stl-allocator.md	/^在看vertor, map, set, string源码时， 总会看到有个`_Alloc`相关的模板参数。  $/;"	v
+size	2016-04-03-redis-allocated-memory.md	/^if (!ptr) zmalloc_oom_handler(size);$/;"	v
+size_type	2016-11-07-stl-allocator.md	/^    typedef size_t size_type;$/;"	t	class:vector	file:	access:public
+sk_buff	2016-01-17-tcp-more.md	/^1. NIC（network interface controller）检测到packet到达, 从Kernel Memory(sk_buffs)分配sk_buff数据结构，调用DMA Engine将packet放到sk_buff数据结构里面, Ring Buffer里储存的是指向sk_buff的描述符.   $/;"	v
+sk_buff	tags	/^sk_buff	2016-01-17-tcp-more.md	\/^1. NIC（network interface controller）检测到packet到达, 从Kernel Memory(sk_buffs)分配sk_buff数据结构，调用DMA Engine将packet放到sk_buff数据结构里面, Ring Buffer里储存的是指向sk_buff的描述符.   $\/;"	v$/;"	v
+sleeping	2016-03-26-height-cpu.md	/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$/;"	v
+sleeping	2016-03-26-height-cpu.md	/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$/;"	v
+sleeping	tags	/^running	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+sleeping	tags	/^sleeping	2016-03-26-height-cpu.md	\/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+sleeping	tags	/^stopped	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $/;"	v
+smile	tags	/^irritation	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+smile	tags	/^smile	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> Don’t mind criticism. If it is untrue, disregard it; if unfair, keep from irritation; if it is ignorant, smile; if it is justified it is not criticism, learn from it  $\/;"	v$/;"	v
+ssh	2016-09-21-bg-run.md	/^经常会遇到这样一个问题, ssh登陆远程服务器, 运行一些程序.  后来退出时没跑完的程序也退出了.  $/;"	v
+stEndPos	2016-08-17-http-chunked.md	/^string::size_type stEndPos;$/;"	v
+stPos	2016-08-17-http-chunked.md	/^string::size_type stPos = strHttpRsp.find_first_of('{');$/;"	v
+std	2016-11-07-stl-allocator.md	/^namespace std$/;"	n	file:
+stderr	2016-04-03-redis-allocated-memory.md	/^fflush(stderr);$/;"	v
+stopped	2016-03-26-height-cpu.md	/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$/;"	v
+stopped	2016-03-26-height-cpu.md	/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$/;"	v
+stopped	tags	/^running	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+stopped	tags	/^sleeping	2016-03-26-height-cpu.md	\/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+stopped	tags	/^stopped	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+strRspBody	2016-08-17-http-chunked.md	/^string strHttpRsp = "", strRspBody = "";$/;"	v
+table	2016-09-21-bg-run.md	/^    If the -h option is given, each jobspec is not removed from the table, but is marked so that SIGHUP is not sent to the job if the shell receives a SIGHUP.  $/;"	v
+tmp2	2016-02-23-improve-program-performance.md	/^SomeThing tmp2(tmp);    \/\/直接初始化$/;"	p	file:	signature:(tmp)
+tmp3	2016-02-23-improve-program-performance.md	/^SomeThing tmp3 = tmp;    \/\/复制初始化$/;"	v
+total	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$/;"	v
+total	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$/;"	v
+ubuntu	2016-08-07-virtualhost-net.md	/^我的电脑只安装了ubuntu, 于是只好安装一个虚拟机，然后在虚拟机里面安装windows.  $/;"	v
+update_zmalloc_stat_add	2016-04-03-redis-allocated-memory.md	73;"	d	file:
+update_zmalloc_stat_add	2016-04-03-redis-allocated-memory.md	80;"	d	file:
+update_zmalloc_stat_alloc	2016-04-03-redis-allocated-memory.md	104;"	d	file:
+update_zmalloc_stat_free	2016-04-03-redis-allocated-memory.md	114;"	d	file:
+update_zmalloc_stat_sub	2016-04-03-redis-allocated-memory.md	74;"	d	file:
+update_zmalloc_stat_sub	2016-04-03-redis-allocated-memory.md	86;"	d	file:
+used	2016-03-26-height-cpu.md	/^Mem:   8052496k total,  6046952k used,  2005544k free,   654588k buffers$/;"	v
+used	2016-03-26-height-cpu.md	/^Mem:   8052496k total,  6048928k used,  2003568k free,   654596k buffers$/;"	v
+used	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$/;"	v
+used	2016-03-26-height-cpu.md	/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$/;"	v
+used	tags	/^free	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6048928k used,  2003568k free,   654596k buffers$\/;"	v$/;"	v
+used	tags	/^free	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+used	tags	/^total	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3470952k cached$\/;"	v$/;"	v
+used	tags	/^used	2016-03-26-height-cpu.md	\/^Mem:   8052496k total,  6046952k used,  2005544k free,   654588k buffers$\/;"	v$/;"	v
+used	tags	/^used	2016-03-26-height-cpu.md	\/^Swap:  2104504k total,   164980k used,  1939524k free,  3472796k cached$\/;"	v$/;"	v
+users	2016-03-26-height-cpu.md	/^top - 14:53:46 up 602 days, 23:44,  2 users,  load average: 1.47, 1.43, 1.47$/;"	v
+users	2016-03-26-height-cpu.md	/^top - 14:58:59 up 602 days, 23:49,  2 users,  load average: 1.80, 1.55, 1.49$/;"	v
+users	tags	/^users	2016-03-26-height-cpu.md	\/^top - 14:53:46 up 602 days, 23:44,  2 users,  load average: 1.47, 1.43, 1.47$\/;"	v$/;"	v
+value_type	2016-11-07-stl-allocator.md	/^    typedef _Tp value_type;$/;"	t	class:vector	file:	access:public
+value_type	2016-11-07-stl-allocator.md	/^    typedef _Tp value_type;$/;"	t	file:
+var	2016-03-02-bash-record.md	/^var="spch2008"$/;"	v
+variable	2016-03-02-bash-record.md	/^* `variable=value` 变量赋值，`=`左右两边不能有空格。  $/;"	v
+vector	2016-11-07-stl-allocator.md	/^        class vector: protected _Vector_base<_Tp, _Alloc>;$/;"	c	file:	inherits:_Vector_base,map,basic_string,basic_string,basic_stringstring,c,stl,:,allocator,rebind,allocator:,__allocator_base
+vector::allocator	2016-11-07-stl-allocator.md	/^    allocator() throw () {}$/;"	f	class:vector	access:public	signature:()
+vector::allocator	2016-11-07-stl-allocator.md	/^    allocator(const allocator& __a) throw () : __allocator_base<_Tp>(__a) {}$/;"	f	class:vector	access:public	signature:(const allocator& __a)
+vector::allocator	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> allocator(const allocator<_Tp1>&) throw () {}$/;"	f	class:vector	access:public	signature:(const allocator<_Tp1>&)
+vector::const_pointer	2016-11-07-stl-allocator.md	/^    typedef const _Tp* const_pointer;$/;"	t	class:vector	file:	access:public
+vector::const_reference	2016-11-07-stl-allocator.md	/^    typedef const _Tp& const_reference;$/;"	t	class:vector	file:	access:public
+vector::difference_type	2016-11-07-stl-allocator.md	/^    typedef ptrdiff_t difference_type;$/;"	t	class:vector	file:	access:public
+vector::pointer	2016-11-07-stl-allocator.md	/^    typedef _Tp* pointer;$/;"	t	class:vector	file:	access:public
+vector::rebind	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef allocator<_Tp1> other;};$/;"	s	class:vector	file:	access:public
+vector::rebind::other	2016-11-07-stl-allocator.md	/^    template<typename _Tp1> struct rebind { typedef allocator<_Tp1> other;};$/;"	t	struct:vector::rebind	file:	access:public
+vector::reference	2016-11-07-stl-allocator.md	/^    typedef _Tp& reference;$/;"	t	class:vector	file:	access:public
+vector::size_type	2016-11-07-stl-allocator.md	/^    typedef size_t size_type;$/;"	t	class:vector	file:	access:public
+vector::value_type	2016-11-07-stl-allocator.md	/^    typedef _Tp value_type;$/;"	t	class:vector	file:	access:public
+vector::~allocator	2016-11-07-stl-allocator.md	/^    ~allocator() throw () {}$/;"	f	class:vector	access:public	signature:()
+vpn	2016-08-07-virtualhost-net.md	/^目前虚拟机内的windows已连上vpn, 目的是让虚拟机外的系统使用虚拟机内的网络．  $/;"	v
+well	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> If people cannot write well, they cannot think well, and if they cannot think well, others will do their thinking for them   $/;"	v
+well	tags	/^well	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	\/^> If people cannot write well, they cannot think well, and if they cannot think well, others will do their thinking for them   $\/;"	v$/;"	v
+words	2016-03-17-the-art-of-writing-catchy-articles-11-simple-tips.md	/^> A sentence should contain no unnecessary words, a paragraph no unnecessary sentences, for the same reason that a drawing should have no unnecessary lines and a machine no unnecessary parts   $/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE *A = 5, x = LOAD *D$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE A=3,   STORE B=4,     y=LOAD B->4,   x=LOAD A->3$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   STORE B=4,     y=LOAD B->4$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   y=LOAD B->2,   STORE B=4$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   STORE B=4,     x=LOAD A->3$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   x=LOAD A->3,   STORE B=4$/;"	v
+x	2016-09-09-memory-barriers.md	/^STORE B=4,   STORE A=3,     x=LOAD A->3,   y=LOAD B->4$/;"	v
+x	2016-09-09-memory-barriers.md	/^x == 1, y == 4$/;"	v
+x	2016-09-09-memory-barriers.md	/^x == 3, y == 2$/;"	v
+x	2016-09-09-memory-barriers.md	/^x == 3, y == 4$/;"	v
+x	2016-09-09-memory-barriers.md	/^但是到了CPU 2, 可能p的值已更新(==1), 而a和b的值未更新, 那么这时数据依赖屏障可以起作用, 确保`x = *q`时a和b的值更新.   $/;"	v
+x	2016-09-09-memory-barriers.md	/^因为从代码逻辑上说, p跟任何人都没有依赖关系. 这时必须使用读屏障, 以确保`x = *q`之前, p被更新.  $/;"	v
+xml	05/2016-05-05-project-03-search-sphinx.md	/^对外需要表现为一个标准的jsonp接口, 支持callback, json, xml等标准。  $/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   STORE B=4,     x=LOAD A->3,   y=LOAD B->4$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   STORE B=4,     y=LOAD B->4,   x=LOAD A->3$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   STORE B=4,     y=LOAD B->4$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   x=LOAD A->3,   y=LOAD B->2,   STORE B=4$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   STORE B=4,     x=LOAD A->3$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE A=3,   y=LOAD B->2,   x=LOAD A->3,   STORE B=4$/;"	v
+y	2016-09-09-memory-barriers.md	/^STORE B=4,   STORE A=3,     x=LOAD A->3,   y=LOAD B->4$/;"	v
+y	2016-09-09-memory-barriers.md	/^x == 3, y == 4$/;"	v
+zcalloc	2016-04-03-redis-allocated-memory.md	/^void *zcalloc(size_t size);$/;"	p	file:	signature:(size_t size)
+zfree	2016-04-03-redis-allocated-memory.md	/^void zfree(void *ptr) {$/;"	f	signature:(void *ptr)
+zfree	2016-04-03-redis-allocated-memory.md	/^void zfree(void *ptr);$/;"	p	file:	signature:(void *ptr)
+zlibc_free	2016-04-03-redis-allocated-memory.md	/^void zlibc_free(void *ptr);$/;"	p	file:	signature:(void *ptr)
+zmalloc	2016-04-03-redis-allocated-memory.md	/^void *zmalloc(size_t size);$/;"	p	file:	signature:(size_t size)
+zmalloc	tags	/^zmalloc	2016-04-03-redis-allocated-memory.md	\/^void *zmalloc(size_t size);$\/;"	p	file:	signature:(size_t size)$/;"	p	file:	signature:(size_t size)
+zmalloc_enable_thread_safeness	2016-04-03-redis-allocated-memory.md	/^void zmalloc_enable_thread_safeness(void) {$/;"	f	signature:(void)
+zmalloc_enable_thread_safeness	2016-04-03-redis-allocated-memory.md	/^void zmalloc_enable_thread_safeness(void);$/;"	p	file:	signature:(void)
+zmalloc_enable_thread_safeness	tags	/^zmalloc_enable_thread_safeness	2016-04-03-redis-allocated-memory.md	\/^void zmalloc_enable_thread_safeness(void);$\/;"	p	file:	signature:(void)$/;"	p	file:	signature:(void)
+zmalloc_get_fragmentation_ratio	2016-04-03-redis-allocated-memory.md	/^float zmalloc_get_fragmentation_ratio(size_t rss) {$/;"	f	signature:(size_t rss)
+zmalloc_get_fragmentation_ratio	2016-04-03-redis-allocated-memory.md	/^float zmalloc_get_fragmentation_ratio(size_t rss);$/;"	p	file:	signature:(size_t rss)
+zmalloc_get_fragmentation_ratio	tags	/^zmalloc_get_fragmentation_ratio	2016-04-03-redis-allocated-memory.md	\/^float zmalloc_get_fragmentation_ratio(size_t rss);$\/;"	p	file:	signature:(size_t rss)$/;"	p	file:	signature:(size_t rss)
+zmalloc_get_memory_size	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_memory_size(void) {$/;"	f	signature:(void)
+zmalloc_get_memory_size	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_memory_size(void);$/;"	p	file:	signature:(void)
+zmalloc_get_memory_size	tags	/^zmalloc_get_memory_size	2016-04-03-redis-allocated-memory.md	\/^size_t zmalloc_get_memory_size(void);$\/;"	p	file:	signature:(void)$/;"	p	file:	signature:(void)
+zmalloc_get_private_dirty	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_private_dirty(void) {$/;"	f	signature:(void)
+zmalloc_get_private_dirty	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_private_dirty(void);$/;"	p	file:	signature:(void)
+zmalloc_get_private_dirty	tags	/^zmalloc_get_private_dirty	2016-04-03-redis-allocated-memory.md	\/^size_t zmalloc_get_private_dirty(void);$\/;"	p	file:	signature:(void)$/;"	p	file:	signature:(void)
+zmalloc_get_rss	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_rss(void);$/;"	p	file:	signature:(void)
+zmalloc_get_smap_bytes_by_field	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_smap_bytes_by_field(char *field) {$/;"	f	signature:(char *field)
+zmalloc_get_smap_bytes_by_field	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_get_smap_bytes_by_field(char *field);$/;"	p	file:	signature:(char *field)
+zmalloc_set_oom_handler	2016-04-03-redis-allocated-memory.md	/^void zmalloc_set_oom_handler(void (*oom_handler)(size_t)) {$/;"	f	signature:(void (*oom_handler)(size_t))
+zmalloc_set_oom_handler	2016-04-03-redis-allocated-memory.md	/^void zmalloc_set_oom_handler(void (*oom_handler)(size_t));$/;"	p	file:	signature:(void (*oom_handler)(size_t))
+zmalloc_set_oom_handler	tags	/^zmalloc_set_oom_handler	2016-04-03-redis-allocated-memory.md	\/^void zmalloc_set_oom_handler(void (*oom_handler)(size_t)) {$\/;"	f	signature:(void (*oom_handler)(size_t))$/;"	f	signature:(void (*oom_handler)(size_t))
+zmalloc_size	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_size(void *ptr) {$/;"	f	signature:(void *ptr)
+zmalloc_size	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_size(void *ptr);$/;"	p	file:	signature:(void *ptr)
+zmalloc_size	tags	/^zmalloc_size	2016-04-03-redis-allocated-memory.md	\/^size_t zmalloc_size(void *ptr);$\/;"	p	file:	signature:(void *ptr)$/;"	p	file:	signature:(void *ptr)
+zmalloc_used_memory	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_used_memory(void) {$/;"	f	signature:(void)
+zmalloc_used_memory	2016-04-03-redis-allocated-memory.md	/^size_t zmalloc_used_memory(void);$/;"	p	file:	signature:(void)
+zombie$	tags	/^running	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+zombie$	tags	/^sleeping	2016-03-26-height-cpu.md	\/^Tasks: 250 total,   1 running, 249 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+zombie$	tags	/^stopped	2016-03-26-height-cpu.md	\/^Tasks:  20 total,   1 running,  19 sleeping,   0 stopped,   0 zombie$\/;"	v$/;"	v
+zrealloc	2016-04-03-redis-allocated-memory.md	/^void *zrealloc(void *ptr, size_t size);$/;"	p	file:	signature:(void *ptr, size_t size)
+zrealloc	tags	/^zrealloc	2016-04-03-redis-allocated-memory.md	\/^void *zrealloc(void *ptr, size_t size);$\/;"	p	file:	signature:(void *ptr, size_t size)$/;"	p	file:	signature:(void *ptr, size_t size)
+zstrdup	2016-04-03-redis-allocated-memory.md	/^char *zstrdup(const char *s) {$/;"	f	signature:(const char *s)
+zstrdup	2016-04-03-redis-allocated-memory.md	/^char *zstrdup(const char *s);$/;"	p	file:	signature:(const char *s)
+zstrdup	tags	/^zstrdup	2016-04-03-redis-allocated-memory.md	\/^char *zstrdup(const char *s);$\/;"	p	file:	signature:(const char *s)$/;"	p	file:	signature:(const char *s)
+~80	2016-08-21-consistent-hashing.md	/^> 所以这里的请求命中率很低只有70~80%, 而key的命中率是80~90%, 字段的命中率是90~99.9%.$/;"	v
+~90	2016-08-21-consistent-hashing.md	/^> 所以这里的请求命中率很低只有70~80%, 而key的命中率是80~90%, 字段的命中率是90~99.9%.$/;"	v
+~allocator	2016-11-07-stl-allocator.md	/^    ~allocator() throw () {}$/;"	f	class:vector	access:public	signature:()
+~new_allocator	2016-11-07-stl-allocator.md	/^    ~new_allocator()  {}$/;"	f	signature:()

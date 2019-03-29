@@ -2,9 +2,9 @@
 layout:     post  
 title:      什么是感冒？  
 description: 平常所说的感冒到底是什么？什么原因导致的？简单探索一下。    
-keywords: 程序人生  
-tags: [程序人生]  
-categories: [程序人生]  
+keywords: 生活  
+tags: [生活]  
+categories: [生活]  
 updateData:  00:10 2018/01/15
 published: true  
 ---  

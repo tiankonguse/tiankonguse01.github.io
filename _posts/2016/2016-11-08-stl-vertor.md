@@ -3,7 +3,7 @@ layout: post
 title: stl 源码阅读之容器vertor
 description: 昨天记录了stl的内存相关的实现，今天开始就开始记录容器。先写vertor.   
 updateData:  01:00 2016/11/08
-categories: [stl]
+categories: [技术]
 ---  
 
 

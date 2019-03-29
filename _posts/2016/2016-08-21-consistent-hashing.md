@@ -3,7 +3,7 @@ layout: post
 title: 一致性hash基础知识
 description: 做一个缓存服务，随着数据量增大，命中率越来越低，于是准备增加一致性hash。这里简单记录一下基础知识。  
 updateData:  15:31 2016/8/21
-categories: [cache]
+categories: [技术]
 ---  
 
 
