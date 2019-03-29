@@ -2,9 +2,9 @@
 layout:     post
 title:      周末随便写点东西
 description: 随便扯点东西.
-keywords: 天空的生活
-tags: 天空的生活
-categories: [天空的生活]
+keywords: 生活
+tags: 生活
+categories: [生活]
 updateData:  17:43 2015/9/20
 ---
 
