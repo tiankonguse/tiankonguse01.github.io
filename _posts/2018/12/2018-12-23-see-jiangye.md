@@ -2,9 +2,9 @@
 layout:     post  
 title:  看腾讯视频一个片《将夜》  
 description:  之前说过一个段子，然后认识了这部电视剧。    
-keywords: 生活  
-tags: [生活]    
-categories: [生活]  
+keywords: 电影  
+tags: [电影]    
+categories: [电影]  
 updateData: 2018-12-23 23:10   
 published: true   
 wxurl: https://mp.weixin.qq.com/s/s36euoz6wP7TYBn01TTtxQ  

@@ -2,9 +2,9 @@
 layout:     post  
 title:      看《西虹市首富》
 description: 看了一部搞笑的电影，碎碎念一下。      
-keywords: 生活 
-tags: [生活]  
-categories: [生活]  
+keywords: 电影 
+tags: [电影]  
+categories: [电影]  
 updateData:  23:40 2018/08/08   
 published: true   
 ---  

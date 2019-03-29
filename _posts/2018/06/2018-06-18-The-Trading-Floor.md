@@ -2,9 +2,9 @@
 layout:     post  
 title:      股市电视剧《东方华尔街》  
 description: 看到一部电视剧，透漏一下剧情。  
-keywords: 生活  
-tags: [生活]  
-categories: [生活]  
+keywords: 电影  
+tags: [电影]  
+categories: [电影]  
 updateData:  23:40 2018/06/18   
 published: true   
 ---  

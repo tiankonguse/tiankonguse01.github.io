@@ -2,9 +2,9 @@
 layout:     post  
 title:      这个电影《早餐俱乐部》有384条弹幕  
 description: 每个人都是个怪胎，是的，就是说你。      
-keywords: 生活 
-tags: [生活]  
-categories: [生活]  
+keywords: 电影 
+tags: [电影]  
+categories: [电影]  
 updateData:  23:40 2018/08/23   
 published: true   
 ---  

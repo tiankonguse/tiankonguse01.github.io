@@ -2,9 +2,9 @@
 layout:     post  
 title:  【算法】Leecode 第88场比赛回顾  
 description: 今晚做了 Leecode 上的第88场比赛，简单看一下都是什么题吧。  
-keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+keywords: 算法  
+tags: [算法]    
+categories: [算法]  
 updateData: 2019-02-28 23:24   
 published: true 
 wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw  

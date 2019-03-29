@@ -2,9 +2,9 @@
 layout:     post  
 title:      穷人的遗愿与富人的行动
 description: 看了摩根的一个电影，在临死前去遗愿疯狂，说点什么。  
-keywords: 生活  
-tags: [生活]  
-categories: [生活]  
+keywords: 电影  
+tags: [电影]  
+categories: [电影]  
 updateData:  23:40 2018/06/11   
 published: true   
 ---  

@@ -2,9 +2,9 @@
 layout:     post  
 title:      这个电影音乐竟然如此好听
 description: 看了一个电影，不知道说些什么。        
-keywords: 生活
-tags: [生活]  
-categories: [生活]  
+keywords: 电影
+tags: [电影]  
+categories: [电影]  
 updateData:  23:40 2018/06/07
 published: true  
 ---  

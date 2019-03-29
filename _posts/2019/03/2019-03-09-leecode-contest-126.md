@@ -2,9 +2,9 @@
 layout:     post  
 title:  【算法】Leetcode 第126场比赛回顾  
 description: 做了 Leetcode 上的第126场比赛，简单看一下都是什么题吧。  
-keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+keywords: 算法  
+tags: [算法]    
+categories: [算法]  
 updateData: 2019-03-09 23:24   
 published: true 
 wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ  
