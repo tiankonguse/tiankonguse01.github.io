@@ -2,10 +2,10 @@
 layout: post
 title: node js 学习记录(持续更新中)
 description: 做一个项目的时候，发现有个开源项目可以参考，但是那个用 node js 写的，于是需要了解一下 node js 的基本知识。  
-tags:  nodejs require exports
+tags:  [前端技术]
 keywords: nodejs, require, exports
 updateData:  19:45 2014/12/12
-categories: [后台技术]
+categories: [前端技术]
 ---
 
 

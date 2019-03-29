@@ -1,10 +1,10 @@
 ---  
 layout: post
 title:  timerfd 初级笔记1
-category: [后台技术]
 description: 几个月前我使用timerfd封装了一个定时器，使用了这么久一切正常。今天回顾一下timerfd的基础知识。
-tags: [timerfd, linux, 网络编程]
-keywords: [timerfd, linux, 网络编程]
+tags: [linux]
+keywords: [linux, 网络编程]
+category: [linux]
 updateData:   19:08 2015/4/15
 ---
 

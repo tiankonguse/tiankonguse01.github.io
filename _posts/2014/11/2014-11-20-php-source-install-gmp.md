@@ -2,10 +2,10 @@
 layout:     post
 title:      php 源码安装 GMP
 description: 之前源码安装了php, 后来发现没有 GMP, 于是今天又安装了 GMP.
-tags: php GMP 源码 安装
+tags: [linux]
 keywords: php, GMP, 源码, 安装, 动态, 模块, 扩展, phpize, 下载
 updateData: 13:15 2014/11/20
-categories: [后台技术]
+categories: [linux]
 ---
 
 ## 源码下载

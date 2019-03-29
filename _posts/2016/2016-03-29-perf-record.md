@@ -3,7 +3,7 @@ layout: post
 title: perf 性能分析 
 description:  最近半年在做外网服务, 由于请求量比较大, 且热点不集中, 服务性能需要不断优化来使用较少的机器承载较高的访问量.  
 updateData:  23:11 2016/03/29
-categories: [后台技术]
+categories: [linux]
 ---  
 
 
