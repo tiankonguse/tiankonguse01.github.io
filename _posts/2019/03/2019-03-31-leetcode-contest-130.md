@@ -190,7 +190,7 @@ string baseNeg2(int N) {
 我想了想，认为只需要使用单调队列优化即可达到`n log(n)`。  
 
 
-![](/images/2019/03/leetcode-130-002.pn)  
+![](/images/2019/03/leetcode-130-002.png)  
 
 
 随后我也给出了其严格的证明推理，为什么会更优。  
