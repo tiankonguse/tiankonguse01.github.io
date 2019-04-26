@@ -2,9 +2,9 @@
 layout:     post  
 title:       算法中的木桶短板理论
 description: 一只木桶盛水的多少取决于桶壁上最短的那块。    
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 算法
+tags: [算法]  
+categories: [算法]  
 updateData:  16:29 2017/8/27  
 published: true  
 ---  

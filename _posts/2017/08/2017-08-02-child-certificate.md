@@ -2,9 +2,9 @@
 layout:     post  
 title:      孩子出生后办证的那些事
 description: 农历六月的最后一天，突然被通知孩子需要提前出生，于是我就消失了。  
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 生活  
+tags: [生活]  
+categories: [生活]  
 updateData:  09:55 2017/08/02
 published: true  
 ---  

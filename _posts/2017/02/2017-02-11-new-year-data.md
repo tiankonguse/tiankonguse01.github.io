@@ -4,7 +4,7 @@ title:      今年一月的数据怎么差了呢
 description: 元宵节过完，年也就过完了，回头看看一月的数据，发现好差。    
 keywords: 后台服务
 tags: [后台服务]
-categories: [程序人生]
+categories: [生活]
 updateData:   23:53 2017/2/11
 ---
 

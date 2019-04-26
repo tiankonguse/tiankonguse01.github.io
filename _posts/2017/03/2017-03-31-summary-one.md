@@ -4,7 +4,7 @@ title:      文字总结篇(一)
 description: 日子过得飞快,我想我有必要停下来总结一下自己从小到大写过的文章。  
 keywords: 后台服务
 tags: [后台服务]
-categories: [程序人生]
+categories: [生活]
 updateData:  22:46 2017/3/24
 ---
 

@@ -2,9 +2,9 @@
 layout:     post  
 title:      杂谈（一）
 description: 这次端午节去重庆了，没时间写技术文章了，来一碗鸡汤吧。  
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 生活  
+tags: [生活]  
+categories: [生活]  
 updateData:  23:14 2017/5/25
 published: true  
 ---  

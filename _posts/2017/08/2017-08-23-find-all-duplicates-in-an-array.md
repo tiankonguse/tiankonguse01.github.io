@@ -2,9 +2,9 @@
 layout:     post  
 title:      找到数组中重复的数字   
 description: 这不是一道异或题，但依旧很简单。  
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 算法  
+tags: [算法]  
+categories: [算法]  
 updateData:  23:59 2017/8/20  
 published: true  
 ---  

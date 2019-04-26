@@ -1,7 +1,7 @@
 ---  
 layout: post
 title:  百度蜘蛛被github拒绝了
-category: [程序人生]
+category: [前端技术]
 description: 之前做这个博客主要为了记录生活的点点滴滴, 所以并没有在意SEO什么的, 今天发现百度蜘蛛被github拒绝了
 tags: [github, 程序人生]
 keywords: [github, 程序人生]

@@ -2,9 +2,9 @@
 layout:     post  
 title:       浅谈推荐算法
 description: 之前参加了虚拟项目，核心是推荐算法，这里简单谈谈推荐算法。    
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 算法
+tags: [算法]  
+categories: [算法]  
 updateData:  21:25 2017/9/4
 published: true  
 ---  

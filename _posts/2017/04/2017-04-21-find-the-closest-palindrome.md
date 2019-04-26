@@ -4,7 +4,7 @@ title:      一个数的最近回文数
 description: 偷懒了这道题就是一道字符串贪心题，不偷懒了就是字符串模拟大整数题。         
 keywords: 后台服务  
 tags: [后台服务]  
-categories: [程序人生]  
+categories: [算法]  
 updateData:  19:28 2017/5/1  
 published: true  
 ---  

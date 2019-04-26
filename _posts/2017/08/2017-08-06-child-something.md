@@ -2,9 +2,9 @@
 layout:     post  
 title:      孩子出生后的那些事
 description: 小孩出生到接回家做了一些事情，记录一下。  
-keywords: 后台服务  
-tags: [后台服务]  
-categories: [程序人生]  
+keywords: 生活   
+tags: [生活]  
+categories: [生活]  
 updateData:  22:55 2017/08/06
 published: true  
 ---  

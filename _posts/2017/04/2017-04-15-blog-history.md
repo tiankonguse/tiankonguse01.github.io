@@ -4,7 +4,7 @@ title:      博客历史
 description: 从接触计算机到现在的笔记。     
 keywords: 后台服务  
 tags: [后台服务]  
-categories: [程序人生]  
+categories: [生活]  
 updateData:  23:36 2017/4/15  
 published: true  
 ---  
