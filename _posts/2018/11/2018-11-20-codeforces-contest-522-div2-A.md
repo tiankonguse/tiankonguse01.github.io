@@ -3,8 +3,8 @@ layout:     post
 title:       Codeforces Round 522 Div2 A. Kitchen Utensils 
 description:  英语是硬伤，这道题我看了N遍，依旧没明白。  
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/11/20   
 published: true   
 ---  

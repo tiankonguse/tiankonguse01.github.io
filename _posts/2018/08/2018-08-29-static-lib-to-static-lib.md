@@ -3,8 +3,8 @@ layout:     post
 title:       静态库遇到静态库  
 description: 在C或C++的世界里，一切皆符号。      
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/08/29   
 published: true   
 ---  

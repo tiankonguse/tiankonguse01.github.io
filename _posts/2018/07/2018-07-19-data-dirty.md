@@ -3,8 +3,8 @@ layout:     post
 title:      数据脏了怎么办
 description: 这周遇到了天灾，谁都没错，但是就是遇到了。      
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/07/19   
 published: true   
 ---  

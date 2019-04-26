@@ -3,8 +3,8 @@ layout:     post
 title:  辟谣：疟原虫治愈所有晚期癌症，假的
 description:  看到一个谣言，竟然这么多人详细，有必要揭发一下。  
 keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+tags: [程序人生]    
+categories: [程序人生]  
 updateData: 2019-02-15 21:02 
 published: true 
 wxurl: https://mp.weixin.qq.com/s/UkxIrNcXbfTERMyS2HKe5A  

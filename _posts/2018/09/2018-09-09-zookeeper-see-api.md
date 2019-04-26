@@ -3,8 +3,8 @@ layout:     post
 title:       了解zookeeper与阅读api源码  
 description: 其实zookeeper 能做什么只需要看看他的基本功能就行了，在这个基本功能能干什么，就看我们的想象力有多丰富了。      
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/09/09   
 published: true   
 ---  

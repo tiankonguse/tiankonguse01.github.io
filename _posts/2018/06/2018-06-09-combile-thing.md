@@ -3,8 +3,8 @@ layout:     post
 title:      符号的那些问题  
 description: 遇到一个编译器符号的问题，啰嗦几句。  
 keywords: 技术  
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/06/09   
 published: true   
 ---  

@@ -3,8 +3,8 @@ layout:     post
 title:       清理journal日志  
 description:  journal 是什么，该如何清理？      
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/09/10   
 published: true   
 ---  

@@ -3,8 +3,8 @@ layout:     post
 title: 成长的烦恼，说点建议吧   
 description: 绝壁是最良心的建议。 
 keywords: 技术
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData: 2018-12-13 23:27  
 published: true   
 wxurl: https://mp.weixin.qq.com/s/-yO7xXjaeEDep8D7EsCBCg  

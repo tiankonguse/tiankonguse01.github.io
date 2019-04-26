@@ -3,8 +3,8 @@ layout:     post
 title:      浅读腾讯贡献给Linux基金会的TSeer
 description: 几天前腾讯给Linux基金会贡献的开源项目刷屏了，这里简单看下源码。    
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  23:40 2018/07/06   
 published: true   
 ---  

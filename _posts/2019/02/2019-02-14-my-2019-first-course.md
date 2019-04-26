@@ -3,8 +3,8 @@ layout:     post
 title:  2019年我买的第一个付费知识
 description:  之前说过，2019年我只买三个付费知识产品，这是第一个。  
 keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+tags: [程序人生]    
+categories: [程序人生]  
 updateData: 2019-02-14 21:02 
 published: true 
 wxurl: https://mp.weixin.qq.com/s/dWm_rdSxo3K2sApAzfwWVw  

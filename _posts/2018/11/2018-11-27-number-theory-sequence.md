@@ -3,8 +3,8 @@ layout:     post
 title:     聊聊数论与数列的一个问题
 description: 有人问题一个数论的问题，还和数列有关，挺有意思的，分享给大家。 
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData: 2018-11-27 23:36  
 published: true   
 wxurl: https://mp.weixin.qq.com/s/VyriV9RdVoR9oS-nmvvxNQ  

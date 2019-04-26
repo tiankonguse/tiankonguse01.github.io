@@ -3,8 +3,8 @@ layout:     post
 title: KAFKA 遇到 TCP 之 认识 TCP
 description:  如何保障数据流高速可靠传输，一直都是一个问题。  
 keywords: 技术
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData: 2018-12-15 21:24  
 published: true   
 wxurl: https://mp.weixin.qq.com/s/41vg28lapf-CqB53xc9pkw  

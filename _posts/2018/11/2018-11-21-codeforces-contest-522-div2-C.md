@@ -3,8 +3,8 @@ layout:     post
 title:       Codeforces Round 522 Div2 C. Playing Piano 
 description: 一个简单的动态规划题
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  00:40 2018/11/21   
 published: true   
 ---  

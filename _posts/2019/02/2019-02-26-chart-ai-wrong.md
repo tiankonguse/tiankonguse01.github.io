@@ -3,8 +3,8 @@ layout:     post
 title:  【技术】我的提醒机器人异常了  
 description: 我赶紧去看看，果然有一个BUG在正常运行七周后，在第八周异常了。  
 keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+tags: [程序人生]    
+categories: [程序人生]  
 updateData: 2019-02-26 23:24   
 published: true 
 wxurl: https://mp.weixin.qq.com/s/yozdcgBdDkcbtu0i3eeV6A  

@@ -3,8 +3,8 @@ layout:     post
 title:  【技术】一致性HASH技术的困境  
 description: 三年前我曾介绍过一致性HASH可能会面临的问题，最近再次思考这个问题，记录一下。  
 keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+tags: [程序人生]    
+categories: [程序人生]  
 updateData: 2019-03-27 23:24   
 published: true 
 wxurl: https://mp.weixin.qq.com/s/yyqEwfEgEWYwWoalFLcuSw  

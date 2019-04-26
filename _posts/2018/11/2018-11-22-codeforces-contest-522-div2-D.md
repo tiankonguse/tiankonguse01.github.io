@@ -3,8 +3,8 @@ layout:     post
 title:       Codeforces Round 522 Div2 D. Barcelonian Distance   
 description: 一道简单的几何题。
 keywords: 技术 
-tags: [技术]  
-categories: [技术]  
+tags: [程序人生]  
+categories: [程序人生]  
 updateData:  00:40 2018/11/22   
 published: true   
 ---  

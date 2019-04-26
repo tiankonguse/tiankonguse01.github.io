@@ -3,8 +3,8 @@ layout:     post
 title:  从宫廷剧看如何清洗数据
 description:  继综艺被封杀后，现在命运之剑终于射中了宫廷剧。  
 keywords: 技术  
-tags: [技术]    
-categories: [技术]  
+tags: [程序人生]    
+categories: [程序人生]  
 updateData: 2019-01-31 18:26 
 published: true 
 wxurl: https://mp.weixin.qq.com/s/JUcXaIGVltkMuzplwleIYA  

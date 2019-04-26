@@ -3,7 +3,7 @@ layout: post
 title: http chunked包记录
 description: http协议包比较简单, 最近遇到chunked包的一个问题, 记录一下
 updateData:  21:31 2016/8/17
-categories: [技术]
+categories: [程序人生]
 ---  
 
 
