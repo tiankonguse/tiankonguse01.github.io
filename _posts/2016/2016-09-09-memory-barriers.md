@@ -3,7 +3,7 @@ layout: post
 title: 内存屏障
 description: 看无锁队列kfifo的时候,看到了内存屏障,于是简单了解一下并记录之.    
 updateData:  22:45 2016/9/9
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

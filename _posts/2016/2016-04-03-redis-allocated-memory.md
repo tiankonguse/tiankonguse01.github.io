@@ -3,7 +3,7 @@ layout: post
 title: redis源码阅读之内存管理
 description:  早就想阅读一下redis的源码了， 但是迟迟没有赋予行动， 现在开始记录下阅读笔记。  
 updateData:  20:11 2016/04/03
-categories: [数据库]
+categories: [软件研究]
 ---  
 
 

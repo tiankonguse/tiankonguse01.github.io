@@ -4,7 +4,7 @@ title:      n-m 问题
 description: 告诉你N个数, 其中只有一个数出现m次, 其他的数都出现n次.求出现m次的那个数.
 keywords: 位运算, 异或
 tags: 位运算 异或
-categories: [算法的世界]
+categories: [算法]
 ---
 
 ## 前言

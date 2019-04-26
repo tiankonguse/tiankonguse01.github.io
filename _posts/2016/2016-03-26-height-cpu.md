@@ -3,7 +3,7 @@ layout: post
 title: linux下定位CPU较高的原因  
 description:  一个同事的程序很异常， CPU毛刺很高，于是我帮忙定位一下。  
 updateData:  13:31 2016/03/26
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

@@ -5,7 +5,7 @@ description: 刚学习python，经常会遇到一些小的问题，于是总结�
 keywords: python, 时间格式化, xml, json
 tags: python 时间格式化 xml json
 updateData: 16:19 2014/12/1
-categories: [python]
+categories: [程序人生]
 ---
 
 ![python logo][cover]

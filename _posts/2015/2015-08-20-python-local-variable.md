@@ -5,7 +5,7 @@ description:  之前没遇到过python的局部变量问题, 也就不知道局�
 tags:  python 局部变量
 keywords: python, 局部变量
 updateData:  14:34 2015/8/20
-categories: [python]
+categories: [程序人生]
 ---  
 
 ## 前言

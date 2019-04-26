@@ -3,7 +3,7 @@ layout: post
 title: 删除文件未释放空间
 description: 经常遇到服务器上的日志文件太大导致磁盘满了, 如果直接删除的话, 会发现空间并没有释放, 这里记录一下怎么找到这样的文件.   
 updateData:  21:08 2016/8/12
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

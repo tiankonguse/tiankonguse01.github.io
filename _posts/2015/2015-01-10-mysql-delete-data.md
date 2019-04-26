@@ -5,7 +5,7 @@ description: 我的工作岗位，算是管理数据的吧，于是经常要和�
 tags:  mysql truncate delete  
 keywords: mysql, truncate, delete  
 updateData:  17:32 2015/1/10  
-categories: [数据库]
+categories: [软件研究]
 ---  
 
 

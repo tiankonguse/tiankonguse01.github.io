@@ -3,7 +3,7 @@ layout: post
 title: redis源码阅读之大小端转换
 description:  大小端转换起始很简单，告诉你指定长度，然后翻转即可。  
 updateData:  22:51 2016/04/03
-categories: [数据库]
+categories: [软件研究]
 ---  
 
 

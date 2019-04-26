@@ -5,7 +5,7 @@ description:  之前曾研究过 python 的编码转换， 但是没有怎么详
 tags:  python post
 keywords: python, post
 updateData:  9:24 2015/1/14
-categories: [python]
+categories: [程序人生]
 ---  
 
 ## 前言

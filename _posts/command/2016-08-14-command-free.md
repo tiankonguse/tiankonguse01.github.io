@@ -3,7 +3,7 @@ layout: post
 title: free命令详解
 description: 简单记录一下free命令．  
 updateData:  13:08 2016/8/14
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

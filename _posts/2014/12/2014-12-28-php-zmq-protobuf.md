@@ -2,10 +2,10 @@
 layout: post
 title: PHP 下使用 ZeroMQ 和 protobuf 
 description: 前几天 用 c++ 语言, protobuf 协议, ZeroMQ 网络框架写了一个 server, 后来需要 用 php 语言来给  server 通信,于是简单记录一下。  
-tags:  [linux]
+tags:  [程序人生]
 keywords: shell, ZeroMQ, protobuf
 updateData:  18:02 2014/12/28
-categories: [linux]
+categories: [程序人生]
 ---
 
 

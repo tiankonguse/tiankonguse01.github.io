@@ -4,7 +4,7 @@ title:      简单分析一条mysql语句查询top数据
 description: 前几天发了一道sql问题，很多人发了自己的答案但是错误的，今天来分析一下怎么解决这个问题吧。这个问题没有几个人能够解决这个问题的。  
 keywords: [mysql]
 tags: [mysql]
-categories: [数据库]
+categories: [软件研究]
 updateData:  13:12 2015/4/13
 ---  
 

@@ -3,7 +3,7 @@ layout: post
 title: 静态库与动态库记录  
 description:  几年前曾翻过《链接、装载与库》，现在有人问起静态库动态库的问题，这里就简单记录一下。  
 updateData:  23:11 2016/03/27
-categories: [linux]
+categories: [程序人生]
 ---  
 
 

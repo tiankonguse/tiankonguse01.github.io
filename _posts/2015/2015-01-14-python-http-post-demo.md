@@ -5,7 +5,7 @@ description:  之前曾记录过post请求，但是那个是阅读文档得到�
 tags:  python post
 keywords: python, post
 updateData:  9:24 2015/1/14
-categories: [python]
+categories: [程序人生]
 ---  
 
 ## 前言
