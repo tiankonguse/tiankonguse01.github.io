@@ -4,7 +4,7 @@ title:      cygwin ssh与乱码
 description: 使用 cygwin 可以再windowws下模拟 linux,但是cygwin会中文乱码，还有ssh有问题，于是找了一下解决方法。
 keywords: cygwin, ssh, 乱码, windows
 tags: cygwin ssh 乱码 windows
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ## cygwin ssh

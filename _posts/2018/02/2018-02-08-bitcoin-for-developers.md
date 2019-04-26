@@ -4,7 +4,7 @@ title:      比特币-开发者可以做什么
 description: 比特币可以用于达成惊人成就，也可以用于满足日常所需。  
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/08
 published: true  
 ---  

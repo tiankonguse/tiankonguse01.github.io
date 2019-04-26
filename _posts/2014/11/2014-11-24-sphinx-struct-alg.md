@@ -5,7 +5,7 @@ description: 由于工作需要，使用了sphinx这个软件，但是这个软�
 tags: sphinx 搜索引擎 全文检索 开源 源代码
 keywords: sphinx, 搜索引擎, 全文检索, 开源, 源代码, 快速排序, 二分查找
 updateData: 21:05 2014/11/28
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 

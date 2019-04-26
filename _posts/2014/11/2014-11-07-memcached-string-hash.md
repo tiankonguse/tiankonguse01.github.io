@@ -5,7 +5,7 @@ description: 阅读 memcached 源码的时候，发现 memcached 有两个字符
 keywords: memcached, 源码阅读, hash, 字符串
 tags: memcached 源码阅读 hash 字符串
 updateData: 17:54 2014/11/9
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ![cover][]

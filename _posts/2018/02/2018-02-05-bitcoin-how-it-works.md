@@ -4,7 +4,7 @@ title:      比特币-小白级工作原理
 description: 如果你打算进入比特币领域，需要了解简单了解一下工作原理。    
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/05
 published: true  
 ---  

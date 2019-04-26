@@ -3,7 +3,7 @@ layout: post
 title: redis源码阅读之双向列表
 description:  双向列表是一个很基础的数据结构， redis按STL的思想造了一个轮子。  
 updateData:  00:57 2016/04/04
-categories: [软件研究]
+categories: [程序人生]
 ---  
 
 

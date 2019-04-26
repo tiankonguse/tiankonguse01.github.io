@@ -4,7 +4,7 @@ title:      比特币-常用术语解释
 description: 如果你打算进入比特币领域，需要了解一下常用术语。    
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/04
 published: true  
 ---  

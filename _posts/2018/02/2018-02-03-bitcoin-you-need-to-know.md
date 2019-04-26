@@ -4,7 +4,7 @@ title:      比特币-你必须知道事情
 description: 如果你打算进入比特币领域，有几点必须了解一下。    
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/03
 published: true  
 ---  

@@ -4,7 +4,7 @@ title:      比特币-合法问题
 description: 比特币最常的合法问题。  
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/13
 published: true  
 ---  

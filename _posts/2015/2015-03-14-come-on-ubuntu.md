@@ -5,7 +5,7 @@ description: 新电脑买之前，我有半年的时间没有电脑，买了电�
 tag: ubuntu
 keywords: ubuntu
 updateData:  2015-03-14 18:58:13 
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 

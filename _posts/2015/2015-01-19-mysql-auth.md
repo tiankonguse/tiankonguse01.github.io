@@ -5,7 +5,7 @@ description:  周一刚来到公司，收到一个消息，我的一个sphinx搜
 tags:  mysql
 keywords: mysql
 updateData:  23:22 2015/1/19
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 

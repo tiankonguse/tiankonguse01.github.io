@@ -5,7 +5,7 @@ description: 之前看了sphinx的源码之后，心中大概有了json实现的
 tags:  cjson 源码 解析 序列化 自动机
 keywords: cjson, 源码, 解析, 序列化, 自动机
 updateData:  16:25 2014/12/18
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 

@@ -5,7 +5,7 @@ description:  一个下午，突然收到编辑反馈，sphinx搜索不到数据
 tags:  apache php
 keywords: apache,php  
 updateData:  21:23 2015/1/31 
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 

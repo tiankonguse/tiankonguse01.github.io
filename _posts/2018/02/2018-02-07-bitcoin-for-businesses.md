@@ -4,7 +4,7 @@ title:      比特币-商家可以做什么
 description: 比特币支付既安全又廉价。  
 keywords: 区块链  
 tags: [比特币]  
-categories: [区块链]  
+categories: [理财]  
 updateData:  22:40 2018/02/07
 published: true  
 ---  

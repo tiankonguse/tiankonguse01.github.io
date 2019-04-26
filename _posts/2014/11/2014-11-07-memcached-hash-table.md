@@ -4,7 +4,7 @@ title:      memcached 源码阅读之 hash table
 description: 之前写了两篇 memcached 源码阅读记录，没什么价值，现在来记录一个有价值的源码阅读。
 keywords: memcached, 源码阅读, hash table
 tags: memcached 源码阅读 hash_table
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ![cover][]

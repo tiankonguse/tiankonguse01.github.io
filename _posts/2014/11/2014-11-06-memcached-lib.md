@@ -4,7 +4,7 @@ title:      memcached 源码阅读之库函数介绍
 description: 很早就听说过 memcached 了，但是一直没时间来研究一下，现在研究一下。
 keywords: memcached, 源码阅读, 库函数
 tags: memcached 源码阅读 库函数
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ## 前言

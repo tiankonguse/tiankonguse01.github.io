@@ -1,7 +1,7 @@
 ---  
 layout: post
 title:  leetcode Two Sum 解题报告
-category: [算法的世界]
+category: [算法]
 description: 最近在空闲的时候，会敲几道算法题，现在把Two Sum的思路简单的记录下来。    
 tags: [leetcode, algorithms, 解题报告]
 keywords: [leetcode, algorithms, 解题报告]

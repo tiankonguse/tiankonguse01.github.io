@@ -5,7 +5,7 @@ description: 电脑上的东西必须需要备份的，在ubuntu下，还是drop
 tag: ubuntu
 keywords: ubuntu
 updateData:  2015-03-15 00:55:22 
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ## 背景

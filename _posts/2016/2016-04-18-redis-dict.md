@@ -3,7 +3,7 @@ layout: post
 title: redis源码阅读之map
 description:  map又称为字典表, 实现方式可以是hashtable, 或者hashlink，　甚至是平衡树。  
 updateData:  22:57 2016/04/18
-categories: [软件研究]
+categories: [程序人生]
 published: true
 ---  
 

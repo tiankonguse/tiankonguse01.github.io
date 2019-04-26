@@ -5,7 +5,7 @@ description: sphinx 代码量之所以多，现在看来是因为自己造了很
 tags: sphinx  搜索引擎 全文检索 开源 源代码 json 分析器 配置文件 
 keywords: sphinx, 搜索引擎, 全文检索, 开源, 源代码, 快速排序, 二分查找, json, 分析器, 配置文件 
 updateData: 20:42 2014/11/28
-categories: [软件研究]
+categories: [程序人生]
 ---
 
 ![json-cover][]

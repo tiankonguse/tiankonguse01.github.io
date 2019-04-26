@@ -5,7 +5,7 @@ description: 之前搭建了采用定时增量更新索引的方式搭建了一�
 tag: sphinx
 keywords: sphinx
 updateData:  20:32 2015/3/20
-categories: [软件研究]
+categories: [程序人生]
 ---  
 
 
