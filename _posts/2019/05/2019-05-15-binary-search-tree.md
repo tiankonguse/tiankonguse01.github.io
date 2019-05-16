@@ -32,7 +32,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 2. 每个节点中的值必须小于或等于存储在其右子树中的任何值。  
 
 
-[](/images/2019/05/15/001.png)  
+![](/images/2019/05/15/001.png)  
 
 
 二叉搜索树的概念了解了，就需要做一些练习题加深对这个概念的理解。  
@@ -53,7 +53,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 这样，下一个最小值就可以轻松实现了。  
 
 
-[](/images/2019/05/15/002.png)  
+![](/images/2019/05/15/002.png)  
 
 
 ## 三、搜索  
@@ -71,7 +71,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 3. 如果目标值大于节点的值，则继续在右子树中搜索。  
 
 
-[](/images/2019/05/15/003.png)  
+![](/images/2019/05/15/003.png)  
 
 
 ## 四、插入  
@@ -98,7 +98,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 这样，我们就可以添加一个新的节点并依旧维持二叉搜索树的性质。
 
 
-[](/images/2019/05/15/004.png)    
+![](/images/2019/05/15/004.png)    
 
 
 ## 五、删除  
