@@ -1,62 +1,62 @@
 
 
 - title: 动态主页
-  url: /project/dynamic-index/
+  url: http://res.tiankonguse.com//project/dynamic-index/
   description : 一个简单的动态主页
 
 
 
 - title: javascript MVC模式框架
-  url: /project/js-mvc-base/
+  url: http://res.tiankonguse.com//project/js-mvc-base/
   description : 一个简单的javascript语言的MVC框架空壳.
 
 - title: 技能关系图
-  url: /project/skill/
+  url: http://res.tiankonguse.com//project/skill/
   description : tiankonguse的技能关系图
 
 - title: 经典游戏之俄罗斯方块
-  url: /project/tetris/
+  url: http://res.tiankonguse.com/project/tetris/
   description : 求维护者
   
   
 - title: 时间戳转换工具
-  url: /project/unixtime/
+  url: http://res.tiankonguse.com/project/unixtime/
   description : 简单的时间转换工具
   
 - title: 纯CSS实现月食
-  url: /project/moondog/
+  url: http://res.tiankonguse.com/project/moondog/
   description : 一个CSS样式
   
 - title: CSS3动画库
-  url: /project/animate/
+  url: http://res.tiankonguse.com/project/animate/
   description : 一个很炫的CSS动画库
   
 - title: 在线代码格式化
-  url: /project/format/
+  url: http://res.tiankonguse.com/project/format/
   description : 自动格式化各种代码
   
   
 - title: IEEE-754 浮点数二进制储存表示
-  url: /project/IEEE/754.html
+  url: http://res.tiankonguse.com/project/IEEE/754.html
   description : 浮点数二进制储存转换
   
   
 - title: 在线配置PS1样式 
-  url: /project/bashrcgenerator/
+  url: http://res.tiankonguse.com/project/bashrcgenerator/
   description : 可以在这里配置linux命令行样式  
   
 - title: love tree 
-  url: /project/lovetree/
+  url: http://res.tiankonguse.com/project/lovetree/
   description : love tree
   
   
 - title: hack's marriage
-  url: /project/marry/
+  url: http://res.tiankonguse.com/project/marry/
   description : hack's marriage
   
   
 - title: slideshow
-  url: /project/slideshow/
+  url: http://res.tiankonguse.com/project/slideshow/
   description : slideshow
   
   

@@ -1,16 +1,16 @@
 
 - title: jQuery 在线速查表文档
-  url: /doc/jquery/
+  url: http://res.tiankonguse.com/doc/jquery/
   description : 一个持续维护的 jQuery 文档速查表
   
   
 - title: css 在线速查表文档
-  url: /doc/css/
+  url: http://res.tiankonguse.com/doc/css/
   description : 简单的时间转换工具
   
 
 - title: sphinx 在线文档
-  url: /doc/sphinx/
+  url: http://res.tiankonguse.com/doc/sphinx/
   description : 保留各个版本的文档
   
 - title: Highcharts API文档
@@ -18,19 +18,19 @@
   description : 保留各个版本的文档
   
 - title: Redis 命令参考 
-  url: http://github.tiankonguse.com/doc/redis/
+  url: http://res.tiankonguse.com/doc/redis/
   description : 
 
 - title: jsonlint
-  url: http://github.tiankonguse.com/project/jsonlint/
+  url: http://res.tiankonguse.com/project/jsonlint/
   description : 检查json是否符合规范, 以及格式化json
   
 - title: 眼睛的挑战极限
-  url: http://github.tiankonguse.com/project/yanse/
+  url: http://res.tiankonguse.com/project/yanse/
   description : 一个挑战快速区分颜色的游戏
   
 - title: 生命计算器
-  url: http://github.tiankonguse.com/project/lift/
+  url: http://res.tiankonguse.com/project/lift/
   description : 一个计算各种事件的页面
   
 - title: Bash 手册 
