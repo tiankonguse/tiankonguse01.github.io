@@ -51,8 +51,8 @@ published: true
 那时候还没有印象笔记这个名字，那时候我的网络ID还是tiankongever，那时候我还自称神。  
 
 
-![](/images/2017/12/20171226004047.png)
-![](/images/2017/12/20171226012328.png)  
+![](http://res.tiankonguse.com/images/2017/12/20171226004047.png)
+![](http://res.tiankonguse.com/images/2017/12/20171226012328.png)  
 
 
 
@@ -60,22 +60,22 @@ published: true
 由于印象笔记不和evernote兼容，我使用QQ邮箱注册了新用户。 
 
 
-![](/images/2017/12/20171226012811.png)  
+![](http://res.tiankonguse.com/images/2017/12/20171226012811.png)  
 
 
 由于当时印象笔记体验是如此糟糕，我同期还使用了另一个笔记软件为知。  
 为什么用为知？因为可以把我在博客园写的所有东西全部下载下来。  
 
-![](/images/2017/12/20171226013249.png)  
-![](/images/2017/12/20171226013902.png)
+![](http://res.tiankonguse.com/images/2017/12/20171226013249.png)  
+![](http://res.tiankonguse.com/images/2017/12/20171226013902.png)
 
 就这样evernote和为知使用了一年多，在2013年8月份，我使用tiankonguse邮箱重新注册了一个evernote账号，然后发生了什么事情不记得了，影响是两年的笔记都没了。为知的备份没了，evernote的也没了。  
 记得当时应该还有另外两个备份，一个在百度网盘里面，一个在移动硬盘里面，但是懒得去找了。当时这里只是应该，具体有没有我也不知道了。  
 所有，我的所有笔记都只能查到2013年8月份，之前的都成为一种记忆。  
 
 
-![](/images/2017/12/20171226013415.png)  
-![](/images/2017/12/20171226014216.png)
+![](http://res.tiankonguse.com/images/2017/12/20171226013415.png)  
+![](http://res.tiankonguse.com/images/2017/12/20171226014216.png)
 
 
 也许从那之后，我就再也不相信这些笔记软件了，不再使用笔记软件了。  

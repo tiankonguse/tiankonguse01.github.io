@@ -20,12 +20,12 @@ wxurl: https://mp.weixin.qq.com/s/ox35tPVDO6riHzhmn6lWow
 毕竟之前别人通过微信给我各种转账，我需要优先使用微信把这些钱消费点，以免体现收手续费。  
 不过我这一个月仅仅消费不超过几百块钱的人，到现在也没花完。  
 
-![](/images/2018/12/20181201233800.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181201233800.png)  
 
 
 今天在一个校友群里看到有人发了一个王思聪的红包，没有管。  
 
-![](/images/2018/12/20181201233939.jpg)
+![](http://res.tiankonguse.com/images/2018/12/20181201233939.jpg)
 
 过了一秒我又收到一个支付宝的红包短信，于是新生好奇，在朋友圈做了一个实验，发现有必要写篇文章科普一下这个事情。  
 
@@ -140,7 +140,7 @@ wxurl: https://mp.weixin.qq.com/s/ox35tPVDO6riHzhmn6lWow
 
 ## 最后
 
-![](/images/2018/12/20181202004942.png)
+![](http://res.tiankonguse.com/images/2018/12/20181202004942.png)
 
 
 在开头，我提到在朋友圈发了一个王思聪发支付宝的消息，是一个测试。  

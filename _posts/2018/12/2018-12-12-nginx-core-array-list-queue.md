@@ -27,14 +27,14 @@ wxurl: https://mp.weixin.qq.com/s/e_eA8cbfG_681EU06v0jhA
 
 Nginx 中 Array 只对外提供了四个函数：创建数组、回收数组、申请一个元素、申请n个元素。  
 
-![](/images/2018/12/20181212172517.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181212172517.png)  
 
 
 创建数组函数用于申请一个数组头和长度为`n`大小为`size`的连续节点。  
 回收数组函数用于回收内存。  
 
 
-![](/images/2018/12/20181212185149.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181212185149.png)  
 
 
 申请一个元素会先判断是否还有剩余空间，就返回最后一个空闲的节点。  
@@ -87,7 +87,7 @@ Nginx 的 List 保持了传统的魔幻风格，只有两个函数：`create`函
 下面我们来看看相关实现吧，很简单。  
 
 
-![](/images/2018/12/20181212192118.png)
+![](http://res.tiankonguse.com/images/2018/12/20181212192118.png)
 
 
 链表查找中值，使用了另一道经典链表面试题的思想。  
@@ -106,7 +106,7 @@ Nginx 的 List 保持了传统的魔幻风格，只有两个函数：`create`函
 
 链表排序那就很朴素了，使用冒泡排序即可。  
 
-![](/images/2018/12/20181212192950.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181212192950.png)  
 
 
 ## 五、最后

@@ -22,7 +22,7 @@ published: true
 先分享一下这本书的思维导图吧。  
 
 
-![](/images/2018/09/dou-money-all-bran-02.png)  
+![](http://res.tiankonguse.com/images/2018/09/dou-money-all-bran-02.png)  
 
 
 ## 二、正确的观念
@@ -181,7 +181,7 @@ published: true
 
 
 
-![](/images/tiankonguse-support.png)   
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)   
 
 
 今天长按识别上面的二维码，在公众号中回复“**ACM模板**”，你将免费获得我大学耗时四年整理的《ACM算法模板》。  

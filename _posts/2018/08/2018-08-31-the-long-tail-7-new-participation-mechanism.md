@@ -32,7 +32,7 @@ published: true
 ￼
 
 
-![](/images/2018/08/e54f693fc408568150b58a23d77f9859.jpg)   
+![](http://res.tiankonguse.com/images/2018/08/e54f693fc408568150b58a23d77f9859.jpg)   
 
 
 如图所示，过去的单一行业结构（专业者负责生产，业余者只管消费）现在已经变成了双向市场，任何人可以在任何时候进入任何阵营。生产和流通工具的普及能孕育出深远的变化，对这些变化来说，本图只是一个小提示而已。  
@@ -63,7 +63,7 @@ published: true
 
 
 
-![](/images/tiankonguse-support.png) 
+![](http://res.tiankonguse.com/images/tiankonguse-support.png) 
 
 
 

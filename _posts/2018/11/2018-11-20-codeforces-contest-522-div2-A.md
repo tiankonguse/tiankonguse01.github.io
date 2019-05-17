@@ -16,7 +16,7 @@ published: true
 
 地址： http://codeforces.com/contest/1079/problem/A  
 
-![](/images/2018/11/cf-422-div2-pro-a.png)    
+![](http://res.tiankonguse.com/images/2018/11/cf-422-div2-pro-a.png)    
 
 英语是硬伤，这道题我看了N遍，依旧没明白。  
 最后反复看样例与样例说明，终于看懂了。  
@@ -33,7 +33,7 @@ published: true
 计算出餐具总是： `allB = loopNum * k  * b`  
 被偷走的餐具：  `allB - left`  
 
-![](/images/2018/11/cf-422-div2-a.png) 
+![](http://res.tiankonguse.com/images/2018/11/cf-422-div2-a.png) 
 
 
 

@@ -65,8 +65,8 @@ published: true
 
 比特币价格，图1：2013 - 2015， 图2：2017-2018
 
-![](/images/2018/02/price_chart_old.png)  
-![](/images/2018/02/price_chart_new.png)  
+![](http://res.tiankonguse.com/images/2018/02/price_chart_old.png)  
+![](http://res.tiankonguse.com/images/2018/02/price_chart_new.png)  
 
 
 ## 一、比特币会变得不值钱吗？  

@@ -59,7 +59,7 @@ published: true
 先来看看首次出现的位置的代码吧。  
 
 
-![](/images/2018/09/binary-search-min-eq.png)  
+![](http://res.tiankonguse.com/images/2018/09/binary-search-min-eq.png)  
 
 
 我们可以定义left和right是全闭合的区间，这样就可以精确的控制left和right的位置了。  
@@ -83,7 +83,7 @@ published: true
 由于太简单了，是不是都没啥说的了。  
 
 
-![](/images/2018/09/binary-search-min-e-g.png) 
+![](http://res.tiankonguse.com/images/2018/09/binary-search-min-e-g.png) 
 
 
 ## 五、查找首个大于指定数字的位置
@@ -92,7 +92,7 @@ published: true
 再给你们出个问题吧，这个代码与查找首个大于等于的代码有什么区别呢（思考题3）？  
 
 
-![](/images/2018/09/binary-search-min-gt.png)   
+![](http://res.tiankonguse.com/images/2018/09/binary-search-min-gt.png)   
 
 
 ## 六、最后一个小于指定数字的位置
@@ -106,7 +106,7 @@ published: true
 这里再出一道思考题，如果这里使用闭区间会有什么问题，该如何解决呢（思考题5）？  
 
 
-![](/images/2018/09/binary-search-max-lt.png)   
+![](http://res.tiankonguse.com/images/2018/09/binary-search-max-lt.png)   
 
 
 ## 七、其他查找情况  
@@ -125,7 +125,7 @@ published: true
 回头再看看上面的几个代码，可以发现除了查找等于的有点特殊，其他的都类似，模板如下：   
 
 
-![](/images/2018/09/binary-search-min-tmp.png)    
+![](http://res.tiankonguse.com/images/2018/09/binary-search-min-tmp.png)    
 
 
 总结一下就是这样：  
@@ -174,7 +174,7 @@ published: true
 
 
 
-![](/images/tiankonguse-support.png)   
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)   
 
 
 今天长按识别上面的二维码，在公众号中回复“**ACM模板**”，你将免费获得我大学耗时四年整理的《ACM算法模板》。  

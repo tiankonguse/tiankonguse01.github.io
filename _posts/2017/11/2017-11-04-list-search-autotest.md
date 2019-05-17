@@ -294,11 +294,11 @@ sphinx另一个缺点是自身的问题，它仅仅是个工具，原理是一�
 比较好玩的算法放在[小密圈](https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=281548515451&secret=r0krqw9fw0at24vxjxo1uo4k0h4lfe47&extra=d67ce0c25ec91252b3af846a10154c9e9d4cb50c763fee178acd68cd2c2e09ee)发布。  
 欢迎大家加入看各种算法的思路。  
 
-![](/images/tiankonguse-algorithms.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-algorithms.png)  
   
   
 长按图片关注公众号，阅读不一样的技术文章。   
   
-![](/images/tiankonguse-code.gif)  
+![](http://res.tiankonguse.com/images/tiankonguse-code.gif)  
   
   

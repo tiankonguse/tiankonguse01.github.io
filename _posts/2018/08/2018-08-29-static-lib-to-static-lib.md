@@ -30,13 +30,13 @@ A程序 server只依赖add库。
 B程序 client依赖mul库。  
 
 
-![](/images/2018/08/20180829012817.png) 
+![](http://res.tiankonguse.com/images/2018/08/20180829012817.png) 
 
 
 这里先问第一个问题：如下图，对于mul库，依赖的add库的头文件放在源码c文件里client程序可以编译通过运行吗？  
 
 
-![](/images/2018/08/20180829013425.png) 
+![](http://res.tiankonguse.com/images/2018/08/20180829013425.png) 
 
 
 
@@ -67,7 +67,7 @@ B程序 client依赖mul库。
 <red>**对于函数，一般使用define重定义，而对于类型，则使用typedef重定义。**</red>    
 
 
-![](/images/2018/08/20180829015859.png) 
+![](http://res.tiankonguse.com/images/2018/08/20180829015859.png) 
 
 
 但是可以发现，如果有静态库对add库进行了进一步封装，则那些依赖add库的静态库就会有问题。  
@@ -84,7 +84,7 @@ B程序 client依赖mul库。
 如果对于c++程序，经常会有一堆默认参数，随着业务的发展还经常会加默认参数。  
 
 
-![](/images/2018/08/20180829020849.png)   
+![](http://res.tiankonguse.com/images/2018/08/20180829020849.png)   
 
 
 这时候，如果有业务依赖这个公共库，增加了默认参数后，client程序还能正常编译或运行吗？  
@@ -131,7 +131,7 @@ B程序 client依赖mul库。
 
 
 
-![](/images/tiankonguse-support.png) 
+![](http://res.tiankonguse.com/images/tiankonguse-support.png) 
 
 
 

@@ -10,7 +10,7 @@ published: true
 ---  
 
 
-![](/images/2018/06/p708613284.webp)
+![](http://res.tiankonguse.com/images/2018/06/p708613284.webp)
 
 
 
@@ -24,7 +24,7 @@ published: true
 摩根大哥长这样，想必大家都是通过《肖申克的救赎》认识这位大哥的吧。  
 说名字可能不认识，但是看图片应该就知道谁了。  
 
-![](/images/2018/06/20180611234649.png)
+![](http://res.tiankonguse.com/images/2018/06/20180611234649.png)
 
 
 # 二、人人平等  

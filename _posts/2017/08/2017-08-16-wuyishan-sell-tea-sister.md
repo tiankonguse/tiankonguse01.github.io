@@ -121,11 +121,11 @@ PS: 西部世界腾讯视频有哦，不过大部分应该看不下去吧，你�
 比较好玩的算法放在[小密圈](https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=281548515451&secret=r0krqw9fw0at24vxjxo1uo4k0h4lfe47&extra=d67ce0c25ec91252b3af846a10154c9e9d4cb50c763fee178acd68cd2c2e09ee)发布。  
 欢迎大家加入看各种算法的思路。  
 
-![](/images/suanfa_xiaomiquan.jpg)  
+![](http://res.tiankonguse.com/images/suanfa_xiaomiquan.jpg)  
   
   
 长按图片关注公众号，阅读不一样的技术文章。   
   
-![](/images/weixin-50cm.jpg)  
+![](http://res.tiankonguse.com/images/weixin-50cm.jpg)  
   
   

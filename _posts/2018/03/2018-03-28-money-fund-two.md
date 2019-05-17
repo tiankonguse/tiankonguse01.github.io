@@ -74,7 +74,7 @@ published: true
 
 
 
-![](/images/2018/03/20180328030311.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180328030311.png)  
 
 
 根据上面的对比，我们也可以得到场内和场外的优缺点。  
@@ -118,7 +118,7 @@ published: true
 这里还是使用表格看一下区别吧  
 
 
-![](/images/2018/03/20180328030458.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180328030458.png)  
 
 
 所以看完后，我们发现封闭基金和开放式基金对于我们普通用户来说，区别和场内场外差不多。  
@@ -168,7 +168,7 @@ published: true
 所以场外基金赎回的时间可以理解为很长很长，赎回时间简直变态。  
 
 
-![](/images/2018/03/20180328030605.png) 
+![](http://res.tiankonguse.com/images/2018/03/20180328030605.png) 
 
 **7.估值低的指数基金有哪些**  
 
@@ -176,7 +176,7 @@ published: true
 下面四个指数基金是目前低估的基金，仅供参考。 
 
 
-![](/images/2018/03/20180328030642.jpg) 
+![](http://res.tiankonguse.com/images/2018/03/20180328030642.jpg) 
 
 
 
@@ -195,6 +195,6 @@ published: true
 大家如果有什么建议或问题可以在底部留言区留言。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

@@ -16,7 +16,7 @@ wxurl: https://mp.weixin.qq.com/s/s36euoz6wP7TYBn01TTtxQ
 大概在11月19日的时候，我在朋友圈发了一个心情：《冰与火之歌》：凛冬将至；《将夜》：永夜将至。  
 
 
-![](/images/2018/12/20181223013657.jpg)  
+![](http://res.tiankonguse.com/images/2018/12/20181223013657.jpg)  
 
 
 随后在评论中补充了《将夜》电视剧里的段子。  
@@ -51,7 +51,7 @@ wxurl: https://mp.weixin.qq.com/s/s36euoz6wP7TYBn01TTtxQ
 毕竟人外有人，天外有天嘛。  
 
 
-![](/images/2018/12/20181223020022.jpg)  
+![](http://res.tiankonguse.com/images/2018/12/20181223020022.jpg)  
 
 
 初境能够感知天地元气。  
@@ -85,7 +85,7 @@ wxurl: https://mp.weixin.qq.com/s/s36euoz6wP7TYBn01TTtxQ
 
 
 
-![](/images/2018/12/20181223020539.jpg)  
+![](http://res.tiankonguse.com/images/2018/12/20181223020539.jpg)  
 
 
 根据疆土，可以看出来，从极北荒原到大和国经过大唐帝国的。  
@@ -110,7 +110,7 @@ wxurl: https://mp.weixin.qq.com/s/s36euoz6wP7TYBn01TTtxQ
 极北荒原的伊斯兰教又称魔宗，不可知之地是山门。  
 
 
-![](/images/2018/12/20181223021433.jpg)  
+![](http://res.tiankonguse.com/images/2018/12/20181223021433.jpg)  
 
 
 不可知之地二层楼，剧情比较多，大家必定很熟悉。  

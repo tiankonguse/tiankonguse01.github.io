@@ -97,7 +97,7 @@ published: true
 
 下面是星球的免费体验卡。  
 
-![](/images/2018/08/20180819190113.jpg) 
+![](http://res.tiankonguse.com/images/2018/08/20180819190113.jpg) 
 
 ---
 
@@ -113,7 +113,7 @@ published: true
 
 
 
-![](/images/tiankonguse-support.png) 
+![](http://res.tiankonguse.com/images/tiankonguse-support.png) 
 
 
 

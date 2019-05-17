@@ -147,7 +147,7 @@ H股就是香港的股票。特点：内地注册公司、香港上市、港币�
 另外我会不定期的把实践结果分享给大家，算是记录一下自己的成长吧。  
 
 
-![](/images/2018/03/20180311223040.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180311223040.png)  
 
 
 
@@ -159,6 +159,6 @@ H股就是香港的股票。特点：内地注册公司、香港上市、港币�
 大家如果有什么建议或问题可以在底部留言区留言。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

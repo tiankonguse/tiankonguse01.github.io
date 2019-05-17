@@ -20,12 +20,12 @@ published: true
 
 大概在17年5月份的时候，我看了一本书，叫做《生命最后的读书会》，其中作者的妈妈说了一句话：为什么我老是做这种事，把一个人推荐给另一个人，自以为能帮上忙，但有时还不如不做。看到这句话我深有感触。    
 
-![](/images/2018/03/20180301003425.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180301003425.png)  
 
 
 而在18年初，《无问西东》上映的时候，中心年底组织看了这部电影。周围的很多人都认为这部电影很好，但是呢，我却感觉这部电影不怎么样，我不喜欢这样类型的电影。  
 
-![](/images/2018/03/20180301002726.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180301002726.png)  
 
 面对这个反差，我想去找到原因。  
  
@@ -74,6 +74,6 @@ published: true
 我建了一个群，里面偶尔会赠送腾讯视频的VIP电影，公众号回复“电影”可以获得入群信息。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

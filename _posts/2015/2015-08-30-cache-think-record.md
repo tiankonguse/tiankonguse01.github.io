@@ -15,7 +15,7 @@ categories: [程序人生]
 有些内存型的数据库甚至可以当做远程cache来使用, 比如memcache, redis, 或者公司内部的[TMEM](http://djt.qq.com/article/view/234)等数据库.  
 
 
-![remote cache](/images/remote-cache.png)
+![remote cache](http://res.tiankonguse.com/images/remote-cache.png)
 
 
 有时候,我们认为远程cache依旧太慢,毕竟一次网络操作来回至少几十毫秒, 加上网上不稳定等因素, 本地cache还是很有必要的.  
@@ -23,7 +23,7 @@ categories: [程序人生]
 目前,我使用的本地cache往往是开一个共享内存, 然后服务会开若干进程, 这些进程同时读写本地cache, 基本上解决了服务高访问量的问题.  
 
 
-![locale cache](/images/locale-cache.png)  
+![locale cache](http://res.tiankonguse.com/images/locale-cache.png)  
 
 
 这个本地cache使用的是一个通用的cache库, 特点是使用hashtable实现, 缺点是key和value的长度是固定的.  
@@ -33,7 +33,7 @@ categories: [程序人生]
 1. key和value 最大长度限制.
 2. 很浪费空间, 所有的value占用相同的空间. 我们的value及时只有很小的长度, 占用的空间依旧很大.  
 
-![hashtable cache](/images/hashtable-cache.png)  
+![hashtable cache](http://res.tiankonguse.com/images/hashtable-cache.png)  
 
 
 
@@ -84,7 +84,7 @@ PS:我第一次简单的增大value时,增大前占用共享内存是1.6G, 单�
 这个时候,对于value的储存,很容易想到操作系统内存分配算法, 对,就是这个方法, 对value分页, 然后保存每一页的信息即可.  
 
 
-![cache value page](/images/cache-value-page.png)  
+![cache value page](http://res.tiankonguse.com/images/cache-value-page.png)  
 
 
 这个时候,再回过头看看这个储存方式, 可以支持任意大小的value值了, 对于小value, 浪费顶多不到一页的内存.   

@@ -55,7 +55,7 @@ wxurl: https://mp.weixin.qq.com/s/-yO7xXjaeEDep8D7EsCBCg
 最近曹大会进行一次线上的公开分享，题目为"成长的烦恼"，讲讲职场和创业中的坑和教训。  
 这个课程是独家播放，没有回放，绝壁不能错过。  
 
-![](/images/2018/12/20181213235921.jpg)
+![](http://res.tiankonguse.com/images/2018/12/20181213235921.jpg)
 
 
 

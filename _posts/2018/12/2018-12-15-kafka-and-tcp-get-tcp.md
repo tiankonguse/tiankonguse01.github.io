@@ -159,7 +159,7 @@ TCP 是一个复杂的协议，因为它要解决很多问题，然而引入一�
 通过之前收集的信息，TCP也就恢复的更快了。  
 
 
-![](/images/2018/12/tcp.fr_-1024x359.jpg)
+![](http://res.tiankonguse.com/images/2018/12/tcp.fr_-1024x359.jpg)
 
 
 ## 五、最后

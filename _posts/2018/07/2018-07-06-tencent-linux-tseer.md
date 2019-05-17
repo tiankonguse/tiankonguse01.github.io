@@ -53,7 +53,7 @@ Tseer的项目代码地址是https://github.com/Tencent/TSeer
 等有时间了我会fork一个分支来，修改成完全自动化的。  
 
 
-![](/images/2018/07/20180708214002.png)   
+![](http://res.tiankonguse.com/images/2018/07/20180708214002.png)   
    
    
 按照TSeer的文档， 我操作了一番。  
@@ -93,7 +93,7 @@ cmake编译确实是一个好东西。
 所以看一个项目代码时，第一个要开的就是api。  
 
 
-![](/images/2018/07/20180708142724.png)  
+![](http://res.tiankonguse.com/images/2018/07/20180708142724.png)  
 
 
 根据截图，可以看到我们api使用很简单（其实那么多参数还是不简单的）。  

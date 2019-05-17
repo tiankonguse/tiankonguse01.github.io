@@ -16,7 +16,7 @@ published: true
 
 地址: http://codeforces.com/contest/1079/problem/D  
 
-![](/images/2018/11/cf-422-div2-pro-d.png)   
+![](http://res.tiankonguse.com/images/2018/11/cf-422-div2-pro-d.png)   
 
 
 
@@ -25,7 +25,7 @@ published: true
 ## 二、分析
 
 
-![](/images/2018/11/6be8c5c3a4a57c05cbb4449f6465586d063ff6d2.png)   
+![](http://res.tiankonguse.com/images/2018/11/6be8c5c3a4a57c05cbb4449f6465586d063ff6d2.png)   
 
 
 画图之后，我们可以看出来，A到B的较优答案有几种情况：A横着到直线、A竖着到直线、B横着到直线、B竖着到直线。  

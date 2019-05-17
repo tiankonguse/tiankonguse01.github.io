@@ -10,7 +10,7 @@ published: true
 ---  
 
 
-![](/images/2018/08/2c132f548a4b7bf4a85ff95e66ccaa1c.jpg)  
+![](http://res.tiankonguse.com/images/2018/08/2c132f548a4b7bf4a85ff95e66ccaa1c.jpg)  
 
 
 最近在看《长尾理论》，看后很惊奇。这本2006年的书，之后十几年出现的公司竟然都可以使用这个理论解释通。  
@@ -58,7 +58,7 @@ tiankonguse解释：非头部的生产者，大部分都没有追求热点吸引
 > 生产者和消费者之间的传统界限已经模糊。消费者也是生产者：有些人能从零开始独立创作，还有些能改造别人的作品—也就是把它们重新编排混合一番。  
 
 
-![](/images/2018/08/e54f693fc408568150b58a23d77f9859.jpg)  
+![](http://res.tiankonguse.com/images/2018/08/e54f693fc408568150b58a23d77f9859.jpg)  
 
 
 
@@ -81,7 +81,7 @@ tiankonguse解释：非头部的生产者，大部分都没有追求热点吸引
 
 
 
-![](/images/tiankonguse-support.png) 
+![](http://res.tiankonguse.com/images/tiankonguse-support.png) 
 
 
 

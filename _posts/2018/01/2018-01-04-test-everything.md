@@ -28,15 +28,15 @@ published: true
 
 比如`C_and_Cplusplus_in_linux`这个项目。  
 
-![](/images/2018/01/c_linux_main.png)
+![](http://res.tiankonguse.com/images/2018/01/c_linux_main.png)
 
 里面有对引用的测试。  
 
-![](/images/2018/01/c_linux_list.png)
+![](http://res.tiankonguse.com/images/2018/01/c_linux_list.png)
 
 里面有队时间的测试。  
 
-![](/images/2018/01/c_linux_time.png)
+![](http://res.tiankonguse.com/images/2018/01/c_linux_time.png)
 
 
 里面有很多很多测试，ping程序裸地实现, UDP服务， TCP服务， select异步网络，wav音频播放器，单元测试等等。  

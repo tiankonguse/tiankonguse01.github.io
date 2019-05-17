@@ -11,7 +11,7 @@ published: true
 
 
 
-![](/images/2018/06/3u551qgyjhil9l7t1472527897.jpg)
+![](http://res.tiankonguse.com/images/2018/06/3u551qgyjhil9l7t1472527897.jpg)
 
 
 # 一、火影忍者晓之音乐
@@ -45,7 +45,7 @@ published: true
 先来看看主角吧。    
 
 
-![](/images/2018/06/p641706893.webp)
+![](http://res.tiankonguse.com/images/2018/06/p641706893.webp)
 
 
 
@@ -75,7 +75,7 @@ published: true
 QQ音乐上找了这个电影中的音乐，发现有好多，每个都听了下，大家可以感受下，听哭了。  
 
 
-![](/images/2018/06/20180607215534.png)
+![](http://res.tiankonguse.com/images/2018/06/20180607215534.png)
 
 
 本想把这个电影插入到公众号上，但是正片貌似不能插入到公众号，那就把预告片插进来吧。    

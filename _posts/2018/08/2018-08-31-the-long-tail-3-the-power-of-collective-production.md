@@ -65,7 +65,7 @@ published: true
 
 
 
-![](/images/tiankonguse-support.png) 
+![](http://res.tiankonguse.com/images/tiankonguse-support.png) 
 
 
 

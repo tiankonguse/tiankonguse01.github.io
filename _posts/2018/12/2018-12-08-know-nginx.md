@@ -39,7 +39,7 @@ Apache 处理请求的特点是一个请求连接对应一个进程。
 目前主流的 WEB 服务器有 Apache、Tomcat、Nginx， 可以看到各家服务器的安装量情况。  
 
 
-![](/images/2018/12/20181208-web-server-duibi.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-web-server-duibi.png)  
 
 
 由于 Apache 已经火爆那么多年了，所以目前安装量的比例还是比较高的。  
@@ -101,7 +101,7 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 然后主进程告诉旧进程，不要接受新的请求了，现有的处理完就退出吧。  
 于是旧进程按照这个指令去执行，就完整了热加载。  
 
-![](/images/2018/12/20181208-nginx-reload.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-nginx-reload.png)  
 
 
 ## 四、高深的事件驱动
@@ -121,7 +121,7 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 比如我们监听一个端口的时候，更特殊，我们不知道谁会来，只能一直等待。  
 
 
-![](/images/2018/12/20181208-net-accept.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-net-accept.png)  
 
 
 对于这种情况，我们一般会去做其他事情。  
@@ -133,7 +133,7 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 对于监听端口一样，我们隔一会查一下是否有连接过来了。  
 
 
-![](/images/2018/12/20181208-net-accept-async.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-net-accept-async.png)  
 
 
 对于微信，我们非阻塞聊天的时候，就可以同时和很多人一起聊天了。  
@@ -143,10 +143,10 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 微信的小红点来帮助我们解决。  
 
 
-![](/images/2018/12/20181208201455.jpg)
+![](http://res.tiankonguse.com/images/2018/12/20181208201455.jpg)
 
 
-![](/images/2018/12/20181208201704.jpg)  
+![](http://res.tiankonguse.com/images/2018/12/20181208201704.jpg)  
 
 
 我们可以发现，微信帮我们监听了所有的群和好友的聊天事件。  
@@ -157,7 +157,7 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 我们把所有的时间加入到一个集合中，然后查询是否有新事件，有了，我们就处理对应的事件就可以了。  
 
 
-![](/images/2018/12/20181208-nginx-loop.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-nginx-loop.png)  
 
 
 通过这种事件通知的方式，我们就可以快速知道有哪些事情要处理，从而可以做到高并发聊天了。  
@@ -171,7 +171,7 @@ Nginx 采用了多进程共同监听端口，分别处理请求模式。
 除了第一个，其他的都会发现实际上没有需要处理的消息。  
 
 
-![](/images/2018/12/20181208-nginx-jingqun.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181208-nginx-jingqun.png)  
 
 
 针对这个问题，解决方案也很简单：只通知一个进程。  

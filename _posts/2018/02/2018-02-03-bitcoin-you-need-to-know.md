@@ -121,7 +121,7 @@ published: true
 > Each confirmation takes between a few seconds and 90 minutes, with 10 minutes being the average.  
 > If the transaction pays too low a fee or is otherwise atypical, getting the first confirmation can take much longer.  
 
-![](/images/2018/02/20180203211212.png)  
+![](http://res.tiankonguse.com/images/2018/02/20180203211212.png)  
 
 
 ## 七、比特币仍有实验性  
@@ -154,7 +154,7 @@ published: true
 
 我之前写了一篇文章《[什么是理财](http://mp.weixin.qq.com/s/jghH-D6CC_mGEFkkNnvC3A)》，后来梳理了一个理财产品的各种年化收益表，分享给大家。  
 
-![](/images/2018/02/20180203212914.jpg)  
+![](http://res.tiankonguse.com/images/2018/02/20180203212914.jpg)  
 
 这篇文章的比特币地址： [bitcoin:15eofUb4QdyqKr5So9S4spQyBzNEw2Mczd](bitcoin:15eofUb4QdyqKr5So9S4spQyBzNEw2Mczd)     
 

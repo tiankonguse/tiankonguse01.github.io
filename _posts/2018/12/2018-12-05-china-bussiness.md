@@ -18,7 +18,7 @@ wxurl: https://mp.weixin.qq.com/s/Rfd8X174ZeEKdNQ9XIvc_g
 在 Feng 大的圈子里，看到一个外国人在中国做生意总结的经验。  
 不管是不是段子吧，总结的挺好的，分享给大家。  
 
-![](/images/2018/12/20181205234253.png)  
+![](http://res.tiankonguse.com/images/2018/12/20181205234253.png)  
 
 
 ## 二、细节

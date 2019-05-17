@@ -99,7 +99,7 @@ published: true
 年化收益率定义：你存入本金1万块钱，存了一年，一年的利息处于存入的本金叫做年化收益率。  
 比如活期，一年利息给你30块，一天平均收益不到1毛钱。  
 
-![](/images/2018/01/money_bank.png)
+![](http://res.tiankonguse.com/images/2018/01/money_bank.png)
 
 ## 三、股票
 
@@ -145,7 +145,7 @@ published: true
 这样的收益率，1万块一天差不多1块钱了，甩银行几条街，所以银行对宝宝类下了规定：最高资金不能超过XX万，支付宝是20万。  
 
 
-![](/images/2018/01/money_baobao.png)
+![](http://res.tiankonguse.com/images/2018/01/money_baobao.png)
 
 
 
@@ -155,7 +155,7 @@ published: true
 我听说的比较少，周围人用的有桔子理财和懒投资，我最终选择了懒投资。  
 
 
-![](/images/2018/01/money_manage.png)  
+![](http://res.tiankonguse.com/images/2018/01/money_manage.png)  
 
 
 

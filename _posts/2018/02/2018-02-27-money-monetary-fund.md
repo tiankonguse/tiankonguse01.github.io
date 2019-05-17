@@ -84,12 +84,12 @@ published: true
 最后上一张货币基金的细节图片吧。  
 对了，我还找到了货币基金的政策文件，发现这个政策文件竟然非常简单，公众号不支持传文件，我就分享到知识星球了，点击原文可以获得。  
 
-![](/images/2018/02/fdpohaocaechififmbbbbbknoalclacl.png)    
+![](http://res.tiankonguse.com/images/2018/02/fdpohaocaechififmbbbbbknoalclacl.png)    
 
   
 我建了一个群，里面偶尔会赠送微信读书的理财书籍，公众号回复“读书”可以获得入群信息。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

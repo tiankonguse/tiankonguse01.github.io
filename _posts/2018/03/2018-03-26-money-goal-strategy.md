@@ -117,7 +117,7 @@ published: true
 下图是工商银行的现金派息数据
 
 
-![](/images/2018/03/20180326014841.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180326014841.png)  
 
 我们通过长时间持有高股息股票资产组合，可以无需关注股价涨跌，通过收获越来越高的现金分红轻松实现财务自由。  
 这是长期投资股票类资产最好的收益方式，我们再也无须为波动的股价而忐忑不安，每年收取稳定增长的现金分红。  
@@ -162,7 +162,7 @@ published: true
 比如现在支付宝的利率是4%左右，大家可以假设国债利率就是4%吧。  
 
 
-![](/images/2018/03/20180326014944.png)  
+![](http://res.tiankonguse.com/images/2018/03/20180326014944.png)  
 
 
 买入之后，接下来的问题就是什么时候卖出了。  
@@ -195,6 +195,6 @@ published: true
 大家如果有什么建议或问题可以在底部留言区留言。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

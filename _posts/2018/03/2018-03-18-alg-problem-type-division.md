@@ -133,6 +133,6 @@ HDU：杭电的在线练习题库(http://acm.hdu.edu.cn/)
 大家如果有什么建议或问题可以在底部留言区留言。  
 当然，你也可以加我微信找我私聊，微信号: tiankonguse。  
 
-![](/images/tiankonguse-support.png)  
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)  
 
 

@@ -201,12 +201,12 @@ JPEG经过五大步操作，JPEG图片就完成了压缩。
 对了，我建了一个小密圈[算法的世界](https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=281548515451&secret=r0krqw9fw0at24vxjxo1uo4k0h4lfe47&extra=d67ce0c25ec91252b3af846a10154c9e9d4cb50c763fee178acd68cd2c2e09ee)，欢迎进来交流算法知识。  
 这个小密圈目前一年需要收50人民币，算下来大概一天收一毛三分钱吧，可以考虑加入我的圈子。  
   
-![](/images/suanfa_xiaomiquan.jpg)  
+![](http://res.tiankonguse.com/images/suanfa_xiaomiquan.jpg)  
   
   
 长按图片关注公众号，接受最新文章消息。   
   
-![](/images/weixin-50cm.jpg)  
+![](http://res.tiankonguse.com/images/weixin-50cm.jpg)  
   
   
   

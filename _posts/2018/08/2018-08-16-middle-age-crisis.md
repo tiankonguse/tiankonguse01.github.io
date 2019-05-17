@@ -123,4 +123,4 @@ published: true
 
 最后，再送一本阿里的书籍吧，名字叫做《淘宝技术这十年》，名额只有一个。  
 
-![](/images/2018/08/20180816132302.jpg) 
+![](http://res.tiankonguse.com/images/2018/08/20180816132302.jpg) 

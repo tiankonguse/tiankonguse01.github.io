@@ -30,7 +30,7 @@ wxurl: https://mp.weixin.qq.com/s/3Yr9R8yCB0M9FfHfQutMow
 
 先看看题  
 
-![](/images/2018/12/20181204224235.jpg)
+![](http://res.tiankonguse.com/images/2018/12/20181204224235.jpg)
 
 
 看着道题，可以发现一个半圆在长方形里面。  
@@ -39,7 +39,7 @@ wxurl: https://mp.weixin.qq.com/s/3Yr9R8yCB0M9FfHfQutMow
 通过做下面的辅助线，就会发现这道题变得特别简单了。  
 
 
-![](/images/2018/12/20181204231845.png)
+![](http://res.tiankonguse.com/images/2018/12/20181204231845.png)
 
 
 我们很容易看出来，`阴影的面积 = 三角形的面积 -  弧形的面积 - 凹三角形的面积1`。  

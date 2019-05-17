@@ -38,7 +38,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 所以数组在很多时候是一种最常见高效的数据结构（姑且算数据结构）。  
 
 
-![](/images/2018/09/array-base.png)  
+![](http://res.tiankonguse.com/images/2018/09/array-base.png)  
 
 
 但是使用数组的时候也会遇到一些问题。  
@@ -57,7 +57,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 自动扩展的基本思想是追加数据的时候，先判断空间是不是用完了，如果用完了，申请一个更大的内存，旧数据copy过去，旧内存释放，新数据赋值即可。  
 
 
-![](/images/2018/09/full-array.png)  
+![](http://res.tiankonguse.com/images/2018/09/full-array.png)  
 
 
 ## 三、栈
@@ -70,7 +70,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 栈的使用场景有：序列反选、逆序输出、括号匹配、DFS等。  
 
 
-![](/images/2018/09/full-stack.png)  
+![](http://res.tiankonguse.com/images/2018/09/full-stack.png)  
 
 
 ## 四、队列
@@ -84,7 +84,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 对于内存扩展时，数据从头对齐问题，这里暂时不处理。  
 
 
-![](/images/2018/09/full-queue.png)  
+![](http://res.tiankonguse.com/images/2018/09/full-queue.png)  
 
 
 ## 五、双向队列
@@ -96,7 +96,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 所以，我们到了不得不面对队首空间的问题了，下一小节分享一个比较实用的方法。  
 
 
-![](/images/2018/09/double-queue.png)  
+![](http://res.tiankonguse.com/images/2018/09/double-queue.png)  
 
 
 ## 六、循环队列  
@@ -114,7 +114,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 双向循环队列与循环队列的思想是类似的，这里以循环队列为例来看看实现吧。  
 
 
-![](/images/2018/09/loop-queue.png)  
+![](http://res.tiankonguse.com/images/2018/09/loop-queue.png)  
 
 
 ## 七、其他操作
@@ -152,7 +152,7 @@ C语言中的数组，使用的时候被当做一个定长的连续的空间。
 
 
 
-![](/images/tiankonguse-support.png)   
+![](http://res.tiankonguse.com/images/tiankonguse-support.png)   
 
 
 今天长按识别上面的二维码，在公众号中回复“**ACM模板**”，你将免费获得我大学耗时四年整理的《ACM算法模板》。  

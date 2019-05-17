@@ -52,7 +52,7 @@ published: true
 
 具体利率见下面表格。  
 
-![](/images/2018/05/20180521222503.jpg)
+![](http://res.tiankonguse.com/images/2018/05/20180521222503.jpg)
 
 
 # 五、购买条件
@@ -83,7 +83,7 @@ published: true
 
 今天睡完午觉，起来购买了一次国债，但是刚才回头看的时候，竟然没有成交，一看时间，妈蛋过15:00了。  
 
-![](/images/2018/05/20180521231052.jpg)
+![](http://res.tiankonguse.com/images/2018/05/20180521231052.jpg)
 
 
 
