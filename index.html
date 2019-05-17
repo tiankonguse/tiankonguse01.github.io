@@ -20,7 +20,7 @@ isIndex: true
             {% for post in paginator.posts %}
             <li>
             <h2>
-				<a href="{{site.url}}{{ post.url  }}"> {post.title }}</a>
+                <a href="{{site.url}}{{ post.url  }}"> {{post.title }}</a>
 			</h2>
             <div class="title-desc">{{ post.description }} <div class="title-date">{{ post.date | date: '%Y-%m-%d' }}</div></div>
             </li>
