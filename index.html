@@ -24,7 +24,7 @@ isIndex: true
 			</h2>
             <div class="title-desc">{{ post.description }} <div class="title-date">{{ post.date | date: '%Y-%m-%d' }}</div></div>
             </li>
-            {set-urlset-url% endfor %}
+            {% endfor %}
         </ul>
         <div class="pagination-centered" id="pagination_bottom">
 			<div class="page-stat">统计：共有{{ paginator.total_posts }}篇文章，共有{{ paginator.total_pages }}页</div>
