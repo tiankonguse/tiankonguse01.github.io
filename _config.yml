@@ -65,8 +65,8 @@ port:    80
 host: http://github01.tiankonguse.com
 #host:    192.168.31.137
 #host:    127.0.0.1
-baseurl: "/" # does not include hostname
-url: http://github01.tiankonguse.com
+baseurl: "http://github.tiankonguse.com" # does not include hostname
+url: http://github.tiankonguse.com
 #url: http://192.168.31.137
 #url: http://127.0.0.1
 
