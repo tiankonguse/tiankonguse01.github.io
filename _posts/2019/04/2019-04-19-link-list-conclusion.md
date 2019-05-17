@@ -26,7 +26,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 看练习题之前，先看看链表各种操作的复杂度。  
 
 
-![](/images/2019/04/19/link-list-conclusion-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-001.png)  
 
 
 如上图可以看出链表的操作复杂度  
@@ -49,7 +49,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 每次从两个链表得到最小的链表，删除头结点，插入到新列表最后面。  
 
 
-![](/images/2019/04/19/link-list-conclusion-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-002.png)  
 
 
 ## 四、两数相加  
@@ -68,7 +68,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 2、最后可能会进位，所以需要特殊判断。如果进位则再加上一个进位的数字。  
 
 
-![](/images/2019/04/19/link-list-conclusion-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-003.png)  
 
 
 ## 五、扁平化多级双向链表  
@@ -79,7 +79,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 如下图  
 
 
-![](/images/2019/04/19/link-list-conclusion-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-004.png)  
 
 
 偷偷告诉你们，这种特殊的链表其实就是一个二叉树。  
@@ -94,7 +94,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 得到了展开后的链表，你就可以直接将这里展开的链表插入到当前位置之后（之前都是插入一个节点，现在是插入一个链表）。  
 
 
-![](/images/2019/04/19/link-list-conclusion-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-005.png)  
 
 
 ## 六、复制带随机指针的链表  
@@ -104,7 +104,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 求这个链表的深`copy`。  
 
 
-![](/images/2019/04/19/link-list-conclusion-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-006.png)  
 
 
 再次偷偷的告诉你，这个其实就是一个简单的图。  
@@ -112,7 +112,7 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 而对于图，由于一个节点会有多个节点指向它，所以创建新实例之前需要先判断是否已创建。  
 
 
-![](/images/2019/04/19/link-list-conclusion-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-007.png)  
 
 
 ## 七、旋转链表  
@@ -124,14 +124,14 @@ wxurl: https://mp.weixin.qq.com/s/SQCJWiG2HMhI8U-hVTvk7A
 思路：先找到新链表的头部，拆分为两个链表，然后拼接即可。  
 
 
-![](/images/2019/04/19/link-list-conclusion-009.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-009.png)  
 
 
 注意实现：`K`可能很大，需要先对链表长度取模。  
 另外就是，`K`是向右移动次数。如果使用左右交换的方法，你其实需要找到的是第`len - K`个节点。  
 
 
-![](/images/2019/04/19/link-list-conclusion-008.png)  
+![](http://res.tiankonguse.com/images/2019/04/19/link-list-conclusion-008.png)  
 
 
 ## 八、最后  

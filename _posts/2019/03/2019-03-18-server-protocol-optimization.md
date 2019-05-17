@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/JOobEg9EOkTIBjxR_OCsUQ
 ---  
 
 
-![](/images/2019/03/server-protocal-optimization-005.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/server-protocal-optimization-005.jpg)  
 
 
 ## 一、背景  
@@ -66,7 +66,7 @@ wxurl: https://mp.weixin.qq.com/s/JOobEg9EOkTIBjxR_OCsUQ
 时间粒度调整到月为单位后，再次上线，发现访问量还是太大，服务`proxy`的CPU还是直接跑满了。  
 
 
-![](/images/2019/03/server-protocal-optimization-001.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/server-protocal-optimization-001.jpg)  
 
 
 简单分析后，发现框架的`proxy`收到的每个包都需要解开，然后才能决定路由到哪里去。  
@@ -91,7 +91,7 @@ wxurl: https://mp.weixin.qq.com/s/JOobEg9EOkTIBjxR_OCsUQ
 于是我调整策略，不再统计六七千个字段的相关关联数据。  
 
 
-![](/images/2019/03/server-protocal-optimization-002.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/server-protocal-optimization-002.jpg)  
 
 
 这个调整效果很明显，服务上线后CPU一下降低都原来的三分之一。  
@@ -108,7 +108,7 @@ wxurl: https://mp.weixin.qq.com/s/JOobEg9EOkTIBjxR_OCsUQ
 于是我只能采取终极方案了：放弃通用协议。  
 
 
-![](/images/2019/03/server-protocal-optimization-003.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/server-protocal-optimization-003.jpg)  
 
 
 放弃通用协议后则变得灵活多了。  
@@ -116,7 +116,7 @@ wxurl: https://mp.weixin.qq.com/s/JOobEg9EOkTIBjxR_OCsUQ
 这时，即使加上字段维度的统计，CPU 也没那么高了。而由于包更小了，`proxy`的处理量也更高了。  
 
 
-![](/images/2019/03/server-protocal-optimization-004.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/server-protocal-optimization-004.jpg)  
 
 
 服务优化后，单机处理量到达`3W/s`完全没有问题。  

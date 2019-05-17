@@ -30,13 +30,13 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 求多个字符串的公共子序列，其实就是循环依次求每个字符串和当前答案的公共子序列，即循环合并即可。  
 
 
-![](/images/2019/03/leetcode-126-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-001.png)  
 
 
 而对于两个字符串的计数合并，则是对每个字母计数统计，然后分别取最小值即可。  
 
 
-![](/images/2019/03/leetcode-126-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-002.png)  
 
 
 至于字符串拆分，就是一个循环而已，这里就不上代码了。  
@@ -75,7 +75,7 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 如果不满足，则不是有效字符串，如果满足，则继续下去即可。  
 
 
-![](/images/2019/03/leetcode-126-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-003.png)  
 
 
 ## 四、最大连续1的个数 III  
@@ -103,14 +103,14 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 具体如下：  
 
 
-![](/images/2019/03/leetcode-126-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-004.png)  
 
 
 这里面有个主意实现就是，当不满足条件时，需要循环出队。因为队首可能不是`0`。    
 由于我们确定不满足条件时，`0`的个数肯定是`K+1`个。我们也可以直接先把队首的`1`出队，然后再出一个`0`。  
 
 
-![](/images/2019/03/leetcode-126-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-005.png)  
 
 
 当然，两个思想在逻辑上是等价的，不过第一个算法更通用写，而后面这个则更个性化。  
@@ -145,13 +145,13 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 比如对于第一个示例，输入是`stones = [7,7,8,6,5,6,6], K = 3`，我们可以手动画出下面的最优树。  
 
 
-![](/images/2019/03/leetcode-126-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-006.png)  
 
 
 我们观察这个树之后，可以发现这个问题可以划分为一系列子问题来解决，大概如下图。  
 
 
-![](/images/2019/03/leetcode-126-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-007.png)  
 
 
 我们对于给如的数组序列，随意的划分为两部分，使得第一部分合并为`1`堆，第二部分合并为`K - 1`堆。  
@@ -161,7 +161,7 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 既然这样，我们就可以写出对应的递归代码了。  
 
 
-![](/images/2019/03/leetcode-126-008.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-008.png)  
 
 
 代码里面有一个出口。  
@@ -177,7 +177,7 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 而对于输入，我们只需要初始化一下dp数组，然后计算前缀和即可。  
 
 
-![](/images/2019/03/leetcode-126-009.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-009.png)  
 
 
 ## 六、最后  
@@ -190,7 +190,7 @@ wxurl: https://mp.weixin.qq.com/s/YXZ33jajK5UF2xvyAtAdJQ
 测试的时候，差不多是这个样子。  
 
 
-![](/images/2019/03/leetcode-126-010.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-126-010.png)  
 
 
 答案对了，直接输出`YES`，答案错了，输出`NO`，并把输入和输出都输出来。  

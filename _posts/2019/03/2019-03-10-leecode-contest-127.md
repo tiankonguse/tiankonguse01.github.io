@@ -27,7 +27,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 如果没有负数，则不断的反转最小的那个数即可。  
 
 
-![](/images/2019/03/leetcode-127-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-127-001.png)  
 
 
 
@@ -56,7 +56,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 具体的可以看代码，还算简单。  
 
 
-![](/images/2019/03/leetcode-127-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-127-002.png)  
 
 
 ## 四、最少旋转次数  
@@ -70,7 +70,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 我们分别判断即可找到这个数字，然后再判断移动到哪个数组次数最少，即可得到答案。  
 
 
-![](/images/2019/03/leetcode-127-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-127-003.png)  
 
 
 ## 五、先序遍历构造二叉树  
@@ -88,7 +88,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 有了这个特征，我们就可以依靠父节点来找出左子树和右子树的范围，从而递归的构造出这颗树来。  
 
 
-![](/images/2019/03/leetcode-127-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-127-004.png)  
 
 
 ## 六、最后  
@@ -105,7 +105,7 @@ wxurl: https://mp.weixin.qq.com/s/FJDQerprDF2RRfJf1boMkw
 3.自动对比树的答案是否正确  
 
 
-![](/images/2019/03/leetcode-127-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-127-005.png)  
 
 
 -EOF-  

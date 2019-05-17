@@ -42,7 +42,7 @@ wxurl: https://mp.weixin.qq.com/s/sEVM7NfgqwzrYxxvzUlUJQ
 第三步新二进制转十进制。  
 
 
-![](/images/2019/03/leecode-128-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-001.png)  
 
 
 第二个方法，就需要仔细观察这道题了。  
@@ -56,7 +56,7 @@ wxurl: https://mp.weixin.qq.com/s/sEVM7NfgqwzrYxxvzUlUJQ
 那如何得到`111`呢，也可以简单计算得到是`2^bit(n) - 1`。  
 
 
-![](/images/2019/03/leecode-128-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-002.png)  
 
 
 ## 三、总持续时间可被 60 整除的歌曲  
@@ -83,7 +83,7 @@ wxurl: https://mp.weixin.qq.com/s/sEVM7NfgqwzrYxxvzUlUJQ
 而对于`0`和 `30`，则需要在自己的集合里面匹配，所以匹配总量是集合里任意挑两个，即`C(n, 2)`。  
 
 
-![](/images/2019/03/leecode-128-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-003.png)  
 
 
 ## 四、在 D 天内送达包裹的能力  
@@ -120,7 +120,7 @@ wxurl: https://mp.weixin.qq.com/s/sEVM7NfgqwzrYxxvzUlUJQ
 这个区间内，前半段是`D`天内无法完成运输，后半段是可以完成运输，而区间的分界线就是最优答案。  
 
 
-![](/images/2019/03/leecode-128-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-004.png)  
 
 
 ## 五、至少有 1 位重复的数字  
@@ -156,7 +156,7 @@ wxurl: https://mp.weixin.qq.com/s/sEVM7NfgqwzrYxxvzUlUJQ
 第二种是等于当前数字的，之后的待确定，需要递归判断。  
 
 
-![](/images/2019/03/leecode-128-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-005.png)  
 
 
 ## 六、最后  
@@ -172,7 +172,7 @@ PS：我的所有`leetcode`代码都分开放在 github 上。
 感兴趣的可以去看相关题的源代码。  
 
 
-![](/images/2019/03/leecode-128-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/leecode-128-006.png)  
 
 
 PS2：听说今天腾讯的上海机房光纤被挖断了。  

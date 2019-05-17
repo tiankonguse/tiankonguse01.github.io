@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/4tY9WpyRypiX3g5N_pgMAw
 ---  
 
 
-![](/images/2019/03/move-v-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-001.png)  
 
 
 ## 一、背景  
@@ -33,7 +33,7 @@ V- Who?Who is but the form following the function of what...and what I am is a m
 ```
 
 
-![](/images/2019/03/move-v-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-002.png)  
 
 
 
@@ -42,7 +42,7 @@ You wear a mask for so long,you forget who you were beneath it.
 ```
 
 
-![](/images/2019/03/move-v-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-003.png)  
 
 
 
@@ -51,7 +51,7 @@ That with devotion's visage and pious action we do sugar o'er the devil himself.
 ```
 
 
-![](/images/2019/03/move-v-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-004.png)  
 
 
 ```
@@ -59,7 +59,7 @@ But again,truth be told,if you're looking for the guilty..you need only look int
 ```
 
 
-![](/images/2019/03/move-v-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-005.png)  
 
 
 ```
@@ -67,7 +67,7 @@ People should not be afraid of their governments.Governments should be afraid of
 ```
 
 
-![](/images/2019/03/move-v-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-006.png)  
 
 
 ## 三、故事  
@@ -80,7 +80,7 @@ People should not be afraid of their governments.Governments should be afraid of
 动不动就对女主角讲一堆大道理，最后还对全国人们演讲一番大道理。  
 
 
-![](/images/2019/03/move-v-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-007.png)  
 
 
 而且，这些大道理都比较反动。  
@@ -88,7 +88,7 @@ People should not be afraid of their governments.Governments should be afraid of
 比如国家人为制造一些灾难来骗取人民的支持、夜晚不能出门、封杀各种书籍、政府高层各种腐败。  
 
 
-![](/images/2019/03/move-v-008.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-008.png)  
 
 
 面对这么黑暗的政府，男主角逐渐引燃了人民大众心中的愤怒，最后推翻了政府。  
@@ -100,7 +100,7 @@ People should not be afraid of their governments.Governments should be afraid of
 ## 四、最后  
 
 
-![](/images/2019/03/move-v-009.png)  
+![](http://res.tiankonguse.com/images/2019/03/move-v-009.png)  
 
 
 看完电影，感觉 V 可以不死，电视台节目主播 Gordon 也可以不死，但是他们为什么就死了呢？  

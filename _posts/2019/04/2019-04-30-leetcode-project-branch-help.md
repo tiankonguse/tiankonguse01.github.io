@@ -32,13 +32,13 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 1. Fork Leetcode互动编程项目  
 
 
-![](/images/2019/04/30/leetcode-project-branch-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-001.png)  
 
 
 2. 创建自己的专有分支  
 
 
-![](/images/2019/04/30/leetcode-project-branch-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-002.png)  
 
 
 3.在自己的分支下添加自己的代码  
@@ -49,7 +49,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 注意：请在自己的分支下写代码！  
 
 
-![](/images/2019/04/30/leetcode-project-branch-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-003.png)  
 
 
 4.进行 Pull request  
@@ -58,7 +58,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 这里要做的是：将你的项目下的你的分支 合并到 原项目 的 master 分支。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-004.png)  
 
 
 5.等待原项目的负责人合并代码  
@@ -66,7 +66,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 此时，整个流程图像这个样子。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-005.jpg)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-005.jpg)  
 
 
 ## 三、正常情况    
@@ -87,19 +87,19 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 1. 第一步是同步原项目 Master  
 
 
-![](/images/2019/04/30/leetcode-project-branch-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-006.png)  
 
 
 点击 Merge pull request、接着点击 Confirm merge。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-007.png)  
 
 
 此时可以发现，你的项目多了一次提交。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-008.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-008.png)  
 
 
 2.第二步你的项目的Master同步到你的分支  
@@ -108,13 +108,13 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 选择从你的 master 分支 合并到 from开发分支。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-009.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-009.png)  
 
 
 之后，你在确认合并（选择第一个 Merge pull request选项）。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-010.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-010.png)  
 
 
 之后，你可以在你的 from开发分支共可以看到至少四个提交：  
@@ -126,13 +126,13 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 4.自己master同步到from开发分支的提交。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-011.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-011.png)  
 
 
 3. 在分支里做题，进行提交 Pull request  
 
 
-![](/images/2019/04/30/leetcode-project-branch-012.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-012.png)  
 
 
 4. 原项目负责人合并代码  
@@ -158,7 +158,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 比如我操作了一下，原项目的四个提交，加上三次同步合并新增三次提交，共有七个提交了。  
 
 
-![](/images/2019/04/30/leetcode-project-branch-013.png)  
+![](http://res.tiankonguse.com/images/2019/04/30/leetcode-project-branch-013.png)  
 
 
 如果在操作一遍，就会变成 10 个提交了。  

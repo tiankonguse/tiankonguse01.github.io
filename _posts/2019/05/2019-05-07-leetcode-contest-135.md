@@ -33,7 +33,7 @@ PS：关于《Leetcode互动编程》项目，现在流程差不过已经确定�
 地址：https://github.com/tiankonguse/leetcode-solutions  
 
 
-![](/images/2019/05/07/001.png)  
+![](http://res.tiankonguse.com/images/2019/05/07/001.png)  
 
 
 ## 一、有效的回旋镖  
@@ -47,7 +47,7 @@ PS：关于《Leetcode互动编程》项目，现在流程差不过已经确定�
 思路：使用向量的叉乘就可以判断两个向量是否平行了。  
 
 
-![](/images/2019/05/07/002.png)  
+![](http://res.tiankonguse.com/images/2019/05/07/002.png)  
 
 
 ## 二、求二叉搜索树的更大和树  
@@ -63,7 +63,7 @@ PS：关于《Leetcode互动编程》项目，现在流程差不过已经确定�
 思路：dfs 从大到小遍历这棵树，遍历的时候顺便求和，然后计算对应节点的更大和。  
 
 
-![](/images/2019/05/07/003.cpp)  
+![](http://res.tiankonguse.com/images/2019/05/07/003.cpp)  
 
 
 ## 三、多边形三角剖分的最低得分  
@@ -85,7 +85,7 @@ PS：关于《Leetcode互动编程》项目，现在流程差不过已经确定�
 实际上使用递推来实现，也就是`push up`的话会更简单，两层循环即可。  
 
 
-![](/images/2019/05/07/004.png)  
+![](http://res.tiankonguse.com/images/2019/05/07/004.png)  
 
 
 ## 四、移动石子直到连续 II  
@@ -132,7 +132,7 @@ PS：如果你没做这道题，不建议你看下面的分析了。
 
 
 
-![](/images/2019/05/07/005.png)  
+![](http://res.tiankonguse.com/images/2019/05/07/005.png)  
 
 
 ## 六、最后  
@@ -145,7 +145,7 @@ PS：如果你没做这道题，不建议你看下面的分析了。
 PS：最终这些题做完后，长这个样子。现在看来清晰多了。  
 
 
-![](/images/2019/05/07/006.png)  
+![](http://res.tiankonguse.com/images/2019/05/07/006.png)  
 
 
 

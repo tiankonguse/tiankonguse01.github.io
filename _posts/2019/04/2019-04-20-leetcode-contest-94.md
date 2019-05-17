@@ -17,7 +17,7 @@ wxurl: https://mp.weixin.qq.com/s/ZUyCdKfane3OYmAEdFtIhw
 之前写了不少比赛回顾了，如果你感兴趣，可以在公众号的历史记录顶部进行搜索，可以搜到所有的比赛记录。  
 
 
-![](/images/2019/04/20/leetcode-contest-94-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/20/leetcode-contest-94-001.png)  
 
 
 今天，给你们分享几道相对来说比较简单的算法题。  
@@ -37,7 +37,7 @@ wxurl: https://mp.weixin.qq.com/s/ZUyCdKfane3OYmAEdFtIhw
 思路：先分别递归求出两个树的叶子序列，然后比较序列即可。  
 
 
-![](/images/2019/04/20/leetcode-contest-94-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/20/leetcode-contest-94-002.png)  
 
 
 ## 三、模拟行走机器人  
@@ -65,7 +65,7 @@ wxurl: https://mp.weixin.qq.com/s/ZUyCdKfane3OYmAEdFtIhw
 使用我的`DIR`数组就不会有这个问题了。  
 
 
-![](/images/2019/04/20/leetcode-contest-94-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/20/leetcode-contest-94-003.png)  
 
 
 ## 四、爱吃香蕉的koko  
@@ -101,7 +101,7 @@ koko 每小时可以吃`K`个香蕉，且每次只能选择一堆香蕉来吃，
 既然使用二分查找可以做，那就上代码吧。  
 
 
-![](/images/2019/04/20/leetcode-contest-94-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/20/leetcode-contest-94-004.png)  
 
 
 ## 五、最长的斐波那契子序列的长度  
@@ -117,7 +117,7 @@ koko 每小时可以吃`K`个香蕉，且每次只能选择一堆香蕉来吃，
 对于后缀，则是`DP`思想，储存所有合法序列最后两位为后缀的最大长度。  
 
 
-![](/images/2019/04/20/leetcode-contest-94-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/20/leetcode-contest-94-005.png)  
 
 
 ## 六、最后  

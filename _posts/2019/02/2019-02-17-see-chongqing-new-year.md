@@ -38,7 +38,7 @@ wxurl: https://mp.weixin.qq.com/s/XaUKqhoT2-UPKVopsJ4FPg
 这一晚，我家请大家吃的就是兔肉火锅，就像上次《[四五线城市医院小记](https://mp.weixin.qq.com/s/LjjdZx576yxjZm9Z-dpqKw)》一样，一顿饭大概一千多。  
 
 
-![](/images/2019/02/20190217232002.png)  
+![](http://res.tiankonguse.com/images/2019/02/20190217232002.png)  
 
 
 原来在重庆，有一个习俗，名字叫做团年，就是团圆的意思。  

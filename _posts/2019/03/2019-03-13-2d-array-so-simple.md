@@ -31,7 +31,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 下图显示了大小为 `M * N` 的数组 A 的实际结构：  
 
 
-![](/images/2019/03/2d-array-so-simple-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-001.png)  
 
 
 因此，如果我们将 A 定义为也包含 `M * N` 个元素的一维数组，那么实际上 `A[i][j]` 就等于 `A[i * N + j]`。  
@@ -41,7 +41,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 下图显示了 `Java` 中二维数组 A 的实际结构：  
 
 
-![](/images/2019/03/2d-array-so-simple-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-002.png)  
 
 
 而对于动态二维数组，则是一维动态数组的元素还是一维动态数组。  
@@ -57,7 +57,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 遍历规则可以参考下图。  
 
 
-![](/images/2019/03/2d-array-so-simple-003.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-003.jpg)  
 
 
 其实这道题看着很简单，但是做起来会发现很复杂，需要考虑的情况太多。  
@@ -82,7 +82,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 有了最上面顶点的坐标，我们就可以循环斜着扫描，每扫描下一行，列数依次减一，只要没越界，都属于这个对角线上的合法坐标。  
 
 
-![](/images/2019/03/2d-array-so-simple-009.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-009.jpg)  
 
 
 
@@ -90,7 +90,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 第三步就是将对角线的数据拼接到答案上，循环拼接即可。  
 
 
-![](/images/2019/03/2d-array-so-simple-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-004.png)  
 
 
 ## 四、螺旋矩阵  
@@ -99,7 +99,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 给一个`N * M`的矩阵，按顺时针输出所有元素。  
 
 
-![](/images/2019/03/2d-array-so-simple-008.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-008.jpg)  
 
 
 上面那道题对角线是两个方向，现在螺旋遍历则是四个方向了。  
@@ -114,7 +114,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 模板化后的好处是我们可以直接循环就可以完成遍历矩阵了。  
 
 
-![](/images/2019/03/2d-array-so-simple-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-005.png)  
 
 
 比如上面这个代码。  
@@ -139,7 +139,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 注：杨辉三角参考下图。  
 
 
-![](/images/2019/03/2d-array-so-simple-006.gif)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-006.gif)  
 
 
 这道题与前面两道题相比就简单多了。  
@@ -151,7 +151,7 @@ wxurl: https://mp.weixin.qq.com/s/bsMT3tsJZRZwOk8qdvKFyA
 于是我们就可以按照这个规律写出答案了。  
 
 
-![](/images/2019/03/2d-array-so-simple-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/2d-array-so-simple-007.png)  
 
 
 ## 七、最后  

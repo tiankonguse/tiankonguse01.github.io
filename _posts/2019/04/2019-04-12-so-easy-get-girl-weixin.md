@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/wb4fT9FWcvC_zSgCBNw_hQ
 ---  
 
 
-![](/images/2019/04/12/so-easy-get-girl-weixin-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/12/so-easy-get-girl-weixin-001.png)  
 
 
 ## 一、背景  
@@ -59,7 +59,7 @@ wxurl: https://mp.weixin.qq.com/s/wb4fT9FWcvC_zSgCBNw_hQ
 代码大概如下，确实计算出来了一对质数。  
 
 
-![](/images/2019/04/13/so-easy-get-girl-weixin-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/13/so-easy-get-girl-weixin-002.png)  
 
 
 ## 二、3的个数  
@@ -115,7 +115,7 @@ wxurl: https://mp.weixin.qq.com/s/wb4fT9FWcvC_zSgCBNw_hQ
 这个可以看下下面的公示图，应该清晰点。  
 
 
-![](/images/2019/04/12/so-easy-get-girl-weixin-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/12/so-easy-get-girl-weixin-003.png)  
 
 
 ## 四、最后  

@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/EZlzwhIJwRhX5weoCMBSOQ
 ---  
 
 
-![](/images/2019/03/p2448089.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/p2448089.jpg)  
 
 
 ## 一、背景
@@ -104,7 +104,7 @@ wxurl: https://mp.weixin.qq.com/s/EZlzwhIJwRhX5weoCMBSOQ
 正所谓如果机会没有到来，不是机会不留给努力的人，而是你的机会还没到（好大一碗鸡汤）。  
 
 
-![](/images/2019/03/001.gif)  
+![](http://res.tiankonguse.com/images/2019/03/001.gif)  
 
 
 第四点是爱情。  
@@ -112,7 +112,7 @@ wxurl: https://mp.weixin.qq.com/s/EZlzwhIJwRhX5weoCMBSOQ
 合约男友一直在鼓励女主角，但是她一直在被骗，男友的那些鸡汤话仅仅是为了骗钱而已。  
 
 
-![](/images/2019/03/002.gif)  
+![](http://res.tiankonguse.com/images/2019/03/002.gif)  
 
 
 第五点是工作。  
@@ -121,7 +121,7 @@ wxurl: https://mp.weixin.qq.com/s/EZlzwhIJwRhX5weoCMBSOQ
 理想就像一场梦，总是那么遥不可及，而突然幸运来临的时候，又是那么的措手不及与不可置信。  
 
 
-![](/images/2019/03/20190303203832.png)  
+![](http://res.tiankonguse.com/images/2019/03/20190303203832.png)  
 
 
 如果你细心的话，可以发现前面用了80%的时间来描述女主角的努力奋斗的生活，后面用20%的时间来描述梦来了的生活。  

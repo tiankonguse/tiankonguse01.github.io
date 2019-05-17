@@ -29,7 +29,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 一个黑人钢琴家唐雇请白人托尼当自己的司机兼保镖，来了一趟说就就走的全国旅行与演出。  
 
 
-![](/images/2019/03/lvpishu-000.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-000.png)  
 
 
 出发前，有人给了白人托尼一本《黑人司机绿皮书》，里面主要记录全国黑人能够去的旅店、餐厅等等消费场所。  
@@ -48,7 +48,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 ## 三、歧视黑人  
 
 
-![](/images/2019/03/lvpishu-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-001.png)  
 
 
 白人托尼原先也是一个严重歧视黑人的一个人。  
@@ -63,7 +63,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 司机托尼去讲道理，结果他们歧视黑人，道理讲不通。最后托尼使用拳头解决了问题。  
 
 
-![](/images/2019/03/lvpishu-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-007.png)  
 
 
 某一站，黑人无聊去酒吧喝酒，结果被白人欺负了。  
@@ -75,14 +75,14 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 黑人为了自己的尊严，只好开半个小时的车回到住的地方。  
 
 
-![](/images/2019/03/lvpishu-009.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-009.png)  
 
 
 还有，当他们一起逛街的时候，黑人看中一件衣服，却不能试穿，只能先买下来，不合身了再裁剪。  
 因此在下场演出的时候，我们可以看到，黑人钢琴弹得特别刚劲用力，以此来将心中的不满与怨恨像泄欲一样全部宣泄出去。  
 
 
-![](/images/2019/03/lvpishu-012.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-012.png)  
 
 
 中间还有一次，当他们在下雨天赶路的时候，被交警拦了下来。  
@@ -90,7 +90,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 之后黑人爆发了：因有色歧视自己不被白人接收，因和黑人没有共同之处也不被同胞接受，自己一个人承受着孤独，没有人能够理解。  
 
 
-![](/images/2019/03/lvpishu-016.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-016.png)  
 
 
 最后一站，演出前的吃饭的时候，禁止黑人在餐厅吃饭。  
@@ -98,7 +98,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 白人称赞道：不要问你可以为你的国家做什么，问问你可以为自己做什么。  
 
 
-![](/images/2019/03/lvpishu-017.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-017.png)  
 
 
 最终他们去一个黑人酒吧开心的谈了一场钢琴。  
@@ -113,7 +113,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 比如语调、变音、用词，都要文雅一些，而且可以教司机几个简单的非常有效的技巧，来学到怎么说话。  
 
 
-![](/images/2019/03/lvpishu-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-004.png)  
 
 
 当然，托尼拒绝了黑人的帮助。  
@@ -122,8 +122,8 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 黑人回答：因为你能做的更好。  
 
 
-![](/images/2019/03/lvpishu-003.png)  
-![](/images/2019/03/lvpishu-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-002.png)  
 
 
 第一站演出后，黑人唐发现白人托尼坐在地上和一群人赌博，黑人建议白人不要这样做。  
@@ -135,7 +135,7 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 在车上，托尼边开车边聊天时，经常会整个身子转向后面去，而在此时，黑人总会提醒：`Eyes on the road`  
 
 
-![](/images/2019/03/lvpishu-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-006.png)  
 
 
 在路上商店买东西的时候，托尼看到玉石铺子前不远的底下有一块玉石，便就光明正大的捡起来放在了口袋里。  
@@ -151,14 +151,14 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 因为鸡腿是有机物品，可以被分解。而可乐盒子是无机物品，没办法分解，会污染环境的。  
 
 
-![](/images/2019/03/lvpishu-008.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-008.png)  
 
 
 中间黑人的同事提出一个很高端的问题：黑人本可以待在北方潇洒自由的拿高倍的工资，却忍受的各种屈辱来到南方演出。  
 为什么呢？托尼一直没找到答案。  
 
 
-![](/images/2019/03/lvpishu-015.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-015.png)  
 
 
 因为天才并不能改变人心，勇敢的面对才可以。  
@@ -168,33 +168,33 @@ wxurl: https://mp.weixin.qq.com/s/8cjkW4A4xIs6Q2-Ms4pyDg
 ## 五、白人托尼的哲学  
 
 
-![](/images/2019/03/lvpishu-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-005.png)  
 
 
 托尼有`Tony Lip`绰号，意思是忽悠大师。  
 托尼从来不撒谎骗人，不过只是很能忽悠，能让别人做他们不想做的事。  
 
 
-![](/images/2019/03/lvpishu-010.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-010.png)  
 
 
 当黑人去游泳池偷奸时被抓，托尼使用金钱讲黑人偷偷救了出来，黑人却不领情。  
 
 
-![](/images/2019/03/lvpishu-011.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-011.png)  
 
 
 当黑人看到白人伙伴要用高薪来挖墙脚时，立马给白人涨工资，但是白人拒绝了。  
 原来托尼是一个有始有终的人，答应了护送黑人，就坚持完成这个工作。  
 
 
-![](/images/2019/03/lvpishu-013.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-013.png)  
 
 
 当黑人抱怨托尼在房间吸烟时，托尼说：你应该告诉我的。  
 
 
-![](/images/2019/03/lvpishu-014.png)  
+![](http://res.tiankonguse.com/images/2019/03/lvpishu-014.png)  
 
 
 睡觉之前，白人建议黑人给自己的兄弟写一封信。  

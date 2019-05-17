@@ -50,7 +50,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 方法二：简单分析数组后，发现一次可以移动一个连续的块，这样就可以加速移动了。  
 
 
-![](/images/2019/04/leetcode-array-sumary-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-001.png)  
 
 
 如图：当`k`小于左半部时，相当于最右边连续`k`个数字不断向左移，移到尽头尽头就是答案。  
@@ -60,7 +60,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 算法评价：这个时间复杂度已经是最优的了，但是实现较为复杂。  
 
 
-![](/images/2019/04/leetcode-array-sumary-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-002.png)  
 
 
 方法三：我们的目标是将两个不等长的连续数组进行交换。  
@@ -70,7 +70,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 算法评价：在保持时间复杂度最优的情况下，能够适应较为简单的代码实现，挺不错的。  
 
 
-![](/images/2019/04/leetcode-array-sumary-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-003.png)  
 
 
 ## 四、杨辉三角 II  
@@ -80,7 +80,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 要求：空间复杂度要求只用`O(K)`。  
 
 
-![](/images/2019/04/PascalTriangleAnimated2.gif)  
+![](http://res.tiankonguse.com/images/2019/04/PascalTriangleAnimated2.gif)  
 
 
 思路：由于不能使用二维数组，这里只能使用在原数组上滚动计算了。  
@@ -100,7 +100,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 算法评价：在较高的复杂度下，较为简洁的实现了代码。  
 
 
-![](/images/2019/04/leetcode-array-sumary-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-004.png)  
 
 
 方法二：其实，杨辉三角对应的几何意义是组合数，即`C(n, k)`。  
@@ -120,7 +120,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 算法评价：利用组合的理论，在最优的时间内计算出了答案。  
 
 
-![](/images/2019/04/leetcode-array-sumary-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-005.png)  
 
 
 ## 五、反转字符串中的单词 III  
@@ -131,7 +131,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 复杂度：`O(n)`  
 
 
-![](/images/2019/04/leetcode-array-sumary-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-007.png)  
 
 
 ## 六、删除排序数组中的重复项  
@@ -143,7 +143,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 复杂度：空间复杂度`O(n)`  
 
 
-![](/images/2019/04/leetcode-array-sumary-008.png)
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-008.png)
 
 
 ## 七、翻转字符串里的单词  
@@ -164,7 +164,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 注意：这里删除空格时，使用了临时的`string`，如果使用之前讲解的快慢指针，可以不申请额外空间的情况下完成删除空格。  
 
 
-![](/images/2019/04/leetcode-array-sumary-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-006.png)  
 
 
 ## 八、移动零  
@@ -174,7 +174,7 @@ wxurl: https://mp.weixin.qq.com/s/n_B38CXxmvsOl7FZxyPKgA
 复杂度：`O(n)`  
 
 
-![](/images/2019/04/leetcode-array-sumary-009.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-array-sumary-009.png)  
 
 
 ## 九、最后  

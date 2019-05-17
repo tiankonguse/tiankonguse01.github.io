@@ -52,7 +52,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 比如字符串拼接、查找、子串截取等。  
 
 
-![](/images/2019/03/string-so-easy-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-001.png)  
 
 
 ## 三、二进制求和  
@@ -87,7 +87,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 通过这样五步，所有的大整数运算都可以解决了。  
 
 
-![](/images/2019/03/string-so-easy-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-002.png)  
 
 
 ## 四、实现strStr   
@@ -103,7 +103,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 当然，这个复杂度是`O(n * m)`的。  
 
 
-![](/images/2019/03/string-so-easy-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-003.png)  
 
 
 面对上面的暴力方法，其实我们有一个更快的方法，名字叫做`KMP`。  
@@ -121,7 +121,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 既然扫描过了，我们能不能直接来判断下个位置应该从哪个位置开始比较呢？  
 
 
-![](/images/2019/03/string-so-easy-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-006.png)  
 
 
 比如`P ~ P+9` 的子串对应于`1234512345`。  
@@ -140,7 +140,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 这个实现还是相当抽象的，所以大家看着代码，找个例子模拟一下才能理解。  
 
 
-![](/images/2019/03/string-so-easy-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-005.png)  
 
 
 ## 五、最长公共前缀  
@@ -152,7 +152,7 @@ wxurl: https://mp.weixin.qq.com/s/T2SoYIOOTT279DIWfxlyIA
 这道题没啥说的，循环比较即可。  
 
 
-![](/images/2019/03/string-so-easy-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/string-so-easy-004.png)  
 
 
 ## 六、最后  

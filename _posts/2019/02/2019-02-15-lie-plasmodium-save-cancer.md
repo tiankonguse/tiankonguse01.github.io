@@ -21,7 +21,7 @@ wxurl: https://mp.weixin.qq.com/s/UkxIrNcXbfTERMyS2HKe5A
 两三天前，朋友圈看到几个人在转发一个另一篇 CCTV 挂名的实锤文章：CCTV 说了，大家不需要担心了，这个谣言是真的，疟原虫可以治愈所有癌症，一切都尘埃落定。  
 
 
-![](/images/2019/02/20190215211401.jpg)  
+![](http://res.tiankonguse.com/images/2019/02/20190215211401.jpg)  
 
 
 ## 二、专业人士求证  
@@ -34,7 +34,7 @@ wxurl: https://mp.weixin.qq.com/s/UkxIrNcXbfTERMyS2HKe5A
 于是，我问了我的一个老同学，目前还在读博，方向是医学相关的。    
 
 
-![](/images/2019/02/20190215211825.jpg)  
+![](http://res.tiankonguse.com/images/2019/02/20190215211825.jpg)  
 
 
 这么大的新闻，作为一个医学领域的人竟然没听过这个新闻。  

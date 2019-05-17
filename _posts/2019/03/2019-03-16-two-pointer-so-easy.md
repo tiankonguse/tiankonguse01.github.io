@@ -49,7 +49,7 @@ wxurl: https://mp.weixin.qq.com/s/w6HdSIOEHJRnTCQp1wkZDQ
 等完成反转后，我们可以发现头部下标循环了数组的前半部，尾部下标未还了数组的后半部。  
 
 
-![](/images/2019/03/two-pointer-so-easy-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-001.png)  
 
 
 ## 四、数组拆分 I  
@@ -70,7 +70,7 @@ wxurl: https://mp.weixin.qq.com/s/w6HdSIOEHJRnTCQp1wkZDQ
 先把所有数字从小到大排序，假设下标从`0`开始，我们只挑选偶数下标的数字即可。  
 
 
-![](/images/2019/03/two-pointer-so-easy-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-002.png)  
 
 
 ## 五、两数之和 II  
@@ -88,7 +88,7 @@ wxurl: https://mp.weixin.qq.com/s/w6HdSIOEHJRnTCQp1wkZDQ
 由于有两层循环，复杂度是`O(n^2)`。  
 
 
-![](/images/2019/03/two-pointer-so-easy-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-003.png)  
 
 
 当我们问是否可以优化时，可以发现后面循环查找可以优化。  
@@ -100,7 +100,7 @@ wxurl: https://mp.weixin.qq.com/s/w6HdSIOEHJRnTCQp1wkZDQ
 PS：我之前曾介绍过《[二分查找](https://mp.weixin.qq.com/s/UQ7wU7qHd-YI4P4iCYAa3g)》，感兴趣的可以去看看。  
 
 
-![](/images/2019/03/two-pointer-so-easy-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-004.png)  
 
 
 我们使用了二分查找提高了查找速度，那我们能不能更快的解决这个问题呢。  
@@ -121,7 +121,7 @@ PS：我之前曾介绍过《[二分查找](https://mp.weixin.qq.com/s/UQ7wU7qHd
 按照这个思路来看这道题，突然发现找到了一个新大陆：这道题竟然可以在`O(n)`复杂度内完成计算。  
 
 
-![](/images/2019/03/two-pointer-so-easy-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-005.png)  
 
 
 ## 六、移除元素  
@@ -150,7 +150,7 @@ PS：我之前曾介绍过《[二分查找](https://mp.weixin.qq.com/s/UQ7wU7qHd
 PS：这个思想面试中经常会遇到，比如数组里随机选几个数字。  
 
 
-![](/images/2019/03/two-pointer-so-easy-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-006.png)  
 
 
 另一个思路是延迟覆盖。  
@@ -158,7 +158,7 @@ PS：这个思想面试中经常会遇到，比如数组里随机选几个数字
 这个时候，用一个下标来标记空的位置，用另外一个下标来标记查找的位置。  
 
 
-![](/images/2019/03/two-pointer-so-easy-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-007.png)  
 
 
 ## 七、最大连续1的个数  
@@ -175,20 +175,20 @@ PS：这个思想面试中经常会遇到，比如数组里随机选几个数字
 计数法遇到零则重置计数，遇到一则加1，并更新答案即可。  
 
 
-![](/images/2019/03/two-pointer-so-easy-008.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-008.png)  
 
 
 两指针方法和计数类似，遇到零重置指针，遇到一则偏移指针。  
 
 
-![](/images/2019/03/two-pointer-so-easy-009.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-009.png)  
 
 
 在这两个方法里，都可以看到在最后有一个特殊判断。这是由于数组可能以`1`结束，此时最后一个答案就没有进行计算。  
 其实，这个稍微调整一下，就不需要考虑特殊情况了。  
 
 
-![](/images/2019/03/two-pointer-so-easy-010.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-010.png)  
 
 
 ## 八、长度最小的子数组  
@@ -210,7 +210,7 @@ PS：这个思想面试中经常会遇到，比如数组里随机选几个数字
 而对于前缀数组之和，是可以预处理求出所有的前缀数组之和，然后二分的。  
 
 
-![](/images/2019/03/two-pointer-so-easy-011.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-011.png)  
 
 
 此时，再分析一下这道题，会发现有意思的特征。  
@@ -224,7 +224,7 @@ PS：这个思想面试中经常会遇到，比如数组里随机选几个数字
 至于`a[k]`的位置，我们使用另外一个指针或者下标来标记维护即可。  
 
 
-![](/images/2019/03/two-pointer-so-easy-012.png)  
+![](http://res.tiankonguse.com/images/2019/03/two-pointer-so-easy-012.png)  
 
 
 ## 九、最后  

@@ -39,7 +39,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 查询时，使用相同的哈希函数，找到对应的桶，然后在桶里查找对应的键是否存在。  
 
 
-![](/images/2019/04/22/hash-lur-cache-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/22/hash-lur-cache-001.png)  
 
 
 如下图，0 映射到桶 0, 1987 和 2 映射到桶 2， 24 映射到桶 4.  
@@ -64,7 +64,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 实现大概如下。  
 
 
-![](/images/2019/04/22/hash-lur-cache-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/22/hash-lur-cache-002.png)  
 
 
 ## 四、缓存  
@@ -98,8 +98,8 @@ LRU 的全称是 Least Recently Used，即最近未使用。
 相信你实现了 LRU 缓存后，自己无论是对哈希表还是 LRU ，都会有不一样的理解。  
 
 
-![](/images/2019/04/22/hash-lur-cache-003.png)  
-![](/images/2019/04/22/hash-lur-cache-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/22/hash-lur-cache-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/22/hash-lur-cache-004.png)  
 
 
 ## 四、最后  

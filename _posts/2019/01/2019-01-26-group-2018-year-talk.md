@@ -123,7 +123,7 @@ wxurl: https://mp.weixin.qq.com/s/2CwEOxAdC2e1gJQdIACuEw
 最后发现，他们根本没有严格的按照我说的步骤来定位问题（比如让他们打印出输入参数，他们打印错了）。  
 
 
-![](/images/2019/01/15445207526082.png)  
+![](http://res.tiankonguse.com/images/2019/01/15445207526082.png)  
 
 
 当然，上面的基本步骤，一般可以解决 95% 的问题了。  
@@ -192,7 +192,7 @@ wxurl: https://mp.weixin.qq.com/s/2CwEOxAdC2e1gJQdIACuEw
 想起了银魂里的一句经典台词：和你们这些人不同，我们光是活着就竭尽全力了。  
 
 
-![](/images/2019/01/838ba61ea8d3fd1f8a95717c324e251f94ca5fdc.jpg)  
+![](http://res.tiankonguse.com/images/2019/01/838ba61ea8d3fd1f8a95717c324e251f94ca5fdc.jpg)  
 
 
 而我面对这个问题的前半段，想起了之前写的文章《[读物理学的困惑](https://mp.weixin.qq.com/s/ZhpjbW21XCDYfFhAzuQsiQ)》里的物理学理论现状。  

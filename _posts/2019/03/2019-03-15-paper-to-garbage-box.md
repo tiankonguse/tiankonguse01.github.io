@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/dni6G5PwqQuTv4FcnqmHrw
 ---  
 
 
-![](/images/2019/03/paper-to-box-001.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-001.jpg)  
 (我在朋友圈分享的垃圾篓)  
 
 
@@ -25,79 +25,79 @@ wxurl: https://mp.weixin.qq.com/s/dni6G5PwqQuTv4FcnqmHrw
 一、准备一张A4纸，展平  
 
 
-![](/images/2019/03/paper-to-box-002.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-002.jpg)  
 
 
 二、对折一下,折线压平  
 
 
-![](/images/2019/03/paper-to-box-003.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-003.jpg)  
 
 
 三、再次对折，也压平  
 
 
-![](/images/2019/03/paper-to-box-004.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-004.jpg)  
 
 
 四、其中一面按对角线折成三角形  
 
 
-![](/images/2019/03/paper-to-box-005.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-005.jpg)  
 
 
 五、另一面按相同操作也折成三角形  
 
 
-![](/images/2019/03/paper-to-box-006.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-006.jpg)  
 
 
 六、此时俯视看，十个是十字形  
 
 
-![](/images/2019/03/paper-to-box-007.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-007.jpg)  
 
 
 七、此时从底层看，如下图  
 
 
-![](/images/2019/03/paper-to-box-008.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-008.jpg)  
 
 
 八、压平、两边对折  
 
 
-![](/images/2019/03/paper-to-box-009.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-009.jpg)  
 
 
 九、反面也对折  
 
 
-![](/images/2019/03/paper-to-box-010.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-010.jpg)  
 
 
 十、底部向上折，中间撕开  
 
 
-![](/images/2019/03/paper-to-box-011.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-011.jpg)  
 
 
 十一、将撕开的部分折到里面，压平  
 
 
-![](/images/2019/03/paper-to-box-012.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-012.jpg)  
 
 
 十二、反面一样将撕开的折到里面，压平 
 
 
-![](/images/2019/03/paper-to-box-013.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-013.jpg)  
 
 
 十三、拿起来，从底部撑开
 
 
-![](/images/2019/03/paper-to-box-014.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/paper-to-box-014.jpg)  
 （边角可以用手压一下）
 
 

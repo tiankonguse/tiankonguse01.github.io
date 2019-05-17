@@ -23,7 +23,7 @@ wxurl: https://mp.weixin.qq.com/s/VF70iQxioir5r1xHxYT-pw
 这里仅仅是选择了卫庄来当做头像而已。  
 
 
-![](/images/avatar-2014.jpg)  
+![](http://res.tiankonguse.com/images/avatar-2014.jpg)  
 
 
 现在看看这个头像，发现黑白色头像戾气太重，是有必要换换头像了。  
@@ -31,7 +31,7 @@ wxurl: https://mp.weixin.qq.com/s/VF70iQxioir5r1xHxYT-pw
 思考良久，决定还是用卫庄的头像，不过是少年时期的样子。 
 
 
-![](/images/avatar-2019.jpg)  
+![](http://res.tiankonguse.com/images/avatar-2019.jpg)  
 
 
 为了找一张满意的截图，我有快速看了一遍《秦时明月之夜尽天明》，发现自己追秦时明月已经十多年了。  

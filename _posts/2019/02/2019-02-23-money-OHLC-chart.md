@@ -29,7 +29,7 @@ wxurl: https://mp.weixin.qq.com/s/JPtuUdPg3bJr1IOKtpFZrg
 下图可以看到，K线主要记录了开盘价、收盘价、最高价、最低价四个信息。  
 
 
-![](/images/2019/02/ohlc-chart-01.png)  
+![](http://res.tiankonguse.com/images/2019/02/ohlc-chart-01.png)  
 
 
 ## 三、美国线  
@@ -41,14 +41,14 @@ wxurl: https://mp.weixin.qq.com/s/JPtuUdPg3bJr1IOKtpFZrg
 如下图，这四个信息对应的英文就是 Open High Low Close，对应的缩写就是 OHLC 图，有时候不显示开盘价则是 HLC 图。  
 
 
-![](/images/2019/02/ohlc-chart-02.png)  
+![](http://res.tiankonguse.com/images/2019/02/ohlc-chart-02.png)  
 
 
 具体到市场的曲线，就是下图的样子。  
 可以看到，美国线比K线清洗简单多了。  
 
 
-![](/images/2019/02/ohlc-chart-03.png)  
+![](http://res.tiankonguse.com/images/2019/02/ohlc-chart-03.png)  
 
 
 ## 四、最后  

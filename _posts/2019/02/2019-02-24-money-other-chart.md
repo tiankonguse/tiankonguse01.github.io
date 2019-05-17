@@ -23,7 +23,7 @@ wxurl: https://mp.weixin.qq.com/s/-2Cvcj3cq7MO2QySjopf9g
 ## 二、K 线  
 
 
-![](/images/2019/02/other-chart-01.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-01.png)  
 
 
 股票里面，经常听说的就是 K 线，单位时间内使用上面的像蜡烛的小图形来表示。  
@@ -32,13 +32,13 @@ wxurl: https://mp.weixin.qq.com/s/-2Cvcj3cq7MO2QySjopf9g
 连续的时间就会像下图一样，很多人根据蜡烛的高低、蜡芯的长短、蜡烛的颜色就可以判断短期内的一个大概趋势，当时只是大概。  
 
 
-![](/images/2019/02/other-chart-02.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-02.png)  
 
 
 ## 三、美国线  
 
 
-![](/images/2019/02/other-chart-03.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-03.png)  
 
 
 K 线是日本发明的一种表示法，美国发明的类似的表示法叫做美国线。    
@@ -46,7 +46,7 @@ K 线是日本发明的一种表示法，美国发明的类似的表示法叫做
 随着时间画出来的美国线如下图，相比K线，清晰明了。  
 
 
-![](/images/2019/02/other-chart-04.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-04.png)  
 
 
 ## 四、线形图  
@@ -55,7 +55,7 @@ K 线是日本发明的一种表示法，美国发明的类似的表示法叫做
 其实，在股票软件里面首先看到的并不是K线，而是线形图，大概像下图的样子。    
 
 
-![](/images/2019/02/other-chart-05.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-05.png)  
 
 
 由于每分钟都有很多交易，所以在这一分钟内的最高价和最低价之间，可能会有很多价钱。  
@@ -65,7 +65,7 @@ K 线是日本发明的一种表示法，美国发明的类似的表示法叫做
 ## 五、卡吉图
 
 
-![](/images/2019/02/other-chart-06.png)  
+![](http://res.tiankonguse.com/images/2019/02/other-chart-06.png)  
 
 
 上图就是一个卡吉图。  

@@ -51,7 +51,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 软件如下：  
 
 
-![](/images/2019/05/02/001.png)  
+![](http://res.tiankonguse.com/images/2019/05/02/001.png)  
 
 
 3. 同步原项目代码  
@@ -81,13 +81,13 @@ PS：正常同步时，你可以看到 Fast-forward 这个词。
 ```
 
 
-![](/images/2019/05/02/002.png)  
+![](http://res.tiankonguse.com/images/2019/05/02/002.png)  
 
 
 目前，只是修改的本地 master，还需要同步到远程  
 
 
-![](/images/2019/05/02/003.png)  
+![](http://res.tiankonguse.com/images/2019/05/02/003.png)  
 
 
 4. 同步开发分支  

@@ -19,7 +19,7 @@ wxurl: https://mp.weixin.qq.com/s/natRB_8e8sSPnkOgxDR8jg
 ## 二、栈的定义  
 
 
-![](/images/2019/04/leetcode-stack-base-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-001.png)  
 
 
 队列是一种`LIFO`的数据结构。  
@@ -76,7 +76,7 @@ class MyStack {
 当然，代价是入栈和出栈时也要使用`O(log(n))`的复杂度来更新这个数据结构。  
 
 
-![](/images/2019/04/leetcode-stack-base-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-002.png)  
 
 
 ## 四、有效的括号  
@@ -96,7 +96,7 @@ class MyStack {
 代码如下：  
 
 
-![](/images/2019/04/leetcode-stack-base-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-003.png)  
 
 
 ## 五、每日温度  
@@ -125,7 +125,7 @@ class MyStack {
 如下图：  
 
 
-![](/images/2019/04/leetcode-stack-base-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-004.png)  
 
 
 对于当前位置`k`，肯定是要入队的，但是入队前我们需要更新数据结构，使其满足递减的特征。  
@@ -137,7 +137,7 @@ class MyStack {
 由于我们每次都是操作数据结构最后一个元素，所以这种数据结构可以使用栈来代替。  
 
 
-![](/images/2019/04/leetcode-stack-base-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-005.png)  
 
 
 ## 六、逆波兰表达式求值  
@@ -178,7 +178,7 @@ class MyStack {
 具体代码如下：  
 
 
-![](/images/2019/04/leetcode-stack-base-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/leetcode-stack-base-006.png)  
 
 
 ## 七、最后  

@@ -47,7 +47,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 存在答案了，则子数组的和`minsum`也就确定了，都是`sum`的三分之一。  
 
 
-![](/images/2019/03/leetcode-129-001.jpg)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-001.jpg)  
 
 
 之后先找到第一个前缀子数组，然后找到第二个，则存在答案，否则不存在。  
@@ -56,7 +56,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 第一个很好求，对于第二个，只需要从第一个子数组之后开始查找即可。  
 
 
-![](/images/2019/03/leetcode-129-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-002.png)  
 
 
 ## 三、最佳观光组合  
@@ -89,7 +89,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 我们扫描一遍即可找到所有`j`之前的`max(A[i] + i)`。  
 
 
-![](/images/2019/03/leetcode-129-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-003.png)  
 
 
 
@@ -130,7 +130,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 此时复杂度则降为`O(S * log(N))`，算是最优了。  
 
 
-![](/images/2019/03/leetcode-129-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-004.png)  
 
 
 ## 五、可被 K 整除的最小整数  
@@ -152,7 +152,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 首先，我们可以确定`K`的个位只能是`1,2,7,9`，因为其他数字和任何数字相乘各位都不是`1`。  
 
 
-![](/images/2019/03/leetcode-129-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-005.png)  
 
 
 其次对于答案`A`的个数数字，可以根据`K`的个位数字`k0`来唯一决定了。  
@@ -160,7 +160,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 例如`K`的个位是`3`，则`A`的个位只能是`7`，其他的都不能得到数字`1`。
 
 
-![](/images/2019/03/leetcode-129-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-006.png)  
 
 
 到第二位时，就变得复杂了。  
@@ -168,7 +168,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 使用公式表达就是求一个数字`p`，使得`(k0 * p + preSum)%10 == 1`。  
 
 
-![](/images/2019/03/leetcode-129-007.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-007.png)  
 
 
 公式转化一下，就是`(k0 * p)%10 == (11 - preSum%10)%10`。  
@@ -180,7 +180,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 暴力搜索竟然过了，当然，这个是在结束比赛的时候提交的。  
 
 
-![](/images/2019/03/leetcode-129-009.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-009.png)  
 
 
 既然暴力搜索可以过，代表一定存在答案，那反过来，枚举`1`的个数应该也可以过。  
@@ -189,7 +189,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 所以累计计算的时候，需要不断的模`K`防止`sum`越界。  
 
 
-![](/images/2019/03/leetcode-129-010.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-010.png)  
 
 
 那接下来的问题是：为什么？  
@@ -200,7 +200,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 面对关键的方程式`preSum = (preSum + K*P)/10`，假设其是收敛的，我们可以证明最多在`K`次循环内可以收敛到`0`。  
 
 
-![](/images/2019/03/leetcode-129-008.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-008.png)  
 
 
 大家可以看上图，每次计算其实只与`preSum` 有关，我们可以证明`preSum`肯定小于`K`。  
@@ -287,7 +287,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 剩余的时间就都耗在第二题了。  
 
 
-![](/images/2019/03/leetcode-129-011.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-011.png)  
 
 
 另外，我的`leetcode`模板根据使用的体验，准备做一个较大的优化。  
@@ -298,7 +298,7 @@ PS3：这次比赛题目的难度分级有很大的问题，尤其是第二题�
 另外，头文件等与题无关的代码都移动到了`base.h`里面去了。  
 
 
-![](/images/2019/03/leetcode-129-012.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-129-012.png)  
 
 
 -EOF-  

@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/ZhpjbW21XCDYfFhAzuQsiQ
 ---  
 
 
-![](/images/2019/01/e49829baa56fc55c0cf2820ae3471b79.jpg)  
+![](http://res.tiankonguse.com/images/2019/01/e49829baa56fc55c0cf2820ae3471b79.jpg)  
 
 
 
@@ -21,7 +21,7 @@ wxurl: https://mp.weixin.qq.com/s/ZhpjbW21XCDYfFhAzuQsiQ
 最近在读《物理学的困惑》，用了一个月的时间断断续续的读完了。  
 
 
-![](/images/2019/01/6d498b119981331878dfce669be8bba7.jpg)  
+![](http://res.tiankonguse.com/images/2019/01/6d498b119981331878dfce669be8bba7.jpg)  
 
 
 读完这本书，可以简单的了解到现代物理理论发展到什么程度了。  

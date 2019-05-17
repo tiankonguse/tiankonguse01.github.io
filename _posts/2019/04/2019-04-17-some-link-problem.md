@@ -42,7 +42,7 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 思路：遍历链表，每次删除一个节点，然后插入到最前面即可。  
 
 
-![](/images/2019/04/16/some-link-problem-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-001.png)  
 
 
 ## 三、移除链表元素  
@@ -55,7 +55,7 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 注意实现：由于删除节点的时候，上一个节点需要执行下一个节点，所以我们需要保存上一个节点的指针。  
 
 
-![](/images/2019/04/16/some-link-problem-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-002.png)  
 
 
 ## 四、奇偶链表  
@@ -69,7 +69,7 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 当后面指针是奇数位置时，将对应的节点删除，插入到前面的之后后面，然后维护两个指针的偏移量即可。  
 
 
-![](/images/2019/04/16/some-link-problem-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-003.png)  
 
 
 ## 五、回文链表  
@@ -101,7 +101,7 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 此时你只需要反转后面那个链表，忽略长链表最后一个元素即可。  
 
 
-![](/images/2019/04/16/some-link-problem-004.png)
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-004.png)
 
 
 ## 六、双向链表  
@@ -119,20 +119,20 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 插入一个节点`cur`的时候，`cur`需要先指向上一个节点和下一个节点。  
 
 
-![](/images/2019/04/16/some-link-problem-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-005.png)  
 
 
 然后上一个节点的`next` 和 下一个节点的`prev`都指向当前节点。  
 
 
-![](/images/2019/04/16/some-link-problem-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-006.png)  
 
 
 删除一个节点的时候，简单一下。  
 上一个节点直接指向`cur`的下一个节点，而`cur`的下一个节点指向`cur`的上一个节点即可。  
 
 
-![](/images/2019/04/16/some-link-problem-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-007.png)  
 
 
 当然，这两个操作有一个注意实现。  
@@ -140,7 +140,7 @@ wxurl: https://mp.weixin.qq.com/s/EJwgXqkgTy5pIUvHQx4zgA
 不存在就不需要操作了。  
 
 
-![](/images/2019/04/16/some-link-problem-008.png)  
+![](http://res.tiankonguse.com/images/2019/04/16/some-link-problem-008.png)  
 
 
 ## 七、最后  

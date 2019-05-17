@@ -17,7 +17,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 今天做了 Leetcode 的第 133 场比赛，题型涉及到队列搜索、动态规划、子序列以及字符串题。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-001.png)  
 
 
 上图是我的提交记录，看着题都会做，然而时间有限。  
@@ -73,13 +73,13 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 如果`A`物品选择的费用低于不选择的，而`B`物品选择的费用高于不选择的。那我们肯定选择`A`而不选择`B`。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-002.png)  
 
 
 两个物品都是选择费用更大（不选择费用更大等价），那我们肯定选择差价小的那个物品。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-003.png)  
 
 
 实际上，第一张图是第二张图的一种特殊情况，所以所有的物品都是要使用第二张图来挑选。  
@@ -127,7 +127,7 @@ AC自动机 是 Tire 树 和 KMP 结合的高级复杂结构。
 一般每个字母对应一个 child 指针，值就是当前的字母，还有一个 flag 来标记是否是字符串结束。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-004.png)  
 
 
 使用字典树的好处时，对于多个字符串，其公共前缀可以储存在一个节点上。  
@@ -160,7 +160,7 @@ AC自动机 是 Tire 树 和 KMP 结合的高级复杂结构。
 不过`Tire` 树没有冗余前缀，而单词列表有冗余的前缀。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-007.png)  
 
 
 对于`Tire`，可以`O(1)`定位到下一个节点。  
@@ -173,8 +173,8 @@ AC自动机 是 Tire 树 和 KMP 结合的高级复杂结构。
 天呢，使用二分查找竟然实现了`Tire`树，看代码。  
 
 
-![](/images/2019/04/21/leetcode-contest-133-005.png)  
-![](/images/2019/04/21/leetcode-contest-133-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/21/leetcode-contest-133-006.png)  
 
 
 ## 六、最后  

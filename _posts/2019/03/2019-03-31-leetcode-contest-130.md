@@ -17,7 +17,7 @@ wxurl: https://mp.weixin.qq.com/s/UB1_uHMhFVrLTPtusb_NJQ
 发现一个Leetcode的一个重大秘密，偷偷告诉你。  
 
 
-![](/images/2019/03/leetcode-130-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-130-001.png)  
 
 
 leetcode这次举办比赛的官方人员肯定监听我的QQ算法群的聊天记录了。  
@@ -182,7 +182,7 @@ string baseNeg2(int N) {
 还真有。  
 
 
-![](/images/2019/03/leetcode-130-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-130-003.png)  
 
 
 恰好在昨晚，在我的`不知算法`QQ群里，有人问最长递增子序列有比`n log(n)`更优的算法吗？  
@@ -190,7 +190,7 @@ string baseNeg2(int N) {
 我想了想，认为只需要使用单调队列优化即可达到`n log(n)`。  
 
 
-![](/images/2019/03/leetcode-130-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-130-002.png)  
 
 
 随后我也给出了其严格的证明推理，为什么会更优。  
@@ -212,7 +212,7 @@ string baseNeg2(int N) {
 PS：这里有一个注意事项：位置的值可能重复，所以值相同时，所有的下标都需要保存下来。  
 
 
-![](/images/2019/03/leetcode-130-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-130-004.png)  
 
 ## 五、飞地的数量  
 
@@ -242,7 +242,7 @@ PS：这里有一个注意事项：位置的值可能重复，所以值相同时
 复杂度：`O(n^2)`，其实就是地图的大小。  
 
 
-![](/images/2019/03/leetcode-130-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-130-005.png)  
 
 
 ## 六、最后  

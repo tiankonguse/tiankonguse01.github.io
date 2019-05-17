@@ -46,7 +46,7 @@ wxurl: https://mp.weixin.qq.com/s/pxxku3_Ld4BFGmPM6cM-Fw
 PS：这里的累计复杂度指的是，所有出队操作累计起来的复杂度，而不是一次出队复杂度。  
 
 
-![](/images/2019/03/leetcode-101-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-101-001.png)  
 
 
 当然，我是使用双向队列实现的，使用数组一样可以实现的。  
@@ -72,7 +72,7 @@ PS：这里的累计复杂度指的是，所有出队操作累计起来的复杂
 大概如下图的样子。  
 
 
-![](/images/2019/03/leetcode-101-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-101-002.png)  
 
 
 是不是有点`KMP`中`next`数组的味道？  
@@ -80,7 +80,7 @@ PS：这里的累计复杂度指的是，所有出队操作累计起来的复杂
 所以我们就没必要为维护`pre`指针了，直接使用栈即可解决（参考上图的下半部）。  
 
 
-![](/images/2019/03/leetcode-101-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-101-003.png)  
 
 
 ## 四、最大为 N 的数字组合  
@@ -103,7 +103,7 @@ PS：这里的累计复杂度指的是，所有出队操作累计起来的复杂
 具体代码如下，逻辑还是比较清晰：  
 
 
-![](/images/2019/03/leetcode-101-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-101-004.png)  
 
 
 ## 五、DI 序列的有效排列  
@@ -189,7 +189,7 @@ PS：这里的累计复杂度指的是，所有出队操作累计起来的复杂
 因此复杂度可以优化到`O(n^2)`。  
 
 
-![](/images/2019/03/leetcode-101-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/leetcode-101-005.png)  
 
 
 ## 六、最后  

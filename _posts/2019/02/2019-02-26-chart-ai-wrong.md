@@ -85,7 +85,7 @@ wxurl: https://mp.weixin.qq.com/s/yozdcgBdDkcbtu0i3eeV6A
 这个是可以，但是没必要自己去计算，因为shell里面data命令自带第几周的功能。  
 
 
-![](/images/2019/02/chart-ai-wrong-01.png)  
+![](http://res.tiankonguse.com/images/2019/02/chart-ai-wrong-01.png)  
 
 
 上图可以看到，date 有很多参数都可以获得第几周这个数据。  
@@ -107,7 +107,7 @@ wxurl: https://mp.weixin.qq.com/s/yozdcgBdDkcbtu0i3eeV6A
 最后我发现，data自带删除前导0的功能。  
 
 
-![](/images/2019/02/chart-ai-wrong-02.png)  
+![](http://res.tiankonguse.com/images/2019/02/chart-ai-wrong-02.png)  
 
 
 可以看到 date 在文档的最后面，提供了五个可选的功能。  

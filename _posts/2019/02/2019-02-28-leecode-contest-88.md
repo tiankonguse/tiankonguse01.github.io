@@ -18,7 +18,7 @@ wxurl: https://mp.weixin.qq.com/s/UNWKXwaBbQFYQAxA0Ig9Qw
 地址在这里（点击底部原文可以点击链接）： https://github.com/tiankonguse/leetcode-solutions  
 
 
-![](/images/2019/02/leecode88-01.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-01.png)  
 
 
 转眼间，已经过了四年了。  
@@ -48,7 +48,7 @@ leecode 上的题也翻了好几倍了。
 而我们从后到前的话，就可以累积加了，这样复杂度就是`O(n)`了。  
 
 
-![](/images/2019/02/leecode88-02.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-02.png)  
 
 
 ## 三、离自己距离最近的最大距离  
@@ -65,7 +65,7 @@ leecode 上的题也翻了好几倍了。
 考虑着三种情况后基本上就没什么问题了。  
 
 
-![](/images/2019/02/leecode88-03.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-03.png)  
 
 
 ## 四、比自己富但是最安静的人  
@@ -87,7 +87,7 @@ leecode 上的题也翻了好几倍了。
 观察发现，很多人的最优安静值我们重复计算了，所以做一个标记，算过的不再算了，这样复杂度就是`O(n)`了。  
 
 
-![](/images/2019/02/leecode88-04.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-04.png)  
 
 
 ## 五、矩阵面积并集  
@@ -122,8 +122,8 @@ leecode 上的题也翻了好几倍了。
 离散化后，我们就可以就可以只记录编号了，一个编号代表一个区间，这样就可以表示整根竖线向左突出的距离了。  
 
 
-![](/images/2019/02/leecode88-05.png)  
-![](/images/2019/02/leecode88-06.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-05.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-06.png)  
 
 
 ## 六、最后  
@@ -137,7 +137,7 @@ leecode 上的题也翻了好几倍了。
 目前我的环境大概如下，后续会加一个 `DIFF` 的功能，返回 `YES` 或 `NO` 来快速判断样例是否通过。  
 
 
-![](/images/2019/02/leecode88-07.png)  
+![](http://res.tiankonguse.com/images/2019/02/leecode88-07.png)  
 
 
 

@@ -23,7 +23,7 @@ wxurl: https://mp.weixin.qq.com/s/rG1ehI-9QK8h7p6_KkRJew
 如下图：  
 
 
-![](/images/2019/04/link-so-easy-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-001.png)  
 
 
 链表中的每个元素都是一个对象，每个对象里有一个字段来指向下一个对象元素。  
@@ -36,7 +36,7 @@ PS：注意，上面的解释中，我并没有说使用指针字段指向下一
 上面的图片是单向链表，下面的图片是双向链表。  
 
 
-![](/images/2019/04/link-so-easy-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-002.png)  
 
 
 PS：注意，在链表头结点和链表尾节点，有时候会使用指针来标识，有时候会使用额外的对象来标识。  
@@ -59,19 +59,19 @@ PS：注意，在链表头结点和链表尾节点，有时候会使用指针来
 1.得到待插入节点`cur`和指定位置节点`pre`。  
 
 
-![](/images/2019/04/link-so-easy-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-003.png)  
 
 
 2.将`cur`的next指向`pre`的`next`。  
 
 
-![](/images/2019/04/link-so-easy-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-004.png)  
 
 
 3.将`pre`的next指向`cur`  
 
 
-![](/images/2019/04/link-so-easy-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-005.png)  
 
 
 这里可以看到，链表和数组的区别是插入元素时，不需要将之后的所有元素后移。  
@@ -90,13 +90,13 @@ PS：注意，在链表头结点和链表尾节点，有时候会使用指针来
 1.找到`cur`的上一个节点`pre`。  
 
 
-![](/images/2019/04/link-so-easy-006.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-006.png)  
 
 
 2.将`pre`的next指向`cur`的next即可（`cur`的next是否情况按具体情况处理）。  
 
 
-![](/images/2019/04/link-so-easy-007.png)  
+![](http://res.tiankonguse.com/images/2019/04/link-so-easy-007.png)  
 
 
 如果你已经知道`pre`的话，可以在`O(1)`复杂度内完成删除。  

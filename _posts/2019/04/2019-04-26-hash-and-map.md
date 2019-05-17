@@ -84,7 +84,7 @@ map的key值需要时可以比较大小的，如何做的？
 这样就可以使用序列化后的字符串来代表这个树了。  
 
 
-![](/images/2019/04/26/set-and-map-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/26/set-and-map-001.png)  
 
 
 ## 六、前K个高频元素  
@@ -99,7 +99,7 @@ map的key值需要时可以比较大小的，如何做的？
 最后，逆向遍历桶，得到答案`O(k)`。  
 
 
-![](/images/2019/04/26/set-and-map-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/26/set-and-map-002.png)  
 
 
 

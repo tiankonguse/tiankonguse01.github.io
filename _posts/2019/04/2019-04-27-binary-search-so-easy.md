@@ -69,7 +69,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 所有的题都在 `problemset` 目录下，每道题一个目录，目录名就是 leetcode 里面题目链接里的名字。  
 
 
-![](/images/2019/04/27/binary-search-so-easy-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/27/binary-search-so-easy-001.png)  
 
 
 而在这道题里面，由三部分代码组成。  
@@ -82,7 +82,7 @@ wxurl: https://mp.weixin.qq.com/s/WyU9lAzilCDF6t-037cGtw
 大概结构如下图：  
 
 
-![](/images/2019/04/27/binary-search-so-easy-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/27/binary-search-so-easy-002.png)  
 
 
 

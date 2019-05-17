@@ -62,7 +62,7 @@ wxurl: https://mp.weixin.qq.com/s/2tT4j-ePNeoktqkVNvAqJQ
 接下来就是实现代码了，也很简单，如下图。  
 
 
-![](/images/2019/04/15/link-problem-in-interview-001.png)  
+![](http://res.tiankonguse.com/images/2019/04/15/link-problem-in-interview-001.png)  
 
 
 ## 三、找链表环交点  
@@ -80,7 +80,7 @@ wxurl: https://mp.weixin.qq.com/s/2tT4j-ePNeoktqkVNvAqJQ
 如下图：  
 
 
-![](/images/2019/04/15/link-problem-in-interview-002.png)  
+![](http://res.tiankonguse.com/images/2019/04/15/link-problem-in-interview-002.png)  
 
 
 可以看到`L1=L3+(k-1)*L`，其几何意义就是我们从起点`a`和相遇点`c`出发，下次相遇点肯定是交点`b`。  
@@ -88,7 +88,7 @@ wxurl: https://mp.weixin.qq.com/s/2tT4j-ePNeoktqkVNvAqJQ
 因此我们可以实现对应的代码了。  
 
 
-![](/images/2019/04/15/link-problem-in-interview-003.png)  
+![](http://res.tiankonguse.com/images/2019/04/15/link-problem-in-interview-003.png)  
 
 
 ## 四、找两个链表的交点  
@@ -116,7 +116,7 @@ wxurl: https://mp.weixin.qq.com/s/2tT4j-ePNeoktqkVNvAqJQ
 是不是很简单？  
 
 
-![](/images/2019/04/15/link-problem-in-interview-004.png)  
+![](http://res.tiankonguse.com/images/2019/04/15/link-problem-in-interview-004.png)  
 
 
 ## 五、删除链表的倒数第N个节点  
@@ -132,7 +132,7 @@ wxurl: https://mp.weixin.qq.com/s/2tT4j-ePNeoktqkVNvAqJQ
 如果你使用一个两个指针，距离是`n`，然后分别后移。后面的移动到最后时，前面的是不是就指向需要删除的节点了？  
 
 
-![](/images/2019/04/15/link-problem-in-interview-005.png)  
+![](http://res.tiankonguse.com/images/2019/04/15/link-problem-in-interview-005.png)  
 
 
 ## 六、最后  

@@ -29,7 +29,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 例如下图：  
 
 
-![](/images/2019/03/array-so-simple-001.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-001.png)  
 
 
 在这个例子中，数组`A`有6个元素。  
@@ -41,7 +41,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 具体操作如下：  
 
 
-![](/images/2019/03/array-so-simple-002.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-002.png)  
 
 
 ## 三、动态数组  
@@ -55,7 +55,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 例如，在`C++`语言中，这个动态数组就是`vector`。  
 
 
-![](/images/2019/03/array-so-simple-003.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-003.png)  
 
 
 ## 四、寻找数组的中心索引  
@@ -72,7 +72,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 第三部查找满足条件的中心索引。  
 
 
-![](/images/2019/03/array-so-simple-004.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-004.png)  
 
 
 ## 五、至少是其他数字两倍的最大数  
@@ -89,7 +89,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 注意事项是判断是否满足条件时，需要过滤最大元素。  
 
 
-![](/images/2019/03/array-so-simple-005.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-005.png)  
 
 
 ## 六、加一  
@@ -114,7 +114,7 @@ wxurl: https://mp.weixin.qq.com/s/pjADME31K5IBVQ0YMhWNpA
 第二部是判断最高位是否依旧需要进位，需要则将进位插入到最前面。  
 
 
-![](/images/2019/03/array-so-simple-006.png)  
+![](http://res.tiankonguse.com/images/2019/03/array-so-simple-006.png)  
 
 
 ## 七、最后  

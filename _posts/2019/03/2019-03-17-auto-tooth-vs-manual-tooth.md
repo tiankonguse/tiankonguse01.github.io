@@ -11,7 +11,7 @@ wxurl: https://mp.weixin.qq.com/s/UbzKUDaZzqrWQdaFH57mEg
 ---  
 
 
-![](/images/2019/03/auto-tooth-vs-manual-tooth.png)  
+![](http://res.tiankonguse.com/images/2019/03/auto-tooth-vs-manual-tooth.png)  
 
 
 之前，我曾分享过《[牙膏刷牙，刷的是什么](https://mp.weixin.qq.com/s/2qMrk5hixb0Y20whdoRO1Q)》，然后我知道了刷牙是为了防止牙斑菌。各种牙齿问题都是牙斑菌衍生出来的。    
